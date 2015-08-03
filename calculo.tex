@@ -1,0 +1,196 @@
+\documentclass[a4paper,11pt,oneside,dvips]{book}%draft
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel} % ifenación y traducción al español de entornos de LaTeX
+\usepackage[latin1]{inputenc} % codificación para lenguas románicas
+\usepackage{cclicenses} %licencia Creatice Commons
+%\usepackage{makeidx} % para elaborar el índice de contenidos
+%________________________________________________________________________________________
+
+    % SÍMBOLOS Y TIPOS
+\usepackage{amsmath,amsthm,amssymb} % fuentes, símbolos y entornos adicionales
+\usepackage{times}% times como fuente de texto por defecto
+\usepackage{helvet} % fuente helvetica como sanserif; posible opción [scaled=0.92]
+\usepackage[subscriptcorrection,boldalphabet,nofontinfo]{mtpro} % math times professional % he modificado mtpro.sty
+\usepackage[mtpcal,mtpfrak]{mtpb} %\mscript y \mfrak alfabetos
+\usepackage[mtphrb]{mtpams} % símbolos adicionales no compatible com amssymb
+\usepackage{wasysym,marvosym}% símbolos divertidos - el smiley - y el euro
+%_________________________________________________________________________________
+ % Pruebas de fuentes
+%\usepackage[subscriptcorrection,slantedGreek,nofontinfo,boldalphabet]{mtpro}
+%\usepackage[utopia]{mathdesign}% fuente utopia para texto y Garamond, utopía y ams para símbolos %funciona bien
+%\usepackage[bitstream-charter]{mathdesign}%funciona bien
+%\usepackage[varg]{txfonts}%funciona bien
+%\usepackage{mathptmx} %funciona bien
+%________________________________________________________________________________
+%
+    % GRÁFICOS Y COLORES
+
+\usepackage{pst-func,pst-text,pst-coil,pst-3dplot} % pst-func loads by default the following packages: pst-plot, pstricks-add, pst-math, %pst-xkey, %and, of course pstricks el cual carga también el paquete de color. pstricks es incompatible con PDFtex.
+\usepackage{graphicx} %Para poder insertar gráficos ps
+\usepackage[labelsep=period,font=small]{caption}% opciones posibles font=small,labelfont=bf
+\usepackage{scalefnt} % para escalar las fuentes
+\usepackage{psfrag}
+\usepackage{floatflt}
+%________________________________________________________________________________________
+%
+    % VARIOS
+
+\usepackage{enumerate} % Para las listas
+\usepackage{boxedminipage}
+\usepackage{fancyhdr,fancybox}  %para las cabeceras y pie de página
+\usepackage[Sonny]{fncychap}  % Encabezado de capítulos
+\usepackage[pagebackref=true,linktocpage=true,colorlinks=true,linkcolor=blue,citecolor=orange,bookmarks=true,urlcolor=blue]{hyperref} % referencias activas al pasar a pdf y escribir direcciones Web con \href{url}{texto}
+%\listfiles % para que escriba en el archivo auxiliar log todos los ficheros que se han usado en la compilación
+
+\reversemarginpar % notas al margen a la izquierda
+%__________________________________________________________________________________________________________________
+%
+% ajuste de dimensiones
+
+\addtolength\textwidth{\marginparwidth} %incrementa el ancho de la página en el ancho del margen para notas
+\addtolength\textheight{3\baselineskip} % incremento en 3 líneas la altura de la página
+\addtolength\headheight{3pt}
+\hoffset -12mm %para disminuir el margen a la izquierda
+\voffset -2mm % para subir 2mm la cabecera
+\setlength{\parskip}{.5em} % por defecto el espacio entre párrafos es 0pt
+\setlength{\hfuzz}{8pt} % para evitar avisos innecesarios
+%________________________________________________________________________________________
+
+% mis propios comandos
+
+    \input{macros_calc_dif_int.tex}
+    %\newcommand{\varint}{\int}
+    \newcommand{\bm}{\mathbold} %símbolos matemáticos individuales en negrita
+%______________________________________________________________________________________________________________________________________________
+
+
+% Cabecera de capítulos - Redefino el estilo tipográfico del título
+
+\makeatletter%
+\ChNameVar{\fontsize{18}{20}\usefont{OT1}{phv}{m}{n}\selectfont}
+\ChNumVar{\fontsize{60}{62}\usefont{OT1}{ptm}{m}{n}\selectfont}%
+\ChTitleVar{\fontsize{18}{20}\usefont{OT1}{phv}{m}{n}\selectfont}
+\ChRuleWidth{1pt}
+\makeatother
+
+\renewcommand{\MakeUppercase}{}     % Para que los títulos no salgan en mayúscula
+
+% Cabecera y pie de páginas
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\subsectionmark}[1]{\markright{#1}}
+\fancyhead[OL]{{\bfseries\rightmark}}%
+\fancyhead[ER]{{\bf \leftmark}} %
+\fancyhead[OR, EL]{{\bf\thepage}}%
+\fancyfoot[C]{} \lfoot{\fancyplain{}{\small\bf Universidad de
+Granada \\ Dpto.
+de Análisis Matemático}} \rfoot{\fancyplain{}{\small\bf Prof. Javier Pérez \\
+Cálculo diferencial e integral}} \cfoot{}
+\renewcommand{\footrulewidth}{0.4 pt}
+%_______________________________________________________________________________________
+
+    % TEOREMAS Y ENTORNOS ASOCIADOS
+
+        \swapnumbers % para numerar los teoremas al principio. Requiere el paquete amsthm
+        \newtheorem{teorema}{Teorema}[chapter]
+        \newtheorem{proposicion}[teorema]{Proposición}
+        \newtheorem{lema}[teorema]{Lema}
+        \newtheorem{corolario}[teorema]{Corolario}
+        \newtheorem{miteorema}[teorema]{}
+
+        \theoremstyle{definition}
+        \newtheorem{definicion}[teorema]{Definición}%[chapter]
+        \newtheorem{example}[teorema]{Ejemplo}%[chapter]
+        \newtheorem{ejemplos}[teorema]{Ejemplos}
+        \newtheorem{estrategia}[teorema]{Estrategia}
+        \newtheorem{observacion}[teorema]{Observación}
+        \newtheorem{observaciones}[teorema]{Observaciones}
+
+        \renewcommand{\qedsymbol}{$\blacksquare$} % Cambia el símbolo que se coloca al
+                                                  % final de las demostraciones por un
+                                                  % cuadrado negro
+
+        % Entorno para los ejemplos
+        \newenvironment{ejemplo}{\begin{example}}
+                {\nopagebreak\hspace*{\fill}$\blacklozenge$\end{example}}
+
+                 % Entorno y contador para ejercicios propuestos
+        \newcounter{propuesto}
+        \def\theejerciciobis{\arabic{propuesto}}
+        \newenvironment{ejercicios propuestos}{{\subsection{Ejercicios
+        propuestos}}%
+        \vspace{-5mm}\psline[linewidth=1pt](-.5,0)(10,0)\newline\begin{list}{\bfseries{\thepropuesto.}}{}}
+        {\end{list}\bigskip}
+        \def\propuesto{\refstepcounter{propuesto}\item}
+
+        % Entorno y contador para ejercicios resueltos
+        \newcounter{resuelto}
+        \def\theejercicio{\arabic{resuelto}}
+        \newenvironment{ejercicios resueltos}{{\subsection{Ejercicios
+        resueltos}}%
+        \vspace{-5mm}\psline[linewidth=.75pt](-.5,0)(10,0)\newline
+        \rule{0mm}{6mm}¡Antes de ver la solución de un ejercicio debes intentar resolverlo!\newline
+       %\indent \psline[linewidth=.75pt](-.5,0)(10,0)\newline
+        \begin{list}{{\bfseries Ejercicio resuelto\ \psframebox[linewidth=.5pt]{{\theresuelto}}}}{}}
+        {\end{list}\bigskip}
+        \def\resuelto{\refstepcounter{resuelto}\item}
+
+%________________________________________________________________________________________
+    % TÍTULO
+        \title{\psline[linewidth=5pt]{cc-cc}(-7,0)(7,0)\\%
+                           \vspace{3mm} \Huge{\textsc{Cálculo diferencial e integral\\ de funciones de una variable}}\\%
+                            \psline[linewidth=5pt]{cc-cc}(-7,0)(7,0)}
+
+        \author{\Large Francisco Javier Pérez González\\{}\\ Departamento de Análisis Matemático
+                \\{}\\ Universidad de Granada}
+
+
+
+        \date{}
+%________________________________________________________________________________________
+
+%\includeonly{capitulo10}%,capitulo02,capitulo03,capitulo04,capitulo05,capitulo06,capitulo07,capitulo08,capitulo09,capitulo10} %este es el único archivo que se procesará capitulo01,capitulo02,capitulo03, capitulo04, capitulo05,capitulo06, capitulo07,capitulo08,capitulo09
+
+\setcounter{tocdepth}{3} % para que las subsecciones se incluyan en la TOC
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\frontmatter
+
+\input{licencia.tex}
+
+\newpage
+
+\tableofcontents
+
+\listoffigures
+
+\newpage
+
+\input{prologo.tex}
+
+\mainmatter
+
+\setcounter{secnumdepth}{3} % para que se numeren las subsecciones
+
+
+
+\include{capitulo01} % no se permite incluir la extensión .tex que se presupone
+\include{capitulo02}
+\include{capitulo03}
+\include{capitulo04}
+\include{capitulo05}
+\include{capitulo06}
+\include{capitulo07}
+\include{capitulo08}
+\include{capitulo09}
+\include{capitulo10}
+\backmatter
+%\printindex
+\bibliography{bibliografia}
+\bibliographystyle{plain}
+\end{document}

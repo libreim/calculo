@@ -1,0 +1,1649 @@
+\chapter{Funciones elementales}
+\vspace*{-1cm}
+\begin{flushright}
+{\small \textit{Con la reducción del trabajo de varios meses de cálculo\\ a unos pocos días, el invento de los logaritmos \\ parece haber duplicado la vida de los astrónomos.} \\  Pierre Simon Laplace}
+\end{flushright}
+
+\section{Funciones reales}
+
+Las funciones son las herramientas principales para la
+descripción matemática de una situación real. Todas las
+\emph{fórmulas} de la Física no son más que funciones: expresan cómo
+ciertas magnitudes (por ejemplo el volumen de un gas) dependen de
+otras (la temperatura y la presión). El concepto de función es tan
+importante que muchas ramas de la matemática moderna se caracterizan
+por el tipo de funciones que estudian. No es de extrañar, por ello,
+que el concepto de función sea de una gran generalidad. Además, se
+trata de uno de esos conceptos cuyo contenido esencial es fácil de
+comprender pero difícil de formalizar.
+
+\begin{definicion}
+Sean $A$ y $B$ dos conjuntos. Una función de
+$A$ en $B$ es una \emph{regla} que \emph{a cada elemento de $A$
+asocia un único elemento de $B$.}
+\end{definicion}
+
+En esta definición la dificultad radica en precisar matemáticamente lo que se
+entiende por \emph{regla}. Como solamente vamos a trabajar con funciones elementales considero que no es necesario dar más precisiones.
+
+Observa que una función son \emph{tres} cosas: el conjunto $A$ donde está definida, el conjunto $B$ donde toma valores y la regla que la define. En este curso estamos interesados principalmente en
+funciones entre conjuntos de números reales, es decir, $A$ y $B$ son
+subconjuntos de \R; con frecuencia $B=\R$. Estas funciones se llaman
+\emph{funciones reales de una variable real}.
+
+\noindent{\textbf{Convenio.}}\ En lo que sigue solamente consideraremos funciones reales y, si no se
+especifica otra cosa, se entiende que $B=\R$.
+
+Por tanto, para darnos
+una función nos deben decir, en principio, el subconjunto $A$ de \R\
+donde suponemos que la función está definida y la regla que asigna a
+cada número de $A$ un único número real. El conjunto $A$ recibe el
+nombre de \emph{dominio} de la función.
+
+Las funciones se representan por letras. En la
+práctica las letras más usadas son $f$, $g$ y $h$, pero
+cualquiera otra es también buena. Si $f$ es una función y
+$x$ es un número que está en su dominio, se representa por
+$f(x)$ (léase ``$f$ de $x$'' o, mucho mejor, ``$f$ evaluada en $x$'' o ``el valor de $f$ en $x$'') el número que $f$ asigna a
+$x$, que se llama \emph{imagen de $x$ por $f$ }.
+
+\emph{Es muy
+importante distinguir entre $f$ (una función) y
+$f(x)$ (un número real)}.
+
+El símbolo \funcreal{f}{A}\  se utiliza para
+indicar que $f$ es una función \emph{cuyo dominio es} $A$  (se
+supone, como hemos dicho antes, que $A$ es un subconjunto de \R). También es frecuente usar el simbolismo $\,x\mapsto f(x)$, $(x\in A)$.
+
+Es importante advertir\marginpar{\flushright\curvasr} que las propiedades de una
+función dependen de la regla que la define \emph{y también
+de su dominio}, por ello \emph{dos funciones que tienen distintos
+dominios se consideran distintas funciones aunque la regla que las
+defina sea la misma.}
+\begin{definicion}[\textbf{Igualdad de funciones}]
+Dos funciones $f$ y $g$  son iguales cuando tienen igual dominio y
+$f(x)=g(x)$ para todo $x$ en el dominio común.
+\end{definicion}
+Notemos también que aunque estamos acostumbrados a
+representar a las funciones mediante \emph{fórmulas}, no
+siempre es posible hacerlo.
+\begin{ejemplo}
+Consideremos las funciones siguientes.
+\begin{enumerate}[a)]
+\item \ \funcreal{f}{\R}\ la función dada por
+$f(x)=x^{2}$.
+\item \ \funcreal{g}{\Rp}\ la función dada por
+$g(x)=x^{2}$.
+\item\  \funcreal{h}{\R}\ la función dada
+por\  $ h(x)=
+\begin{cases}
+1, \  &\text{si $x\in\Q$}\\
+-1, \  &\text{si $x\in\R\setminus\Q$}
+\end{cases}$
+\item \ Sea $\,f(x)=\dis\frac{x^{3}+5x+6}{x^{2}-1}$
+\end{enumerate}
+Según lo antes dicho, las funciones en a) y b) son
+distintas. De hecho tienen propiedades distintas. Observa que la función definida en b) es
+creciente y la definida en a) no lo es.
+
+La función definida en c) es llamada \emph{función de
+Dirichlet}. Nótese que no es fácil calcular los valores de dicha
+función porque no siempre se sabe si un número real dado es racional
+o irracional. ¿Es $\e+\pi$ racional? Pese a ello la función está
+correctamente definida.
+
+En d) no nos dan explícitamente el dominio de $f$
+por lo que se entiende que $f$ está definida siempre que
+$f(x)$ tenga sentido, es decir, siempre que, $x^{2}-1\neq 0$, esto
+es, para $x\neq\pm 1$.
+\end{ejemplo}
+
+\noindent\textbf{El convenio del dominio.}\ Cuando una función se
+define por una fórmula ``$f(x)\,$=\textrm{\,fórmula}'' y
+el dominio no es explícito, se entiende que el dominio es el mayor
+conjunto de valores de $x$ para los cuales la expresión $f(x)$ tiene
+sentido como número real. Éste es el llamado \emph{dominio natural}
+de la función.
+
+Dada una función \funcreal{f}{A}, y un conjunto no vacía $C\subset A$, el conjunto
+de las imágenes por $f$ de todos los elementos de $C$:
+$$
+f(C)=\set{f(x):x\in C}
+$$
+se llama \emph{imagen de $C$ por $f$}. Cuando $C=A$, el conjunto $f(A)$ se llama \emph{conjunto imagen} de $f$ y también \emph{rango} o \emph{recorrido} de $f$.
+\subsection{Operaciones con funciones}
+La mayoría de las funciones que vamos a usar en este curso
+pertenecen a la clase de las \emph{funciones elementales}. Se llaman
+así porque pueden obtenerse a partir de ciertos tipos de funciones
+bien conocidas realizando las operaciones de suma, producto,
+cociente y composición de funciones.
+
+\noindent{\textbf{Suma, producto y cociente de funciones.}}\
+Dadas dos funciones \funcreal{f,g}{A}, se define su \emph{función suma}
+(resp. \emph{producto}) como la función que a cada número $x\in A$ asigna el número real $f(x)+g(x)$ (resp.
+$f(x)g(x)$). Dicha función se representa con el símbolo $f+g$ (resp.
+$fg$). Se define la función cociente de $f$ por $g$ como la función
+que a cada número \mbox{$x\in A$ con $g(x)\neq 0$}
+asigna el número real $\dis\frac{f(x)}{g(x)}$. Dicha función se
+representa por $\dis\frac{f}{g}$. También podemos
+multiplicar una función $f$ por un número $\alpha$ para obtener la
+función $\alpha f$ que asigna a cada $x\in A$ el número $\alpha
+f(x)$. De todas formas, el producto de un número por una función
+puede considerarse como un caso particular del producto de
+funciones, pues se identifica el número $\alpha$ con la
+\emph{función constante} que toma como único valor $\alpha$.
+
+Las propiedades de la suma y el producto de funciones
+son las que cabe esperar y su demostración es inmediata pues
+se reducen a las correspondientes propiedades de los números.
+\begin{proposicion}
+Cualesquiera sean las funciones \funcreal{f,g,h}{A}\ se
+verifican las siguientes propiedades:
+
+\noindent Asociativas. \ $(f+g)+h=f+(g+h)$;\quad
+$(fg)h=f(gh)$
+
+\noindent Conmutativas.\ $f+g =g+f$;\quad $fg=gf$
+
+\noindent Distributiva.\ $(f+g)h=fh+gh$
+\end{proposicion}
+
+\begin{definicion}[\textbf{Composición de funciones}]\ Sean \funcreal{f}{A}\ y \funcreal{g}{B}\
+funciones con \makebox{$f(A)\subset B$}. En
+tal caso, la función \funcreal{h}{A}\ dada por $h(x)=g(f(x))$ para todo $x\in
+A$ se llama \emph{composición de $g$ con $f$} y se representa
+por $h=g\circ f$. Observa que la función $g\circ f$, solamente está definida cuando la imagen de $f$ está contenida en el dominio de $g$. La composición de funciones es asociativa.
+\end{definicion}
+\begin{definicion}[\textbf{Funciones inyectivas}]\ Se dice que una función \funcreal{f}{A}\
+es inyectiva en un conjunto $C\subset A$,  si en puntos
+distintos de $C$ toma valores distintos; es decir, $x,y\in C\,$ y
+$\,x\neq y$, entonces $f(x)\neq f(y)$. Se dice que $f$ es inyectiva
+cuando es inyectiva en $A$.
+\end{definicion}
+\begin{definicion}[\textbf{La función inversa de una función inyectiva}]\label{funcioninversa}\ Si
+\funcreal{f}{A}\ es una función inyectiva, puede definirse una nueva función en el conjunto $B=f(A)$,
+\funcreal{f^{-1}}{B},  que llamaremos \emph{función inversa
+de $f$}, que a cada número $y\in B$ asigna el único número
+$x\in A$ tal que $f(x)=y$. Equivalentemente
+$\,f^{-1}(f(x))=x\,$ para todo $x\in A$, y también
+$\,f(f^{-1}(y))=y\,$ para todo $y\in B$.
+\end{definicion}
+\begin{definicion}[\textbf{Funciones monótonas}]\ Se dice que una función
+\funcreal{f}{A}\ es creciente (resp. decreciente) en un conjunto $C\subseteq
+A$, si $f$ conserva (resp. invierte) el orden entre puntos de
+$C$, es decir, si $x,y\in C\,$ y $\,x\leqslant y$, entonces
+$f(x)\leqslant f(y)$ (resp. $f(x)\geqslant f(y)$). Se dice que $f$
+es creciente (resp. decreciente) cuando lo es en todo su dominio
+de definición. Se dice que una función es \emph{monótona} para
+indicar que es creciente o decreciente. Una función monótona e
+inyectiva se dice que es \emph{estrictamente monótona}, pudiendo ser
+estrictamente creciente o estrictamente decreciente.
+\end{definicion}
+\begin{definicion}[\textbf{Gráfica de una función}]\ La gráfica de una función
+\funcreal{f}{A}\ es el conjunto de pares de números $\{(x,f(x)):x\in A\}$.
+\end{definicion}
+La gráfica de una función pone de manifiesto, a
+simple vista, muchas de sus propiedades. Para dibujar gráficas
+de funciones se precisan herramientas de cálculo que
+estudiaremos más adelante.
+
+Un error \marginpar{\flushright\curvasr} frecuente, que debes evitar, consiste en confundir una función con su gráfica. Este error procede de una manera inapropiada de representar las funciones que consiste en escribir $y=f(x)$. De esta forma se introduce una nueva letra ``$y$'' para representar el valor que la función $f$ toma en $x$. Ahora la cosa empieza a estar confusa ¿la función es $y$?, ¿la función es $f$?, ¿la función es $f(x)$? Esto procede de la Física en donde se interpreta que $x$ es la magnitud o variable ``independiente'' e $y$ es la magnitud o variable ``dependiente''. Peor todavía, ¿es $y$ una variable o una función? Si has usado con frecuencia esta forma de representar las funciones no me extraña que puedas tener dudas sobre su significado. Aclaremos esto. La única forma razonable de interpretar una igualdad como $y=f(x)$, es entender que dicha igualdad representa al conjunto de puntos del plano que la satisfacen, es decir, representa a la gráfica de $f$. Pero todavía hay otra posible confusión inducida por la notación $y=f(x)$. Consiste en que podemos considerar la función $G(x,y)=y-f(x)$. Se trata de una función de dos variables $x$ e $y$ que tiene muy poco que ver con la igualdad $y=f(x)$. Pues bien, hay quien confunde la función $G$ con la gráfica de $f$.
+
+\subsection{Intervalos}
+Ocurre que el dominio natural de muchas funciones es un
+\emph{intervalo} o la unión de varios intervalos. Recordemos el
+concepto de intervalo y cuántos tipos diferentes hay.
+
+\begin{definicion}\label{definicionintervalo} Un conjunto $I\subset\R$ se llama un
+\emph{intervalo} si siempre que dos números están en $I$
+todos los números comprendidos entre ellos dos también están
+en $I$. El conjunto vacío, \vac, se considera también como
+un intervalo.
+\end{definicion}
+
+Además de \R\ y del \vac, hay los siguientes tipos de
+intervalos\footnote{Este resultado, en apariencia \emph{evidente},
+no podríamos \emph{demostrarlo} con las herramientas de que
+disponemos hasta ahora.}.
+
+\noindent Intervalos que tienen dos puntos extremos $a$ y $b$ (donde
+$a\leq b$ son números reales):
+$$
+\begin{array}{rcll}
+\mbox{$[a,b]$} & = & \{x\in\R:a\leqslant x\leqslant b\}  & \textrm{(intervalo cerrado y acotado)} \\
+\mbox{$]a,b[$} & = & \{x\in\R:a<x<b\}                    & \textrm{(intervalo abierto)} \\
+\mbox{$[a,b[$} & = & \{x\in\R:a\leqslant x<b\}           & \textrm{(intervalo abierto a derecha y cerrado a izquierda)} \\
+\mbox{$]a,b]$} & = & \{x\in\R:a<x\leqslant b\}           &
+\textrm{(intervalo abierto a izquierda y cerrado a derecha)}\phantom{aaaa}
+\end{array}
+$$
+Intervalos que tienen un único punto extremo $c\in\R$
+llamado \emph{origen} del intervalo:
+$$
+\begin{array}{rcll}
+\mbox{$]-\infinity ,c[$} & = & \{x\in\R:x<c\}           & \textrm{(semirrecta abierta a la izquierda)} \\
+\mbox{$]-\infinity ,c]$} & = & \{x\in\R:x\leqslant c\}  &  \textrm{(semirrecta cerrada a la izquierda)} \\
+\mbox{$]c,+\infinity[$}  & = & \{x\in\R:x>c\}           & \textrm{(semirrecta abierta a la derecha)} \\
+\mbox{$[c,+\infinity[$}  & = & \{x\in\R:x\geqslant c\}  &
+\textrm{(semirrecta cerrada a la derecha)}\phantom{aaaaaaaaaaaa}
+\end{array}
+$$
+Como es la primera vez que aparecen, hay que decir que los
+símbolos $+\infinity$ (léase: ``más infinito'') y $-\infinity$
+(léase: ``menos infinito''); son eso: símbolos. No son números. Cada
+vez que aparece  uno de ellos en una situación determinada hay que
+recordar cómo se ha definido su significado para dicha situación. A
+veces, se escribe $\R=]-\infinity,+\infinity[$.
+
+\noindent{\textbf{Observación sobre la notación empleada.}}\ Lo he pensado un rato antes de decirme a usar la notación anterior para las semirrectas. Otra posible notación es la siguiente.
+$$
+\begin{array}{rcll}
+\mbox{$]\leftarrow ,c[$} & = & \{x\in\R:x<c\}           & \textrm{(semirrecta abierta a la izquierda)} \\
+\mbox{$]\leftarrow ,c]$} & = & \{x\in\R:x\leqslant c\}  &  \textrm{(semirrecta cerrada a la izquierda)} \\
+\mbox{$]c,\rightarrow[$}  & = & \{x\in\R:x>c\}           & \textrm{(semirrecta abierta a la derecha)} \\
+\mbox{$[c,\rightarrow[$}  & = & \{x\in\R:x\geqslant c\}  &
+\textrm{(semirrecta cerrada a la derecha)}\phantom{aaaaaaaaaaaa}
+\end{array}
+$$
+Esta notación me parece más clara porque no usa el símbolo $\infinity$. Si lees correctamente, es decir, no lees los símbolos sino las ideas que representan (¿te he dicho esto antes?) entonces no hay lugar a interpretaciones extrañas. El símbolo $[c,+\infinity[$ se lee ``todos los números reales mayores o iguales que $c$''. Si tú lees el intervalo de $c$ a $+\infinity$ no estás leyendo bien.
+
+\subsection*{Observaciones sobre el concepto general de función y el formalismo que usamos para definir funciones}
+Hemos definido una función como tres cosas: un conjunto $A$, un conjunto $B$ y una regla que a cada elemento $x$ de $A$ hace corresponder un elemento de $B$. Lo único que interesa de esa regla es que esté correctamente definida. Por ejemplo, la regla que a cada número $x\en [0,1]$ hace corresponder el dígito de su desarrollo decimal que ocupa el lugar cien mil millones, está correctamente definida aunque no sea muy útil, pues no es posible calcular el dígito que le corresponde a ningún número irracional. Te pongo este ejemplo para que aprecies lo general que es el concepto de función que hemos definido. En particular, debes notar que una función no tiene por qué estar dada por una ``fórmula''. Pero, seguidamente, te digo que no debes preocuparte por esta generalidad porque en este curso solamente vamos a trabajar con funciones definidas mediante ``fórmulas''; además, ``fórmulas'' que, salvo excepciones, definirán ``funciones elementales'', esto es, funciones obtenidas al realizar sumas, productos, cocientes y composiciones de logaritmos, exponenciales, potencias y funciones trigonométrica.
+
+Ya hemos usado antes el formalismo que se emplea en matemáticas para definir una función, pero quiero detenerme en él porque debes entenderlo perfectamente. Para definir una función solemos empezar diciendo ``sea \funcreal{f}{A}\ la función dada por\dots''. Con esto estamos diciendo tres cosas: que la función está definida en $A$, que toma valores en \R, y que representamos con la letra $f$ la regla. El error más frecuente que se produce aquí se debe al hecho de que, con frecuencia, el conjunto $A$ no es el dominio natural de definición de la función sino un subconjunto del mismo, y esto puede tener muy importantes consecuencias que hay que tener muy presentes en todo momento. Seguidamente, para acabar de definir la función, se especifica la regla que a cada elemento de $A$ asocia un número real, lo que suele expresarse por ``la función dada por ``$f(x)=$fórmula\ o\ función\ elemental'' para todo $x\in A$''. Se suele volver a insistir en que la variable $x$ toma solamente valores en $A$ para indicar que no nos interesa lo que pueda pasar fuera de $A$.
+
+Ten en cuenta que la letra con la que representamos una función, suele usarse $f$, podemos elegirla a gusto y no tiene mayor importancia siempre que no se preste a confusiones. Lo importante son los datos que definen la función: los conjuntos $A$, $B$ (nosotros suponemos que $B=\R$) y la regla.  Veamos un ejemplo más de esta forma de proceder para que no te queden dudas.
+\begin{enumerate}[a)]
+\item Sea
+\begin{equation}\label{func1}
+\funcreal{f}{\R}\ \textrm{\ la función dada por\ } f(x)=x^3-4x^2+x+6\ \textrm{\ para todo\ } x\in\R
+\end{equation}
+En la siguiente figura se representa parte de la gráfica de esta función.
+
+\begin{figure}[ht]
+\centering
+\psset{arrowscale=2.5}
+\psset{yunit=0.4cm,xunit=.75cm}
+\begin{pspicture*}(-3,-5)(5.5,10.5)
+\psaxes[labelFontSize=\footnotesize,Dy =2]{->}(0,0)(-3,-5)(5,10)[$X$,-90][$Y$,0]
+\psset{linewidth=1pt}
+\psPolynomial[coeff=6 1 -4 1]{-3}{5}
+\uput[r](1,4){\scalefont{.85}$y=f(x)$}
+\end{pspicture*}
+\caption{La función $f(x)=x^3-4x^2+x+6$}
+\end{figure}
+
+ La imagen de esta función es $f(\R)=\R$. Esta función no tiene máximo ni mínimo, no es creciente y tampoco es decreciente. No es inyectiva y su función inversa no está definida.
+
+\item Sea
+\begin{equation}\label{func2}
+\funcreal{f}{[0,2]}\ \textrm{\ la función dada por\ } f(x)=x^3-4x^2+x+6\ \textrm{\ para todo\ } x\in [0,2]
+\end{equation}
+Observa que, aunque de forma deliberada uso la misma letra, $f$, para representar la regla, la función definida en (\ref{func2}) es muy diferente que la definida en (\ref{func1}). Aunque la regla es la misma, en (\ref{func2}) solamente nos interesa lo que pasa en el intervalo $[0,2]$. La imagen de esta función es $f([0,2])=[0,6]$. Claramente, la función (\ref{func2}) es estrictamente decreciente, tiene máximo y mínimo y es inyectiva. Su función inversa está definida (aunque no sea fácil de calcular).
+\end{enumerate}
+
+\section[Estudio descriptivo de las funciones
+elementales]{{Estudio descriptivo de las funciones
+elementales}\footnote{El estudio de las funciones elementales que
+haremos aquí se complementa con el cuaderno de \emph{Mathematica}
+que está en
+\href{http://www.ugr.es/local/fjperez/funciones\_elementales.nb}{mi página Web}.}}
+En este curso se supone que ya tienes un conocimiento intuitivo de
+las funciones elementales básicas (exponencial, logaritmo natural,
+trigonométricas). En esta lección vamos a hacer un estudio
+descriptivo de dichas funciones, es decir, no vamos a dar
+definiciones rigurosas de las mismas y nos limitaremos a recordar
+sus propiedades más importantes.
+
+\subsection{Funciones polinómicas y funciones racionales}
+
+\noindent Las \emph{funciones polinómicas o polinomios} son las
+funciones de la forma
+$$
+P(x)=c_0 +c _1 x + c_2 x^{2} + \cdots + c_n x^{n}
+$$
+donde $c_0,c_1,\dots,c_n$ son números reales llamados
+\emph{coeficientes} del polinomio; $n\in\N$ es un número
+natural que, si $c_n\neq 0$, se llama grado del polinomio. Las
+funciones polinómicas tienen como dominio natural de definición la
+totalidad de \R\ aunque con frecuencia nos interesará estudiar una
+función polinómica en un intervalo.
+
+Mientras que la suma, el producto y la composición de
+funciones polinómicas es también una función
+polinómica, el cociente de funciones polinómica da lugar a
+las llamadas \emph{funciones racionales}. Una función racional
+es una función de la forma:
+$$
+R(x)=\frac{P(x)}{Q(x)}
+$$
+donde $P$ (el numerador) y $Q$ (el denominador) son polinomios y
+$Q$ no es el polinomio constante igual a $0$. La función $R$
+tiene como dominio natural de definición el conjunto\linebreak
+$\{x\in\R:Q(x)\neq 0\}$. Observa que las funciones polinómicas
+son también funciones racionales (con denominador constante
+$1$).
+
+Es inmediato que sumas, productos y cocientes de
+funciones racionales son también funciones racionales; y la
+composición de dos funciones racionales es también una
+función racional.
+
+\subsection{Raíces de un número real}
+Dados un número real $\,x\ge 0\,$ y un número natural
+$\,k\geqslant 2$, hay un único número real \emph{mayor o igual que cero},
+$z\ge 0$, que verifica que $\,z^{k}=x$. Dicho número real $\,z\,$
+se llama la \emph{raíz $k$-ésima o de orden $k$ de $x$} y
+se representa por $\,\sqrt[k]{x}\,$ o por $\,x^{1/k}$.
+\begin{proposicion} Sean $x,y\in\Rpo$, $k\in\N$. Se verifica que:
+\begin{enumerate}[a)]
+\item $\ \sqrt[k]{x\,y}=\sqrt[k]{x}\,\sqrt[k]{y}$.
+\item La función $x\mapsto \sqrt[k]{x}$ es estrictamente creciente en $\Rpo$. Es decir, se verifica que $x<y\,$ si, y sólo si, $\,\sqrt[k]{x} < \sqrt[k]{y}$.
+\end{enumerate}
+\end{proposicion}
+Si $x<0$ y $k$ es \emph{impar} se define\footnote{Ver (\ref{notacionraices}) para el caso de raíces complejas.}
+$\,\sqrt[k]{x}=-\sqrt[k]{|x|}$.
+
+\subsection{Potencias racionales}
+Dados $x\!>\!0$, $p\!\in\!\Z$ y $q\!\in\!\N$, definimos
+$\,x^{p/q}\!=\sqrt[q]{x^{p}}$. Notemos que
+$\,(\sqrt[q]{x}\,)^{p}\!=\sqrt[q]{x^{p}}\,$ pues
+$$
+\left((\sqrt[q]{x}\,)^{p}\right)^{q}\!=(\sqrt[q]{x}\,)^{p\,q}\!=
+\left((\sqrt[q]{x}\,)^{q}\right)^{p}\!=x^{p}
+$$
+Naturalmente,
+si $\,p/q=m/n\,$ donde $m\in\Z$ y \nN, entonces se comprueba
+fácilmente que $\,x^{p/q}\!=x^{m/n}$. En consecuencia, si
+$\,r\,$ es un número racional podemos definir, sin ambig\"uedad
+alguna, la potencia $\,x^{r}$ por $\,x^{r}\!=x^{p/q}$, donde
+$p\in\Z$ y $q\in\N$ son tales que $r=p/q$.
+
+\subsection{Logaritmos}
+Dados un número $a>0$, $a\neq 1$, y un número $x>0$, se define el
+\emph{logaritmo en base $a$ de $x$} como el único número $y\in\R$
+que verifica la igualdad $a^{y}=x$. El logaritmo en base $a$ de
+$x$ se representa por el símbolo $\log_{a}x$. Observa que, por
+definición, para todo $x>0$ es $\dis a^{\log_{a}x}=x$.
+
+El dominio de la función $\log_{a}$ es \Rp, y su imagen es \R. La
+función es estrictamente creciente si $a>1$ y estrictamente
+decreciente si $a<1$. La propiedad básica de los logaritmos es que
+convierten productos en sumas:
+$$
+\log_{a}(xy)=\log_{a}x+\log_{a}y\quad (x>0,y>0)
+$$
+\begin{figure}[ht]
+\begin{minipage}[t]{.55\textwidth}
+\vspace{1cm}
+\begin{pspicture}(-0.2,-2.5)(4,2.5)
+\psset{unit=1.25cm}
+\psset{arrowscale=2}
+\parametricplot[linewidth=1.1pt]{-2}{2}{2 t exp t}%
+\psaxes[ticks=none,labels=none,linewidth=.5pt]{->}(0,0)(-.2,-2)(4,2.5)[$X$,-90][$Y$,0]%
+\uput[ur](2.4,1){\scalefont{.85}$y=\log_a x$}%
+\end{pspicture}
+\captionsetup{labelfont=bf,,singlelinecheck=off}
+\caption{Función logaritmo de base $a>1$}
+\end{minipage}%
+\begin{minipage}[t]{.45\textwidth}
+    \vspace{0pt}
+    Los \emph{logaritmos decimales} corresponden a tomar \mbox{$a=10$} y
+los \emph{logaritmos naturales}, también llamados \emph{neperianos}
+(en honor de John Napier 1550-1617), corresponden a tomar como base
+el número $\e$. El número $\e$ es un número irracional que puede
+aproximarse arbitrariamente por números de la forma
+$\,(1+1/n)^{n}$ para valores grandes de $n$. Un valor aproximado
+de $\e$ es $2\raisebox{-2pt}{$\cdot$}7182818284$.\textbf{En este libro trabajaremos siempre}, salvo que
+explícitamente se indique lo contrario, \textbf{con la función
+logaritmo natural}, \textbf{que notaremos} $\log$ (la notación, cada
+día más en desuso, ``ln'', para dicha función no
+será usada en este libro).
+    \end{minipage}
+\end{figure}
+
+\noindent Teniendo en cuenta que
+$$
+\log_{a}x=\frac{\log x}{\log a}\qquad (x>0)
+$$
+podemos deducir muy fácilmente las propiedades de la función
+logaritmo en base $a$ a partir de las propiedades de la función
+logaritmo natural.
+
+\subsection{Exponenciales}
+\begin{figure}[ht]
+\begin{minipage}[t]{.55\textwidth}
+\vspace{1cm}
+\begin{pspicture}(-2,-.5)(4,3.5)
+\psset{unit=1.25cm}
+\psset{arrowscale=2}
+\psplot[linewidth=1.1pt]{-2}{3}{1.5 x exp}%
+\psaxes[ticks=none,labels=none,linewidth=.5pt]{->}(0,0)(-2,-.5)(3.5,3.5)[$X$,-90][$Y$,0]%
+\uput[ur](1.4,1.5){\scalefont{.85}$y=a^x$}%
+\end{pspicture}
+\captionsetup{labelfont=bf,,singlelinecheck=off,margin={-.5cm,0cm}}
+\caption{Función exponencial de base $a>1$}
+\end{minipage}%
+\begin{minipage}[t]{.45\textwidth}
+    \vspace{0pt}
+La función inversa de la función $\log_{a}$ es
+la función exponencial de base $a$, que se representa por
+$\exp_{a}$. Por tanto, para cada $x\in\R$, $\exp_{a}(x)$ es, por
+definición, el único número positivo cuyo logaritmo en
+base $a$ es igual a $x$: $\log_{a}(\exp_{a}(x))=x$. Es fácil
+comprobar que si $r\in\Q$ entonces $\exp_{a}(r)=a^{r}$, por lo
+que se usa la notación $\exp_{a}(x)=a^{x}$.
+
+El dominio de la función $\exp_{a}$ es \R, y su
+imagen es \Rp. La función es estrictamente creciente si $a>1$
+y estrictamente decreciente si $a<1$. La propiedad básica de
+$\exp_{a}$ es que convierten sumas en productos:\newline
+\end{minipage}
+\end{figure}\vspace{-1cm}
+$$
+\exp_{a}(x+y)=\exp_{a}(x)\exp_{a}(y)\quad\quad (x,y\in\R)
+$$
+Dos funciones exponenciales cualesquiera, $\exp_{a}$ y $\exp_{b}$,
+están relacionadas por la igualdad:
+$$
+\exp_{b}(x)=\exp_{a}(x\log_{a}b)\qquad
+(x\in\R)
+$$
+La función exponencial de base $\e$, inversa de la función
+logaritmo natural, se notará simplemente por $\exp$. Por tanto
+$\exp(x)=\e^{x}$. Con ello tenemos que:
+\begin{equation}\label{potenciasreales}
+\framebox{$\dis x^{y}=\e^{y\,\log x}\qquad
+(x>0,y\in\R)$}
+\end{equation}
+La letra $\e$ se eligió en honor del gran
+matemático Leonhard Euler (1707-1783). A primera vista puede
+parecer que no hay razones particulares para llamar \emph{natural}
+al número $\e$. Las razones matemáticas de esta
+elección se verán al estudiar la derivación. Sin
+embargo, hay muchos procesos de crecimiento que hacen del
+número $\e$ una base exponencial extremadamente útil e
+interesante. Veamos unos ejemplos.
+
+\subsubsection{Interés compuesto}
+Supongamos que invertimos un
+capital inicial, $P$, a una tasa de interés anual $r$ (expresado en
+tanto por uno), ¿cuánto dinero tendremos cuando hayan pasado $k$
+años? Respuesta: depende de cómo se paguen los intereses. En el
+\emph{interés simple} se paga el total de los intereses al terminar
+la inversión, por lo que el interés total producido es igual a
+$Prk$, y el capital final será igual a $P(1+rk)$.
+
+Sin embargo, lo usual es que se paguen intereses en
+períodos más cortos de tiempo. Estos intereses se
+acumulan al capital inicial y producen, a su vez, nuevos
+intereses. Esto se conoce como \emph{interés compuesto}. Por
+ejemplo, si el interés se paga $n$ veces al año
+(trimestralmente ($n=4$), mensualmente ($n=12$), etcétera) al
+final del primer período tendremos $P(1+r/n)$, al final del
+segundo $P(1+r/n)^{2}$; al final del primer año
+$P(1+r/n)^{n}$, al final del $k$-ésimo año tendremos
+$P(1+r/n)^{n k}$.
+
+Cuando $n$ es muy grande, el número  $(1+r/n)^{n}$
+es aproximadamente igual a $\e^{r}$. Precisamente, si los
+interese se acumulan instantáneamente al capital, lo que se
+conoce como \emph{interés compuesto continuo}, entonces el
+capital al final del $k$-ésimo año viene dado por
+$P\e^{rk}$.
+
+\subsubsection{Crecimiento demográfico}
+Llamemos $P_0$ a la
+población mundial actual, y sea $\lambda$ la tasa anual de
+crecimiento expresada en tanto por uno, la cual suponemos que se
+mantiene constante. Notemos por $P(t)$ la población mundial
+pasados $t$ años.
+
+Pasado un año, la población será
+$P(1)\approxeq P_0+\lambda P_0=(1+\lambda)P_0$. Utilizamos el
+signo de aproximación $\approxeq$ y no el $=$ porque hemos calculado el
+crecimiento de la población $\lambda P_0$ como si esta fuese
+constantemente igual a $P_0$ en todo el año, lo que no es
+correcto.
+
+Obtendríamos un resultado más exacto si
+consideramos el crecimiento de la población mensualmente. Como
+la tasa de crecimiento mensual es $\lambda/12$, pasado un mes la
+población será  $(1+\frac{\lambda}{12})P_0$, y pasados doce
+meses $\dis P(1)\approxeq \left(1+\dis
+\frac{\lambda}{12}\right)^{12}\!\!P_0$. El cálculo sigue siendo
+aproximado, pues la población crece \emph{continuamente}. Para
+obtener una mejor aproximación podríamos considerar
+días en vez de meses. En general, si dividimos el año en $n$
+períodos, obtendríamos como aproximación:
+$$
+P(1)\approxeq\left(1+\frac{\lambda}{n}\right)^{n}P_0
+$$
+Cuanto mayor sea $n$ menor será el error que cometemos. \emph{Si
+hacemos que $n$ crezca indefinidamente}, entonces el número
+$\dis\left(1+\dis\frac{\lambda}{n}\right)^{n}$ se convierte
+en $\e^{\lambda}$, por lo que $P(1)=\e^{\lambda}P_0$. Si el período
+de tiempo es de $t$ años, entonces $P(t)=P_0 \e^{\lambda t}$.
+
+Observa que tanto el interés compuesto continuo como el crecimiento demográfico son, matemáticamente, lo mismo.
+En ambos casos lo que tenemos es una magnitud que se incrementa de forma proporcional a su cantidad en cada momento. Otro proceso que entra en esta descripción es el decaimiento radiactivo, la única diferencia es que la masa de materia radiactiva va disminuyendo, o sea, que la constante de proporcionalidad es negativa.
+
+\subsection{Función potencia de exponente real $a$}
+Se llama así la función cuyo dominio es \Rp\ que a cada $x>0$ asigna
+el número $x^{a}$. Puesto que $x^{a}=\exp(a\log x)$, las
+propiedades de esta función se deducen con facilidad de las
+propiedades de las funciones exponencial y logaritmo natural.
+
+\subsection{Funciones trigonométricas}
+El concepto más específico de la trigonometría es el
+de \emph{medida de un ángulo}. Para medir un ángulo llevamos
+su vértice al origen y medimos la longitud del arco de la
+circunferencia unidad que dicho ángulo intercepta, obtenemos
+así un número que llamamos la medida (absoluta, es decir no
+orientada) del ángulo en cuestión. Naturalmente, lo primero
+que hay que hacer para medir cualquier cosa es elegir una unidad de
+medida. Pues bien, para medir ángulos suelen usarse dos unidades
+de medida.
+
+Hay una expresión que estamos acostumbrados a usar y cuyo
+significado conviene precisar. Me refiero a la expresión: ``una
+circunferencia de radio $r$''. Cuando empleamos dicha expresión
+se sobreentiende que el radio $r$ de la circunferencia es un
+número expresado en alguna unidad de medida de longitudes.
+\emph{Es decir, la expresión ``una circunferencia de radio $r$''
+presupone que hemos fijado una unidad de medida con la cual hemos
+medido $r$}.
+
+\subsubsection{Medida de ángulos}
+
+\noindent\textbf{Medida de ángulos en grados.}\ Supongamos que
+tenemos una circunferencia de radio $r$. Para medir ángulos en
+grados sobre dicha circunferencia lo que hacemos es tomar como
+unidad de medida un arco cuya longitud sea igual a la longitud total
+de esa circunferencia ($2\pi r$) dividida por $360$. Un ángulo de un
+grado es el que intercepta en una circunferencia de radio $r$ un
+arco cuya longitud es igual a $\dis\frac{2\pi r}{360}$.
+
+\noindent\textbf{Medida de ángulos en radianes.}\ Supongamos que
+tenemos una circunferencia de radio $r$. Para medir ángulos en
+radianes sobre dicha circunferencia lo que hacemos es tomar como
+unidad de medida un arco cuya longitud sea igual a la del radio. Un
+ángulo de un radián es el que intercepta en una circunferencia de
+radio $r$  un arco cuya longitud es igual a $r$.
+
+Las palabras ``grado'' y ``radián'' se usan tanto para referirse
+a los respectivos ángulos como a las medidas de sus arcos. Es
+así como debes interpretar la expresión ``la longitud total
+de la circunferencia es 360 grados y también es igual a $2\pi$
+radianes''. Sería más exacto decir: ``la longitud total de
+la circunferencia es 360 veces \emph{la longitud de un arco de un
+grado} y también es igual a $2\pi$ veces \emph{la longitud de un
+arco de un radián}''. Evidentemente, la longitud de un arco de
+un radián es igual al radio de la circunferencia.
+
+La relación entre grados y radianes viene dada por: $$ 360\
+\textrm{ grados}= 2\pi\ \textrm{ radianes}$$ No hay que olvidar que
+\emph{grados} y \emph{radianes} no son otra cosa que \emph{unidades
+de medida} de longitudes, al igual que lo son el metro y el
+centímetro. En la navegación y en la astronomía los
+ángulos se miden en grados, pero en Cálculo es preferible
+medirlos en radianes porque se simplifican las cuentas. Por ejemplo,
+la longitud de un arco de circunferencia se obtiene multiplicando la
+longitud del radio de dicha circunferencia por la medida \emph{en
+radianes} del ángulo que corresponde a dicho arco.
+
+Observa que la ventaja de medir arcos en radianes es que, en tal
+caso, la misma unidad con la que medimos el radio nos sirve para
+medir arcos. Por ejemplo, si el radio es $1$ centímetro el
+radián también mide $1$ centímetro; mientras que la
+medida de un grado en centímetros sería $2\pi/360\simeq
+0,0174533$.
+
+\noindent\textbf{Convenio de los ángulos: usar radianes}\ De
+ahora en adelante, a menos que se establezca explícitamente otra
+unidad, supondremos que todos los ángulos están medidos en radianes.
+
+\subsubsection{Funciones seno y coseno}
+Hay dos funciones que suelen confundirse: el seno de un ángulo y el
+seno de un número. En geometría se habla del \emph{seno de un
+ángulo} y en Cálculo usamos la expresión $\sen(\sqrt{2})$ para
+referirnos al \emph{seno del número} $\sqrt{2}$. ¿Qué relación hay
+entre uno y otro?
+
+\begin{figure}[ht]
+\begin{minipage}[t]{.45\textwidth}
+\vspace{0pt}
+\psset{unit=2.2cm}
+\flushleft
+\begin{pspicture}(-1.1,-1.1)(1.5,1.5)
+\pscircle[linewidth=1pt](0,0){1}
+\psset{arrowscale=1.25}
+\psarc[arcsepB=1pt,linewidth=.8pt]{<->}(0,0){1.06}{0}{70}
+\psset{arrowscale=2}
+\psaxes[ticks=none,labels=none,linewidth=.6pt]{->}(0,0)(-1.1,-1.1)(1.3,1.3)[$X$,-90][$Y$,0]
+\qdisk(1,0){2pt}
+\SpecialCoor
+\qdisk(1;70){2pt}
+\psline[linewidth=.8pt](0,0)(1;70)(0.342, 0)%
+  \uput[dl](0,0){\scalefont{.85}$O$}
+  \uput[r](.95,-0.1){\scalefont{.85}$U$}
+  \uput[70](1.03;70){\scalefont{.85}$P_x$}
+  \uput[0](0.3,0.4){\scalefont{.85}$b$}
+  \uput[0](0.1,-.07){\scalefont{.85}$a$}
+  %\uput[0](1.32,0){\scalefont{.85}$X$}
+  %\uput[90](0,1.32){\scalefont{.85}$Y$}
+  \pstextpath[c]{\psarcn[linestyle=none](0,0){1.19}{70}{0}}{\scalefont{.75}{longitud $x$}}
+  \end{pspicture}
+  \captionsetup{,singlelinecheck=off}
+    \caption{La circunferencia unidad}
+\end{minipage}%
+\begin{minipage}[t]{.55\textwidth}
+    \vspace{0pt}
+Antes que nada hay que decir que tanto el seno de
+un ángulo como el seno de un número \emph{son números}, pero
+mientras que el seno de un ángulo tiene una sencilla definición
+geométrica, no es evidente, a priori, cómo se puede definir el seno
+de un número. La idea consiste en asociar a cada número un (único) ángulo y
+definir el seno del nú\-me\-ro como el seno del ángulo que le
+corresponde. Es evidente que a cada nú\-me\-ro $x\geqslant 0$ le
+podemos asignar de manera única un ángulo ``enrollando'' el segmento
+$[0,x]$ sobre la circunferencia unidad, \emph{en sentido contrario a
+las agujas del reloj}, de forma que el origen de dicho segmento
+coincida con el punto $U=(1,0)$ de la circunferencia. Obtenemos así
+un punto $P_x$ de la circunferencia unidad.
+\end{minipage}
+\end{figure}
+\noindent  Pues bien, si las
+coordenadas de $P_x$ son $(a,b)$, se define:
+\begin{align*}
+\sen x &=\textrm{seno del ángulo}(\widehat{P_xOU})=b\\
+\cos x &=\textrm{coseno del ángulo}(\widehat{P_xOU})=a
+\end{align*}
+Al ser igual a $2\pi$ la longitud de la circunferencia
+unidad, es claro que $P_{x+2\pi}=P_x$, por lo que
+$\,\sen(x)=\sen(x+2\pi)\,$ y $\,\cos(x)=\cos(x+2\pi)$. Observa
+también que si $0\leqslant x<2\pi$, entonces la \emph{medida
+en radianes} del ángulo $\widehat{P_xOU}$ es igual a $x$, es
+decir:
+$$
+\sen(x)=\textrm{\ seno del ángulo de\ }\ x\ \textrm{\
+radianes\ }\ (0\leqslant x<2\pi)
+$$
+Si $x<0$ podemos proceder con el segmento $[x,0]$ de forma
+análoga a la anterior, con la diferencia de que ahora
+enrollamos dicho segmento sobre la circunferencia unidad \emph{en
+el sentido de las agujas del reloj}, de forma que su extremo $0$
+coincida con el punto $U=(1,0)$ de la circunferencia. Obtenemos
+así un punto $P_x=(c,d)$ de la circunferencia unidad y se
+define, igual que antes $\sen(x)=d$, $\cos(x)=c$. Es fácil ver
+que si $P_x=(c,d)$, entonces $P_{-x}=(c,-d)$. Resulta así que
+$\sen(x)=-\sen(-x)$ y $\cos(x)=\cos(-x)$.
+\bigskip
+\begin{figure}[ht]
+\centering
+\renewcommand{\pshlabel}[1]{\scriptsize #1}
+\renewcommand{\psvlabel}[1]{\scriptsize #1}
+\begin{pspicture}(-7,-2)(7,2)
+\psset{arrowscale=2.25}
+\psaxes[labels=none,ticksize=2pt,tickstyle=top,Dx=1.57,dx=1.57,linewidth=.6pt]{->}(0,0)(-7,-2.5)(7,2.5)
+\psplot[plotstyle=curve,linewidth=1pt]{-6.2832}{6.2832}{57.2958 x mul sin}%código postscript para funciones
+\uput[r](!2.2 114.6 sin){$y=\sen x$}
+\rput[u](-1.57,-.3){$-\frac{\pi}{2}$}
+\rput[u](1.57,-.3){$\frac{\pi}{2}$}
+\rput[u](-3.29,-.2){$-\pi$}
+\rput[u](3.1,-.2){$\pi$}
+\rput[u](-4.71,-.3){$-\frac{3\pi}{2}$}
+\rput[u](4.71,-.3){$\frac{3\pi}{2}$}
+\rput[u](-6.28,-.2){$-2\pi$}
+\rput[u](6.5,-.2){$2\pi$}
+\end{pspicture}
+\caption{La función seno}
+\end{figure}
+
+\begin{observaciones}
+Podemos definir la función
+\emph{seno en grados} sin más que interpretar que $x$ es la medida
+en grados del ángulo que le corresponde. El hecho de que se use la
+misma notación para ambas funciones es la causa de muchos errores.
+Si notamos $\sen^{\textrm{o}}(x)$ el valor del seno del ángulo cuya
+media es $x$ grados, y notamos $\sen^{r}(x)$ el valor del seno del
+ángulo cuya media es $x$ radianes (es decir, la función que hemos
+definido antes); la relación entre ambas funciones viene dada por:
+$$
+\sen^{\textrm{o}}(x)=\sen^{r}\frac{2\pi x}{360}=\sen^{r}\frac{\pi
+x}{180}
+$$
+Es frecuente que $\sen^{\textrm{o}}(x)$ se escriba como $\sen
+x^{\textrm{o}}$. Por ejemplo $\sen(45^{\textrm{o}})$. A esta mala
+notación se deben las dudas que a veces surgen sobre el significado
+de $\sen x$ y que llevan a preguntar: ``¿está $x$ en grados o en
+radianes?'', cuando lo que realmente debería preguntarse es ``¿se
+trata de $\sen^{\textrm{o}}(x)$ o de $\sen^{r}(x)$?''; porque, en
+ambos casos, $x$ es tan sólo un número al que no hay por qué ponerle
+ninguna etiqueta.
+
+Insistimos, una última vez: \marginpar{\flushright\curvasr}en este curso de
+Cálculo el número $\sen x$ significará siempre
+$\sen^{r}x$. Por tanto $\sen(\pi/4)\neq\sen(45)$ (pero
+$\sen(\pi/4)=\sen^{\textrm{o}}(45)$).
+\end{observaciones}
+
+\subsubsection{Propiedades de las funciones seno y coseno}
+Las funciones seno y coseno son funciones reales cuyo
+dominio es todo \R. Las identidades básicas que dichas funciones
+verifican son:
+$$
+\sen^{2}x+\cos^{2}x=1 \qquad (x\in\R)
+$$
+Como se ha dicho antes, las funciones seno y coseno son periódicas
+de período $2\pi$:
+$$
+\sen(x+2\pi)=\sen x\, ,\quad \cos(x+2\pi)=\cos
+x \quad (x\in\R)
+$$
+La función seno es impar y la función coseno es par:
+$$
+\sen(-x)=-\sen x\, ,\quad \cos(-x)=\cos x \quad (x\in\R)
+$$
+Todas las propiedades anteriores se deducen fácilmente de las
+definiciones dadas. Las siguientes igualdades, conocidas como
+\emph{fórmulas de adición}, se probarán más adelante:
+\begin{eqnarray}
+  \sen(x+y) &=& \sen x\cos y + \cos x\sen y \label{senodeunasuma}\\
+  \cos(x+y) &=& \cos x\cos y - \sen x\sen y \label{cosenodeunasuma}
+\end{eqnarray}
+La función seno se anula en los múltiplos
+enteros de $\pi$, es decir, en los puntos de la forma $k\pi$ donde
+$k$ es un entero cualquiera. La función coseno se anula en los
+puntos de la forma $k\pi+\pi/2$ donde $k$ es un entero cualquiera.
+
+\subsubsection{Las funciones tangente, cotangente, secante y cosecante}
+\noindent Las funciones \textbf{tangente} y \textbf{secante}, que
+se representan por $\tg$ y $\sec$ son las funciones definidas en
+el conjunto $\R\setminus\{k\pi+\pi/2:k\in\Z\}=\{x\in\R:\cos x\neq
+0\}$, por:
+$$
+\tg x=\frac{\sen x}{\cos x}\, ,\quad \sec x=\frac{1}{\cos x}
+$$
+
+\noindent Las funciones \textbf{cotangente} y \textbf{cosecante},
+que se representan por $\cotg$ y $\csc$ son las funciones definidas
+en el conjunto $\R\setminus\{k\pi:k\in\Z\}=\{x\in\R:\sen x\neq 0\}$,
+por:
+$$
+\cotg x=\frac{\cos x}{\sen x}\, ,\quad \csc x=\frac{1}{\sen x}
+$$
+\noindent Las propiedades de estas funciones se deducen fácilmente de las propiedades del seno y del coseno. Por ejemplo,
+$\tg(x)=\tg(x+\pi)$; esto es, la función tangente es periódica de
+período $\pi$.
+
+\subsubsection{Las funciones arcoseno, arcocoseno y arcotangente}
+Lo primero que hay que decir es que ninguna de las funciones
+``seno'', ``coseno'', ``tangente'', es inyectiva pues todas ellas
+son periódicas y, por tanto, toman cada uno de sus valores en
+infinitos puntos; en consecuencia, ninguna de ellas tiene inversa en el sentido de la definición (\ref{funcioninversa}).
+Por tanto, no debe decirse que las funciones \emph{arcoseno},
+\emph{arcocoseno}, \emph{arcotangente} sean las funciones inversas
+del seno, del coseno o de la tangente: eso no es cierto. Hecha esta
+observación imprescindible, pasemos a definir dichas funciones.
+
+La función seno es estrictamente creciente en el intervalo
+$[-\pi/2,\pi/2]$ y en dicho intervalo toma todos los valores
+comprendidos entre $-1$ y $1$, $\sen([-\pi/2,\pi/2])=[-1,1]$. En
+consecuencia, dado un número $x\in [-1,1]$ hay un único número $y\in
+[-\pi/2,\pi/2]$ tal que $\sen y=x$; dicho número $y$ se representa
+por $\arcsen x$ y se llama el \emph{arcoseno de} $x$. Es decir, el
+arcoseno es la función \funcreal{\arcsen}{[-1,1]}\ definida por
+$\sen(\arcsen x)=x$ y $-\frac{\pi}{2}\leqslant\arcsen
+x\leqslant\frac{\pi}{2}$. Observa que la igualdad $\arcsen(\sen
+x)=x$, es cierta si, y sólo si, $-\pi/2\leqslant x\leqslant \pi/2$.
+
+\begin{figure}[ht]
+\centering
+\parbox{.55\textwidth}{
+\psset{unit=1.75cm}
+\begin{pspicture}(-1.7,-1.2)(1.7,1.2)
+\psset{arrowscale=2}
+\psaxes[labels=none,ticks=none,linewidth=.6pt]{->}(0,0)(-1.7,-1.2)(1.9,1.4)%ticksize=2pt,tickstyle=top,Dx=1.57,dx=1.57,
+\psplot[plotstyle=curve,linewidth=1pt]{-1.57}{1.57}{57.2958 x mul sin}%código postscript para funciones
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](1.57,0)(1.57,1)(0,1)
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](-1.57,0)(-1.57,-1)(0,-1)
+\uput[l](!1 57.2958 sin){\scalefont{.8}$y=\sen x$}
+\uput[u](-1.57,0){\scalefont{.8}$-\pi/2$}
+\uput[d](1.57,0){\scalefont{.8}$\pi/2$}
+\uput[l](0,1){\scalefont{.8}$1$}
+\uput[r](0,-1){\scalefont{.8}$-1$}
+\end{pspicture}
+\captionsetup{labelfont=bf,,singlelinecheck=off}%
+\caption{La función seno en $[\frac{-\pi}{2},\frac{\pi}{2}]$}
+}
+\begin{minipage}{.4\textwidth}
+\psset{unit=1.75cm}
+\psset{algebraic}
+\begin{pspicture}(-1.3,-1.7)(1.3,1.7)
+\psset{arrowscale=2}
+\psaxes[labels=none,ticks=none,linewidth=.6pt]{->}(0,0)(-1.3,-1.7)(1.3,1.9)%Dy=1.57,dy=1.57,
+\psplot[plotstyle=curve,linewidth=1pt]{-.999}{.999}{asin(x)}
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](1,0)(1,1.57)(0,1.57)
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](-1,0)(-1,-1.57)(0,-1.57)
+\uput[l](.8,1){\scalefont{.8}$y=\arcsen x$}
+\uput[r](0,-1.57){\scalefont{.8}$-\frac{\pi}{2}$}
+\uput[l](0,1.57,){\scalefont{.8}$\frac{\pi}{2}$}
+\uput[d](1,0){\scalefont{.8}$1$}
+\uput[u](-1,0){\scalefont{.8}$-1$}
+\end{pspicture}
+\captionsetup{labelfont=bf,,singlelinecheck=off}%,justification=raggedleft
+\caption{La función arcoseno}
+\end{minipage}
+\end{figure}
+
+Es decir, \emph{la función arcoseno es la inversa de la función seno restringida al intervalo} $[-\pi/2,\pi/2]$, esto es, cuando consideramos que la función seno está solamente definida en el intervalo $[-\pi/2,\pi/2]$.
+
+\begin{equation}
+\psframebox[linewidth=.6pt]{
+\arcsen:[-1,1]\rightarrow\mathbb{R},\quad -\pi/2\leqslant \arcsen x\leqslant \pi/2,\quad \sen(\arcsen x)=x}
+\end{equation}
+
+\begin{equation}
+\psframebox[linewidth=.6pt]{
+\arcsen(\sen x)=x \quad\Longleftrightarrow \quad -\pi/2\leqslant x\leqslant \pi/2}
+\end{equation}
+
+\medskip
+La función coseno es estrictamente decreciente en el
+intervalo $[0,\pi]$ y en dicho intervalo toma todos los valores
+comprendidos entre $-1$ y $1$. Por tanto, dado un número $x\in
+[-1,1]$, hay un único número $y\in [0,\pi]$ tal que $\cos
+y=x$; dicho número $y$ se representa por $\arccos x\ $ y se
+llama \emph{arco\-coseno de} $x$. Es decir, arcocoseno es la
+función \makebox{\funcreal{\arccos}{[-1,1]}} dada por
+$\cos(\arccos x)=x$ y $\,0\leqslant\arccos x\leqslant\pi.$ Observa
+que la igualdad $\arccos(\cos x)=x$, es cierta si, y sólo si,
+$0\leqslant x\leqslant \pi$. Es decir, \emph{la función arcocoseno es la inversa de la función coseno restringida al intervalo} $[0,\pi]$, esto es, cuando consideramos que la función coseno está solamente definida en el intervalo $[0,\pi]$.
+
+\begin{equation}
+\psframebox[linewidth=.6pt]{
+\arccos:[-1,1]\rightarrow\mathbb{R},\quad 0\leqslant \arccos x\leqslant \pi,\quad \cos(\arccos x)=x}
+\end{equation}
+
+\begin{equation}
+\psframebox[linewidth=.6pt]{
+\arccos(\cos x)=x \quad\Longleftrightarrow \quad 0\leqslant x\leqslant \pi}
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\parbox{.55\textwidth}{
+\psset{unit=1.75cm}
+\begin{pspicture}(-.2,-1.2)(3.7,1.2)
+\psset{arrowscale=2}
+\psaxes[labels=none,ticks=none,linewidth=.6pt]{->}(0,0)(-.2,-1.2)(3.7,1.4)%ticksize=2pt,tickstyle=top,Dx=1.57,dx=1.57,
+\psplot[plotstyle=curve,linewidth=1pt]{0}{3.14}{57.2958 x mul cos}%código postscript para funciones
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](0,-1)(3.14,-1)(3.14,0)
+\uput[r](1.3,.27){\scalefont{.8}$y=\cos x$}
+\uput[d](1.57,0){\scalefont{.8}$\frac{\pi}{2}$}
+\uput[u](3.14,0){\scalefont{.8}$\pi$}
+\rput[r](-.1,1){\scalefont{.8}$1$}
+\rput[r](-.1,-1){\scalefont{.8}$-1$}
+\end{pspicture}
+\captionsetup{labelfont=bf,,singlelinecheck=off}%
+\caption{La función coseno en $[0,\pi]$}
+}\quad
+\begin{minipage}{.4\textwidth}
+\psset{unit=1.75cm}
+\psset{algebraic}
+\begin{pspicture}(-1.2,-0.2)(1.2,3.7)
+\psset{arrowscale=2}
+\psaxes[labels=none,ticks=none,linewidth=.6pt]{->}(0,0)(-1.2,-0.2)(1.4,3.7)%Dy=1.57,dy=1.57,
+\psplot[plotstyle=curve,linewidth=1pt]{-.9999}{.9999}{acos(x)}
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](-1,0)(-1,3.14)(0,3.14)
+\uput[r](.3,1.3){\scalefont{.8}$y=\arccos x$}
+\uput[r](0,1.57){\scalefont{.8}$\frac{\pi}{2}$}
+\uput[r](0,3.14){\scalefont{.8}$\pi$}
+\uput[d](1,0){\scalefont{.8}$1$}
+\uput[d](-1,0){\scalefont{.8}$-1$}
+\end{pspicture}
+\captionsetup{labelfont=bf,,singlelinecheck=off}%,justification=raggedleft
+\caption{La función arcocoseno}
+\end{minipage}
+\end{figure}
+
+La función tangente es estrictamente creciente en el intervalo
+$]-\pi/2,\pi/2[$ y en dicho intervalo toma todos los valores reales,
+$\tg(]-\pi/2,\pi/2[)=\R$. En consecuencia, dado un número $x\in\R$,
+hay un único número $y\in ]-\pi/2,\pi/2[$ tal que \mbox{$\tg y=x$;}
+dicho número $y$ se representa por \mbox{$\arctg x$} y se llama el
+\emph{arcotan\-gente de} $x$. Es decir, \emph{la función arcotangente es la inversa de la función tangente restringida al intervalo} $]-\pi/2,\pi/2[$, esto es, cuando consideramos que la función tangente está solamente definida en el intervalo $]-\pi/2,\pi/2[$.
+
+\begin{equation}
+\psframebox[linewidth=.6pt]{
+\arctg:\mathbb{R}\rightarrow\mathbb{R},\quad -\pi/2 < \arctg x < \pi/2,\quad \tg(\arctg x)=x}
+\end{equation}
+
+\begin{equation}
+\psframebox[linewidth=.6pt]{
+\arctg(\tg x)=x \quad\Longleftrightarrow \quad -\pi/2 < x < \pi/2}
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\parbox{.4\textwidth}{
+\psset{xunit=1cm,yunit=.75cm}
+\begin{pspicture}(-2.1,-4)(2.1,4)
+\psset{arrowscale=2}
+\psaxes[labels=none,ticks=none,linewidth=.6pt]{->}(0,0)(-2.1,-4)(2.1,4)%ticksize=2pt,tickstyle=top,Dx=1.57,dx=1.57,
+\psplot[plotstyle=curve,linewidth=1pt]{-1.3}{1.3}{57.2958 x mul tan}%código postscript para funciones
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](1.57,-4)(1.57,4)
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](-1.57,-4)(-1.57,4)
+\uput[r](-1.4,-3.5){\scalefont{.8}$y=\tg x$}
+\uput[dr](1.57,0){\scalefont{.8}$\frac{\pi}{2}$}
+\uput[dl](-1.57,0){\scalefont{.8}$-\frac{\pi}{2}$}
+\end{pspicture}
+\captionsetup{labelfont=bf,format=hang,,singlelinecheck=off}%
+\caption{La función tangente\\ en $]-\frac{\pi}{2},\frac{\pi}{2}[$}
+}\qquad
+\begin{minipage}{.5\textwidth}
+\psset{xunit=.85cm,yunit=1cm}
+\psset{algebraic}
+\begin{pspicture}(-4,-2)(4,2)
+\psset{arrowscale=2}
+\psaxes[labels=none,ticks=none,linewidth=.6pt]{->}(0,0)(-4,-2)(4,2)%Dy=1.57,dy=1.57,
+\psplot[plotstyle=curve,linewidth=1pt]{-4.0}{4.0}{atg(x)}
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](-4,1.57)(4,1.57)
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](-4,-1.57)(4,-1.57)
+\uput[r](2,.95){\scalefont{.8}$y=\arctg x$}
+\uput[ur](0,1.57){\scalefont{.8}$\frac{\pi}{2}$}
+\uput[dr](0,-1.57){\scalefont{.8}$-\frac{\pi}{2}$}
+\end{pspicture}
+\captionsetup{labelfont=bf,,singlelinecheck=off,margin={1cm,0cm}}%margin={8cm,0cm}
+\caption{La función arcotangente}
+\end{minipage}
+\end{figure}
+
+\subsection{Las funciones hiperbólicas}
+Hay algunas combinaciones de las funciones $\exp(x)$ y
+$\exp(-x)$ que aparecen con tanta frecuencia que se les da nombre
+propio. Ellas son las funciones \emph{seno hiperbólico},
+representada por $\senh$, y \emph{coseno hiperbólico},
+representada por $\cosh$, y están definidas para todo $x\in\R$
+por:
+$$\senh
+x=\frac{\e^{x}-\e^{-x}}{2},\qquad\cosh x=\frac{\e^{x}+\e^{-x}}{2}
+$$
+Las funciones seno hiperbólico y coseno hiperbólico son
+funciones reales cuyo dominio es todo \R. La identidad básica que
+dichas funciones verifican es:
+$$
+\cosh^{2}x-\senh^{2}x=1 \qquad (x\in\R)
+$$
+\noindent La función seno hiperbólico es impar y la función coseno
+hiperbólico es par:
+$$
+\senh(-x)=-\senh x\, ,\quad \cosh(-x)=\cosh x \quad (x\in\R)
+$$
+La función seno hiperbólico es estrictamente creciente en \R. La
+función coseno hiperbólico es estrictamente creciente en \Rpo.
+
+Todas las propiedades anteriores se deducen
+fácilmente de las definiciones dadas.
+
+\begin{figure}[ht]
+\centering
+\parbox{.4\textwidth}{
+\psset{xunit=1.25,yunit=.75cm}
+\psset{algebraic}
+\begin{pspicture}(-2,-4)(2,4)
+\psset{arrowscale=2}
+\psaxes[labelFontSize=\scriptsize,ticksize=3pt,tickstyle=top,linewidth=.6pt]{->}(0,0)(-2,-4)(2.2,4)
+\psplot[plotstyle=curve,linewidth=1pt]{-2}{2}{sh(x)}
+\uput[r](1,1){$y=\senh x$}
+\end{pspicture}
+\captionsetup{,singlelinecheck=off}%
+\caption{La función seno hiperbólico}
+}
+\begin{minipage}{.5\textwidth}
+\flushright
+\psset{unit=1.25cm}
+\psset{algebraic}
+\begin{pspicture}(-2,-0.2)(2,4)
+\psset{arrowscale=2}
+\psaxes[labelFontSize=\scriptsize,ticksize=3pt,tickstyle=top,linewidth=.6pt]{->}(0,0)(-2,-.2)(2.2,4)%
+\psplot[plotstyle=curve,linewidth=1pt]{-2}{2}{ch(x)}
+\uput[r](.4,3.9){$y=\cosh x$}
+\end{pspicture}
+\captionsetup{labelfont=bf,,format=hang,singlelinecheck=off,margin={1cm,0cm}}%
+\caption{La función coseno hiperbólico}
+\end{minipage}
+\end{figure}
+
+\noindent La función \textbf{tangente hiperbólica} que se representa
+por $\tgh$ es la función definida para todo $\,x\in\R$ por:
+$$
+\tgh x=\frac{\senh x}{\cosh
+x}=\frac{\e^{x}-\e^{-x}}{\e^{x}+\e^{-x}}
+$$
+\begin{figure}[ht]
+\centering
+\psset{xunit=.9cm,yunit=1.3cm}
+\psset{algebraic}
+\begin{pspicture}(-4,-1.2)(4,1.2)
+\psset{arrowscale=2}
+\psaxes[labelFontSize=\scriptsize,ticks=none,labels=none,linewidth=.6pt]{->}(0,0)(-4,-1.2)(4,1.4)%ticksize=2pt,tickstyle=top,
+\psplot[plotstyle=curve,linewidth=1pt]{-4}{4}{.9*th(x)}
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](-4,1)(4,1)
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](-4,-1)(4,-1)
+\uput[r](.6,.4){\scalefont{.8}$y=\tgh x$}
+\uput[ur](0,1){\scalefont{.8}$1$}
+\uput[dr](0,-1){\scalefont{.8}$-1$}
+\end{pspicture}
+\caption{La función tangente hiperbólica}
+\end{figure}
+
+\noindent De forma análoga se definen las funciones
+cotangente, secante y cosecante hiperbólicas.
+
+\subsubsection{Las funciones hiperbólicas inversas}
+La función seno hiperbólico es una biyección de \R\ sobre
+\R\ cuya inversa, representada por, $\argsenh$, (léase
+\textbf{argumento seno hiperbólico}) viene dada por:
+\begin{equation}\label{argumentosenohiperbolico}
+\psframebox[linewidth=.6pt]{\argsenh x=\log(x+\sqrt{\rule{0mm}{2.7mm} x^{2}+1})\quad (x\in\R)}
+\end{equation}
+La función coseno hiperbólico es inyectiva en \Rpo\ y  su imagen es
+la semirrecta $[1,+\infinity[$. La función, definida en
+$[1,+\infinity[$, que a cada número $x\geqslant 1$ asigna el único
+número $y>0$ tal que $\cosh y=x$, se llama \textbf{argumento coseno
+hiperbólico},  se representa por, $\argcosh$, y viene dada por:
+\begin{equation}\label{argumentocosenohiperbolico}
+\psframebox[linewidth=.6pt]{\argcosh x=\log(x+\sqrt{\rule{0mm}{2.7mm} x^{2}-1})\quad
+(x\geqslant 1)}
+\end{equation}
+La función tangente hiperbólica es una biyección de \R\
+sobre el intervalo $]-1,1[$ cuya inversa, representada por,
+$\argtgh$, (léase \textbf{argumento tangente hiperbólica}) es la
+función definida en el intervalo $]-1,1[$  por:
+\begin{equation}\label{argumentotangentehiperbolica}
+\psframebox[linewidth=.6pt]{\argtgh x=\frac{1}{2}\log\left(\frac{1+x}{1-x}\right)\quad
+(-1<x<1)}
+\end{equation}
+\begin{figure}[ht]
+\centering
+\parbox{.45\textwidth}{
+\psset{xunit=.8cm,yunit=.9}
+\psset{algebraic}
+\begin{pspicture}(-4,-2.5)(4,2.5)
+\psset{arrowscale=2}
+\psaxes[labelFontSize=\scriptsize,ticksize=2pt,tickstyle=top,linewidth=.6pt]{->}(0,0)(-4,-2.5)(4,2.5)
+\psplot[plotstyle=curve,linewidth=1pt]{-4}{4}{Argsh(x)}
+\uput[r](1.7,1.2){$y=\argsenh x$}
+\end{pspicture}
+\captionsetup{format=hang,}%,singlelinecheck=off
+\caption{La función argumento seno \\ hiperbólico}
+}\quad
+\begin{minipage}{.45\textwidth}
+\centering
+\psset{unit=1.2cm}
+\psset{algebraic}
+\begin{pspicture}(-.2,-.2)(4,3)
+\psset{arrowscale=2}
+\psaxes[labelFontSize=\scriptsize,ticksize=2pt,tickstyle=top,linewidth=.6pt]{->}(0,0)(-.2,-.2)(4,3)
+\psplot[plotstyle=curve,linewidth=1pt]{1.001}{4}{Argch(x)}
+\uput[r](1.85,1.2){$y=\argcosh x$}
+\end{pspicture}
+\captionsetup{format=hang,}%,singlelinecheck=off
+\caption{La función argumento coseno \\ hiperbólico}
+\end{minipage}
+\end{figure}
+\begin{figure}[ht]
+\centering
+\psset{xunit=1.2cm,yunit=1cm}
+\psset{algebraic}
+\psset{arrowscale=2}
+\begin{pspicture}(-1.6,-3)(1.6,3)
+\psaxes[ticks=none,labels=none,linewidth=.6pt]{->}(0,0)(-1.6,-3)(1.6,3)
+\psplot[plotstyle=curve,linewidth=1pt]{-.99}{.99}{Argth(x)}
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](-1.1,-3)(-1.1,3)
+\psline[linestyle=dashed,dash=3pt,linewidth=.3pt](1.1,-3)(1.1,3)
+\uput[r](.7,.7){\scalefont{.8}$y=\argtgh x$}
+\uput[dr](1.1,0){\scalefont{.8}$1$}
+\uput[dl](-1.1,0){\scalefont{.8}$-1$}
+\end{pspicture}
+\caption{La función argumento tangente hiperbólica}
+\end{figure}
+\sskip
+
+\noindent La razón de por qué estas funciones se llaman hiperbólicas
+es que, al igual que  los puntos de la circunferencia unidad pueden
+representarse en la forma $(\cos t,\sen t)$,  los puntos en la rama
+derecha de la hipérbola unitaria $\,x^{2}-y^{2}=1$ pueden
+representarse como $(\cosh t,\senh t)$.
+
+Naturalmente, la importancia de las funciones trigonométricas
+procede de que multitud de fenómenos naturales son de naturaleza
+ondulatoria o periódica. Por ejemplo, la gráfica de un electrocardiograma no es más que
+superposiciones de gráficas de senos y cosenos.
+
+Las funciones hiperbólicas, por su parte, también sirven para
+describir el movimiento de ondas en sólidos elásticos, o la forma
+que adoptan los cables eléctricos colgantes. Hay una hermosa curva
+llamada \emph{catenaria} cuya ecuación es de la forma
+$\,y=a\cosh(x/a)\,$ (donde se entiende que $a$ es una constante). La
+catenaria es la forma que adopta una cadena perfectamente flexible
+suspendida de sus extremos y bajo la acción de la gravedad.
+\pagebreak
+\begin{ejercicios propuestos}
+\propuesto Estudia cuales de las siguientes igualdades son ciertas y, cuando no lo sean, proporciona un contraejemplo. Se supone que $f$, $g$, $h$ son funciones definidas en \R.
+\begin{enumerate}[a)]
+\item\ $f\circ(g+h)=f\circ g+f\circ h $.
+\item\ $(g+h)\circ f=g\circ f+h\circ f$.
+\item\ $\dfrac{1}{\,f\circ g\,}=\dfrac{1}{\,f\,}\circ g$.
+\item\ $\dfrac{1}{\,f\circ g\,}=f\circ\dfrac{1}{\,g\,}$.
+\end{enumerate}
+\propuesto Sean \funcreal{f,g}{\R}. Indica el dominio natural de definición de la función $h$ dada por la regla que en cada caso se indica.
+\begin{alignat*}{4}
+h(x)&=\dfrac{f(x)}{g(x)}, &\hspace{6pt} h(x)&=\arcsen(f(x)),&\hspace{6pt} h(x)&=\log(f(x)), &\hspace{6pt} h(x)&=\sqrt{f(x)} \\
+h(x)&=\argcosh(f(x)), &\hspace{6pt} h(x)&=\arccos(f(x)), &\hspace{6pt} h(x)&=\arctg(f(x)), &\hspace{6pt} h(x)&=\dis{g(x)^{f(x)}}
+\end{alignat*}\vspace*{-8mm}
+\propuesto Una función $f$ es \emph{par} si $f(-x)=f(x)$ e \emph{impar} si $f(-x)=-f(x)$.
+\begin{enumerate}[a)]
+\item Estudia si la suma, el producto y la composición de funciones pares o impares es una función par o impar. Considera todos los casos posibles.
+\item Prueba que toda función puede escribirse de forma única como suma de una función par y una función impar.
+\end{enumerate}
+\propuesto Prueba que la función dada por $f(x)=\dfrac{1}{1+x}$, es estrictamente creciente en \Rp. Deduce que
+$$
+\dfrac{\abs{x+y}}{1+\abs{x+y}}\le\dfrac{\abs{x}}{1+\abs{x}}+\dfrac{\abs{y}}{1+\abs{y}}\qquad (x,y\en\R)
+$$
+\propuesto Indica, justificando tu respuesta, los intervalos que:
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-2pt}}
+\item No tienen máximo ni mínimo.
+\item Tienen máximo pero no tienen mínimo.
+\item Tienen mínimo pero no tienen máximo.
+\item Tienen máximo y mínimo.
+\end{list}
+\propuesto Se quiere amortizar una deuda de 60000\,\EURtm\  el
+día 31 de diciembre de 2013. Esta deuda ha sido
+contraída el día 1 de enero de 2008, y se incrementa
+cada trimestre al 6 por 100 anual. Para amortizarla se quiere
+pagar una cantidad fija el último día de cada mes,
+empezando el 31 de enero de 2008 y terminando el 31 de diciembre
+de 20013. Estas cantidades producen un interés anual del 3 por
+100, que se acumula mensualmente. ¿Qué cantidad hay que abonar
+cada mes?
+
+Sugerencia. Usa una calculadora o un programa de cálculo que tengas en tu ordenador para obtener la
+solución ``exacta'' (redondeas por exceso). Haciendo uso de la aproximación (para $n$ ``grande''):$\dis\left(1+\frac{r}{n}\right)^{n}\approxeq \e^{r}$, puedes obtener también una solución
+aproximada.
+\propuesto ¿A qué interés simple anual corresponde un interés compuesto continuo del $10\%$ anual?
+
+\propuesto Se invierten $10000$ euros en una cuenta que produce un $4\%$ fijo de interés anual.
+\begin{enumerate}
+\item ?`Cuántos años se necesitan para doblar el capital inicial? \item ?`Cuántos años son
+necesarios para que el capital final sea de de un millón de euros?
+\end{enumerate}
+
+\propuesto Una persona coloca cada día la misma cantidad $P$ de euros a un interés compuesto continuo
+del $r\%$ anual. Hallar el capital final al cabo de $n$ días.
+
+Si $P=10$\EURtm y $r=5$, ¿al cabo de cuanto tiempo el capital final será de 6000\,\EURtm ?
+
+\propuesto Se sabe que la población de un cultivo de bacterias se
+duplica cada $3$ horas. Si a las $12h$ del mediodía hay
+$10000$ bacterias, ?`cuántas habrá a las $7$ de la tarde
+del mismo día?.
+
+\propuesto Compara $\,a^{\log b}$ con $\,b^{\log a}$.
+
+\propuesto Calcula $x$ sabiendo que $\
+\dis{\frac{1}{\log_{x}(a)}=\frac{1}{\log_{b}(a)}+\frac{1}{\log_{c}(a)}+\frac{1}{\log_{d}(a)}}$
+
+\propuesto ¿Es correcto escribir\ $\
+\log(x-1)(x-2)=\log(x-1)+\log(x-2)$?
+
+\propuesto Prueba que $\
+\log(x+\sqrt{1+x^{2}})+\log(\sqrt{1+x^{2}}-x)=0.$
+
+\propuesto Resuelve
+$\ \dis x^{\sqrt{x}}=(\sqrt{x})^{x}.$
+
+\propuesto Simplifica las
+expresiones $\ \dis{\ a^{\log(\log a)/\log a},\quad
+\log_{a}(\log_{a}(a^{a^{x}}))}$.
+
+\propuesto Resuelve el sistema: $\
+7(\log_{y}x+\log_{x}y)=50,\ \ \ x\,y=256$. Se supondrá que $x>y>1$.
+
+\propuesto  Indica cuál de los dos números
+$1234567^{1234568}$ y $1234568^{1234567}$ es el mayor.
+
+\propuesto Calcula los valores de $x$ para los que se verifica la igualdad:
+$$\log_{x}(10)+2\log_{10x}(10)+\log_{100x}(10)=0.$$
+
+\propuesto Sea \func{f}{\R}\ una función que verifica las propiedades:
+\begin{enumerate}[a)]
+\item\  $\,f(x+y)=f(x)+ f(y)\ $ para todos $\,x,y\en\R$.
+\item\ $f(xy)=f(x)f(y)\ $ para todos $\,x,y\en\R$.
+\end{enumerate}
+Demuestra que o bien $f$ es $f(x)=0$ para todo $x\en\R$ o bien es $f(x)=x$ para todo $x\en\R$.
+
+Sugerencias. a) Supuesto que $f$ no es idénticamente nula, prueba primero que $\,f\,$ es estrictamente creciente y que
+$\,f(r)=r\,$ para todo $r\in{\Q}$.
+
+b) Supón que hay algún número $a$ tal que $f(a)\neq a$ y
+deduce una contradicción (utiliza que entre dos números reales
+cualesquiera siempre hay algún número racional).
+
+\propuesto Sea
+\func{f}{\Rp}\ una función que verifica las propiedades:
+\begin{enumerate}[a)]
+\item\  $\,f(x y)=f(x)+f(y)\,$ para todos $\,x,y\,$ en \Rp.
+\item\ $f(x)\!>\!0\,$ para todo $\,x\!>\!1$;
+\item\ $f(\e)=1$.
+\end{enumerate}
+Demuestra que $\,f(x)=\log(x)\,$ para todo $\,x\in\Rp$.
+
+Sugerencias. a) Prueba primero que $\,f\,$ es creciente y que
+$\,f(\e^{r})=r\,$ para todo $r\in{\Q}$.
+
+b) Sea $\ff(x)=f(\exp(x))$. Justifica que $\ff$ es estrictamente
+creciente. Supón que hay algún número $a$ tal que $\ff(a)\neq a$ y
+deduce una contradicción (utiliza que entre dos números reales
+cualesquiera siempre hay algún número racional).
+
+\propuesto Prueba las igualdades siguientes.
+$$
+\begin{array}{ll}
+\dis\cos (\arctg x) \,=\,\dfrac{1}{\sqrt{\rule{0mm}{3.5mm}
+1+x^{2}}} & {\dis\sen (\arctg
+x)\,=\,\frac{x}{\sqrt{\rule{0mm}{3.5mm} 1+x^{2}}}}\\
+\rule{0mm}{6.5mm} \displaystyle\tan (\arcsen
+x)\,=\,\frac{x}{\sqrt{\rule{0mm}{3.5mm}1-x^{2}}}\ \ \forall x\in
+]-1,1[, & {\displaystyle \arccos x +\arcsen x = \dfrac{\pi}{2}\ \
+\forall x\in [-1,1]}
+\end{array}
+$$
+
+\propuesto Sean $\,a,b\in\R$ tales que $\,a^{2}+b^{2}=1,\ a\neq -1$. Definamos ${\displaystyle \,\vartheta
+=2\arctg\frac{b}{a+1}}$. Prueba que $\,\cos \vartheta = a$, $\sen
+\vartheta = b.$
+
+\propuesto Prueba por inducción la siguiente igualdad.
+$$
+\sen\frac{x}{2}\left(\sen x+\sen 2x+\cdots+\sen
+nx\right)=\sen\frac{nx}{2}\sen\frac{n+1}{2}x
+$$
+\propuesto Prueba que para todos $x,y\en\R$ se verifica que
+
+\centerline{$\rule{0mm}{6mm}\dis{\sen x+\sen y = 2\sen\frac{x+y}{2}\cos \frac{x-y}{2};\ \ \cos x+\cos y =
+2\cos \frac{x+y}{2}\cos \frac{x-y}{2}}$}
+
+Deduce que para $k\en\N$:
+
+\centerline{$\rule{0mm}{6mm}\dis{2\sen\frac{x}{2}\cos(kx) = \sen (2k+1)\frac{x}{2} -\sen (2k-1)\frac{x}{4}}$}
+
+Utiliza esta igualdad para probar que:
+
+\centerline{$\rule{0mm}{6mm}\dis{\sen\frac{x}{2}\big(\cos x+\cos(2x)+\cdots+\cos (nx)\big) = \sen\dis\frac{nx}{2}\cos\dis\frac{n+1}{2}x}$}
+
+Prueba análogamente que:
+
+\centerline{$\rule{0mm}{6mm}\dis{\sen\frac{x}{2}\big(\sen x+\sen(2x)+\cdots+\sen(nx)\big) = \sen\dis\frac{nx}{2}\sen\dis\frac{n+1}{2}x}$}
+
+\propuesto Prueba que $\ \dis\tg(x+y)=\dfrac{\tg x+\tg y}{1-\tg x\tg y}$. ¿Qué excepciones hay que hacer?.
+
+\propuesto Indica para qué valores de $x$ e $y$ se verifica la igualdad $\ \dis\arctg x+\arctg
+y=\arctg\dfrac{x+y}{1-xy}$.
+
+\propuesto Calcula $x$ por la condición $\ \arctg(2x)+\arctg x=\dfrac{\pi}{4}$.
+
+\propuesto Deduce las expresiones de las funciones hiperbólicas inversas dadas por las igualdades (\ref{argumentosenohiperbolico}), (\ref{argumentocosenohiperbolico}) y (\ref{argumentotangentehiperbolica}).
+
+\propuesto Prueba que $\ \dis\arctg(\e^{x})-\arctg\left(\tgh(x/2)\right)=\dfrac{\pi}{4}$.
+
+\propuesto Simplifica las expresiones
+\begin{enumerate}[a)]
+\item $\senh^{2}\!x\cos^{2}\!y+\cosh^{2}\!x\sen^{2}\!y$.
+\item $\rule{0mm}{8mm}\dis{\dfrac{\cosh(\log x)+\senh(\log x)}{x}}$.
+\end{enumerate}
+\propuesto Prueba que $\,2\argtgh(\tg x)=\argtgh(\sen 2x)$.
+
+\propuesto Define las funciones secante y cotangente hiperbólicas y estudia sus
+inversas.
+
+\propuesto Obtener fórmulas de adición para el seno, coseno y tangente hiperbólicos.
+
+\propuesto Dibuja la gráfica de la función $\ y=\arcsen(\sen x)$.
+
+\propuesto Prueba las igualdades:
+$$\cos a=4\cos^{3}(a/3)-3\cos(a/3)= 2\cos^2(a/2)-1$$
+y, usando que $\cos 0=1$, $\cos\pi=-1$, deduce el valor de $\cos(\pi/6)$, $\cos(\pi/4)$ y $\cos(\pi/8)$.
+
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto Calcula $x$ sabiendo que $\
+\dis{\frac{1}{\log_{x}(a)}=\frac{1}{\log_{b}(a)}+\frac{1}{\log_{c}(a)}+\frac{1}{\log_{d}(a)}}$
+
+\sol
+Pongamos $\,y=\log_x(a)$. Por definición,
+tenemos que $\,\dis x^{y}=a$, de donde se sigue que $\,y\log
+x=\log a$. Hemos obtenido así que $\log_x(a)=\dfrac{\log
+a}{\log x}$. Con ello, la igualdad del enunciado puede escribirse
+como $$\frac{\log x}{\log a}=\frac{\log b}{\log a}+\frac{\log
+c}{\log a}+\frac{\log d}{\log a}$$ esto es $\log x= \log b+\log
+c+\log d$, o lo que es igual, $\log x=\log(b\,c\,d)$. Como la
+función logaritmo es inyectiva, deducimos que $x=b\,c\,d$.\hecho
+
+\resuelto Prueba la igualdad ${\displaystyle \arccos x +\arcsen x =
+\frac{\pi}{2}\ \ \forall x\in [-1,1]}$
+
+\sol Se trata de probar que $\arcsen
+x=\frac{\pi}{2}-\arccos x$ para todo $x\in [-1,1]$. Para ello,
+dado $x\in [-1,1]$, pongamos $z= \frac{\pi}{2}-\arccos x$. Como,
+por definición, $0\leqslant \arccos x\leqslant\pi$, deducimos
+que $-\frac{\pi}{2}\leqslant z \leqslant\frac{\pi}{2}$. Además
+
+$\sen z=\sen(\pi/2-\arccos x)=\sen(\pi/2)\cos(-\arccos
+x)+\cos(\pi/2)\sen(-\arccos x)=$
+
+$=\cos(-\arccos x)=\cos(\arccos x)=x$
+
+Hemos probado así que $\,\sen z=x$, y
+$-\frac{\pi}{2}\leqslant z \leqslant\frac{\pi}{2}$ lo que, por
+definición, quiere decir que $z=\arcsen x$.
+
+\resuelto Prueba que $\displaystyle \tg (\arcsen
+x)\,=\,\frac{x}{\sqrt{1-x^{2}}}$ para todo
+$x\in ]-1,1[$.
+
+\sol Como $\tg z=\dfrac{\sen z}{\cos z}$,
+deducimos que $\tg (\arcsen x)=\dfrac{x}{\cos(\arcsen x)}$,
+$\forall\ x\in ]-1,1[$ (hay que excluir los puntos $\pm 1$ porque
+$\arcsen(\pm 1)=\pm\pi/2$) . Bastará probar, por tanto, que
+$\cos(\arcsen x)=\sqrt{\rule{0mm}{3.5mm}1-x^{2}}$.
+
+Como $\cos^2 z=1-\sen^2 z$, deducimos que, $\cos^2(\arcsen
+x)=1-x^2$, esto es, $$|\cos(\arcsen
+x)|=\sqrt{1-x^{2}}$$ Ahora, como
+$-\dfrac{\pi}{2}\leqslant\arcsen x\leqslant\dfrac{\pi}{2}$, se
+sigue que $\cos(\arcsen x)\geqslant 0$, por lo que $$\cos(\arcsen
+x)=|\cos(\arcsen x)|$$ y, por tanto, $\cos(\arcsen
+x)=\sqrt{1-x^{2}}$.\hecho
+
+\resuelto Dado un número $x\neq 0$, calcula un número
+$t\in\R$ tal que $\dis\frac{1}{\senh\, t}=x$.
+
+\sol Aquí el dato es el número $x\neq 0$.
+Puesto que $\,\senh t=\dfrac{\e^t-\e^{-t}}{2}$, tenemos que
+calcular un número $\,t\,$ que verifique la igualdad
+$\,2=x(\e^t-\e^{-t})$, esto es, $x\,\e^{2t}-2\,\e^t-x=0$. Haciendo
+$y=\e^t$, tenemos que $x\,y^2-2y-x=0$, por lo que los dos posibles
+valores para $\,y\,$ son
+$$\frac{1+\sqrt{1+x^{2}}}{x}\quad\textrm{o}\quad
+\frac{1-\sqrt{\rule{0mm}{3.5mm}1+x^{2}}}{x}$$ Como debe ser
+$y>0$ (porque el valor de una exponencial siempre es positivo),
+deducimos que
+$$
+t=\log y=
+\begin{cases}
+\log\left(\dfrac{1+\sqrt{\rule{0mm}{3.5mm}1+x^{2}}}{x}\right), &\textrm{si $x>0$}\\
+
+\rule{0mm}{9mm}\log\left(\dfrac{1-\sqrt{\rule{0mm}{3.5mm}1+x^{2}}}{x}\right),
+&\textrm{si $x<0$}
+\end{cases}
+$$
+\hecho
+\resuelto  Se quiere amortizar una deuda de 60000\,\EURtm\  el
+día 31 de diciembre de 20013. Esta deuda ha sido
+contraída el día 1 de enero de 2000, y se incrementa
+cada trimestre al 6 por 100 anual. Para amortizarla se quiere
+pagar una cantidad fija el último día de cada mes,
+empezando el 31 de enero de 2008 y terminando el 31 de diciembre
+de 20013. Estas cantidades producen un interés anual del 3 por
+100, que se acumula mensualmente. ¿Qué cantidad hay que abonar
+cada mes?
+
+\sol Como la deuda se incrementa a un
+interés compuesto (expresado en tanto por uno) del $0\!\cdot\!  06/4$
+cada trimestre, el 31 de diciembre de 2013 la deuda más los
+intereses será igual a:
+$$ 60000\left(1+\frac{0\!\cdot\!  06}{4}\right)^{24}$$ Llamemos $P$ a la
+mensualidad que tendremos que pagar al final de cada mes. Dichas
+mensualidades se capitalizan a interés compuesto del $0\!\cdot\!  03/12$
+cada mes. La primera mensualidad permanece un total de 71 meses y
+la última, al pagarse el último día del mes no genera
+ningún interés. La cantidad total que tendremos el  31 de
+diciembre de 2013 será igual a:
+\begin{multline*}
+P\left[\left(1+\frac{0\!\cdot\!  03}{12}\right)^{71}+\left(1+\frac{0\!\cdot\!  03}{12}\right)^{70}+\cdots+
+\left(1+\frac{0\!\cdot\!  03}{12}\right)+1\right]= \\ =P\left[\left(1+\frac{0\!\cdot\!  03}{12}\right)^{72}-1\right]\frac{12}{0\!\cdot\!  03}=400P\left[\left(1+\frac{0\!\cdot\!  03}{12}\right)^{72}-1\right]
+\end{multline*}
+Donde hemos usado la expresión que da la suma de una progresión geométrica. En consecuencia, deberá ser: $$
+P\left[\left(1+\frac{0\!\cdot\!  03}{12}\right)^{72}-1\right]400=
+60000\left(1+\frac{0\!\cdot\!  06}{4}\right)^{24}$$ Usando una calculadora se obtiene: $P=1088\!\cdot\!74$ donde
+hemos redondeado por exceso.
+
+Podemos también hacer el cálculo anterior teniendo en
+cuenta la aproximación para $n$ grande $\dis\left(1+\dis\frac{r}{n}\right)^{n}\approxeq \e^{r}$
+de la siguiente forma:
+$$
+\left(1+\frac{0\!\cdot\!  03}{12}\right)^{72}=\left(1+\frac{1}{400}\right)^{72}=
+\left[\left(1+\frac{1}{400}\right)^{400}\right]^{72/400}\approxeq \e^{72/400}
+$$
+$$
+\left(1+\frac{0\!\cdot\!  06}{4}\right)^{24}=\left(1+\frac{3}{200}\right)^{24}=
+\left[\left(1+\frac{3}{200}\right)^{200}\right]^{24/200}\approxeq \e^{72/200}
+$$
+En consecuencia:$$ P\approxeq 150\frac{\e^{72/200}}{\e^{72/400}-1}=1090\!\cdot\!2$$ donde hemos
+redondeado por exceso.\hecho
+
+\resuelto Prueba las igualdades
+\begin{enumerate}
+\item[(a)] ${\displaystyle \arccos x +\arcsen x = \frac{\pi}{2}\ \ \forall x\in
+[-1,1]}$
+\item[(b)] ${\displaystyle \tan (\arcsen x)\,=\,\frac{x}{\sqrt{\rule{0mm}{3.5mm}1-x^{2}}};\ \
+\sec (\arcsen x)\,=\,\frac{1}{\sqrt{\rule{0mm}{3.5mm}1-x^{2}}}\ \ \forall x\in ]-1,1[}$
+\end{enumerate}
+
+\sol (a) Puede comprobarse esta igualdad de
+muchas formas. Por ejemplo, si despejamos, podemos escribir la
+igualdad de la forma:$$ \arcsen x
+=\pi/2-\arccos x.$$ Puesto que $-\pi/2\leqslant
+\pi/2-\arccos x\leqslant\pi/2$ \emph{y en el intervalo
+$[-\pi/2,\pi/2]$ la función seno es inyectiva}, la igualdad
+anterior es equivalente a la siguiente: $x=\sen(\pi/2-\arccos x)$
+la cual es efectivamente cierta porque, para todo $x\in [-1,1]$
+es:
+$$\sen(\pi/2-\arccos x)=\sen(\pi/2)\cos(\arccos x)-\cos(\pi/2)\sen(\arccos x)=x$$
+
+\sskip
+
+(b)\ Para todo $x\in ]-1,1[$ es:$$\tan (\arcsen x)\,=\dis\frac{\sen(\arcsen
+x)}{\cos(\arcsen x)}=\dis\frac{x}{\cos(\arcsen x)}.$$ Ahora como:$$
+\cos^{2}(\arcsen x)=1-\sen^{2}(\arcsen x)=1-x^{2},$$ \emph{y además} $\cos(\arcsen
+x)>0$, se sigue que $\cos(\arcsen x)=\sqrt{1-x^{2}}$ lo que prueba la
+igualdad pedida.
+
+\sskip
+
+\noindent Análogamente, se tiene que:
+$$
+\sec(\arcsen x)=\dfrac{1}{\cos(\arcsen x)}=\textrm{por lo antes
+visto}=\dfrac{1}{\sqrt{1-x^{2}}}.$$\hecho
+
+\resuelto  Prueba por inducción la igualdad:
+$$
+\sen\frac{x}{2}\left(\sen x+\sen 2x+\cdots+\sen nx\right)=\sen\frac{nx}{2}\sen\frac{n+1}{2}x
+$$
+\sol La igualdad es evidentemente cierta para
+$n=1$. Supongamos que es cierta para un número natural $n$ y
+probemos que entonces lo es también para $n+1$. Tenemos:
+$$
+\sen\frac{x}{2}\left(\sen x+\cdots+\sen nx+\sen(n+1)x\right)=\sen\frac{nx}{2}\sen\frac{n+1}{2}x+\sen\frac{x}{2}\sen(n+1)x
+$$
+En consecuencia, todo se reduce a probar que:
+$$
+\sen\frac{nx}{2}\sen\frac{n+1}{2}x+\sen\frac{x}{2}\sen(n+1)x=
+\sen\frac{(n+1)x}{2}\sen\frac{n+2}{2}x
+$$
+Usando que $\ \sen(2a)=2\sen a\cos a\ $ y que $\ \dis{\sen a+\sen b = 2\sen\frac{a+b}{2}\cos \frac{a-b}{2}}\ $, tenemos:
+\begin{multline*}
+\sen\frac{nx}{2}\sen\frac{n+1}{2}x+\sen\frac{x}{2}\sen(n+1)x=\\ = \sen\frac{nx}{2}\sen\frac{n+1}{2}x+
+\sen\frac{x}{2}\left(2\sen\frac{n+1}{2}x\,\cos\frac{n+1}{2}x\right)=\\
+=\sen\frac{n+1}{2}x\left(\sen\frac{nx}{2}+2\sen\frac{x}{2}\cos\frac{n+1}{2}x\right)=\\
+=\sen\frac{n+1}{2}x\left(\sen\frac{nx}{2}+\sen\frac{n+2}{2}x+\sen\frac{-nx}{2}\right)=\sen\frac{(n+1)x}{2}\sen\frac{n+2}{2}x
+\end{multline*}
+como queríamos probar.\hecho
+
+\resuelto \label{polaresprimer} Sean $a, b\in\R$ tales que $a^{2}+b^{2}=1$ y $a\neq -1$. Definamos
+$$
+\vartheta=2\arctg\frac{b}{a+1}
+$$
+Prueba que $\cos \vartheta = a$, $\sen\vartheta = b$.
+
+\sol Puesto que lo que conocemos es  $\tg(\vartheta/2)$, la idea es relacionarla con $\sen\vartheta$ y con $\cos\vartheta$. Teniendo en cuenta que $\cos x=\cos^2(x/2)-\sen^2(x/2)$, que $\sen x=2\sen(x/2)\cos(x/2)$ y que $1=\sen^2(x/2)+\cos^2(x/2)$, obtenemos:
+\begin{align*}
+\cos x &=\dfrac{\cos^2(x/2)-\sen^2(x/2)}{\sen^2(x/2)+\cos^2(x/2)}=\dfrac{1-\tg^2(x/2)}{1+\tg^2(x/2)}\\
+\sen x &=\rule{0mm}{6mm}\dfrac{2\sen(x/2)\cos(x/2)}{\sen^2(x/2)+\cos^2(x/2)}=\dfrac{\tg(x/2)}{1+\tg^2(x/2)}
+\end{align*}
+Teniendo en cuenta ahora que $a^{2}+b^{2}=1$ y que $\tg(\vartheta/2)=\dfrac{b}{1+a}$, se comprueba fácilmente que:
+$$
+\cos(\vartheta)=\dfrac{1-\tg^2(\vartheta/2)}{1+\tg^2(\vartheta/2)}=a,\qquad
+\sen(\vartheta)=\dfrac{\tg(\vartheta/2)}{1+\tg^2(\vartheta/2)}=b
+$$\hecho
+\resuelto Sea \func{f}{\R}\ una función que verifica las propiedades:
+\begin{enumerate}[a)]
+\item\  $\,f(x+y)=f(x)+ f(y)\,$ para todos $\,x,y\en\R$.
+\item\ $f(xy)=f(x)f(y)$ para todo $x,y\en\R$.
+\end{enumerate}
+Demuestra que o bien $f$ es $f(x)=0$ para todo $x\en\R$ o bien es $f(x)=x$ para todo $x\en\R$.
+
+\sol Si una tal función $f$ se anula en algún $a\neq 0$, resulta que para todo $x\en\R$ se tiene
+$$
+f(x)=f\left(a\dfrac{x}{a}\right)=f(a)f\left(\dfrac{x}{a}\right)=0
+$$
+y $f$ es la función idénticamente nula. Excluido este caso, deberá ser $f(x)\neq 0$ para todo $x\en\R$. Dado $x>0$, tenemos que
+$$
+f(x)=f\big(\sqrt{x}\sqrt{x}\big)=f\big(\sqrt{x}\big)f\big(\sqrt{x}\big)=\left(f\big(\sqrt{x}\big)\right)^2>0
+$$
+Si ahora es $x<y$ se tendrá que
+$$
+f(y)=f(x+(y-x))=f(x)+f(y-x)>f(x)
+$$
+Hemos probado así que $f$ es estrictamente creciente. Sean ahora $m$ y $n\neq 0$ números enteros y $x\en\R$. Por ser $f$ aditiva se tiene que:
+$$
+ n f\left(\dfrac{m}{n}x\right)=f\left(n\dfrac{m}{n}x\right)=f(m x)=m f(x)\Longrightarrow f\left(\dfrac{m}{n}x\right)=\dfrac{m}{n}f(x)
+$$
+Deducimos que $f(rx)=rf(x)$ para todo número racional $r\en\Q$ y todo $x\en\R$. En particular, haciendo $x=1$ y teniendo en cuenta que $f(1)=1$ (consecuencia inmediata de b)), resulta que $f(r)=rf(1)=r$ para todo $r\en\Q$. Si para algún $x\en\R$ se tuviera que $x<f(x)$, entonces tomamos algún racional $r$ tal que $x<r<f(x)$ para obtener la contradicción
+$$
+0<f(r-x)=r-f(x)<0.
+$$
+Análogamente, so puede ser $x>f(x)$. Concluimos que ha de ser $f(x)=x$ para todo $x\en\R$.\hecho
+\end{ejercicios resueltos}
+
+\section{Sobre el concepto de función}
+Estamos acostumbrados a usar la idea de ``función'' para expresar una relación de dependencia entre varias magnitudes; por ejemplo, decimos que ``los precios están en función de los costes de producción''. Toda persona con conocimientos básicos sabe que las derivadas y las integrales son herramientas que se usan para estudiar funciones. Las funciones no solamente se estudian en Cálculo; en todas las ramas de las Matemáticas se estudian funciones de distintos tipos, y puede afirmarse que el concepto de función constituye un vínculo unificador entre todas ellas.
+\begin{figure}[ht]
+    \begin{minipage}{.25\linewidth}
+    \medskip
+      \includegraphics[width=3.5cm]{dirichlet.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright}
+\caption{Dirichlet}
+    \end{minipage}\hspace{4mm}
+    \begin{minipage}{.7\linewidth}
+       Se trata de un concepto muy básico y general que comprende las distintas interpretaciones tradicionales de una función como una tabla de valores, como una curva o como una fórmula. Por todo ello, puede parecer sorprendente que dicho concepto, con su significado actual, sea muy reciente. Suele atribuirse al matemático alemán \href{http://www-groups.dcs.st-and.ac.uk/~history/Biographies/Dirichlet.html}{Dirichlet} la definición, en 1837, del concepto moderno de función. Antes de llegar aquí hubo de recorrerse un largo camino que empieza con la publicación en 1748 del libro de \href{http://es.wikipedia.org/wiki/Leonhard_Euler}{Leonhard Euler} \emph{Introductio in analysin infinitorum} en cuyo primer capítulo, titulado significativamente ``De Functionibus in genere'', esto es, ``Sobre las funciones en general'', Euler da la siguiente definición:\begin{quote}
+\emph{Una función de una cantidad variable es cualquier expresión analítica formada a partir de dicha cantidad variable y números o cantidades constantes.}
+\end{quote}
+    \end{minipage}
+  \end{figure}
+
+También fue Euler quien usó por primera vez la notación $f(x)$ para indicar el valor de una función $f$ en un valor $x$ de la variable. Euler no precisaba lo que entendía por ``cualquier expresión analítica'' pero, sin duda, incluía las series, fracciones y productos infinitos y primitivas. Después de dar esta definición, Euler distingue entre varios tipos de funciones según que puedan o no representarse por medio de una sola expresión analítica.
+ \begin{figure}[ht]
+ \centering
+     \begin{minipage}{.275\linewidth}
+     \medskip
+     \flushleft
+      \includegraphics[width=3.5cm]{euler.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright,margin={3mm,0mm}}
+\caption{Euler}
+    \end{minipage}
+    \begin{minipage}{.7\linewidth}
+      El libro de Euler \emph{Introductio in analysin infinitorum}, del que hay traducción al español, es considerado como el tercero más influyente en toda la historia de las matemáticas (el primero serían los \emph{Elementos} de Euclides (300 adC) y el segundo los \emph{Principia} (1687) de Newton) y tuvo una amplia difusión.
+      En el prefacio de dicho libro, Euler, afirmaba que el Análisis Matemático es la ciencia general de las variables y sus funciones. Esto, que hoy día nos parece una evidencia, estaba muy lejos de serlo en el siglo XVIII. De hecho, matemáticos como Newton, Leibniz, los hermanos Bernouilli y otros muchos en los siglos XVII y XVIII, se expresaban en términos de curvas, superficies, áreas, líneas tangentes.
+    \end{minipage}
+  \end{figure}
+
+En el primer libro de Cálculo \emph{Analyse des infiniment petits, pour l'intelligence des lignes courbes} (L'Hôpital, 1696), como ya se indica en su propio título, lo que se estudia son curvas, no funciones. Esto no tiene nada de extraño. Los métodos del Cálculo Infinitesimal eran todavía muy recientes y sus razonamientos con frecuencia oscuros y confusos, por eso los matemáticos de la época preferían fundamentar sus resultados geométricamente porque, desde Euclides, se había considerado la geometría como el paradigma de la claridad y la perfección lógico -- deductiva.
+
+La necesidad de precisar el concepto de función surgió poco después, de forma muy natural, en el estudio de las vibraciones planas de una cuerda elástica tensa, sujeta por sus extremos, cuya posición inicial en el plano viene dada por una función conocida $\psi(x)$. D'Alembert (1749) y Euler (1750) obtuvieron esencialmente la misma solución, pero discreparon sobre el tipo de función inicial $\psi(x)$ permitida. Mientras que, según D'Alembert, la posición inicial debía venir dada por una función suave (derivable dos veces), Euler insistía en que la evidencia física imponía la consideración de funciones más generales (no derivables, con picos). Él mismo propuso como posición inicial de la cuerda una línea poligonal. Otro matemático, Daniel Bernouilli, propuso en 1753 una solución del problema que tenía como consecuencia que la función $\psi(x)$ podía representarse como suma de una serie trigonométrica infinita. Una situación muy similar a ésta se produjo unos años después, en 1822, como consecuencia de los trabajos de Jean B. Joseph Fourier sobre la propagación del calor.
+
+Los detalles de toda esta historia son muy interesantes pero imposibles de resumir en unas pocas líneas y, además, para poderlos entender hay que tener algunos conocimientos de Análisis Matemático. En esencia, se trata de lo siguiente. En la segunda mitad del siglo XVIII y primera del XIX, al mismo tiempo que los matemáticos seguían considerando que las funciones debían ser continuas y derivables, salvo a lo sumo en una cantidad finita de ``puntos especiales'' (el mismo Euler tenía esta idea), se estaban desarrollando métodos para resolver problemas cada vez más complejos que permitían representar ``funciones cualesquiera'' por medio de expresiones analíticas, principalmente, series de Fourier. Se suponía que una representación de este tipo debía ``transmitir su regularidad'' a la función representada pero, por otra parte, ésta podía ser muy general. El corazón del problema estaba en la confusión de dos conceptos, aparentemente iguales pero muy distintos de hecho, el de función y el de su representación analítica. La separación de estos conceptos llevó a considerar una función con independencia de su representación analítica. De esta forma una función quedaba reducida a un conjunto de valores numéricos completamente independientes asociados a una o varias variables, que es la idea subyacente a la definición moderna debida a Dirichlet (1837):
+\begin{quote}
+\small{``$y$ es una función de una variable $x$, definida en un intervalo $a < x < b$, si para cada valor de la variable $x$ en este intervalo le corresponde un valor concreto de la variable $y$. Además, es irrelevante la forma en la que esta correspondencia se establezca.''}
+\end{quote}
+Esta nueva idea de función llevó a investigar nuevos tipos de funciones que, con frecuencia, tenían un comportamiento inusual. En 1854 Riemann dio un ejemplo de función integrable con infinitas discontinuidades en todo intervalo de longitud positiva. En 1872 Weierstrass sorprende a la comunidad matemática con una función continua que no es derivable en ningún punto. A estos ejemplos de funciones ``patológicas'' pronto les siguen otros. En el siglo XIX la necesidad de una fundamentación rigurosa del Análisis Matemático se hace evidente. El concepto de función sigue en el centro de atención y, aunque dicho concepto siguió discutiéndose casi hasta el final del siglo, hoy se reconoce a Dirichlet haber sido el primero en considerar seriamente la idea de función como una ``correspondencia arbitraria''.
+
+Para ampliar la información pueden visitarse los siguientes sitios en Internet.
+\begin{list}{$\manoright$}{\addtolength{\itemsep}{-5pt}}
+\item Sobre la evolución del concepto de función en\newline
+\href{http://www.maa.org/pubs/Calc_articles/ma001.pdf}{http://www.maa.org/pubs/Calc_articles/ma001.pdf}.
+\item \emph{Las series de Fourier y el desarrollo del Análisis en el siglo XIX} por Fernando Bombal en \href{http://www.ma2.us.es/seminarios/four.pdf}{http://www.ma2.us.es/seminarios/four.pdf}.
+\end{list}
+
+\subsection{El desarrollo del Álgebra y la invención de los logaritmos}
+Con una calculadora de bolsillo, puedes hacer en una hora cálculos que a un astrónomo de los siglos XV o XVI le hubiesen llevado semanas o meses realizar. En aquella época hacer multiplicaciones, divisiones, calcular raíces cuadradas o potencias eran operaciones que requerían mucho tiempo y esfuerzo. La explicación de esto es que el desarrollo del Álgebra fue relativamente tardío. El descubrimiento de las cantidades inconmensurables, y la carencia de una teoría aritmética de las mismas, tuvo como consecuencia el abandono del Álgebra en favor de la Geometría. Se desarrollo así una especie de ``álgebra geométrica'' en la que los números se representaban por segmentos de línea y las operaciones aritméticas fueron sustituidas por construcciones geométricas. Las ecuaciones lineales y cuadráticas fueron resueltas con técnicas geométricas, evitándose así el problema de las magnitudes inconmensurables. De esta forma en las matemáticas griegas el razonamiento geométrico llegó a considerarse como el modelo de razonamiento matemático riguroso. Y así siguió siendo durante más de 2000 años.
+
+Esta ``álgebra geométrica'' fue la causa del retraso en el desarrollo del Álgebra como disciplina independiente. Otra dificultad adicional estaba en el sistema de numeración romano, un sistema de numeración no posicional, que fue el utilizado en Occidente hasta el siglo XI. El sistema de numeración decimal que actualmente usamos, el cero incluido, tuvo su origen en la India y llegó a Occidente a través de los árabes, por eso los nuevos números se llamaron ``números arábigos''. La misma palabra ``Álgebra'' nace en el siglo IX y hace referencia al título del libro \emph{Hisab al-jabr w'al-muqabalah} del nombre de cuyo autor, el matemático Persa, \href{http://es.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Jwarizmi}{Muhammad ibn-Musa al-Jwarizmi} (c.780-850),  deriva la palabra ``algoritmo''.
+
+La paulatina adopción en toda Europa a lo largo de los siglos XI, XII y XIII de los ``números arábigos'' supuso un extraordinario avance que propició la expresión simbólica de las operaciones aritméticas, iniciándose así el desarrollo del Álgebra como disciplina independiente de la Geometría\footnote{Nos referimos, claro está, al Álgebra clásica, esto es, el estudio de las ecuaciones polinómicas y de la naturaleza y propiedades de sus raíces. El Álgebra moderna es el estudio de las estructuras axiomáticas.}. En el siglo XV ya se usan en los cálculos los números negativos y las fracciones, pero los primeros progresos realmente notables no llegaron hasta el siglo XVI, gracias a los trabajos de matemáticos como \href{http://es.wikipedia.org/wiki/Cardano}{Gerolamo Cardano} (1501-1576) que publicó las soluciones de algunas ecuaciones de tercer y cuarto grado en su libro \emph{Ars magna} (1545), y \href{http://es.wikipedia.org/wiki/Fran\%C3\%A7ois_Vi\%C3\%A8te}{Fran\c{c}ois Viète} (1540-1603) que, entre otras cosas, propuso un sistema simbólico que le permitió representar de forma general distintos tipos de ecuaciones.
+
+Hoy nos parece inconcebible una Matemática sin un lenguaje simbólico apropiado, pero éste se desarrolló lentamente a lo largo de los siglos XVI-XVII. Algunos de los siguientes datos están sacados del sitio Web \href{http://www.roma.unisa.edu.au/07305/symbols.htm}{The History of Mathematical Symbols}.
+\begin{list}{\manoright}{\addtolength{\itemsep}{-5pt}}
+\item La primera aparición impresa de los símbolos $+$ y $-$ fue en la aritmética de John Widmann, publicada in 1489 in Leipzig.
+El autor del primer libro de texto sobre álgebra en lengua alemana impreso en 1525, Christoff Rudolff, usa estos símbolos con su significado actual. Durante mucho tiempo se usaron solamente en Álgebra antes de que se generalizara su uso en aritmética.
+\item Había una gran variedad de símbolos para la multiplicación. Fue el matemático inglés William Oughtred quien en su obra \emph{Clavis Mathematicae}, publicada en 1631, dio al símbolo $\times$ el significado que tiene hoy día.
+\item El signo para la igualdad que usamos actualmente fue introducido por el matemático y médico inglés Robert Recorde en su libro \emph{The Whetstone of Witte} (1557). No fue inmediatamente aceptado pues, como ocurría con gran parte de la notación matemática de este período, cada uno tenía su propio sistema, pero hacia 1700 el signo $=$ era ya de uso general.
+\item Aunque las fracciones decimales eran conocidas desde antiguo, no eran usadas con frecuencia debido a la  confusa notación empleada para representarlas. Fue Neper quien introdujo en 1616 el separador decimal (coma o punto), lo que facilitó mucho el uso de las fracciones decimales.
+\item Los símbolos para las desigualdades, $<$ y $>$, con su significado actual fueron introducidos por el matemático inglés Thomas Harriot (1560-1621) en su obra \emph{Artis Analyticae Praxis} publicada en Londres en 1631.
+\end{list}
+En el siglo XV la trigonometría esférica fue adquiriendo cada vez mayor importancia por sus aplicaciones para la navegación astronómica, en la cual debe resolverse un triángulo esférico para trazar la ruta del navío. Para facilitar los cálculos, se
+elaboraron numerosas tablas trigonométricas en las que trabajaron matemáticos como Copérnico (1473-1543), Tycho Brahe (1546-1601), Kepler (1571-1630) y otros. Los cálculos para la realización de estas tablas eran largos y penosos. En este contexto tuvo lugar la invención de los logaritmos por John Neper.
+
+\begin{figure}[ht]
+    \begin{minipage}{.35\linewidth}
+      \includegraphics[width=4cm]{napier.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright}%,margin={3mm,0mm}
+\caption{John Napier}
+    \end{minipage}%\hspace{1cm}%
+    \begin{minipage}{.65\linewidth}
+     John Napier o Neper introdujo los logaritmos en su libro \emph{Mirifici Logarithmorum Canonis Descriptio} (1614). Este trabajo tenía treinta y siete páginas explicando la naturaleza de los logaritmos y noventa páginas de tablas de logaritmos de funciones trigonométricas en las que Neper trabajó durante 20 años antes de publicar sus resultados. En el año 1615 el matemático inglés Henry Briggs (1561-1630)  visitó a Neper en Edimburgo, y le convenció para modificar la escala inicial usada por éste. Nacieron así los logaritmos de base 10 que fueron divulgados por el físico alemán Kepler, extendiéndose su uso en relativamente poco tiempo por toda Europa.
+\end{minipage}
+  \end{figure}
+  Al principio, Neper llamó a los exponentes de las potencias ``numeros artificiales'', pero más tarde se decidió por la palabra logaritmo, compuesta por los términos griegos \emph{logos} (razón) y \emph{aritmos} (número).
+  \begin{quote}
+\emph{Los logaritmos son números, que se descubrieron para facilitar la solución de los problemas aritméticos y geométricos, a través de esto se evitan todas las complejas multiplicaciones y divisiones transformándolo a algo completamente simple a través de la substitución de la multiplicación por la adición y la división por la substracción. Además el cálculo de las raíces se realiza también con gran facilidad.}\vspace{-3mm}
+\vspace{-6mm}
+\begin{flushright}
+Henry Briggs
+\end{flushright}%\flushright{Henry Briggs}
+\end{quote}
+Los logaritmos pasaron a ser una herramienta muy valorada, en especial entre los astrónomos. Laplace se refiere a esto en la siguiente frase.
+\begin{quote}
+\emph{Con la reducción del trabajo de varios meses de cálculo a unos pocos días, el invento de los logaritmos parece haber duplicado la vida de los astrónomos.}\vspace{-3mm}
+\begin{flushright}
+Pierre Simon Laplace
+\end{flushright}
+\end{quote}
+\section{Lo que debes haber aprendido en este capítulo}
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-5pt}}
+\item El concepto de función y el formalismo que usamos para definir una función.
+\item Las operaciones con funciones. La composición de funciones.
+\item Los conceptos de función monótona y de inversa de una función inyectiva.
+\item Las definiciones y propiedades principales de las funciones logarítmicas y exponenciales.
+\item Las definiciones y propiedades principales de las funciones trigonométricas.
+\item Las definiciones y propiedades principales de las funciones arcoseno, arcocoseno y arco\-tan\-gente.
+\item Las definiciones y propiedades principales de las funciones hiperbólicas y sus inversas.
+\end{list}
+
+Como lectura adicional te recomiendo los capítulos 3 y 4 del libro de Michael Spivak \cite{spivak}.
+
+

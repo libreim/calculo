@@ -1,0 +1,2719 @@
+\chapter{Sucesiones}
+
+\section{Introducción}
+
+Las sucesiones aparecen de manera natural en muchos cálculos que
+responden a un esquema iterativo. Por ejemplo, al dividir $2$
+entre $3$ obtenemos ${\dis
+\,\frac{2}{3}=\frac{6}{10}+\frac{2}{3}\frac{1}{10}\,}$, igualdad que
+podemos usar ahora para obtener $$
+\frac{2}{3}=\frac{6}{10}+\left(\frac{6}{10}
++\frac{2}{3}\frac{1}{10}\right)\frac{1}{10}
+=\frac{6}{10}+\frac{6}{10^{2}}+\frac{2}{3}\frac{1}{10^{2}}, $$ y
+de nuevo $$
+\frac{2}{3}=\frac{6}{10}+\frac{6}{10^{2}}+\left(\frac{6}{10}
++\frac{2}{3}\frac{1}{10}\right)\frac{1}{10^{2}}=
+\frac{6}{10}+\frac{6}{10^{2}}+\frac{6}{10^{3}}
++\frac{2}{3}\frac{1}{10^{3}}. $$ Y así podemos continuar
+tantas veces como queramos, obteniendo para cada $n\en\N$ la
+igualdad: $$
+\frac{2}{3}=\sumaf{k=1}{n}\frac{6}{10^{k}}\,+\,\frac{2}{3}\frac{1}{10^{n}}.
+$$ Escribiendo ${\dis \,x_{n}=\sumaf{k=1}{n}\frac{6}{10^{k}}\,}$ tenemos que ${\dis
+\,0<\frac{2}{3}-x_{n}=\frac{2}{3}\frac{1}{10^{n}}}$. Observa que,
+aunque los números $x_{n}$ son {\em todos ellos distintos\/} de
+$\,2/3$, dada una cota de error arbitrariamente pequeña, \epos, y
+tomando $n_{0}\en\N$ de manera que \rule{0cm}{6mm} ${\dis \
+\frac{2}{3}\frac{1}{10^{n_{0}}}<\varepsilon}\,$, deducimos que
+{\em para todo\/} n\'umero natural $n\!\geqslant\!n_{0}$ se verifica
+que \rule{0cm}{5mm} ${\dis \,|x_{n}-2/3|<\varepsilon}\,$, lo que se
+expresa escribiendo ${\dis 2/3=\Lim{\sucn{x}}{n}{\infty}}$.
+
+El ejemplo anterior está relacionado con la expresi\'on decimal de
+$2/3$ que, como todos sabemos, es un decimal peri\'odico con
+período igual a $6$, lo que suele escribirse
+$\,2/3=0,\widehat{6}\,$ igualdad en la que, seg\'un se dice a
+veces, el símbolo $\,0,\widehat{6}\,$ debe interpretarse como
+que el $\,6\,$ \emph{se repite infinitas veces}. ¿Qu\'e quiere
+decir esto? Lo que está claro es que, por mucho tiempo y
+paciencia que tengamos, nunca podremos escribir {\em infinitos\/}
+$\,6\,$ uno detr\'as de otro... bueno, podríamos escribir
+algo como $$ \frac{2}{3}=0,\widehat{6}=0,6666666...({\rm
+\,infinitos\,}6) $$ lo que tampoco sirve de mucho pues seguimos
+sin saber c\'omo se interpreta esta igualdad. Pues bien, para dar
+un significado matem\'atico a lo que se quiere expresar con esa
+igualdad hay que recurrir al concepto de límite de una
+sucesi\'on tal como hemos hecho antes.
+
+Veamos otro ejemplo en esta misma línea. Vamos a intentar
+calcular aproximaciones racionales de $\sqrt{10}$. Si partimos
+inicialmente de un n\'umero $x>\sqrt{10}$, tendremos que ${\dis
+\,\frac{10}{x}<\sqrt{10}<x}$. Pongamos ${\dis
+\,y=\frac{1}{2}\left(x+\frac{10}{x}\right)}$. Entonces, en virtud de
+la desigualdad de las medias, $\sqrt{10}<y$, y como también
+$\,y<x\,$, deducimos que $\,y\,$ está m\'as cerca de $\sqrt{10}$
+que $x$. Podemos ahora repetir este proceso sustituyendo $\,x\,$ por
+$\,y\,$ obteniendo una nueva aproximaci\'on mejor de $\sqrt{10}$.
+N\'otese que si $x$ es racional tambi\'en lo será $y$. Esto
+sugiere que, partiendo de un valor inicial, por ejemplo
+$x_{1}\!=4$, calculemos ${\dis
+\,x_{2}=\frac{1}{2}\left(x_{1}+\frac{10}{x_{1}}\right)}$, y
+despu\'es ${\dis
+\,x_{3}=\frac{1}{2}\left(x_{2}+\frac{10}{x_{2}}\right)}$, y así
+podemos continuar tantas veces como queramos, obteniendo para cada
+$n\in\N$ un n\'umero $x_{n}$ tal que $$
+x_{n+1}\!=\frac{1}{2}\left(x_{n}+\frac{10}{x_{n}}\right) $$ con
+$x_{1}\!=4$. Con una calculadora manual obtenemos enseguida los
+valores \makebox{$\,x_{2}\!=\!3,25$;}\linebreak \makebox{$\,
+x_{3}\!=\!3,1634615\,;\ x_{4}\!=\!3,1622779\,$} con seis cifras
+decimales exactas:
+$$ 0<x_{4}-\sqrt{10}=\frac{x_{4}^{2}-10}{x_{4}+\sqrt{10}}<
+\frac{x_{4}^{2}-10}{6}<\frac{0,000005}{6}<\frac{1}{10^{6}} $$ es
+decir, $x_{4}$ coincide con $\sqrt{10}$ hasta la sexta cifra
+decimal. De hecho, como $\makebox{$x_{n}\!>\!\sqrt{10}$}$ tenemos
+que: $$
+0<x_{n+1}-\sqrt{10}=\frac{1}{2}\left(x_{n}+\frac{10}{x_{n}}\right)-\sqrt{10}
+<\frac{1}{2}x_{n}+\frac{1}{2}\sqrt{10}-\sqrt{10}=\frac{1}{2}(x_{n}-\sqrt{10})
+$$ de donde se sigue que ${\dis
+\,0<x_{n+1}-\sqrt{10}<\frac{1}{2^{n}}(x_{1}-\sqrt{10})<\frac{1}{2^{n}}}$,
+por tanto, dado cualquier \epos, y tomando $n_{0}\in\N$ tal que
+$\,2^{-n_{0}}<\varepsilon$, deducimos que {\em para todo} n\'umero
+natural $\,n\geqslant n_{0}$ se verifica que
+$\,|x_{n}-\sqrt{10}\,|<\varepsilon$, lo que simbólicamente se
+expresa escribiendo \makebox{${\dis
+\,\sqrt{10}=\Lim{\sucn{x}}{n}{\infty}}$}.
+
+En los ejemplos anteriores hemos dado por supuesto que ya tienes
+cierta familiaridad con los conceptos de ``sucesi\'on'' y de
+``límite de una sucesi\'on'' de los cuales vamos a ocuparnos
+a continuaci\'on con detalle.
+
+
+
+\section{Sucesiones de números reales}
+%\subsection{Sucesión de elementos de un conjunto}
+\begin{definicion}
+Sea $A$ un conjunto no vacío. Una \textbf{sucesi\'on} de elementos de
+$A$ es una \emph{aplicaci\'on} del conjunto \N\ de los n\'umeros
+naturales en $A$. En particular, una sucesi\'on de n\'umeros reales es
+una \emph{aplicaci\'on} del conjunto \N\ de los n\'umeros naturales
+en el conjunto \R\ de los n\'umeros reales.
+\end{definicion}
+Por ahora, solamente consideraremos sucesiones de
+n\'umeros reales por lo que nos referiremos a ellas simplemente
+como ``sucesiones''.
+
+\noindent \textbf{Notación.} Dada una sucesi\'on, \func{\ff}{\N}, suele emplearse una notaci\'on
+especial para representarla. Para $n\en\N$ suele representarse el
+n\'umero real $\ff (n)$ en la forma {\mbox{$x_{n}\!=\ff (n)$}}
+(naturalmente la letra ``$x$'' nada tiene de especial y puede
+sustituirse por cualquier otra). La sucesi\'on misma se representa
+por $\ff = \sucN{x}{n}$, es decir, el símbolo \sucN{x}{n}\ debe
+interpretarse como la \emph{aplicaci\'on} que a cada $n\en\N$
+hace corresponder el n\'umero real $x_{n}$. Cuando no hay
+posibilidad de confusi\'on, escribimos simplemente \sucn{x}\ en vez
+de \sucN{x}{n}.
+
+Conviene insistir en que \sucn{x}\ es, por
+definici\'on, la \emph{aplicaci\'on} de \N\ en \R\ dada por $n\mapsto
+x_{n}$. No hay que\marginpar{\flushright\curvasr} confundir la sucesi\'on \sucn{x}, que es una
+aplicaci\'on, con su \emph{conjunto imagen}, que es el subconjunto de
+\R\ formado por todos los n\'umeros $x_{n}$, el cual se representa
+por $\{x_{n}:n\in\N\}$. Por ejemplo, \suc{(-1)^{n}}\ y
+\suc{(-1)^{n+1}}\ son sucesiones distintas con el mismo conjunto
+imagen.
+
+El n\'umero $\,x_{n}$ se llama {\em t\'ermino n-\'esimo\/}
+de la sucesi\'on; para $n=1, 2, 3$ se habla respectivamente de
+primero, segundo, tercer t\'ermino de la sucesi\'on. Una forma apropiada de considerar una sucesión es como un vector con infinitas componentes (los términos de la sucesión), de esta forma no te quedará duda de que las sucesiones  \suc{(-1)^{n}}\ y
+\suc{(-1)^{n+1}}\ son distintas pues se corresponden con los vectores $(-1,1,-1,1,\dots)$ y $(1,-1,1,-1,\dots)$.
+
+\subsection{Sucesiones convergentes}
+\begin{definicion}\label{def:succonvergente} Una sucesi\'on \sucn{x}\ se dice que \textbf{converge} a un n\'umero real $x$ si, dado cualquier n\'umero real \epos, existe un n\'umero natural $m_{\varepsilon}$ tal que si $n$ es cualquier n\'umero natural mayor o igual que $m_{\varepsilon}$ se cumple que $\,|x_{n}\!-x|<\varepsilon$. Simbólicamente:
+\begin{equation}\label{eq:succonvergente}
+\forall\epos\ \ \exists m_{\varepsilon}\en\N\ : n\geqslant
+m_{\varepsilon}\Rightarrow |x_{n}\!-x|<\varepsilon
+\end{equation}
+Se dice tambi\'en que el n\'umero $x$ es \textbf{límite de la sucesi\'on} \sucn{x}, y se escribe $\Lim{\sucn{x}}{n}{\infty}=x$ o, simplemente, $\lim\sucn{x}=x$ e incluso, si no hay posibilidad de confusi\'on, $\sucn{x}\rightarrow x$.
+\end{definicion}
+Teniendo en cuenta que la desigualdad $\,|x_{n}\!-x|<\eps\,$ equivale a la doble desigualdad
+$\,x-\eps<x_{n}<x+\eps\,$ o, lo que es igual, $x_{n}\!\in ]x-\eps,x+\eps[$, la definición anterior lo que dice es que \sucn{x}\ converge a $x$ cuando, dado cualquier intervalo abierto $]x-\eps,x+\eps[$, se verifica que \emph{todos los términos de la sucesión a partir de uno en adelante} están en dicho intervalo.
+
+El n\'umero natural $\,m_{\varepsilon}$, cuya existencia se afirma en la definici\'on anterior, cabe esperar que dependa del n\'umero \epos, lo que explica la notaci\'on empleada. Lo usual es que $m_{\varepsilon}$ tenga que ser tanto m\'as grande cuanto m\'as peque\~no sea el n\'umero \epos. Conviene observar que si $p$ es un n\'umero natural tal que $p>m_{\varepsilon}$, entonces para $p$, al igual que para $m_{\varepsilon}$, se verifica que si $n$ es cualquier n\'umero natural mayor o igual que $p$ se cumple que $|x_{n}\!-x|<\varepsilon$. Es decir, si \sucn{x}\ converge a $x$, entonces para cada \epos\ dado hay, de hecho, \emph{infinitos} n\'umeros naturales $m_{\varepsilon}$ para los que se satisface la condición \ref{eq:succonvergente}.
+
+La definici\'on \ref{def:succonvergente}\ es t\'\i{}pica del An\'alisis pues en ella se est\'a definiendo \emph{una igualdad}, a saber, $\lim\sucn{x}=x\,$, en t\'erminos de {\em desigualdades\/}: $|x_{n}-x|<\eps$ siempre que $n\geqslant m_{\varepsilon}$.
+Observa también que, de la definición dada, se deduce enseguida que $\sucn{x}\rightarrow x$ es lo mismo que $\set{x_n-x}\rightarrow 0$.
+
+Veamos con unos sencillos, pero importantes ejemplos, c\'omo se usa la definici\'on \ref{def:succonvergente}\ para probar que una sucesi\'on converge.
+
+\begin{ejemplo}
+\emph{La sucesi\'on $\suc{1/n}$ es convergente a cero.}
+
+Para probarlo, dado  \epos, tenemos que encontrar un $m\en\N$ tal que para todo $n\geqslant
+m$ se verifique que $|1/n-0|=1/n<\eps$. Como $1/n\leqslant 1/m$ siempre que $n\geqslant
+m$, bastar\'a tomar como n\'umero $m$ cualquier natural que verifique que $1/m<\eps$, es
+decir, $ m>1/\eps$. Que, efectivamente, hay n\'umeros naturales, $m$, que verifican
+la condici\'on $m>1/\eps$  cualquiera sea el n\'umero \epos\ dado, es justamente
+lo que dice la propiedad arquimediana \eqref{th:arquimediana}\ del orden de \R. Pues bi\'en, cualquier $m\en\N$ tal
+que $m>1/\eps$ nos sirve como apropiado $m_{\varepsilon}$, pero parece razonable tomar el
+m\'as peque\~no de todos ellos que ser\'a la parte entera de $1/\eps$ m\'as una unidad, es
+decir, $m_{\varepsilon}=E(1/\eps)+1$ . Hemos demostrado as\'\i{} que $\lim\suc{1/n}=0$.
+\end{ejemplo}
+
+\smallskip
+
+\begin{ejemplo}
+{\em Dado un n\'umero real $x\in ]-1,1[$, se verifica que la sucesi\'on de las potencias de
+$x$, \suc{x^{n}}, converge a cero.}
+
+En efecto, como $|x|<1$ podemos escribir $|x|$ en la forma $|x|=1/(1+\rho)$ para conveniente
+$\rho>0$ (de hecho $\rho=\frac{1-|x|}{|x|}$ pero eso no interesa ahora). Dado \epos,
+puesto que $$
+|x^{\,n}-0|=|x|^{n}=\frac{1}{(1+\rho)^{n}}\leqslant\frac{1}{1+n\rho}<\frac{1}{n\rho} $$ {\em
+bastar\'a\/} tomar un $m_{\varepsilon}$ tal que $\frac{1}{\rho m_{\varepsilon}}<\eps$, por
+ejemplo, $m_{\varepsilon}=E\left(\frac{1}{\rho\eps}\right)+1$, para garantizar que
+$|x^{\,n}-0|<\eps$ siempre que $n\geqslant m_{\varepsilon}$.
+\end{ejemplo}
+
+\smallskip
+
+\begin{ejemplo}\label{ej:seriegeometrica}
+{\em Dado  $x\in ]-1,1[$, se verifica que la sucesi\'on \suc{1+x+x^{2}+\cdots+x^{n}},
+llamada \textbf{serie geom\'etrica de raz\'on} $x$, converge a $\dis\frac{1}{1-x}$.}
+
+En efecto, como $$ \left|1+x+x^{2}+\cdots+x^{\,n}-\frac{1}{1-x}\right|=\frac{|x|^{n+1}}{1-x}
+$$ poniendo, igual que antes, $|x|=1/(1+\rho)$  para conveniente $\rho>0$, y teniendo en cuenta
+que $0<1-|x|\leqslant 1-x$, y el ejemplo anterior deducimos que:
+ $$ \left|1+x+x^{2}+\cdots+x^{\,n}-\frac{1}{1-x}\right|
+\leqslant\frac{|x|}{1-|x|}|x|^{n}\!=\frac{1}{\rho}|x|^{n}<\frac{1}{n\rho^{2}} $$ por lo que,
+dado \epos\, para todo $n\geqslant m_{\varepsilon}=E\left(\frac{1}{\eps\rho^{2}}\right)+1$
+se verifica que $$ \left|1+x+x^{2}+\cdots+x^{\,n}-\frac{1}{1-x}\right|<\eps. $$
+\end{ejemplo}
+
+Si demostrar, aplicando la definici\'on \ref{def:succonvergente}, que una sucesi\'on dada es convergente puede ser
+complicado, suele serlo todav\'\i{}a m\'as probar, usando dicha definici\'on, que una sucesi\'on no converge.
+
+\begin{ejemplo}
+{\em La sucesi\'on \suc{(-1)^{n}}\ no es convergente.}
+
+En efecto, sea $x\en\R$ y definamos $\eps_{x}=\max\{|1\!-x|/2,|1\!+x|/2 \}$. Claramente
+$\eps_{x}>0$. Puesto que $\,|(\!-1)^{2m}\!-x|\!=|1\!-x|$, $\,|(\!-1)^{2m+1}\!-x|\!=|1\!+x|\,$ y
+alguno de estos n\'umeros es mayor que $\eps_{x}$ deducimos que, dado $x\en\R$, se verifica
+que {\em existe\/} un n\'umero $\eps_{x}>0$, tal que {\em cualquiera sea\/} $m\en\N$ se
+verifica que {\em hay alg\'un\/} natural $n$, por ejemplo $n=2m\,$ o $\,n=2m+1$, mayor que
+$m$ y para el que no se verifica que $\,|(-1)^{n}\!-x|<\eps_{x}$. Es decir, hemos probado
+que \suc{(-1)^{n}}\ no converge a $x$. Puesto que en nuestro razonamiento $x$ puede ser
+cualquier n\'umero real concluimos, finalmente, que \suc{(-1)^{n}}\ no es convergente.
+\end{ejemplo}
+
+\smallskip
+
+Conviene precisar algunas expresiones de uso frecuente al tratar con sucesiones.
+
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-6pt}}
+\item Cuando se dice que una cierta propiedad se satisface por {\em todos los t\'ermi\-nos de una
+sucesi\'on \sucn{x}\ a partir de uno en adelante}, lo que se quiere decir es que existe
+$\,m\en\N,$ tal que para todo $\,n\geqslant m\,$ el n\'umero $\,x_{n}$ satisface dicha
+propiedad.
+\item Cuando se dice que una cierta propiedad se satisface por {\em infinitos t\'ermi\-nos de una
+sucesi\'on\/} \sucn{x}, lo que se quiere decir es que el conjunto de todos los {\bf n\'umeros
+naturales} $\,n$, tales que $\,x_{n}$ satisface dicha propiedad, es infinito.
+\item Cuando se dice que una cierta propiedad se satisface por {\em un n\'umero finito de t\'erminos
+de una sucesi\'on\/} \sucn{x}, lo que se quiere decir es que el conjunto de todos los {\bf
+n\'umeros naturales} $\,n$, tales que $\,x_{n}$ satisface dicha propiedad, es finito.
+\end{list}
+
+El siguiente resultado, muy sencillo, es tambi\'en muy \'util.
+
+\begin{proposicion}
+Sea \sucn{x}\ una sucesi\'on y $x$ un n\'umero real. Equivalen las siguientes afirmaciones:
+
+i) \sucn{x}\ converge a $x$.
+
+ii) Para todo intervalo abierto $I$ que contiene a $x$ se verifica que todos los
+t\'erminos de la sucesi\'on \sucn{x}\ a partir de uno en adelante est\'an en $I$.
+\end{proposicion}
+\dem Que {\em ii)\/} implica {\em i)\/} es consecuencia inmediata del comentario que sigue a la
+definici\'on \ref{def:succonvergente}. Probaremos que {\em i)\/} implica {\em ii)}. Dado un intervalo abierto
+$I$ tal que $x\en I$, existir\'a un n\'umero \epos\ (que depender\'a del intervalo
+$I$) tal que $]x-\eps,x+\eps[\subseteq I$. Para dicho \epos\ existe, por hip\'otesis, un
+n\'umero natural $m$ tal que para todo $n\geqslant m$ se verifica que $x_{n}\in
+]x-\eps,x+\eps[$ y, por tanto, $x_{n}\en I$.\fin
+
+Observa que en la definici\'on~\ref{def:succonvergente}\ no se exige que el l\'\i{}mite sea \'unico, por ello si
+\sucn{x}\ converge a $x$ es l\'\i{}cito preguntar si puede haber otro n\'umero real $y$
+{\em distinto\/} de $x$ tal que \sucn{x}\ tambi\'en converja a $y$. La respuesta es que
+no. En efecto, si $\sucn{x}\rightarrow x$, dado $y\neq x$, hay intervalos abiertos $I$, $J$
+tales que $x\en I$, $y\en J$ e $I\cap J=\vac$ (por ejemplo las semirrectas
+$]\!\leftarrow,\frac{x+y}{2}[$ y $]\frac{x+y}{2},\rightarrow\!\![$). Sabemos, por la
+proposici\'on anterior, que todos los t\'erminos de \sucn{x}\ a partir de uno en adelante
+est\'an en $I$, por tanto s\'olo puede haber un n\'umero finito de t\'erminos en $J$.
+Concluimos, en virtud de la misma proposici\'on, que \sucn{x}\ no converge a $y$. Hemos
+probado que si \sucn{x}\ es convergente, el n\'umero real $\lim\sucn{x}$ est\'a determinado de
+manera \'unica.
+
+\begin{proposicion}
+Una sucesión convergente tiene un único límite.
+\end{proposicion}
+
+Para estudiar la convergencia de una sucesi\'on dada no suele ser lo
+m\'as aconsejable usar, de entrada, la definici\'on~\ref{def:succonvergente}. Es preferible intentar primero otros
+caminos. Generalmente lo que suele hacerse en la pr\'actica consiste en relacionar dicha
+sucesi\'on con otras m\'as sencillas o que ya han sido previamente estudiadas y deducir de dicha
+relaci\'on si nuestra sucesi\'on es o no es convergente y, cuando lo sea, el valor de su
+l\'\i{}mite. Por ello son de gran utilidad los resultados que siguen en los que se estudia
+c\'omo se comportan las sucesiones convergentes respecto de las estructuras algebraica y de orden
+de \R.
+
+\subsection{Sucesiones convergentes y estructura de orden de \R}
+La siguiente estrategia, útil para probar desigualdades, se usa con frecuencia.
+\begin{estrategia}
+Sean $x$ e $y$ números reales. Equivalen las siguientes afirmaciones:\vspace{-6pt}
+\begin{list}{${}$}{\addtolength{\itemsep}{-6pt}}
+\item a)\ $x\le y$.
+\item b)\ Para todo número $z>y$ se verifica que $x<z$.
+\item c)\ Para todo número \epos, se verifica que $x<y+\eps$.
+\end{list}
+\end{estrategia}
+\dem Es evidente que a) $\Longrightarrow$ b) $\Longrightarrow$ c). Probemos que c) $\Longrightarrow$ a). Supuesto que para todo número \epos, se verifica que $x<y+\eps$ debe ocurrir que $x\le y$ pues, en otro caso, si fuera $y<x$, tomando $\eps=x-y$ debería verificarse que $x<y+\eps=y+(x-y)=x$, esto es, $x<x$ lo que es contradictorio.\fin
+
+\begin{proposicion} Supongamos que $\lim\sucn{x}=x\,$, $\lim\sucn{y}=y\,$ y que
+existe $m\en\N$ tal que para todo $n\geqslant m$ se tiene que
+$x_{n}\leqslant y_{n}$. Entonces se verifica que $\,x\leqslant y$.
+\end{proposicion}
+\dem Sea \epos, probaremos que $x<y+\eps$. Por hip\'otesis
+existen números naturales $m_{1}$ y $m_{2}$ tales que para todo $p\geqslant m_{1}$ se tiene que
+$
+x-\eps/2<x_{p}<x+\eps/2
+$
+y todo $q\geqslant m_{2}$ se tiene que $y-\eps/2<y_{q}<y+\eps/2$. Tomando un número natural $n\ge\max\set{m,m_1,m_2}$, se verifican las dos desigualdades anteriores y también la del enunciado, luego:
+$$
+x-\eps/2<x_n\le y_n<y+\eps/2\quad\Longrightarrow\quad x<y+\eps.
+$$
+Como queríamos probar.\fin
+
+Respecto al resultado anterior, conviene advertir que {\em aunque las desigualdades sean estrictas
+no puede asegurarse que {\mbox{$\lim\sucn{x}=x$}} sea estrictamente \marginpar{\flushright\curvasr}
+menor que $\lim\sucn{y}=y$}. Por ejemplo, si $x_{n}\!=0$ e
+$y_{n}\!=\!1/n$, es claro que $x_{n}<y_{n}$ para todo $n\en\N$ pero
+$x=0=y$.
+
+\smallskip
+
+\begin{proposicion}[\textbf{Principio de las sucesiones encajadas}]\label{prop:encajadas}
+Suponga\-mos que \sucn{x}, \sucn{y}, \sucn{z}\ son sucesiones tales que $\,\lim\sucn{x}=\lim\sucn{z}=\upalpha\,$ y existe un n\'umero natural $m_{0}$ tal que para todo $n\geqslant m_{0}$ se verifica que $x_{n}\leqslant y_{n}\leqslant z_{n}$, entonces la sucesi\'on \sucn{y}\ es convergente y $\lim\sucn{y}=\upalpha$.
+\end{proposicion}
+\noindent\textbf{Demostración}. Sea \epos. Por hip\'otesis existen
+$m_{1},m_{2}$ tales que para todo $p\geqslant m_{1}$ y todo $q\geqslant m_{2}$
+\begin{equation}
+\upalpha-\eps<x_{p}<\upalpha+\eps\qquad {\rm y}\qquad \upalpha-\eps<z_{q}<\upalpha+\eps \label{eq:1}
+\end{equation}
+Sea $m_{3}=\max\{m_{0},m_{1},m_{2}\}$. Para todo $n\geqslant m_{3}$ las desigualdades~(\ref{eq:1}) se cumplen para $p=q=n$. Adem\'as como $\,n\geqslant m_{0}$ se tiene que $x_{n}\!\leqslant y_{n}\!\leqslant z_{n}$. Deducimos que, para todo $n\geqslant m_{3}$ se verifica que:
+$$
+\upalpha-\eps<x_{n}\!\leqslant y_{n}\!\leqslant z_{n}<\upalpha+\eps,
+$$
+y, por tanto, $\upalpha-\eps<y_{n}<\upalpha+\eps$. Hemos probado así que $\lim\sucn{y}=\upalpha$.\fin
+
+Una consecuencia inmediata de este resultado es que si cambiamos arbitrariamente un n\'umero finito de t\'erminos de una sucesi\'on, la nueva sucesi\'on así obtenida es convergente si lo era la de partida y con su mismo límite. Esto es lo que dice el
+siguiente resultado.
+
+
+\begin{corolario}
+Sean \sucn{x}\ e \sucn{y}\ sucesiones cuyos t\'erminos son iguales a partir de uno en adelante,
+es decir, hay un n\'umero natural $m_{0}$ tal que para todo $n\geqslant m_{0}$ es
+$\,x_{n}\!=y_{n}$. Entonces \sucn{x}\ converge si, y s\'olo si, \sucn{y}\ converge en cuyo caso
+las dos sucesiones tienen igual l\'{\i}mite.
+\end{corolario}
+
+El principio de las sucesiones encajadas es de gran utilidad y se usa con mucha frecuencia. Naturalmente, cuando apliquemos dicho principio a un caso concreto, la sucesi\'on \sucn{y}\ del enunciado será la que queremos estudiar y tendremos que ser capaces de ``inventarnos'' las sucesiones \sucn{x}\ y \sucn{z}\ de manera que se cumplan las condiciones del enunciado. Veamos un ejemplo.
+
+\begin{ejemplo}
+{\em La sucesi\'on $\{\sqrt[n]{n}\}$ es convergente a 1.}
+
+Pongamos $y_{n}=\sqrt[n]{n}$. La elecci\'on de \sucn{x}\ es inmediata: $\,x_{n}=1$. Un poco
+m\'as dif\'\i{}cil es la elecci\'on de \sucn{z}. Para ello apliquemos la desigualdad de las
+medias a los n\'umeros $x_{1}\!=x_{2}\!=\cdots=x_{n-2}\!=1,\ x_{n-1}\!=x_{n}\!=\sqrt{n}$
+para obtener que para todo $n\geqslant 2$ es:
+\begin{equation}\label{eq:desraizn}
+\sqrt[n]{n}\leqslant\frac{n-2+2\sqrt{n}}{n}<1+\frac{2}{\sqrt{n}}.
+\end{equation}
+Por tanto tomando $\dis z_{n}=1+\frac{2}{\sqrt{n}}\,$, es inmediato que $\lim\sucn{z}=1$ y concluimos, por el principio
+de las sucesiones encajadas, que $\lim\suc{\sqrt[n]{n}}=1$.
+\end{ejemplo}
+
+
+\subsection{Sucesiones monótonas}
+
+\begin{definicion} Una sucesi\'on \sucn{x}\ se dice que es:
+
+\noindent\textbf{Mayorada o acotada superiormente} si su conjunto
+imagen está mayorado, es decir, si hay un n\'umero $\mu\!\in\!\R$
+tal que $x_{n}\!\leqslant\mu $ para todo $n\in\N$.
+
+\noindent\textbf{Minorada o acotada inferiormente} si su conjunto
+imagen está minorado, es decir, si hay un n\'umero $\lambda\in\R$
+tal que $\lambda\leqslant x_{n}$ para todo $n\in\N$.
+
+\noindent\textbf{Acotada} si su conjunto imagen está mayorado y
+minorado, equivalentemente, si hay un n\'umero $M\in\Rp$ tal que
+$\,|x_{n}|\leqslant M\,$ para todo $n\in\N$.
+
+\noindent \textbf{Creciente} si $\,x_{n}\!\leqslant x_{n+1}$ para
+todo $n\in\N$.
+
+\noindent \textbf{Estrictamente creciente} si $\,x_{n} < x_{n+1}$
+para todo $n\in\N$.
+
+\noindent \textbf{Decreciente} si $\,x_{n}\!\geqslant x_{n+1}$ para
+todo $n\in\N$.
+
+\noindent \textbf{Estrictamente decreciente} si $\,x_{n} > x_{n+1}$
+para todo $n\in\N$.
+
+\noindent \textbf{Mon\'otona} si es creciente o decreciente.
+
+\noindent \textbf{Estrictamente mon\'otona} si es estrictamente
+creciente o decreciente.
+\end{definicion}
+
+Observa que si una sucesi\'on \sucn{x}\ es creciente (resp.\
+decreciente) entonces se verifica que $x_{m}\!\leqslant x_{n}$
+(resp.\ $x_{m}\!\geqslant x_{n}$) siempre que $m\leqslant n$.
+
+Conviene advertir que cuando se dice que una sucesi\'on es
+mon\'otona {\em no se excluye\/} la posibilidad de que, de hecho,
+sea estrictamente mon\'otona. Es por ello que, en general, suele
+hablarse de sucesiones mon\'otonas y tan s\'olo cuando tiene
+alg\'un inter\'es particular se precisa si son estrictamente
+mon\'otonas.
+
+
+\begin{proposicion}
+\label{prop:convergente-acotada} Toda sucesi\'on convergente está acotada.
+\end{proposicion}
+\noindent\textbf{Demostración}. Supongamos que $\lim\sucn{x}=x$. Todos los t\'erminos de \sucn{x}\ a partir de uno en adelante estar\'an en el intervalo $]x-1,x+1[$, es decir, hay un n\'umero $\,m\in\N$ tal que para todo $n\geqslant m$ se verifica que $|x_{n}\!-x|<1$, lo que implica que $$ |x_{n}\!|\leqslant |x_{n}\!-x| + |x|<1+|x| \qquad \mbox{\rm para todo $n\geqslant m$.} $$ Tomando
+$M=\max\{1\!+\!|x|,|x_{1}|,\cdots\,,|x_{m}|\}$, tenemos que
+$\,|x_{n}|\leqslant M$ para todo $n\en\N$.\fin
+
+La proposici\'on anterior es \'util a veces para probar que una sucesi\'on {\em no\/} es convergente: para ello basta probar que no está acotada.
+
+\begin{ejemplo}\label{ej:armonica}
+\emph{La sucesi\'on \suc{H_{n}}\ definida para todo $n\en\N$ por: $$H_{n}=\sumaf{k=1}{n}\frac{1}{k}=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$$ no es
+convergente.}
+
+Para todo $n\en\N$ tenemos que:
+\begin{eqnarray}
+\nonumber \sumaf{k=1}{2^{n}}\frac{1}{k}&=&
+1\!+\!\frac{1}{2}\!+\!\left(\!\frac{1}{3}\!+\!\frac{1}{4}\!\right)\!+
+\!\left(\!\frac{1}{5}\!+\!\frac{1}{6}\!+\!\frac{1}{7}\!+\!\frac{1}{8}\!\right)\!+\cdots+
+\!\left(\!\frac{1}{2^{n}-1}\!+\cdots+\!\frac{1}{2^{n}}\!\right)\!\geqslant
+\\
+          &\geqslant& \!1\!+\!\frac{1}{2}\!+\!\left(\!\frac{1}{4}\!+\!\frac{1}{4}\!\right)\!+
+\!\left(\!\frac{1}{8}\!+\!\frac{1}{8}\!+\!\frac{1}{8}\!+\!\frac{1}{8}\!\right)\!+\cdots+
+\!\left(\!\frac{1}{2^{n}}\!+\cdots+\!\frac{1}{2^{n}}\!\right)\!=\!1\!+\!\frac{n}{2}\label{ej:armonicadiv}
+\end{eqnarray}
+de donde se deduce que la sucesi\'on $\left\{\sum_{k=1}^{n}\!1/k\right\}$ no est\'a mayorada. Esta sucesi\'on recibe el nombre de \textbf{serie arm\'onica}.
+\end{ejemplo}
+
+La proposici\'on recíproca de la anterior no es cierta: la sucesi\'on \suc{(-1)^{n}}\ es acotada y {\em no\/} es convergente. No obstante, hay un caso especial muy importante en que sí es cierta la recíproca.
+
+\begin{teorema}\label{monotonas}
+Toda sucesi\'on mon\'otona y acotada es convergente. M\'as con\-cre\-ta\-men\-te, si una sucesi\'on \sucn{x}\ es:
+
+\noindent i) Creciente y mayorada, entonces $\lim\sucn{x}=\beta$, donde $\beta=\sup\{x_{n}:n\en\N\}$.
+
+\noindent ii) Decreciente y minorada, entonces $\lim\sucn{x}=\alpha$, donde $\alpha=\inf\{x_{n}:n\en\N\}$.
+\end{teorema}
+\noindent\textbf{Demostración}. Probaremos $i)$ quedando la demostraci\'on de $ii)$ como ejercicio. La hip\'otesis de que \sucn{x}\ es mayorada garantiza, en virtud del principio del supremo, la existencia del n\'umero real $\,\beta=\sup\{x_{n}\!:n\in\N\}$. Dado \epos, tiene que existir un t\'ermino $\,x_{m}$ de la sucesi\'on tal que $\,\beta-\eps<x_{m}$. Puesto que la sucesi\'on es creciente para todo $n\geqslant m$ se verificará que $\,x_{m}\!\leqslant x_{n}$, y por tanto $\,\beta-\eps<x_{n}$. En consecuencia $\,\beta-\eps<x_{n}<\beta+\eps\,$ para todo $n\geqslant m$. Hemos probado así que $\lim\sucn{x}=\beta$.\fin
+
+\begin{ejemplo}\label{ej:log2}
+La sucesi\'on \sucn{x}\ definida por $\dis
+x_{n}\!=\sumaf{k=n+1}{2n}\!\frac{1}{k}$, es convergente.
+
+En efecto, como $$ x_{n+1}\!-x_{n}\!=\!\frac{1}{2n+2}\!+\!\frac{1}{2n+1}\!-\!\frac{1}{n+1}
+>\! \frac{1}{2n+2}\!+\!\frac{1}{2n+2}\!-\!\frac{1}{n+1}\!=0
+$$ se sigue que $x_{n+1}\!>x_{n}$ para todo $n\in\N$, es decir, es una sucesi\'on
+creciente. Adem\'as $$ x_{n}\!\leqslant
+\frac{1}{n+1}+\stackrel{(n}{\cdots}+\frac{1}{n+1}=\frac{n}{n+1}<1
+$$ por lo que tambi\'en está mayorada. Concluimos, por el
+teorema anterior, que dicha sucesi\'on es convergente.
+\end{ejemplo}
+
+\subsubsection{El número $\mb{\e}$\label{defnumeroe}}
+En el ejercicio \ref{numeroe} hemos probado que la sucesión
+$\,x_n=\left(1+\dfrac{1}{n}\right)^n$ es creciente y que la sucesión
+$\,y_n=\left(1+\dfrac{1}{n}\right)^{n+1}$ es decreciente. Como
+$0<y_n$, se sigue que \sucn{y}\ es convergente. Puesto que
+$$x_n=y_n\left(1+\dfrac{1}{n}\right)^{-1}=y_n\dfrac{n}{n+1}$$
+se sigue que \sucn{x}\ también es convergente y
+$\lim\sucn{x}=\lim\sucn{y}$. El valor común de este límite es un
+número real que se representa con el símbolo $\e$. Como consecuencia
+del teorema \ref{monotonas}, se verifica que:
+$$
+\e=\sup\left\{\left(1+\dfrac{1}{n}\right)^n: n\en\N\right\}=
+\inf\left\{\left(1+\dfrac{1}{m}\right)^{m+1}: m\en\N\right\}
+$$
+En particular, para todos $n,m\en\N$ se verifica que:
+\begin{equation}\label{eq:numeroe}
+\psframebox[linewidth=.6pt]{\qquad
+\left(1+\dfrac{1}{n}\right)^n<\e<\left(1+\dfrac{1}{m}\right)^{m+1}\qquad}
+\end{equation}
+
+\subsection{Sucesiones convergentes y estructura algebraica de \R}
+En los resultados anteriores han intervenido de manera esencial las
+propiedades de la estructura de orden de \R. Vamos a estudiar ahora
+el comportamiento de las sucesiones convergentes respecto de la
+adici\'on y el producto de n\'umeros reales. Los resultados que
+vamos a obtener, conocidos tradicionalmente con el nombre de {\em
+\'algebra de límites}, son b\'asicos para el estudio de la
+convergencia de sucesiones.
+
+Dadas dos sucesiones \sucn{x}\ e \sucn{y}, se define su
+\textbf{suma} como la sucesi\'on \suc{x_{n}\!+y_{n}}\ y su
+\textbf{producto} como la sucesi\'on \suc{x_{n}y_{n}}.
+
+\begin{proposicion}\label{prop:nula-acotada}
+El producto de una sucesi\'on convergente a cero por una
+sucesi\'on acotada es una sucesi\'on convergente a cero.
+\end{proposicion}
+\dem Sea $\lim\sucn{x}=0$, e \sucn{y}\
+acotada. Sea $c\!>\!0$ tal que $|y_{n}|\!\leqslant \!c$ para todo
+$n\en\N$. Dado \epos, existe un n\'umero natural $m$ tal que
+para todo $n\!\geqslant\!m$ se verifica que $|x_{n}|<\eps/c$.
+Deducimos que, para todo $n\!\geqslant\!m$, se verifica que
+$\rule{0mm}{5mm}
+\,|x_{n}y_{n}|=|x_{n}||y_{n}|<\dis\frac{\eps}{c}\,c=\eps$, lo que
+prueba que $\lim\suc{x_{n}y_{n}}=0$.\fin
+
+\begin{proposicion}[\textbf{Álgebra de límites}]
+Supongamos que $\lim\sucn{x}=x\,$ y $\lim\sucn{y}=y$. Entonces se
+verifica que:
+$$\lim\suc{x_{n}\!+y_{n}}=x+y,\quad \lim\suc{x_{n}y_{n}}=xy\,.$$
+Si adem\'as suponemos que $\,y\neq 0$, entonces
+$\lim\{x_{n}/y_{n}\}=x/y$.
+\end{proposicion}
+\noindent\textbf{Demostración}. Dado \epos, por hip\'otesis existen
+$m_{1},m_{2}$ tales que
+\begin{equation}
+x-\eps/2<x_{p}<x+\eps/2\qquad {\rm y}\qquad
+y-\eps/2<y_{q}<y+\eps/2 \label{eq:2}
+\end{equation}
+para todo $p\geqslant m_{1}$ y todo $q\geqslant m_{2}$. Sea
+$m_{0}=\max\{m_{1},m_{2}\}$. Para todo $n\geqslant m_{0}$ las
+desigualdades~(\ref{eq:2}) se cumplen para $p\!=\!q\!=n$, por lo
+que, sum\'andolas t\'ermino a t\'ermino, deducimos que
+$x+y-\eps<x_{n}+y_{n}<x+y+\eps\,$ cualquiera sea $n\geqslant
+m_{0}$, lo que prueba que $\lim\suc{x_{n}\!+y_{n}}=x+y$.
+
+\smallskip
+
+Teniendo en cuenta que, por las proposiciones \ref{prop:convergente-acotada}\ y \ref{prop:nula-acotada}, se verifica que
+$\lim\suc{(x_{n}\!-x)y_{n}}=\lim\suc{x(y_{n}\!-y)}=0$,  y  la
+igualdad
+$$ x_{n}y_{n}-xy=(x_{n}\!-x)y_{n}+x(y_{n}\!-y) $$ deducimos que $\lim\suc{x_{n}y_{n}-xy}=0$, es decir,
+$\lim\suc{x_{n}y_{n}}=xy$.
+
+\smallskip
+
+Finalmente, para probar que $\lim\{x_{n}/y_{n}\}=x/y$, probaremos
+que la sucesi\'on
+$$ \left\{\frac{x_{n}}{y_{n}}-\frac{x}{y}\right\}
+=\left\{\frac{x_{n}y-y_{n}x}{y_{n}y}\right\} $$ converge a cero,
+para lo cual, teniendo en cuenta que
+$\lim\suc{x_{n}y-y_{n}x}=xy-yx=0$, bastará probar que la
+sucesi\'on $\,\{1/y_{n}\}\,$ está acotada. Puesto que
+$\lim\sucn{y}=y$, se deduce de la desigualdad $$
+||y_{n}|-|y||\leqslant |y_{n}-y|$$ que $\,\lim\{|y_{n}|\}=|y|$.
+Existirá, por tanto, un número $m_{0}\en\N$ tal que para todo
+$n\geqslant m_{0}$ es $|y_{n}|>|y|/2$. Pongamos
+$$K=\max\left\{\frac{1}{|y_{1}|},\frac{1}{|y_{2}|},
+\dots,\frac{1}{|y_{m_{0}}|},\frac{2}{|y|}\right\}.$$ Se tiene
+entonces que $\dis \frac{1}{|y_{n}|}\leqslant K$ para todo
+$n\en\N$. Hemos probado así que la sucesi\'on
+$\,\{1/y_{n}\}\,$ está acotada, lo que concluye la
+demostraci\'on del teorema.\fin
+
+\begin{observacion}
+Hay que leer con atenci\'on las hip\'otesis del teorema anterior para no hacer un uso
+incorrecto del mismo. En particular, no hay que olvidar que {\em la suma de dos sucesiones no
+convergentes puede ser una sucesi\'on convergente}\marginpar{\flushright{\curvasr}}. Por ejemplo, las sucesiones $x_{n}\!=\!n$,
+$\,y_{n}\!=\!-n$, no son convergentes pues no est\'an acotadas, pero su suma
+$\,x_{n}\!+y_{n}\!=\!0\,$ es, evidentemente, convergente. Por tanto, {\em antes de escribir\/}
+$\lim\suc{x_{n}\!+\!y_{n}}\!=\!\lim\sucn{x}\!+\!\lim\sucn{y}$, hay que asegurarse de que estos
+\'ultimos l\'\i{}mites existen, es decir, que las sucesiones \sucn{x}, \sucn{y}\ convergen,
+pues pudiera ocurrir que la sucesi\'on \suc{x_{n}\!+\!y_{n}}\ fuera convergente y no lo fueran
+las sucesiones \sucn{x}, \sucn{y}. An\'alogamente, basta considerar las sucesiones
+$\,x_{n}\!=\!y_{n}\!=\!(-1)^{n}$, para convencerse de que {\em el producto de dos sucesiones no
+convergentes puede ser una sucesi\'on convergente\/} y, en consecuencia, antes de descomponer una sucesión como producto de otras dos, debes asegurarte de que estas sucesiones convergen.
+\end{observacion}
+
+\subsection{Sucesiones parciales. Teorema de Bolzano--Weierstrass}
+\begin{definicion} Sea \sucn{x}\ una sucesi\'on de n\'umeros reales; dada una aplicaci\'on
+\mbox{$\sigma\!:\!\N\!\rightarrow\!\N$} {\em estrictamente
+creciente}, la sucesi\'on que a cada n\'umero natural $\,n\,$ hace
+corresponder el n\'umero real $\,x_{\sigma(n)}$ se representa por
+\suc{x_{\sigma(n)}}\ y se dice que es una  \textbf{sucesi\'on
+parcial} o una \textbf{subsucesión} de \sucn{x}. Observa que \suc{x_{\sigma(n)}}\ no es otra
+cosa que la composici\'on de las aplicaciones \sucn{x}\ y
+$\,\sigma$, esto es, $\,\suc{x_{\sigma(n)}}=\sucn{x}\circ\sigma$.
+
+Se dice que un n\'umero real $\,x\,$ es un \textbf{valor de
+adherencia} de la sucesi\'on \sucn{x}\ si hay alguna sucesi\'on
+parcial de \sucn{x}\ que converge a $\,x$.
+\end{definicion}
+
+\begin{ejemplo}
+Sea, como de costumbre, $E(x)$ el mayor entero menor o igual que $x$. La
+sucesi\'on \sucn{x}\ dada por $\,x_{n}\!=n/5-E(n/5)\,$ para todo
+\nN, tiene a $\,0,1/5,2/5,$ $3/5$ y $4/5$, como valores de
+adherencia.
+
+En efecto, basta considerar que para cada
+$\,j\!\in\{0,1,2,3,4\}$, la sucesi\'on parcial
+$\{x_{5n-j}\}_{n\in{\small\mathbb N}}$ viene dada por $\,x_{5n}=0$,
+para $j\!=0$, y $\,x_{5n-j}=1-j/5\,$ para $j=1,2,3,4$.
+\end{ejemplo}
+
+Es fácil probar por inducción que si $\sigma$ es una
+aplicaci\'on estrictamente creciente de \N\ en \N\ entonces se
+verifica que $\sigma(n)\geqslant n$ para todo $n\en\N$.
+
+Sea $\lim\sucn{x}=x$, y \parcial{x}\ una sucesi\'on parcial de \sucn{x}. Dado \epos, existe
+$m_{0}\en\N$ tal que para todo $n\!\geqslant\!m_{0}$ se verifica que $\,|x_{n}\!-x|<\eps$.
+Puesto que $\,\sigma(n)\!\geqslant\!n$, deducimos que para todo $n\!\geqslant\!m_{0}$ se tiene
+$\,\sigma(n)\!\geqslant\!m_{0}$, y por tanto, $|x_{\sigma(n)}\!-x|<\eps$. Hemos probado
+as\'\i{} el siguiente resultado.
+
+\begin{proposicion} Si $\lim\sucn{x}=x$, toda sucesi\'on parcial de \sucn{x}\
+tambi\'en converge a $\,x$. En particular, una sucesi\'on
+convergente tiene como \'unico valor de adherencia su límite.
+\end{proposicion}
+
+\begin{estrategia}
+Como consecuencia de la proposición anterior, para probar que una sucesión \emph{no} converge, es suficiente probar que tiene alguna sucesión parcial no convergente o que tiene dos sucesiones parciales que convergen a límites diferentes.
+
+Por ejemplo, para la sucesión $x_n=(-1)^n$ se tiene que $x_{2n}=1$ y $x_{2n-1}=-1$. Por tanto dicha sucesión no es convergente.
+\end{estrategia}
+
+Observa que hay sucesiones, la de los n\'umeros naturales por
+ejemplo, que no tienen {\em ning\'un\/} valor de adherencia. También
+puede ocurrir que una sucesi\'on {\em tenga un \'unico valor de
+adherencia y no sea convergente}. Por ejemplo, la sucesi\'on dada
+por $\,x_{n}\!=(1\!+(-1)^{n})n+1/n$ para todo \nN,  no es
+convergente y tiene a $\,0\,$ como \'unico valor de adherencia.
+Vamos a ver a continuaci\'on que estos comportamientos no pueden
+darse con sucesiones acotadas.
+
+\begin{lema}
+Toda sucesión tiene una sucesión parcial monótona.
+\end{lema}
+\noindent\textbf{Demostración}. Sea \sucn{x}\ una sucesión y
+definamos
+$$A=\{n\en\N:x_n\geqslant x_p\ \ \ \textrm{para todo}\ p>n\}$$
+Podemos visualizar el conjunto $A$ como sigue. Consideremos en el
+plano los segmentos de extremos $(n,x_n)$ y $(n+1,x_{n+1})$,
+$n=1,2,3,\dots $
+
+\begin{figure}[ht]
+\centering
+\psset{unit=.5cm}
+\begin{pspicture}(-1,0)(20,15)
+\psaxes[linewidth=.6pt,arrowscale=1.5,labelFontSize=\tiny,Dx=1,ticks=x,labels=x,xticksize=3pt]{->}(-1,0)(-1,0)(20,14)
+\psline[linewidth=.3pt](0,10)(1,9)(2,14)(3,12)(4,13)(5,11)(6,12)(7,9)(8,11)(9,9)(10,10)(11,7)(12,8)(13,6)(14,7)(15,5)(16,6)(17,4)(18,5)(19,3)(20,4)
+\psdots(0,10)(1,9)(2,14)(3,12)(4,13)(5,11)(6,12)(7,9)(8,11)(9,9)(10,10)(11,7)(12,8)(13,6)(14,7)(15,5)(16,6)(17,4)(18,5)(19,3)(20,4)
+\end{pspicture}
+\caption{Puntos de sol y de sombra}
+\end{figure}
+
+Resulta así una línea poligonal
+infinita y podemos imaginar que dicha línea es el perfil de
+una cordillera cuyas cumbres y valles son los puntos $(n,x_n)$.
+Imaginemos ahora que los rayos de luz del Sol, paralelos al eje de
+abscisas, iluminan dicha cordillera por el lado derecho (el Sol
+estaría, pues, situado en el infinito del eje de abscisas
+positivo). Pues bien, un número natural $n$ pertenece al
+conjunto $A$ si el punto $(n,x_n)$ está iluminado y no
+pertenece a $A$ si dicho punto está en sombra.
+
+Supongamos que $A$ es infinito. Entonces podemos definir una
+aplicación $\sigma:\N\rightarrow\N$ estrictamente creciente y
+tal que $\sigma(\N)=A$ de la siguiente forma:
+$$
+\begin{array}{l}
+\sigma(1)=\min (A) \\
+\sigma(n+1)=\min \{p\en A:\sigma(n)<p\} \ \ {\mbox{\rm para todo}}\
+\,n\in\N
+\end{array}
+$$
+es decir la aplicación $\sigma$ va eligiendo los elementos de
+$A$ de menor a mayor empezando por el primero. Resulta ahora
+evidente que la sucesión parcial \suc{x_{\sigma(n)}}\ es
+decreciente, porque todos los puntos $(\sigma(n),x_{\sigma(n)})$
+están iluminados y, por tanto, ninguno de ellos puede hacerle
+sombra a uno anterior.
+
+Si $A$ es finito podemos suponer que $A=\vac$. En tal caso, para
+todo \nN\ hay algún $p>n$ tal que $x_n<x_p$ (pues todo punto
+$(n,x_n)$ está en sombra). Podemos definir ahora una
+aplicación $\sigma:\N\rightarrow\N$ estrictamente creciente de
+la siguiente forma:
+$$
+\begin{array}{l}
+\sigma(1)=1 \\
+\sigma(n+1)=\min \{p\en\N:\sigma(n)<p\ \ \textrm{y}\ \
+x_{\sigma(n)}<x_p\} \ \ {\mbox{\rm para todo}}\ \,n\in\N
+\end{array}
+$$
+Es evidente que la sucesión parcial \suc{x_{\sigma(n)}}\
+es creciente, pues cada punto $(\sigma(n),x_{\sigma(n)})$ deja en
+la sombra al anterior.\fin
+
+El siguiente resultado es uno de los más importantes en la teoría de sucesiones de números reales.
+
+\begin{teorema}[\textbf{Teorema de Bolzano\,-\,Weierstrass}] Toda sucesi\'on acotada de números reales tiene alguna sucesi\'on parcial convergente.
+\end{teorema}
+\noindent\textbf{Demostración}. Sea \sucn{x}\ una sucesión acotada.
+En virtud el lema anterior, hay una sucesión parcial de \sucn{x}\
+que es monótona, dicha sucesión parcial está acotada por estarlo
+\sucn{x}\ y, por tanto, es convergente.\fin
+
+Si volvemos a leer la definici\'on de sucesi\'on convergente,
+parece que para estudiar la convergencia de una sucesi\'on
+\sucn{x}\ debemos ser capaces de ``adivinar'', de alguna manera,
+su posible límite. De hecho, una idea bastante extendida
+consiste en pensar que es lo mismo probar la convergencia de una
+sucesi\'on que calcular su límite. Esto no es del todo
+correcto; son relativamente pocas las sucesiones convergentes cuyo
+límite puede efectivamente calcularse. Cuando se estudia la
+convergencia de una sucesi\'on \sucn{x}, la mayoría de las
+veces, lo que conocemos es, justamente, la sucesi\'on y,
+naturalmente, se desconoce su posible límite el cual pudiera,
+incluso, no existir. Por ello interesa tener {\em criterios de
+convergencia intrínsecos a la sucesi\'on}, es decir, que no
+hagan intervenir a un objeto en principio {\em extra\~no\/} a ella
+como es su posible límite. Conocemos ya un criterio de
+convergencia intrínseco para sucesiones {\em mon\'otonas}.
+Usando dicho criterio hemos probado en el ejemplo \ref{ej:log2} la convergencia de una
+sucesi\'on \emph{sin necesidad de conocer su límite}.
+
+\subsection{Condición de Cauchy. Teorema de completitud de \R}
+
+A continuaci\'on vamos a establecer un criterio intrínseco de
+convergencia para sucesiones que es m\'as general pues puede
+aplicarse a cualquier sucesi\'on. Este criterio fu\'e formulado
+por Bolzano en 1817 y tambi\'en, independientemente, por Cauchy en
+1821, y establece una condici\'on necesaria y suficiente para la
+convergencia de una sucesi\'on. Dicha condici\'on se conoce con el
+nombre de {\em condici\'on de Cauchy.}
+
+\begin{definicion}\label{def:cauchy} Se dice que una sucesi\'on \sucn{x}\
+satisface la \textbf{condici\'on de Cauchy}, si para cada n\'umero
+positivo, \epos, existe un n\'umero natural $m_{\varepsilon}$, tal
+que para todos $p,q\en\N$ con $p\!\geqslant\!m_{\varepsilon}$ y
+$\,q\!\geqslant\!m_{\varepsilon}$ se verifica que
+$|x_{p}\!-x_{q}|<\eps$.
+\end{definicion}
+
+\begin{teorema}[\textbf{Teorema de completitud de \R}] Una sucesi\'on de
+n\'ume\-ros reales es convergente si, y s\'olo si, verifica la
+condici\'on de Cauchy.
+\end{teorema}
+\noindent\textbf{Demostración}. Supongamos que \sucn{x}\ verifica la
+condici\'on de Cauchy. Probemos primero que \sucn{x}\ está
+acotada. La condici\'on de Cauchy implica que hay
+$\mbox{$m_{0}\en\N$}$ tal que $|x_{p}\!-x_{m_{0}}\!|<1$ para
+todo $p\geqslant m_{0}$, y como $\mbox{$|x_{p}|\leqslant
+|x_{p}\!-x_{m_{0}}\!|+|x_{m_{0}}\!|$}$, deducimos que
+$|x_{p}|<1+|x_{m_{0}}\!|$ para  $p\geqslant m_{0}$. En consecuencia
+si definimos
+$M\!=\max\{|x_{1}|,|x_{2}|,\dots,|x_{m_{0}}\!|,1\!+\!|x_{m_{0}}\!|\}$,
+obtenemos que $|x_{n}|\leqslant M$ para todo $n\en\N$.
+
+
+El teorema de Bolzano-Weierstrass garantiza que hay un número
+real $x$ y una sucesión parcial \suc{x_{\sigma(n)}}\ que
+converge a $x$. Probaremos que \sucn{x}\ también converge a $x$.
+Dado \epos, existe $n_o\en\N$ tal que $|x_p-x_q|<\eps/2$ siempre que
+$p,q\geqslant n_o$. También existe $n_1\en\N$ tal que
+$|x_{\sigma(n)}-x|<\eps/2$ siempre que $n\geqslant n_1$. Sea
+$m=\max\{n_o,n_1\}$. Para todo $n\geqslant m$ se tiene que
+$\sigma(n)\geqslant n\geqslant m$ por lo que $$|x_n-x|\leqslant
+|x_n-x_{\sigma(n)}|+|x_{\sigma(n)}-x|<\frac{\eps}{2}+
+\frac{\eps}{2}=\eps$$ lo que prueba que
+$\Lim{\sucn{x}}{n}{\infty}=x$.
+
+
+Recíprocamente, si \sucn{x}\ es convergente y $\lim\sucn{x}=x$,
+dado \epos, hay un n\'umero $m_{\varepsilon}\!\in\N$ tal que para
+todo n\'umero natural $n\geqslant m_{\varepsilon}$ se tiene que
+$|x_{n}\!-x|<\eps/2$. Deducimos que si $p,q$ son n\'umeros naturales
+mayores o iguales que $m_{\varepsilon}$ entonces
+$$|x_{p}\!-x_{q}|\leqslant|x_{p}\!-x|+|x-x_{q}|<\eps/2+\eps/2=\eps.$$
+Por tanto la sucesi\'on \sucn{x}\ verifica la condici\'on de
+Cauchy.\fin
+
+\begin{observacion}
+La condici\'on de Cauchy para sucesiones dada en la definici\'on~\ref{def:cauchy}, puede tambi\'en
+expresarse de una manera equivalente, aunque formalmente distinta, como sigue.
+
+\smallskip
+
+Una sucesi\'on \sucn{x}\ satisface la condici\'on de Cauchy, si para cada n\'umero positivo,
+\epos, existe un n\'umero natural $m_{\varepsilon}$, tal que para todo
+$p\!\geqslant\!m_{\varepsilon}$ y {\em para todo n\'umero natural $h$}, se verifica que
+$\,|x_{p+h}\!-x_{p}|<\eps$.
+
+\smallskip
+
+Equivalentemente, una sucesi\'on \sucn{x}\ verifica la condici\'on de Cauchy si, y s\'olo si,
+la sucesi\'on \suc{\rho_{n}}\ dada para todo $n\en\N$ por: $$
+\rho_{n}=\sup\{|x_{n+h}\!-x_{n}|:h\en\N\} $$ converge a cero.
+
+\smallskip
+
+Puesto que, evidentemente, para cada $h\en\N$ se tiene que
+$\,|x_{n+h}\!-x_{n}|\!\leqslant\!\rho_{n}$ para todo $n\en\N$, si \sucn{x}\ satisface la
+condici\'on de Cauchy entonces se verifica que $\,\Lim{\suc{x_{n+h}\!-x_{n}}}{n}{\infty}=0\,$ para cada
+$h\en\N$. \marginpar{\flushright\curvasr}Es importante observar que una sucesi\'on \sucn{x}\ puede verificar esta
+\'ultima condici\'on y no ser convergente, es decir, no satisfacer la condici\'on de Cauchy. Un
+ejemplo de ello lo proporciona la serie arm\'onica, esto es, la sucesi\'on \suc{H_{n}}\ dada por
+$H_{n}\!=\sum_{k=1}^{n}\!1/k$. Hemos visto en el ejemplo~\ref{ej:armonica}\ que dicha sucesi\'on no es convergente y, por tanto,
+no verifica la condici\'on de Cauchy. Sin embargo, {\em fijado un n\'umero natural}
+$h\en\N$, tenemos que $$
+0<H_{n+h}\!-H_{n}=\frac{1}{n+h}+\frac{1}{n+h-1}+\cdots+\frac{1}{n+1} <\frac{h}{n} $$ y, como
+${\displaystyle{\lim_{n\to\infty}}}\left\{\frac{h}{n}\right\}=0$, deducimos que $\Lim{\suc{H_{n+h}\!-H_{n}}}{n}{\infty}=0$.
+
+Observa que si hacemos $h=2^{2(m+n)}-n$
+entonces, como consecuencia de la desigualdad~\ref{ej:armonicadiv}, $\dis H_{2^{p}}>1+ p/2$, tenemos: $$
+H_{n+h}\!-H_{n}=H_{2^{2(m+n)}}\!-H_{n}>H_{2^{2(m+n)}}\!-n>1+m+n-n=m+1 $$ lo que prueba que el
+conjunto $\{H_{n+h}-H_{n}:h\en\N\}$ ni siquiera est\'a mayorado para
+ning\'un $n\en\N$.
+\end{observacion}
+
+\subsection{L\'\i{}mites superior e inferior de una sucesión}
+Acabaremos esta parte del capítulo, esencialmente teórica, introduciendo dos conceptos, que también tienen un interés principalmente teórico, que usaremos más adelante para formular algunos criterios de convergencia para series.
+
+Sea \sucn{x}\ una sucesi\'on {\bf acotada} y definamos para cada $n\en\N$: $$A_{n}\!=\!\{x_{p}:\!p\!\geqslant \!n\}=\set{x_n,x_{n+1},x_{n+2},\dots}$$
+El conjunto $A_n$ está formado por todos los términos de la sucesión a partir del que ocupa el lugar $n$-ésimo.
+ Como $A_{n}\!\subseteq A_{1}$ y, por hip\'otesis, $A_{1}$ es un conjunto
+acotado, $A_{n}$ tambi\'en est\'a acotado. Pongamos $$\alpha_{n}\!=\inf(A_{n}\!),\qquad
+\beta_{n}\!=\sup(A_{n}\!).$$ Como $A_{n+1}\!\subseteq A_{n}$ se tiene que
+$\,\alpha_{n}\!\leqslant\alpha_{n+1}$, $\,\beta_{n+1}\!\leqslant\beta_{n}$. Por tanto la
+sucesi\'on \sucn{\alpha}\ es creciente y \sucn{\beta}\ es decreciente. Adem\'as
+$\,\alpha_{1}\!\leqslant\alpha_{n}\!\leqslant\beta_{n}\!\leqslant\beta_{1}$, para todo
+$n\en\N$ y, por el teorema~\ref{monotonas}, concluimos que ambas sucesiones son convergentes. El
+n\'umero $\alpha\!=\!\lim\sucn{\alpha}$ se llama {\bf l\'\i{}mite inferior de la sucesi\'on}
+\sucn{x}\ y se representa por $\liminf\sucn{x}$ y tambi\'en $\underline{\lim}\sucn{x}$. El
+n\'umero $\beta\!=\!\lim\sucn{\beta}$ se llama {\bf l\'\i{}mite superior de la sucesi\'on}
+\sucn{x}\ y se representa por $\limsup\sucn{x}$ y tambi\'en por $\overline{\lim}\sucn{x}$.
+N\'otese que $\alpha\!\leqslant\!\beta$ y adem\'as $\alpha$ y $\beta$ vienen dados por
+$\,\alpha=\sup\{\alpha_{n}:\!n\in\N\}$, $\,\beta=\inf\{\beta_{n}:\!n\en\N\}$.
+
+\begin{teorema}
+Una sucesi\'on acotada es convergente si, y s\'olo si, su l\'\i{}mite superior y su l\'\i{}mite
+inferior son iguales, en cuyo caso ambos coinciden con el l\'\i{}mite de la sucesi\'on.
+\end{teorema}
+\dem Sea \sucn{x}\ acotada, $\alpha=\liminf\sucn{x},\ \beta=\limsup\sucn{x}$. Supongamos que
+\sucn{x}\ es convergente con $\lim\sucn{x}=x$. Dado \epos, existe $m_{0}\!\in\N$ tal que para
+todo $p\geqslant m_{0}$ es $x-\eps/2<x_{p}<x+\eps/2$. Por tanto $x-\eps/2$ es un minorante de
+$A_{m_{0}}\!=\!\{x_{p}\!:\!p\!\geqslant \!m_{0}\!\}$ y, en consecuencia, $x-\eps/2\leqslant
+\alpha_{m_{0}}$. Tambi\'en, por an\'alogas razones, $\beta_{m_{0}}\!\leqslant x+\eps/2$. Como
+adem\'as $\alpha_{m_{0}}\!\leqslant\alpha\leqslant\beta\leqslant\beta_{m_{0}}$, resulta que:
+\begin{equation}
+x-\eps/2\!\leqslant\!\alpha_{m_{0}}\!\leqslant\alpha\leqslant\beta\leqslant\beta_{m_{0}}\!\leqslant
+x+\eps/2.\label{eq:limsup}
+\end{equation}
+De donde se sigue que $\beta-\alpha\leqslant\eps$. Hemos probado
+que para todo \epos\ es $\beta\leqslant\alpha+\eps$ lo que, como ya sabemos, implica que
+$\beta\leqslant\alpha$ y, en consecuencia $\alpha=\beta$. Deducimos ahora de las desigualdades
+\eqref{eq:limsup}\ que, para todo \epos, $x-\eps/2\leqslant\alpha=\beta\leqslant x+\eps/2$ y, por tanto,
+$x\leqslant\alpha=\beta\leqslant x$, o sea, $x=\alpha=\beta$.
+
+\smallskip
+
+Rec\'\i{}procamente, supongamos que $\alpha=\beta$. Dado \epos, todos los t\'erminos de cada una de las sucesiones \sucn{\alpha}\ y \sucn{\beta}\ estar\'an en el intervalo $]\alpha-\eps,\alpha+\eps[=]\beta-\eps,\beta+\eps[$ a partir de uno de adelante. Luego
+$\,\alpha-\eps<\alpha_{m_{0}}\!\leqslant\beta_{m_{0}}<\alpha+\eps\,$ para alg\'{u}n
+$m_{0}\!\in\N$. Puesto que para $n\!\geqslant \!m_{0}$ se verifica que
+$\alpha_{m_{0}}\!\leqslant x_{n}\!\leqslant\beta_{m_{0}}$, concluimos que
+$\alpha-\eps<x_{n}\!<\alpha+\eps$ para todo $n\!\geqslant\!m_{0}$. Hemos probado as\'\i{} que
+\sucn{x}\ es convergente y $\lim\sucn{x}=\alpha=\beta$.\fin
+
+\begin{ejercicios propuestos}
+\propuesto Dado \epos, calcula $m_{\varepsilon}\en\N$ tal
+que para todo $n\!\geqslant\!m_{\varepsilon}$ se verifique $\,|x_{n}\!-x|<\eps\,$ donde
+$\,x_{n}$, $x\,$ vienen dados en cada caso por: $$
+\begin{array}{ll}
+a)\ \dis\  x_{n}\!=\frac{2n+3}{3n-50}\,,\ x=\frac{2}{3}\,; & \dis b)\ \
+x_{n}\!=\sqrt[3]{n+1}-\sqrt[3]{n}\,,\ x=0\\  c) \ \dis\  x_{n}\!=\sqrt[n]{a}\ \ (a>0),\
+x=1;& d)\ \dis\ x_{n}\!=\left(\frac{1}{\sqrt{2}}\right)^{\!\!n},\ x=0\\  e)\
+\dis\ x_{n}\!=n\!\left(\sqrt[n]{n+1}-\sqrt[n]{n}\right),\ x=0;&  f)\ \dis \
+x_{n}\!=n^{2}a^{n}\ \ (|a|<1), x=0
+\end{array}
+$$ Sugerencia. Como consecuencia del binomio de Newton, para $x-1\ge 0$ se verifica que
+\mbox{$\,x^{n}\!=\!(1\!+\!(x\!-\!1))^{n}\!\geqslant\!1\!+\!n(x-1)$}. Esta desigualdad,
+convenientemente usada, permite resolver con facilidad los casos  b), c), d) y e).
+
+\propuesto Sea $A$ un conjunto no vac\'\i{}o y mayorado de n\'umeros
+reales. Prueba que un n\'umero real, $\beta$, es el supremo de $A$ si, y s\'olo si, $\beta$
+es un mayorante de $A$ y hay alguna sucesi\'on de puntos de $A$ que converge a $\beta$.
+
+\propuesto Supuesto que $\lim\sucn{x}\!=\!x$, prueba que
+el conjunto \mbox{$\,A\!=\!\{x_{n}\!:\!n\en\N\}\!\cup\!\{x\}$} tiene m\'aximo y
+m\'\i{}nimo.
+
+\propuesto
+\begin{enumerate}
+\item[a)] Sea \sucn{x}\ una sucesi\'on y supongamos que hay
+n\'umeros $\rho\!\in ]0,1[,\,p\en\N$, tales que para todo
+$n\geqslant p$ es $\,|x_{n+1}|\leqslant\rho|x_{n}|\,$ . Prueba que
+$\lim\sucn{x}=0$.
+\item[b)] Sea \sucn{x}\ una sucesión de números no nulos verificando que
+$\,\lim\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}=\lambda$, donde\linebreak
+$0\le\lambda<1$. Prueba que $\lim\sucn{x}=0$.
+\end{enumerate}
+Aplicaci\'on. Dados $a\in ]-1,1[,\,k\en\N$, prueba que
+$\dis\lim_{n\to\infty}\suc{n^{k}a^{n}}=0$.
+
+\propuesto Estudia la convergencia de las sucesiones siguientes.
+$$
+\begin{array}{ll}
+  a)\ x_n=\dfrac{2n+(-1)^n(n+2)}{7n+3} & b)\ x_n=n\left(\dfrac{1+(-1)^n}{3}\right)^n \\ c)\ x_n=n^{2}\left(\dfrac{1+n}{3 n}\right)^n &
+  d)\ x_{n}\!=\!\sqrt[n]{\rule{0mm}{3mm}a^{n}\!+b^{n}}\ \ (a>0,
+b>0) \\ e)\ x_{n}\!=\!\sumaf{k=1}{n}\!\dfrac{1}{\sqrt{k+n^{2}\ }} & f)\ x_n=\dfrac{x^n}{n!}\ \ (x\en\R) \\
+  g)\ x_{n}\!=\sqrt{n^{2}+3n+2\ }\ -\ n & h)\ x_{n}\!=\!\left(\!\sqrt{n^{2}+\sqrt{n}}-n\right)\!\left(\!\sqrt{n+1}+\sqrt{2n}\right)
+  \end{array}
+$$
+Sugerencia. En algunos casos puede usarse el principio de las
+sucesiones encajadas o el ejercicio anterior.
+
+\propuesto Sea $x_n=\dfrac{1\cdot 3\cdot 5\cdots (2n-1)}{2\cdot 4\cdot 6\cdots
+2n}$. Prueba que $x_n<\dfrac{1}{\sqrt{2n +1}}$. Deduce que
+$\lim\sucn{x}=0$.
+
+Sugerencia. Relaciona $\frac{k}{k+1}$ con $\frac{k+1}{k+2}$.
+
+\propuesto Supongamos que $\sucn{a}\to 0$. Justifica, usando derivadas, que
+$\,\lim\dfrac{\sqrt{1+a_n}-1}{a_n}=\dfrac{1}{2}$.
+
+\propuesto Sean $a_0, a_1,\dots,a_p$ números reales cuya suma es igual a cero. Justifica que
+$$\lim_{n\to\infty}\set{a_0\sqrt{n}+a_1\sqrt{n+1}+a_2\sqrt{n+2}+\cdots+a_p\sqrt{n+p}}=0$$
+Sugerencia. Saca factor común $\sqrt{n}$, resta $a_0+a_1+\cdots+a_p$
+y usa el ejercicio anterior.
+
+\propuesto Estudia la convergencia de la sucesión:
+$$
+x_n=2\sqrt{n} -\sum_{k=1}^n\dfrac{1}{\,\sqrt{k}\,}
+$$
+
+\propuesto Prueba que la sucesión dada por $x_1=0$ y para $n\ge 2$:
+$$
+x_n=\log(\log n)-\sum_{k=2}^n\frac{1}{k\log k}
+$$
+es convergente y su límite es menor o igual que $\log(\log 2)$.
+
+\propuesto Dados $\,0<a_{1}<b_{1}$, definamos para todo $n\en\N$:
+$$ b_{n+1}\!=\frac{a_{n}\!+b_{n}}{2},\ \ \
+a_{n+1}\!=\sqrt{a_{n}b_{n}}. $$ Justifica que las sucesiones
+así definidas son mon\'otonas y convergen al mismo n\'umero
+(que se llama  \emph{media aritm\'etico-geom\'etrica} de $a_{1}$ y
+$b_{1}$).
+
+\propuesto Dados $\,0<a_{1}<b_{1}$, definamos para todo $n\en\N$:
+$$ b_{n+1}\!=\frac{a_{n}\!+b_{n}}{2},\ \ \
+a_{n+1}\!=\frac{2a_{n}b_{n}}{a_n+b_n}. $$ Justifica que las sucesiones
+así definidas son mon\'otonas y convergen al mismo n\'umero
+(que se llama  \emph{media aritm\'etico-armónica} de $a_{1}$ y
+$b_{1}$).
+
+\propuesto Dados $a,b\en\R$ con $0<a<b$, definamos:
+$$
+a_1=a,\ms{2mu} a_2=b,\quad a_{n+2}=\frac{2a_{n+1}a_n}{a_{n+1}+a_n}.
+$$
+a) Prueba que las sucesiones \suc{a_{2n}}\ y \suc{a_{2n-1}}\ son monótonas.
+
+b) Prueba que $\abs{a_{2n}-a_{2n-1}}\le\dfrac{b-a}{2^{n-1}}$.
+
+c) Justifica que \sucn{a}\ converge y calcula su límite.
+
+\propuesto Estudia la convergencia de las siguientes sucesiones.
+\begin{enumerate}[a)]
+\item $x_1=1$, $x_{n+1}=\sqrt{3x_n}$.
+\item $x_1=3$, $x_{n+1}=\dfrac{3+3x_n}{3+x_n}$.
+\item $x_{1}\!=1$, $x_{n+1}=\dfrac{4+3x_{n}}{3+2x_{n}}$.
+\item Dado $a\in ]-2,-1[$, definimos $x_{1}=a$, $x_{n+1}=\dfrac{x_{n}-2}{x_{n}+4}$.
+\item Dado $a>0$, definimos $x_{1}\!=\sqrt{a}$, $x_{n+1}=\sqrt{a+x_{n}}$.
+\item $x_{1}=0$, $x_{n+1}\!=\dfrac{1}{3-x_{n}^{2}}$.
+\item Dado $a>0$ y $a\neq 1$, definimos $x_1=a$, $x_{n+1}=\dfrac{1}{3}\left(2x_n+\dfrac{a}{x_n^2}\right)$.
+\item Dado $a\en\R$, definimos $x_1=a$, $x_{n+1}=\dfrac{1}{4}+(x_n)^2$.
+\item Dado $a\in ]-2,1[$, definimos $x_1=a$, $3x_{n+1}=2+(x_n)^3$.
+\end{enumerate}
+Sugerencia. Estudia en cada caso monotonía y acotación. La convergencia puede depender del valor inicial de $a$.
+
+\propuesto Para cada \nN\ sea
+$$x_{n}\!=\!1\!+\!\frac{1}{2}\!+\cdots+\!\frac{1}{n}-\log(n),\qquad
+y_{n}\!=x_{n}\!-\frac{1}{n}.$$ Prueba que \sucn{x}\ es
+estrictamente decreciente e \sucn{y}\ es estrictamente creciente.
+Deduce que ambas sucesiones convergen a un mismo n\'umero. Dicho
+n\'umero se llama la \emph{constante de Euler}, se representa por la
+letra griega $\upgamma$. %No se sabe si dicho número es racional o irracional.
+\begin{enumerate}[a)]
+\item Deduce que
+$\dis\Lim{\frac{1+1/2+\cdots+1/n}{\log(n)}}{n}{\infty}=1$.
+
+\item Justifica que
+$\dis\Lim{\left\{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}\right\}}{n}{\infty}=\log 2.$
+
+\item Justifica que $\dis\Lim{\left\{1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots+ \frac{(-1)^{n+1}}{n}\right\}}{n}{\infty}=\log 2. $
+\end{enumerate}
+\propuesto Sea \sucn{x}\ una sucesión y supongamos que hay dos sucesiones parciales \suc{x_{\sigma(n)}}\ y \suc{x_{s(n)}}\ que convergen a un mismo número $x$ y tales que $\sigma(\N)\cup s(\N)=\N$. Prueba que $\sucn{x}$ converge a $x$.
+
+\propuesto Sea \sucn{x}\ una sucesi\'on tal que las sucesiones parciales \suc{x_{2n}}, \suc{x_{2n-1}}\ y \suc{x_{3n}}, son convergentes. Prueba que \sucn{x}\ es convergente.
+
+\propuesto ¿Puede existir alguna sucesión acotada, \sucn{x},
+verificando que $\dis\abs{x_n-x_m}\ge 10^{-75}$ siempre que $n\neq
+m$? Razona tu respuesta.
+
+\propuesto Sea \sucn{x}\ una sucesi\'on de n\'umeros reales
+y supongamos que hay n\'umeros $\rho\!\in ]0,1[$, $M\!>\!0$ y $p\en\N$ tales que
+$\,|x_{n+1}\!-x_{n}|\leqslant M\rho^{n}$ para todo $n\geqslant p$. Prueba que \sucn{x}\ es
+convergente.
+
+Sugerencia. Teniendo en cuenta que para todos
+$\,n,h\en\N\,$ se verifica que:
+$$\rho^{n+h-1}+\rho^{n+h-2}+\cdots+\rho^{n}<\frac{\rho^{n}}{1-\rho}$$
+deduce que \sucn{x}\ verifica la condición de Cauchy.
+
+\propuesto Sea \sucn{x}\ una sucesi\'on de n\'umeros reales
+y supongamos que existen \mbox{$\rho\!\in ]0,1[,\,p\en\N$},
+tales que $|x_{n+1}\!-x_{n}|\leqslant \rho |x_{n}\!-x_{n-1}|\,$
+para todo $n\geqslant p$. Prueba que \sucn{x}\ es convergente.
+
+Sugerencia. Justifica que $|x_{n+1}-x_{n}|\leqslant
+M\rho^{n}$ donde $M$ es una constante independiente de $n$.
+
+\propuesto Sea $I$ un intervalo cerrado (puede ser
+$I=\R$); \func{f}{I}\ una funci\'on, y supongamos que hay un
+n\'umero $\alpha\in ]0,1[$ tal que:
+\begin{equation}\label{eq:contractiva}
+  |f(x)-f(y)|\leqslant \alpha|x-y|,\qquad\mbox{\rm para todos $x,y$ en $I$}.
+\end{equation}
+Se dice entonces que $f$ es una \textbf{función contractiva} en $I$. Supongamos adem\'as que $f(x)\in\!I$ para todo $x\in\!I$. Dado un punto $a\in\!I$, definamos \sucn{x}\ por $\,x_{1}\!=a,$ y $\,x_{n+1}\!=f(x_{n})\,$ para todo $n\en\N$.
+
+a) Prueba que \sucn{x}\ converge a un punto $x\in\!I$ que es el \'unico punto fijo de $\,f$, es decir, $f(x)=x$.
+
+b) Justifica que si la función $f$ es derivable en $I$ y se verifica que hay un número $\alpha\in ]0,1[$ tal que $\abs{f\tl(x)}\le\alpha$ para todo $x\en I$, entonces $f$ es contractiva en $I$.
+
+\propuesto Estudia la convergencia de las sucesiones
+definidas para todo $n\en\N$ por: $$ a)\ \ x_{1}\!=1,\ \
+x_{n+1}\!=\frac{1}{1+x_{n}}\,;\qquad b)\ \ x_{1}\!=\sqrt{2},\ \ x_{n+1}\!=\sqrt{2-x_{n}}.
+$$
+
+\propuesto Supongamos que la ecuaci\'on
+$\,x^{2}\!=b x+a\,$ tiene dos ra\'\i{}ces reales distintas $\alpha$ y $\beta$. Dados dos
+n\'umeros reales $\lambda$ y $\mu$, definamos \sucn{x}\ por: $$ x_{1}\!=\lambda+\mu,\ \
+x_{2}\!=\lambda\alpha+\mu\,\beta, \ \ x_{n+2}\!=bx_{n+1}\!+ax_{n} $$ Prueba que
+$\,x_{n}\!=\lambda\alpha^{n-1}+\mu\,\beta^{n-1}$ para todo $n\en\N$.
+
+Aplicaciones. i) La sucesi\'on \sucn{x}\ definida para todo \nN\ por: $$ x_{1}\!=x_{2}\!=1,\ \
+x_{n+2}\!=x_{n+1}\!+x_{n} $$ se llama {\bf sucesi\'on de Fibonacci}. Calcula
+expl\'\i{}citamente $x_{n}$.
+
+ii) Estudia la convergencia de la sucesi\'on definida para todo \nN\ por: $$ x_{1}\!=a,\
+x_{2}\!=b,\ \ x_{n+2}\!=\frac{1}{2}(x_{n+1}\!+x_{n}). $$
+iii) Dados $a,b\en\Rp$, estudia la convergencia de la sucesión definida por:
+$$
+a_1=a,\ a_2=b,\quad x_{n+2}=\sqrt{x_{n+1}x_n}.
+$$
+
+\propuesto Prueba que para todo \nN\ se verifica la
+desigualdad $$ \frac{(n+1)^{n}}{n!}<e^{n}\!<\frac{(n+1)^{n+1}}{n!}. $$ Sugerencia. Recuerda la definici\'on del n\'umero $\e$.
+
+\propuesto  a) Prueba que la sucesi\'{o}n $\{u_{n}\}$ definida
+para todo $n\en\N$ por:
+$$u_{n}=\left(1+\frac{1}{n^{2}}\right)\left(1+\frac{2}{n^{2}}\right)\left(1+\frac{3}{n^{2}}\right)\cdots
+\left(1+\frac{n}{n^{2}}\right)$$
+es convergente.
+
+b) Justifica que para todo $x\geq 0$ se verifica que:
+$$ x-\frac{x^{2}}{2} \leq \log (1+x) \leq x. $$
+c) Utiliza dicha desigualdad para calcular $\dis\lim_{n\to \infty}\{u_{n}\}$.
+
+\propuesto a) Justifica, para $x>-1$, la desigualdad $\dfrac{x}{2+x}<\sqrt{1+x}-1<\dfrac{x}{2}$.
+
+b) Usa dicha desigualdad para calcular el límite de la sucesión $x_n=\dis\sum_{k=1}^n\left(\sqrt{1+\frac{k}{n^2}}-1\right)$.
+
+\propuesto Dado $0<\lambda<1$, estudia la convergencia de la sucesión $u_n=\dis\prod_{k=1}^n(1+\lambda^k)$.
+
+Sugerencia. La desigualdad de las medias puede ser útil.
+
+\propuesto Sea $x_n=1+(-1)^n+(-1)^n\dfrac{1}{n}$ y $A=\set{x_n:n\en\N}$. Calcula $\limsup\sucn{x}$, $\liminf\sucn{x}$, $\sup(A)$ e $\inf(A)$.
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto Dado \epos, calcula $m_{\varepsilon}\en\N$ tal
+que para todo $n\!\geqslant\!m_{\varepsilon}$ se verifique $\,|x_{n}\!-x|<\eps\,$ donde
+$\,x_{n}$, $x\,$ vienen dados en cada caso por: $$
+\begin{array}{ll}
+a)\ \dis\  x_{n}\!=\frac{2n+3}{3n-50}\,,\ x=\frac{2}{3}\,; & \dis b)\ \
+x_{n}\!=\sqrt[3]{n+1}-\sqrt[3]{n}\,,\ x=0\\  c) \ \dis\  x_{n}\!=\sqrt[n]{a}\ \ (a>0),\
+x=1;& d)\ \dis\ x_{n}\!=\left(\frac{1}{\sqrt{2}}\right)^{\!\!n},\ x=0\\  e)\
+\dis\ x_{n}\!=n\!\left(\sqrt[n]{n+1}-\sqrt[n]{n}\right),\ x=0;&  f)\ \dis \
+x_{n}\!=n^{2}a^{n}\ \ (|a|<1), x=0
+\end{array}
+$$ Sugerencia. Como consecuencia del binomio de Newton, para $x-1\ge 0$ se verifica que
+\mbox{$\,x^{n}\!=\!(1\!+\!(x\!-\!1))^{n}\!\geqslant\!1\!+\!n(x-1)$}. Esta desigualdad,
+convenientemente usada, permite resolver con facilidad los casos  b), c), d) y e).
+
+\sol Como regla general, en este tipo de ejercicios hay que ``trabajar hacia atrás'', esto es, se calcula y simplifica $\abs{x_n-x}$ y se convierte la desigualdad $\abs{x_n-x}<\eps$ en otra equivalente a ella de la forma $n>\ff(\eps)$ donde $\ff(\eps)$ es un número que depende de \eps. Basta entonces tomar $m_\eps$ como la parte entera de $\ff(\eps)$ más 1, $m_\eps=E\big(\ff(\eps)\big)+1$, con lo cual para todo $n\ge m_\eps$ se tiene que $n<\ff(\eps)$ y, por tanto, $\abs{x_n-x}<\eps$.
+
+Este procedimiento admite muchos atajos. Hay que tener en cuenta que no se pide calcular el $m_\eps$ ``óptimo'', es decir, el menor valor posible de $m_\eps$ para el cual se verifica que  $n\ge m_\eps \Longrightarrow \abs{x_n-x}<\eps$, sino que se pide calcular cualquier valor de $m_\eps$ para el cual sea cierta dicha implicación. Para ello es suficiente con obtener, a partir de la desigualdad $\abs{x_n-x}<\eps$, otra desigualdad del tipo $n>\ff(\eps)$ de forma que se verifique la implicación $n>\ff(\eps) \Longrightarrow\abs{x_n-x}<\eps$.
+
+En este procedimiento hay que quitar valores absolutos. Esto siempre puede hacerse porque la desigualdad $\abs{x_n-x}<\eps$ equivale a las dos desigualdades $-\eps<x-n-x<\eps$. Con frecuencia, el número $x_n-x$ es siempre positivo o siempre negativo para todo $n\ge n_0$, lo que permite quitar directamente el valor absoluto y sustituirlo por la correspondiente desigualdad.
+
+Por supuesto, en estos ejercicios hay que trabajar con un valor genérico de \epos, es decir, no está permitido considerar valores particulares de \eps\ porque se trata de probar que una cierta desigualdad es válida para todo \epos.
+
+La verdad es que se tarda más en escribir lo anterior que en hacer el ejercicio porque las sucesiones que se dan son muy sencillas y la sugerencia muy útil.
+
+\emph{a)} Tenemos que $$\abs{x_n-x}=\modulo{\frac{2n+3}{3n-50}-\frac{2}{3}}=\modulo{\frac{109}{9n-150}}.$$ El denominador es positivo para todo $n>17$. Pongamos $n=17+k$ donde $k\en\N$. Entonces
+$$\abs{x_n-x}=\frac{109}{9n-150}=\frac{109}{3+9k}<\frac{109}{9k}<\frac{13}{\,k\,}.$$ Deducimos que para que se tenga $\abs{x_n-x}<\eps$ es suficiente que tomar $n=17+k$ donde $k$ se elige de forma que $\frac{13}{k}<\eps$, es decir, $k>\frac{13}{\eps}$. Por tanto, poniendo $m_\eps=18+E(\frac{13}{\eps})$ podemos asegurar que para todo $n\ge m_\eps$ se verifica que $\abs{x_n-x}<\eps$.
+
+Observa que las acotaciones $\frac{109}{3+9k}<\frac{109}{9k}<\frac{13}{\,k\,}$ no son imprescindibles; de hecho, podemos despejar $k$ de la desigualdad $\frac{109}{3+9k}<\eps$, pero las acotaciones hechas facilitan este paso (aunque se obtiene un valor de $k$ mayor).
+
+\emph{b)} Tenemos que:
+$$0<x_n-0=\sqrt[3]{n+1}-\sqrt[3]{n}=\sqrt[3]{n}\left(\sqrt[3]{1+\dfrac{1}{n}\,}-1\right).$$
+Pongamos $z_n=\sqrt[3]{1+\dfrac{1}{n}\,}-1$. Tenemos que $z_n\ge 0$ y, usando la sugerencia dada:
+$$
+(1+z_n)^3=1+\frac{1}{n}\ge 1+3z_n\ms{3mu}\Longrightarrow\ms{3mu} z_n\le\frac{1}{3n}
+$$
+Deducimos que:
+$$
+x_n=\sqrt[3]{n\,}z_n\le\frac{1}{3}\frac{1}{\sqrt[3]{n^2}}\le\frac{1}{3}\frac{1}{\sqrt[3]{n}}.
+$$
+Por tanto:
+$$
+\frac{1}{3}\frac{1}{\sqrt[3]{n}}<\eps\ms{3mu}\Longrightarrow\ms{3mu} x_n<\eps\ms{3mu}\Longrightarrow\ms{3mu}\abs{x_n-0}=x_n<\eps
+$$
+La desigualdad $\frac{1}{3}\frac{1}{\sqrt[3]{n}}<\eps$ se verifica para todo $n>\frac{1}{27\eps^3}$. Por tanto, es suficiente tomar $m_\eps=1+E\big(\frac{1}{27\eps^3}\big)$.
+
+Observa que la acotación $\frac{1}{3}\frac{1}{\sqrt[3]{n^2}}\le\frac{1}{3}\frac{1}{\sqrt[3]{n}}$ no es imprescindible; de hecho, podemos despejar $n$ en la desigualdad $\frac{1}{3}\frac{1}{\sqrt[3]{n^2}}<\eps$, pero la acotación anterior facilita este paso (aunque se obtiene un valor mayor para $n$).
+
+\emph{c)} Sea $a>1$. Entonces $1<\sqrt[n]{a}$. Pongamos $z_n=\abs{x_n-1}=\sqrt[n]{a}-1>0$. Tenemos que:
+$$
+(1+z_n)^n=a>1+nz_n \ms{3mu}\Longrightarrow\ms{3mu} z_n<\frac{a-1}{n}
+$$
+Deducimos que:
+$$
+\frac{a-1}{n}<\eps \ms{3mu}\Longrightarrow\ms{3mu} z_n=\abs{x_n-1}<\eps
+$$
+La desigualdad $\frac{a-1}{n}<\eps$ se verifica para todo $n>\frac{a-1}{\eps}$. Por tanto, es suficiente tomar $m_\eps=1+E\big(\frac{a-1}{\eps}\big)$.
+
+Si $0<a<1$, poniendo $b=\frac{1}{a}$ y usando lo ya visto, tenemos que:
+$$
+0<1-\sqrt[n]{a}=\frac{\sqrt[n]{b}-1}{\sqrt[n]{b}}<\sqrt[n]{b}-1<\frac{b-1}{n}=\frac{1-a}{a}\frac{1}{n}
+$$
+De donde se sigue que podemos tomar $m_\eps=1+E\big(\frac{1-a}{a\eps}\big)$.
+
+\emph{e)}\ Sea $x_n=n\left(\sqrt[n]{n+1}-\sqrt[n]{n}\right)$. Tenemos que:
+$$
+0<x_n=\abs{x_n-0}=n\left(\sqrt[n]{n+1}-\sqrt[n]{n}\right)=n\sqrt[n]{n}\left(\sqrt[n]{1+\dfrac{1}{n}}-1\right).
+$$
+Pongamos $z_n=\sqrt[n]{1+\dfrac{1}{n}}-1$. Tenemos que $z_n>0$ y:
+$$
+(1+z_n)^n=1+\frac{1}{n}>1+n z_n \ms{3mu}\Longrightarrow\ms{3mu} z_n<\frac{1}{n^2}.
+$$
+Por tanto, usando la desigualdad \ref{eq:desraizn}, tenemos que:
+$$
+\abs{x_n-0}=n\sqrt[n]{n}z_n<\frac{1}{n}\sqrt[n]{n}<\frac{1}{n}\left(1+\frac{2}{\sqrt{n}}\right)0\frac{1}{n}+\frac{2}{n\sqrt[n]{n}}\le\frac{3}{n}
+$$
+Deducimos que tomando $m_\eps=1+E\big(\frac{3}{\eps}\big)$, entonces para todo $n\ge m_\eps$ se verifica que $\abs{x_n-0}<\eps$.\hecho
+
+\resuelto \label{res:sucesionsupremo}Sea $A$ un conjunto no vac\'\i{}o y mayorado de n\'umeros
+reales. Prueba que un n\'umero real, $\beta$, es el supremo de $A$ si, y s\'olo si, $\beta$
+es un mayorante de $A$ y hay alguna sucesi\'on de puntos de $A$ que converge a $\beta$.
+
+\sol Supongamos que $\beta=\sup(A)$. Entonces $\beta$ es, claro está, un mayorante de $A$. Veamos que hay una sucesión de puntos de $A$ que converge a $\beta$. Como $\beta$ es el mínimo mayorante de $A$, ningún número menor que $\beta$ puede ser mayorante de $A$. Por tanto, dado \epos, como $\beta-\eps<\beta$, tiene que haber algún $a_\eps\en A$ tal que $\beta-\eps<a_\eps$. En particular, para $\eps=\frac{1}{n}$ tiene que haber algún $a_n\en A$ tal que $\beta-\frac{1}{n}<a_n$ y, por supuesto, $a_n\le\beta$. Deducimos así la existencia de una sucesión, \sucn{a}, de puntos de $A$ que verifica $\beta-\frac{1}{n}<a_n\le \beta$. Es claro que $\sucn{a}\to\beta$.
+
+La afirmación recíproca te la dejo apara que la hagas tú.\hecho
+
+\resuelto Supuesto que $\lim\sucn{x}=x$, prueba que \mbox{$\,A\!=\!\{x_{n}\!:\!n\en\N\}\!\cup\!\{x\}$} tiene m\'aximo y m\'\i{}nimo.
+
+\sol Los elementos de $A$ son los términos de la sucesión junto con el límite de la misma. Observa que el conjunto $A$ puede ser finito o infinito. El caso en que $A$ es finito es trivial porque sabemos que todo conjunto finito tiene máximo y mínimo. Conviene considerar, por tanto, que $A$ es infinito. La idea para hacer este ejercicio es la siguiente: aún siendo $A$ infinito, todos sus elementos están en un intervalo de la forma $]x-\eps,x+\eps[$, con la posible excepción de un número finito de elementos de $A$ que pueden quedar fuera de dicho intervalo. Para probar que $A$ tiene máximo debemos fijarnos en los elementos más grandes de $A$. Dichos elementos deberían estar a la derecha del número $x+\eps$ para \epos\ suficientemente pequeño. Pero no tiene por qué haber ningún elemento de $A$ en estas condiciones, y eso pasa justamente cuando $x$ es el mayor elemento de $A$, en cuyo caso $x$ sería el máximo de $A$.
+
+Esto lleva a razonar de la siguiente forma. Si $x$ es el máximo de $A$, hemos acabado. En otro caso, tiene que haber algún elemento en $A$, digamos $a\en A$ que sea mayor que $x$, $a>x$. Tomemos un \epos\ tal que $x+\eps<a$ (por ejemplo $\eps=(a-x)/2$). Entonces, todos los elementos de $A$ están en $]x-\eps,x+\eps[$ excepto un número finito de ellos que quedan fuera de dicho intervalo; además, como $a>x+\eps$, el conjunto $B=\set{u\en A:u>x+\eps}$ no es vacío ($a\en B$), es finito y, evidentemente, se tiene que $\max(B)=\max(A)$.\hecho
+
+\resuelto \begin{enumerate}\label{ej:sucpotexp}
+\item[a)] Sea \sucn{x}\ una sucesi\'on y supongamos que hay
+n\'umeros $\rho\!\in ]0,1[,\,p\en\N$, tales que para todo
+$n\geqslant p$ es $\,|x_{n+1}|\leqslant\rho|x_{n}|\,$ . Prueba que
+$\lim\sucn{x}=0$.
+\item[b)] Sea \sucn{x}\ una sucesión de números no nulos verificando que
+$\,\lim\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}=\lambda$, donde
+$0\le\lambda<1$. Prueba que $\lim\sucn{x}=0$.
+\end{enumerate}
+Aplicaci\'on. Dados $a\in ]-1,1[,\,k\en\N$, prueba que
+$\dis\lim_{n\to\infty}\suc{n^{k}a^{n}}=0$.
+
+\sol \emph{a)} Podemos hacer este apartado de dos maneras. La primera consiste en darse cuenta de que la hipótesis $\,|x_{n+1}|\leqslant\rho|x_{n}|\,$ para todo $n\ge p$, junto con que $0<\rho<1$, implica que la sucesión $\set{\abs{x_{n+p}}}_{n\in\N}$ es decreciente y, como es de números positivos, tiene que converger a un número $\alpha\ge 0$. Por tanto $\lim\suc{\abs{x_n}}=\alpha$. La desigualdad $\,|x_{n+1}|\leqslant\rho|x_{n}|\,$ implica que $\alpha\le\rho\alpha$ y, como $0<\rho<1$, la única posibilidad para que dicha desigualdad se cumpla es que $\alpha=0$.
+
+Otra forma consiste en escribir para $n>p$:
+$$
+\abs{x_{n+1}}=\frac{\abs{x_{n+1}}}{|x_n|}\frac{|x_n|}{|x_{n-1}|}\frac{|x_{n-1}|}{|x_{n-2}|}\cdots\frac{|x_{p+1}|}{|x_p|}|x_p|\le \rho^{n-p+1}\abs{x_p}=\rho^{n+1}\frac{\abs{x_p}}{\rho^p}=M\rho^{n+1}
+$$
+donde hemos puesto $M=\frac{\abs{x_p}}{\rho^p}$ que es una constante que no depende de $n$. La desigualdad anterior, teniendo en cuenta que, por ser $0<\rho<1$, se verifica que $\rho^n\to 0$, implica que $\abs{x_n}\to 0$.
+
+\emph{b)} Tomando \epos\ de forma que $\rho=\lambda+\eps<1$ (basta tomar $\eps=(1-\lambda)/2$), se sigue que hay un número $p\en\N$ tal que para todo $n\ge p$ se verifica que:
+$$
+\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}\le \rho\mspace{3mu}\Longrightarrow\mspace{3mu}|x_{n+1}|\leqslant\rho|x_{n}|.
+$$
+Y, por lo visto en el apartado anterior, concluimos que $\sucn{x}\to 0$.
+
+La aplicación que se propone en este ejercicio es un resultado importante que debes memorizar.
+
+Pongamos $x_n=n^k a^n$, donde se entiende que $k$ es un número natural fijo y $a$ es un número real con $\abs{a}<1$. Tenemos que:
+$$
+\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}=\left(\frac{n+1}{n}\right)^k\abs{a}\mspace{3mu}\Longrightarrow\mspace{3mu} \lim_{n\to\infty}\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}=\abs{a}<1.
+$$
+Y podemos aplicar el resultado del punto anterior para concluir que $\dis\lim_{n\to\infty}\suc{n^{k}a^{n}}=0$.
+
+\resuelto Estudia la convergencia de las sucesiones siguientes.
+$$
+\begin{array}{ll}
+  a)\ x_n=\dfrac{2n+(-1)^n(n+2)}{7n+3} & b)\ x_n=n\left(\dfrac{1+(-1)^n}{3}\right)^n \\ c)\ x_n=n^{2}\left(\dfrac{1+n}{3 n}\right)^n &
+  d)\ x_{n}\!=\!\sqrt[n]{\rule{0mm}{3mm}a^{n}\!+b^{n}}\ \ (a>0,
+b>0) \\ e)\ x_{n}\!=\!\sumaf{k=1}{n}\!\dfrac{1}{\sqrt{k+n^{2}}} & f)\ x_n=\dfrac{x^n}{n!}\ \ (x\en\R) \\
+  g)\ x_{n}\!=\sqrt{n^{2}+3n+2\ }\ -\ n & h)\ x_{n}\!=\!\left(\!\sqrt{n^{2}+\sqrt{n}}-n\right)\!\left(\!\sqrt{n+1}+\sqrt{2n}\right)
+  \end{array}
+$$
+Sugerencia. En algunos casos puede usarse el principio de las
+sucesiones encajadas o el ejercicio anterior.
+
+\sol \emph{a)}\ Tenemos que $\suc{x_{2n}}\to 3/7$, $\suc{x_{2n-1}}\to 1/7$. Luego \sucn{x}\ no converge porque tiene dos sucesiones parciales que convergen a límites distintos.
+
+\emph{b)}\ Tenemos que $0\le x_n\le n\big(\frac{2}{3}\big)^n$ y, como $n\big(\frac{2}{3}\big)^n\to 0$ por lo visto en el ejercicio anterior, se sigue que $\sucn{x}\to 0$.
+
+\emph{d)}\ Sea $\alpha=\max{a,b}$. Entonces $\alpha\le x_n\le \sqrt[n]{2}\alpha$. Como $\sqrt[n]{2}\to 1$, concluimos que $\sucn{x}\to\alpha$.
+
+\emph{e)}\ Tenemos que:
+$$
+\frac{n}{\sqrt{n+n^2}}\le \sumaf{k=1}{n}\!\dfrac{1}{\sqrt{k+n^{2}\ }}\le \frac{n}{\sqrt{1+n^2}}.
+$$
+Puesto que $\dis\lim_{n\to\infty}\frac{n}{\sqrt{n+n^2}}=\lim_{n\to\infty}\frac{n}{\sqrt{1+n^2}}=1$, el principio de las sucesiones encajadas implica que $\dis\lim_{n\to\infty}\sumaf{k=1}{n}\!\dfrac{1}{\sqrt{k+n^{2}}}=1$.
+
+\emph{h)}
+$$
+\begin{aligned}
+\left(\!\sqrt{n^{2}+\sqrt{n}}-n\right)\!&\left(\!\sqrt{n+1}+\sqrt{2n}\right) =\dfrac{n^2+\sqrt{n}-n^2}{\sqrt{n^{2}+\sqrt{n}}+n}\left(\!\sqrt{n+1}+\sqrt{2n}\right)=\\ &= \dfrac{\sqrt{n^2+n}+\sqrt{2}\,n}{\sqrt{n^{2}+\sqrt{n}}+n}
+=\dfrac{\sqrt{1+\frac{1}{n}}+\sqrt{2}}{\sqrt{1+\frac{1}{n\sqrt{n}}}+1}\rightarrow\sqrt{2}
+\end{aligned}
+$$
+\hecho
+\resuelto Estudia la convergencia de la sucesión:
+$$
+x_n=2\sqrt{n} -\sum_{k=1}^n\dfrac{1}{\,\sqrt{k}\,}
+$$
+
+\sol Estudiaremos la monotonía y acotación. Tenemos que:
+$$
+\begin{aligned}
+x_{n+1}-x_{n}&= 2\sqrt{n+1}-2\sqrt{n}-\frac{1}{\sqrt{n+1}} =\frac{2n+1-2\sqrt{n^2+n}}{\sqrt{n+1}}>\\ &> \frac{2n+1-2\sqrt{n^2+n+\frac{1}{4}}}{\sqrt{n+1}}=0.
+\end{aligned}
+$$
+Por tanto $x_{n+1}>x_n$ y la sucesión es estrictamente creciente. Además:
+$$
+x_{k+1}-x_k=2\sqrt{k+1}-2\sqrt{k}-\frac{1}{\sqrt{k+1}}=\frac{2}{\sqrt{k+1}+\sqrt{k}}-\frac{1}{\sqrt{k+1}}<\frac{1}{\sqrt{k}}-\frac{1}{\sqrt{k+1}}
+$$
+Sumando estas desigualdades para $1\le k\le n-1$ obtenemos que $x_n-x_1<1-\frac{1}{\sqrt{n}}<1$, de donde se sigue que $x_n<2$ para todo \nN. Luego \sucn{x}\ es creciente y mayorada, por tanto es convergente.
+
+Alternativamente, aplicando el teorema del valor medio a la función $f(x)=2\sqrt{x}$ en el intervalo $[k,k+1]$ tenemos que hay algún número $c\en ]k,k+1[$ tal que:
+$$
+2\sqrt{k+1}-2\sqrt{k}=\frac{1}{\sqrt{c}}
+$$
+Como $k<c<k+1$ se verifica que:
+$$\frac{1}{\sqrt{k+1}}<\frac{1}{\sqrt{c}}<\frac{1}{\sqrt{k}}.
+$$
+Deducimos que:
+$$
+0<2\sqrt{k+1}-2\sqrt{k}-\frac{1}{\sqrt{k+1}}<\frac{1}{\sqrt{k}}-\frac{1}{\sqrt{k+1}}.
+$$
+Y volvemos a obtener las acotaciones anteriores de forma más cómoda.\hecho
+
+\resuelto Prueba que la sucesión dada por $x_1=0$ y para $n\ge 2$:
+$$
+x_n=\log(\log n)-\sum_{k=2}^n\frac{1}{k\log k}
+$$
+es convergente y su límite es menor o igual que $\log(\log 2)$.
+
+\sol Tenemos que:
+$$
+x_{k+1}-x_k=\log(\log(k+1))-\log(\log k)-\frac{1}{(k+1)\log(k+1)}.
+$$
+Aplicando el teorema del valor medio a la función $f(x)=\log(\log x))$ en el intervalo $[k,k+1]$ para $k\ge 2$, tenemos que hay algún número $c\en ]k,k+1[$ tal que:
+$$
+\log(\log(k+1))-\log(\log k)=\frac{1}{c\log c}.
+$$
+Como $k<c<k+1$ se verifica que:
+$$
+\frac{1}{(k+1)\log(k+1)}<\frac{1}{c\log c}<\frac{1}{k\log k}.
+$$
+Deducimos que:
+$$
+0<x_{k+1}-x_k<\frac{1}{k\log k}-\frac{1}{(k+1)\log(k+1)}.
+$$
+Esta desigualdad prueba que la sucesión \sucn{x}\ es creciente. Además, sumando las desigualdades anteriores desde $k=2$ hasta $k=n$ resulta que:
+$$
+x_{n+1}-x_2<\frac{1}{2\log 2}-\frac{1}{(n+1)\log(n+1)}<\frac{1}{2\log 2}\Longrightarrow x_{n+1}<x_2+\frac{1}{2\log 2}=\log(\log 2).
+$$
+Por tanto, la sucesión está mayorada y, como es creciente, es convergente y su límite es menor o igual que $\log(\log 2)$.\hecho
+
+\resuelto Dados $0<a_{1}<b_{1}$, definamos para todo $n\en\N$:
+$$ b_{n+1}\!=\frac{a_{n}\!+b_{n}}{2},\ \ \
+a_{n+1}\!=\sqrt{a_{n}b_{n}}. $$ Justifica que las sucesiones
+así definidas son mon\'otonas y convergen al mismo n\'umero
+(que se llama  \emph{media aritm\'etico-geom\'etrica} de $a_{1}$ y
+$b_{1}$).
+
+\sol Teniendo en cuenta que la media geométrica de dos números es menor que su media aritmética, y que ambas están comprendidas entre dichos números, se sigue que $a_1<a_2<b_2<b_1$. Volvemos a razonar ahora igual con $a_2<b_2$ para obtener que $a_2<a_3<b_3<b_2$. Este proceso puede continuarse indefinidamente. Deducimos que \sucn{a}\ es creciente y \sucn{b}\ es decreciente. Además, ambas están acotadas porque para todo \nN\ es $a_1<a_n<b_n<b_1$. Por tanto, ambas convergen. Pongamos $\sucn{a}\to a$ y $\sucn{b}\to b$. De la igualdad $a_{n+1}=\dfrac{a_n+b_n}{2}$ se sigue que $a=\dfrac{a+b}{2}$, de donde se obtiene que $a=b$.\hecho
+
+\resuelto Estudia la convergencia de las siguientes sucesiones.
+\begin{enumerate}[a)]
+\item $x_1=1$, $x_{n+1}=\sqrt{3x_n}$.
+\item $x_1=3$, $x_{n+1}=\dfrac{3+3x_n}{3+x_n}$.
+\item $x_{1}\!=1$, $x_{n+1}=\dfrac{4+3x_{n}}{3+2x_{n}}$.
+\item Dado $a\in ]-2,-1[$, definimos $x_{1}=a$, $x_{n+1}=\dfrac{x_{n}-2}{x_{n}+4}$.
+\item Dado $a>0$, definimos $x_{1}\!=\sqrt{a}$, $x_{n+1}=\sqrt{a+x_{n}}$.
+\item $x_{1}=0$, $x_{n+1}\!=\dfrac{1}{3-x_{n}^{2}}$.
+\item Dado $a>0$, $a\neq 1$, definimos $x_1=a$,
+$x_{n+1}=\dfrac{1}{3}\left(2x_n+\dfrac{a}{x_n^2}\right)$.
+\item Dado $a\en\R$, definimos $x_1=a$, $x_{n+1}=\dfrac{1}{4}+(x_n)^2$.
+\item Dado $a\in ]-2,1[$, definimos $x_1=a$, $3x_{n+1}=2+(x_n)^3$.
+\end{enumerate}
+Sugerencia. Estudia en cada caso monotonía y acotación. La convergencia puede depender del valor inicial de $a$.
+
+\sol En este tipo de ejercicios puede ser útil calcular de entrada, cuando sea posible y bajo el supuesto de que la sucesión sea convergente, el límite de la sucesión. Después deberemos probar que efectivamente la sucesión converge.
+
+\emph{a)} Supuesto que $\sucn{x}\to\alpha$, de la igualdad $x_{n+1}=\sqrt{3x_n}$, se sigue que $\alpha=\sqrt{3\alpha}$, por lo que $\alpha=3$. Observa que no hemos probado que \sucn{x}\ sea convergente. Lo que hemos probado es que, suponiendo que \sucn{x}\ sea convergente, entonces su límite es $3$. Este dato nos ayudará en lo que sigue. Por ejemplo, como $x_1=1<x_2=\sqrt{3}$, podemos sospechar que \sucn{x}\ es creciente. En tal caso debería verificarse que $x_n<3$ para todo \nN. Empezaremos probando esta desigualdad.
+
+Tenemos que $x_1=1<3$; supuesto que $x_n<3$ deducimos que $x_{n+1}=\sqrt{3x_n}<\sqrt{9}=3$. Luego, por inducción, concluimos que $x_n<3$ para todo \nN. Probemos ahora que \sucn{x}\ es creciente. Tenemos que:
+$$
+3x_n=x_{n+1}^2=x_{n+1}x_{n+1}<3x_{n+1}\quad\Longrightarrow\quad x_n<x_{n+1}
+$$
+por tanto, la sucesión es estrictamente creciente y, como está mayorada por $3$, es convergente y, por lo visto al principio, su límite es $3$.\hecho
+
+\emph{b)} Supuesto que $\sucn{x}\to\alpha$, de la igualdad $x_{n+1}=\dfrac{3+3x_n}{3+x_n}$, se sigue que $\alpha=\dfrac{3+3\alpha}{3+\alpha}$, de donde resulta que $\alpha^2=3$, por lo que deberá ser $\alpha=\sqrt{3}$ ya que el límite debe ser un número no negativo pues, evidentemente, todos los términos de la sucesión son positivos. Observa que no hemos probado que \sucn{x}\ sea convergente. Lo que hemos probado es que, suponiendo que \sucn{x}\ sea convergente, entonces su límite es $\sqrt{3}$. Este dato nos ayudará en lo que sigue. Por ejemplo, como $x_1=3>x_2=2$, podemos sospechar que \sucn{x}\ es decreciente. En tal caso debería verificarse que $x_n>\sqrt{3}$ para todo \nN. Empezaremos probando esta desigualdad.
+
+Claramente $x_1=3>\sqrt{3}$. Por otra parte:
+$$
+\begin{aligned}
+x_{n+1}>\sqrt{3}&\ms{3mu}\Longleftrightarrow\ms{3mu}\dfrac{3+3x_n}{3+x_n}>\sqrt{3}\ms{3mu}\Longleftrightarrow\ms{3mu} 3+3x_n>3\sqrt{3}+\sqrt{3}x_n\ms{3mu}\Longleftrightarrow\ms{3mu}\\ &\ms{3mu}\Longleftrightarrow\ms{3mu} x_n\sqrt{3}(\sqrt{3}-1)>3(\sqrt{3}-1)\ms{3mu}\Longleftrightarrow\ms{3mu} x_n>\sqrt{3}
+\end{aligned}
+$$
+Por tanto, si $x_n>\sqrt{3}$ también es $x_{n+1}>\sqrt{3}$. Luego, por inducción, concluimos que $x_n>\sqrt{3}$ para todo \nN. Probemos ahora que \sucn{x}\ es decreciente. Tenemos que:
+$$
+x_{n+1}-x_n=\dfrac{3+3x_n}{3+x_n}-x_n=\frac{3-x_n^2}{3+x_n}<0\quad\Longrightarrow\quad x_{n+1}<x_n
+$$
+por tanto, la sucesión es estrictamente decreciente y, como está minorada por $\sqrt{3}$, es convergente y, por lo visto al principio, su límite es $\sqrt{3}$.\hecho
+
+\begin{estrategia}
+Para estudiar las sucesiones recurrentes pueden usarse técnicas de derivadas; para ello hay que expresar la sucesión recurrente en la forma $x_{n+1}=f(x_n)$, donde la función $f$ generalmente es fácil de obtener a partir de la definición de la sucesión. En nuestro caso, tenemos que $x_{n+1}=\dfrac{3+3x_n}{3+x_n}$, por lo que deberemos considerar la función $f(x)=\dfrac{3+3x}{3+x}$. Con ello, tenemos que $x_{n+1}=f(x_n)$. Esta relación, junto con $x_1=3$ determina la sucesión. Seguidamente, hay que elegir un intervalo donde la función $f$ va a estar definida. Tenemos que elegir dicho intervalo de forma que la función tome valores en él. En nuestro caso, la elección es fácil pues, si $x\ge 0$ también es $f(x)\ge 0$, por ello vamos a considerar que $f$ está definida  en \Rpo. Podemos volver a enunciar nuestro ejercicio como sigue.
+
+Sea \func{f}{\Rpo}\ la función dada para todo $x\ge 0$ por $f(x)=\dfrac{3+3x}{3+x}$. Definamos \sucn{x}\ por $x_1=3$ y $x_{n+1}=f(x_n)$. Estudiar la convergencia de \sucn{x}.
+
+Lo primero que debemos observar es que la sucesión está bien definida pues $x_1=3>0$ y, supuesto que $x_n>0$, también es $x_{n+1}=f(x_n)>0$ por lo que tiene sentido $f(x_{n+1})$. Si la sucesión converge, su límite debe ser un número $\alpha\ge 0$ y, por ser $f$ continua, $f$ permuta con el límite, por lo que debe verificarse que $$\alpha=\lim\suc{x_{n+1}}=\lim\suc{f(x_n)}=f(\lim\sucn{x})=f(\alpha).$$ De donde se obtiene que $\alpha=\sqrt{3}$.
+
+Para estudiar la monotonía calculamos la derivada de $f$. Tenemos que $f\tl(x)=\dfrac{6}{(3+x)^2}$. Como $f\tl(x)>0$, se sigue que $f$ es estrictamente creciente. Como $x_1=3>x_2=f(x_1)=2$ y, al ser creciente, $f$ conserva las desigualdades, se sigue que $x_2=f(x_1)>f(x_2)=x_3$. Este proceso puede seguirse indefinidamente, esto es, la misma relación de orden que hay entre dos términos consecutivos se conserva siempre:
+$$
+x_n>x_{n+1}\quad\Longrightarrow\quad x_{n+1}=f(x_n)>f(x_{n+1})=x_{n+2}.
+$$
+Obtenemos así que \sucn{x}\ es decreciente. Además, como es de términos positivos, está minorada, luego es convergente. Su límite ya sabemos que es $\sqrt{3}$.
+
+Observa que, al proceder de esta forma, podemos probar muy fácilmente el decrecimiento de la sucesión, sin necesidad de probar previamente que $x_n>\sqrt{3}$.
+
+Las sucesiones recurrentes del tipo $x_{n+1}=f(x_n)$ donde $f$ es una función continua, cuando son convergentes, $\sucn{x}\to\alpha$, su límite viene dado por $\alpha=f(\alpha)$, es decir, es un \emph{punto fijo} de la función $f$.
+\end{estrategia}
+
+\emph{e)} Definamos \func{f}{\Rpo}\ por $f(x)=\sqrt{a+x}$. La sucesión está dada por $x_1=\sqrt{a}$ y $x_{n+1}=f(x_n)$. Como $f$ es continua, si la sucesión es convergente, su límite debe ser un punto fijo de $f$, es decir, debe ser solución de la ecuación $\alpha=f(\alpha)$, lo que implica que $\alpha^2=a+\alpha$ y deducimos que $$\alpha=\dfrac{1+\sqrt{1+4a}}{2},$$ donde hemos elegido la solución positiva de la ecuación. Puesto que $x_1=\sqrt{a}<x_2=\sqrt{2a}$ y, evidentemente, $f$ es estrictamente creciente, se sigue $x_2=f(x_1)<f(x_2)=x_3$ y, en general, $x_{n}<x_{n+1}$. Por tanto \sucn{x}\ es estrictamente creciente. Veamos que está mayorada. Probaremos que $x_n<\alpha$. Claramente $x_1=\sqrt{a}<\alpha$. Supongamos que $x_n<\alpha$. Entonces:
+$$
+x_{n+1}^2=a+x_n < a+\alpha=\alpha^2\quad\Longrightarrow\quad x_{n+1}<\alpha
+$$
+Concluimos, por inducción, que $x_n<\alpha$ para todo \nN. Luego \sucn{x}\ es creciente y mayorada, por tanto converge y su límite es $\alpha$.
+
+Para $a=1$, tenemos que:
+$$
+\frac{1+\sqrt{5}}{2}=\lim\SQRT{1+\SQRT{1+\SQRT{1+\SQRT{1+\cdots}}}}
+$$
+\hecho
+
+\emph{f)} Tenemos que $x_{1}=0$ y $x_{n+1}\!=\dfrac{1}{3-x_{n}^{2}}$. Consideremos la función $f(x)=\dfrac{1}{3-x^2}$. La sucesión que nos dan está definida por $x_1=0$, $x_{n+1}=f(x_n)$. La derivada de $f$ viene dada por $f\tl(x)=\dfrac{2x}{(3-x^2)^2}$. Debemos considerar definida la función $f$ en un intervalo $I$ que contenga el $0$ (porque $x_2=f(0)=1/3$) y de forma que $f(I)\subset I$. Como $f(0)=1/3$ debe estar en $I$, deberá ser $I\subset [0,\sqrt{3}[$. Como $f$ es creciente en $[0,\sqrt{3}[$ y $f(1)=1/2$, se sigue que $f([0,1])\subset [0,1/2]\subset [0,1]$.
+
+Consideraremos en lo que sigue que la función $f$ está definida en el intervalo $[0,1]$. Como $f([0,1])\subset [0,1]$ y los valores de la sucesión \sucn{x}\ son valores de $f$ obtenidos por aplicación reiterada de $f$ a partir del valor inicial $x_1=0\en [0,1]$, dichos valores están siempre en $[0,1]$. Por tanto $0\le x_n\le 1$ para todo \nN. Como $f$ es estrictamente creciente en $[0,1]$ y $x_1=0<x_2=f(0)=1/3$, se sigue que $x_2=f(x_1)<f(x_2)=x_3$ y, en general, supuesto que $x_{n-1}<x_n$, se sigue que $x_n=f(x_{n-1})<f(x_n)=x_{n+1}$. Luego \sucn{x}\ es estrictamente creciente. Como está acotada, concluimos que \sucn{x}\ es convergente. Sea $\sucn{x}\to\alpha$. Como $0\le x_n\le 1$, se sigue que $0\le\alpha\le 1$. Además, como $f$ es continua en $[0,1]$, $\alpha$ debe ser un punto fijo de $f$, esto es, $f(\alpha)=\alpha$. Deducimos que $\alpha$ verifica la ecuación $\alpha^3-3\alpha+1=0$.
+
+Las raíces de la ecuación $x^3-3x+1=0$ no son inmediatas de calcular pero podemos decir algunas cosas sobre ellas. Pongamos $h(x)=x^3-3x+1$. Tenemos que $h(-2)=-1<0$, $h(0)=1>0$, $h(1)=-1<0$ y $h(2)=3>0$. Deducimos que en cada uno de los intervalos $]-2,0[$, $]0,1[$ y $]1,2[$ hay una única raíz de la ecuación. Por tanto, la sucesión dada converge a la única raíz de la ecuación $x^3-3x+1=0$ que está en $]0,1[$.\hecho
+
+\emph{g)} Dado $a>0$ y $a\neq 1$, definimos $x_1=a$, $x_{n+1}=\dfrac{1}{3}\left(2x_n+\dfrac{a}{x_n^2}\right)$. Tenemos, evidentemente, que $x_n>0$ para todo \nN. Consideremos la función $f(x)=\dfrac{1}{3}\left(2x+\dfrac{a}{x^2}\right)$ donde, en principio, $x>0$. Tenemos que:
+$$
+f\tl(x)=\dfrac{2}{\,3\,}\,\dfrac{\,x^3-a\,}{x^3}
+$$
+Deducimos que $f\tl(x)<0$ para $0<x<\sqrt[3]{a}$ y $f\tl(x)>0$ para $x>\sqrt[3]{a}$. Por tanto $f$ es estrictamente decreciente en $]0,\sqrt[3]{a}]$ y estrictamente creciente en $[\sqrt[3]{a},+\infty[$. Concluimos que en $\sqrt[3]{a}$ la función $f$ tiene un mínimo absoluto en \Rp. Como todos los términos de la sucesión \sucn{x}\ son (con la posible excepción del primero $x_1=a$) valores que toma $f$ en puntos de \Rp, se sigue que $x_n>f(\sqrt[3]{a})$ para todo $n\geq 2$. Un calculo inmediato da $f(\sqrt[3]{a})=\sqrt[3]{a}$, es decir, resulta que $\sqrt[3]{a}$ es un punto fijo de $f$ en \Rp. Como $f$ es continua en \Rp, si \sucn{x}\ es convergente dicho punto debe ser el límite de \sucn{x}. Pero antes debemos probar que \sucn{x}\ es convergente.
+
+Para estudiar la monotonía debemos tener en cuenta que como $x_n>\sqrt[3]{a}$ para todo $n\ge 2$, todos los términos de la sucesión están en el intervalo $I=[\sqrt[3]{a},+\infty[$. No es por eso restrictivo suponer que $a>1$ (porque si fuera $0<a<1$, podemos eliminar el primer término de la sucesión lo que no afecta para nada a su estudio).  Comparemos $x_1$ con $x_2$. Tenemos que:
+$$
+x_2-x_1=\frac{1}{3}\left(a-\dfrac{a}{a^2}\right)-a=\dfrac{2a^2+1}{3a}-a=\dfrac{1-a^2}{3a}<0
+$$
+Por tanto se tiene que $x_2<x_1$ y, como $f$ es estrictamente creciente en $I$, las desigualdades se conservan por $f$, luego, supuesto que $x_n<x_{n-1}$, se tiene también que $x_{n+1}=f(x_n)<f(x_{n-1})=x_n$. Resulta así que \sucn{x}\ es decreciente. Además es de términos positivos (de hecho mayores que $\sqrt[3]{a}$), luego \sucn{x}\ es convergente y su límite es $\sqrt[3]{a}$.\hecho
+
+\emph{h)} Consideremos la función $f(x)=\frac{1}{4}+x^2$. Tenemos que $f(x)\ge \frac{1}{4}$. Como los términos de la sucesión dada, con la posible excepción del primero, son todos ellos valores de $f$, se cumple que $x_n\ge\frac{1}{4}$ para todo $n\ge 2$. No es restrictivo por eso suponer que $a\ge \frac{1}{4}$. Pongamos $I=[1/4,+\infty[$. Tenemos que $f(I)\subset I$. Como $f\tl(x)=2x$, se sigue que $f$ es estrictamente creciente en $I$. Por tanto la sucesión \sucn{x}\ será monótona creciente si $x_1\le x_2$ y será monótona decreciente si $x_2<x_1$. Tenemos que:
+$$
+x_1\le x_2\quad\Longleftrightarrow\quad a\le a^2+\frac{1}{4}\quad\Longleftrightarrow\quad 0\le a^2+\dfrac{1}{4}-a=\left(a-\dfrac{1}{2}\right)^2
+$$
+Deducimos que se verifica $x_1\le x_2$ y, por tanto, la sucesión es creciente. Cuando dicha sucesión esté mayorada será convergente y su límite debe ser un punto fijo de $f$ en $I$. Tenemos que $f(x)=x$ es lo mismo que $x^2-x+\frac{1}{4}=0$, esto es, $\big(x-\frac{1}{2}\big)^2=0$, cuya única solución es $x=1/2$. En consecuencia, la sucesión \sucn{x}\ será convergente a $\frac{1}{2}$ solamente cuando $x_n\le\frac{1}{2}$ para todo \nN, esto es, $a^2+\frac{1}{4}\le\frac{1}{2}$, que equivale a que $a^2\le\frac{1}{4}$, esto es, $\abs{a}\le\frac{1}{2}$ y, como $a\ge\frac{1}{4}$, resulta que debe ser $\frac{1}{4}\le a\le\frac{1}{2}$. Deducimos también que para $a>\frac{1}{2}$, la sucesión no puede ser convergente y, al ser creciente, no está mayorada. Observa que cuando $a=\frac{1}{2}$ resulta la sucesión constante $x_n=\frac{1}{2}$ para todo \nN.\hecho
+
+\resuelto \label{res:armonica} Para cada \nN\ sea
+$$x_{n}\!=\!1\!+\!\frac{1}{2}\!+\cdots+\!\frac{1}{n}-\log(n),\qquad
+y_{n}\!=x_{n}\!-\frac{1}{n}.$$ Prueba que \sucn{x}\ es
+estrictamente decreciente e \sucn{y}\ es estrictamente creciente.
+Deduce que ambas sucesiones convergen a un mismo n\'umero. Dicho
+n\'umero se llama la \emph{constante de Euler}, se representa por la
+letra griega $\upgamma$. %No se sabe si dicho número es racional o irracional.
+\begin{enumerate}[a)]
+\item Deduce que
+$\dis\Lim{\frac{1+1/2+\cdots+1/n}{\log(n)}}{n}{\infty}=1$.
+\item Justifica que
+$
+\dis\Lim{\left\{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}\right\}}{n}{\infty}=\log 2.
+$
+\item Justifica que
+$
+\dis\Lim{\left\{1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots+ \frac{(-1)^{n+1}}{n}\right\}}{n}{\infty}=\log  2.
+$
+\end{enumerate}
+\sol Tenemos que:
+$$
+x_n-x_{n+1}=\log(n+1)-\log n-\frac{1}{n+1}=\log\left(1+\dfrac{1}{n}\right)-\frac{1}{n+1}>0.
+$$
+Desigualdad que es consecuencia de que $\log(1+x)<x$ para todo $x>0$. También podemos tomar logaritmos en las desigualdades \ref{eq:numeroe}\ para obtener que:
+$$
+\frac{1}{n+1}<\log\left(1+\dfrac{1}{n}\right)<\frac{1}{n}
+$$
+Deducimos que \sucn{x}\ es estrictamente decreciente. Tenemos también:
+$$
+y_{n}-y_{n+1}=\log(n+1) -\log n-\frac{1}{n}=\log\left(1+\dfrac{1}{n}\right)-\frac{1}{n}<0.
+$$
+Deducimos que \sucn{y}\ es estrictamente creciente. Además, para todo \nN\ tenemos que $x_1<x_n<y_n<y_1$, por lo que ambas sucesiones están acotadas. Concluimos que dichas sucesiones convergen. Como $x_n-y_n=\frac{1}{n}\to 0$, deducimos que $\lim\sucn{x}=\lim\sucn{y}$.
+
+a)$$\dis \frac{1+1/2+\cdots+1/n}{\log(n)}=\dfrac{\log n+x_n}{\log n}=1+\dfrac{x_n}{\log n}.$$ Como \sucn{x}\ es convergente y $\dfrac{1}{\log n}\to 0$, se sigue que $\dfrac{x_n}{\log n}\to 0$.
+
+b) Pongamos $H_n=\Arm$. Tenemos que:
+$$
+\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}=H_{2n}-H_n=x_{2n}+\log(2n)-x_n+\log n=x_{2n}-x_n+\log 2
+$$
+Como $\suc{x_{2n}}$ es una sucesión parcial de \sucn{x}\ se tiene que $\suc{x_{2n}-x_n}\to\upgamma-\upgamma=0$.
+
+c) Pongamos $A_n=1-\dfrac{1}{2}+\dfrac{1}{3}-\dfrac{1}{4}+\cdots+ \dfrac{(-1)^{n+1}}{n}$. Tenemos que:
+$$
+\begin{aligned}
+A_{2n}&=1-\dfrac{1}{2}+\dfrac{1}{3}-\dfrac{1}{4}+\dfrac{1}{5}-\dfrac{1}{6}+\cdots+\dfrac{1}{2n-1}-\dfrac{1}{2n}=\\
+&=\left(1+\dfrac{1}{3}+\dfrac{1}{5}+\cdots+\dfrac{1}{2n-1}\right)-\left(\dfrac{1}{2}+\dfrac{1}{4}+\dfrac{1}{6}+\cdots+\dfrac{1}{2n}\right)=\\
+&= \left(1+\dfrac{1}{3}+\dfrac{1}{5}+\cdots+\dfrac{1}{2n-1}\right)-\dfrac{1}{\,2\,}\,H_n=H_{2n}-\dfrac{1}{\,2\,}\,H_n-\dfrac{1}{\,2\,}\,H_n=H_{2n}-H_n
+\end{aligned}
+$$
+Por el apartado anterior, tenemos que $\lim\suc{A_{2n}}=\log 2$. Como $A_{2n-1}=A_{2n}+\frac{1}{2n}$, deducimos que también $\lim\suc{A_{2n-1}}=\log 2$. Concluimos que (ver ejercicio resuelto \ref{res:parcialestotal}) $\lim\suc{A_n}=\log 2$.
+
+La sucesión $\set{A_n}$ se llama \textbf{serie armónica alternada}.
+
+\begin{estrategia}\label{est:armonica}
+Para calcular límites donde interviene la serie armónica $$H_n=\Arm$$ puede ser conveniente escribir dicha sucesión como $H_n=\log n+\upgamma_n$ donde $\sucn{\upgamma}\to\upgamma$.
+\end{estrategia}
+
+\resuelto \label{res:parcialestotal} Sea \sucn{x}\ una sucesión y supongamos que hay dos sucesiones parciales \suc{x_{\sigma(n)}}\ y \suc{x_{s(n)}}\ que convergen a un mismo número $x$ y tales que $\sigma(\N)\cup s(\N)=\N$. Prueba que $\sucn{x}$ converge a $x$.
+
+\sol Dado \epos, existen números naturales $m_\eps$ y $n_\eps$ tales que $\abs{x_{\sigma(n)}-x}<\eps$ para todo $n\ge m_\eps$ y $\abs{x_{s(n)}-x}<\eps$ para todo $n\ge n_\eps$. Sea $p=\max\set{m_\eps,n_\eps}$ y pongamos $A=\set{\sigma(n):n\ge p}\cup\set{s(n):n\ge p}$. Como, por hipótesis es $\sigma(\N)\cup s(\N)=\N$, se sigue que el conjunto $B=\N\setminus A$ es finito pues $B\subset\set{\sigma(n):1\le n<p}\cup\set{s(n):1\le n<p}$. Definamos $m=\max(B)+1$. Para $q\ge m$ se tiene que $q\not\in B$, o sea, $q\en A$, es decir, $q$ es de la forma $q=\sigma(n)$ o $q=s(n)$ con $n\ge p$, en cualquier caso se verifica que $\abs{x_q-x}<\eps$.
+
+Este resultado suele aplicarse cuando $\sigma(n)=2n$ y $s(n)=2n-1$, es decir, a las sucesiones parciales de los términos pares e impares. Cuando sabemos que \suc{x_{2n}}\ y \suc{x_{2n-1}}\ convergen a un mismo número, podemos concluir que \sucn{x}\ converge a dicho número.
+
+Este resultado puede generalizarse de manera fácil. Por ejemplo si \suc{x_{3n}}, \suc{x_{3n-1}}\ y \suc{x_{3n-2}}\ convergen todas a un mismo número, también \sucn{x}\ converge a dicho número.\hecho
+
+
+\resuelto Sea \sucn{x}\ una sucesi\'on de n\'umeros reales
+y supongamos que hay n\'umeros $\rho\!\in ]0,1[$, $M\!>\!0$ y $p\en\N$ tales que
+$\,|x_{n+1}\!-x_{n}|\leqslant M\rho^{n}$ para todo $n\geqslant p$. Prueba que \sucn{x}\ es
+convergente.
+
+Sugerencia. Teniendo ahora en cuenta que para todos
+$\,n,h\en\N\,$ se verifica que:
+$$\rho^{n+h-1}+\rho^{n+h-2}+\cdots+\rho^{n}<\frac{\rho^{n}}{1-\rho}$$
+deduce que \sucn{x}\ verifica la condición de Cauchy.
+
+\sol Sean $n, h\en\N$, tenemos:
+$$
+\begin{aligned}
+\abs{x_{n+h}-x_n}&=\modulo{\sum_{k=1}^{h-1}(x_{n+k+1}-x_{n+k})}\le\sum_{k=0}^{h-1}\abs{x_{n+k+1}-x_{n+k}}\le M\sum_{k=0}^{h-1}\rho^{n+k}=\\ &=M\rho^n\sum_{k=0}^{h-1}\rho^k=M\rho^n\frac{1-\rho^h}{1-\rho}<\rho^n\frac{M}{1-\rho}=K\rho^n
+\end{aligned}
+$$
+Donde hemos puesto $K=\dfrac{M}{1-\rho}$, que es una constante independiente de $n$ y de $h$. Deducimos que:
+$$
+K\rho^n<\eps\quad \Longrightarrow\quad \abs{x_{n+h}-x_n}<\eps\quad\mbox{{\rm para todo }} h\en\N
+$$
+Dado \epos, determinamos $m_\eps$ por la condición de que $\rho^{m_\eps}<\eps/K$. Entonces para todo $n\ge m_\eps$ y \emph{para todo} $h\en\N$ se verifica que $\abs{x_{n+h}-x_n}<\eps$, lo que prueba que la sucesión \sucn{x}\ verifica la condición de Cauchy y, por tanto, es convergente.\hecho
+
+\resuelto Sea \sucn{x}\ una sucesi\'on de n\'umeros reales
+y supongamos que existen \mbox{$\rho\!\in ]0,1[,\,p\en\N$},
+tales que $|x_{n+1}\!-x_{n}|\leqslant \rho |x_{n}\!-x_{n-1}|\,$
+para todo $n>p$. Prueba que \sucn{x}\ es convergente.
+
+Sugerencia. Justifica que $|x_{n+1}-x_{n}|\leqslant
+M\rho^{n}$ donde $M$ es una constante independiente de $n$.
+
+\sol Es muy fácil, basta iterar la desigualdad del enunciado. Sea $n>p$:
+$$
+|x_{n+1}-x_{n}|\leqslant \rho |x_{n}-x_{n-1}|\le\rho^2\abs{x_{n-1}-x_{n-2}}\le\cdots\le \rho^{n-p}\abs{x_{p+1}-x_{p}}=M\rho^n.
+$$
+Donde $M=\dfrac{\abs{x_{p+1}-x_p}}{\rho^p}$ es una constante independiente de $n$. El ejercicio anterior nos dice que la sucesión \sucn{x}\ es convergente.\hecho
+
+\resuelto \label{res:contractiva} Sea $I$ un intervalo cerrado (puede ser
+$I=\R$); \func{f}{I}\ una funci\'on, y supongamos que hay un
+n\'umero $\alpha\in ]0,1[$ tal que:
+\begin{equation}
+  |f(x)-f(y)|\leqslant \alpha|x-y|,\qquad\mbox{\rm para todos $x,y$ en $I$}.
+\end{equation}
+Se dice entonces que $f$ es una \textbf{función contractiva} en $I$. Supongamos adem\'as que $f(x)\in\!I$ para todo $x\in\!I$. Dado un punto $a\in\!I$, definamos \sucn{x}\ por $\,x_{1}\!=a,$ y $\,x_{n+1}\!=f(x_{n})\,$ para todo $n\en\N$.
+
+a) Prueba que \sucn{x}\ converge a un punto $x\in\!I$ que es el \'unico punto fijo de $\,f$, es decir, $f(x)=x$.
+
+b) Justifica que si la función $f$ es derivable en $I$ y se verifica que hay un número $\alpha\in ]0,1[$ tal que $\abs{f\tl(x)}\le\alpha$ para todo $x\en I$, entonces $f$ es contractiva en $I$.
+
+\sol a) Es consecuencia inmediata del ejercicio anterior.
+
+b) Es consecuencia inmediata del teorema del valor medio.\hecho
+
+\resuelto Estudia la convergencia de las sucesiones
+definidas para todo $n\en\N$ por: $$ a)\ \ x_{1}\!=1,\ \
+x_{n+1}\!=\frac{1}{1+x_{n}}\,;\qquad b)\ \ x_{1}\!=\sqrt{2},\ \ x_{n+1}\!=\sqrt{2-x_{n}}.
+$$
+
+\sol a) Consideremos la función dada por $f(x)=\dfrac{1}{1+x}$. La sucesión que nos piden estudiar es la sucesión de iteradas de dicha función a partir del valor inicial $x_1=1$. Como $f\tl(x)=-\dfrac{1}{(1+x)^2}<0$, la función $f$ es estrictamente decreciente. Por tanto, la sucesión $x_{n+1}=f(x_n)$ no es monótona. Pues si, por ejemplo es $x_{n-1}<x_{n}$, como $f$, al ser decreciente, invierte las desigualdades, se tendrá que $x_n=f(x_{n-1})>f(x_n)=x_{n+1}$.
+
+Es evidente que $x_n>0$ para todo \nN. Por tanto $1+x_n>1 \Longrightarrow x_{n+1}<1$, luego $x_n\le 1$ para todo \nN, de donde $1+x_n\le 2\Longrightarrow x_{n+1}\ge\frac{1}{2}$. Deducimos que todos los términos de la sucesión están en el intervalo $I=[1/2,+\infty[$. Para $x\ge 1/2$ se tiene que $\abs{f\tl(x)}\le\frac{4}{9}$. Podemos aplicar, por tanto, el ejercicio anterior y deducimos que \sucn{x}\ es convergente. Además, su límite es el único punto fijo de $f$ en $I$, que viene dado por $x=\dfrac{1}{1+x}\Longrightarrow x^2+x-1=0$, de donde, $x=\dfrac{-1+\sqrt{5}}{2}$. \hecho
+
+\resuelto Supongamos que la ecuaci\'on
+$\,x^{2}\!=b x+a\,$ tiene dos ra\'\i{}ces reales distintas $\alpha$ y $\beta$. Dados dos
+n\'umeros reales $\lambda$ y $\mu$, definamos \sucn{x}\ por: $$ x_{1}\!=\lambda+\mu,\ \
+x_{2}\!=\lambda\alpha+\mu\,\beta, \ \ x_{n+2}\!=bx_{n+1}+ax_{n} $$ Prueba que
+$\,x_{n}\!=\lambda\alpha^{n-1}+\mu\beta^{n-1}$ para todo $n\en\N$.
+
+Aplicaciones. i) La sucesi\'on \sucn{x}\ definida para todo \nN\ por: $$ x_{1}\!=x_{2}\!=1,\ \
+x_{n+2}\!=x_{n+1}\!+x_{n} $$ se llama {\bf sucesi\'on de Fibonacci}. Calcula
+expl\'\i{}citamente $x_{n}$.
+
+ii) Estudia la convergencia de la sucesi\'on definida para todo \nN\ por: $$ x_{1}\!=a,\
+x_{2}\!=b,\ \ x_{n+2}\!=\frac{1}{2}(x_{n+1}\!+x_{n}).$$
+
+\sol La igualdad $\,x_{n}=\lambda\alpha^{n-1}+\mu \beta^{n-1}$ es cierta para $n=1$ y para $n=2$. Sea \nN, con $n\ge 2$, y supongamos que la igualdad se verifica para todo $k\en\N$ con $k\le n$. Entonces, teniendo en cuenta que $\alpha^2=b\alpha+a$ y $\beta^2=b\beta+a$, tenemos que:
+$$
+\begin{aligned}
+x_{n+1}&=bx_{n}+ax_{n-1}=b\lambda\alpha^{n-1}+b\mu\beta^{n-1}+a\lambda\alpha^{n-2}+a\mu\beta^{n-2}=\\
+&=\lambda(b\alpha+a)\alpha^{n-2}+\mu(b\mu+a)\beta^{n-2}=\lambda\alpha^{n}+\mu\beta^{n}
+\end{aligned}
+$$
+Lo que prueba la igualdad para $n+1$. Concluimos, por inducción, que la igualdad es cierta para todo \nN.
+
+i) Como $x_{n+2}=x_{n+1}+x_n$, deducimos que $a=b=1$. Por tanto, $\alpha$ y $\beta$ son las raíces de $x^2=x+1$, las cuales vienen dadas por:
+$$
+\alpha=\frac{1-\sqrt{5}}{2},\qquad\beta=\frac{1+\sqrt{5}}{2}
+$$
+Calculemos $\lambda$ y $\mu$ por las condiciones $x_1=1=\lambda+\mu=$, $x_2=1=\lambda\alpha+\mu\beta$. Fácilmente se obtiene que:
+$$
+\lambda=\frac{5-\sqrt{5}}{2},\qquad\mu=\frac{5+\sqrt{5}}{2}
+$$
+Deducimos, por lo antes visto, que:
+$$
+x_n=\frac{5-\sqrt{5}}{2}\left(\frac{1-\sqrt{5}}{2}\right)^{n-1}+\frac{5+\sqrt{5}}{2}\left(\frac{1+\sqrt{5}}{2}\right)^{n-1}
+$$
+iii) Pongamos $x_1=a^1b^0$, $x_2=a^0b^1$, $x_n=a^{p_n}b^{q_n}$. Entonces:
+$$
+x_{n+2}=a^{p_{n+2}}b^{q_{n+2}}=a^{\frac{1}{2}(p_{n+1}+p_n)}b^{\frac{1}{2}(q_{n+1}+q_n)}.
+$$
+Tenemos las ecuaciones:
+$$
+p_1=1,\ p_2=0,\ 2p_{n+2}=p_{n+1}+p_n,\qquad q_1=0,\ q_2=1,\ 2q_{n+2}=q_{n+1}+q_n
+$$
+Ambas ecuaciones son de la forma $2x_{n+2}=x_{n+1}+x_n$ por lo que $a=b=1$ y  $\alpha$ y $\beta$ son las raíces de $2x^2=x+1$. Por tanto $\alpha=1$, $\beta=-\frac{1}{2}$. En consecuencia:
+$$
+p_n=\lambda_1 +\mu_1\left(-\dfrac{1}{2}\right)^{n-1},\qquad q_n=\lambda_2+\mu_2\left(-\dfrac{1}{2}\right)^{n-1},
+$$
+Debemos ahora calcular $\lambda_1,\mu_1$ y $\lambda_2, \mu_2$ para que se verifiquen las respectivas condiciones iniciales $p_1=1, p_2=0$ y $q_1=0, q_2=1$. Fácilmente se obtiene que $\lambda_1=\frac{1}{3}$, $\mu_1=\frac{2}{3}$, $\lambda_2=\frac{2}{3}$, $\mu_2=-\frac{2}{3}$. Deducimos que:
+$$
+x_n=a^{\frac{1}{3}+\frac{2}{3}\big(-\frac{1}{2}\big)^{n-1}}b^{\frac{2}{3}-\frac{2}{3}\big(-\frac{1}{2}\big)^{n-1}}\longrightarrow a^{\frac{1}{3}}b^{\frac{2}{3}}=\sqrt[3]{ab^2}.
+$$
+\hecho
+
+
+
+\end{ejercicios resueltos}
+
+\section{Sucesiones divergentes. Indeterminaciones en el cálculo de límites}
+Las sucesiones que no son convergentes pueden tener comportamientos muy variados. Por ejemplo, una sucesión acotada que tenga dos valores de adherencia diferentes no es convergente, los términos de dicha sucesión se aproximan a un valor de adherencia o al otro, antiguamente se decía que la sucesión ``oscilaba'' entre estos valores. Pero una sucesión acotada no convergente puede tener muchos valores de adherencia. No debes hacerte una idea demasiado esquemática de las sucesiones. En el capítulo 5 hemos visto que el conjunto de los números racionales es numerable, esto significa que es posible escribir todos los números racionales como los términos de una sucesión y también podemos hacerlo con los racionales que están en el intervalo $[0,1]$. Pongamos $\Q\cap[0,1]==\set{r_n:n\en\N}$. La sucesión \sucn{r}\ es acotada y, como consecuencia de la densidad de \Q\ en \R\ (proposición \ref{prop:densidad}), dicha sucesión tiene como valores de adherencia \emph{todos} los puntos del intervalo $[0,1]$.
+
+Vamos a estudiar ahora un tipo muy particular de sucesiones {\em no convergentes\/} pero que presentan una gran regularidad.
+
+\begin{definicion} Una sucesi\'on \sucn{x}\ se dice que es \textbf{positivamente divergente}, y escribimos $\sucn{x}\to +\infinity$, si para todo n\'umero real $\,K\!>\!0\,$ existe un n\'umero natural $\,m_{K}\en\N$, tal que para todo \nN\ con $\,n\!\geqslant\!m_{K}\,$ se verifica que $\,x_{n}\!\geqslant\!K$.
+
+Una sucesi\'on \sucn{x}\ se dice que es \textbf{negativamente
+divergente}, y escribimos $\sucn{x}\to -\infinity$, si para todo
+n\'umero real $\,K\!<\!0\,$ existe un n\'umero natural
+$\,m_{K}\en\N$, tal que para todo \nN\ con
+$\,n\!\geqslant\!m_{K}\,$ se verifica que $\,x_{n}\!\leqslant\!K$.
+
+Diremos que una sucesión es \textbf{divergente} para indicar que es
+positivamente o negativamente divergente.
+\end{definicion}
+
+\begin{observacion}
+Es importante que te des cuenta de que ``divergente'' no es sinónimo de ``no convergente''. Las sucesiones acotadas no convergentes no son tampoco divergentes. \marginpar{\flushright\curvasr}Sin embargo, muchos textos usan la expresión ``sucesión divergente'' con el significado de ``sucesión no convergente''. También es lamentablemente frecuente llamar ``sucesiones oscilantes'' a las sucesiones acotadas no convergentes. No te dejes confundir: una sucesión o es convergente o no es convergente. Un \emph{tipo especial de sucesiones no convergentes} son las sucesiones positivamente divergentes y negativamente divergentes. Eso es todo, lo demás son ganas de confundir al lector.
+\end{observacion}
+
+En la siguiente proposici\'on se exponen algunas propiedades
+elementales, pero importantes, de las sucesiones divergentes.
+Puesto que $\,\sucn{x}\to +\infinity\,$ si, y s\'olo
+si $\suc{-x_{n}}\to -\infinity$, es suficiente enunciar
+dichas propiedades para sucesiones positivamente divergentes.
+
+
+\begin{proposicion} i) $\{|x_n|\}\to +\infinity\,$ si, y s\'olo si, $
+\{1/x_{n}\}\to 0$.
+
+\noindent ii) La suma de una sucesi\'on positivamente divergente
+con una sucesi\'on acotada es una sucesi\'on positivamente
+divergente.
+
+\noindent iii) La suma de una sucesi\'on positivamente divergente
+con una sucesi\'on minorada es otra sucesi\'on positivamente
+divergente. En particular, la suma de dos sucesiones positivamente
+divergentes es otra sucesi\'on positivamente divergente.
+
+\noindent iv) El producto de dos sucesiones positivamente
+divergentes es otra sucesi\'on positivamente divergente.
+
+\noindent v) El producto de una sucesi\'on positivamente divergente
+por una sucesi\'on que converge a un n\'umero positivo es otra
+sucesi\'on positivamente divergente.
+\end{proposicion}
+
+
+Frecuentemente hay que estudiar la convergencia o divergencia de una
+suma o producto de dos sucesiones precisamente cuando las reglas que
+hemos visto en secciones anteriores no pueden aplicarse. Se trata de
+aquellos casos en que el comportamiento de las sucesiones
+\suc{x_{n}+y_{n}}, \suc{x_{n}y_{n}}\ no está determinado por el de
+\sucn{x}\ e \sucn{y}. Por ejemplo, si sabemos que
+$\sucn{x}\to\!+\infinity\,$ y que $\sucn{y}\to\!-\infinity$, ¿qu\'e
+podemos decir del comportamiento de la sucesi\'on \suc{x_{n}+y_{n}}?
+Respuesta: absolutamente nada. Baste para convencerse de ello la
+consideraci\'on de los siguientes casos:
+$$
+\begin{array}{lll}
+x_{n}\!=2n,  & y_{n}\!=-n; & \suc{x_{n}+y_{n}}=\{n\}\to\!+\infinity
+\\ x_{n}\!=n,   & y_{n}\!=-2n; &
+\suc{x_{n}+y_{n}}=\{-n\}\to\!-\infinity \\ x_{n}\!=n+1, &
+y_{n}\!=-n; & \suc{x_{n}+y_{n}}=\{1\}\to\!1 \\
+x_{n}\!=\!(-1)^{n}\!+\!n, & y_{n}\!=\!(-1)^{n}\!-\!n; &
+\suc{x_{n}+y_{n}}=\{2(-1)^{n}\!\}
+\end{array}
+$$
+En consecuencia, las sucesiones del tipo \suc{x_{n}+y_{n}}\ donde
+$\sucn{x}\to\!+\infinity$, $\sucn{y}\to\!-\infinity$, {\em requieren
+un estudio particular en cada caso}. Tales sucesiones suele decirse
+que son  \textbf{una indeterminaci\'on del tipo}
+``$\infinity\!-\!\infinity$''.
+
+An\'alogamente, si sabemos que $\sucn{x}\to\!0$ y que \sucn{y}\ es
+divergente, ello no proporciona ninguna informaci\'on sobre el
+comportamiento de la sucesi\'on \suc{x_{n}y_{n}}; la cual se dice
+que es \textbf{una indeterminaci\'on del tipo} ``$\,0\,\infinity$''.
+Las indeterminaciones que aparecen al estudiar el cociente de dos
+sucesiones divergentes o de dos sucesiones que convergen a cero, las
+llamadas \textbf{indeterminaciones de los tipos}
+``$\infinity/\infinity$'', ``$\,0/0$'', pueden reducirse a una
+indeterminaci\'on del tipo ``$\,0\,\infinity$''.
+
+El siguiente resultado permite resolver en muchas ocasiones
+indeterminaciones de la forma ``$\infinity/\infinity$''.
+
+\begin{teorema}[\textbf{Criterio de Stolz}]
+Sea \sucn{y}\ una sucesi\'on positivamente divergente y
+estrictamente creciente y sea \sucn{x}\ cualquier sucesi\'on.
+Supongamos que $$
+\left\{\frac{x_{n+1}-x_{n}}{y_{n+1}-y_{n}}\right\}\to L
+$$ donde $L\!\in\!\R$, o $L=+\infinity$, o $L=-\infinity$. Entonces se verifica tambi\'en que $\dis
+\left\{\frac{x_{n}}{y_{n}}\right\}\to L\,. $
+\end{teorema}
+\dem Supongamos, en primer lugar, que $L\!\in\!\R$. Dado \epos, existe, por hip\'otesis, un
+n\'umero natural $k$, tal que para todo $n\!\geqslant\!k$ se verifica que $$
+L-\frac{\eps}{2}<\frac{x_{n+1}-x_{n}}{y_{n+1}-y_{n}}<L+\frac{\eps}{2}. $$ As\'\i{} todas las
+fracciones $$ \frac{x_{k+1}-x_{k}}{y_{k+1}-y_{k}},\
+\frac{x_{k+2}-x_{k+1}}{y_{k+2}-y_{k+1}},\cdots, \frac{x_{n}-x_{n-1}}{y_{n}-y_{n-1}},\
+\frac{x_{n+1}-x_{n}}{y_{n+1}-y_{n}} $$ se encuentran comprendidas entre $L-\eps/2$ y
+$L+\eps/2$, por lo que, usando el ejercicio \ref{enmedio}, obtenemos que:
+\begin{equation}\label{eq:stolz}
+    L-\frac{\eps}{2}<\frac{x_{n+1}-x_{k}}{y_{n+1}-y_{k}}<L+\frac{\eps}{2}
+\end{equation}
+cualquiera sea $n\!\geqslant\!k$. Teniendo en cuenta ahora la igualdad $$
+\frac{x_{n+1}}{y_{n+1}}-L=\frac{x_{k}-Ly_{k}}{y_{n+1}}+
+\left(1-\frac{y_{k}}{y_{n+1}}\right)\left(\frac{x_{n+1}-x_{k}}{y_{n+1}-y_{k}}-L\right) $$
+deducimos que:
+\begin{equation}\label{eq:stolz2}
+\left|\frac{x_{n+1}}{y_{n+1}}-L\right|\leqslant\left|\frac{x_{k}-Ly_{k}}{y_{n+1}}\right|+
+\left|\frac{x_{n+1}-x_{k}}{y_{n+1}-y_{k}}-L\right|.
+\end{equation}
+Como
+$\Lim{\bigl\{(x_{k}-Ly_{k})/y_{n+1}\bigr\}}{n}{\infty}=0$, existe un n\'umero natural $q$ tal que, para
+todo $n\!\geqslant\!q$, se verifica $$
+\left|\frac{x_{k}-Ly_{k}}{y_{n+1}}\right|<\frac{\eps}{2}$$ Teniendo en cuenta \eqref{eq:stolz} y \eqref{eq:stolz2},
+deducimos que para todo $n\!\geqslant\max\{k,q\}$ se verifica que $$
+\left|\frac{x_{n+1}}{y_{n+1}}-L\right|<\eps. $$ Hemos probado, pues, que
+$\Lim{\bigl\{x_{n}/y_{n}\bigr\}}{n}{\infty}=L$.
+
+\smallskip
+
+Supongamos ahora que $L=+\infty$. En tal caso, para todo \nN\ suficientemente grande, se
+tendr\'a que $x_{n+1}-x_{n}>y_{n+1}-y_{n}>0$, por lo que la sucesi\'on \sucn{x}\ es, a partir de un término en adelante,
+estrictamente creciente. Supondremos, pues no es restrictivo hacerlo, que dicha sucesi\'on es toda ella
+estrictamente creciente y que $x_{q+1}-x_{q}>y_{q+1}-y_{q}$ para todo $q\en\N$. Sumando estas desigualdades desde $q=1$ hasta $q=n$, resulta $x_{n+1}-x_{1}>y_{n+1}-y_{1}$. Y, como $\sucn{y}\to +\infty$, deducimos que $\sucn{x}\to +\infty$. Podemos usar ahora lo ya probado, intercambiando las sucesiones \sucn{x}\ e
+\sucn{y}, para obtener que $$ \lim\left\{\frac{y_{n}}{x_{n}}\right\}=
+\lim\left\{\frac{y_{n+1}-y_{n}}{x_{n+1}-x_{n}}\right\}=0. $$ De donde se sigue que
+$\left\{x_{n}/y_{n}\right\}\to +\infty$.
+
+\smallskip
+
+El caso $L=-\infty$ se reduce al previo  cambiando la sucesi\'on \sucn{x}\ por \suc{-x_{n}}. \fin
+
+Es importante observar que, a\'un en las hip\'otesis del Criterio de Stolz, puede ocurrir que
+$\dis\left\{\frac{x_{n}}{y_{n}}\right\}$ sea convergente pero no lo sea
+$\dis\left\{\frac{x_{n+1}-x_{n}}{y_{n+1}-y_{n}}\right\}$; es decir, el Criterio de Stolz da una
+condici\'on suficiente pero no necesaria para la convergencia o divergencia de
+$\left\{x_{n}/y_{n}\right\}$ (ver ejercicio \ref{nostolz}).
+
+Observa que el criterio de Stolz recuerda a la regla de L'Hôpital donde las derivadas han sido sustituidas por las diferencias consecutivas. Del Criterio de Stolz se deducen dos \'utiles criterios para estudiar la convergencia de sucesiones de medias aritm\'eticas o geom\'etricas.
+
+\begin{proposicion}[\textbf{Criterio de la media aritm\'etica}]
+Supongamos que $\{a_{n}\}\to L$ donde $L$ es un n\'umero real, o
+$L=+\infinity$, o $L=-\infinity$. Entonces se verifica que $$
+\left\{\frac{a_{1}\!+a_{2}\!+\cdots+a_{n}}{n}\right\}\to L. $$
+\end{proposicion}
+\dem Basta aplicar el Criterio de Stolz a las sucesiones
+$x_{n}\!=a_{1}\!+a_{2}\!+\cdots+a_{n}$, $y_{n}\!=n$.\fin
+
+\begin{proposicion}[\textbf{Criterio de la media geom\'etrica}]
+Supongamos que $\{a_{n}\}\to L$ donde $\{a_{n}\}$ es una sucesi\'on
+de n\'umeros positivos y $L$ es un n\'umero real o bien
+$L=+\infinity$. Entonces se verifica que $$
+\left\{\sqrt[n]{\rule{0mm}{3mm} a_{1}a_{2}\dots a_{n}}\,\right\}\to
+L. $$
+\end{proposicion}
+\dem Lo afirmado se deduce del criterio de la media aritm\'etica
+teniendo en cuenta que $$ \log\!\left(\sqrt[n]{\rule{0mm}{3mm} a_{1}a_{2}\dots a_{n}}\,\right)=
+\frac{\log(a_{1}\!)+\log(a_{2}\!)+\cdots+\log(a_{n}\!)}{n}
+$$
+y la proposición \ref{prop:sucexplog}.\fin
+
+\begin{corolario}\label{cor:medgeometrica}
+Supongamos que $\dis\left\{\frac{x_{n+1}}{x_{n}}\right\}\to L$ donde
+$\{x_{n}\}$ es una sucesi\'on de n\'umeros positivos y $L$ es un
+n\'umero real o bien $L=+\infinity$. Entonces se verifica que $
+\{\sqrt[n]{\rule{0mm}{2.5mm} x_{n}}\,\}\to L. $
+\end{corolario}
+\dem Basta aplicar el criterio de la media geom\'etrica a la sucesi\'on $\{a_{n}\}$ definida
+por $a_{1}\!=\!1$, $\dis a_{n+1}\!=\frac{x_{n+1}}{x_{n}}$ para todo \nN.\fin
+\subsection{Sucesiones y límite funcional}
+El siguiente resultado establece una relación entre límite funcional y límite de sucesiones que es de gran utilidad práctica, pues proporciona una estrategia general para calcular límites de sucesiones y permite utilizar para ello las técnicas conocidas para calcular límites funcionales.
+
+\begin{proposicion}\label{prop:limsucfunc}
+Sea $f:A\rightarrow\R$ una función y sean
+$\,a,L\en\R\cup\{+\infinity,-\infinity\}$. Equivalen las
+afirmaciones:
+
+\noindent i) $\Lim{f(x)}{x}{a}=L$.
+
+\noindent ii) Para toda sucesión \sucn{x}\ de puntos de $A$ tal que $\sucn{x}\to a$ con $x_n\neq a$, se verifica que $\{f(x_n)\}\to L$.
+\end{proposicion}
+\dem $i) \Longrightarrow ii)$. Supongamos que $\Lim{f(x)}{x}{a}=L$ y sea $\sucn{x}\to a$ con $x_n\en A$ y $x_n\neq a$. Debemos probar que $suc{f(x_n)}\to L$. Consideremos el caso en que $a$ y $L$ son números reales. Dado \epos, por hipótesis, existe $\delta>0$ tal que para todo $x\en A$ con $x\neq a$ y $\abs{x-a}<\delta$ se verifica que $\abs{f(x)-L}<\eps$. Como $\sucn{x}\to a$, existe un número $n_0\en\N$ tal que para todo $n\ge n_0$ se verifica que $\abs{x_n-a}<\delta$. Por tanto, para todo $n\ge n_0$ tenemos que $x_n\en A$, $x_n\neq a$ y $\abs{x_n-a}<\delta$; en consecuencia, se verificará que $\abs{f(x_n)-L}<\eps$. Hemos probado así que $\suc{f(x_n)}\to L$.
+
+\smallskip
+
+Para probar que $ii)\Longrightarrow i)$, probaremos que $no i)\Longrightarrow no ii)$. Que $f$ no tiene límite en $a$ igual a $L$, quiere decir que \emph{existe} un $\eps_0>0$, tal que \emph{para todo} $\delta>0$ hay \emph{algún punto} $x_\delta\en A$, con $x_\delta\neq a$ y $\abs{x_\delta-a}<\eps_0$ pero $\abs{f(x_\delta)-L}\ge \eps_0$. Tomando para cada \nN\ $\delta=\frac{1}{n}$, obtenemos un $x_n\en A$ con $x_n\neq a$ y $\abs{x_n-a}<\frac{1}{n}$ pero $\abs{f(x_n)-L}\geq\eps_0$. Claramente se tiene que $\sucn{x}\to a$, con $x_n\en A$ y $x_n\neq a$ pero $\suc{f(x_n)}$ no converge a $L$.
+
+Los demás casos en que o bien $a$ o $L$ son infinitos se hacen de manera parecida.\fin
+
+Una consecuencia inmediata de este resultado es que todo límite
+funcional que conozcas te va a permitir resolver \emph{muchos} límites de
+sucesiones. En particular, de la lista de límites básicos que debes
+conocer se deducen los siguientes resultados.
+
+\smallskip
+
+\begin{proposicion}
+Para toda sucesión $\sucn{x}\to 0$ se verifica que
+$$
+\begin{array}{lll}
+ \Lim{\dfrac{\sen x_n}{x_n}}{n}{\infty}=1   & \Lim{\dfrac{\arcsen x_n}{x_n}}{n}{\infty}=1  & \Lim{\dfrac{1-\cos x_n}{x_n^2}}{n}{\infty}=\dfrac{1}{2}   \\
+\rule{0mm}{8mm} \Lim{\dfrac{\tg x_n}{x_n}}{n}{\infty}=1 & \Lim{\dfrac{\arctg  x_n}{x_n}}{n}{\infty}=1 & \Lim{\dfrac{\e^{x_n} -1}{x_n}}{n}{\infty}=1 \\ \rule{0mm}{8mm}
+\Lim{\dfrac{x_n-\sen x_n}{(x_n)^{\,3}}}{n}{\infty}=\dfrac{1}{6}  &
+\Lim{\dfrac{(1+x_n)^\alpha -1}{x_n}}{n}{\infty}=\alpha &
+\Lim{\dfrac{\log(1+x_n)}{x_n}}{n}{\infty}=1 \\
+\\ \Lim{\dfrac{\tg x_n - x_n}{(x_n)^{3}}}{n}{\infty}=\dfrac{1}{3} &   \Lim{\dfrac{\log(1+x_n)-x_n}{x_n^2}}{n}{\infty}=\dfrac{-1}{2}  &                                       \\
+\end{array}
+$$
+\end{proposicion}
+
+\begin{estrategia}
+Una estrategia para calcular límites de sucesiones consiste en convertir el límite de la sucesión que tienes que
+calcular en un caso particular de un límite funcional. El por qué de esta estrategia es que para calcular límites de funciones disponemos de muchas más herramientas que las que tenemos para trabajar directamente con sucesiones.
+
+Según esta estrategia, para calcular el límite de una sucesión \sucn{y}\ lo que hay que hacer es relacionar dicho límite con un límite funcional. Debemos inventarnos una función, $f$, y una sucesión convergente, $\sucn{x}\to a$, de forma que se tenga $y_n=f(x_n)$. Entonces, podemos asegurar que si $\Lim{f(x)}{x}{a}=\alpha$, también es $\lim\sucn{y}=\alpha$.
+\end{estrategia}
+
+\begin{ejemplo} Se trata de calcular el límite de la sucesión $y_n=\dfrac{\log(n)}{n(\sqrt[n]{n}-1)}$.
+
+Para ello nos fijamos en que en el denominador aparece
+$\sqrt[n]{n}-1$. Poniendo $x_n=\sqrt[n]{n}$, sabemos que $x_n\to 1$.
+La sucesión cuyo límite queremos calcular recuerda el límite
+funcional $\lim_{x\to 1}\dfrac{\log x}{x-1}=1$. Pongamos
+$f(x)=\dfrac{\log x}{x-1}$. Como caso particular de este límite
+funcional, tenemos que $f(x_n)\to 1$, y es claro que $y_n=f(x_n)$.
+Hemos probado así que $y_n\to 1$ y todo lo que hemos tenido que
+hacer es relacionar dicho límite con un límite funcional que ha
+resultado ser (cosa muy frecuente) una derivada: la derivada de la
+función $\log x$ en el punto $x=1$.
+\end{ejemplo}
+
+Teniendo en cuanta la caracterización de la continuidad, el siguiente resultado es un caso particular de la proposición \ref{prop:limsucfunc}.
+
+\begin{proposicion}\label{prop:continuidadsecuencial}
+Sea $f:A\rightarrow\R$ una función y sea $a\en A$. Equivalen las
+afirmaciones:
+
+\noindent i) $f$ es continua en $a$.
+
+\noindent ii) Para toda sucesión \sucn{x}\ de puntos de $A$ tal que $\sucn{x}\to a$, se verifica que $\{f(x_n)\}\to f(a)$.
+\end{proposicion}
+
+Podemos expresar este resultado como sigue: \emph{la continuidad permuta con el límite secuencial}, esto es, si $f$ es continua entonces:
+$$
+\lim_{n\to\infty}f(x_n)=f\big(\lim_{n\to\infty}x_n\big)
+$$
+
+Recogemos seguidamente algunas importantes propiedades de las sucesiones divergentes de logaritmos y exponenciales. Todas ellas se deducen, teniendo en cuenta la proposición \ref{prop:limsucfunc}, de las correspondientes propiedades de las funciones exponencial y logaritmo natural (proposición \ref{limiteslogexpo}).
+
+\begin{proposicion}\label{prop:sucexplog}%
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-6pt}}
+\item[]
+\item $\sucn{x}\to x \Longleftrightarrow \suc{\e^{x_n}}\to\e^x$.
+\item $\sucn{x}\to+\infty \Longleftrightarrow\suc{\e^{x_n}}\to\!+\infty$.
+\item $\sucn{x}\to\!-\infty \Longleftrightarrow \suc{\e^{x_n}}\to\!0$.
+\end{list}
+Para toda sucesi\'on de n\'umeros positivos \sucn{x}\ se verifica que:\vspace{-3mm}
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-6pt}}
+\item $\sucn{x}\to x>0 \Longleftrightarrow \suc{\log(x_n)}\to\log x$.
+\item $\sucn{x}\to+\infty \Longleftrightarrow \suc{\log(x_{n})}\to\!+\infty$.
+\item $\sucn{x}\to\!0 \Longleftrightarrow \suc{\log(x_{n})}\to\!-\infty$.
+\end{list}
+\end{proposicion}
+
+\subsection{Sucesiones asintóticamente equivalentes}
+\begin{definicion}
+Diremos que \sucn{x}\ es  \textbf{asint\'oticamente equivalente} a
+\sucn{y}, y escribiremos simb\'olicamente $\sucn{x}\sim\sucn{y}$, si
+$\suc{x_{n}/y_{n}}\to 1$.
+\end{definicion}
+
+Por ejemplo, las sucesiones \suc{\log n\,}\ y \suc{n(\sqrt[n]{n}-1)}\ son
+asin\-t\'o\-ti\-ca\-men\-te equivalentes.
+
+El siguiente resultado nos dice que para estudiar la convergencia de un producto de varias
+sucesiones podemos sustituir las que queramos por otras que sean asint\'oticamente
+equivalentes, sin que ello afecte a la convergencia o divergencia del producto ni a su eventual
+l\'\i{}mite.
+
+\begin{proposicion}\label{prop:sucasintequiv}
+Sean \sucn{x}\ e \sucn{y}\ sucesiones asint\'oticamente equivalentes y \sucn{z}\ una sucesi\'on
+cualquiera. Se verifica que:
+
+\vspace{2mm}
+
+\noindent i) \suc{x_{n}z_{n}}\ es convergente  si, y s\'olo si, \suc{y_{n}z_{n}}\ es
+convergente, en cuyo caso ambas sucesiones tienen el mismo l\'{\i}mite.
+
+\noindent ii) \suc{x_{n}z_{n}}\ es divergente  si, y s\'olo si, \suc{y_{n}z_{n}}\ es
+divergente, en cuyo caso ambas sucesiones son divergentes del mismo tipo.
+
+\vspace{2mm}
+
+En particular, \sucn{x}\ es convergente (resp. divergente) si, y s\'olo si, \sucn{y}\ es
+convergente (resp. divergente), en cuyo caso ambas tienen igual l\'\i{}mite (resp. son
+divergentes del mismo tipo).
+\end{proposicion}
+\dem Las afirmaciones hechas en $i)$ y $ii)$ son consecuencia de que $$
+\lim\left\{\frac{x_{n}}{y_{n}}\right\}= \lim\left\{\frac{y_{n}}{x_{n}}\right\}=1. $$ Si, por
+ejemplo, \suc{y_{n}z_{n}}\ es convergente, entonces como:
+$$
+\suc{x_{n}z_{n}}=\left\{\frac{x_{n}}{y_{n}}\right\}\suc{y_{n}z_{n}},
+$$ se sigue que \suc{x_{n}z_{n}}\ tambi\'en es convergente y
+tiene el mismo l\'\i{}mite que \suc{y_{n}z_{n}}.
+
+El mismo razonamiento prueba que si \sucn{x}\ es divergente entonces también \sucn{y}\ es divergente del mismo tipo.
+
+La afirmaci\'on hecha al final del enunciado es consecuencia de lo anterior tomando
+$z_{n}=1$.\fin
+
+\begin{observacion}
+Es importante observar que en una suma de sucesiones no se puede, en general, sustituir una sucesión por otra asintóticamente equivalente. Por ejemplo, \marginpar{\flushright\curvasr}si $x_{n}\!=n+\!1$, $y_{n}\!=n+1/n\,$ y $z_{n}\!=\!-n$, es claro que $\sucn{x}\sim\sucn{y}$ pero $\suc{x_{n}\!+z_{n}}=\{1\}_{n\in{\small\mathbb N}}$ no es asint\'oticamente equivalente a $\suc{y_{n}\!+z_{n}}=\suc{1/n}$.
+\end{observacion}
+
+
+\subsection{Sucesiones de potencias}
+Hay otras indeterminaciones que surgen al considerar {\em sucesiones
+de potencias}, es decir, sucesiones de la forma
+\suc{x_{n}^{y_{n}}}\ donde \sucn{x}\ es una sucesi\'on de
+n\'umeros positivos e \sucn{y}\ es una sucesi\'on cualquiera de
+n\'umeros reales. Puesto que
+$$x_{n}^{y_{n}}=\exp(y_{n}\log(x_{n})),$$ teniendo en cuenta la
+proposición \ref{prop:sucexplog}, la convergencia o divergencia de la
+sucesi\'on \suc{x_{n}^{y_{n}}}\ vendrá determinada por la de
+\suc{y_{n}\log(x_{n})}; la cual, a su vez, está determinada en
+todos los casos por el comportamiento de las sucesiones \sucn{x}\ e
+\sucn{y}, excepto cuando dicha sucesi\'on \suc{y_{n}\log(x_{n})} es
+una indeterminaci\'on del tipo ``$\,0\,\infinity$'', lo que ocurre
+en los siguientes casos.
+
+\vspace{2mm}
+
+a) $\sucn{x}\to 1$, $\suc{\abs{y_n}}\to +\infinity$ \ \
+(indeterminaci\'on ``$1^{\infty}$'')
+
+b) $\sucn{x}\to +\infty$, $\sucn{y}\to 0$ \ \ (indeterminaci\'on
+``$\infinity^{0}$'')
+
+c) $\sucn{x}\to 0$, $\sucn{y}\to 0$ \ \ (indeterminaci\'on
+``$\,0^{\,0}$'')
+
+\vspace{2mm}
+
+El siguiente resultado, que es la versión para sucesiones del criterio de equivalencia logarítmica para límites funcionales, permite resolver en muchos casos las indeterminaciones ``$1^{\infty}$'' y ``$\,0\,\infty$''.
+
+\begin{teorema}[\textbf{Criterio de equivalencia logar\'\i{}tmica}]\label{th:equivlogsuc}
+Sean \sucn{x}\ una sucesi\'on de n\'umeros positivos distintos de $1$ que converge a $1$,
+\sucn{y}\ una sucesi\'on cualquiera y $L$ un n\'umero real. Entonces se tiene que:
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-6pt}}
+\item $\lim\suc{x_{n}^{\,y_{n}}}=\e^{L} \Longleftrightarrow \lim\suc{y_{n}(x_{n}-1)}=L$.
+\item $\suc{x_{n}^{y_{n}}}\to\!+\infty \Longleftrightarrow \suc{y_{n}(x_{n}-1)}\to\!+\infty$.
+\item $\suc{x_{n}^{y_{n}}}\to 0 \Longleftrightarrow \suc{y_{n}(x_{n}-1)}\to\!-\infty$.
+\end{list}
+\end{teorema}
+\dem Puesto que $\,x_{n}^{y_{n}}=\exp(y_{n}\log(x_{n}))$, las afirmaciones hechas en el enunciado se deducen de la proposición \ref{prop:sucexplog}, sin m\'as que tener en cuenta que, como $\sucn{x}\to 1$, las sucesiones \suc{\log(x_{n})}\ y \suc{x_{n}-1}\ son
+asint\'oticamente equivalentes, por lo que, en virtud de la proposici\'on \ref{prop:sucasintequiv}, si una de las
+sucesiones \suc{y_{n}\log(x_{n})}\ e \suc{y_{n}(x_{n}-1)}\ es convergente (resp. divergente a
+$+\infty$ o a $-\infty$), la otra tambi\'en es convergente con igual l\'\i{}mite (resp.
+divergente a $+\infty$ o a $-\infty$).\fin
+
+Los ejercicios que siguen son de cálculo de límites de sucesiones. Deberás usar los criterios de Stolz y de las medias aritmética y geométrica y el criterio de equivalencia logarítmica. En general, debes seguir la estrategia básica de relacionar un límite de una sucesión con un límite funcional apropiado.
+
+\begin{ejercicios propuestos}
+\propuesto  Supongamos que $\sucn{x}\to 0$, siendo
+$-1<x_{n}\neq 0$, y sea $\alpha\!\in\!\R^{*}$. Justifica, usando derivadas, que
+\suc{(1+x_{n})^{\alpha}-1}\ es asint\'oticamente equivalente a
+\suc{\alpha x_{n}}.
+
+\propuesto  Prueba que la sucesi\'on \suc{\log n!\,}\
+es asint\'oticamente equivalente a \suc{n\log n\,}.
+
+\propuesto  Justifica que la sucesi\'on
+$\bigl\{\sqrt[n]{1+1/n^{\alpha}}-1\bigr\}$ es asint\'oticamente
+equivalente a $\bigl\{1/n^{\alpha+1}\bigr\}$, donde $\alpha>0$.
+
+\propuesto  Calcula los límites de las sucesiones
+\sucn{x}\ definidas por:
+
+{\bf a)} $\ \dis
+x_{n}=\frac{1^{\alpha}+2^{\alpha}+3^{\alpha}+\cdots+n^{\alpha}}{n^{\alpha+1}}\strut$,
+donde $\alpha>-1$.
+
+{\bf b)} $\ \dis x_{n}=\sqrt[k]{\rule{0mm}{3mm}
+(n+a_{1})(n+a_{2})\cdots(n+a_{k})}\ -\ n\,$, \ donde $k\en\N$,
+$a_{j}\en\R,\ 1\!\leqslant\!j\!\leqslant\!k$.
+
+{\bf c)} $\ \dis x_{n}=
+\left(\frac{\alpha\sqrt[n]{a}+\beta\sqrt[n]{b}}{\alpha+\beta}\right)^{\!\!n}$
+donde $a>0$, $b>0$ y $\alpha,\beta\!\in\!\R$, $\alpha+\beta\neq
+0\strut$.
+
+{\bf d)} $\ \dis
+x_{n}=\left(\frac{1+2^{p/n}+3^{p/n}+\cdots+p^{\,p/n}}{p}\right)^{\!\!\!n}$,
+donde $p\en\N$.
+
+{\bf e)} $\ \dis
+x_{n}=n\left(\frac{1+2^{k}+3^{k}+\cdots+n^{k}}{n^{k+1}}-\frac{1}{k+1}\right)$,
+donde $k\en\N$.
+
+{\bf f)} $\ \dis
+x_{n}=\left(\frac{3}{4}\frac{1+3^{2}+5^{2}+\cdots+(2n-1)^{2}}{n^{3}}\right)^{\!\!\!n^{2}}$
+
+{\bf g)} $\ \dis x_{n}=
+n\left[\left(1+\frac{1}{n^{3}\log(1+1/n)}\right)^{\!\!n}-1\right]$
+
+{\bf h)} $\ \dis x_{n}=
+\frac{1}{n}\left(n+\frac{n-1}{2}+\frac{n-2}{3}+\cdots+\frac{2}{n-1}+\frac{1}{n}-\log(n!)\right)$
+
+\propuesto  Calcula los límites de las sucesiones \sucn{x}\ definidas por:
+$$
+\begin{array}{ll}
+a)\ x_{n}=\dfrac{\log\!\left(1+\frac{1}{2}+\cdots+\frac{1}{n}\right)}{\log(\log
+n)} & b)\ x_{n}=\dfrac{\e\sqrt{\e}\sqrt[3]{\e}\cdots\sqrt[n]{\e}}{n} \\
+c)\rule{0mm}{8mm}\ x_{n}=\dfrac{1}{n}\left(1+\dfrac{\log n}{n}\right)^{\!\!n} & d)\ x_{n}=\left(\dfrac{\log(n+2)}{\log(n+1)}\right)^{\!\!n\log n} \\
+e)\rule{0mm}{6mm}\ x_{n}=\dfrac{1}{n}\dis\sumaf{k=1}{n}\frac{1}{k}\log\!\prod_{j=1}^{k}\left(1+\dfrac{1}{j}\right)^{\!\!j} &
+f)\ x_{n}=\dfrac{(2\sqrt[n]{n}-1)^{n}}{n^{2}}\\
+g)\rule{0mm}{6mm}\ x_{n}=\log n\left[\left(\dfrac{\log(n+1)}{\log n}\right)^{\!\!n}-1\right] &
+h)\ x_{n}=\sqrt[n]{\dfrac{(pn)!}{(qn)^{p\,n}}}\ \ (p,q\en\N)\\
+i)\ x_{n}= \left (\dfrac{5\sum_{k=1}^{n}k^{4}}{n^{5}} \right)^{n} & j)\ x_{n}=\log\left(1+\dfrac{1}{n}\right)\sqrt[n]{n!\,}\\
+k)\ x_n= n \dfrac{\sqrt[n]{\e}- {\e}^{\sen(1/n)}}{1 - n \sen(1/n)} & l)\ x_n=\dfrac{\frac{2}{1} + \frac{3^2}{2} +
+\frac{4^3}{3^2} + \cdots + \frac{(n+1)^n}{n^{n-1}}}{n^2}
+\end{array}
+$$
+\propuesto  Sabiendo que $\{a_{n}\}\to a$, calcula el límite de las sucesiones:
+
+\vspace{1mm}
+
+\noindent{\bf a)} $\dis x_{n}= n(\sqrt[n]{\rule{0mm}{2.5mm}
+a_{n}}-1)$
+
+\vspace{1.5mm}
+
+\noindent{\bf b)} $\dis
+x_{n}=\frac{\exp(a_{1})+\exp(a_{2}/2)+\cdots+\exp(a_{n}/n)-n}{\log
+n}$
+
+\vspace{1.5mm}
+
+\noindent{\bf c)} $\dis
+x_{n}=\frac{a_{1}+a_{2}/2+\cdots+a_{n}/n}{\log n}$
+
+\propuesto Calcula los l\'\i{}mites de las sucesiones:
+$$
+a)\ \dfrac{n\log(1+1/n)-1}{(1+1/n)^{n}-\e},\ \  b)\ n\bigl(\sqrt[n]{2-1/n}-1\bigr),\ \
+c)\ n^{2}\dfrac{n^{1/n^{2}}-1}{\log(n)},\ \  d)\ H_{n}\!\left(\dis n^{1/H_{n}^{2}}-1\right)
+$$
+Donde $H_{n}\!=\!1\!+\!\frac{1}{2}\!+\!\cdots\!+\!\frac{1}{n}$.
+
+Sugerencia. Usa equivalencias asintóticas apropiadas.
+
+\propuesto  Sea \sucn{x}\ una sucesi\'on de n\'umeros
+positivos tal que $\dis\left\{\frac{x_{n+1}}{x_{n}}\right\}\to
+L\!\in\!\Rp$. Calcula el límite de la sucesión $ \dis
+\SQRT[n]{\dfrac{x_{n}}{\sqrt[n]{\rule{0mm}{2.5mm} x_{1}x_{2}\cdots
+x_{n}}}}$.
+
+\propuesto Sea \sucn{x}\ una sucesi\'on de n\'umeros
+positivos, $\alpha$ un n\'{u}mero real, y supongamos que $\{n^{\alpha}x_{n}\}\to L\en\Rpo$.
+Calcula el límite de la sucesión $\dis n^{\alpha}\sqrt[n]{\rule{0mm}{2.5mm} x_{1}x_{2}\cdots x_{n}}$.
+
+\propuesto  Sean $a$, $b$ n\'umeros positivos;  definamos
+$x_{k}\!=\!a\!+\!(k\!-\!1)b$ para cada {\mbox{$k\en\N$}} y sea
+$G_{n}$ la media geom\'etrica de $x_{1},\,x_{2},\dots,\,x_{n}$ y
+$A_{n}$ su media aritm\'etica. Calcula el límite de la sucesión
+$\dis\dfrac{G_{n}}{A_{n}}$.
+
+\propuesto Sea $\sucn{x}\!\to\!x$, $\sucn{y}\!\to\!y$,
+$x\!\neq\!y$. Definamos  $z_{2n-1}\!=\!x_{n}$, y $z_{2n}\!=\!y_{n}$.
+Justifica que la sucesi\'on $$
+\rule{0mm}{6mm}\dis\left\{\frac{z_{1}+z_{2}+\cdots+z_{n}}{n}\right\}
+$$ es convergente.
+
+\propuesto Definamos \sucn{x}\ por:
+$$
+x_{3m}=\frac{1}{2^{3m-1}3^m},\quad x_{3m-1}=\frac{1}{2^{3m-3}3^{m-2}},\quad x_{3m-2}=\frac{1}{2^{3m-4}3^m}.
+$$
+Calcula el límite de la sucesión $\sqrt[n]{x_n}$ y justifica que la sucesión $\set{\frac{x_{n+1}}{x_n}}$ no converge.
+
+\propuesto  Sean \sucn{x}, \sucn{y}\ sucesiones de n\'umeros
+positivos verificando que {\mbox{$\suc{(x_{n})^{n}}\!\to\!x\!>\!0$}}\linebreak
+$\suc{(y_{n})^{n}}\to y\!>\!0$. Dados $\alpha,\beta\en\Rp$, con
+$\alpha\!+\!\beta\!=\!1$, calcula $\lim(\alpha x_{n}\!+\!\beta
+y_{n})^{n}$.
+
+\propuesto  Sea \suc{a_{n}}\ una sucesi\'on de n\'umeros
+positivos tal que  \suc{a_{1}+a_{2}+\cdots+a_{n}}\ es divergente, y
+sea $\suc{b_{n}}\to L$, donde $L$ puede ser un n\'umero real o
+$\pm\infinity$. Justifica que $$
+\left\{\frac{a_{1}b_{1}+a_{2}b_{2}+\cdots+a_{n}b_{n}}{a_{1}+a_{2}+\cdots+a_{n}}\right\}\to
+L.
+$$
+Aplicaci\'on. Supuesto que $\sucn{x}\to x$, calcula
+$\dis\lim\frac{1}{2^{n}}\sumaf{k=1}{n}\binom{n}{k}x_{k}$.
+
+\propuesto Dadas dos funciones polin\'omicas $\,P,Q$,
+tales que el grado de $Q$ es mayor o igual que el grado de $P$  y
+$Q(n)\neq 0$ para todo $n\en\N$, justifica que la sucesi\'on
+$\dis\left\{\frac{P(n)}{Q(n)}\right\}$ es convergente y calcula su
+límite.
+
+\propuesto
+a)\  Sea $\,f:[a,b]\rightarrow ]a,b]\,$ creciente y continua.
+Prueba que la sucesi\'{o}n \sucn{x}\ definida para todo $n\en\N$ por $x_{1}=a$ y $x_{n+1}=f(x_{n})$, converge a un punto $u\in ]a,b]$ tal que $f(u)=u$.
+
+b)\ Dado $0<\alpha\leq\frac{1}{4}$, estudia
+la convergencia de la sucesi\'{o}n \sucn{z}\ definida por:
+$$
+z_{1}=\alpha,\quad z_{n+1}=\alpha + z_{n}^{2}\qquad \forall n\en\N.
+$$
+
+
+\propuesto a) Justifica las desigualdades $$
+0<\log\frac{\e^{x}-1}{x}<x\ \ (x>0);\ \ \ x<\log\frac{\e^{x}-1}{x}<0\ \ (x<0). $$
+
+b) Dado $x\!\neq\!0\,$ definamos $\,x_{1}\!=x$, y para todo \nN: $$
+x_{n+1}=\log\frac{\e^{x_{n}}-1}{x_{n}}. $$ Estudia la convergencia de \sucn{x}.
+
+\propuesto Se considera la función $f:\R^+ \rightarrow \R$ definida para todo $x>0$ por
+$
+f(x) = \log x -x + 2
+$.
+\begin{enumerate}
+\item Prueba que $f$ tiene exactamente dos ceros, $\alpha$ y
+$\beta$, con $\alpha<1<\beta$.
+
+\item Dado $x_1 \in ]\alpha, \beta[$, se define la siguiente
+sucesión por recurrencia:
+$$
+x_{n+1}= \log x_n + 2 \ \ , \ \forall n \en\N.
+$$
+Prueba que $\{x_n\}$ es una sucesión monótona creciente y acotada que
+converge a $ \beta$.
+\end{enumerate}
+
+\propuesto Dado un n{\'u}mero $\alpha\in ]0,\pi[$, se define la sucesi{\'o}n \sucn{x}\ dada por $\,x_1=\sen\alpha$,
+$\,x_{n+1}=\sen x_n$.
+\begin{enumerate}
+\item[(a)] Justifica que la sucesi{\'o}n \sucn{x}\ es convergente y calcula su l{\'\i}mite. \item[(b)] Calcula el
+l{\'\i}mite de la sucesi{\'o}n $\,\dis z_n=\dfrac{1}{\,x_{n+1}^2\,}-\dfrac{1}{\,x_n^2\,}$
+\end{enumerate}
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto  \label{res:asintlognlog}Prueba que \suc{\log n!\,}\
+es asint\'oticamente equivalente a \suc{n\log n\,}.
+
+\sol Pongamos $x_n= n\log n$, $y_n=\log n!$. Aplicaremos el criterio de Stolz para calcular el límite de la sucesión $\suc{\frac{x_n}{y_n}}$. Tenemos que:
+$$
+\frac{x_{n+1}-x_n}{y_{n+1}-y_n}=\frac{(n+1)\log(n+1)-n\log n}{\log(n+1)}=\frac{n\log\left(\frac{n+1}{n}\right)}{\log(n+1)}+1
+$$
+Teniendo en cuenta que $n\log\big(\frac{n+1}{n}\big)=\log\big(1+\frac{1}{n}\big)^n\to 1$ y que $\log n\to+\infty$, obtenemos que $\set{\frac{x_{n+1}-x_n}{y_{n+1}-y_n}}\to 1$ y, por el criterio de Stolz, concluimos que $\suc{\frac{x_n}{y_n}}\to 1$.\hecho
+
+\resuelto  Justifica que la sucesi\'on
+$\bigl\{\sqrt[n]{1+1/n^{\alpha}}-1\bigr\}$ es asint\'oticamente
+equivalente a $\bigl\{1/n^{\alpha+1}\bigr\}$, donde $\alpha>0$.
+
+\sol Pongamos $x_n=\sqrt[n]{1+1/n^{\alpha}}$. Como $1\le x_n\le \sqrt[n]{2}$, deducimos, por el principio de las sucesiones encajadas, que $\sucn{x}\to 1$. Sabemos que $\dis\lim_{x\to 1}\dfrac{\log x}{x-1}=1$, porque dicho límite es la derivada en $1$ de la función logaritmo. Por tanto, en virtud de la proposición \ref{prop:limsucfunc}, para toda sucesión $\sucn{z}\to 1$ se verifica que $\lim\dfrac{\log(z_n)}{z_n-1}=1$, esto es, $z_n-1\sim \log(z_n)$. Análogamente, se tiene que $\log(1+u_n)\sim u_n$ para toda sucesión $\sucn{u}\to 0$. Deducimos que:
+$$
+x_n-1\sim\log(x_n)=\frac{1}{n}\log\left(1+\dfrac{1}{n^\alpha}\right)\sim \frac{1}{n}\frac{1}{n^\alpha}=\frac{1}{n^{\alpha+1}}
+$$
+\resuelto  Calcula los límites de las sucesiones
+\sucn{x}\ definidas por:
+
+{\bf a)} $\ \dis
+x_{n}=\frac{1^{\alpha}+2^{\alpha}+3^{\alpha}+\cdots+n^{\alpha}}{n^{\alpha+1}}\strut$,
+donde $\alpha>-1$.
+
+{\bf b)} $\ \dis x_{n}=\sqrt[k]{\rule{0mm}{3mm}
+(n+a_{1})(n+a_{2})\cdots(n+a_{k})}\ -\ n\,$, \ donde $k\en\N$,
+$a_{j}\en\R,\ 1\!\leqslant\!j\!\leqslant\!k$.
+
+{\bf c)} $\ \dis x_{n}=
+\left(\frac{\alpha\sqrt[n]{a}+\beta\sqrt[n]{b}}{\alpha+\beta}\right)^{\!\!n}$
+donde $a>0$, $b>0$ y $\alpha,\beta\!\in\!\R$, $\alpha+\beta\neq
+0\strut$.
+
+{\bf d)} $\ \dis
+x_{n}=\left(\frac{1+2^{p/n}+3^{p/n}+\cdots+p^{\,p/n}}{p}\right)^{\!\!\!n}$,
+donde $p\en\N$.
+
+{\bf e)} $\ \dis
+x_{n}=n\left(\frac{1+2^{k}+3^{k}+\cdots+n^{k}}{n^{k+1}}-\frac{1}{k+1}\right)$,
+donde $k\en\N$.
+
+{\bf f)} $\ \dis
+x_{n}=\left(\frac{3}{4}\frac{1+3^{2}+5^{2}+\cdots+(2n-1)^{2}}{n^{3}}\right)^{\!\!n^{2}}$
+
+{\bf g)} $\ \dis x_{n}=
+n\left[\left(1+\frac{1}{n^{3}\log(1+1/n)}\right)^{\!\!n}-1\right]$
+
+{\bf h)} $\ \dis x_{n}=
+\frac{1}{n}\left(n+\frac{n-1}{2}+\frac{n-2}{3}+\cdots+\frac{2}{n-1}+\frac{1}{n}-\log(n!)\right)$
+
+\sol a) Pongamos $x_n=\frac{u_n}{v_n}$. Aplicamos el criterio de Stolz, lo cual puede hacerse porque, al ser $\alpha>-1$ se tiene que $n^{\alpha+1}$ es una sucesión estrictamente creciente.
+$$
+\frac{u_{n+1}-u_n}{v_{n+1}-v_n}=\dfrac{(n+1)^\alpha}{(n+1)^{\alpha+1}-n^{\alpha+1}}=\left(\frac{n+1}{n}\right)^{\alpha}\frac{1}{n\left[\left(1+\frac{1}{n}\right)^{\alpha+1}-1\right]}
+$$
+Usando las equivalencias asintóticas $x_n-1\sim\log(x_n)$, válida cuando $\sucn{x}\to 1$, y $\log(1+u_n)\sim u_n$, válida cuando $\sucn{u}\to 0$, tenemos que:
+$$
+n\left[\left(1+\frac{1}{n}\right)^{\alpha+1}\!\!-1\right]\sim n\log\left(1+\frac{1}{n}\right)^{\alpha+1}\!\!\!=(\alpha+1)n\log\left(1+\frac{1}{n}\right)\sim (\alpha+1)n\frac{1}{n}=\alpha+1.
+$$
+Deducimos que $\lim\frac{u_{n+1}-u_n}{v_{n+1}-v_n}=\frac{1}{\alpha+1}$ y, por el criterio de Stolz, $\lim x_n=\frac{1}{\alpha+1}$.
+
+b)Tenemos que:
+$$
+\begin{aligned}
+\sqrt[k]{\rule{0mm}{3mm}(n+a_{1})(n+a_{2})\cdots(n+a_{k})}\ - n&=n\left(\sqrt[k]{\big(1+\frac{a_1}{n}\big)\big(1+\frac{a_2}{n}\big)\cdots\big(1+\frac{a_k}{n}\big)}\ -\ 1\right)\sim\\
+&\sim n\frac{1}{k}\log\left[\big(1+\frac{a_1}{n}\big)\big(1+\frac{a_2}{n}\big)\cdots\big(1+\frac{a_k}{n}\big)\right]=\\
+&=\frac{1}{k}\sum_{j=1}^k n\log\big(1+\frac{a_j}{n}\big)\to \frac{a_1+a_2+\cdots+a_k}{k}.
+\end{aligned}
+$$
+Donde hemos tenido en cuenta que ${\dis\lim_{n\to\infty}}n\log\big(1+\frac{a}{n}\big)=a$.
+
+c) Es una sucesión de potencias de la forma $x_n=u_n^{v_n}$, donde
+$$
+u_n=\frac{\alpha\sqrt[n]{a}+\beta\sqrt[n]{b}}{\alpha+\beta},\qquad v_n=n
+$$
+Claramente $u_n\to 1$, por lo que tenemos una indeterminación del tipo $1^{\infty}$. Usaremos el criterio de equivalencia logarítmica.
+$$
+\begin{aligned}
+v_n(u_n-1)&=n\left(\frac{\alpha\sqrt[n]{a}+\beta\sqrt[n]{b}}{\alpha+\beta}-1\right)=n\left(\frac{\alpha(\sqrt[n]{a}-1)+\beta(\sqrt[n]{b}-1)}{\alpha+\beta}\right)=\\
+&=\frac{\alpha}{\alpha+\beta}n(\sqrt[n]{a}-1)+\frac{\beta}{\alpha+\beta}n(\sqrt[n]{b}-1)\rightarrow\\ &\rightarrow \frac{\alpha}{\alpha+\beta}\log a+\frac{\beta}{\alpha+\beta}\log b=\log\left(a^{\frac{\alpha}{\alpha+\beta}}b^{\frac{\beta}{\alpha+\beta}}\right)
+\end{aligned}
+$$
+Deducimos que $\dis\lim_{n\to\infty}\sucn{x}=a^{\frac{\alpha}{\alpha+\beta}}b^{\frac{\beta}{\alpha+\beta}}$.
+
+d) Es una sucesión de potencias de la forma $x_n=u_n^{v_n}$, donde
+$$
+u_n=\frac{1+2^{\frac{p}{n}}+3^{\frac{p}{n}}+\cdots+p^{\frac{p}{n}}}{p},\qquad v_n=n
+$$
+Claramente $u_n\to 1$, por lo que tenemos una indeterminación del tipo $1^{\infty}$. Usaremos el criterio de equivalencia logarítmica.
+$$
+\begin{aligned}
+v_n(u_n-1)&=n\left(\frac{1+2^{\frac{p}{n}}+3^{\frac{p}{n}}+\cdots+p^{\frac{p}{n}}}{p}-1\right)=\\ &= \frac{1}{p}\left(n\big(2^{\frac{p}{n}}-1\big)+n\big(3^{\frac{p}{n}}-1\big)+\cdots+n\big(p^{\frac{p}{n}}-1\big)\right)
+\end{aligned}
+$$
+Teniendo en cuenta que $\lim n(\sqrt[n]{a}-1)=\log a$, deducimos que:
+$$
+\lim_{n\to\infty}v_n(u_n-1)=\log 2+\log 3+\cdots+\log n=\log n!\ms{4mu}\Longrightarrow\ms{4mu}\lim\sucn{x}=n!.
+$$
+f) Es una sucesión de potencias $x_n=u_n^{v_n}$, donde:
+$$
+u_n=\frac{3}{4}\frac{1+3^{2}+5^{2}+\cdots+(2n-1)^{2}}{n^{3}},\quad v_n=n^2.
+$$
+La base \sucn{u}\ converge a $1$, pues aplicando Stolz con $a_n=1+3^{2}+5^{2}+\cdots+(2n-1)^{2}$ y $b_n=n^3$, tenemos:
+$$
+\frac{a_{n+1}-a_n}{b_{n+1}-b_n}=\frac{(2n+1)^2}{(n+1)^3-n^3}=\frac{4n^2+4n+1}{3n^2+3n+1}\to\frac{4}{3}.
+$$
+Se trata de una indeterminación del tipo $1^{\infty}$. Aplicaremos el criterio de equivalencia logarítmica.
+$$
+\begin{aligned}
+v_n(u_n-1)&=n^2\left(\frac{3}{4}\frac{1+3^{2}+5^{2}+\cdots+(2n-1)^{2}}{n^{3}}-1\right)=\\
+&=\frac{3}{4}\frac{3\big(1+3^{2}+5^{2}+\cdots+(2n-1)^{2}\big)-4n^3}{n}
+\end{aligned}
+$$
+Apliquemos ahora el criterio de Stolz con $z_n=3\big(1+3^{2}+5^{2}+\cdots+(2n-1)^{2}\big)-4n^3$,\mbox{$w_n=n$.} Tenemos:
+$$
+\frac{z_{n+1}-z_n}{w_{n+1}-w_n}=3(2n+1)^2-4(n+1)^3+4n^3=-1.
+$$
+Deducimos que $v_n(u_n-1)\to -\frac{3}{4}$ y, por tanto, $\lim\sucn{x}=\e^{-\frac{3}{4}}=\frac{1}{\sqrt[4]{\e^3}}$.
+
+g) $x_n=n\left[\left(1+\frac{1}{n^{3}\log(1+1/n)}\right)^{\!\!n}-1\right]$. Pongamos $z_n=\left(1+\frac{1}{n^{3}\log(1+1/n)}\right)^{\!\!n}$. La sucesión \sucn{z}\ es una indeterminación del tipo $1^\infty$. Tenemos que:
+$$
+n\frac{1}{n^{3}\log(1+1/n)}=\frac{1}{n}\frac{1}{n\log(1+1/n)}\to 0\quad\Longrightarrow\quad z_n\to 1.
+$$
+En consecuencia:
+$$
+x_n\sim n\log(z_n)=n^2\log\left(1+\frac{1}{n^{3}\log\big(1+\frac{1}{n}\big)}\right)\sim n^2\frac{1}{n^{3}\log\big(1+\frac{1}{n}\big)}=\frac{1}{n\log\big(1+\frac{1}{n}\big)}.
+$$
+Luego $\lim\sucn{x}=\lim\frac{1}{n\log\big(1+\frac{1}{n}\big)}=1$.\hecho
+
+\resuelto  Calcula los límites de las sucesiones \sucn{x}\ definidas por:
+$$
+\begin{array}{ll}
+a)\ x_{n}=\dfrac{\log\!\left(1+\frac{1}{2}+\cdots+\frac{1}{n}\right)}{\log(\log
+n)} & b)\ x_{n}=\dfrac{\e\sqrt{\e}\sqrt[3]{\e}\cdots\sqrt[n]{\e}}{n} \\
+c)\rule{0mm}{8mm}\ x_{n}=\dfrac{1}{n}\left(1+\dfrac{\log n}{n}\right)^{\!\!n} & d)\ x_{n}=\left(\dfrac{\log(n+2)}{\log(n+1)}\right)^{\!\!n\log n} \\
+e)\rule{0mm}{6mm}\ x_{n}=\dfrac{1}{n}\dis\sumaf{k=1}{n}\frac{1}{k}\log\!\prod_{j=1}^{k}\left(1+\dfrac{1}{j}\right)^{\!\!j} &
+f)\ x_{n}=\dfrac{(2\sqrt[n]{n}-1)^{n}}{n^{2}}\\
+g)\rule{0mm}{6mm}\ x_{n}=\log n\left[\left(\dfrac{\log(n+1)}{\log n}\right)^{\!\!n}-1\right] &
+h)\ x_{n}=\sqrt[n]{\dfrac{(pn)!}{(qn)^{p\,n}}}\ \ (p,q\en\N)\\
+i)\ x_{n}= \left (\dfrac{5\sum_{k=1}^{n}k^{4}}{n^{5}} \right)^{n} & j)\ x_{n}=\log\left(1+\dfrac{1}{n}\right)\sqrt[n]{n!\,}\\
+k)\ x_n= n \dfrac{\sqrt[n]{\e}- {\e}^{\sen(1/n)}}{1 - n \sen(1/n)} & l)\ x_n=\dfrac{\frac{2}{1} + \frac{3^2}{2} +
+\frac{4^3}{3^2} + \cdots + \frac{(n+1)^n}{n^{n-1}}}{n^2}
+\end{array}
+$$
+\sol a) Usaremos la estrategia \ref{est:armonica}. Pongamos $H_n=\log n+x_n$ donde $\sucn{x}\to\upgamma$. Tenemos que:
+$$
+\begin{aligned}
+\dfrac{\log\!\left(1+\frac{1}{2}+\cdots+\frac{1}{n}\right)}{\log(\log n)}&=\dfrac{\log(\log n+x_n)}{\log(\log n)}=\dfrac{\log\left(\log n\left(1+\frac{x_n}{\log n}\right)\right)}{\log(\log n)}=\\
+&=\dfrac{\log(\log n)+\log\left(1+\frac{x_n}{\log n}\right)}{\log(\log n)}=1+\dfrac{\log\left(1+\frac{x_n}{\log n}\right)}{\log(\log n)}\to 1.
+\end{aligned}
+$$
+\begin{observacion}
+Hemos visto en el ejercicio resuelto \ref{res:armonica}\ que $H_n\sim\log n$, pero de aquí no puede deducirse directamente que $\log(H_n)\sim\log(\log n)$ que es lo que hemos probado. La razón es que no es cierto en general que si $\sucn{x}\sim\sucn{y}$ también sea $\log(x_n)\sim\log(y_n)$. Por ejemplo, las sucesiones $\suc{\dis\e^{\frac{1}{n}}}$ y $\suc{\dis\e^{\frac{1}{n^2}}}$ son asintóticamente equivalentes porque ambas convergen a $1$, pero sus logaritmos son las sucesiones $\suc{\frac{1}{n}}$ y $\suc{\frac{1}{n^2}}$ que no son asintóticamente equivalentes.
+
+En general, no hay garantías de que una equivalencia asintótica entre sucesiones se conserve por una determinada función.
+\end{observacion}
+
+c) Tomando logaritmos tenemos que:
+$$
+\log x_n=n\log\left(1+\frac{\log n}{n}\right)-\log n=n\left(\log\left(1+\frac{\log n}{n}\right)-\frac{\log n}{n}\right)
+$$
+Esta expresión es de la forma $\log(1+u_n)-u_n$ donde $u_n\to 0$. Recordemos que:
+$$
+\lim_{x\to 0}\frac{\log(1+x)-x}{x^2}=-\frac{1}{2}
+$$
+Tenemos que:
+$$
+\log x_n=\frac{\log\left(1+\frac{\log n}{n}\right)-\frac{\log n}{n}}{\left(\frac{\log n}{n}\right)^2}\frac{(\log n)^2}{n}
+$$
+Poniendo $u_n=\frac{\log n}{n}$, como $u_n\to 0$, deducimos que la primera de las dos fracciones anteriores converge a $-\frac{1}{2}$ y la segunda $\frac{(\log n)^2}{n}\to 0$. Concluimos que $\log x_n\to 0$ y, por tanto, $\sucn{x}\to 1$.
+
+e)\ $x_{n}=\dfrac{1}{n}\dis\sumaf{k=1}{n}\frac{1}{k}\log\!\prod_{j=1}^{k}\left(1+\dfrac{1}{j}\right)^{\!\!j}$. Pongamos:
+$$
+z_k=\frac{1}{k}\log\!\prod_{j=1}^{k}\left(1+\dfrac{1}{j}\right)^{\!\!j}=\frac{\dis\sum_{j=1}^k j\log\left(1+\frac{1}{j}\right)}{k}.
+$$
+De esta forma, se tiene que:
+$$
+x_n=\dfrac{\dis\sum_{k=1}^n z_k}{n}.
+$$
+Como $\sucn{z}$ es la sucesión de las medias aritméticas de la sucesión $y_n=n\log\left(1+\frac{1}{n}\right)$, y $\lim\sucn{y}=1$, se sigue, por el criterio de la media aritmética, que $\sucn{z}\to 1$. Como \sucn{x}\ es la sucesión de las medias aritméticas de \sucn{z}, volviendo ahora a aplicar el mismo criterio, deducimos que $\sucn{x}\to 1$.
+
+f)\ $x_{n}=\dfrac{(2\sqrt[n]{n}-1)^{n}}{n^{2}}$. Pongamos:
+$$
+x_n=\left(\dfrac{2\sqrt[n]{n}-1}{\sqrt[n]{n^2}}\right)^n=\left(2\sqrt[n]{\frac{1}{n}}-\sqrt[n]{\frac{1}{n^2}}\right)^n
+$$
+Se trata de una sucesión de potencias de la forma $x_n=u_n^{v_n}$ donde $u_n=2\sqrt[n]{\frac{1}{n}}-\sqrt[n]{\frac{1}{n^2}}$ y $v_n=n$. Claramente $u_n\to 1$, por lo que se trata de una indeterminación del tipo $1^\infty$. Aplicaremos el criterio de equivalencia logarítmica.
+$$
+\begin{aligned}
+v_n(u_n-1)&=n\left(2\sqrt[n]{\frac{1}{n}}-\sqrt[n]{\frac{1}{n^2}}-1\right)=-n\left(\sqrt[n]{\frac{1}{n}}-1\right)^2\sim\\
+&\sim -n\left(\log\sqrt[n]{\frac{1}{n}}\right)^2=\frac{\log n}{n}\to 0.
+\end{aligned}
+$$
+Deducimos que $x_n\to 1$.
+
+g)\ La sucesión $x_{n}=\log n\left[\left(\dfrac{\log(n+1)}{\log n}\right)^{\!\!n}-1\right]$ es de la forma $b_n(a_n-1)$ donde \linebreak $a_n=\left(\frac{\log(n+1)}{\log n}\right)^{\!n}$, $b_n=\log n$. Veamos que $\sucn{a}\to 1$. Para ello, como se trata de una indeterminación del tipo $1^\infty$, aplicamos el criterio de equivalencia logarítmica:
+$$
+n\left(\frac{\log(n+1)}{\log n}-1\right)=\frac{n\log\left(1+\frac{1}{n}\right)}{\log n}=\frac{\log\left(1+\frac{1}{n}\right)^n}{\log n}\to 0
+$$
+Por tanto, $\sucn{a}\to 1$. Podemos aplicar ahora el criterio de equivalencia logarítmica a la sucesión $b_n(a_n-1)$. Tenemos que:
+$$
+a_n^{b_n}=\left(\frac{\log(n+1)}{\log n}\right)^{n\log n}
+$$
+Esta sucesión es una indeterminación del tipo $1^\infty$ y podemos volver a aplicarle el criterio de equivalencia logarítmica.
+$$
+n\log n\left(\frac{\log(n+1)}{\log n}-1\right)=n\log\left(1+\frac{1}{n}\right)\to 1.
+$$
+Concluimos que $\sucn{x}\to 1$.
+
+
+h)\ $x_{n}=\sqrt[n]{\dfrac{(pn)!}{(qn)^{pn}}}$ donde $p,q\en\N$. Es una sucesión del tipo $x_n=\sqrt[n]{z_n}$ donde $z_n=\frac{(pn)!}{(qn)^{p n}}$. Tenemos que:
+$$
+\frac{z_{n+1}}{z_n}=\frac{(pn+p)!}{(qn+q)^{pn+p}}\frac{(qn)^{pn}}{(pn)!}=\frac{(pn+1)(pn+2)\cdots(pn+p)}{(qn+q)^p}\left(\frac{n}{n+1}\right)^{pn}
+$$
+La fracción $\frac{(pn+1)(pn+2)\cdots(pn+p)}{(qn+q)^p}$ es un cociente de dos polinomios en la variable $n$ del mismo grado $p$ y coeficientes líder iguales a $p^p$ y $q^p$ respectivamente, por tanto su límite es igual a $\big(\frac{p}{q}\big)^p$. La sucesión $\left(\frac{n}{n+1}\right)^{pn}=\left(1-\frac{1}{n+1}\right)^{np}$ converge a $\e^{-p}$. Por tanto, en virtud del corolario \ref{cor:medgeometrica}, la sucesión dada converge a $\big(\frac{p}{q\e}\big)^p$.
+
+k)\ $x_n= n \dfrac{\sqrt[n]{\e}- {\e}^{\sen(1/n)}}{1 - n \sen(1/n)}=\dfrac{\e^{\frac{1}{n}}-\e^{\sen(\frac{1}{n})}}{\frac{1}{n}-\sen(\frac{1}{n})}$.
+Consideremos la función $f(x)=\dfrac{\e^x-\e^{\sen x}}{x-\sen x}$. Pongamos $y_n=\frac{1}{n}$. Tenemos que $x_n=f(y_n)$. Como $y_n\to 0$, el límite de \sucn{x}\ es igual al límite de $f(x)$ en $x=0$. Tenemos que:
+$$
+f(x)=\frac{\e^x-\e^{\sen x}}{x-\sen x}=\e^{\sen x}\frac{\e^{x-\sen x}-1}{x-\sen x}\sim\e^{\sen x}\sim 1\qquad (x\to 0)
+$$
+Donde hemos usado que la función $\frac{\e^{x-\sen x}-1}{x-\sen x}$ es de la forma $\frac{e^{h(x)}-1}{h(x)}$ donde $\dis\lim_{x\to 0}h(x)=0$, por lo que dicha función tiene límite igual a 1 en $x=0$.\hecho
+
+\resuelto  Sabiendo que $\{a_{n}\}\to a$, calcula el límite de las sucesiones:
+
+\vspace{1mm}
+
+\noindent a) $\dis x_{n}= n(\sqrt[n]{\rule{0mm}{2.5mm}a_{n}}-1)$
+
+\vspace{1.5mm}
+
+\noindent b) $\dis x_{n}=\frac{\exp(a_{1})+\exp(a_{2}/2)+\cdots+\exp(a_{n}/n)-n}{\log n}$
+
+\vspace{1.5mm}
+
+\noindent c) $\dis x_{n}=\frac{a_{1}+a_{2}/2+\cdots+a_{n}/n}{\log n}$
+
+\sol b) Es una sucesión del tipo $x_n=\frac{u_n}{v_n}$. Aplicaremos el criterio de Stolz.
+$$
+\frac{u_{n+1}-u_n}{v_{n+1}-v_n}=\frac{\exp\big(\frac{a_{n+1}}{n+1}\big)-1}{\log\big(1+\frac{1}{n}\big)}\sim n\frac{a_{n+1}}{n+1}\to a.
+$$
+Donde hemos usado la equivalencia asintótica $\e^{z_n}-1\sim z_n$ válida siempre que $z_n\to 0$ y $\log(1+y_n)\sim y_n$, válida siempre que $y_n\to 0$. Concluimos que $\sucn{x}\to a$.\hecho
+
+\resuelto  Sea \sucn{x}\ una sucesi\'on de n\'umeros
+positivos tal que \mbox{$\left\{\frac{x_{n+1}}{x_{n}}\right\}\!\to\!
+L\!>\!0$.} Calcula el límite de la sucesión $ \dis
+\SQRT[n]{\dfrac{x_{n}}{\sqrt[n]{\rule{0mm}{2.5mm} x_{1}x_{2}\cdots x_{n}}}}$.
+
+\sol Es una sucesión del tipo $w_n=\sqrt[n]{y_n}$ donde $y_n=\dfrac{x_{n}}{\sqrt[n]{\rule{0mm}{2.5mm} x_{1}x_{2}\cdots x_{n}}}$. Aplicaremos el corolario \ref{cor:medgeometrica}. Tenemos que:
+$$
+\frac{y_{n+1}}{y_n}=\frac{x_{n+1}}{x_n}\frac{\big(x_1x_2\cdots x_n\big)^{\frac{1}{n}}}{\big(x_1x_2\cdots x_n x_{n+1}\big)^{\frac{1}{n+1}}}\sim L\frac{1}{\sqrt[n+1]{x_{n+1}}}\big(x_1x_2\cdots x_n\big)^{\frac{1}{n(n+1)}}
+$$
+En virtud, del citado corolario, se tiene que $\sqrt[n+1]{x_{n+1}}\to L$. Sea $z_n=\big(x_1x_2\cdots x_n\big)^{\frac{1}{n(n+1)}}$. Consideremos la sucesión:
+$$
+\log z_n=\frac{\log(x_1)+\log(x_2)+\cdots+\log(x_n)}{n(n+1)}
+$$
+Pongamos $a_n=\log(x_1)+\log(x_2)+\cdots+\log(x_n)$, $b_n=n(n+1)$. Aplicaremos el criterio de Stolz.
+$$
+\frac{a_{n+1}-a_n}{b_{n+1}-b_n}=\frac{\log(x_{n+1})}{2n+2}=\frac{1}{2}\log\sqrt[n+1]{x_{n+1}}\to\frac{1}{2}\log L=\log\sqrt{L}.
+$$
+Deducimos que $\log z_n\to\log\sqrt{L}$, por lo que $z_n\to \sqrt{L}$ y también $\frac{y_{n+1}}{y_n}\to\sqrt{L}$. El citado corolario \ref{cor:medgeometrica}\ implica que $w_n\to\sqrt{L}$.
+
+\resuelto  Sean $a$, $b$ n\'umeros positivos;  definamos
+$x_{k}\!=\!a\!+\!(k\!-\!1)b$ para cada {\mbox{$k\en\N$}} y sea
+$G_{n}$ la media geom\'etrica de $x_{1},\,x_{2},\dots,\,x_{n}$ y
+$A_{n}$ su media aritm\'etica. Calcula el límite de la sucesión
+$\dis\dfrac{G_{n}}{A_{n}}$.
+
+\sol Tenemos que $A_n=\dfrac{na+\frac{n(n-1)}{2}b}{n}=a+\dfrac{n-1}{2}b$. Por tanto:
+$$
+\frac{G_n}{A_n}=\frac{\sqrt[n]{x_1x_2\cdots x_n}}{a+\frac{n-1}{2}b}=\frac{1}{\frac{a}{n}+\frac{n-1}{2n}b}\SQRT[n]{\dfrac{x_1x_2\cdots x_n}{n^n}}
+$$
+Calcularemos el límite de la sucesión $U_n=\SQRT[n]{\dfrac{x_1x_2\cdots x_n}{n^n}}$, que es del tipo $U_n=\sqrt[n]{z_n}$, usando el corolario \ref{cor:medgeometrica}, tenemos:
+$$
+\frac{z_{n+1}}{z_n}=\frac{x_{n+1}}{(n+1)^{n+1}}n^n=\frac{x_{n+1}}{n+1}\left(1-\frac{1}{n+1}\right)^n\to\frac{b}{\e}.
+$$
+Deducimos que $\suc{\frac{G_n}{A_n}}\to\frac{2}{\e}$.\hecho
+
+\resuelto \label{nostolz}Sea $\sucn{x}\!\to\!x$, $\sucn{y}\!\to\!y$,
+$x\!\neq\!y$. Definamos  $z_{2n-1}\!=\!x_{n}$, y $z_{2n}\!=\!y_{n}$.
+Justifica que la sucesi\'on $$
+\rule{0mm}{6mm}\dis\left\{\frac{z_{1}+z_{2}+\cdots+z_{n}}{n}\right\}
+$$ es convergente.
+
+\sol Pongamos $u_n=\dfrac{z_{1}+z_{2}+\cdots+z_{n}}{n}$. Tenemos que:
+$$
+\begin{aligned}
+u_{2n}&=\frac{z_1+z_3+\cdots+z_{2n-1}}{2n}+\frac{z_2+z_4+\cdots+z_{2n}}{2n}=\\
+&=\frac{1}{\,2\,}\,\frac{x_1+x_2+\cdots +x_n}{n}+
+\frac{1}{\,2\,}\,\frac{y_1+y_2+\cdots +y_n}{n}\to\frac{x}{2}+\frac{y}{2}=\frac{x+y}{2}.
+\end{aligned}
+$$
+Donde hemos aplicado el criterio de la media aritmética. Análogamente se comprueba que $\suc{u_{2n-1}}\to\frac{x+y}{2}$. Concluimos que $\sucn{u}\to\frac{x+y}{2}$.
+
+Observa que no se puede calcular el límite de \sucn{u}\ aplicando el criterio de Stolz. Llamando $Z_n=z_1+z_2+\cdots +z_n$, $V_n=n$, tenemos $u_n=\frac{Z_n}{V_n}$ y:
+$$
+\frac{Z_{n+1}-Z_n}{V_{n+1}-V_n}=Z_{n+1}-Z_n=\left\{
+                                                     \begin{array}{ll}
+                                                       x_{m+1}, & \hbox{si $n=2m$ es par;} \\
+                                                      y_m, & \hbox{si $n=2m-1$ es impar.}
+                                                     \end{array}
+                                                 \right.
+$$
+Por tanto, la sucesión $\frac{Z_{n+1}-Z_n}{V_{n+1}-V_n}$ no es convergente.\hecho
+
+\resuelto a) Justifica las desigualdades: $$
+0<\log\frac{\e^{x}-1}{x}<x\ \ (x>0);\ \ \ x<\log\frac{\e^{x}-1}{x}<0\ \ (x<0). $$
+
+b) Dado $x\!\neq\!0\,$ definamos $\,x_{1}\!=x$, y para todo \nN: $$
+x_{n+1}=\log\frac{\e^{x_{n}}-1}{x_{n}}. $$ Estudia la convergencia de \sucn{x}.
+
+\sol a) En virtud del teorema del valor medio tenemos que:
+$$
+\frac{\e^x-\e^0}{x-0}=\frac{\e^x-1}{x}=\e^c
+$$
+donde $c$ es un punto comprendido entre $x$ y $0$, esto es, $c\in ]0,x[$ si $x>0$, y $c\in ]x,0[$ si $x<0$. En el primer caso es $1<\e^c<\e^x$ y en el segundo es $\e^x<\e^c<1$. Á partir de aquí se deducen enseguida las desigualdades del enunciado.
+
+b) Definamos $f(x)=\log\dfrac{\e^x-1}{x}$ y $f(0)=0$. La función $f$ es continua en \R. Supongamos que $x<0$. Entonces, como consecuencia de la segunda de las desigualdades del apartado anterior, se tiene que la sucesión $\sucn{x}$ es creciente y $x_n<0$ para todo \nN. Por tanto, dicha sucesión converge y su límite es un número $\alpha\le 0$, que debe verificar la igualdad $\alpha=f(\alpha)$ lo que exige que $\alpha=0$.\hecho
+
+\resuelto Se considera la función $f:\R^+ \rightarrow \R$ definida para todo $x>0$ por
+$
+f(x) = \log x -x + 2
+$.
+\begin{enumerate}[a)]
+\item Prueba que $f$ tiene exactamente dos ceros, $\alpha$ y
+$\beta$, con $\alpha<1<\beta$.
+
+\item Dado $x_1 \in ]\alpha, \beta[$, se define la siguiente
+sucesión por recurrencia:
+$$
+x_{n+1}= \log x_n + 2 \ \ , \ \forall n \en\N.
+$$
+Prueba que $\{x_n\}$ es una sucesión monótona creciente y acotada que
+converge a $ \beta$.
+\end{enumerate}
+
+\sol a) Como $\dis\lim_{x\to 0}f(x)=\lim_{x\to +\infty}f(x)=-\infty$ y $f(1)=1>0$ y, evidentemente, la función $f$ es continua en \Rp, podemos aplicar el teorema de Bolzano a los intervalos $]0,1]$ y $[1,+\infty[$, para deducir que $f$ tiene algún cero en cada uno de ellos.
+
+Como $f\tl(x)=\frac{1}{x}-1=\frac{1-x}{x}$, se sigue que $f$ es estrictamente decreciente en $[1,+\infty[$ y estrictamente creciente en $]0,1]$. Por tanto solamente puede anularse una vez en dichos intervalos.
+
+b) Como la función $h(x)=\log x+2$ es estrictamente creciente para $x>0$ y $h(\alpha)=\alpha$, $h(\beta)=\beta$, se deduce que para todo $x\in ]\alpha,\beta[$ es $\alpha<h(x)<\beta$. Además, como $h(x)-x$ es continua y no se anula en $]\alpha,\beta[$ debe tener signo constante. Como $h(1)>0$, deducimos que $x<h(x)$ para todo $x\in ]\alpha,\beta[$. Por tanto, dado $x_1\in ]\alpha,\beta[$, se tiene que $x_1<h(x_1)=x_2$ y, supuesto que $x_{n-1}<x_{n}$ se tiene que $x_n=h(x_{n-1})<h(x_n)=x_{n+1}$. Por tanto \sucn{x}\ es una sucesión estrictamente creciente y, además, todos sus términos están en $]\alpha,\beta[$, luego dicha sucesión converge y su límite, $\lambda$, debe verificar la igualdad $\lambda=h(\lambda)$; puesto que $\alpha<\lambda\le\beta$, se sigue que $\lambda=\beta$.\hecho
+
+\resuelto Dado un n{\'u}mero $\alpha\in ]0,\pi[$, se define la sucesi{\'o}n \sucn{x}\ dada por $\,x_1=\sen\alpha$,
+$\,x_{n+1}=\sen x_n$.
+\begin{enumerate}
+\item[(a)] Justifica que la sucesi{\'o}n \sucn{x}\ es convergente y calcula su l{\'\i}mite. \item[(b)] Calcula el
+l{\'\i}mite de la sucesi{\'o}n $\,\dis z_n=\dfrac{1}{\,x_{n+1}^2\,}-\dfrac{1}{\,x_n^2\,}$
+\end{enumerate}
+
+\sol a) La conocida desigualdad $0<\sen x<x$, válida para todo $x\in ]0,\pi[$, implica que la sucesión es estrictamente decreciente y de números positivos. De aquí se deduce enseguida que es convergente y su límite es $0$.
+
+b)
+$$
+\begin{aligned}
+z_n &=\dfrac{1}{\,x_{n+1}^2\,}-\dfrac{1}{\,x_n^2\,}=\dfrac{1}{\sen^2(x_n)}-\dfrac{1}{x_n^2}=\dfrac{x_n^2-\sen^2(x_n)}{x_n^2\sen^2(x_n)}\sim \\
+&\sim\dfrac{x_n^2-\sen^2(x_n)}{x_n^4}=\frac{\sen(x_n)+x_n}{x_n}\frac{x_n-\sen(x_n)}{x_n^3}\to\frac{1}{3}.
+\end{aligned}
+$$
+\hecho
+\end{ejercicios resueltos}
+
+\section{Sucesiones de números complejos}
+\begin{definicion} Una sucesión de números complejos \sucn{z}\ se dice que
+\textbf{converge} a un número complejo $\,z\,$ si, dado cualquier
+número real \epos, existe un número natural $\,m_{\varepsilon}$ tal
+que si $\,n\,$ es cualquier número natural mayor o igual que
+$\,m_{\varepsilon}$ se cumple que $\,|z_{n}\!-z|<\varepsilon$.
+Simbólicamente:
+$$
+\forall\epos\ \ \exists m_{\varepsilon}\en\N\ : n\geqslant
+m_{\varepsilon}\Rightarrow |z_{n}\!-z|<\varepsilon
+$$
+Se dice que el número $\,z\,$ es \textbf{límite de la sucesión}
+\sucn{z}\ y se escribe $\Lim{\sucn{z}}{n}{\infty}=z\,$ o,
+simplemente, $\lim\sucn{z}=z\,$ e incluso, si no hay posibilidad de
+confusión, $\sucn{z}\rightarrow z$.
+\end{definicion}
+
+Observa que, en virtud de la definición dada, se verifica que
+$$
+\sucn{z}\to z\quad\Longleftrightarrow\quad\abs{z_n-z\,}\to 0
+$$
+Recordemos que $\,\max\{\abs{\re z},\abs{\im z}\} \leqslant
+\abs{z\,}\leqslant\abs{\re z}+\abs{\im z}$. Gracias a esta
+desigualdad tenemos que:
+$$
+\left.
+\begin{aligned}
+&\abs{\re z_{n} - \re z} \\
+&\abs{\im z_{n} - \im z}
+\end{aligned}
+\right\} \leq \abs{z_{n} - z} \leq \abs{\re z_{n} - \re z} +
+\abs{\im z_{n} - \im z}
+$$
+Deducimos que $\abs{z_{n} -z }\to 0$ si, y sólo si, $\abs{\re
+z_{n} - \re z} \to 0$ y $\abs{\im z_{n} - \im z } \to 0$. Hemos
+probado así el siguiente resultado.
+
+\begin{proposicion}
+Una sucesión de números complejos $\{z_{n}\}$ es convergente si, y
+sólo si, las sucesiones de números reales $\{\re z_{n}\}$ y $\{\im
+z_{n}\}$ son convergentes. Además, en dicho caso
+\[
+\lim \{z_{n}\} = z \Longleftrightarrow \re z = \lim \{\re
+z_{n}\}\quad \textrm{y}\quad  \im z = \lim \{\im z_{n}\}
+\]
+\end{proposicion}
+
+Gracias a este resultado el estudio de sucesiones de números
+complejos se reduce a estudiar la convergencia de dos sucesiones de
+números reales.
+
+Los resultados obtenidos para sucesiones de números reales \emph{en
+los que no interviene la estructura de orden} son también válidos
+para sucesiones de números complejos. Son válidos, en particular,
+los resultados relativos a álgebra de límites, el teorema de
+Bolzano--Weierstrass y el teorema de completitud.
+
+\subsection{Definición de la exponencial compleja}
+Una de las formas de definir la exponencial de un número real
+$\,x\,$ es mediante el límite
+$$
+\e^x = \lim_{n \to \infty} \left(1 + \frac{x}{n} \right)^n
+$$
+Por tanto, una forma coherente de definir la exponencial de un
+número complejo sería calcular el anterior límite para
+$z \en \C$. Pongamos $z = x + iy$ donde suponemos que $y \neq 0$
+(puesto que si $y = 0$ tendríamos que $z=x$ sería un
+número real). Sea
+$$
+z_n=\left(1 + \dfrac{x+i y}{n} \right)^n .
+$$
+Pongamos:
+$$
+w_n = 1 + \dfrac{x+i y}{n}=1+\dfrac{x}{n}+i\dfrac{y}{n},\qquad
+\varphi_n = \arctg{\dfrac{y/n}{1 + x/n}}.$$ Sea $n_0$ tal que para
+$n\geqslant n_0$
+ se verifique que $\re(w_n)>0$. Entonces, para $n\geqslant n_0$ resulta que
+$\varphi_n =\arg(w_n)$.  Por otra parte, el módulo de $w_n$
+viene dado por:
+$$
+\abs{w_n}^2= \left\lvert 1 + \frac{z}{n}\right\rvert^2 = \left( 1 +
+\frac{x}{n}\right)^2 + \frac{y^2}{n^2}.
+$$
+Como $z_n=(w_n)^n$, tenemos, gracias a la fórmula de De Moivre,
+que:
+$$
+\begin{aligned}
+z_n & =(w_n)^n =\abs{w_n}^n  (\cos(n \varphi_n) + i
+\sen(n \varphi_n))=\left(1 + \dfrac{x+iy}{n}\right)^n =\\ &=
+\left[\left(1 + \frac{x}{n}\right)^2 +
+\frac{y^2}{n^2}\right]^{n/2}\!\! \big(\cos(n \varphi_n) + i
+\sen(n \varphi_n)\big).
+\end{aligned}
+$$
+Pero, por el criterio de equivalencia logarítmica, es:
+$$
+\lim\abs{w_n}^n=\lim\left[\left(1 + \frac{x}{n}\right)^2 +
+\frac{y^2}{n^2}\right]^{n/2}= \exp\left({\lim \frac{n}{2} \left(
+\frac{2x}{n} + \frac{x^2}{n^2} + \frac{y^2}{n^2}\right)}\right) =
+\e^x.
+$$
+Además, la sucesión \sucn{\ff}\ es asintóticamente
+equivalente a la sucesión $\left\{\dfrac{y/n}{1 + x/n}\right\}$.
+Por tanto
+$$
+\lim \{n\varphi_n\} = \lim \left\{n \frac{y/n}{1 + x/n}\right\} = y.
+$$
+En consecuencia, tenemos que:
+$$
+\lim_{n\to\infty}\left(1+\dfrac{z}{n}\right)^n=
+\lim_{n\to\infty}(w_n)^n=\lim_{n\to\infty}\abs{w_n}^n\bigl(\cos(n\,\ff_n)+i\sen(n\,\ff_n)\bigr)=
+\e^x (\cos{y} + i \sen{y}).
+$$
+Se define, por tanto, la exponencial de un número complejo $z=x+i y$
+como
+$$
+\e^{x+i y}=\e^x (\cos y + i \sen y).
+$$
+
+\begin{ejercicios propuestos}
+\propuesto Estudia la convergencia de las sucesiones:
+$$
+\begin{array}{lrlrl} &\textrm{i)}& z_n=\sqrt[n]{n}\,+\,i\,n\,a^n\quad (a\en\R,\abs{a}<1)&\textrm{ii)}&z_n=\dfrac{2^n}{n}+\dfrac{i\,n}{2^n}
+ \\ &\textrm{iii)}&
+z_n=\sqrt[n]{a}+i\,\sen\dfrac{1}{n}\quad (a>0) \rule{0mm}{9mm}
+&\textrm{iv)}& z_n=n\,\sen\dfrac{1}{n}+5\,i\,\cos\dfrac{1}{n}\\
+&\textrm{v)}& z_n=\left(\dfrac{1+i}{2}\right)^n &\textrm{vi)}&
+z_n=\left(\dfrac{1}{\sqrt{2}}+i\dfrac{1}{\sqrt{2}}\right)^n
+\end{array}
+$$
+
+\propuesto Sea \sucn{z}\ una sucesión de números complejos no
+nulos y sea $\ff_{n}\!\in\!\Arg(z_{n})$.
+Supongamos que $\sucn{\ff}\to\ff$ y $\suc{|z_{n}|}\to\rho$.
+Justifica que la sucesión $\sucn{z}\to\rho(\cos\ff+i\,\sen\ff)$.
+
+\propuesto Calcula el límite de la sucesión $\ \dis
+z_n=\left(1+\dfrac{\ \sqrt{2} +i\frac{\pi}{3}\ }{n}\right)^{n}$.
+
+Sugerencia. Expresa $z_n=\abs{z_n}(\cos\ff_n+i\sen\ff_n)$ y usa el
+ejercicio anterior.
+
+\propuesto Calcula el límite de la sucesión $\ \dis
+z_n=n\left(\sqrt[n]{2}\big(\cos\frac{\pi}{2n}+i\,\sen\frac{\pi}{2n}\big)-1\right)$.
+
+Sugerencia: Recuerda que el límite de la sucesión
+$\,n\big(\sqrt[n]{2}-1\big)\,$ es bien conocido.
+
+\propuesto Sea $z\in\C$, con $|z|=1$, $z\neq 1$. Prueba que la
+sucesión \suc{z^{n}}\ no converge (¿qué pasa si supones que
+converge?). Deduce que si $\ff$ es un número real que no es un
+múltiplo entero de $\pi$, las sucesiones \suc{\cos(n\ff)}\ y
+\suc{\sen(n\ff)}\ no convergen.
+\end{ejercicios propuestos}
+\begin{ejercicios resueltos}
+\resuelto  Calcula el límite de la sucesión {\scalefont{.9}$\dis z_n=n\left(\sqrt[n]{2}\left(\cos\frac{\pi}{2n}+i\sen\frac{\pi}{2n}\right)-1\right)$}.
+
+Sugerencia. Recuerda que el límite de la sucesión $\,n\big(\sqrt[n]{2}-1\big)\,$ es bien conocido.
+
+\sol
+$$
+\begin{aligned}
+z_n&=n\left(\sqrt[n]{2}\left(\cos\frac{\pi}{2n}-1\right)+i\,\sqrt[n]{2}\sen\frac{\pi}{2n}+\sqrt[n]{2}-1\right)=\\
+&=n\left(\sqrt[n]{2}-1\right)+\sqrt[n]{2}\frac{\pi}{2}\frac{\cos\big(\frac{\pi}{2n}\big)-1}{\frac{\pi}{2n}}+
+i\sqrt[n]{2}\frac{\pi}{2}\frac{\sen\big(\frac{\pi}{2n}\big)}{\frac{\pi}{2n}}\to\log2+i\frac{\pi}{2}
+\end{aligned}
+$$
+
+\resuelto Sea $z\in\C$, con $|z|=1$, $z\neq 1$. Prueba que la sucesión \suc{z^{n}}\ no converge (¿qué pasa si supones que converge?). Deduce que si $\ff$ es un número real que no es un múltiplo entero de $\pi$, las sucesiones \suc{\cos(n\ff)}\ y \suc{\sen(n\ff)}\ no convergen.
+
+\sol Siguiendo la sugerencia, supongamos que \suc{z^n}\ converge a un número $w\en\C$. Como $\modulo{z^n}=\modulo{z}^n=1$, debe ser $\abs{w}=1$. Por una parte, es claro que $\suc{z^{n+1}}\to w$ y también $\suc{z^{n+1}}=z\suc{z^n}\to z w$, por tanto debe ser $z=wz$, lo que implica que $(z-1)w=0$ lo cual es imposible porque $z\neq 1$ y $w\neq 0$. Concluimos que \sucn{z}\ no converge.
+
+Sea $\ff$ un número real que no es un múltiplo entero de $\pi$. Pongamos $z=\cos\ff+i\sen\ff$. Tenemos que $z\neq1$ y $\abs{z}=1$. Por lo antes visto, la sucesión $\suc{z^n}=\suc{\cos(n\ff)+i\sen(n\ff)}$ no converge. Veamos que esto implica que ninguna de las sucesiones \suc{\cos(n\ff)}, \suc{\sen(n\ff)}\ converge.
+
+En efecto, de la igualdad:
+$$
+\sen((n+1)\ff)=\sen(n\ff)\cos\ff+\cos(n\ff)\sen\ff\Longrightarrow \cos(n\ff)=\frac{1}{\sen\ff}\big(\sen((n+1)\ff)-\sen(n\ff)\cos\ff\big)
+$$
+se deduce que si \suc{\sen(n\ff)}\ converge, también converge \suc{\cos(n\ff)}\ y, por tanto, la sucesión $\suc{\cos(n\ff)+i\sen(n\ff)}$ converge, lo que es contradictorio.
+
+Análogamente, de la igualdad:
+$$
+\cos((n+1)\ff)=\cos(n\ff)\cos\ff-\sen(n\ff)\sen\ff\Longrightarrow\sen (n\ff)=\frac{1}{\sen\ff}\big(\cos((n+1)\ff)-\cos(n\ff)\cos\ff\big)
+$$
+se deduce que si \suc{\cos(n\ff)}\ converge, también converge \suc{\sen(n\ff)}\ y, por tanto, la sucesión $\suc{\cos(n\ff)+i\sen(n\ff)}$ converge, lo que es contradictorio.\hecho
+\end{ejercicios resueltos}
+\section{Demostraciones alternativas de los teoremas de Bolzano y de Weierstrass}
+Las demostraciones que vimos en el capítulo 4 de los teoremas de Bolzano y de Weierstrass se apoyaban directamente en ``primeros principios'', esto es, en la definición de continuidad y en el axioma del supremo. Por eso dichas demostraciones son un poco complicadas y no del todo fáciles de seguir en una primera lectura. Con la ayuda de la teoría desarrollada en este capítulo podemos dar demostraciones más cortas y amigables de dichos teoremas.
+
+\begin{teorema}[\textbf{Otra demostración del teorema de los ceros de Bolzano}]\label{th:bolzanonew}
+Toda función continua en un intervalo que toma valores positivos y negativos se anula en algún punto de dicho intervalo.
+\end{teorema}
+\dem Sea \func{f}{[a,b]}\ continua y supongamos que $f(a)>0$ y $f(b)<0$. Si dividimos el intervalo $[a,b]$ por un punto $c\in ]a,b[$ en dos subintervalos $[a,c]$ y $[c,b]$, puede ocurrir que $f(c)=0$ en cuyo caso hemos acabado; en otro caso será $f(c)\neq 0$, por lo que una sola de las desigualdades $f(a)f(c)<0$, $f(c)f(b)<0$ tiene que ser cierta, es decir, la función $f$ toma valores de signos opuestos en los extremos de uno de los subintervalos $[a,c]$ y $[c,b]$ en que hemos dividido el intervalo $[a,b]$. Podemos ahora repetir este proceso partiendo de dicho subintervalo. Esto es lo que hacemos seguidamente.
+
+Pongamos $a_1=a, b_1=b$. Dividimos el intervalo $[a_1,b_1]$ por la mitad en dos subintervalos y elegimos aquél en el que la función $f$ toma valores de distinto signo en sus extremos y a este subintervalo le llamamos $[a_2,b_2]$. Repetimos ahora el proceso dividiendo por la mitad el intervalo $[a_2,b_2]$ y obtenemos un intervalo $[a_3,b_3]$ tal que $f(a_3)f(b_3)<0$. Este proceso o bien se acaba porque en alguna etapa hemos dividido el intervalo por un punto en el que la función $f$ se anula, en cuyo caso ya hemos encontrado un punto de $[a,b]$ donde la función se anula, o bien podemos proseguirlo indefinidamente obteniendo una sucesión de intervalos $[a_n,b_n]$ con la propiedad de que $f(a_n)f(b_n)<0$ para todo $n\en\N$. Como $f(a_1)>0$ y $f(b_1)<0$, fácilmente se sigue que debe ser $f(a_n)>0$ y $f(b_n)<0$ para todo \nN. Las sucesiones \sucn{a}\ y \sucn{b}\ son monótonas y acotadas por lo que convergen. Además, como $b_n-a_n=(b-a)/2^{n-1}$, se sigue que ambas sucesiones convergen a un mismo número. Pongamos $\lim\sucn{a}=\lim\sucn{b}=\alpha$. Como para todo \nN\ es $a\le a_n\le b$, se sigue que $a\le\alpha\le b$. Como $f$ es continua en $[a,b]$, en particular es continua en $\alpha$ por lo que se verifica que:
+$$
+f(\alpha)=f(\lim\sucn{a})=f(\lim\sucn{b})=\lim\set{f(a_n)}=\lim\set{f(b_n)}.
+$$
+Como para todo \nN\ es $f(a_n)>0$, se sigue que $f(\alpha)\ge 0$. Como para todo \nN\ es $f(b_n)<0$, se sigue que $f(\alpha)\le 0$. Concluimos que $f(\alpha)=0$.\fin
+
+La demostración anterior da lugar al método de bisección para calcular (de forma aproximada) raíces de ecuaciones. Dicho método tiene la ventaja de que se programa muy fácilmente y permite controlar el error máximo que se comete así como el número de iteraciones necesarias para lograr una determinada precisión.
+
+\begin{teorema}[\textbf{Otra demostración del teorema de Weierstrass}]\label{th:weierstrassnew}
+Toda función continua en un intervalo cerrado y acotado alcanza en dicho intervalo un  máximo y un mínimo absolutos.
+\end{teorema}
+\dem Sea \func{f}{[a,b]}\ continua. Probaremos primero que $f$ está acotada en $[a,b]$, es decir, que el conjunto imagen $f([a,b])$ está acotado. Razonaremos por contradicción. Si $f$ no está acotada en $[a,b]$ para todo \nN\ tiene que haber algún $x_n\en [a,b]$ tal que $f(x_n)\ge n$. De esta forma obtenemos una sucesión \sucn{x}\ de puntos de $[a,b]$ verificando que $f(x_n)\ge n$ para todo \nN. Como la sucesión \sucn{x}\ está acotada, el teorema de Bolzano--Weierstrass nos dice que \sucn{x}\ tiene alguna sucesión parcial, \suc{x_{\sigma(n)}}\ convergente. Pongamos $y_n=\suc{x_{\sigma(n)}}$ y sea $\lambda=\lim\sucn{y}$. Como $a\le y_n\le b$ tenemos que $a\le\lambda\le b$. Además, por la continuidad de $f$ debe verificarse que $f(\lambda)=\lim\suc{f(y_n)}$. Pero esto es imposible porque al ser $f(y_n)=f(x_{\sigma(n)})\ge\sigma(n)\ge n$, se sigue que la sucesión \suc{f(y_n)}\ no está acotada, por lo que no puede ser convergente. Concluimos que necesariamente $f$ está acotada en $[a,b]$.
+
+Una vez que hemos probado que el conjunto $f([a,b])$ está acotado, como evidentemente no es vacío, el axioma del supremo nos dice que hay un número real $M$ que es el mínimo mayorante del mismo, es decir, $M=\sup f([a,b])$.  Usando el resultado probado en el ejercicio resuelto \ref{res:sucesionsupremo}, se sigue que hay una sucesión \sucn{z}\ de puntos de $[a,b]$ tal que $\lim\suc{f(z_n)}=M$. La sucesión \sucn{z}\ está acotada por lo que, en virtud del teorema de Bolzano--Weierstrass, tiene una parcial, \suc{z_{\sigma(n)}}\ convergente. Pongamos $w_n=z_{\sigma(n)}$ y sea $\lim\sucn{w}=c$. Como $a\le w_n\le b$ se tiene que $a\le c\le b$. Por la continuidad de $f$ se tiene que $f(c)=\lim\set{f(w_n)}=\lim\set{f(z_{\sigma(n)})}=M$. Luego la función $f$ alcanza en $c\en [a,b]$ un máximo absoluto.\fin\vspace{-5mm}
+
+\section{Continuidad uniforme}
+Piensa un par de minutos antes de responder a la siguiente pregunta. Supongamos que $f$ es una función continua en un intervalo $I$. ¿Es cierto que si tomamos valores $x,y\en I$ muy próximos entre sí los correspondientes valores de la función $f(x), f(y)$ también están muy próximos entre sí?
+
+Si tu respuesta ha sido afirmativa, como suele ser, te equivocas. Considera la función continua \func{f}{]0,1]}\ dada por $f(x)=1/x$. Los puntos $10^{-10}$ y $10^{-20}$ están muy próximos entre sí: $10^{-10}-10^{-20}<10^{-10}$, pero $f(10^{-10})=10^{10}$ y $f(10^{-20})=10^{20}$ están muy distantes entre sí. No hay nada extraño en este comportamiento. A cualquier función continua cuya gráfica tenga una asíntota vertical le pasa lo mismo: hay puntos muy próximos entre sí en los que la función toma valores muy distantes entre sí.
+
+Pero también hay funciones continuas y acotadas que se comportan de forma parecida. Considera la función continua \func{g}{]0,1]}\ dada por $g(x)=\sen(1/x)$. Es una función acotada: el mayor valor que toma es $1$ y el menor valor que toma es $-1$, de hecho se tiene que $g(]0,1])=[-1,1]$. Sea $n$ un número natural. Los puntos $x_n=\frac{1}{2n\pi+\pi/2}$ e $y_n=\frac{1}{2n\pi -\pi/2}$ están, para $n$ suficientemente grande, muy próximos entre sí; de hecho $\set{x_n-y_n}\to 0$. Los valores que toma en ellos la función $g(x_n)=1$ y $g(y_n)=-1$ distan entre sí $2$ unidades (que es la máxima distancia que puede haber entre valores tomados por esta función).
+
+Si lo piensas un poco, te darás cuenta de que en ambos ejemplos este comportamiento se debe a que las funciones $f$ y $g$ ``oscilan mucho'' en intervalos arbitrariamente pequeños. Conviene precisar la idea de ``oscilación en un intervalo''.
+\begin{definicion}
+Se define la \emph{oscilación} de una función $f$ en un intervalo $J$ contenido en el dominio de definición de $f$ como:
+$$
+\omega(f,J)=\left\{
+              \begin{array}{ll}
+                \sup f(J)-\inf f(J), & \textrm{si }\ f(J)\ \textrm{ está acotado};  \\
+                +\infty, & \textrm{si }\ f(J)\ \textrm{ no está acotado}.
+              \end{array}
+            \right.
+$$
+En otros términos: la oscilación de $f$ en $J$ es la longitud del intervalo más pequeño que contiene a $f(J)$.
+\end{definicion}
+Para la función $f(x)=1/x$ se tiene que $\omega\big(f,[1/2n,1/n]\big)=n$ y $\omega\big(f,]0,1/n]\big)=+\infty$. Para la función $g(x)=\sen(1/x)$ tenemos que $\omega\big(g,[1/(2n\pi+\pi/2), 1/(2n\pi-\pi/2)]\big)=2$. Estas funciones tienen una oscilación ``grande'' en intervalos arbitrariamente pequeños. En algunas circunstancias interesa poder controlar el tamaño de la oscilación de una función de manera que dicha oscilación sea menor que una cierta cantidad fijada, \epos, en \emph{cualquier} intervalo de longitud menor que un cierto número $\delta>0$. Las funciones para las que esto puede hacerse cualquiera sea \epos, se llaman \emph{uniformemente continuas}.
+\begin{definicion}
+Se dice que una función $f$ es uniformemente continua en un intervalo $I$ si para todo \epos\ es posible encontrar un $\delta>0$ de manera que siempre que $J$ sea un intervalo contenido en $I$ de longitud menor que $\delta$, se verifica que la oscilación de $f$ en $J$ es menor o igual que \eps.
+
+Teniendo en cuenta que $\omega(f,J)\le\eps \Longleftrightarrow \abs{f(x)-f(y)}\le \eps$  para todos $x,y\en J$, la definición dada puede expresarse de forma equivalente como sigue.
+
+Una función $f$ es uniformemente continua en un intervalo $I$ si para todo \epos\ es posible encontrar un $\delta>0$ de manera que siempre que $x$, $y$ sean puntos de $I$ con $\abs{x-y}\le\delta$, se verifica que $\abs{f(x)-f(y}\le\eps$. Simbólicamente:
+\begin{equation}\label{eq:contuniforme}
+    \forall\eps\en\Rp\ \   \exists\,\delta\en\Rp\ : \left.
+\begin{array}{c}
+                                                       |x-y|\le \delta \\
+                                                       x,y\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ |f(x)-f(y)|\le \eps
+\end{equation}
+\end{definicion}
+
+\begin{observaciones}
+\begin{enumerate}
+\item[]
+\end{enumerate}
+\noindent $\bullet\quad$ El concepto de ``continuidad uniforme'' es un concepto global: depende del comportamiento de la función en todo un intervalo. No tiene sentido decir que una función es uniformemente continua en un punto: la continuidad uniforme no es un concepto local.
+
+\noindent $\bullet\quad$ Es muy interesante comparar las definiciones de continuidad puntual \eqref{definicioncontinuidad}\ y de continuidad uniforme \eqref{eq:contuniforme}. Resulta evidente que la continuidad uniforme en un intervalo $I$ implica la continuidad en todo punto de $I$: \emph{toda función uniformemente continua en un intervalo es continua en dicho intervalo}.
+\end{observaciones}
+
+En general, no es cierto que una función continua en un intervalo $I$ sea uniformemente continua en $I$ como lo prueban los ejemplos dados al principio. Pero hay una situación particular en la que dicha afirmación sí es cierta. Este es el contenido del siguiente teorema. Se trata de un resultado importante en el que pueden destacarse aportaciones de varios matemáticos. Dirichlet ya lo incluyó en sus lecciones de 1862 y en 1872 Heine dio una primera demostración del mismo. Posteriormente Weierstrass, Borel y Lebesgue generalizaron el resultado inicial.
+
+\begin{teorema}[\textbf{Teorema de Heine}]\label{th:heine}
+Toda función continua en un intervalo cerrado y acotado es uniformemente continua en dicho intervalo.
+\end{teorema}
+\dem Razonaremos por contradicción. Sea \func{f}{[a,b]}\ una función continua y supongamos que no es uniformemente continua en $[a,b]$. En tal caso debe existir $\varepsilon_0>0$ tal que para cualquier $\delta>0$ hay puntos $x_\delta, y_\delta\!\in[a,b]$ con $\abs{x_\delta-y_\delta}\le\delta$ y $\abs{f(x_\delta)-f(y_\delta)}>\varepsilon_0$. En particular, si para cada \nN\ ponemos $\delta_n=\frac{1}{n}$, existirán puntos $x_n, y_n \!\in [a,b]$ con $\abs{x_n-y_n}\le\frac{1}{n}$ y $\abs{f(x_n)-f(y_n)}>\eps_0$. La sucesión \sucn{x}\ está acotada por lo que debe tener una sucesión parcial, \parcial{x}, convergente. Sea $\lim\parcial{x} =c$. Como $a\le x_{\sigma(n)}\le b$, se tiene que $a\le c\le b$. Como $\suc{x_n-y_n}\to 0$, se sigue que $\parcial{y}\to c$. Como $c\en [a,b]$ y $f$ es continua en $[a,b]$, $f$ es continua en $c$, luego tiene que existir  $r>0$ tal que para todo $z\in ]c-r,c+r[\cap [a,b]$ se verifica $\abs{f(c)-f(z)}<\eps_0/2$. Por tanto, para $x,y \in ]c-r,c+r[\cap [a,b]$ tenemos que $\abs{f(x)-f(y)}\le \abs{f(x)-f(c)}+\abs{f(c)-f(y)}< \eps_0/2+\eps_0/2=\eps_0$. Como $\parcial{x}\to c$ y $\parcial{y}\to c$, tiene que existir un número $n_0\en\N$ tal que para todo $n\ge n_0$ se verifica que $x_{\sigma(n)}, y_{\sigma(n)}\in ]c-r,c+r[\cap [a,b]$ por lo que  debe ser $\abs{f(x_{\sigma(n)})-f(y_{\sigma(n)})}<\eps_0$, lo que  es contradictorio porque  $\abs{f(x_n)-f(y_n)}>\eps_0$ para todo \nN.\fin 

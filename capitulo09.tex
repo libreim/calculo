@@ -1,0 +1,2163 @@
+\chapter{Series numéricas}
+\vspace*{-1cm}
+\begin{minipage}[t]{.4\textwidth}
+\vspace{0pt}
+\phantom{aaaaaaaaaaaaaaaaaaaaaaaaaaa}
+\end{minipage}%
+\begin{minipage}[t]{.6\textwidth}
+\vspace{0pt}
+{\small \textit{Aquiles alcanzó a la tortuga y se sentó confortablemente sobre su espalda. ¿De modo que has llegado al final de nuestra carrera?-- dijo la tortuga --. ¿A pesar de que realmente consiste en una \emph{serie infinita} de distancias? Yo  creía que algún necio había demostrado que esto no podía hacerse.}}
+\end{minipage}%
+\begin{flushright}
+Lewis Carroll
+\end{flushright}
+
+\section{Conceptos básicos}\vspace*{-1mm}
+En este capítulo continuamos con el estudio de las sucesiones empezado en el Capítulo 7. La novedad es que ahora vamos a considerar un tipo \emph{particular\/} de sucesiones que, sin exagerar, puede afirmarse que son las más útiles del Análisis. Estas sucesiones se llaman \emph{series}.
+
+\emph{En lo que sigue vamos a considerar sucesiones de números reales por lo que evitaremos esa innecesaria precisión.}
+
+\begin{definicion} Dada una sucesión  \sucn{a}, podemos formar a partir de ella otra  sucesión, \sucn{A}, cuyos términos se obtienen \emph{sumando consecutivamente\/} los términos de \sucn{a}, es decir:
+$$
+A_1=a_1,\ A_2=a_1+a_2,\
+A_3=a_1+a_2+a_3,\dots,\,A_n=a_1+a_2+\cdots+a_{n},\,\dots
+$$
+o, si te gusta más, $A_1=a_1$ y, para todo \nN, $A_{n+1}=A_n+a_{n+1}$. La sucesión \sucn{A}\ así definida se llama \emph{serie de término general} $a_{n}$ o\emph{ serie definida por la sucesión} \sucn{a}, y la representaremos por $\displaystyle{\sum_{n \geq 1}} a_{n}$ o, más sencillamente, $\sum a_{n}$. El número $A_n=\dis\sum_{k=1}^n a_k$ se llama \emph{suma parcial de orden} $n$ de la serie  $\sum a_{n}$.
+\end{definicion}
+
+Debe quedar claro desde ahora que \emph{\textbf{una serie es una sucesión cuyos términos se obtienen sumando consecutivamente los
+términos de otra sucesión}}. Ni que decir tiene que, siendo las series sucesiones, \emph{\textbf{los conceptos y resultados vistos para sucesiones conservan su misma significación cuando se aplican a series}}. En particular, es innecesario volver a definir qué se entiende cuando se dice que una serie es ``acotada'', ``convergente'' o ``positivamente divergente''.
+
+Si una serie $\sum a_n$ es convergente se usa el símbolo $\dis\sum_{n=1}^{\infty} a_n$ para representar el \emph{límite de la serie} que suele llamarse \emph{suma de la serie}. Naturalmente, $\dis\sum_{n = 1}^{\infty} a_n$ es el número definido por:
+$$
+\sum_{n = 1}^{\infty} a_n=\lim \{A_n\} = \lim_{n\to\infty} \sum_{k = 1}^n a_k\,.
+$$
+Por tanto, la igualdad $\sum_{n = 1}^{\infty} a_n=S$ quiere decir que para todo \epos, hay un $m_\eps\en\N$ tal que para todo $n\ge m_\eps$ se verifica que $\modulo{\sum_{k = 1}^n a_k-S}<\eps$.
+
+\begin{ejemplo}[\textbf{Serie geométrica}] Dado un número $x$, la sucesión
+\suc{1+x+x^{2}+\cdots+x^{n}} se llama serie geométrica de razón
+$x$. Observa que dicha serie se obtiene sumando consecutivamente
+los términos de la sucesión $\set{1,x,x^2,x^3,\dots,x^{n},\dots}$.
+Es costumbre representar la serie geométrica de razón $x$ con el
+símbolo $\dis\sum_{n\ge 0}x^{n}$. Dicha serie converge si, y sólo
+si, $|x|<1$, en cuyo caso se verifica que:
+\begin{equation}\label{eq:sumaseriegeometrica}
+\sum_{n=0}^\infty x^{n}=\dis\frac{1}{1-x}\,.
+\end{equation}
+\noindent Todas las afirmaciones hechas se deducen de que si
+$x\neq 1$, se tiene:
+\begin{equation}\label{geometrica}
+    \sum_{k=0}^n x^{k}=1+x+x^2+\cdots+x^n=\frac{1}{1-x}-\frac{x^{n+1}}{1-x}.
+\end{equation}
+Si $|x|<1$ entonces
+$\dis\lim_{n\to\infty}\dfrac{x^{n+1}}{1-x}=0$ y obtenemos que:
+$$
+\sum_{n=0}^\infty x^{n}=\lim_{n\to\infty}\sum_{k=0}^n
+x^{k}=\frac{1}{1-x}\qquad (|x|<1).
+$$
+Si $|x|>1$ o $x=-1$ entonces la sucesión $\set{x^{n}}$ no converge; y si $x=1$ entonces $\sum_{k=0}^n 1^{k}=n+1$ tampoco converge.
+
+Te recuerdo que ya habíamos estudiado la serie geométrica en el ejemplo \ref{ej:seriegeometrica}.
+\end{ejemplo}
+
+\begin{ejemplo}[\textbf{Serie armónica}]  La serie de término general $1/n$, es decir, la sucesión \sucn{H}\ donde $H_n=\dis\sum_{k=1}^n\dfrac{1}{k}$, que simbólicamente representamos por $\dis\sum_{n\ge 1}\dfrac{1}{n}$, se llama \textbf{serie armónica}. Se verifica que la serie armónica diverge positivamente:
+$$
+\sum_{n=1}^\infty\dfrac{1}{\ n\ }=\lim_{n\to\infty}\arm=+\infinity.
+$$
+En efecto, para todo \nN\ tenemos que
+$$
+\log
+n=\varint_1^n\frac{1}{x}\df{x}=\sum_{j=1}^{n-1}\varint_j^{j+1}\frac{1}{x}\df{x}\le
+\sum_{j=1}^{n-1}\varint_j^{j+1}\frac{1}{j}\df{x}=\sum_{j=1}^{n-1}\frac{1}{j}<1+\frac{1}{2}+\cdots+\frac{1}{n-1}+\frac{1}{n}
+$$
+y por tanto
+$$
+\lim_{n\to\infty}\arm\ge\lim_{n\to\infty}\log
+n=+\infinity\ms{3mu}\Longrightarrow \sum_{n=1}^\infty\dfrac{1}{\ n\
+}=+\infinity.
+$$
+Este resultado es también consecuencia directa de que, según vimos en el ejercicio resuelto \ref{res:armonica}, la serie armónica es asintóticamente equivalente a la sucesión $\suc{\log n}$:
+$$
+\lim_{n\to\infty}\frac{1+1/2+1/3+\dots+1/n}{\log n}=1.
+$$
+\end{ejemplo}
+
+\begin{ejemplo}[\textbf{Serie armónica alternada}] Se llama así la serie de
+término general $\dfrac{(-1)^{n-1}}{n}$; es decir, la serie
+$\dis\sum_{n\ge 1}\dfrac{(-1)^{n-1}}{n}$. Se verifica que la serie
+armónica alternada es convergente y su suma es igual a $\log 2$.
+$$
+\sum_{n=1}^\infty\dfrac{(-1)^{n-1}}{n}=\log 2.
+$$
+Esto ya ha sido probado en el ejercicio resuelto \ref{res:armonica}. Pero podemos dar otra prueba más directa. Sustituyendo $x$ por $-x$ en la igualdad (\ref{geometrica}), obtenemos la siguiente igualdad válida para todo
+\nN\ y todo $x\neq -1$:
+\begin{equation}\label{geometricaalternada}
+    \frac{1}{1+x}=1-x+x^{\,2}-x^3+\cdots+(-1)^n x^n+(-1)^{n+1}\frac{x^{n+1}}{1+x}.
+\end{equation}
+Integrando esta igualdad entre $0$ y $1$ tenemos que:
+$$
+\begin{aligned}
+\log
+2 & =1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots+(-1)^n\frac{1}{n+1}+(-1)^{n+1}\varint_0^1
+\frac{x^{n+1}}{1+x}\df{x}=\\ &=\sum_{k=1}^{n+1}\dfrac{(-1)^{k-1}}{k}+(-1)^{n+1}\varint_0^1
+\frac{x^{n+1}}{1+x}\df{x}
+\end{aligned}
+$$
+De donde
+$$
+\modulo{\log 2-\sum_{k=1}^{n+1}\dfrac{(-1)^{k-1}}{k}}=\varint_0^1
+\frac{x^{n+1}}{1+x}\df{x}\le\varint_0^1 x^{n+1}=\frac{1}{n+2}.
+$$
+Y deducimos que
+$$
+\lim_{n\to\infty}\modulo{\log
+2-\sum_{k=1}^{n+1}\dfrac{(-1)^{k-1}}{k}}=0\ms{3mu}\Longrightarrow \log 2=\sum_{n=1}^\infty\dfrac{(-1)^{n-1}}{n}.
+$$
+\end{ejemplo}
+
+El siguiente ejemplo te ayudará a entender el concepto de serie convergente. Vamos a ver que modificando el orden de los términos en una serie convergente podemos obtener otra serie convergente con distinta suma.
+
+\begin{ejemplo}[\textbf{Reordenando términos en la serie armónica alternada podemos obtener otra serie con distinta suma}]
+Como hemos visto, la serie armónica alternada es la sucesión que se obtiene sumando \emph{consecutivamente} los términos de la sucesión
+\begin{equation}\label{permuta}
+\set{\dfrac{(-1)^{n-1}}{n}}=\set{1,-\dfrac{1}{2},\dfrac{1}{3},-\dfrac{1}{4},\dfrac{1}{5},-\dfrac{1}{6},\dfrac{1}{7},-\dfrac{1}{8},\dfrac{1}{9},-\dfrac{1}{10},\dfrac{1}{11},-\dfrac{1}{12},\dots\dots}
+\end{equation}
+Vamos a cambiar el orden de los términos en esta sucesión poniendo uno positivo seguido de dos negativos manteniendo sus posiciones relativas. Obtenemos así la sucesión
+\begin{equation}\label{permuta2}
+   \set{1,-\dfrac{1}{2},-\dfrac{1}{4},\dfrac{1}{3},-\dfrac{1}{6},-\dfrac{1}{8},\dfrac{1}{5},-\dfrac{1}{10},-\dfrac{1}{12},\dfrac{1}{7},-\dfrac{1}{14},-\dfrac{1}{16},\dots\dots},
+\end{equation}
+cuya serie asociada, obtenida sumando \emph{consecutivamente} sus términos, es la sucesión $\set{S_n}$ dada por:
+\begin{eqnarray*}
+  S_1 &=& 1 \\
+  S_2 &=& 1-\dfrac{1}{2} \\
+  S_3 &=& 1-\dfrac{1}{2}-\dfrac{1}{4} \\
+ S_4 &=& 1-\dfrac{1}{2}-\dfrac{1}{4}+\dfrac{1}{3} \\
+ S_5 &=& 1-\dfrac{1}{2}-\dfrac{1}{4}+\dfrac{1}{3}-\dfrac{1}{6} \\
+ S_6 &=& 1-\dfrac{1}{2}-\dfrac{1}{4}+\dfrac{1}{3}-\dfrac{1}{6}-\dfrac{1}{8} \\
+\dots\dots &=& \dots\dots \\
+S_9 &= & 1-\dfrac{1}{2}-\dfrac{1}{4}+\dfrac{1}{3}-\dfrac{1}{6}-\dfrac{1}{8}+\dfrac{1}{5}-\dfrac{1}{10}-\dfrac{1}{12}\\
+\dots\dots &=& \dots\dots \\
+ S_{3n} &=&\sum_{j=1}^n\left(\dfrac{1}{2j-1}-\dfrac{1}{4j-2}-\dfrac{1}{4j}\right)
+\end{eqnarray*}
+Tenemos que:
+$$
+\begin{aligned}
+  S_{3n}\!\! &= 1-\dfrac{1}{2}-\dfrac{1}{4}+\dfrac{1}{3}-\dfrac{1}{6}-\dfrac{1}{8}+\dfrac{1}{5}-\dfrac{1}{10}-\dfrac{1}{12}+\cdots+\dfrac{1}{2n-1}-\dfrac{1}{4n-2}-\dfrac{1}{4n}\\
+   &= \left(1-\dfrac{1}{2}\right)-\dfrac{1}{4}+\left(\dfrac{1}{3}-\dfrac{1}{6}\right)-\dfrac{1}{8}+\left(\dfrac{1}{5}-\dfrac{1}{10}\right)-\dfrac{1}{12}+\cdots+\left(\dfrac{1}{2n-1}-\dfrac{1}{4n-2}\right)-\dfrac{1}{4n}\\
+ &=
+ \dfrac{1}{2}-\dfrac{1}{4}+\dfrac{1}{6}-\dfrac{1}{8}+\dfrac{1}{10}-\dfrac{1}{12}+\cdots+\dfrac{1}{2(2n-1)}-\dfrac{1}{4n}\\
+ &=
+ \dfrac{1}{2}\left(1-\dfrac{1}{2}+\dfrac{1}{3}-\dfrac{1}{4}+\dfrac{1}{5}-\dfrac{1}{6}+\cdots+\dfrac{1}{2n-1}-\dfrac{1}{2n}\right)\\
+ &= \dfrac{1}{2}\sum_{j=1}^n\dfrac{(-1)^{j-1}}{j}.
+\end{aligned}
+$$
+Deducimos que:
+$$
+\lim_{n\to\infty}S_{3n}=
+\dfrac{1}{2}\lim_{n\to\infty}\sum_{j=1}^n\dfrac{(-1)^{j-1}}{j}=\dfrac{1}{2}\log 2.
+$$
+Es claro que $\lim\set{S_{3n}-S_{3n-1}}=\lim\set{S_{3n}-S_{3n-2}}=0$ de donde se sigue que:
+$$
+\lim\set{S_n}=\dfrac{1}{2}\log 2.
+$$
+Es decir, hemos probado que la serie obtenida reordenando los términos de la serie armónica alternada por el criterio de sumar uno positivo seguido de dos negativos, es convergente y su suma es $\dfrac{1}{2}\log 2$.
+\end{ejemplo}
+
+\begin{observacion}[\textbf{La \emph{suma} de una serie convergente no es una suma}]
+El ejemplo anterior pone claramente de manifiesto que la \emph{suma} de una serie convergente no es una suma en el sentido usual de la palabra, es decir, no es una suma algebraica de números. Observa que los \emph{conjuntos} de números (\ref{permuta}) y (\ref{permuta2}) son los mismos pero las series correspondientes tienen \emph{distinta} suma; la primera tiene \emph{suma}  $\log 2$ y la segunda $\dfrac{1}{2}\log 2$. Si la suma de una serie consistiera en sumar los infinitos términos de una sucesión, entonces el orden en que los sumáramos sería indiferente porque la suma de números tiene la propiedad conmutativa. Debes tener claro, por tanto, que cuando calculas la suma de una serie no estás haciendo una suma infinita sino que estás calculando un \emph{límite de una sucesión} cuyos términos se obtienen sumando consecutivamente los términos de otra sucesión dada. Insisto: calcular la suma de una serie no es una operación algebraica, no consiste en sumar infinitos términos, es un proceso analítico que supone un límite.
+\end{observacion}
+
+\subsection{La particularidad del estudio de las series}
+
+Ahora viene la pregunta del millón: si las series no son nada más que sucesiones, ¿por qué dedicarles una atención especial? La respuesta a esta pregunta es que en el estudio de las series hay una \emph{hipótesis implícita} que los libros silencian. A saber: se supone que las series son sucesiones demasiado difíciles de estudiar \emph{directamente}.
+
+La característica que distingue el estudio de las series es la siguiente: se trata de deducir propiedades de la serie $\sucn{A}=\ser{a}$, a partir del comportamiento de \sucn{a}. Es decir, los resultados de la teoría de series dan información sobre la sucesión \sucn{A}\ haciendo hipótesis sobre la sucesión \sucn{a}. ¿Por qué esto es así?, ¿no sería más lógico, puesto que lo que queremos es estudiar la serie \sucn{A},  hacer hipótesis directamente sobre ella? La razón de esta forma de proceder es que, por lo general, no se conoce una expresión de $\,A_n=a_1+a_2+\cdots+a_n$ que permita hacer su estudio de forma directa; es decir, la suma \mbox{$a_1+a_2+\cdots+a_n$} no es posible ``realizarla'' en la práctica. Por ello, en el estudio de las series se supone implícitamente que \emph{la sucesión \sucn{a}\ es el dato que podemos utilizar}. Naturalmente, esto hace que el estudio de las series se preste a muchas confusiones porque, aunque su objetivo es obtener propiedades de la serie \sucn{A}, las hipótesis y la notación $\sum a_n$ hacen siempre referencia a la sucesión \sucn{a}, por lo que puede caerse en el error de creer que lo que se está estudiando es dicha sucesión \sucn{a}\ cuando lo que realmente se estudia es la sucesión \ser{a}. Un error muy común y que debes evitar es confundir las sucesiones \sucn{a}\ y $\sum a_n$: ¡son sucesiones muy diferentes!
+
+Si lo piensas un poco, esta forma de proceder no es del todo nueva. Ya estás acostumbrado a usar la derivada de una función para estudiar propiedades de la función; pues bien, la situación aquí es parecida: para estudiar la serie $\sum a_n=\ser{a}$ (la función) estudiamos la sucesión \sucn{a}\ (la derivada). Un buen ejemplo de esto que digo son los criterios de convergencia que veremos dentro de poco.
+
+Otra dificultad adicional en el estudio de las series es la notación tan desafortunada que se emplea. En la mayoría de los textos se representa con el mismo símbolo, $\dis\sum_{n=1}^\infty a_n$, la serie (que es una sucesión) y su suma (que es un límite que no siempre existe). Esto es un disparate: se está confundiendo una sucesión con un número. ¿Es lo mismo la sucesión \suc{1/n}\ que el número 0 que es su límite? En ninguna parte verás escrita la igualdad disparatada $\suc{1/n}=0$ ¿Por qué entonces, al tratar con
+series, se confunde el número $\dis\sum_{n=1}^\infty\dfrac{1}{2^n}=1$ con $\dis\sum_{k\ge 1}\dfrac{1}{2^k}$ que es la sucesión
+$\left\{\dis\sum_{k=1}^n\dfrac{1}{2^k}\right\}=\left\{1-\dfrac{1}{2^n}\right\}$?
+
+Quizás esto se debe a que, parece increíble pero es cierto, no hay acuerdo unánime para representar de forma apropiada la serie de término general $a_n$. La notación que estamos usando aquí, $\dis\sum_{n\ge 1}a_n$, tiene la ventaja de que es clara y evita las
+confusiones que estoy comentando, pues permite distinguir entre la serie y su eventual suma. Tiene el inconveniente de que la mayoría de los autores no la usan (quizás porque la desconocen). Estoy convencido de que las ventajas de esta notación compensan ampliamente este posible inconveniente. Es más, confío en que dicha notación acabe imponiéndose y siendo aceptada universalmente. Pero esto no va a suceder pasado mañana, por eso te advierto de que en los libros encontrarás las usuales notaciones confusas que no distinguen entre la serie (una sucesión) y su posible límite (su suma).
+
+Todavía queda una última sorpresa. Estamos de acuerdo en que las series son sucesiones. ¿Muy especiales? En absoluto. Toda sucesión podemos verla, si así nos interesa, como una serie. Pues \emph{toda sucesión} \sucn{a}\ \emph{es la serie definida por la sucesión de sus diferencias}, esto es, por la sucesión \sucn{d}\ dada por:
+$$
+d_1=a_1,\, d_2=a_2-a_1,\, d_3=a_3-a_2, \dots, d_{n+1}=a_{n+1}-a_n,\dots
+$$
+Es claro que $a_n=\dis\sum_{j=1}^n d_j$. Por tanto, toda sucesión podemos considerarla como una serie. En resumen, series y sucesiones son lo mismo: toda serie es una sucesión y toda sucesión puede ser vista como una serie. \emph{Lo que distingue a la teoría de series es el punto de vista específico de su estudio}, pero sus resultados pueden aplicarse a cualquier sucesión.
+
+Creo que con lo dicho ya puedes hacerte una idea correcta de lo que son las series. Insisto en esto porque en los libros encontrarás disparates para todos los gustos. Voy a comentar seguidamente algunos de ellos. Mis comentarios están pensados para hacer reflexionar a los profesores que los lean.
+
+\begin{observacion}[\textbf{Sobre algunas definiciones usuales de serie}]
+En algunos libros se da a siguiente definición.
+
+\noindent\textbf{Definición de serie ``a la Bourbaki''.\ }\
+Una serie es un par de sucesiones $\big(\sucn{x},\sucn{S}\big)$ donde para todo \nN\ $S_n=\sum_{k=1}^na_k$. La sucesión \sucn{S}\ se llama sucesión de sumas parciales de la serie.
+
+El problema con esta definición está en las primeras 7 palabras: una serie es un \emph{par} de sucesiones. Quien lea esta definición pensará que una serie es algo diferente a una sucesión. Si, además, como ocurre con más frecuencia de la deseada, el libro que da esta definición vuelve a enunciar para series -- ¡e incluso a demostrar! -- algunos de los resultados anteriormente vistos para sucesiones, el desastre ya es total: el lector de ese libro acabará pensando que las series son algo diferente de las sucesiones.
+
+Esta definición de serie adolece de la pedantería lamentable de las definiciones ``al estilo Bourbaki''. Son definiciones excesivamente formalistas cuya precisión formal las hace confusas e ininteligibles para quien no sabe de qué va la cosa. Con un ejemplo se entiende mejor lo que quiero decir. Tú sabes lo que es la derivada de una función. Sabes que para derivar una función primero tienen que darte la función cuya derivada vas a usar. Por tanto, el concepto de derivada involucra a \emph{dos} funciones: la función $f$ y la función $f\tl$. Una definición ``al estilo Bourbaki'' de derivada sería como sigue:
+\begin{quote}
+Una derivada es un par de funciones $(f,f\tl)$, donde $f$ es una función definida en un intervalo $I$, y para cada punto $a\en I$ $f\tl(a)$ es el número definido por\linebreak $f\tl(a)=\dis\lim_{x\to a}\dfrac{f(x)-f(a)}{x-a}$.
+\end{quote}
+Estarás de acuerdo en que la supuesta mayor precisión formal de esta definición está muy lejos de compensar su mayor dificultad de comprensión. Esto es exactamente lo que se hace en la definición de serie que estamos comentando. Para formar la serie $\sucn{A}=\ser{a}$ primero tienen que darnos la sucesión \sucn{a}. Eso y no otra cosa es lo que significa la expresión ``una serie es un par de sucesiones''. Todos sabemos que el Tajo pasa por Toledo pero eso no nos hace decir que Toledo es un par (Tajo,Toledo)$\dots$ ¿Me explico?
+
+En el extremo opuesto del ``estilo Bourbaki'' está el ``estilo todo vale''.
+
+\noindent\textbf{Definición de serie al ``estilo todo vale''.}\ Una serie es una suma infinita
+$$
+a_1+a_2+a_3+\cdots+a_n+\cdots
+$$
+Ya está, eso es todo.  Definiciones parecidas a esta se encuentran con frecuencia en libros de autores ingleses o norteamericanos. Se trata de una definición que no define nada e introduce símbolos confusos.
+
+Entre el excesivo formalismo y la informalidad absoluta, con notaciones inapropiadas y confusas, la verdad es que la mayoría de los libros que conozco no ayudan a comprender el concepto de serie ni las particularidades de su estudio.
+\end{observacion}
+
+\noindent{\textbf{Convenios de notación.\ }  Usaremos la notación $\sum a_n$\ para representar la serie de término general $a_n$. Por tanto, una última vez lo repito, $\sum a_n$ es una sucesión, más concretamente, $\sum a_n$ es la aplicación de \N\ en \R\ que a cada número natural \nN\ hace corresponder el número $\sum_{k=1}^n a_k$.
+
+A pesar de lo dicho, también usaré de vez en cuando la notación \ser{a}\ para la serie de término general $a_n$. Creo que un uso adecuado de ambas notaciones es la mejor forma de ayudarte para que tengas siempre presente que la sucesión que estamos estudiando es $\sum a_n=\ser{a}$ y no \sucn{a}.
+
+A veces conviene considerar, por comodidad, series que empiezan en un índice entero\linebreak \mbox{$q\en\Z$,} usaremos en tal caso la notación $\dis\sum_{n\ge q}a_n$. Por ejemplo, es más cómodo escribir $\dis\sum_{n\ge 3}\frac{1}{\log n}$ que $\dis\sum_{n\ge 1}\frac{1}{\log(n+2)}$ aunque ambas son la misma serie.
+
+\subsection{Propiedades básicas de las series convergentes}
+
+Es importante que te des cuenta de que cambiar un solo término  en la sucesión \sucn{a}\ se traduce en cambiar infinitos términos en la serie $\sum a_n$. El siguiente resultado nos dice que si cambiamos un número finito de términos en una sucesión \sucn{a}\ ello no afecta a la posible convergencia de la serie \ser{a}\ pero sí afecta a la suma de dicha serie.
+
+\begin{proposicion}\label{prop:seriescasiiguales}
+Sean \sucn{a}\ y \sucn{b}\ dos sucesiones y supongamos que  hay un número $q\en\N$ tal que para todo $n\!\geqslant\!q+1$ es $a_n=b_n$. Entonces se verifica que las series \ser{a}\ y \ser{b}\ o bien convergen ambas o no converge ninguna, y en el
+primer caso se verifica que:
+$$
+\sum_{n=1}^\infty a_n-\sumaf{j=1}{q}a_j=\sum_{n=1}^\infty b_n-\sumaf{j=1}{q}b_j.
+$$
+\end{proposicion}
+\dem Pongamos $A_n=a_1+a_2+\cdots+a_n$, $B_n=b_1+b_2+\cdots+b_n$, $\alpha=\sumaf{j=1}{q}a_j$, $\beta=\sumaf{j=1}{q}b_j$. Las afirmaciones hechas se deducen todas de que para todo $n\ge q+1$ se verifica la igualdad:
+$$
+\sum_{k=q+1}^n\!\!a_k=A_n-\alpha=\sum_{k=q+1}^n\!\!b_k=B_n-\beta
+$$
+Observa que los números $\alpha$ y $\beta$ son constantes fijas. De la igualdad $A_n+\alpha=B_n+\beta$, válida para todo $n\ge q+1$, deducimos que las series $\sum a_n=\sucn{A}$ y $\sum b_n=\sucn{B}$ ambas convergen o ninguna converge. Cuando hay convergencia tenemos que:
+$$
+\lim_{n\to\infty}\set{A_n-\alpha}=\lim_{n\to\infty}\set{A_n}-\alpha=\lim_{n\to\infty}\set{B_n-\beta}=\lim_{n\to\infty}\set{B_n}-\beta.
+$$
+Lo que prueba la igualdad del enunciado.\fin
+
+Consideremos una serie \serien{a}. Dado $q\en\N$ definamos $b_n=0$ para $1\le n\le q$, $b_n=a_n$ para todo $n\ge q+1$. La serie \serien{b}\ se llama \textbf{serie resto de orden} $q$ de la serie \serien{a}. Es usual representar dicha serie resto con la notación $\dis\sum_{n\ge q+1}\!\!a_n$. De la proposición anterior deducimos que las series \serien{a}\ y $\dis\sum_{n\ge q+1}\!\!a_n$ ninguna converge o ambas convergen y, cuando esto ocurre es:
+$$
+\sum_{n=1}^\infty a_n-\sum_{k=1}^{q}a_k=\sum_{n=q+1}^\infty\!\! a_n.
+$$
+No lo olvides: para calcular la suma de una serie debes tener siempre presente el índice desde el que se empieza a sumar.
+
+El siguiente resultado es importante porque establece una condición necesaria general para la convergencia de una serie.
+
+\begin{proposicion}[\textbf{Condición necesaria para la convergencia de una serie}]\label{prop:necesariaconvergenciaseries}
+Para que la serie $\sum a_n$ sea convergente es necesario que $\lim\sucn{a}=0$.
+\end{proposicion}
+\dem  Si la serie $\sum a_n$ es convergente, entonces $\lim\suc{A_n}=\lim\suc{A_{n-1}}=S$ es un número real. Como para todo \nN\ con $n\ge 2$ tenemos que $a_n=A_n-A_{n-1}$, deducimos que $\lim\sucn{a}=\lim\suc{A_n}-\lim\suc{A_{n-1}}=S-S=0$.\fin
+
+Esta condición necesaria no es suficiente: $\suc{\frac{1}{n}}\to 0$ pero la serie armónica $\sum\frac{1}{n}$ no es convergente. Se trata de una condición necesaria para la convergencia de una serie, por tanto cuando dicha condición no se cumple la serie no es convergente.
+
+\begin{ejemplo}
+Las series $\dis\sum_{n\ge 1}\left(1-\frac{1}{n}\right)^n$, $\dis\sum_{n\ge 1}n\sen\frac{1}{n}$, $\dis\sum_{n\ge 1}n\big(\e^{\frac{1}{n}}-1\big)$ no son ninguna de ellas convergente porque sus términos generales no convergen a $0$:
+$$
+\left(1-\frac{1}{n}\right)^n\to\frac{1}{\e},\quad n\sen\frac{1}{n}\to 1,\quad n\big(\e^{\frac{1}{n}}-1\big)\to 1.
+$$
+\end{ejemplo}
+
+\subsection{Propiedades asociativas y conmutativas}
+Ya hemos dicho que el límite, $L$, de una serie convergente, $L=\lim\ser{a}$, no es, como a veces se dice, una ``suma de los infinitos términos'' de la sucesión \sucn{a}. ¿Qué sentido tiene eso de ``sumar infinitos términos''? Ninguno, desde luego. Lo que  dicho número verifica es que $\modulo{L-\sum_{j=1}^{n}a_j}$ se conserva menor que cualquier número \epos, a partir de un cierto \nN\ en adelante. Si bien, puede ser sugerente la interpretación de $\,L\,$ como ``la suma de los términos de la sucesión \sucn{a}'', no hay que olvidar que esto  no es más que una forma de hablar, y  que el límite de una serie convergente es, justamente, el límite de una sucesión de sumas y no debe confundirse con una operación algebraica. Por ello cabe preguntarse si las propiedades asociativa y conmutativa de la adición se conservan para series convergentes. De hecho, ya hemos visto que la propiedad conmutativa no se verifica en general, pues reordenando los términos de una serie convergente podemos obtener otra serie con suma distinta. Las cosas van mejor en lo que se refiere a la asociatividad. Precisemos estas ideas.
+
+Sea \ser{a}\ la serie definida por la sucesión \sucn{a}. Dada una aplicación estrictamente creciente $\sigma:\N\rightarrow\N$, definamos una sucesión \sucn{b}\ por:
+\begin{equation}\label{eq:asociandoterminos}
+ b_1=a_1+a_2+\cdots+a_{\sigma(1)},\quad
+b_{n+1}=a_{\sigma(n)+1}+\cdots+a_{\sigma(n+1)}\qquad (\nN)
+\end{equation}
+En estas condiciones se dice que la serie $\sum b_n$ se ha obtenido \emph{asociando términos\/} en la serie $\sum a_n$}. Poniendo
+\mbox{$\,A_n=a_1+a_2+\cdots+a_n$,} y $B_n=b_1+b_2+\cdots+b_n$, se tiene que $B_n=A_{\sigma(n)}$, es decir la sucesión \sucn{B}\ es una sucesión parcial de \sucn{A}. Deducimos el siguiente resultado.
+
+\begin{proposicion} Toda serie obtenida asociando términos en una serie convergente también es convergente y ambas series tienen la misma suma.
+\end{proposicion}
+
+Es importante advertir que asociando términos en una serie no convergente puede obtenerse una serie convergente. Por ejemplo, la serie definida por la sucesión $\sucn{a}=\suc{(-1)^{n+1}}$ no es convergente, y la serie que se obtiene de ella asociando términos dos a dos, es decir, la serie definida por la sucesión $b_n=a_{2n-1}+a_{2n}=0$, es evidentemente convergente. A este respecto tiene interés el siguiente resultado que establece una condición suficiente para que de la convergencia de una serie obtenida asociando términos en otra pueda deducirse la convergencia de esta última.
+
+\begin{proposicion}\label{prop:asociabien} Sea $\sigma:\N\rightarrow\N$ una aplicación estrictamente creciente, \sucn{a}\ una sucesión y \sucn{b}\ la sucesión definida como en \eqref{eq:asociandoterminos}. Supongamos que la serie $\sum b_n$ es convergente y que la sucesión
+$$
+\alpha_n=|a_{\sigma(n)+1}|+|a_{\sigma(n)+2}|+\cdots+|a_{\sigma(n+1)}|
+$$
+converge a cero. Entonces la serie $\sum a_n$ es convergente y tiene la misma suma que la serie $\sum b_n$.
+\end{proposicion}
+\dem Para cada \nN, $n\geqslant\sigma(1)$, definamos:
+$$
+\tau(n)=\max\{k\en\N:\sigma(k)\leqslant n\}.
+$$
+Evidentemente, $\tau(n)\leqslant\tau(n+1)$. Además $\,\sigma(\tau(n))\leqslant n<\sigma(\tau(n)+1)$, y para todo $p\en\N$  $\tau(\sigma(p))=p$. Pongamos $A_n=a_1+a_2+\cdots+a_n$, $B_n=b_1+b_2+\cdots+b_n$. Se comprueba fácilmente, usando que $\tau$ es creciente y no mayorada, que $\,\lim\big\{B_{{\tau}(n)}\big\}=\lim\sucn{B}$ (observa que $\big\{B_{\tau(n)}\big\}$ es ``parecida'' a una sucesión parcial de \sucn{B}). Para $n>\sigma(1)$ tenemos:
+$$
+\begin{array}{ll}
+A_n &=(a_1+\cdots+a_{\sigma(1)})+\cdots+(a_{\sigma({\tau}(n-1))+1}+\cdots+
+a_{\sigma({\tau}(n))})+a_{\sigma({\tau}(n))+1}+\cdots+a_n\\ &=
+B_{\tau(n)}+a_{\sigma({\tau}(n))+1}+\cdots+a_n.
+\end{array}
+$$
+Por tanto
+$$ \big|A_n-B_{\tau(n)}\big|\leqslant
+|a_{\sigma({\tau}(n))+1}|+\cdots+|a_n|\leqslant
+|a_{\sigma({\tau}(n))+1}|+\cdots+|a_{\sigma({\tau}(n)+1)}|=\alpha_{\tau(n)}\to 0.
+$$
+De donde se sigue que $\lim\sucn{A}=\lim\big\{B_{\tau(n)}\big\}=\lim\sucn{B}$.\fin
+
+Estudiaremos seguidamente las series convergentes para las que se verifica la propiedad conmutativa. Precisaremos estos conceptos.
+Sea \ser{a}\ la serie definida por la sucesión \sucn{a}. Dada una biyección
+$\pi :\N\rightarrow\N$, definamos una sucesión \sucn{b}\ por
+$b_n=a_{\pi(n)}$. En estas condiciones se dice que la serie \ser{b}\ se ha
+obtenido \emph{reordenando términos\/} en la serie \ser{a}.
+
+\begin{definicion} Se dice que una serie \ser{a}\ es \textbf{conmutativamente
+convergente} si para \emph{toda} biyección $\pi :\N\rightarrow\N$, se verifica que la serie
+definida por la sucesión \suc{a_{\pi(n)}}, es decir la serie
+$\,\{a_{\pi(1)}+a_{\pi(2)}+\cdots+a_{\pi(n)}\}$, es convergente.
+\end{definicion}
+
+Observa que, tomando como biyección de \N\ sobre \N\ la identidad, si la serie
+$\sum a_n$ es conmutativamente convergente entonces \emph{es convergente}.  En
+otras palabras, una serie es conmutativamente convergente, cuando es
+convergente y también son convergentes todas las series que se obtienen de ella
+por reordenación de sus términos (en cuyo caso se verifica que todas ellas tienen la misma suma). La serie armónica alternada es un ejemplo de serie convergente que no es conmutativamente convergente.
+
+El siguiente teorema da una sencilla caracterización de las series conmutativamente convergentes. Debes entender lo que afirma el teorema pero no es preciso que leas su demostración. Si acaso, puede ser interesante que leas el comienzo de la demostración de la implicación $b)\Longrightarrow a)$ porque es muy parecida a la demostración del teorema \ref{th:convergenciaabsolutaintegrales}. Esto no es casual: hay bastantes analogías entre la convergencia de integrales impropias y de series.
+
+\begin{teorema}\label{th:seriesconvabs} Las siguientes afirmaciones son equivalentes:
+
+a) La serie \ser{a}\ es conmutativamente convergente.
+
+b) La serie \serabs{a}\ es convergente.
+
+\noindent Además, en caso de que se verifiquen a) y b), se tiene que:
+$$
+\sum_{n=1}^\infty a_n=\sum_{n=1}^\infty a_{\pi(n)}
+$$
+cualquiera sea la biyección  $\pi :\N\rightarrow\N$.
+\end{teorema}
+\dem $b)\Longrightarrow a)$\ Pongamos \mbox{$\,A_n=a_1+a_2+\cdots+a_n$}, $B_n=|a_1|+|a_2|+\cdots+|a_n|$. Supongamos que  \serabs{a}\ es convergente.
+Probaremos en primer lugar que la serie \ser{a}\ también es convergente. Dado \epos, la condición de Cauchy para \sucn{B}\ nos dice que existe $n_0\en\N$ tal que
+\begin{equation}\label{8}
+\big|B_q-B_p\big|=\sum_{k=p+1}^{q}|a_k|<\frac{\eps}{2}, \quad\text{para todos}\ \
+p,q\en\N \ \text{tales que}\ \ \ q>p\!\geqslant\!n_0.
+\end{equation}
+Deducimos que para todos $p,q\en\N$ tales que $q>p\!\geqslant\!n_0$ se verifica que
+$$\big|A_q-A_p\big|=\big|a_{p+1}+a_{p+2}+\cdots+a_{q}|\leqslant
+\sum_{k=p+1}^{q}|a_k|<\frac{\eps}{2}<\eps.$$ Lo que prueba que la serie \sucn{A}\ cumple
+la condición de Cauchy y, por tanto, es convergente.
+
+Pongamos $\,A=\lim\sucn{A}$, y sea $\pi:\N\rightarrow\N$ una biyección. Dado \epos, sea $\,n_0\en\N$ tal que se
+verifica~(\ref{8}) y además $\,\big|A_{n_0}-A\big|<\eps/2$. Definamos
+$$m_0=\max\{j\en\N:\pi(j)\leqslant n_0\},\ \ \ F_m=\{\pi(k):1\leqslant k\leqslant m\}.
+$$
+Para $m\!>\!m_0$, se verifica que $F_m\supsetneqq\{1,2,\dots,n_0\}$. Por tanto,
+el conjunto $H\!=\!F_m\!\setminus\!\{1,2,\dots,n_0\}$ no es vacío. Sea $p=\min(H)$,
+$q=\max(H)$. Tenemos entonces que $q\!\ge\! p\!\geqslant\!n_0+1$, y por tanto: $$
+\begin{array}{ll}
+\dis\bigg|\sumaf{j=1}{m}a_{\pi(j)}-A\bigg| & =\dis\bigg|\sum_{k\,\in F_m}a_k-A\bigg|=
+\dis\bigg|\sumaf{k=1}{n_0}a_k+\sum_{k\,\in H}a_k-A\bigg|\leqslant
+\\\rule{0mm}{7mm} \dis & \leqslant \bigg|\sumaf{k=1}{n_0}a_k-A\bigg|+\dis\sum_{k\,\in
+H}|a_k|<\frac{\eps}{2}+\dis\sum_{k=p}^{q}|a_k|<\frac{\eps}{2}+\frac{\eps}{2}=\eps.
+\end{array}
+$$ Hemos probado así que $\dis\sum_{n=1}^\infty a_{\pi(n)}=A$ y por tanto
+que  $b)$ implica $a)$.
+
+$a) \Longrightarrow b)$\ Probaremos que si la serie \sucn{B}\ no es
+convergente entonces la serie \sucn{A}\ no es conmutativamente convergente.
+Supondremos, pues, en lo que sigue que \sucn{B}\ no es convergente. Tenemos
+para la serie \sucn{A}\ dos posibilidades: o bien converge o bien no converge.
+Evidentemente, si \sucn{A}\ no converge entonces, con mayor razón, no es
+conmutativamente convergente. Consideraremos, por tanto, el caso en que
+\sucn{A}\ es convergente. Para nuestro propósito es suficiente probar que, en
+tal caso, hay una biyección $\,\pi :\N\rightarrow\N\,$ tal que la serie
+$\,\{a_{\pi(1)}+a_{\pi(2)}+\cdots+a_{\pi(n)}\}\,$ es positivamente divergente.
+Veamos cómo puede justificarse la existencia de dicha biyección.
+
+De las hipótesis hechas se deduce  que los conjuntos $\,U=\{n\en\N:a_n\geqslant 0\}$, y
+$\,V=\N\setminus U$ son infinitos. Sean $\,\lambda\,$ y $\,\gamma\,$ biyecciones
+crecientes de \N\ sobre $\,U\,$ y $\,V$, respectivamente. Evidentemente, para todo \nN,
+se verifica que:$$\{k\en\N:\lambda(k)\leqslant n\}\cup\{k\en\N: \gamma(k)\leqslant
+n\}=\{k\en\N:1\leqslant k\leqslant n\}$$ por lo que, poniendo
+$$P_n=\sum_{\lambda(k)\leqslant n}\!\!\!\!a_{\lambda(k)},\ \ Q_n=\sum_{\gamma(k)\leqslant
+n}\!\!\!\!a_{\gamma(k)}$$ tenemos que $\,A_n=P_n+Q_n\,$ y $\,B_n=P_n-Q_n$, de donde se
+sigue que \emph{ninguna\/} de las sucesiones \suc{P_n}\ y \suc{Q_n}\ es convergente y,
+como son monótonas, deducimos que \suc{P_n}\ diverge positivamente y \suc{Q_n}\ diverge
+negativamente.
+
+Lo que sigue es fácil de entender: vamos a ir formando grupos de términos
+positivos consecutivos de la sucesión \sucn{a}\ y, entre cada dos de tales
+grupos, vamos a ir poniendo consecutivamente los términos negativos de dicha
+sucesión. El criterio para ir formando los grupos de términos positivos es que
+la suma de cada grupo con el término negativo que le sigue sea mayor que $1$.
+Formalmente sería como sigue. Definimos $\,\sigma:\N\rightarrow\N\,$ por:$$
+\begin{array}{l}
+\sigma(1)=\min\{q\en\N:P_{\lambda(q)}+a_{\gamma(1)}>1\}\\
+\sigma(k+1)
+=\min\{q\en\N:P_{\lambda(q)}-P_{\sigma(k)}+a_{\gamma(k+1)}>1\}\ \ \
+\text{para todo}\ \ k\en\N.
+\end{array}
+$$ Pongamos, por comodidad de notación $\sigma(0)=0$. Nótese que el grupo $k$-ésimo de
+términos positivos está formado por
+$\,a_{\lambda(\sigma(k-1)+1)},a_{\lambda(\sigma(k-1)+1)+1},\dots,
+a_{\lambda(\sigma(k))}$, y dicho grupo va seguido por el término negativo
+$\,a_{\gamma(k)}$. Pues bien, la biyección $\,\pi :\N\rightarrow\N\,$, dada
+por: $$
+\begin{array}{l}
+ \pi(j)=\lambda(j-k)\ \ \text{para}\ \ \sigma(k)+k+1\leqslant j\leqslant
+\sigma(k+1)+k,\ \ k=0,1,2,\dots\\ \pi(\sigma(k)+k)=a_{\gamma(k)},\ \ k=1,2,\dots
+\end{array}
+$$ es tal que la serie $\,\{a_{\pi(1)}+a_{\pi(2)}+\cdots+a_{\pi(n)}\}\,$ es positivamente
+divergente, pues para $\,n\geqslant\sigma(k)+k\,$ tenemos que: $$
+\begin{array}{ll}
+\dis\sum_{j=1}^{n}a_{\pi(j)}&\geqslant
+\dis\sum_{j=1}^{\sigma(k)+k}a_{\pi(j)}=\dis\sum_{j=1}^{k}a_{\pi(\sigma(j)+j)}
++\dis\sum_{q=0}^{k-1}\sum_{j=\sigma(q)+q+1}^{\sigma(q+1)+q}a_{\pi(j)}=\\ &
+\rule{0mm}{7mm} =\dis\sum_{j=1}^{k}a_{\gamma(j)}+
+\dis\sum_{q=0}^{k-1}\sum_{j=\sigma(q)+q+1}^{\sigma(q+1)+q}a_{\lambda(j-q)}=
+\dis\sum_{j=1}^{k}a_{\gamma(j)}+\sum_{j=1}^{\sigma(k)}a_{\lambda(j)}=\\ \rule{0mm}{7mm}
+&= \dis\sum_{j=1}^{k}a_{\gamma(j)}+P_{\sigma(k)}=
+\dis\sum_{j=1}^{k-1}\big(P_{\sigma(j+1)}-P_{\sigma(j)}+a_{\gamma(j+1)}\big)+P_{\sigma(1)}+
+a_{\gamma(1)}\\ &\geqslant (1+\stackrel{(k-1}{\cdots} +1)+1=k.\hfill\Box
+\end{array}
+$$
+\smallskip
+
+La utilidad del teorema que acabamos de probar está clara: para
+estudiar la convergencia conmutativa de una serie \ser{a}\ lo que se
+hace es estudiar la convergencia de la serie \serabs{a}. Es usual
+utilizar la siguiente terminología.
+
+\begin{definicion}
+Se dice que la serie \ser{a}\ es \textbf{absolutamente convergente}, si la serie \serabs{a}\ es convergente.
+\end{definicion}
+
+Debes entender bien esta definición. Que la serie \serien{a}\ converge absolutamente quiere decir que es convergente la sucesión
+$$
+\dis\sum_{n\ge 1}
+\abs{a_{n}}=\set{\abs{a_1}+\abs{a_2}+\cdots+\abs{a_n}}.
+$$
+Y el teorema anterior afirma, entre otras cosas, que esto implica la convergencia de la sucesión
+$$
+\dis\sum_{n\ge 1} a_{n}=\set{a_1+a_2+\cdots+a_n}.
+$$
+¡Son sucesiones muy diferentes!
+
+Naturalmente, si una serie $\set{a_1+a_2+\cdots+a_n}$ converge, también converge la sucesión que se obtiene tomando valores
+absolutos $\set{\modulo{a_1+a_2+\cdots+a_n}}$; pero esta\marginpar{\flushright\curvasr} sucesión \emph{\textbf{no es igual}} a $\suc{\abs{a_1}+\abs{a_2}+\cdots+\abs{a_n}}$. Por eso \emph{puede ocurrir que una serie sea convergente pero no sea absolutamente
+convergente}. La serie armónica alternada es un ejemplo de serie convergente que no es absolutamente convergente.
+
+Con esta terminología, el teorema~\ref{th:seriesconvabs} afirma que \emph{la convergencia absoluta es lo mismo que la convergencia conmutativa}\footnote{En muchos libros a las series que son absolutamente convergentes las llaman también \emph{incondicionalmente convergentes} y a las series que son convergentes pero no son absolutamente convergentes las llaman también \emph{condicionalmente convergentes}. En mi opinión esta terminología solamente sirve para confundir un poquito más.}.
+
+\pagebreak
+
+\begin{ejercicios propuestos}
+\propuesto Estudia la convergencia de las series: a) $\serie{\dfrac{1}{n(n\!+\!1)}}$ y b) $\serie{\log\big(1\!+\!\frac{1}{n}\big)}$.
+
+\propuesto Justifica las igualdades:
+\begin{enumerate}[a)]
+\item {$\dis \sumainf{k=1}\left(\frac{1}{4k-3}-\frac{1}{4k-2}+\frac{1}{4k-1}-\frac{1}{4k}\right)=\log 2$.}
+\item {$\dis \frac{1}{2}\sumainf{k=1}\left(\frac{1}{2k-1}-\frac{1}{2k}\right)=\frac{\log 2}{2}$.}
+\item {$\dis\sumainf{k=1}\left(\frac{1}{4k-3}+\frac{1}{4k-1}-\frac{1}{2k}\right)=\frac{3}{2}\log 2$.}
+\end{enumerate}
+
+\propuesto Demuestra que si los términos de la serie armónica alternada se permutan de tal modo que a cada grupo de $p$ términos positivos consecutivos le siga un grupo de $q$ términos negativos consecutivos, entonces la nueva serie así obtenida es convergente con suma igual a $\log 2 + \frac{1}{2}\log(p/q)$.
+
+\propuesto Sea \sucn{a}\ una sucesión decreciente de números positivos y supongamos que la serie $\sum a_n$ es convergente. Prueba que $\suc{na_n}$ converge a $0$.
+
+Sugerencia. Considera $A_{2n}-A_n$.
+\end{ejercicios propuestos}
+\begin{ejercicios resueltos}
+\resuelto {\scalefont{.95}{Estudia la convergencia de las series: a)$\serie{\!\dfrac{1}{n(n\!+\!1)}}$ y b)$\dis\sum_{n\ge 1} \!\log\big(1\!+\!\frac{1}{n}\big)$.}}
+
+\sol \ a) $\dfrac{1}{k(k+1)}=\dfrac{(k+1)-k}{k(k+1)}=\dfrac{1}{k}-\dfrac{1}{k+1}\Longrightarrow\dis\sum_{k=1}^n\dfrac{1}{k(k+1)}=1-\dfrac{1}{n+1}.$
+
+Luego $\serie{\dfrac{1}{n(n+1)}}=\set{1-\dfrac{1}{n+1}}\to 1$, es decir la serie $\serie{\dfrac{1}{n(n+1)}}$ es convergente y su suma es igual a $1$.
+
+b) $\log\left(1+\dfrac{1}{k}\right)=\log\dfrac{k+1}{k}=\log(k+1)-\log k\Longrightarrow\dis\sum_{k=1}^n\log\left(1+\dfrac{1}{k}\right)=\log(n+1).$
+
+Luego $\serie{\log\bigg(1+\frac{1}{n}\bigg)}=\set{\log(n+1)}\!\to\! +\infty$, es decir la serie $\serie{\dfrac{1}{n(n+1)}}$ es positivamente divergente.\hecho
+
+\resuelto Justifica las igualdades:
+\begin{enumerate}[a)]
+\item {$\dis \sumainf{k=1}\left(\frac{1}{4k-3}-\frac{1}{4k-2}+\frac{1}{4k-1}-\frac{1}{4k}\right)=\log 2$.}
+\item {$\dis \frac{1}{2}\sumainf{k=1}\left(\frac{1}{2k-1}-\frac{1}{2k}\right)=\frac{\log 2}{2}$.}
+\item {$\dis\sumainf{k=1}\left(\frac{1}{4k-3}+\frac{1}{4k-1}-\frac{1}{2k}\right)=\frac{3}{2}\log 2$.}
+\end{enumerate}
+\sol\ a) y b)\ \ Sabemos que la serie armónica alternada es convergente y su suma es igual a $\log 2$. $\dis\sum_{n=1}^\infty\dfrac{(-1)^{n+1}}{n}=\log 2$. También sabemos que una serie obtenida asociando términos en una serie convergente también es convergente y con la misma suma. Las series en a) y en b) se obtienen de la serie armónica alternada asociando términos de $4$ en $4$ o de $2$ en $2$ respectivamente, lo que justifica las igualdades en a) y en b). Finalmente, observa que la serie en c) se obtiene sumando las series en a) y en b).\hecho
+
+\resuelto Demuestra que si los términos de la serie armónica alternada se permutan de tal modo que a cada grupo de $p$ términos positivos consecutivos le siga un grupo de $q$ términos negativos consecutivos, entonces la nueva serie así obtenida es convergente con suma igual a $\log 2 + \frac{1}{2}\log(p/q)$.
+
+\sol Pongamos $S_n=\dis\sum_{k=1}^n\dfrac{(-1)^{k+1}}{k}$. Consideremos la sucesión $\set{S_{n(p+q)}}_{n\en\N}$ que es precisamente la serie que se obtiene asociando términos de $p+q$ en $p+q$ en la serie del enunciado. Si dicha sucesión es convergente, aplicando la proposición \ref{prop:asociabien} (con $\sigma(n)=n(p+q)$), se sigue que la serie del enunciado también es convergente y su suma es igual a $\dis\lim_{n\to\infty}S_{n(p+q)}$. Llamando, como de costumbre $H_n=\dis\sum_{k=1}^n\dfrac{1}{k}$, y recordando la estrategia \ref{est:armonica}, tenemos que:
+$$
+\begin{aligned}
+S_{n(p+q)}&=\sum_{k=1}^{pn}\dfrac{1}{2k-1}-\sum_{k=1}^{nq}\dfrac{1}{2k}=\sum_{k=1}^{pn}\dfrac{1}{2k-1}-\dfrac{1}{2}H_{nq}=\\ &= H_{2pn-1}-\frac{1}{2}H_{np}+\frac{1}{2np}-\dfrac{1}{2}H_{nq}=\\
+&=\dfrac{1}{2np}+\upgamma_{2pn-1}+\log(2pn-1)-\dfrac{1}{2}\upgamma_{np}-\dfrac{1}{2}\log(np)-\dfrac{1}{2}\upgamma_{nq}-\dfrac{1}{2}\log(nq)=\\
+&=\dfrac{1}{2np}+\upgamma_{2pn-1}-\dfrac{1}{2}\upgamma_{np}-\dfrac{1}{2}\upgamma_{nq}+\dfrac{1}{2}\log\dfrac{2np-1}{np}+\dfrac{1}{2}\log\dfrac{2np-1}{nq}\to\\ &\to \dfrac{1}{2}\log 2+\dfrac{1}{2}\log\dfrac{2p}{q}=\log 2+\dfrac{1}{2}\log\dfrac{p}{q}.
+\end{aligned}
+$$
+\hecho
+\end{ejercicios resueltos}
+
+\section{Criterios de convergencia para series de términos positivos}
+Una serie $\sum a_n$ tal que $a_n\geqslant 0$ para todo \nN, se dice que es una \emph{serie de términos positivos}. Observa que una serie de términos positivos es una sucesión creciente por lo que o bien es convergente (cuando está mayorada) o es positivamente divergente.
+
+\begin{proposicion}[\textbf{Criterio básico de convergencia}]
+Una serie de términos positivos \serien{a}\ es convergente si, y sólo si, está mayorada, es decir, existe un número $M>0$ tal que para todo \nN\ se verifica que $\dis\sum_{k=1}^na_k\le M$, en cuyo caso su suma viene dada por:
+$$
+\sum_{n=1}^\infty a_n=\sup\set{\sum_{k=1}^na_k:\nN}.
+$$
+Una serie de términos positivos que no está mayorada es (positivamente) divergente.
+\end{proposicion}
+
+\begin{ejemplo}
+La serie $\dis\sum_{n\ge 1}\frac{1}{n^2}$ es convergente porque para todo $n\ge 2$ se verifica:
+$$
+\begin{aligned}
+\dis\sum_{k=1}^n\dfrac{1}{k^2}&\le\sum_{k=1}^{2^n-1}\dfrac{1}{k^2}=1+\sum_{j=1}^{n-1}\left(\sum_{k=2^j}^{2^{j+1}-1}\frac{1}{k^2}\right)\le 1+\sum_{j=1}^{n-1}\left(\sum_{k=2^j}^{2^{j+1}-1}\frac{1}{(2^j)^2}\right)=\\&=1+\sum_{j=1}^{n-1}\frac{2^j}{2^{2j}}=1+\sum_{j=1}^{n-1}\dfrac{1}{2^{j}}=2-\dfrac{1}{2^{n-1}}<2.
+\end{aligned}
+$$
+\end{ejemplo}\vspace{-3mm}
+
+Si \serien{a}\ es una serie de términos positivos, suele escribirse $\dis\sum_{n=1}^\infty a_n\!<\!+\infty$ para indicar que dicha serie converge.
+
+Teniendo en cuenta la proposición \ref{prop:seriescasiiguales}, los criterios que siguen pueden aplicarse para estudiar la convergencia de series cuyos términos son todos positivos a partir de uno de ellos en adelante.
+
+\begin{proposicion}[\textbf{Criterio básico de comparación}]\label{cc} Sean \serien{a}\ y \serien{b}\ dos series de términos positivos. Supongamos que hay un número $k\en\N$ tal que $a_n\leqslant b_n$ para todo $n>k$. Entonces se verifica
+que si la serie \serien{b}\ es convergente, también \serien{a}\  es convergente o, equivalentemente, si la serie \serien{a}\  es divergente también \serien{b}\  es divergente.
+\end{proposicion}
+\dem Pongamos $\,A_n=a_1+a_2+\cdots+a_n$, $B_n=b_1+b_2+\cdots+b_n$. Las hipótesis hechas implican que para todo $n>k$ es $\,A_n\!\leqslant B_n+A_k$. Deducimos que si \sucn{B}\ está mayorada también lo está \sucn{A}. \fin
+
+\begin{ejemplos}
+La serie $\dis\sum_{n\ge 2}\dfrac{1}{\log n}$ es divergente porque es de términos positivos, $\dfrac{1}{\log n}\ge\dfrac{1}{n}$ y la serie armónica es divergente.
+
+La serie $\dis\sum_{n\ge 1}\log\dfrac{(n+1)^2}{n(n+2)}$ es convergente porque es de términos positivos y:
+$$
+\log\dfrac{(n+1)^2}{n(n+2)}=\log\dfrac{n^2+2n+1}{n^2+2n}=\log\left(1+\dfrac{1}{n^2+2n}\right)<\dfrac{1}{n^2+2n}<\dfrac{1}{n^2},
+$$
+y la serie $\dis\sum\frac{1}{n^2}$ es convergente.
+
+La serie $\dis\sum_{n\ge 1}\left(\dfrac{1}{n}-\log\left(1+\dfrac{1}{n}\right)\right)$ es convergente. Para ello usamos la desigualdad (ver \eqref{eq:numeroe}):
+$$
+\dfrac{1}{n+1}<\log\left(1+\dfrac{1}{n}\right)<\dfrac{1}{n}.
+$$
+De la que se deduce:
+$$
+0<\dfrac{1}{n}-\log\left(1+\dfrac{1}{n}\right)<\dfrac{1}{n}-\dfrac{1}{n+1}=\dfrac{1}{n(n+1)}<\dfrac{1}{n^2}.
+$$
+\end{ejemplos}
+
+\begin{proposicion}[\textbf{Criterio límite de comparación}]\label{ccl} Sean \serien{a}\ y \serien{b}\ dos series de términos positivos, y supongamos que $$\lim\dfrac{a_n}{b_n}=L\en\Rpo\cup\{+\infinity\}\,.$$
+\begin{enumerate}
+\item[a)] Si $L=+\infinity$ y \serien{b}\ es divergente también \serien{a}\ es divergente.
+
+\item[b)] Si $L=0$ y \serien{b}\ es convergente también \serien{a}\ es convergente.
+
+\item[c)] Si $L\en\Rp$ las  series \serien{a}\ y \serien{b}\ son ambas convergentes o ambas
+divergentes.
+\end{enumerate}
+En particular, si dos sucesiones de números positivos, \sucn{a}\ y \sucn{b}\ son asintóticamente equivalentes, las respectivas series, $\sum a_n$ y $\sum b_n$ ambas convergen o ambas divergen.
+\end{proposicion}
+\dem Supongamos que $L\en\Rp$. Sea $0<\alpha<L<\beta$. Todos los términos de la sucesión \suc{a_n/b_n}, a partir de uno en adelante, están en el intervalo $]\,\alpha,\beta\,[$, es decir, existe $k\en\N$ tal que para todo $n\geqslant k$ es $\,\alpha<a_n/b_n<\beta\,$, y, por tanto, $\,\alpha\,b_n<a_n<\beta\,b_n$. Concluimos, por el criterio de comparación, que la convergencia de una de las series implica la convergencia de la otra. Queda, así, probado el punto \emph{c)} del enunciado. Los puntos \emph{a)} y \emph{b)} se prueban de manera parecida.\hfill$\Box$
+
+\begin{ejemplos}
+La serie $\dis\sum_{n\ge 1}\big(\e^{\frac{1}{n}}-1\big)$ es divergente porque es de términos positivos y se verifica que $\dis\e^{\frac{1}{n}}-1\sim\dfrac{1}{n}$.
+
+Por la misma razón las series $\dis\sum_{n\ge 1}\sen\frac{1}{n}$, $\ \dis\sum_{n\ge 1}\tg\frac{1}{n}$, $\ \dis\sum_{n\ge 1}\log\left(1+\frac{1}{n}\right)$ son todas ellas series de términos positivos divergentes, porque sus términos generales son asintóticamente equivalentes al término general de la serie armónica $\dfrac{1}{n}$.
+
+La serie $\dis\sum_{n\ge 1}\left(\sqrt[5]{1+\frac{1}{n^2}}-1\right)$ es convergente porque es de términos positivos, se verifica que $\sqrt[5]{1+\dfrac{1}{n^2}}-1\sim \dfrac{1}{5n^2}$ y la serie $\sum\dfrac{1}{5n^2}$ es convergente.
+\end{ejemplos}
+
+Observa el parecido de estos criterios con los correspondientes criterios de convergencia para integrales impropias de funciones positivas. El siguiente resultado establece, en un caso particular, una relación aún más estrecha entre ambos tipos de convergencia.
+
+\begin{proposicion}[\textbf{Criterio integral}] Sea \func{f}{[1,+\infinity[}\ una función positiva y decreciente. Entonces se verifica que
+$$
+\sum_{k=2}^{n+1} f(k)\le\varint_1^{n+1} \!\!\!f(x)\df{x}\le \sum_{k=1}^n f(k)
+$$
+En consecuencia, la serie $\dis\sum_{n\ge 1}f(n)$ y la integral $\dis\varint_1^{+\infty}\!\!\!f(x)\df{x}$ ambas convergen o ambas divergen.
+\end{proposicion}
+\dem Por ser $f$ decreciente, para todo $x\!\in [k,k+1]$ es $f(k+1)\!\le\! f(x)\!\le\! f(k)$. Integrando, deducimos que:
+$$
+f(k+1)\le\varint_k^{k+1}\!\!\!f(x)\df{x}\le f(k).
+$$
+Sumando estas desigualdades desde $k=1$ hasta $k=n$, obtenemos la desigualdad del enunciado. \hfill$\Box$
+
+Para poder usar los criterios de comparación, necesitamos conocer ejemplos de series convergentes con las que poder comparar una serie dada. Unas series de términos positivos muy útiles para comparar con otras series son las siguientes.
+
+\begin{proposicion}[\textbf{Series de Riemann}]  Dado un número real $\alpha$, la serie $\dis\sum_{n\ge 1}\dfrac{1}{n^{\alpha}}$ se llama serie de Riemann de exponente $\alpha$. Dicha serie es convergente si, y sólo si, $\alpha>1$.
+\end{proposicion}
+\dem Para que se cumpla la condición necesaria de convergencia es preciso que sea $\alpha>0$. Supuesto que esto es así, podemos
+aplicar el criterio integral a la función $f(x)=1/x^{\alpha}$ y tener en cuenta que la integral $\varint_1^{+\infty}\!\!\frac{1}{x^{\alpha}}\df{x}$ es convergente si, y sólo si, $\alpha>1$.\hfill$\Box$
+
+\begin{ejemplos}
+Las series $\dis\sum\arctg\dfrac{1}{n^\alpha}$, $\dis\sum\log\left(1+\dfrac{1}{n^\alpha}\right)$ convergen si, y sólo si, $\alpha>1$ porque son de términos positivos y su término general es asintóticamente equivalente a $\dfrac{1}{n^\alpha}$.
+
+La serie $\dis\sum n^\beta\big(\e^{\frac{1}{n^\alpha}}-1\big)$, donde $\alpha$ y $\beta$ son números reales, no converge para ningún valor de $\beta$ si $\alpha<0$, porque en tal caso su término general no converge a $0$. Si $\alpha\ge 0$ converge si y sólo si, $\alpha-\beta>1$ porque es una serie de términos positivos y su término general es asintóticamente equivalente a $\dfrac{1}{n^{\alpha-\beta}}$
+\end{ejemplos}
+
+Si en el criterio límite de comparación hacemos $b_n=1/n^{\alpha}$, obtenemos el siguiente criterio de
+convergencia.
+
+\begin{proposicion}[\textbf{Criterio de Prinsheim}] Sea \serien{a}\ una serie de términos positivos, $\alpha$ un número real y supongamos que $\,\{n^{\alpha}a_n\}\rightarrow L\en\Rpo\cup\{+\infinity\}$. Entonces:
+\begin{enumerate}
+\item[i)] Si $\,L=+\infinity\,$ y $\,\alpha\leqslant 1$,  \serien{a}\ es divergente.
+
+\item[ii)] Si $\,L=0\,$ y $\,\alpha>1$, \serien{a}\ es convergente.
+
+\item[iii)] Si $\,L\en\Rp$, \serien{a}\ converge si $\alpha>1$ y diverge si $\alpha\leqslant 1$.
+\end{enumerate}
+\end{proposicion}
+
+Observando que si $a_n>0$, la desigualdad $\dis a_n\!\leqslant\frac{1}{n^{\alpha}}\,$
+equivale a $\dis\frac{-\log(a_n)}{\log n}\!\geqslant \alpha$, se deduce el siguiente
+criterio de convergencia que es eficaz para estudiar la convergencia de series que pueden compararse con series de Riemann.
+
+\begin{proposicion}[\textbf{Primer criterio logarítmico}] Supongamos que  $a_n>0$ para todo \nN, y pongamos $\,\dis \rule{0mm}{6mm}L_n=\frac{-\log(a_n)}{\log n}$.
+\begin{enumerate}
+\item[i)] Si $\sucn{L}\to L\,$, donde $\,L>1\,$ o  $\,L=+\infty$, la serie \serien{a}\ es convergente.
+
+\item[ii)] Si $\sucn{L}\to L\,$, donde $\,L<1\,$ o  $\,L=-\infty$, o bien si existe algún $\,k\en\N$ tal que $\,L_n\leqslant 1$ para todo $n\geqslant k$, entonces la serie \serien{a}\ es divergente.
+\end{enumerate}
+\end{proposicion}
+
+\begin{ejemplo}
+La serie $\dis\sum_{n\ge 1}a_n$ donde $a_n=\left(1-\dfrac{\alpha\log n}{n}\right)^n$ y $\alpha\en\R$, es una serie de términos positivos (a partir de uno de ellos en adelante) y se tiene que:
+$$
+\dfrac{-\log a_n}{\log n}=\dfrac{-n\log\left(1-\dfrac{\alpha\log n}{n}\right)}{\log n}=\alpha\dfrac{\log\left(1-\dfrac{\alpha\log n}{n}\right)}{-\dfrac{\alpha\log n}{n}}\to\alpha.
+$$
+El primer criterio logarítmico nos dice que si $\alpha>1$ la serie converge y si $\alpha<1$ la serie diverge.
+
+Si $\alpha=1$ tenemos que  $a_n=\left(1-\dfrac{\log n}{n}\right)^n$. Recordando que $\left(1+\dfrac{x}{n}\right)^n\to\e^x$, podemos esperar que para $n$ suficientemente grande $a_n=\left(1-\dfrac{\log n}{n}\right)^n\thickapprox\e^{-\log n}=\dfrac{1}{n}$. Esto lleva a conjeturar que $na_n\to 1$. Tenemos que:
+$$
+\begin{aligned}
+\log(na_n)&=n\log\left(1-\dfrac{\log n}{n}\right)+\log n=n\left(\log\left(1-\dfrac{\log n}{n}\right)+\dfrac{\log n}{n}\right)=\\
+&=\dfrac{(\log n)^2}{n}\dfrac{\log\left(1-\dfrac{\log n}{n}\right)+\dfrac{\log n}{n}}{\left(\dfrac{\log n}{n}\right)^2}
+\end{aligned}
+$$
+Si ahora recuerdas que $\dis\lim_{x\to 0}\dfrac{\log(1+x)-x}{x^2}=-\dfrac{1}{2}$, se sigue que $\log(na_n)\to 0$, es decir, $na_n\to 1$. El criterio de Prinsheim implica que la serie $\sum a_n$ es divergente.
+\end{ejemplo}
+
+Vamos a estudiar a continuación unas series más generales que las series de Riemann.
+Dados dos números reales $\alpha$ y $\beta$, la serie $\dis\sum_{n\ge 2}\dfrac{1}{n^{\alpha}(\log n)^{\beta}}$
+se llama  \textbf{serie de Bertrand} de exponentes $\alpha$ y $\beta$
+
+
+\begin{proposicion}[\textbf{Series de Bertrand}] La serie
+$\dis\sum_{n\geqslant 2}\frac{1}{n^{\alpha}(\log n)^{\beta}}$ converge si
+\mbox{$\alpha>1$} cualquiera sea $\beta$, y también si $\alpha=1$ y $\beta>1$. En
+cualquier otro caso es divergente.
+\end{proposicion}
+\dem Sabemos  que cualesquiera sean $\rho>0$ y $\mu\en\R$ se verifica que:
+$$
+\lim_{n\to \infty}\dfrac{(\log n)^{\mu}}{n^{\rho}}=0.
+$$
+Supongamos que $\alpha>1$ y sea $\lambda$ un número verificando que $1<\lambda<\alpha$. Podemos escribir:
+$$
+n^{\lambda}\frac{1}{n^{\alpha}(\log n )^{\beta}}=\frac{(\log n)^{\mu}}{n^{\rho}}
+$$
+donde $\rho=\alpha-\lambda$ y $\mu=-\beta$. Deducimos así que
+$$
+ \lim_{n\to \infty} n^{\lambda}\frac{1}{n^{\alpha}(\log n )^{\beta}}=0.
+$$
+El criterio de Prinsheim implica que la serie $\dis\sum_{n\geqslant 2}\frac{1}{n^{\alpha}(\log n)^{\beta}}$ es
+convergente.
+
+Si $\alpha<1$ un razonamiento parecido muestra que la serie diverge cualquiera sea $\beta$.
+
+Sea ahora $\alpha=1$. Entonces, si $\beta\leqslant 0$, tenemos que $\dis \frac{1}{n(\log n)^{\beta}}\geqslant\frac{1}{n}$ para todo $n\geqslant 3$, y el criterio de comparación implica que la serie es divergente. Sea, pues, $\beta>0$ y pongamos $\dis
+f(x)=\frac{1}{x(\log x)^{\beta}}$ para $x\ge 2$. La función $f$ es positiva y decreciente en $[2,+\infty[$. Tenemos:
+$$
+\varint_2^t\frac{\df{x}}{x(\log x)^{\beta}}=\left\{
+                                              \begin{array}{ll}
+                                                \dfrac{1}{1-\beta}(\log x)^{1-\beta}\big|_2^t= \dfrac{1}{1-\beta}\left((\log t)^{1-\beta}-(\log 2)^{1-\beta}\right), & \textrm{ si } \beta\neq 1. \\
+                                                \rule{0mm}{6mm}\log(\log x)\big|_2^t=\log(\log t)-\log(\log 2), & \textrm{ si } \beta=1.
+                                              \end{array}
+                                            \right.
+$$
+Deducimos que la integral impropia $\varint_2^{+\infty}\!f(x)\df{x}$ es convergente si, y solo si, $\beta>1$. El criterio integral nos dice que la serie $\dis\sum_{n\ge 2}f(n)=\dis\sum_{n\ge 2} \dfrac{1}{n(\log n)^{\beta}}$ converge si, y sólo si, $\beta>1$.\fin
+
+\begin{ejemplo}
+Se trata de estudiar la convergencia de la serie $\dis\sum_{n\ge 1}\dfrac{\log n!}{n^r}$ donde $r\en\R$. En el ejercicio resuelto \ref{res:asintlognlog}\ hemos visto que $\log n!$ es asintóticamente equivalente a $n\log n$. Por tanto, a efectos de convergencia, la serie dada se comporta igual que la serie  $\dis\sum_{n\ge 1}\dfrac{\log n}{n^{r-1}}$ la cual es una serie de Bertrand con $\beta=-1$ y $\alpha=r-1$. Dicha serie converge si, y sólo si, $r-1>1$, o sea, $r>2$.
+\end{ejemplo}
+
+Si $a_n>0$, la desigualdad $\dis a_n\leqslant\frac{1}{n(\log n)^{\beta}}\,$ equivale a $\dis\frac{-\log(na_n)}{\log(\log n)}\geqslant \beta$. Se deduce de aquí el siguiente criterio de convergencia que es eficaz para estudiar la convergencia de series que pueden comparase con una serie de Bertrand de exponente $\alpha=1$.
+
+\begin{proposicion}[\textbf{Segundo criterio logarítmico}] Supongamos que  $a_n>0$ para todo \nN, y pongamos \rule{0mm}{8mm}$\,\dis L_n=\frac{-\log(na_n)}{\log(\log n)}$.
+\begin{enumerate}
+\item[i)] Si $\sucn{L}\to L\,$, donde $\,L>1\,$ o  $\,L=+\infty$, la serie \serien{a}\ es convergente.
+
+\item[ii)] Si $\sucn{L}\to L\,$, donde $\,L<1\,$ o  $\,L=-\infty$, o bien si existe algún $\,k\en\N$ tal que $\,L_n\leqslant 1$ para todo $n\geqslant k$, entonces la serie \serien{a}\ es divergente.
+\end{enumerate}
+\end{proposicion}
+
+Vamos a estudiar a continuación dos criterios de convergencia que se aplican a series que pueden compararse con una serie geométrica. El primero de estos criterios parte de que la serie geométrica de término general $a_n=x^{n}$, donde \mbox{$x>0$}, converge si $\,\dis\frac{a_{n+1}}{a_{n}}=x<1$, esto lleva, en el caso general de una serie términos positivos, \serien{a}, a considerar el comportamiento de la sucesión $\{a_{n+1}/a_{n}\}$.
+
+\begin{proposicion}[\textbf{Criterio del cociente o de D'Alembert (1768)}] Supongamos que $a_n>0$ para todo \nN\ y que
+$$\lim{\dis\frac{a_{n+1}}{a_n}}=L\en\Rpo\cup\{+\infinity\}\,.$$
+\begin{enumerate}
+\item[a)] Si $\,L<1\,$ la serie \serien{a}\ es convergente.
+\item[b)] Si $\,L>1\,$ o si $L=+\infinity$ o si hay un número $k\en\N$ tal que para todo $n\!\ge\!k$ es $\frac{a_{n+1}}{a_n}\!\ge\!1$,  entonces \serien{a}\ es divergente y además \sucn{a}\ no converge a $0$.
+\end{enumerate}
+\end{proposicion}
+\dem a)  Sea $\,\lambda\,$ un número tal que $L<\lambda<1$. La definición de límite implica que existe $n_0\en\N$ tal que para todo $n\geqslant n_0$ se verifica que:
+$$a_n=\frac{a_n}{a_{n-1}}\frac{a_{n-1}}{a_{n-2}}\cdots\frac{a_{n_0+1}}{a_{n_0}}\,a_{n_0}\leqslant
+\lambda^{n-n_0}a_{n_0}=\frac{a_{n_0}}{\lambda^{n_0}}\lambda^{n}.$$
+Como $0<\lambda<1$, la serie $\sumasubn{1}\lambda^{n}$ es convergente. Deducimos, en virtud del criterio de comparación, que
+\serien{a}\ es convergente.
+
+b) Si $L>1$ entonces, tomando $\lambda$ tal que $1<\lambda<L$ y razonando como antes, obtenemos que para todo $n\ge n_0$ es
+$\,a_n\!\ge \dfrac{a_{n_0}}{\lambda^{n_0}}\lambda^{n}$. Como $\lambda>1$ se sigue que la sucesión \sucn{a}\ diverge positivamente y, con mayor razón, la serie \serien{a}\ diverge positivamente.\hfill$\Box$
+
+\begin{ejemplo}
+Sea la serie $\serie{\dfrac{(n!)^2}{(2n)!}x^{2n}}$, donde $x$ es un número real. Es una serie de términos positivos por lo que podemos aplicar el criterio del cociente para estudiar su convergencia. Pongamos $a_n=\dfrac{(n!)^2}{(2n)!}x^{2n}$. Tenemos que:
+$$
+\dfrac{a_{n+1}}{a_n}=\dfrac{(n+1)^2(n!)^2}{(2n+2)(2n+1)(2n)!}x^{2n+2}\dfrac{(2n)!}{(n!)^2}x^{-2n}=\frac{(n+1)^2}{(2n+2)(2n+1)}x^2\to \frac{x^2}{4}
+$$
+El criterio del cociente nos dice que si $\dfrac{x^2}{4}<1$, es decir, $\abs{x}<2$, la serie es convergente; si  $\dfrac{x^2}{4}>1$, es decir, $\abs{x}>2$, la serie no es convergente porque \sucn{a}\ no converge a $0$. El caso en que $x^2=4$, o sea $x=\pm 2$, se tiene que:
+$$
+\dfrac{a_{n+1}}{a_n}=\frac{4(n+1)^2}{(2n+2)(2n+1)}=\frac{2n+2}{2n+1}\ge 1.
+$$
+Y concluimos que la serie no converge para $x=\pm 2$.
+\end{ejemplo}
+
+El segundo criterio parte de que la serie geométrica de término general $a_n=x^{n}$, donde \mbox{$x>0$,} converge si $\sqrt[n]{a_n}=x<1$, esto lleva, en el caso general de una serie de términos positivos, \serien{a}, a considerar el comportamiento de la sucesión \suc{\sqrt[n]{a_{n}}}.
+
+\begin{proposicion}[\textbf{Criterio de la raíz o de Cauchy (1821)}] Sea \serien{a}\ una serie de términos positivos y supongamos que
+$$
+\lim\sqrt[n]{a_{n}}=L\en\Rpo\cup\{+\infinity\}.
+$$
+\begin{enumerate}
+\item[a)] Si $\,L<1\,$ la serie \serien{a}\ es convergente.
+\item[b)] Si $\,L>1\,$ o si $L=+\infinity$ o o si hay un número $k\en\N$ tal que para todo $n\!\ge\!k$ es $\sqrt[n]{a_{n}}\!\ge\!1$ entonces \serien{a}\ es divergente y además \sucn{a}\ no converge a $0$.
+\end{enumerate}
+\end{proposicion}
+\dem a) Sea $\lambda$ un número tal que $L<\lambda<1$. La definición de límite implica que existe $n_0\en\N$ tal que para todo
+$n\geqslant n_0$ es $\sqrt[n]{a_{n}}\leqslant\lambda$, es decir, $a_n\!\leqslant\lambda^{n}$. Puesto que $0<\lambda<1$, la serie
+$\sumasubn{1}\lambda^{n}$ es convergente y, en virtud del criterio de comparación, se sigue que \serien{a}\ es convergente.
+
+b) Si $L>1$ entonces, tomando $\lambda$ tal que $1<\lambda<L$ y razonando como antes, obtenemos que para todo $n\ge n_0$ es $a_n\!\ge\lambda^{n}$ y, como $\lambda>1$, se sigue que la sucesión \sucn{a}\ diverge positivamente y, con mayor razón, la serie
+\serien{a}\ diverge positivamente.\hfill$\Box$
+
+\begin{ejemplo}
+Sea la serie $\serie{\left(\dfrac{n^2-1}{n^2}\right)^{\!2n^3-2n}}$. Como es una serie de términos positivos podemos estudiar su convergencia usando el criterio de la raíz. Pongamos $a_n=\left(\dfrac{n^2-1}{n^2}\right)^{\!2n^3-2n}$. Tenemos que:
+$$
+\sqrt[n]{a_n}=\left(\dfrac{n^2-1}{n^2}\right)^{\!2n^2-2}=\left(\dfrac{n^2-1}{n^2}\right)^{\!2n^2}\left(\dfrac{n^2}{n^2-1}\right)^2\to\e^{-2}<1.
+$$
+Concluimos que la serie es convergente.
+\end{ejemplo}
+
+Cuando $\dfrac{a_{n+1}}{a_n}\le 1$ y  $\dis\lim\dfrac{a_{n+1}}{a_n}=1$, también es $\lim\sqrt[n]{a_{n}}=1$. En esta situación los criterios del cociente y de la raíz no proporcionan información suficiente sobre el comportamiento de la serie \serien{a}. Por ejemplo, para las series de Riemann, $a_n=1/n^{\alpha}$, se tiene que $\dis\lim\dfrac{a_{n+1}}{a_n}=1$ cualquiera sea $\alpha$. Observa que \emph{estos criterios solamente pueden proporcionar información sobre la convergencia de series que pueden compararse con una serie geométrica}. El siguiente criterio suele aplicarse cuando fallan los anteriores.
+
+\begin{proposicion}[\textbf{Criterio de Raabe (1832)}] Supongamos que $a_n>0$ para todo \nN, y pongamos $\dis
+R_n=n\bigg(\!1-\frac{a_{n+1}}{a_n}\bigg)$.
+\begin{enumerate}
+\item[i)] Si $\sucn{R}\to L$, donde $L>1$ o  $L=+\infinity$, la serie \serien{a}\ es convergente.
+
+\item[ii)] Si $\sucn{R}\to L$, donde $L<1$ o  $L=-\infinity$, o bien si existe algún $k\en\N$ tal que $R_n\!\leqslant 1$ para todo $n\geqslant k$, entonces la serie \serien{a}\ es divergente.
+\end{enumerate}
+\end{proposicion}
+\dem i) Las hipótesis hechas implican que existen $\alpha>1$ y $n_0\en\N$ tales que para todo $\,k\geqslant n_0$ es
+$\,R_k\geqslant\alpha$. Sea $\delta=\alpha-1>0$. Tenemos que:
+$$
+R_k-1=(k-1)-k\frac{a_{k+1}}{a_k}\geqslant\delta\qquad (k\geqslant n_0),
+$$
+por lo que
+$$
+a_k\leqslant\frac{1}{\delta}\big((k-1)a_k-ka_{k+1}\big)\qquad (k\geqslant n_0).
+$$
+Sumando estas desigualdades desde $k=n_0$ hasta $k=n>n_0$, obtenemos que:
+$$
+\sumaf{k=n_0}{n}a_k\!\leqslant\!\frac{1}{\delta}\big((n_0
+-1)a_{n_0}-na_{n+1}\big)<\frac{1}{\delta}(n_0-1)a_{n_0}.
+$$
+Por el criterio básico de convergencia para series de términos positivos, deducimos que \serien{a}\ es convergente.
+
+\noindent ii) Si $R_n\!\leqslant 1$ para todo $n\geqslant k$, entonces $(n-1)a_n-na_{n+1}\!\leqslant 0\,$ y resulta que la
+sucesión \suc{na_{n+1}}\ es creciente para  $n\geqslant k$, luego $na_{n+1}\!\geqslant ka_{k+1}$, es decir,  para todo $n\geqslant k$ es $\dis a_{n+1}\!\geqslant ka_{k+1}\frac{\,1\,}{n}$ y, por el criterio de comparación, deducimos que \serien{a}\ es
+divergente.\hfill$\Box$
+
+El criterio de Raabe suele aplicarse cuando el criterio del cociente no proporciona información, es decir, cuando $\dfrac{a_{n+1}}{a_n}\to 1$. En tal caso la sucesión:
+$$
+R_n=n\left(1-\dfrac{a_{n+1}}{a_n}\right)=-n\left(\dfrac{a_{n+1}}{a_n}-1\right)
+$$
+es de la forma $v_n(u_n-1)$ donde $v_n=-n$ y $u_n=\frac{a_{n+1}}{a_n}\to 1$. Aplicando el criterio de equivalencia logarítmica tenemos que:
+$$
+\lim R_n=L\ms{3mu}\Longleftrightarrow\ms{3mu}\lim \left(\frac{a_{n+1}}{a_n}\right)^{-n}=\left(\frac{a_{n}}{a_{n+1}}\right)^{n}\to\e^L
+$$
+con los convenios usuales para los casos en que $L=\pm\infty$.
+
+\begin{proposicion}[\textbf{Forma alternativa del criterio de Raabe}] Sea $a_n>0$ para todo \nN\ y supongamos que $\lim\dfrac{a_{n+1}}{a_n}=1$. Pongamos $S_n=\left(\dfrac{a_{n}}{a_{n+1}}\right)^{n}$.
+\begin{enumerate}
+\item[i)] Si $S_n\to\e^L$ con $L>1$ o si $S_n\to +\infinity$, la serie \serien{a}\ es convergente.
+\item[ii)] Si $S_n\to\e^L$ con $L<1$ o si $S_n\to 0$, la serie \serien{a}\ es divergente.
+\end{enumerate}
+\end{proposicion}
+Los criterios de convergencia que acabamos de estudiar hacen siempre hipótesis sobre la sucesión \sucn{a}\ para obtener información sobre el comportamiento de la serie \serien{a}. Ya dijimos antes que esto es típico del estudio de las series. Pero no lo olvides: no estamos estudiando la sucesión \sucn{a}\ sino la sucesión $\serien{a}=\suc{a_1+a_2+\dots+a_n}$.
+
+\begin{ejercicios propuestos}
+
+\propuesto Estudia la convergencia de las siguientes series donde $a>0$ y $\alpha\en\R$.
+$$
+\begin{array}{lll}
+  a)\ \dis \sumasubn{1}\dfrac{(n!)^2}{2^{n^2}} & b)\ \dis
+\sumasubn{1}\frac{(n+1)^{n}}{n^{n+2}} & c)\ \dis \sumasubn{1}n^{-1-1/n}
+\\ \rule{0mm}{8mm}
+  d)\ \dis \sumasubn{1}
+\frac{(n+1)^{n}}{3^{n}n!} &
+e)\ \dis\sumasubn{1}\frac{1}{n!}\left(\frac{n}{\,a\,}\right)^{\!n} &
+f)\ \dis \sumasubn{1}\left(\dfrac{1}{\log(n+1)}\right)^{\log n}
+\\ \rule{0mm}{8mm}
+  g)\ \dis
+\sumasubn{1}a^{\log n} & h)\ \dis \sumasubn{2}\frac{n^{\log
+n}}{(\log n)^{n}} & i)\ \dis \sumasubn{1}\left(\e - \bigl(
+1\!+1/n^{2}\bigr)^{\!n^{2}}\right)\\ \rule{0mm}{8mm}
+  j)\ \dis\sumasubn{1}(\sqrt[n]{n} - 1)^{\alpha} & k)\ \dis\sumasubn{1}\left(\!\!1\!-\frac{1}{\sqrt{n}}\right)^{\!n} & l)\ \dis
+\sumasubn{1}\left(\frac{n^2+1}{n^2+n+1}\right)^{\!\!n^{\alpha}} \\
+\rule{0mm}{8mm}
+  m)\ \dis \sumasubn{1}a^{\sum_{j=1}^{n}1/j}
+ & n)\ \dis \sumasubn{1}
+n^{\alpha}\bigl(\sqrt[n]{n+1/n}-\sqrt[n]{\rule{0mm}{2.5mm}
+n}\,\bigr) & o)\ \dis
+\sumasubn{1}\left(n\sen\dfrac{1}{n}\right)^{n^3}\\
+ \rule{0mm}{8mm}p)\ \sumasubn{1}\dfrac{\big((2n)!\big)^3}{2^{6n}(n!)^6} & q)\ \sumasubn{1}\left(\left(\dfrac{\log(n+1)}{\log n}\right)^n-1\right) & r)\ \sumasubn{1}\dfrac{n!\e^n}{n^{n+\alpha}}\\
+\rule{0mm}{8mm} s)\ \sumasubn{1}\log\left(n\sen\dfrac{1}{n}\right) & t)\ \sumasubn{1}\left(\cos\dfrac{1}{n}\right)^3 & u)\ \sumasubn{2}\dfrac{\sqrt[n^2]{n\,}-1}{\log n}
+\end{array}
+$$
+\propuesto Estudia la convergencia de las siguientes series donde $a>0$ y $\alpha,\beta\en\R$.
+$$
+\begin{array}{ll} a)\ \dis \sum_{n\geq 1}(n^{1/n^{2}}-1); & b)\ \dis
+\sum_{n\geq 1}(\sqrt[3]{n+1} -
+\sqrt[3]{n})\log\!\left(\frac{n+1}{n}\right)\\ \rule{0mm}{8mm}c)\ \dis
+\sum_{n\geq 1}\left(\sqrt[4]{n+1}-\sqrt[4]{n}\right)\,a^{\log
+n}\!; & d)\ \dis \sum_{n\geq 1}\left (\frac{2\cdot 4\cdot
+6\cdots(2n)}{5\cdot 7\cdots(2n+3)}\right )^{\!\alpha}\!\\
+\rule{0mm}{8mm} e)\ \dis \sum_{n\geq
+1}\frac{1}{n}\left(\e-(1+1/n)^{n}\right); & f)\ \dis \sum_{n\geq 1}
+\left(n^{n^{\alpha}}-1\right)\\
+\rule{0mm}{8mm}g)\ \dis
+\sumasubn{1}n^{\alpha}\left(\!\!1\!+\!\frac{1}{2}\!+\cdots+\!\frac{1}{n}\!\right); & h)\ \dis
+\sumasubn{1}n^{\alpha}\exp\left(-\beta\sumaf{k=1}{n}\frac{1}{k}\right)
+\end{array}
+$$
+\propuesto Estudia la convergencia de las series.
+\begin{enumerate}[a)]
+\item $\dis \sumasubn{1}\frac{3^{n}n!}{\sqrt[3]{n}\,5\cdot 8\cdot 11\cdots
+(5+3n)}$
+\item $\dis \sumasubn{1}\left(\frac{2\cdot 3\cdot 4\cdots (n+2)}{5\cdot 6\cdot 7\cdots
+(n+5)}\right)^{1/2}$
+\item $\dis \sum_{n\geq
+1}(a-\sqrt{a})(a-\sqrt[3]{a})\cdots(a-\sqrt[n]{a})\ \  (a>0)$
+\item $\dis  \sumasubn{1}\frac{n!}{a(a+1)(a+2)\cdots(a+n)n^{\,\alpha}}\
+\ (a>0,\,\alpha\en\R)$
+\item $\dis \sum_{n\geq 1} a^{\log n}\log (1+1/n) \ \  (a>0)$
+\item $\dis \sum_{n\geq 1}(\sqrt{n+1}-\sqrt{n})^{\alpha}\left (\log
+(1+1/n)\right )^{\beta}, \ \ \ (\alpha,\beta\en\R) $
+\item $\dis  \sum_{n\geq 1}\left (\frac{(1+\alpha)(3+\alpha)(5+\alpha)\cdots
+(2n-1+\alpha)}{(2+\beta)(4+\beta)(6+\beta)\cdots (2n+\beta)} \right
+)^{\rho}\!, \ \ \ (\alpha,\beta,\rho\en\R^{+}) $
+\end{enumerate}
+
+\propuesto Sea \sucn{a}\ una sucesión creciente de números positivos. Dar condiciones que garanticen que la serie $\dis\sum_{n\ge 1}\dfrac{1}{a_1a_2a_3\cdots a_n}$ es convergente.
+
+\propuesto Dar ejemplos de sucesiones $\sucn{a}\to 1$ y decrecientes tales que la serie  $\dis\sum_{n\ge 1}\dfrac{1}{a_1a_2a_3\cdots a_n}$ sea en un caso convergente y en otro caso divergente.
+
+\propuesto Sea $a_n\ge 0$ para todo \nN. Prueba que las series $\dis\sum_{n\ge 1} a_n$ y $\dis\sum_{n\ge 1}\dfrac{a_n}{1+a_n}$ ambas convergen o ambas divergen.
+
+\propuesto Sea $\sum a_n$ una serie de términos positivos convergente. ¿Qué puede decirse de las series $\rule{0mm}{6mm}\sum a_n^2$ y $\sum\sqrt{a_na_{n+1}}$?
+
+\propuesto Sea $\sum a_n$ una serie de términos positivos convergente. Prueba que la sucesión \sucn{z}\ dada para todo \nN\ por:
+$$
+z_n=\prod_{k=1}^n(1+a_k)=(1+a_1)(1+a_2)\cdots(1+a_n)
+$$
+es convergente.
+
+\propuesto Sea $\sum a_n$ una serie de términos positivos convergente. Prueba que para $0<\alpha<1$ la serie $\rule{0mm}{6mm}\dis\sum\dfrac{a_n^\alpha}{n}$ es convergente.
+
+Sugerencia. Utilizar la desigualdad de Hölder (ver ejercicio resuelto \ref{res:holder}).
+
+\propuesto Sea $\sum a_n$ una serie convergente de términos positivos. Prueba que la serie $\dis\sum\dfrac{\sqrt{a_n}}{n^\alpha}$ es convergente si $\alpha>1/2$. Da un ejemplo de una serie $\sum a_n$ convergente tal que la serie $\dis\sum\dfrac{\sqrt{a_n}}{\sqrt{n}}$ sea divergente.
+
+\propuesto Estudia la convergencia de las sucesiones:
+$$
+a)\ x_n=\sum_{k=1}^n\frac{1}{\sqrt{k}}-2\sqrt{n},\qquad b)\ y_n=\sum_{k=1}^n\frac{\log k}{k}-\frac{(\log n)^2}{2}.
+$$
+Sugerencia. Estudia la convergencia de las respectivas series de diferencias consecutivas.
+
+%\propuesto Prueba que la sucesión dada por $x_1=0$ y para $n\ge 2$:
+%$$
+%x_n=\log(\log n)-\sum_{k=2}^n\frac{1}{k\log k}
+%$$
+%es convergente y su límite es menor o igual que $\log(\log 2)$.
+%
+%Sugerencia. Considera la serie de las diferencias consecutivas.
+\end{ejercicios propuestos}
+\begin{ejercicios resueltos}
+\resuelto Estudia la convergencia de las siguientes series donde $a>0$ y $\alpha\en\R$.
+$$
+\begin{array}{lll}
+  a)\ \dis \sumasubn{1}\dfrac{(n!)^2}{2^{n^2}} & b)\ \dis
+\sumasubn{1}\frac{(n+1)^{n}}{n^{n+2}} & c)\ \dis \sumasubn{1}n^{-1-1/n}
+\\ \rule{0mm}{8mm}
+  d)\ \dis \sumasubn{1}
+\frac{(n+1)^{n}}{3^{n}n!} &
+e)\ \dis\sumasubn{1}\frac{1}{n!}\left(\frac{n}{\,a\,}\right)^{\!n} &
+f)\ \dis \sumasubn{1}\left(\dfrac{1}{\log(n+1)}\right)^{\log n}
+\\ \rule{0mm}{8mm}
+  g)\ \dis
+\sumasubn{1}a^{\log n} & h)\ \dis \sumasubn{2}\frac{n^{\log
+n}}{(\log n)^{n}} & i)\ \dis \sumasubn{1}\left(\e - \bigl(
+1\!+1/n^{2}\bigr)^{\!n^{2}}\right)\\ \rule{0mm}{8mm}
+  j)\ \dis\sumasubn{1}(\sqrt[n]{n} - 1)^{\alpha} & k)\ \dis\sumasubn{1}\left(\!\!1\!-\frac{1}{\sqrt{n}}\right)^{\!n} & l)\ \dis
+\sumasubn{1}\left(\frac{n^2+1}{n^2+n+1}\right)^{\!\!n^{\alpha}} \\
+\rule{0mm}{8mm}
+  m)\ \dis \sumasubn{1}a^{\sum_{j=1}^{n}1/j}
+ & n)\ \dis \sumasubn{1}
+n^{\alpha}\bigl(\sqrt[n]{n+1/n}-\sqrt[n]{\rule{0mm}{2.5mm}
+n}\,\bigr) & o)\ \dis
+\sumasubn{1}\left(n\sen\dfrac{1}{n}\right)^{n^3}\\
+ \rule{0mm}{8mm}p)\ \sumasubn{1}\dfrac{\big((2n)!\big)^3}{2^{6n}(n!)^6} & q)\ \sumasubn{1}\left(\left(\dfrac{\log(n+1)}{\log n}\right)^n-1\right) & r)\ \sumasubn{1}\dfrac{n!\e^n}{n^{n+\alpha}}\\
+\rule{0mm}{8mm} s)\ \sumasubn{1}\log\left(n\sen\frac{1}{n}\right) & t)\ \sumasubn{1}\left(\cos\frac{1}{n}\right)^3 & u)\ \sumasubn{2}\dfrac{\sqrt[n^2]{n\,}-1}{\log n}
+\end{array}
+$$
+\sol Salvo una excepción, son todas series de términos positivos. Para estudiar su convergencia aplicaremos los criterios que acabamos de estudiar.
+
+$a)$\ Pongamos $a_n=\dfrac{(n!)^2}{2^{n^2}}$. Aplicaremos el criterio del cociente:
+$$
+\dfrac{a_{n+1}}{a_n}=\dfrac{((n+1)!)^2}{2^{(n+1)^2}}\dfrac{2^{n^2}}{(n!)^2}=\dfrac{(n+1)^2}{2^{2n+1}}=\dfrac{1}{2}\frac{n^2+2n+1}{4^n}\to 0.
+$$
+La serie es convergente.\hecho
+
+$b)$\ Pongamos $a_n=\dfrac{(n+1)^{n}}{n^{n+2}}$. Apliquemos el criterio del cociente:
+$$
+\begin{aligned}
+\dfrac{a_{n+1}}{a_n}&=\dfrac{(n+2)^{n+1}}{(n+1)^{n+3}}\dfrac{n^{n+2}}{(n+1)^{n}}=\left(\frac{n+2}{n+1}\right)^{\!n\!+\!3}\left(\frac{n}{n+1}\right)^{\!n}\frac{n^2}{(n+2)^2}=\\
+&=\left(1+\dfrac{1}{n+1}\right)^{\!n\!+\!3}\left(1-\dfrac{1}{n+1}\right)^{\!n}\dfrac{n^2}{n^2+4n+4}\to\e\frac{1}{\e}=1.
+\end{aligned}
+$$
+Además $\dfrac{a_{n+1}}{a_n}\le 1$, por tanto el criterio del cociente no proporciona información sobre la convergencia de esta serie. Cuando esto ocurre igual sucede con el criterio de la raíz. Esto nos indica que la serie no es comparable con una serie geométrica. El criterio de Raabe no parece fácil de aplicar. Podemos intentar el primer criterio logarítmico. Tenemos que:
+$$
+\dfrac{-\log(a_n)}{\log n}=\dfrac{-n\log(n+1)+(n+2)\log n}{\log n}=\dfrac{n\log\frac{n}{n+1}}{\log n}+2\to 2>1.
+$$
+Por tanto la serie es convergente. Este criterio nos dice que la serie $\sum a_n$ es comparable con una serie de Riemann de exponente $\alpha=2$. Que efectivamente esto es así es fácil de comprobar. Si nos fijamos en $a_n$ y recordamos que la sucesión $\left(\dfrac{n+1}{n}\right)^n$ es creciente y converge a $\e$, enseguida nos damos cuenta de lo que sigue:
+$$
+a_n=\dfrac{(n+1)^{n}}{n^{n+2}}=\left(\dfrac{n+1}{n}\right)^n\frac{1}{n^2}\le \dfrac{\e}{n^2}
+$$
+lo que permite concluir, por el criterio de comparación, que la serie es convergente. \hecho
+\begin{observacion}
+Antes de empezar a aplicar criterios de convergencia, fíjate bien en la forma que tiene el término general de la serie e intenta relacionarlo con alguna sucesión conocida.
+\end{observacion}
+$e)$\ Pongamos $a_n=\dfrac{1}{n!}\left(\dfrac{n}{\,a\,}\right)^{\!n}$. Apliquemos el criterio del cociente:
+$$
+\begin{aligned}
+\dfrac{a_{n+1}}{a_n}&=\frac{1}{(n+1)!}\left(\frac{n+1}{\,a\,}\right)^{\!n\!+\!1}n!\left(\dfrac{\,a\,}{n}\right)^{\!n}=a\left(\frac{n+1}{n}\right)^{\!n}\to\frac{a}{\e}.
+\end{aligned}
+$$
+Deducimos que si $0<a<\e$ la serie es convergente, si $a>\e$ la serie es divergente. Para $a=\e$ el criterio no proporciona información. Ni el criterio de Raabe ni el primer criterio logarítmico parecen fáciles de aplicar. Cuando no queda otro recurso hay que intentar aplicar el criterio de comparación. Supuesto que $a=\e$, tenemos que:
+$$
+a_n=\frac{n^n}{n!}\frac{1}{\e^n}>\frac{n^n}{n!}\frac{n!}{(n+1)^{n+1}}=\dfrac{1}{\big(1+\frac{1}{n}\big)^n}\frac{1}{n+1}>\frac{1}{\e}\frac{1}{n+1}>\frac{1}{5n}.
+$$
+Donde hemos usado que para todo $k\en\N$ es $\e<\big(1+\frac{1}{k}\big)^{k+1}\!\!=\big(\frac{k+1}{k}\big)^{k+1}$, de donde se sigue que para todo \nN:
+$$
+\frac{1}{\e^n}>\prod_{k=1}^n\left(\dfrac{k}{k+1}\right)^{k+1}=\frac{n!}{(n+1)^n}.
+$$
+Concluimos, por comparación con la serie armónica, que la serie es divergente para\linebreak $a=\e$.\hecho
+
+$f)$\ Pongamos $a_n=\left(\dfrac{1}{\log(n+1)}\right)^{\log n}$. Aquí no es apropiado aplicar el criterio del cociente porque no hay factores que se simplifiquen al calcular el cociente de un término al anterior. El criterio de la raíz puede aplicarse, pero no proporciona información sobre el carácter de la serie porque, como debes comprobar, $\sqrt[n]{a_n}\to 1$ y $\sqrt[n]{a_n}\le 1$. Podemos aplicar el primer criterio logarítmico.
+$$
+\dfrac{-\log(a_n)}{\log n}=\log(\log(n+1))\to +\infty.
+$$
+La serie es convergente. Deducimos que se trata de una serie que converge más rápidamente que cualquier serie de Riemann y menos rápidamente que cualquier serie geométrica.\hecho
+
+$h)$\ Pongamos $a_n=\dfrac{n^{\log n}}{(\log n)^{n}}$. Es apropiado aplicar el criterio de la raíz.
+$$
+\sqrt[n]{a_n}=\dfrac{n^{\frac{\log n}{n}}}{\log n}=\dfrac{\e^{\frac{(\log n)^2}{n}}}{\log n}\to 0.
+$$
+La serie es convergente.\hecho
+
+$i)$\ Pongamos $a_n=\e - \bigl(1\!+1/n^{2}\bigr)^{\!n^{2}}$. Observa que como $\big(1+\frac{1}{k}\big)^k<\e$ para todo $k\en\N$, se tiene que $a_n>0$.  Los criterios del cociente, de la raíz, de Raabe y los logarítmicos no parecen apropiados para estudiar esta serie. Cuando esto sucede hay que intentar aplicar un criterio de comparación. Si recuerdas el límite, que hemos visto varias veces:
+$$
+\lim_{x\to 0}\dfrac{\e-(1+x)^{\frac{1}{x}}}{x}=\frac{\e}{2},
+$$
+se deduce que si $\sucn{x}\to 0$ se verifica la equivalencia asintótica $\e-(1+x_n)^{1/x_n}\sim\frac{\e}{2}x_n$. Por tanto:
+$$
+a_n=\e - \bigl(1\!+1/n^{2}\bigr)^{\!n^{2}}\sim\frac{\e}{2}\frac{1}{n^2},
+$$
+y deducimos que la serie converge por el criterio límite de comparación. También podemos usar el criterio básico de comparación usando que para todo $k\en\N$ se verifica que $\e<\big(1+\frac{1}{k}\big)^{k+1}$. Con ello se tiene:
+$$
+a_n=\e - \left(1\!+\frac{1}{n^{2}}\right)^{\!n^{2}}<
+\left(1\!+\frac{1}{n^{2}}\right)^{\!n^{2}+1}\!\!\!-\left(1\!+\frac{1}{n^{2}}\right)^{\!n^{2}}=
+\left(1\!+\frac{1}{n^{2}}\right)^{\!n^{2}}\frac{1}{n^2}<\frac{\e}{n^2}.
+$$\hecho
+
+$j)$\ Pongamos $a_n=(\sqrt[n]{n} - 1)^{\alpha}$. Trata de aplicar algunos criterios de convergencia. Las series que cuesta más trabajo estudiar son aquellas en las que los criterios del cociente, de la raíz, de Raabe y los logarítmicos no sirven para estudiar su convergencia, ya sea porque los límites que hay que calcular son difíciles o porque dichos criterios no proporcionan información. Cuando esto ocurre hay que aplicar un criterio de comparación. En nuestro caso tenemos que:
+$$
+\sqrt[n]{n} - 1=\e^{\frac{\log n}{n}}-1\sim\frac{\log n}{n}\Longrightarrow a_n\sim\left(\frac{\log n}{n}\right)^\alpha.
+$$
+Deducimos que la serie converge si, y sólo si, $\alpha>1$. \hecho
+
+$l)$\ Pongamos $a_n=\left(\dfrac{n^2+1}{n^2+n+1}\right)^{\!\!n^{\alpha}}=\left(1-\dfrac{n}{n^2+n+1}\right)^{\!\!n^{\alpha}}$. Después de pensarlo un poco, parece apropiado usar el primer criterio logarítmico. Tenemos que:
+$$
+\dfrac{-\log(a_n)}{\log n}=-\dfrac{n^\alpha}{\log n}\log\left(1-\dfrac{n}{n^2+n+1}\right)\sim \dfrac{n^\alpha}{\log n}\dfrac{n}{n^2+n+1}\sim \dfrac{n^{\alpha-1}}{\log n}.
+$$
+Por tanto:
+$$
+\lim_{n\to\infty}\dfrac{-\log(a_n)}{\log n}=\left\{
+                            \begin{array}{ll}
+                              +\infty, & \textrm{ si }\ \alpha>1; \\
+                              0, &  \textrm{ si }\ \alpha<1.
+                            \end{array}
+                          \right.
+$$
+La serie converge si $\alpha>1$ y no converge si $\alpha<1$. Para $\alpha=1$ se tiene que $\sucn{a}\to\dfrac{1}{\e}$ y por tanto la serie no converge porque su término general no converge a $0$.\hecho
+
+$m)$\ Pongamos $a_n=a^{\sum_{j=1}^{n}1/j}$. Es evidente que si $a\ge 1$ se tiene que $a_n\ge 1$ y, por tanto, la serie no es convergente porque \sucn{a}\ no converge a $0$. Podemos aplicar el criterio del cociente.
+$$
+\frac{a_{n+1}}{a_n}=a^{\frac{1}{n+1}}\to 1.
+$$
+Este criterio no proporciona información sobre la convergencia de la serie. Intentemos el criterio de Raabe.
+$$
+R_n=n\left(1-\frac{a_{n+1}}{a_n}\right)=n\big(1-a^{\frac{1}{n+1}}\big)=-n\big(\e^{\frac{\log a}{n+1}}-1\big)\sim -n\frac{\log a}{n+1}\to -\log a.
+$$
+Deducimos que si $-\log a>1$, es decir, $a<\frac{1}{\e}$ la serie converge, y si $-\log a<1$, es decir, $a>\frac{1}{\e}$ la serie no converge. En el caso en que $a=\frac{1}{\e}$ se tiene que:
+$$
+R_n=n\big(1-\e^{\frac{-1}{n+1}}\big)\le 1 \Longleftrightarrow \e^{\frac{-1}{n+1}}\ge 1-\frac{1}{n}\Longleftrightarrow \e\le \left(1+\frac{1}{n-1}\right)^{\!n\!+\!1}.
+$$
+Esta última desigualdad es cierta porque para todo $k\en\N$ es $\e<\big(1+\frac{1}{k}\big)^{\!k\!+\!1}<\big(1+\frac{1}{k}\big)^{\!k\!+\!2}$.
+
+También podemos hacer este ejercicio recordando la estrategia \ref{est:armonica}\ con lo que:
+$$
+a_n=a^{\sum_{j=1}^{n}1/j}=a^{\upgamma_n+\log n}=a^{\upgamma_n}a^{\log n}\sim a^\upgamma a^{\log n}.
+$$
+También puede aplicarse el primer criterio logarítmico.\hecho
+
+$n)$\ Pongamos $a_n=n^{\alpha}\bigl(\sqrt[n]{n+1/n}-\sqrt[n]{\rule{0mm}{2.5mm}n}\,\bigr)$. Tenemos que:
+$$
+a_n=n^\alpha\sqrt[n]{n}\left(\!\SQRT[n]{1\!+\!\frac{1}{n^2}}-1\right)\sim n^\alpha\!\left(\exp\left(\frac{\log\big(1\!+\!\frac{1}{n^2}\big)}{n}\right)-1\right)\sim n^\alpha\frac{\log\big(1\!+\!\frac{1}{n^2}\big)}{n}\sim n^{\alpha-3}.
+$$
+Por el criterio límite de comparación la serie converge si, y sólo si, $\alpha-3<-1$, esto es, $\alpha<2$.\hecho
+
+$o)$\ Pongamos $a_n=\left(n\sen\dfrac{1}{n}\right)^{n^3}$. Aplicaremos el criterio de la raíz.
+$$
+\sqrt[n]{a_n}=\left(n\sen\dfrac{1}{n}\right)^{n^2}.
+$$
+Se trata de una indeterminación del tipo $1^\infty$. Aplicamos el criterio de equivalencia logarítmica:
+$$
+n^2\left(n\sen\frac{1}{n}-1\right)=\dfrac{\sen\frac{1}{n}-\frac{1}{n}}{\frac{1}{n^3}}\to -\frac{1}{6}
+$$
+porque, como debe saber, $\dis\lim_{x\to 0}\dfrac{\sen x-x}{x^3}=-\dfrac{1}{6}$. Luego
+$\sqrt[n]{a_n}\to\e^{\frac{-1}{6}}<1$ y la serie es convergente.\hecho
+
+$p)$\ Pongamos $a_n=\dfrac{\big((2n)!\big)^3}{2^{6n}(n!)^6}$. Aplicaremos el criterio del cociente porque hay muchos factores que se van a simplificar.
+$$
+\frac{a_{n+1}}{a_n}=\dfrac{\big((2n+2)!\big)^3}{2^{6n+6}((n+1)!)^6}\dfrac{2^{6n}(n!)^6}{\big((2n)!\big)^3}=
+\frac{(2n+1)^3(2n+2)^3}{2^6(n+1)^6}=\frac{(2n+1)^3}{8(n+1)^3}\to 1.
+$$
+Como este criterio no proporciona información sobre la convergencia de la serie, aplicaremos el criterio de Raabe.
+$$
+R_n=n\left(1-\frac{(2n+1)^3}{8(n+1)^3}\right)=\frac{12n^3+18n^2+7n}{8n^3+24n^2+24n+8}\to\frac{3}{2}>1.
+$$
+La serie converge.\hecho
+
+$r)$\ Pongamos $a_n=\dfrac{n!\e^n}{n^{n+\alpha}}$. Apliquemos el criterio del cociente.
+$$
+\frac{a_{n+1}}{a_n}=\e\left(\frac{n}{n+1}\right)^n\left(\frac{n}{n+1}\right)^\alpha\to 1.
+$$
+Este criterio no proporciona información sobre la convergencia de la serie. Apliquemos el criterio de Raabe en su forma alternativa.
+$$
+\left(\dfrac{a_n}{a_{n+1}}\right)^n=\dfrac{1}{\e^n}\left(\dfrac{n+1}{n}\right)^{\!n^2\!+\!\alpha n}=\left(\dfrac{\big(1+\frac{1}{n}\big)^n}{\e}\right)^n\left(\dfrac{n+1}{n}\right)^{\alpha n}
+$$
+Tenemos que $\left(\dfrac{n+1}{n}\right)^{\alpha n}\to\e^\alpha$. La sucesión $z_n=\left(\dfrac{\big(1+\frac{1}{n}\big)^n}{\e}\right)^n$ es una indeterminación $1^\infty$, por tanto $\sucn{z}\to\e^L$ donde $L$ es el límite de:
+$$
+n\left(\dfrac{\big(1+\frac{1}{n}\big)^n}{\e}-1\right)=\frac{1}{\e}\dfrac{\big(1+\frac{1}{n}\big)^n-\e}{\frac{1}{n}}\to -\frac{1}{2}.
+$$
+Por tanto:
+$$
+\left(\dfrac{a_n}{a_{n+1}}\right)^n\to\e^{\alpha-\frac{1}{2}}.
+$$
+La serie converge si $\alpha-\frac{1}{2}>1$, esto es $\alpha>\frac{3}{2}$ y no converge para $\alpha<\frac{3}{2}$. Para $\alpha=3/2$ la serie no converge; de hecho se verifica que:
+$$
+R_n=n\left(1-\e\left(\frac{n}{n+1}\right)^{\!n\!+\frac{3}{2}}\right)\le 1
+$$
+pero esta desigualdad no parece que sea fácil de probar.\hecho
+
+$s)$\ Pongamos $a_n=\log\left(n\sen\frac{1}{n}\right)$. Después de pensarlo un poco te darás cuenta de que hay que aplicar un criterio de comparación. Tenemos que:
+$$
+a_n=\log\left(\dfrac{\sen\frac{1}{n}}{\frac{1}{n}}\right).
+$$
+Observa que $a_n<0$ porque para $x>0$ es $\sen x<x$. Esto lleva a considerar la función:
+$$
+f(x)=\log\frac{\sen x}{x}.
+$$
+Para $x\to 0$ tenemos las siguientes equivalencias asintóticas:
+$$
+f(x)\sim \frac{\sen x}{x}-1=\frac{\sen x-x}{x}\sim \dfrac{-1}{6}x^2.
+$$
+Deducimos que:
+$$
+-a_n=-f\left(\frac{1}{n}\right)\sim \frac{1}{6}\frac{1}{n^2}.
+$$
+Por el criterio límite de comparación se sigue que la serie $\sum (-a_n)=-\sum a_n$ es convergente y, por tanto, $\sum a_n$ es convergente.\hecho
+
+\resuelto Estudia la convergencia de las siguientes series donde $\alpha,\beta\en\R$.
+$$
+\begin{array}{ll} a)\ \dis \sum_{n\geq 1}(n^{1/n^{2}}-1); & b)\ \dis
+\sum_{n\geq 1}(\sqrt[3]{n+1} -
+\sqrt[3]{n})\log\!\left(\frac{n+1}{n}\right)\\ \rule{0mm}{8mm} c)\ \dis \sum_{n\geq 1}\left (\frac{2\cdot 4\cdot
+6\cdots(2n)}{5\cdot 7\cdots(2n+3)}\right )^{\!\alpha} & d)\ \dis
+\sumasubn{1}n^{\alpha}\exp\left(-\beta\sumaf{k=1}{n}\frac{1}{k}\right)
+\end{array}
+$$
+\sol $a)$\ Pongamos $a_n=n^{1/n^{2}}-1$. Tenemos que:
+$$
+a_n=\e^{\frac{\log n}{n^2}}-1\sim \frac{\log n}{n^2}.
+$$
+Por el criterio límite de comparación, la serie es convergente.
+
+$b)$\ Pongamos $a_n=(\sqrt[3]{n+1} -\sqrt[3]{n})\log\!\left(\frac{n+1}{n}\right)$. Tenemos que:
+$$
+a_n=\sqrt[3]{n}\left(\SQRT{1+\frac{1}{n}}-1\right)\log\!\left(1+\frac{1}{n}\right)\sim n^{\frac{1}{3}}\frac{1}{3}\frac{1}{n^2}=\frac{1}{3}\frac{1}{n^{\frac{5}{3}}}.
+$$
+Por el criterio límite de comparación, la serie es convergente.
+
+$c)$ \ Pongamos $a_n=\left (\frac{2\cdot 4\cdot 6\cdots (2n)}{5\cdot 7\cdots (2n+3)}\right)^{\!\alpha}$. Aplicaremos el criterio del cociente.
+$$
+\frac{a_{n+1}}{a_n}=\left (\frac{2\cdot 4\cdot 6\cdots(2n)(2n+2)}{5\cdot 7\cdots (2n+3)(2n+5)}\right)^{\!\alpha}\left (\frac{5\cdot 7\cdots(2n+3)}{2\cdot 4\cdot 6\cdots (2n)}\right )^{\!\alpha}=\left(\frac{2n+2}{2n+5}\right)^{\!\alpha}
+$$
+Este criterio no proporciona información sobre la convergencia de la serie. Apliquemos el criterio de Raabe en su forma alternativa.
+$$
+\left(\frac{a_n}{a_{n+1}}\right)^n=\left(\frac{2n+5}{2n+2}\right)^{\!\alpha n}\to\e^{\frac{3}{2}\alpha}.
+$$
+Por tanto, si $\frac{3}{2}\alpha>1$, o sea, $\alpha>\frac{2}{3}$ la serie converge, y si $\frac{3}{2}\alpha<1$, o sea, $\alpha<\frac{2}{3}$ la serie no converge. Para $\alpha=\frac{2}{3}$ la serie no converge, pero este caso requiere un estudio específico que no vamos a hacer.
+
+Vamos a hacer este ejercicio con otro tipo de técnica que resulta muy conveniente para series cuyo término general es parecido al de la serie que nos ocupa.
+\begin{estrategia}\label{est:seriesfactores}
+Consideremos una serie del tipo \serie{(c_n)^\alpha}\ donde $c_n=\dfrac{p_1p_2\cdots p_n}{q_1q_2\cdots q_n}$ y $p_j, q_j$ son números enteros positivos. Además $q_n$ es de la forma $q_n=p_n+k$  donde $k$ es un entero positivo fijo. En el ejemplo que nos ocupa es $p_n=2n$ y $q_n=2n+3=p_n+3$. Observa que para que $\sucn{c}\to 0$ es necesario que $\alpha>0$. Una estrategia bastante buena para estudiar estas series consiste en acotar directamente $c_n$ usando la desigualdad (válida por ser $p_n<q_n$):
+$$
+\frac{p_n}{q_n}<\frac{p_n+k}{q_n+k}=\frac{q_n}{q_n+k}.
+$$
+Para que esta estrategia pueda aplicarse se necesita también que podamos relacionar con facilidad $q_n+k$ con $p_n$. Lo usual es que se tenga una relación del tipo $q_n+k=p_{n+k}$. En nuestro ejemplo es $q_n+3=2n+6=2(n+3)=p_{n+3}$. Supuesto que esto es así, tenemos que:
+$$
+\frac{p_n}{q_n}<\frac{q_n}{p_{n+k}}.
+$$
+En nuestro ejemplo es:
+\begin{equation}\label{eq:des-serie1}
+\frac{2n}{2n+3}<\frac{2n+3}{2n+6}.
+\end{equation}
+\end{estrategia}
+Una vez dada la idea general, por comodidad, vamos a seguir con nuestro ejemplo.
+
+Usando la desigualdad \eqref{eq:des-serie1}\ para $n=1,2,\dots$, tenemos que:
+$$
+\begin{aligned}
+c_n&=\dfrac{2\cdot4\cdots (2n)}{5\cdot 7\cdots (2n+3)}=\frac{2}{5}\frac{4}{7}\cdots\frac{2n}{2n+3}<\frac{5}{8}\frac{7}{10}\cdots\frac{2n+3}{2n+6}=\\
+&=\frac{5\cdot 7\cdots (2n+3)}{8\cdot 10\cdots (2n)(2n+2)(2n+4)(2n+6)}=\dfrac{2\cdot 4\cdot 6}{(2n+2)(2n+4)(2n+6)}\frac{1}{c_n}.
+\end{aligned}
+$$
+Observa que, aplicando la desigualdad \eqref{eq:des-serie1}\ a los factores que forman $c_n$, obtenemos una desigualdad que relaciona $c_n$ con $\dfrac{1}{c_n}$; ésta es la idea en la que se basa esta estrategia. De la desigualdad anterior deducimos que:
+$$
+c_n^2<\frac{48}{(2n+2)(2n+4)(2n+6)}
+$$
+Supuesto que $\alpha>0$ (condición necesaria para la convergencia) se sigue que:
+$$
+c_n^\alpha<\left(\frac{48}{(2n+2)(2n+4)(2n+6)}\right)^{\frac{\alpha}{2}}
+$$
+Teniendo en cuenta que:
+$$
+\left(\frac{48}{(2n+2)(2n+4)(2n+6)}\right)^{\frac{\alpha}{2}}\sim 6^{\frac{\alpha}{2}}\frac{1}{n^{\frac{3}{2}\alpha}},
+$$
+deducimos, por el criterio básico de comparación con la serie de Riemann de exponente $\frac{3}{2}\alpha$ que si $\frac{3}{2}\alpha>1$, o sea, $\alpha>\frac{2}{3}$ la serie es convergente.
+
+Esto ya lo sabíamos por el estudio hecho previamente. La novedad viene ahora. Se puede repetir el mismo proceso anterior para acotar $c_n$ por abajo, o sea, para minorar $c_n$. La idea es la misma. Si has entendido lo anterior lo que sigue debe estar claro.
+
+Usaremos ahora la desigualdad:
+\begin{equation}
+\frac{2n}{2n+3}>\frac{2n-3}{2n}
+\end{equation}
+Usando esta desigualdad para $n=2, 3,\dots$, tenemos que:
+$$
+\begin{aligned}
+c_n &=\dfrac{2\cdot4\cdot 6\cdot 8\cdots (2n-2)(2n)}{5\cdot 7\cdot 9\cdot 11\cdots (2n+1)(2n+3)}=
+\frac{2}{5}\frac{4}{7}\frac{6}{9}\frac{8}{11}\cdots\frac{2n-2}{2n+1}\frac{2n}{2n+3}>\\
+&>\frac{2}{5}\frac{1}{4}\frac{3}{6}\frac{5}{8}\cdots\frac{2n-5}{2n-2}\frac{2n-3}{2n}=\\
+&=\frac{6}{5}\frac{2}{(2n-1)(2n+1)(2n+3)}\frac{5\cdot 7\cdots (2n-3)(2n-1)(2n+1)(2n+3)}{2\cdot4\cdot 6\cdots (2n)}=\\
+&=\dfrac{12}{5}\frac{1}{(2n-1)(2n+1)(2n+3)}\frac{1}{c_n}.
+\end{aligned}
+$$
+De donde, al igual que antes, se sigue que:
+$$
+c_n^\alpha>\left(\dfrac{12}{5}\frac{1}{(2n-1)(2n+1)(2n+3)}\right)^{\frac{\alpha}{2}}\sim \left(\dfrac{12}{5}\right)^{\frac{\alpha}{2}} \frac{1}{n^{\frac{3}{2}\alpha}}.
+$$
+Deducimos, por el criterio básico de comparación con la serie de Riemann de exponente $\frac{3}{2}\alpha$ que si $\frac{3}{2}\alpha\ge 1$, o sea, $\alpha\ge \frac{2}{3}$ (en particular para  $\alpha=\frac{2}{3}$) la serie no es convergente.
+\hecho
+
+$d)$\ Pongamos $a_n=n^{\alpha}\exp\left(-\beta\sumaf{k=1}{n}\frac{1}{k}\right)$. Tenemos que:
+$$
+\frac{a_{n+1}}{a_n}=\left(\frac{n+1}{n}\right)^\alpha\e^{-\frac{\beta}{n+1}}\to 1.
+$$
+Aplicaremos el criterio de Raabe en su forma alternativa.
+$$
+\left(\frac{a_n}{a_{n+1}}\right)^n=\left(\frac{n}{n+1}\right)^{n \alpha}\e^{\beta\frac{n}{n+1}}\to\e^{-\alpha}\e^{\beta}=\e^{\beta-\alpha}.
+$$
+Por tanto, si $\beta-\alpha>1$ la serie converge y si $\beta-\alpha<1$ la serie no converge. El caso en que $\beta-\alpha=1$ no queda resuelto con este criterio.
+
+Otra forma de proceder es aplicando la estrategia \ref{est:armonica}. Tenemos que:
+$$
+a_n=n^{\alpha}\exp\left(-\beta\sumaf{k=1}{n}\frac{1}{k}\right)=n^\alpha\e^{-\beta\log n -\beta\upgamma_n}=n^\alpha\e^{-\beta\log n}\e^{-\beta\upgamma_n}\sim \e^{\beta\upgamma} n^\alpha n^{-\beta}=\e^{\beta\upgamma}\frac{1}{n^{\beta-\alpha}}.
+$$
+Por el criterio límite de comparación, la serie converge si, y sólo si, $\beta-\alpha>1$.\hecho
+
+\resuelto Estudia la convergencia de las series.
+\begin{enumerate}[a)]
+\item $\dis \sumasubn{1}\frac{3^{n}n!}{\sqrt[3]{n}\,5\cdot 8\cdot 11\cdots
+(5+3n)}$
+\item $\dis \sum_{n\geq 1}(a-\sqrt{a})(a-\sqrt[3]{a})\cdots(a-\sqrt[n]{a})\ \  (a>0)$
+\end{enumerate}
+\sol a)\ Pongamos $a_n=\dis \sumasubn{1}\frac{3^{n}n!}{\sqrt[3]{n}\,5\cdot 8\cdot 11\cdots (5+3n)}$. Tenemos que:
+$$
+\begin{aligned}
+\frac{a_{n+1}}{a_n}&=\frac{3^{n+1}(n+1)!}{\sqrt[3]{n+1}\,5\cdot 8\cdot 11\cdots (5+3n)(5+3(n+1))}\frac{\sqrt[3]{n}\,5\cdot 8\cdot 11\cdots (5+3n)}{3^{n}n!}=\\ &=\left(\frac{n}{n+1}\right)^{\frac{1}{3}}\frac{3n+3}{3n+8}\to 1.
+\end{aligned}
+$$
+El criterio del cociente no proporciona información sobre la convergencia de la serie. Aplicaremos el criterio de Raabe en su forma alternativa.
+$$
+\left(\frac{a_n}{a_{n+1}}\right)^n=\left(\frac{n+1}{n}\right)^{\frac{n}{3}}\left(\frac{3n+8}{3n+3}\right)^n=
+\left(1+\frac{1}{n}\right)^{\frac{n}{3}}\left(1+\frac{5}{3n+3}\right)^n\to\e^{\frac{1}{3}}\e^{\frac{5}{3}}=\e^2.
+$$
+La serie converge.
+
+b)\ Pongamos $a_n=(a-\sqrt{a})(a-\sqrt[3]{a})\cdots(a-\sqrt[n]{a})$. Tenemos que:
+$$
+\frac{a_{n+1}}{a_n}=a-\sqrt[n+1]{a}\to a-1.
+$$
+Por tanto, si $a-1<1$, o sea, $0<a<2$, la serie converge; y si $a-1<1$ o sea $a>2$ la serie no converge. Para el caso en que $a=2$ el criterio del cociente no proporciona información sobre la convergencia de la serie. Aplicaremos el criterio de Raabe.
+$$
+n\left(1-\frac{a_{n+1}}{a_n}\right)=n\big(\sqrt[n+1]{2}-1\big)\to\log 2<1.
+$$
+La serie no converge.\hecho
+
+\resuelto Sea \sucn{a}\ una sucesión creciente de números positivos. Dar condiciones que garanticen que la serie $\dis\sum_{n\ge 1}\dfrac{1}{a_1a_2a_3\cdots a_n}$ es convergente.
+
+\sol Pongamos $x_n=\dfrac{1}{a_1a_2a_3\cdots a_n}$. Si \sucn{a}\ no está mayorada, como es creciente se tiene que $\sucn{a}\to +\infty$. Por tanto, hay un número $k\en\N$ tal que para todo $n\ge k$ se verifica que $a_n\ge 2$. Deducimos que para $n\ge k$ se verifica que:
+$$
+\dfrac{1}{a_1a_2\cdots a_{k-1}a_ka_{k+1}\cdots a_{n}}=\dfrac{2^k}{a_1a_2\cdots a_{k-1}}\frac{1}{2^k}\frac{1}{a_ka_{k+1}\cdots a_{n}}\le M\frac{1}{2^k}\frac{1}{2^{n-k}}=M\frac{1}{2^n}.
+$$
+Donde hemos puesto $M=\dfrac{2^k}{a_1a_2a_3\cdots a_{k-1}}$ que es una constante independiente de $n$. Concluimos que la serie es convergente por comparación con la serie geométrica de razón $1/2$.
+
+Si \sucn{a}\ está mayorada, como es creciente se tiene que $\sucn{a}\to L$ donde $L>0$. Si $L>1$, podemos tomar un número $\lambda$ tal que $1<\lambda<L$, con lo que podemos asegurar que hay algún $k\en\N$ tal que $a_n\ge \lambda$ para $n\ge k$. Podemos ahora repetir el razonamiento anterior con $2$ sustituido por $\lambda$ y concluimos que la serie converge por comparación con la serie geométrica de razón $1/\lambda$. Si $0<L\le 1$, entonces como $0<a_n\le L$, se tiene que $0<a_n\le 1$ para todo \nN, lo que implica que $x_n\ge 1$ por tanto \sucn{x}\ no converge a $0$, lo que implica que la serie no converge.
+
+También puede aplicarse el criterio del cociente.
+$$
+\frac{x_{n+1}}{x_n}=\frac{1}{a_{n+1}}\to\frac{1}{L}
+$$
+donde $\sucn{a}\to L\en\Rp\cup\set{+\infty}$. Por lo que si $L>1$ o si $L=+\infty$, se tiene que $\frac{1}{L}<1$ y la serie converge. Si $L<1$ la serie no converge, y si $L=1$ tampoco converge porque entonces $\frac{x_{n+1}}{x_n}\ge 1$. \hecho
+
+\resuelto Dar ejemplos de sucesiones $\sucn{a}\to 1$ y decrecientes tales que la serie  $\dis\sum_{n\ge 1}\dfrac{1}{a_1a_2a_3\cdots a_n}$ sea en un caso convergente y en otro caso divergente.
+
+\sol La sucesión $a_n=1+\frac{1}{n}=\frac{n+1}{n}$ decrece y converge a $1$. Tenemos que:
+$$
+a_1a_2\dots a_n=\dfrac{2\cdot 3\cdot4\cdots(n+1)}{1\cdot 2\cdot 3\cdots n}=n+1.
+$$
+La correspondiente serie es divergente.
+
+La sucesión $a_n=3^{1/n}$ es decreciente y converge a $1$. Tenemos que:
+$$
+x_n=\dfrac{1}{a_1a_2a_3\cdots a_n}=\left(\frac{1}{3}\right)^{\sum_{j=1}^n\frac{1}{j}}.
+$$
+Esta serie es convergente porque aplicando el criterio de Raabe obtenemos:
+$$
+n\left(1-\frac{x_{n+1}}{x_n}\right)=n\left(1-\sqrt[n+1]{\frac{1}{3}}\right)\to -\log\frac{1}{3}=\log 3>1.
+$$
+
+\resuelto Sea $a_n\ge 0$ para todo \nN. Prueba que las series $\dis\sum_{n\ge 1} a_n$ y $\dis\sum_{n\ge 1}\dfrac{a_n}{1+a_n}$ ambas convergen o ambas divergen.
+
+\sol Pongamos $b_n=\dfrac{a_n}{1+a_n}$. Como $1+a_n\ge 1$, la desigualdad $b_n\le a_n$ prueba que si la serie $\sum a_n$ es convergente también es convergente la serie $\sum b_n$. Recíprocamente, si la serie $\sum b_n$ es convergente entonces debe ser $\sucn{b}\to 0$, por lo que hay algún $k\en\N$ tal que para todo $n\ge k$ es $b_n<\frac{1}{2}$, esto es, $2a_n<1+a_n$ por lo que $a_n<1$. Lo que implica que $a_n^2<a_n$, y obtenemos que $a_n^2+a_n<2a_n$ de donde $a_n<\dfrac{2a_n}{1+a_n}=2b_n$. De esta desigualdad se sigue, por el criterio de comparación, que la serie $\sum a_n$ también es convergente.\hecho
+
+\resuelto Sea $\sum a_n$ una serie de términos positivos convergente. ¿Qué puede decirse de las series $\rule{0mm}{6mm}\sum a_n^2$ y $\sum\sqrt{a_na_{n+1}}$?
+
+\sol Como $\sucn{a}\to  0$, hay un número $k\en\N$ tal que para todo $n\ge k$ es $0<a_n<1$, lo que implica que $0<a_n^2<a_n$ y deducimos, por el criterio de comparación, que la serie $\sum a_n^2$ es convergente. Como
+$$
+\sqrt{a_n a_{n+1}}\le\frac{1}{2}(a_n^2+a_{n+1}^2),
+$$
+se sigue, también  por el criterio de comparación, que la serie $\sum \sqrt{a_na_{n+1}}$ es convergente.\hecho
+
+\resuelto Sea $\sum a_n$ una serie convergente de términos positivos. Prueba que la serie $\dis\sum\dfrac{\sqrt{a_n}}{n^\alpha}$ es convergente si $\alpha>1/2$. Da un ejemplo de una serie $\sum a_n$ convergente tal que la serie $\dis\sum\dfrac{\sqrt{a_n}}{\sqrt{n}}$ sea divergente.
+
+\sol Recuerda la desigualdad  $ab\le\frac{1}{2}(a^2+b^2)$. Sustituye $a$ por $\sqrt{a_n}$ y $b$ por $\dfrac{1}{n^\alpha}$ y resulta que:
+$$
+\dfrac{\sqrt{a_n}}{n^\alpha}\le\frac{1}{2}a_n+\frac{1}{2}\frac{1}{n^{2\alpha}}.
+$$
+Como $2\alpha>1$ la serie $\sum\frac{1}{n^{2\alpha}}$ es convergente. Como $\sum a_n$ es convergente por hipótesis, de la desigualdad anterior se sigue, por el criterio de comparación, que $\sum\frac{\sqrt{a_n}}{n^\alpha}$ es convergente.
+
+La serie $\sum\frac{1}{n(\log n)^2}$ es convergente pero $\sum\frac{1}{n(\log n)}$ es divergente.\hecho
+
+\resuelto Estudia la convergencia de las sucesiones:
+$$
+a)\ x_n=\sum_{k=1}^n\frac{1}{\sqrt{k}}-2\sqrt{n},\qquad b)\ y_n=\sum_{k=1}^n\frac{\log k}{k}-\frac{(\log n)^2}{2}.
+$$
+Sugerencia. Estudia la convergencia de las respectivas series de diferencias consecutivas.
+
+\sol a)\ Tenemos que:
+$$
+\begin{aligned}
+x_{n+1}-x_n &=\frac{1}{\sqrt{n+1}}-2\sqrt{n+1}+2\sqrt{n}=\frac{1}{\sqrt{n+1}}-\frac{2}{\sqrt{n}+\sqrt{n+1}}=\\
+&=\frac{\sqrt{n}-\sqrt{n+1}}{\sqrt{n+1}(\sqrt{n}+\sqrt{n+1})}=\frac{-1}{\sqrt{n+1}(\sqrt{n}+\sqrt{n+1})^2}.
+\end{aligned}
+$$
+Puesto que $\frac{1}{\sqrt{n+1}(\sqrt{n}+\sqrt{n+1})^2}\sim\frac{1}{n^{3/2}}$ la serie $\sum{\frac{1}{\sqrt{n+1}(\sqrt{n}+\sqrt{n+1})^2}}$ es convergente. Por tanto, la sucesión:
+$$
+x_1+\sum_{k=1}^n(x_{k+1}-x_k)=x_{n+1}
+$$
+es convergente.
+
+b)\ Usando que $\log(n+1)=\log\big(n(1+\frac{1}{n})\big)=\log n+\log(1+\frac{1}{n})$, tenemos que:
+$$
+\begin{aligned}
+y_n-y_{n+1}&=-\frac{\log(n+1)}{n+1}+\frac{(\log(n+1))^2}{2}-\frac{(\log n)^2}{2}=\\
+&=-\frac{\log(n+1)}{n+1}+\frac{\left(\log n+\log\big(1+\frac{1}{n}\big)\right)^2}{2}-\frac{(\log n)^2}{2}=\\
+&=-\frac{\log(n+1)}{n+1}+\log n\log\big(1+\frac{1}{n}\big)+\frac{1}{2}\left(\log\big(1+\frac{1}{n}\big)\right)^2=\\
+&=-\frac{\log n}{n+1}-\frac{\log\big(1+\frac{1}{n}\big)}{n+1}+\frac{1}{2}\left(\log\big(1+\frac{1}{n}\big)\right)^2=\\
+&=\log n\left(\log\big(1+\frac{1}{n}\big)-\frac{1}{n+1}\right)-\frac{\log\big(1+\frac{1}{n}\big)}{n+1}+\frac{1}{2}\left(\log\big(1+\frac{1}{n}\big)\right)^2.
+\end{aligned}
+$$
+Como $\frac{\log\big(1+\frac{1}{n}\big)}{n+1}\sim\frac{1}{n(n+1)}\sim\frac{1}{n^2}$, la serie $\serie{\frac{\log\big(1+\frac{1}{n}\big)}{n+1}}$ es convergente. También es convergente la serie $\serie{\left(\log\big(1+\frac{1}{n}\big)\right)^2}$  porque $\left(\log\big(1+\frac{1}{n}\big)\right)^2\sim\frac{1}{n^2}$. Usando la desigualdad que ya debes saber de memoria:
+$$
+\frac{1}{n+1}<\log\big(1+\frac{1}{n}\big)<\frac{1}{n},
+$$
+se sigue que:
+$$
+0<\log\big(1+\frac{1}{n}\big)-\frac{1}{n+1}<\frac{1}{n(n+1)},
+$$
+de donde se deduce que la serie $\serie{\log n\left(\log\big(1+\frac{1}{n}\big)-\frac{1}{n+1}\right)}$ es convergente. Concluimos que la serie $\sum(y_n-y_{n+1})$ es convergente por ser suma de tres series convergentes. Por tanto, la sucesión:
+$$
+y_1-\sum_{k=1}^n(y_k-y_{k+1})=y_{n+1}
+$$
+es convergente.\hecho
+\end{ejercicios resueltos}
+\section{Criterios de convergencia no absoluta}
+Los criterios de convergencia para series de términos positivos se aplican, obvio es
+decirlo, para estudiar la convergencia absoluta de cualquier serie. Pero, ¿qué hacer
+cuando una serie no es absolutamente convergente? Naturalmente, podemos intentar
+comprobar si la serie verifica la condición de Cauchy, pero este procedimiento con
+frecuencia es difícil. Pues bien, los criterios que vamos a estudiar a continuación
+proporcionan información sobre la convergencia no absoluta. Probaremos, en primer lugar,
+una igualdad de la que se deducen con facilidad dichos criterios.
+
+\begin{proposicion}[\textbf{Suma por partes (Abel, 1826)}]
+Dadas dos sucesiones \sucn{a}\ y \sucn{b}, pongamos $\,A_p=\sumaf{j=1}{p}a_j$. Se
+verifica entonces, para todo \nN, que:
+\begin{equation}\label{eq:formuldeabel}
+\sumaf{k=1}{n}a_kb_k=\sumaf{k=1}{n}A_k(b_k-b_{k+1})+A_nb_{n+1}
+\end{equation}
+\end{proposicion}
+\dem Pongamos, por comodidad de notación, $A_0=0$, con lo que para todo $k\en\N$ se verifica que
+$\,a_k=A_k-A_{k-1}$. Tenemos que:
+$$
+\begin{array}{ll}
+\sumaf{k=1}{n}a_kb_k & =\sumaf{k=1}{n}(A_k-A_{k-1})b_k= \sumaf{k=1}{n}A_kb_k -
+\sumaf{k=2}{n}A_{k-1}b_k=\\ & =\sumaf{k=1}{n}A_kb_k - \sumaf{k=1}{n}A_kb_{k+1} +
+A_nb_{n+1}=\\ & = \sumaf{k=1}{n}A_k(b_k-b_{k+1})+A_nb_{n+1}\,.\hfill\Box
+\end{array}
+$$
+
+\begin{teorema}[\textbf{Criterio general de Dirichlet}]\label{th:cgd} Sean \sucn{a}\,, \sucn{b}\ dos sucesiones, y
+pongamos $A_n=\dis\sum_{k=1}^n a_k$. Supongamos que:\vspace{-3mm}
+\begin{enumerate}
+\item[i)] Existe un número $M>0$ tal que para todo \nN\ es $\,\big|A_n\big|\leqslant M$.
+\item[ii)] La serie $\sumasubn{1}|b_n-b_{n+1}|$ es convergente.
+\item[iii)] $\sucn{b}\to 0$.
+\end{enumerate}
+Se verifica entonces que la serie $\sumasubn{1}a_nb_n\,$ es convergente.
+\end{teorema}
+\dem Puesto que $\,\big|A_n\big|\big|b_n-b_{n+1}\big|\leqslant M\big|b_n-b_{n+1}|\,$,
+deducimos, por el criterio de comparación que la serie $\sumasubn{1}A_n(b_n-b_{n+1})\,$
+converge absolutamente y, por tanto, es convergente, es decir, la sucesión $
+\sumaf{k=1}{n}A_k(b_k-b_{k+1})\,$ es convergente. Como, además, la sucesión
+$\big\{A_nb_{n+1}\big\}$ converge a cero por ser producto de una sucesión acotada por
+otra convergente a cero, deducimos, en virtud de la igualdad~\eqref{eq:formuldeabel}, que la serie
+$\,\sumasubn{1}a_nb_n\,$ es convergente.\fin
+
+\begin{teorema}[\textbf{Criterio general de Abel}]\label{th:cga} Sean \sucn{a}\ y \sucn{b}\ dos sucesiones y supongamos que:\vspace{-3mm}
+\begin{enumerate}
+\item[i)] La serie \serien{a}\ es convergente.
+\item[ii)] La serie $\sumasubn{1}|b_n-b_{n+1}|$ es convergente.
+\end{enumerate}
+Se verifica entonces que la serie $\sumasubn{1}a_nb_n\,$ es convergente.
+\end{teorema}
+\dem La hipótesis i) nos dice que la sucesión $A_n=\dis\sum_{k=1}^n a_n$ es convergente; en particular
+está acotada, por lo que, al igual que antes, se deduce que la sucesión $
+\sumaf{k=1}{n}A_k(b_k-b_{k+1})\,$ es convergente. Además, ii) implica que la serie
+$\sumasubn{1}(b_n-b_{n+1})\,$ es convergente,y como dicha serie es la sucesión
+$\,\big\{\sumaf{j=1}{n}(b_j-b_{j+1})\big\}=\{b_1-b_{n+1}\}\,$, obtenemos que \sucn{b}\ es
+convergente. Resulta así que la sucesión $\,\big\{A_nb_{n+1}\big\}\,$ converge por ser
+producto de sucesiones convergentes y, en virtud de la igualdad~\eqref{eq:formuldeabel}, deducimos que
+la serie $\,\sumasubn{1}a_nb_n\,$ es convergente.\fin
+
+\begin{proposicion} Si la sucesión \sucn{b}\ es monótona y acotada, entonces se verifica que es convergente la serie
+$\sumasubn{1}|b_n-b_{n+1}|$.
+\end{proposicion}
+\dem En efecto, basta tener en cuenta que $$ \sumaf{j=1}{n}|b_j-b_{j+1}|=\begin{cases}
+\sumaf{j=1}{n}(b_j-b_{j+1})=b_1-b_{n+1}, &\text{si \sucn{b}\ es decreciente;}\\
+\sumaf{j=1}{n}(b_{j+1}-b_{j})=b_{n+1}-b_1, &\text{si \sucn{b}\ es creciente.}
+\end{cases}
+$$\fin
+
+La proposición anterior permite particularizar los criterios de Dirichlet y de Abel de la
+forma que sigue.
+
+\begin{corolario}[\textbf{Criterio particular de Dirichlet}]\label{cpD} Sean \sucn{a}, \sucn{b}\ dos sucesiones, y pongamos $A_n=\dis\sum_{k=1}^n a_n$. Supongamos que:\vspace{-3mm}
+\begin{enumerate}
+\item[i)] Existe un número $M>0$ tal que para todo \nN\ es $\,\big|A_n\big|\leqslant M$.
+\item[ii)] \sucn{b}\ es monótona y $\sucn{b}\to 0$.
+\end{enumerate}
+Se verifica entonces que la serie $\sumasubn{1}a_nb_n\,$ es convergente.
+\end{corolario}
+
+\begin{corolario}[\textbf{Criterio particular de Abel}] \label{cpA} Sean \sucn{a}, \sucn{b}\ dos sucesiones y supongamos que: \vspace{-3mm}
+\begin{enumerate}
+\item[i)] La serie $\sum a_n$ es convergente.
+\item[ii)] \sucn{b}\ es monótona y acotada.
+\end{enumerate}
+Se verifica entonces que la serie $\sumasubn{1}a_nb_n\,$ es convergente.
+\end{corolario}
+
+Hay un caso todavía más particular del criterio de Dirichlet que se aplica a \emph{series alternadas}, es decir, a series del tipo $\sumasubn{1}(-1)^{n+1}x_n\,$ donde $x_n\geqslant 0$ para todo \nN. Este criterio es debido a Leibniz, y aunque puede deducirse fácilmente del corolario~\ref{cpD}, merece la pena dar una prueba directa del mismo porque así obtenemos una fácil acotación del error que se comete al aproximar la suma de una serie alternada por una suma parcial de la serie.
+
+\begin{proposicion}[\textbf{Criterio de Leibniz para series alternadas}] Supongamos que la sucesión \sucn{a}\ es
+decreciente y convergente a cero. Entonces la serie alternada $\sum_{n\ge 1}(-1)^{n+1}a_n$ es convergente.
+Además, si $A_n=\sum_{k=1}^n (-1)^{k+1}a_k\,$  y $\,S=\sum_{n=1}^\infty (-1)^{n+1}a_n$, entonces para todo \nN\ se verifica  que $\modulo{S-A_n}\leqslant a_{n+1}$.
+\end{proposicion}
+\dem Es inmediato comprobar que la sucesión $\{A_{2n-1}\}$ es decreciente y $\{A_{2n}\}$ es
+creciente. Como $\,A_2\leqslant A_{2n}\leqslant A_{2n-1}\leqslant A_1$, deducimos que ambas
+sucesiones convergen. Además, como $A_{2n-1}-A_{2n}=a_{2n}\to 0$, concluimos que $A_n$
+converge.
+
+Sea $S=\sum_{n=1}^\infty (-1)^{n+1}a_n=\lim\sucn{A}$. Puesto que
+$$
+S=\lim\{A_{2n-1}\}=\inf\{A_{2n-1}:\nN\}=\lim\{A_{2n}\}=\sup\{A_{2n}:\nN\},
+$$
+se verifica que $A_{2n}\!\leqslant S\leqslant A_{2n+1}$, de donde:
+\begin{equation}\label{eq:acotacionalternadas}
+0\leqslant S-A_{2n}\!\leqslant a_{2n+1},\quad \textrm{y}\quad -a_{2n}\!\leqslant
+S-A_{2n-1}\!\leqslant 0.\end{equation} En consecuencia $|S-A_n|\leqslant a_{n+1}$ para todo \nN.\fin
+
+Teniendo en cuenta la proposición \ref{prop:seriescasiiguales}, el criterio de Leibniz prueba que las series de la forma $\sum(-1)^{n+1}a_n$ donde $\sucn{a}\to 0$ y la sucesión \sucn{a}\ \emph{es monótona a partir de un cierto término en adelante}, son convergentes (aunque la acotación del error antes obtenida ya no tiene por qué ser válida).
+
+Observa que los criterios de Dirichlet y de Abel pueden, en principio, ser aplicados a una serie cualquiera, $\sum x_n$, pues sólo tenemos que expresar $x_n$ de la forma $x_n=a_nb_n$, lo que, evidentemente, puede hacerse de muchas maneras; pero es imprescindible elegir apropiadamente $a_n$ y $b_n$ para que pueda aplicarse con éxito alguno de dichos criterios.
+
+\begin{estrategia}[\textbf{Estrategia para estudiar la convergencia de una serie}]
+Para estudiar la convergencia de una serie $\sum z_n$ numérica lo primero que debes hacer es estudiar la convergencia absoluta, es decir la convergencia de la serie de términos positivos $\sum\abs{z_n}$, para lo que se aplican los criterios de convergencia para series de términos positivos. Si la serie $\sum\abs{z_n}$ converge entonces, en virtud del teorema \ref{th:seriesconvabs}, sabemos que la serie $\sum z_n$ también converge (y todas sus reordenaciones). Cuando la serie $\sum\abs{z_n}$ no converge se aplican los criterios de Dirichlet o de Abel para estudiar directamente la convergencia de la serie $\sum z_n$.
+\end{estrategia}
+
+\begin{ejercicios propuestos}
+\propuesto Estudia la convergencia absoluta y la convergencia no absoluta de las siguientes series.
+$$
+\begin{array}{l@{\mbox{$\qquad$}}l}
+a)\ \dis \sum_{n\geq 1}(-1)^{n+1}\dfrac{\log (n+2)}{n+2} & b)\ \dis
+\sumasubn{1}(-1)^{n}\frac{1}{n^{\,\alpha}+(-1)^{n}},\ \
+(\alpha\en\R) \\ c)\ \dis \sumasubn{1}(-1)^{n+1}\dfrac{2+(-1)^{n}}{n} &
+d)\ \dis
+  \sumasubn{1}(-1)^{n+1}\dfrac{\sqrt{n}}{n+100} \\
+e)\ \dis \sumasubn{1}\log\left(1+\dfrac{(-1)^{n}}{n}\right) &
+ f)\ \dis \sumasubn{1}(-1)^{n+1}\!\!\left(\dfrac{1\cdot 3\cdot 5\cdots
+(2n-1)}{2\cdot 4\cdot 6\cdots 2n}\right)^{\!\alpha}\!\!\!,\,(\alpha\en\R)\\
+ g)\ \dis \sumasubn{1}(-1)^{n+1}\!\!\left(\!1-n\log\dfrac{n\!+\!1}{n}\!\right) & h)\ \dis \sumasubn{1}(-1)^{n+1}\dfrac{(\log n)^r}{n^s},\ \ (r,s\en\Rp)
+\end{array}
+$$
+
+\propuesto Estudia, según los valores de $\alpha\en\R$, la convergencia absoluta y la convergencia no absoluta de la serie
+$$\sum_{n\geq 2}(-1)^{n+1}n^{\alpha}\left(\frac{-1}{n}-\log\left(\frac{n-1}{n}\right)\right).$$
+
+\propuesto Estudia, según los valores de $\alpha\en\R$, la convergencia absoluta y la convergencia no absoluta de la serie
+$$
+\sumasubn{1}(-1)^{n+1}n^{\alpha}(\e^{\frac{1}{n}}-1).
+$$
+Sugerencia. Prueba que la función \func{f}{\Rp}\ dada para todo $x>0$ por:
+$$
+f(x)=\frac{\e^{x}-1}{x^{\alpha}}
+$$
+es creciente siempre que $\alpha<1$.
+\end{ejercicios propuestos}
+\begin{ejercicios resueltos}
+\resuelto Estudia la convergencia absoluta y la convergencia no absoluta de las siguientes series.
+$$
+\begin{array}{ll}%@{\mbox{$\qquad$}}
+a)\ \dis
+\sumasubn{1}(-1)^{n}\frac{1}{n^{\alpha}+(-1)^{n}},\ \
+(\alpha\en\R) & b)\ \dis \sumasubn{1}\log\left(1+\dfrac{(-1)^{n}}{n}\right) \\
+ c)\ \dis \sumasubn{1}(-1)^{n+1}\!\!\left(\dfrac{1\cdot 3\cdot 5\cdots
+(2n-1)}{2\cdot 4\cdot 6\cdots 2n}\right)^{\!\alpha}\!\!\!,\,(\alpha\en\R) &
+ d)\ \dis \sumasubn{1}(-1)^{n+1}\!\!\left(\!1-n\log\dfrac{n\!+\!1}{n}\!\right)
+\end{array}
+$$
+\sol a)\ Pongamos $a_n=\dfrac{1}{n^{\alpha}+(-1)^{n}}$. Si $\alpha\le 0$ entonces \sucn{a}\ no converge a $0$ y la serie no converge. Supondremos en lo que sigue que $\alpha>0$. Tenemos que:
+$$
+a_n=\dfrac{1}{n^{\alpha}+(-1)^{n}}\sim\frac{1}{n^\alpha}
+$$
+Deducimos que si $\alpha>1$ la serie converge absolutamente. Consideremos que $0<\alpha\le 1$. Pongamos:
+$$
+(-1)^{n}\frac{1}{n^{\alpha}+(-1)^{n}}=\frac{(-1)^n}{n^\alpha}+b_n\Longrightarrow b_n=\frac{1}{n^\alpha(n^\alpha+(-1)^n)}
+$$
+Por el criterio de Leibniz, la serie $\sum \frac{(-1)^n}{n^\alpha}$ es convergente ($\alpha>0$). Como $0<b_n\sim\frac{1}{n^{2\alpha}}$, por el criterio límite de comparación, la serie $\sum b_n$ es convergente si, y sólo si, $\alpha>1/2$. Concluimos que la serie $\sumasubn{1}(-1)^{n}\frac{1}{n^{\alpha}+(-1)^{n}}$ converge si $\alpha>1/2$. En resumen, la serie converge absolutamente si $\alpha>1$ y converge no absolutamente si $1/2<\alpha\le 1$. La serie no converge para $\alpha\le 1/2$.\hecho
+
+b)\ Pongamos $a_n=\log\left(1+\dfrac{(-1)^{n}}{n}\right)$. Observa que $a_n=(-1)^nx_n$ donde $x_n=\abs{a_n}$. Probemos que $x_{2n+1}\!\!\le\!\! x_{2n}\!\!\le\!\! x_{2n-1}$, de donde se sigue que \sucn{x}\ decrece a $0$. Usaremos la desigualdad (que tú debes comprobar), válida para $0<x<1$, $\log(1-x)\le -x$. Tenemos:
+$$
+x_{2n-1}=\modulo{\log\left(\!1\!-\!\dfrac{1}{2n-1}\right)}=-\log\left(\!1\!-\!\dfrac{1}{2n-1}\right)\!\ge\!\dfrac{1}{2n-1}\!>\!\dfrac{1}{2n}>
+\log\left(\!1\!+\!\dfrac{1}{2n}\right)=x_{2n}
+$$
+Luego $x_{2n}<x_{2n-1}$ para $n\ge 2$. Por otra parte:
+$$
+x_{2n+1}=-\log\left(\!1\!+\!\dfrac{-1}{2n+1}\right)=-\log\left(\frac{2n}{2n+1}\right)=\log\left(\frac{2n+1}{2n}\right)=
+\log\left(\!1\!+\!\dfrac{1}{2n}\right)=x_{2n}
+$$
+Concluimos, por el criterio de Leibniz, que la serie $\sum a_n$ es convergente. Puesto que:
+$$
+\abs{a_n}=\modulo{\log\left(1+\dfrac{(-1)^{n}}{n}\right)}\sim\frac{1}{n}
+$$
+la serie no es absolutamente convergente.\hecho
+
+c)\ Estudiaremos primero la convergencia absoluta. Sea $a_n=\left(\dfrac{1\cdot 3\cdot 5\cdots (2n-1)}{2\cdot 4\cdot 6\cdots 2n}\right)^{\!\alpha}$. Si $\alpha\le 0$ entonces \sucn{a}\ no converge a $0$ y la serie no es convergente. Supondremos en lo que sigue que $\alpha>0$. Tenemos que:
+$$
+\frac{a_{n+1}}{a_n}=\left(\frac{2n+1}{2n+2}\right)^\alpha\to 1.
+$$
+El criterio del cociente no proporciona información sobre la convergencia absoluta de la serie. Aplicaremos el criterio de Raabe en su forma alternativa.
+$$
+\left(\frac{a_n}{a_{n+1}}\right)^n=\left(\frac{2n+2}{2n+1}\right)^{\alpha n}=\left(1+\frac{1}{2n+1}\right)^{\alpha n}\to\e^{\frac{\alpha}{2}}.
+$$
+Por tanto, si $\frac{\alpha}{2}>1$, o sea $\alpha>2$ la serie converge absolutamente; si $\frac{\alpha}{2}<1$, o sea $\alpha<2$ la serie no converge absolutamente. El caso en que $\alpha=2$ requiere un estudio particular (ver más adelante). Nos queda por estudiar lo que ocurre si $0<\alpha\le 2$. Observa que para $\alpha>0$ es evidente que la sucesión \sucn{a}\ es decreciente. Lo que no es evidente es que converja a $0$. Para aplicar el criterio de Leibniz a la serie $\sum (-1)^{n+1}a_n$ hay que probar que $\sucn{a}\to 0$. Esto puedes hacerlo comprobando que la sucesión $\log(a_n)\to -\infty$. Esto es fácil y te lo dejo para que lo hagas tú. Yo voy a seguir otro camino. Aplicando la estrategia \ref{est:seriesfactores} a la sucesión $x_n=\dfrac{1\cdot 3\cdot 5\cdots (2n-1)}{2\cdot 4\cdot 6\cdots 2n}$ se obtiene fácilmente que:
+$$
+\frac{1}{2\sqrt{n}}<x_n<\frac{1}{\sqrt{2n+1}}\Longrightarrow \frac{1}{2n^{\alpha/2}}<a_n<\frac{1}{(2n+1)^{\alpha/2}}
+$$
+Desigualdad que implica que $\sucn{a}\to 0$ para todo $\alpha>0$. Además esta desigualdad nos dice que para $\alpha=2$ es $a_n>\frac{1}{2n}$ lo que implica que la serie no converge absolutamente para $\alpha=2$. En resumen: hay convergencia absoluta para $\alpha>2$ y hay convergencia no absoluta para $0<\alpha\le 2$.
+
+\resuelto Estudia, según los valores de $\alpha\en\R$, la convergencia absoluta y la convergencia no absoluta de la serie
+$$\sum_{n\geq 2}(-1)^{n+1}n^{\alpha}\left(\frac{-1}{n}-\log\left(\frac{n-1}{n}\right)\right).$$
+
+\sol Pongamos $z_n=(-1)^{n+1}n^{\alpha}\left(\frac{-1}{n}-\log\left(\frac{n-1}{n}\right)\right)$. Estudiaremos primero la convergencia absoluta. Tenemos que:
+$$
+\lim_{x\to 0}\frac{-x-\log(1-x)}{x^2}=\frac{1}{2} \Longrightarrow f(x)\sim\frac{1}{2}x^2
+$$
+y por tanto $\abs{z_n}=n^\alpha f\big(\frac{1}{n}\big)\sim\frac{1}{2n^{2-\alpha}}$. Por tanto, la serie $\sum z_n$ converge absolutamente si, y sólo si, $2-\alpha>1$, o sea, $\alpha<1$. Si $2-\alpha\le 0$, o sea $\alpha\ge 2$, entonces \sucn{z}\ no converge a $0$ y por tanto la serie $\sum z_n$ no es convergente. Queda por ver lo que ocurre cuando $1\le\alpha<2$. Para dichos valores de $\alpha$ se tiene que $\sucn{z}\to 0$. Probaremos que \sucn{z}\ es decreciente. Pongamos $f(x)=x^{-\alpha}(-x-\log(1-x))$ donde $0<x<1$. Observa que $z_n=(-1)^{n+1}f(1/n)$. Tenemos que:
+$$
+f\tl(x)=\frac{x^{\alpha +1}}{1-x}+\alpha x^{\alpha -1}(-x-\log(1-x)),
+$$
+recordando que $-x-\log(1-x)>0$ para $0<x<1$, se sigue que $f\tl(x)>0$ para $0<x<1$. Por tanto $f$ es estrictamente creciente en $]0,1]$ y, en particular, es $f\big(\frac{1}{n+1}\big)<f\big(\frac{1}{n}\big)$. El criterio de Leibniz nos dice que la serie $\sum z_n$ es convergente para $1\le\alpha <2$.\hecho
+\end{ejercicios resueltos}
+
+\section{Algunas series cuya suma puede calcularse de forma exacta}
+Debes tener ya claro que una cosa es estudiar la convergencia de una serie y otra es calcular su suma. Son relativamente pocas las series convergentes cuya suma se puede calcular de forma exacta. Aquí vamos a ver algunas de ellas. No debes esforzarte por memorizar fórmulas para  sumar series, sino en comprender y en aplicar los métodos que permiten calcularlas.
+
+
+\noindent\textbf{Series geométricas.}\  Las series de la forma $\dis\sum_{n\ge 0}\alpha x^n$ donde $\alpha\en\R$ y $\abs{x}<1$, cuya suma viene dada por $\dis\sum_{n=0}^\infty\alpha x^n=\dfrac{\alpha}{1-x}$.
+
+\medskip
+
+\noindent \textbf{Series aritmético - geométricas.}\ Son series de la forma $\dis\sum_{n\ge 0}p(n)x^n$ donde $p$ es una función polinómica de grad0 $m\ge 1$. Aplicando el criterio del cociente se obtiene fácilmente que estas series convergen absolutamente si $\abs{x}<1$. Es claro que no convergen si $\abs{x}\ge 1$ pues entonces $\set{p(n)x^n}$ es una sucesión no acotada y, por tanto, no converge a $0$. Supongamos que $\abs{x}<1$ y pongamos:
+$$
+S=\sum_{k=0}^\infty p(k)x^k=\lim_{n\to\infty}\sum_{k=0}^n p(k)x^k
+$$
+Definamos las \emph{diferencias de primer orden} de $p$, que notaremos, $\big(\Delta_1 p\big)$, como el polinomio dado para todo $k\en\N$ por $\,\big(\Delta_1 p\big)(k)=p(k+1)-p(k)$. Observa que $\Delta_1 p$ es un polinomio de grado $m-1$. Tenemos:
+$$
+\begin{aligned}
+& S-xS =(1-x)S=\lim_{n\to\infty}\left(\sum_{k=0}^n p(k)x^k-\sum_{k=0}^n p(k)x^{k+1}\right)=\\&=
+\lim_{n\to\infty}\left(\sum_{k=0}^{n-1} \big(p(k+1)-p(k)\big)x^{k+1}+p(0)-p(n)x^{n+1}\right)= p(0)+x\sum_{k=0}^\infty\big(\Delta_1 p\big)(k)x^k.
+\end{aligned}
+$$
+Pongamos $S_1=\sum_{k=0}^\infty\big(\Delta_1 p\big)(k)x^k$. La igualdad anterior nos dice que $(1-x)S=p(0)+xS_1$. Este procedimiento puede volver a aplicarse a la serie $\dis\sum_{k\ge 0}\big(\Delta_1 p)(k)x^k$. De la misma forma obtenemos ahora $(1-x)S_1=\big(\Delta_1 p)(0)+xS_2$, donde $S_2=\sum_{k=0}^\infty\big(\Delta_2 p\big)(k)x^k$ y $\big(\Delta_2 p\big)$ son las \emph{diferencias de segundo orden} de $p$ definidas para todo $k\en\N$ por:
+$$
+\big(\Delta_2 p\big)(k)=\big(\Delta_1 p\big)(k+1)-\big(\Delta_1 p\big)(k).
+$$
+Observa que $\big(\Delta_2 p\big)$ es un polinomio de grado $m-2$.
+
+Repitiendo este proceso $m$ veces llegaremos a obtener finalmente
+$$
+S_m=\sum_{k=0}^\infty\big(\Delta_m p\big)(k)x^k=\frac{\alpha}{1-x}
+$$
+porque las diferencias de orden $m$, $(\Delta_m p\big)$, de un polinomio de grado $m$ son constantes, $(\Delta_m p\big)(k)=\alpha$ para todo $k\en\N$. Conocido $S_m$ calculamos $S_{m-1}$ a partir de la igualdad $(1-x)S_{m-1}=\big(\Delta_{m-1} p\big)(0)+xS_m$. A partir de $S_{m-1}$ podemos calcular $S_{m-2}$, etcétera, hasta llegar a obtener finalmente el valor de $S$.
+
+\medskip
+
+\noindent\textbf{Series hipergeométricas.}\ Consideremos una serie $\sum a_n$ de términos positivos tal que para todo \nN\ es:
+$$
+\frac{a_{n+1}}{a_n}=\frac{\alpha n+\beta}{\alpha n+\gamma},\qquad (\alpha>0, \beta,\gamma\en\R).
+$$
+Escribiendo esta igualdad para $n=k$ en la forma:
+$$
+\alpha ka_{k+1}+\gamma a_{k+1}=\alpha k a_k+\beta a_k
+$$
+y sumando desde $k=1$ hasta $k=n$ se obtiene:
+\begin{equation}\label{eq:hipergeo}
+    \alpha n a_{n+1}+\gamma(a_{n+1}+S_n-a_1)=\alpha S_n+\beta S_n.
+\end{equation}
+Donde $S_n=\dis\sum_{k=1}^na_k$. Supuesto que la serie sea convergente y que su suma es $S=\lim\sucn{S}$, se deduce de la igualdad anterior que la sucesión \suc{na_{n+1}}\ también converge y necesariamente su límite debe ser cero (si fuera $n a_{n+1}\to \lambda>0$ se tendría que $a_{n}\sim \frac{\lambda}{n}$ lo que implicaría que la serie diverge).
+
+Aplicando el criterio de Raabe se obtiene fácilmente que la serie converge si $\gamma>\alpha+\beta$ y diverge si $\gamma<\alpha+\beta$. También diverge si $\gamma=\alpha+\beta$ porque en tal caso se deduce de la igualdad \ref{eq:hipergeo}\ que:
+$$
+\alpha n a_{n+1}+\gamma a_{n+1}-\gamma a_1=0\quad \Longrightarrow\quad a_{n+1}=\frac{\gamma a_1}{\alpha n +\gamma}
+$$
+y, por comparación con la serie armónica, se sigue que la serie diverge.
+
+Supuesto que, $\gamma>\alpha+\beta$, y tomando límites en la igualdad \ref{eq:hipergeo}\ deducimos que:
+$$
+\gamma S-\gamma a_1=\alpha S+\beta S\quad \Longrightarrow\quad S=\frac{\gamma a_1}{\gamma-\alpha-\beta}.
+$$
+
+\medskip
+
+\noindent\textbf{Series cuyo término general es una función racional.}\ Se trata de series de la forma $\dis\sum\frac{P(n)}{Q(n)}$ donde $P$ y $Q$ son funciones polinómicas. A partir de un cierto término en adelante, dichas series tienen todos sus términos positivos o todos negativos (según que $\lim_{x\to +\infty}P(x)Q(x)=+\infty$ o que $\lim_{x\to +\infty}P(x)Q(x)=-\infty$). Estas series convergen absolutamente cuando el grado del denominador es al menos dos unidades mayor que el grado del numerador. Cuando esta condición se cumple y, además, las raíces del polinomio $Q$ son todas reales y simples es posible calcular la suma de la serie descomponiendo la función racional $\dfrac{P(x)}{Q(x)}$ en fracciones simples, Se tendrá una descomposición de la forma:
+$$
+\frac{P(x)}{Q(x)}=\frac{A_1}{x-\alpha_1}+\frac{A_2}{x-\alpha_2}+\cdots+\frac{A_m}{x-\alpha_m}
+$$
+donde $\alpha_1,\alpha_2,\dots,\alpha_m$ son las raíces de $Q$. Sustituyendo en la igualdad anterior $x=k$ y sumando desde $k=1$ hasta $k=n$ resulta:
+$$
+\sum_{k=1}^n\frac{P(k)}{Q(k)}=\sum_{k=1}^n\left(\frac{A_1}{k-\alpha_1}+\frac{A_2}{k-\alpha_2}+\cdots+\frac{A_m}{k-\alpha_m}\right)
+$$
+Ahora hay que hacer todas las simplificaciones posibles hasta que finalmente nos quede una sucesión que sea convergente. Observa que las series de la forma $\dis\sum\dfrac{A}{n-\alpha}$ son divergentes (por comparación con la serie armónica) pero la suma de todas las que hay en el paréntesis anterior tiene que ser, en las hipótesis hechas, una serie convergente. Lo usual es que los coeficientes $A_k$ sean unos positivos y otros negativos y que las raíces $\alpha_k$ sean números enteros, de manera que se produzcan cancelaciones que finalmente permitan calcular la suma de la serie. Es frecuente que en los cálculos aparezca la serie armónica alternada. La estrategia \ref{est:armonica}\ es muy útil para los cálculos en este tipo de ejercicio.
+
+\medskip
+
+\noindent\textbf{Series de diferencias o telescópicas.}\ Se llaman así las series $\sum a_n$ cuyo término general puede escribirse en la forma $a_n=b_{n+1}-b_n$. Puesto que, en tal caso, se verifica la igualdad $$\dis\sum_{k=1}^na_k=b_{n+1}-b_1,$$ la serie converge si, y sólo si, la sucesión \sucn{b}\ converge, en cuyo caso $\dis\sum_{n=1}^\infty a_n=\lim\sucn{b}-b_1$.
+
+\medskip
+
+\noindent\textbf{Series relacionadas con la exponencial.}\ Sea $x\en R$ un número real distinto de $0$, fijo en lo que sigue y sea \nN. Aplicando el teorema de Taylor \ref{th:taylor}\ a la función exponencial con $a=0$, tenemos que hay algún punto $c$ comprendido entre $0$ y $x$ tal que:
+$$
+\e^x=1+\sum_{k=1}^n\dfrac{1}{k!}x^{k}+\dfrac{\e^{c}}{(n+1)!}x^{n+1}.
+$$
+La serie $\dis\sum_{n\ge 0}\dfrac{x^n}{n!}$ es absolutamente convergente porque, poniendo $a_n=\frac{\abs{x}^n}{n!}$, tenemos:
+$$
+\frac{a_{n+1}}{a_n}=\frac{\abs{x}}{n+1}\to 0.
+$$
+En particular, se verifica que $\dis\lim_{n\to\infty}\set{\frac{\abs{x}^n}{n!}}=0$. Como $0<\abs{c}<\abs{x}$, tenemos que:
+$$
+\modulo{\e^x-\sum_{k=0}^n\dfrac{1}{k!}x^{k}}=\modulo{\dfrac{\e^{c}}{(n+1)!}x^{n+1}}\le\e^{\abs{x}}\dfrac{\abs{x}^{n+1}}{(n+1)!},
+$$
+de donde deducimos que:
+$$
+\lim_{n\to\infty}\modulo{\e^x-\sum_{k=0}^n\dfrac{1}{k!}x^{k}}=0\ms{3mu}\Longleftrightarrow\ms{3mu}\e^x=\sum_{n=0}^\infty\dfrac{x^n}{n!}.
+$$
+Como $x\neq 0$ es un número real cualquiera y la igualdad anterior es trivialmente cierta para $x=0$, hemos probado que para todo número real $x$ se verifica la igualdad:
+\begin{equation}\label{eq:serie-exponencial}
+    \e^x=\sum_{n=0}^\infty\dfrac{x^n}{n!}=\lim_{n\to\infty}\set{1+\dfrac{x}{1!}+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+\cdots+\dfrac{x^n}{n!}}
+\end{equation}
+En particular, para $x=1$, resulta que:
+\begin{equation}\label{eq:serie-numero-e}
+\e=\sum_{n=0}^\infty\frac{1}{n!}=\lim_{n\to\infty}\set{1+\dfrac{1}{1!}+\dfrac{1}{2!}+\dfrac{1}{3!}+\cdots+\dfrac{1}{n!}}.
+\end{equation}
+Con ayuda de esta serie podemos calcular la suma de series de la forma $\dis\sum_{n\ge 0}\dfrac{p(n)}{n!}$ donde $p$ es una función polinómica de grado $m\ge 1$. Dichas series son (absolutamente) convergentes como se comprueba fácilmente con el criterio del cociente. Para calcular su suma expresamos el polinomio $p(x)$ en la forma:
+$$
+p(x)=a_0+a_1x+a_2x(x-1)+a_3x(x-1)(x-2)+\cdots+a_mx(x-1)(x-2)\cdots(x-m+1).
+$$
+Los números $a_k$ pueden calcularse fácilmente:
+$$
+a_0=p(0),\  a_1=p(1)-a_0,\ 2a_2=p(2)-a_0-2a_1,\dots
+$$
+Con ello tenemos que:
+$$
+\begin{aligned}
+\sum_{n=0}^\infty\dfrac{p(n)}{n!}&=\sum_{n=0}^\infty\left(\dfrac{a_0}{n!}+\sum_{j=1}^m\dfrac{a_j n (n-1)\cdots(n-j+1)}{n!}\right)=\\
+&=a_0\e+\sum_{j=1}^m\left(\sum_{n=0}^\infty\dfrac{a_j n(n-1)\cdots(n-j+1)}{n!}\right)=\\ &=
+a_0\e+\sum_{j=1}^m\left(\sum_{n=j}^\infty\dfrac{a_j n(n-1)\cdots(n-j+1)}{n!}\right)=\\
+&=a_0\e+\sum_{j=1}^m\left(\sum_{n=j}^\infty\dfrac{a_j}{(n-j)!}\right)=a_0\e+\sum_{j=1}^m\left(\sum_{n=0}^\infty\dfrac{a_j}{n!}\right)=\\
+&=(a_0+a_1+a_2+\cdots+a_m)\e.
+\end{aligned}
+$$
+Naturalmente, si la serie no empieza a sumar desde $n=0$ hay que hacer los ajustes necesarios.
+
+\noindent El mismo procedimiento puede aplicarse para series del tipo $\dis\sum_{n\ge 0}\dfrac{p(n)}{n!}x^n$.
+
+De la igualdad \eqref{eq:serie-numero-e}\ se deduce fácilmente que el número $\e$ es irracional. En efecto, para todo \nN\ tenemos que:
+$$
+0<\e-\sum_{k=1}^n\frac{1}{k!}=\sum_{k=n+1}^\infty\frac{1}{k!}=\frac{1}{n!}\sum_{k=1}^\infty\frac{1}{(n+1)(n+2)\cdots(n+k)}<
+\frac{1}{n!}\sum_{k=1}^\infty\left(\frac{1}{n+1}\right)^{k}=\frac{1}{n!}\frac{1}{n}
+$$
+Si $\e$ fuera racional, $\e=\dfrac{p}{q}$ con $p, q\en\N$, multiplicando por $q!$ la desigualdad:
+$$
+0<\e-\sum_{k=1}^q\frac{1}{k!}<\frac{1}{q!}\frac{1}{q}
+$$
+se tiene que:
+$$
+0<(q-1)!p-q!\sum_{k=1}^q\frac{1}{k!}<\frac{1}{q}\le 1.
+$$
+Pero el número $(q-1)!p-q!\dis\sum_{k=1}^q\dfrac{1}{k!}$ es un número entero y por tanto es imposible que sea mayor que $0$ y menor que $1$. Esta contradicción muestra que $\e$ es irracional.
+
+\begin{ejercicios propuestos}
+\propuesto Calcula la suma de las siguientes series.
+$$
+\begin{array}{lll}
+  a)\ \serie{\dfrac{1}{4n^{3}-n}} & b)\ \serie{\dfrac{1}{(n+1)\sqrt{n}+n\sqrt{n+1}}} & c)\ \serie{\dfrac{1}{2^n}\dfrac{n+2}{n(n+1)}} \\
+  d)\ \serie{\dfrac{1-2^n}{3^n}} & e)\ \serie{\dfrac{2^{n-1}}{(1+2^n)(1+2^{n-1})}} & f)\ \serie{\sen\dfrac{1}{2^n}\cos\dfrac{3}{2^n}} \\
+  g)\ \serie{\dfrac{n^2}{3^n}} & h)\ \serie{\dfrac{n^2+5n+7}{(n+2)!}} & i)\ \serie{2^{n-1}\tg^2\dfrac{x}{2^n}\tg\dfrac{x}{2^{n-1}}} \\
+j)\ \serie{\dfrac{1}{n^2+3n+2}} & k)\ \serieno{(-1)^n\dfrac{n^3-n+1}{3^n n!}} & l)\ \serie{(-1)^{n+1}\dfrac{2n+1}{n(n+1)}}\\
+m)\ \dis\sum_{n\ge 2}(-1)^n\dfrac{n^2-n}{3^n} & n)\ \serie{\dfrac{1}{n(n+1)(n+2)}} & o)\ \serie{\dfrac{3n+2}{n(n+1)(n+2)}}
+\end{array}
+$$
+Sugerencias. f) $\cos x\sen y=\frac{1}{2}\big(\sen(x+y)-\sen(x-y)\big)$. i)\ $\tg x\big(1-\tg^2(x/2)\big)=2\tg(x/2)$.
+\end{ejercicios propuestos}
+\begin{ejercicios resueltos}
+\resuelto Calcula la suma de las siguientes series.
+$$
+\begin{array}{lll}
+  a)\ \serie{\dfrac{1}{4n^{3}-n}} & b)\ \serie{\dfrac{1}{(n+1)\sqrt{n}+n\sqrt{n+1}}} & c)\ \serie{\dfrac{1}{2^n}\dfrac{n+2}{n(n+1)}} \\
+   d)\ \serie{\dfrac{2^{n-1}}{(1+2^n)(1+2^{n-1})}} &  e)\ \serieno{(-1)^n\dfrac{n^3-n+1}{3^n n!}} & f)\ \dis\sum_{n\ge 2} (-1)^n\dfrac{n^2-n}{3^n}
+\end{array}
+$$
+\sol a)\ Haremos la descomposición en fracciones simples de la función racional $\dfrac{1}{4x^3-x}$. Tenemos que $4x^3-x=x(4x^2-1)=x(2x+1)(2x-1)$. El denominador tiene tres raíces reales simples. Escribamos:
+$$
+\dfrac{1}{4x^3-x}=\frac{A}{x}+\frac{B}{2x+1}+\frac{C}{2x-1}.
+$$
+Fácilmente se obtiene $A=-1$, $B=C=1$. Por tanto:
+$$
+\dfrac{1}{4k^3-k}=-\frac{1}{k}+\frac{1}{2k+1}+\frac{1}{2k-1}.
+$$
+Observa que cuando sumemos nos van a quedar expresiones que podremos relacionar con la serie armónica alternada por lo que conviene sumar desde $k=1$ hasta $k=2n$. Como ya es usual ponemos $H_n=\sum_{k=1}^n\frac{1}{k}$ y usaremos la estrategia \ref{est:armonica}\ que ya debes conocer.
+$$
+\begin{aligned}
+&\dis\sum_{k=1}^{2n}\dfrac{1}{4k^3-k}=-\dis\sum_{k=1}^{n}\frac{1}{2k}+\dis\sum_{k=1}^{n}\frac{1}{2k+1}+
+\dis\sum_{k=n+1}^{2n}\frac{1}{2k+1}+\dis\sum_{k=n+1}^{2n}\frac{1}{2k-1}=\\
+&=-1+\dis\sum_{k=1}^{2n+1}\frac{(-1)^{k+1}}{k}+2\left(H_{4n+1}-\frac{1}{2}H_{2n}-H_{2n+1}+\frac{1}{2}H_n\right)+\frac{1}{2n+1}=\\
+&=-1+\dis\sum_{k=1}^{2n+1}\frac{(-1)^{k+1}}{k}+2\left(\log(4n+1)+\upgamma_{4n+1}-\frac{1}{2}(\log(2n)+\upgamma_{2n})-\right.\\
+&\left.\qquad\qquad\qquad\qquad\qquad -\log(2n+1)-\upgamma_{2n+1}+\frac{1}{2}(\log(n)+\upgamma_{n})\right)+\frac{1}{2n+1}\to\\
+&\to -1+\log 2+\log 2=2\log 2-1.
+\end{aligned}
+$$
+Luego $\dis\sum_{n=1}^\infty\dfrac{1}{4n^{3}-n}=2\log 2 -1$.\hecho
+
+b)\ Basta observar que:
+$$
+\big((n+1)\sqrt{n}+n\sqrt{n+1}\big)\big((n+1)\sqrt{n}-n\sqrt{n+1}\big)=n(n+1).
+$$
+De donde se obtiene fácilmente que:
+$$
+\dfrac{1}{(n+1)\sqrt{n}+n\sqrt{n+1}}=\frac{\sqrt{n}}{n}-\frac{\sqrt{n+1}}{n+1}.
+$$
+Deducimos que:
+$$
+\sum_{k=1}^n\dfrac{1}{(k+1)\sqrt{k}+k\sqrt{k+1}}=1-\frac{\sqrt{n+1}}{n+1}\Longrightarrow\sum_{n=1}^\infty\dfrac{1}{(n+1)\sqrt{n}+n\sqrt{n+1}}=1.
+$$
+c)\ Pongamos $a_n=\dfrac{1}{2^n}\dfrac{n+2}{n(n+1)}$. Tenemos que:
+$$
+a_k=\frac{1}{2^k}\dfrac{k+2}{k(k+1)}=\frac{1}{2^k}\left(\frac{2}{k}-\frac{1}{k+1}\right)=\frac{1}{2^{k-1}k}-\frac{1}{2^k(k+1)}.
+$$
+Deducimos que:
+$$
+\sum_{k=1}^n a_k=1-\frac{1}{2^n(n+1)}\Longrightarrow\ \sum_{n=1}^\infty\dfrac{1}{2^n}\dfrac{n+2}{n(n+1)}=1.
+$$
+d)\ Tenemos que:
+$$
+\dfrac{2^{k-1}}{(1+2^k)(1+2^{k-1})}=\dfrac{1+2^k-1-2^{k-1}}{(1+2^k)(1+2^{k-1})}=\dfrac{1}{1+2^{k-1}}-\dfrac{1}{1+2^k}.
+$$
+Deducimos que:
+$$
+\sum_{k=1}^n \dfrac{2^{k-1}}{(1+2^k)(1+2^{k-1})}=\frac{1}{2}-\dfrac{1}{1+2^n}\Longrightarrow\ \sum_{n=1}^\infty\dfrac{2^{n-1}}{(1+2^n)(1+2^{n-1})}=\frac{1}{2}.
+$$
+
+e)\ Es una serie de la forma $\serieno{\dfrac{p(n)}{n!}x^n}$ donde $p(n)=n^3-n+1$ y $x=-\frac{1}{3}$. Pongamos:
+$$
+n^3-n+1=a_0+a_1n+a_2n(n-1)+a_3n(n-1)(n-2).
+$$
+Haciendo $n=0$ se obtiene $a_0=1$; haciendo $n=1$ se obtiene $a_1=0$; haciendo $n=2$ se obtiene $a_2=3$ y haciendo $n=2$ se obtiene $a_3=1$. Por tanto:
+$$
+\begin{aligned}
+&\dis\sum_{n=0}^\infty(-1)^n\dfrac{n^3-n+1}{3^n n!}=\dis\sum_{n=0}^\infty\dfrac{1+3n(n-1)+n(n-1)(n-2)}{n!}\left(\dfrac{-1}{3}\right)^n=\\
+&=
+\dis\sum_{n=0}^\infty\dfrac{1}{n!}\left(\dfrac{-1}{3}\right)^n+
+\dfrac{1}{3}\dis\sum_{n=2}^\infty\dfrac{1}{(n-2)!}\left(\dfrac{-1}{3}\right)^{n-2}-
+\dfrac{1}{27}\dis\sum_{n=3}^\infty\dfrac{1}{(n-3)!}\left(\dfrac{-1}{3}\right)^{n-3}=\\
+&=\e^{-\frac{1}{3}}\left(1+\frac{1}{3}-\frac{1}{27}\right)=\frac{35}{27}\e^{-\frac{1}{3}}.
+\end{aligned}
+$$
+f)\ Es una serie de la forma $\sum p(n)x^{n}$ donde $p(n)=n^2-n$ y $x=\frac{-1\ }{3}$. Se trata, pues, de una serie aritmético-geométrica. Pongamos $S=\dis\sum_{n=2}^\infty (n^2-n)\left(\dfrac{-1}{3}\right)^n$. Tenemos que:
+$$
+\begin{aligned}
+S-\frac{-1\ }{3}S &=\sum_{n=2}^\infty (n^2-n)\left(\dfrac{-1}{3}\right)^n-\sum_{n=2}^\infty (n^2-n)\left(\dfrac{-1}{3}\right)^{n+1}=\\ &=
+\sum_{n=1}^\infty\big((n+1)^2-(n+1)\big)\left(\dfrac{-1}{3}\right)^{n+1}-\sum_{n=2}^\infty (n^2-n)\left(\dfrac{-1}{3}\right)^{n+1}=\\
+&=\dfrac{2}{9}+\sum_{n=2}^\infty\big((n+1)^2-(n+1)-(n^2-n)\big)\left(\dfrac{-1}{3}\right)^{n+1}=\\ &=
+\dfrac{2}{9}+\dfrac{-1}{3}\sum_{n=2}^\infty 2n\left(\dfrac{-1}{3}\right)^n.
+\end{aligned}
+$$
+Pongamos $S_1=\dis\sum_{n=2}^\infty 2n\left(\dfrac{-1}{3}\right)^n$. Hemos probado que:
+$$
+  S-\frac{-1\ }{3}S=\dfrac{2}{9}+\dfrac{-1}{3}S_1\ms{3mu}\Longrightarrow\ms{3mu} S=\frac{1}{6}-\frac{1}{4}S_1.
+$$
+Calcularemos ahora $S_1$. Tenemos que:
+$$
+\begin{aligned}
+S_1-\frac{-1\ }{3}S_1&=\sum_{n=2}^\infty 2n\left(\dfrac{-1}{3}\right)^n-\sum_{n=2}^\infty 2n\left(\dfrac{-1}{3}\right)^{n+1}=\\ &=
+\sum_{n=1}^\infty 2(n+1)\left(\dfrac{-1}{3}\right)^{n+1}-\sum_{n=2}^\infty 2n\left(\dfrac{-1}{3}\right)^{n+1}=\\
+&=\frac{4}{9}-\dfrac{1}{3}\sum_{n=2}^\infty\big(2(n+1)-2n\big)\left(\dfrac{-1}{3}\right)^n=
+\frac{4}{9}-\dfrac{2}{3}\sum_{n=2}^\infty\left(\dfrac{-1}{3}\right)^n=\\ &=\frac{4}{9}-\dfrac{2}{3}\frac{1}{12}=\frac{7}{18}.
+\end{aligned}
+$$
+Deducimos que $S_1=\frac{7}{24}$ y, por tanto, $S=\frac{1}{6}-\frac{1}{4}S_1=\frac{3}{32}$.\hecho
+\end{ejercicios resueltos}
+
+
+\section{Expresión de un número real en base $b$}
+El primer ejemplo de sucesión que vimos en el capítulo 7 fue la expresión decimal de $2/3$ que ahora podemos expresar con la notación que usamos para series:
+$$
+\frac{2}{3}=\lim_{n\to\infty}\sum_{k=1}^n\frac{6}{10^k}=\sum_{n=1}^\infty\frac{6}{10^n}.
+$$
+Seguramente sabes que los números racionales pueden expresarse en forma decimal y que dicha expresión decimal o bien es finita o hay un grupo de cifras, el período, que se repite indefinidamente. También sabes que los números irracionales tienen una expresión decimal infinita no periódica. En lo que sigue vamos a precisar el significado de estas afirmaciones y a justificarlas.
+
+Para ayudarte a entender lo que sigue, vamos a empezar recordando el algoritmo de la división de números enteros. Para ello vamos a usar la función ``parte entera''. Recuerda que si $x$ es un número real, representamos por $E(x)$ el único número entero tal que \mbox{$E(x)\!\le\! x\!<\!E(x)\!+\!1$.} El número $E(x)$ se llama parte entera de $x$. Una consecuencia directa de la definición de $E(x)$, que usaremos en lo que sigue, es la siguiente:
+\begin{equation}\label{eq:parte-entera-car}
+    x=\beta+r\quad\textrm{donde}\quad \beta\en\Z\ms{8mu}\textrm{y}\ms{8mu} 0\le r<1\ms{3mu}\Longrightarrow\ms{3mu}\beta=E(x).
+\end{equation}
+Además, es claro que si $p$ es un número entero se tiene que $E(x+p)=E(x)+p$.
+
+Con ayuda de la función ``parte entera'' podemos expresar el algoritmo de la división de enteros como sigue. Sean $p$, $q$ números enteros con $q>0$. Pongamos $c=E(p/q)$. Entonces tenemos que:
+$$
+c\le \frac{p}{q}<c+1\ms{3mu}\Longleftrightarrow\ms{3mu}0\le p -c q<q.
+$$
+Poniendo ahora $r=p-c q$, tenemos que $p=cq+r$ donde $c$ y $r$ son números enteros y $0\le r\le q-1$. Este es el algoritmo de la división de enteros conocido como ``algoritmo de Euclides''.
+
+Sean $p,q$ números enteros positivos con $p<q$ y consideremos el número racional\linebreak $x=\frac{p}{q}\in [0,1[$. Veamos el proceso que se sigue para obtener la expresión decimal de $x=\frac{p}{q}$.
+
+Dividimos $10p$ entre $q$ y obtenemos un cociente $c_1=E(\frac{10p}{q})$ y un resto $r_1$. Como\linebreak $0\le\frac{10p}{q}<10$, se verifica que $0\le c_1\le 9$ y, claro está, $0\le r_1\le q-1$. En resumen:
+$$
+10p=c_1q+r_1,\qquad c_1=E\left(\frac{10p}{q}\right),\ 0\le c_1\le 9,\ \ 0\le r_1\le q-1.
+$$
+Que podemos escribir equivalentemente:
+\begin{equation}\label{eq:et1}
+    \frac{p}{q}=\frac{c_1}{10}+\frac{r_1}{10 q},\qquad 0\le c_1\le 9,\ \ 0\le r_1\le q-1.
+\end{equation}
+Ahora dividimos $10r_1$ entre $q$ y obtenemos un cociente $c_2=E(\frac{10r_1}{q})$ y un resto $r_2$. Como $0\le \frac{10r_1}{q}<10$, se verifica que $0\le c_2\le 9$ y, claro está, $0\le r_2\le q-1$. En resumen:
+$$
+10r_1=c_2q+r_2,\qquad  0\le c_2\le 9,\ \  0\le r_2\le q-1.
+$$
+Igualdad que podemos escribir equivalentemente:
+$$
+\frac{r_1}{10 q}=\frac{c_2}{10^2}+\frac{r_2}{10^2 q}.
+$$
+Sustituyendo esta igualdad en \eqref{eq:et1}, tenemos:
+\begin{equation}\label{eq:et2}
+     \frac{p}{q}=\frac{c_1}{10}+\frac{c_2}{10^2}+\frac{r_2}{10^2 q}.
+\end{equation}
+Conviene expresar $c_2$ de una forma diferente. De la igualdad anterior se sigue que\linebreak $100\frac{p}{q}=10c_1+c_2+\frac{r_2}{q}$. Poniendo $x=\frac{p}{q}$ y teniendo en cuenta \ref{eq:parte-entera-car}, deducimos que:
+\begin{equation}\label{eq:et3}
+c_2=E(100 x)-10c_1=10^2\left(\frac{E(10^2 x)}{10^2}-\frac{E(10 x)}{10}\right).
+\end{equation}
+El tercer paso sería como sigue. Dividimos $10r_2$ entre $q$ y obtenemos un cociente $c_3=E(\frac{10r_2}{q})$ y un resto $r_3$. Como $0\le \frac{10r_2}{q}<10$, se verifica que $0\le c_3\le 9$ y, claro está, $0\le r_3\le q-1$. En resumen:
+$$
+10r_2=c_3q+r_3,\qquad  0\le c_3\le 9,\ \  0\le r_3\le q-1.
+$$
+Igualdad que podemos escribir equivalentemente:
+$$
+\frac{r_2}{10^2 q}=\frac{c_3}{10^3}+\frac{r_3}{10^3 q}.
+$$
+Sustituyendo esta igualdad en \eqref{eq:et2}, tenemos:
+\begin{equation*}
+     \frac{p}{q}=\frac{c_1}{10}+\frac{c_2}{10^2}+\frac{c_3}{10^3}+\frac{r_3}{10^3 q}.
+\end{equation*}
+Conviene expresar $c_3$ de una forma diferente. De la igualdad anterior se sigue que \linebreak $10^3\frac{p}{q}=10^2c_1+10c_2+c_3+\frac{r_3}{q}$. Poniendo $x=\frac{p}{q}$, teniendo en cuenta en cuenta \ref{eq:parte-entera-car} y que $10c_1+c_2=E(100 x)$, deducimos que:
+\begin{equation*}
+c_3=E(10^3 x)-10^2c_1-10c_2=10^3\left(\frac{E(10^3 x)}{10^3}-\frac{10c_1+c_2}{10^2}\right)=10^3\left(\frac{E(10^3 x)}{10^3}-\frac{E(10^2 x)}{10^2}\right).
+\end{equation*}
+Este proceso puede proseguirse obteniendo los sucesivos dígitos $c_1, c_2,\dots, c_n,\dots$ de la expresión decimal de $x=\frac{p}{q}$ los cuales viene dados por:
+$$
+c_1=E(10 x),\ \ c_{n+1}=10^{n+1}\left(\frac{E(10^{n+1} x)}{10^{n+1}}-\frac{E(10^n x)}{10^n}\right),\ \ n=1,2,\dots
+$$
+Y se verifica que:
+$$
+x=\frac{c_1}{10}+\frac{c_2}{10^2}+\cdots+\frac{c_n}{10^n}+\frac{r_n}{10^n q},\qquad 0\le c_k\le 9,\ \ \ 0\le r_n\le q-1
+$$
+donde $r_n$ es el resto de la $n$-ésima división por $q$. De la igualdad anterior, se deduce que:
+$$
+\modulo{x-\sum_{k=1}^n\frac{c_k}{10^k}}=\frac{r_n}{10^n q}<\frac{1}{10^n}\ms{3mu}\Longrightarrow\ms{3mu} x=\sum_{n=1}^\infty\frac{c_n}{10^n}.
+$$
+Observemos que en este proceso los restos que se van obteniendo en las sucesivas divisiones son números enteros que están comprendidos entre $0$ y $q-1$ por lo que caben dos posibilidades:
+
+\noindent$\bullet\quad$ Si uno de estos restos es igual a $0$, digamos $r_m=0$ ($1<m\le q-1$), el proceso termina aquí porque todos los cocientes $c_k$ que le siguen son $0$ y se obtiene una \emph{expresión decimal finita} que se escribe en la forma:
+$$
+x=\sum_{k=1}^m\frac{c_k}{10^k}=0,c_1c_2\dots c_m
+$$
+Observa que para que esto ocurra es condición necesaria y suficiente que haya algún $m\en\N$ tal que $10^m x$ sea un entero, lo que sucede si, y sólo si, $x$ puede escribirse de la forma $x=\frac{p}{10^m}$.
+
+Una expresión decimal finita puede escribirse también como una expresión decimal con infinitos $9$, pues:
+$$
+x=\sum_{k=1}^m\frac{c_k}{10^k}=\sum_{k=1}^{m-1}\frac{c_k}{10^k}+\frac{c_m-1}{10^m}+\sum_{n=m+1}^\infty\frac{9}{10^n}.
+$$
+\noindent$\bullet\quad$ Si ninguno de ellos es cero, entonces como máximo en un total de $q$ divisiones deben repetirse. Si el primer resto que se repite es $r_j$, digamos $r_j=r_{j+k}$ ($1\le j<j+k\le q-1$), entonces $c_j=c_{j+k}$ y el grupo de cocientes $c_j,c_{j+1},c_{j+2},\dots,c_{j+k-1}$ se repite indefinidamente dando lugar a una expresión decimal periódica que se escribe en la forma:
+$$
+x=0,c_1c_2\dots c_{j-1}\widehat{c_jc_{j+1}c_{j+2}c_{j+k-1}}.
+$$
+Finalmente, si $x=\frac{m}{n}$ es cualquier número racional, podemos escribir $x=E(x)+(x-E(x))$ donde $z=x-E(x)$ es un número racional que está en $[0,1[$. La expresión decimal de $x$ se obtiene escribiendo el entero $E(x)$ seguido de una coma y de la expresión decimal de $z$.
+
+El proceso anterior puede hacerse de la misma forma para números reales y sustituyendo el número $10$ por cualquier entero positivo $b>1$.
+
+\begin{teorema}\label{th:desarrollo-p-adico}
+Sea $b>1$ un número entero y sea $x\in [0,1[$ un número real. Para cada \nN\ definamos:
+$$
+\alpha_n=\frac{E(b^nx)}{b^n},\ \ c_1=E(b x),\ \ c_{n+1}=b^{n+1}\big(\alpha_{n+1}-\alpha_n\big).
+$$
+Se verifica que:
+
+\noindent a)\ \sucn{c}\ es una sucesión de números enteros tales que $0\le c_n\le b-1$.\newline
+b)\ \rule{0mm}{5mm}El conjunto $\set{\nN:c_n\neq b-1}$ es infinito.\newline
+c)\  \rule{0mm}{5mm}$x=\dis\sum_{n=1}^\infty\dfrac{c_n}{b^n}$.
+
+Además, si \sucn{a}\ es otra sucesión de números enteros tales que $0\le a_n\le b-1$ y $x=\dis\sum_{n=1}^\infty\dfrac{a_n}{b^n}$, entonces existe un $m\en\N$ tal que:
+
+\noindent i) $c_j=a_j$ para $1\le j<m$.\newline
+ii)\  \rule{0mm}{5mm}$c_m-1=a_m$.\newline
+iii)\  \rule{0mm}{5mm} $c_n=0$ y $a_n=b-1$ para todo $n\ge m+1$.
+\end{teorema}
+\dem Tenemos que:
+$$
+b^n\alpha_n=E(b^nx)\le b^nx<E(b^nx)+1=b^n\alpha_n+1\ms{2mu}\Longrightarrow\ms{3mu}\alpha_n\le x<\alpha_n+\frac{1}{\,b^n\,},
+$$
+de donde se sigue que $\sucn{\alpha}\to x$. Por otra parte $bE(b^nx)\le b^{n+1}x$, por lo que $bE(b^nx)\le E(b^{n+1}x)$. Y deducimos que $\alpha_n\le\alpha_{n+1}$ y, en consecuencia, $0\le c_{n+1}$ para todo \nN. Es claro, por su definición, que $c_n$ es un número entero y que, al ser $0\le x<1$ es $0\le c_1=E(b x)\le p-1$. Además:
+$$
+c_{n+1}=E(b^{n+1}x)-bE(b^nx)< b^{n+1}x-b(b^nx-1)=b.
+$$
+Por tanto $0\le c_{n+1}\le b-1$. Sumando las igualdades $\dfrac{c_{k+1}}{b^{k+1}}=\alpha_{k+1}-\alpha_{k}$ desde $k=1$ hasta $k=n-1$ y teniendo en cuenta que $\alpha_1=\dfrac{c_1}{b}$, obtenemos:
+$$
+\alpha_n=\sum_{k=1}^n\frac{c_k}{b^k}\ms{3mu}\Longrightarrow\ms{3mu}x=\lim\sucn{r}=\sum_{n=1}^\infty\frac{c_n}{b^n}.
+$$
+Hemos probado \emph{a)} y \emph{c)}. Para probar lo afirmado en el punto \emph{b)}, observemos que para todo $k\en\N$ se verifica que:
+$$
+\alpha_k+\frac{1}{b^k}=\sum_{j=1}^k\frac{c_j}{b^j}+\sum_{j=k+1}^\infty\frac{b-1}{b^j}.
+$$
+Puesto que $x<\alpha_k+\dfrac{1}{b^k}$, deducimos que no puede ocurrir que $c_j=b-1$ para todo $j\ge k+1$, lo que implica que el conjunto $\set{\nN:c_n\neq b-1}$ es infinito.
+
+\noindent Sea \sucn{a}\ una sucesión en las condiciones del enunciado. Definamos $m=\min\set{j\en\N:a_j\neq c_j}$. Por la definición de $m$ es claro que se verifica \emph{i)}. Para probar \emph{ii)} pongamos:
+$$
+%\begin{aligned}
+\frac{a_m}{b^m}\le\sum_{j=m}^\infty\frac{a_j}{b^j}=\sum_{j=m}^\infty\frac{c_j}{b^j}=\frac{c_m}{b^m}+\sum_{j=m+1}^\infty\frac{c_j}{b^j}
+<\frac{c_m}{b^m}+\sum_{j=m+1}^\infty\frac{b-1}{b^j}=\frac{c_m}{b^m}+\frac{1}{b^m}.
+%\end{aligned}
+$$
+Luego $a_m<c_m+1$ y, al ser números enteros, deberá ser $a_m\le c_m$; pero como son distintos tenemos que $a_m<c_m$ y, por ser enteros, $a_m+1\le c_m$. Por otra parte:
+\begin{equation}\label{eq:padic}
+    \frac{c_m}{b^m}\le\sum_{j=m}^\infty\frac{c_j}{b^j}=\sum_{j=m}^\infty\frac{a_j}{b^j}\le \frac{a_m}{b^m}+\sum_{j=m+1}^\infty\frac{b-1}{b^j}=\frac{a_m}{b^m}+\frac{1}{b^m}.
+\end{equation}
+Luego $c_m\le a_m+1$. Resulta así que $a_m=c_m-1$. Finalmente, el punto \emph{iii)} se deduce como consecuencia de que en \eqref{eq:padic}\ todo son igualdades.\fin
+
+\begin{definicion}
+Sea $b$ un número entero mayor que $1$, $b>1$, y sea $x\en\R$ con $0\le x<1$. Sea \sucn{c}\ una sucesión de números enteros tales que $0\le c_n\le b-1$ para todo \nN\ y $x=\dis\sum_{n=1}^\infty\dfrac{c_n}{b^n}$. En estas condiciones convenimos en escribir la igualdad  $x=\dis\sum_{n=1}^\infty\dfrac{c_n}{b^n}$ simbólicamente en la forma
+$$
+x={0,c_1c_2c_3\dots c_n\dots}_{(b}
+$$
+Dicha igualdad se llama desarrollo de $x$ en base $b$ o expresión $b$-ádica del número $x$. Cuando $b=2$ tenemos la expresión binaria de $x$, si $b=3$ dicha expresión se llama ternaria, y se llama expresión decimal cuando $b=10$.
+\end{definicion}
+\begin{observaciones} Del teorema \ref{th:desarrollo-p-adico}\ se deducen las siguientes afirmaciones.
+
+\noindent{$\bullet\quad$} Todo número $x\en\R$ con $0\le x<1$ tiene al menos una expresión $b$-ádica y, como mucho, dos expresiones $b$-ádicas distintas.
+
+\noindent{$\bullet\quad$} Un número $x\in [0,1[$ tiene dos expresiones $b$-ádicas distintas si, y sólo si, $x$ es un número racional de la forma $x=\dfrac{q}{b^n}$.
+
+ Cuando un número $x\in [0,1[$ tiene dos expresiones $b$-ádicas distintas entonces  en una de ellas todos los términos, a partir de uno en adelante, son iguales a $0$, es decir, es de la forma:
+$$
+x=0,c_1c_2\dots c_k 0 0\dots 0\dots_{(b}.
+$$
+Que suele escribirse omitiendo los ceros consecutivos en la forma:
+$$
+x={0,c_1c_2\dots c_k}_{(b},
+$$
+y se dice que $x$ tiene una expresión $b$-ádica finita. La otra expresión $b$-ádica de $x$ es:
+$$
+x=0,c_1c_2\dots c_{k-1}(c_k-1)(b-1)(b-1)\dots(b-1)\dots_{(b}.
+$$
+\noindent{$\bullet\quad$} La expresión $b$-ádica de un número $x\in [0,1[$ queda determinada de forma única si se exige alguna de las condiciones:
+
+a) Hay infinitas cifras en la expresión $b$-ádica que son distintas de $b-1$.
+
+b) Hay infinitas cifras en la expresión $b$-ádica que son distintas de $0$.
+
+\noindent{$\bullet\quad$} Finalmente, si $x$ es cualquier número real, podemos escribir $x=E(x)+(x-E(x))$ donde $z=x-E(x)$ es un número real que está en $[0,1[$. La expresión de $x$ en base $b$ se obtiene escribiendo el entero $E(x)$ en base $b$ seguido de una coma y de la expresión de $z$ en base $b$.
+\end{observaciones}
+
+\section{Series de números complejos}
+Una serie de números complejos es una sucesión $\sum z_n=\ser{z}$ obtenida sumando consecutivamente los términos de una sucesión de números complejos \sucn{z}. Para series de números complejos se emplean las mismas terminología y notaciones que para series de números reales. El límite de una serie de números complejos se llama ``suma'' de la serie y es un número complejo que se representa por:
+$$
+\sum_{n=1}^\infty z_n=\lim_{n\to\infty}\set{\sum_{k=1}^n z_k}
+$$
+Naturalmente, todo lo visto para sucesiones de números complejos permanece válido con el mismo significado para series de números complejos. En particular, poniendo $z_n=x_n+i y_n$ donde $x_n=\re(z_n)$, $y_n=\im(z_n)$, tenemos que:
+$$
+\sum_{k=1}^n z_k=\sum_{k=1}^n x_k+i\sum_{k=1}^n y_k,
+$$
+y la serie $\sum z_n$ converge si, y sólo si, convergen las series de números reales $\sum x_n$ y $\sum y_n$, en cuyo caso se verifica que:
+$$
+\sum_{k=1}^\infty z_k=\sum_{k=1}^\infty x_k+i\sum_{k=1}^\infty y_k.
+$$
+Por tanto, estudiar una serie de números complejos equivale a estudiar dos series de números reales. Aunque esta estrategia no siempre es factible porque a veces no es fácil calcular $\re(z_n)$ e $\im(z_n)$.
+
+Se dice que una serie de números complejos $\sum z_n$ es \textbf{absolutamente convergente} cuando la serie de los módulos $\sum \modulo{z_n}$ es convergente. Teniendo en cuenta las desigualdades:
+$$
+\max\set{\abs{x_n},\abs{y_n}}\le\modulo{z_n}\le\abs{x_n}+\abs{y_n},
+$$
+se deduce enseguida que la serie $\sum z_n$ es absolutamente convergente si, y sólo si, las series $\sum x_n$ y $\sum y_n$ son absolutamente convergentes.
+
+Naturalmente, para estudiar la convergencia absoluta de una serie de números complejos lo que hacemos es aplicar a la serie de los módulos $\sum \modulo{z_n}$ los criterios de convergencia para series de términos positivos.
+
+Los criterios generales de Dirichlet y de Abel (teoremas \ref{th:cgd}\ y \ref{th:cga}) permanecen válidos sin cambio alguno para series de números complejos. Los criterios particulares de Dirichlet y de Abel (teorema \ref{cpD}\ y \ref{cpA}) pueden aplicarse igualmente a series de la forma $\dis\sum a_n b_n$, donde \sucn{a}\ es una sucesión de números complejos y \sucn{b}\ es una sucesión de números reales que satisfacen las hipótesis de dichos criterios.
+
+Los resultados obtenidos para la serie geométrica permanecen igualmente válidos para series geométricas de números complejos.
+
+\begin{ejercicios propuestos}
+\propuesto Estudia la convergencia de las series:
+$$
+\begin{array}{lrlrl} &\textrm{i)}& \sumasubn{0}\dfrac{1}{(1+i)^{n}} &\textrm{ii)}&
+\sumasubn{1}\dfrac{\cos n+i\,\sen n}{n} \\ &\textrm{iii)}&
+\sumasubn{1}\dfrac{\cos n+i\,\sen n}{n^{2}} \rule{0mm}{6mm}
+&\textrm{iv)}&
+\sumasubn{1}\dfrac{\cos\frac{\pi}{n}+i\,\sen\frac{\pi}{n}}{n}\\
+\rule{0mm}{6mm}
+&\textrm{v)}&\sumasubn{1}\dfrac{(2+i)^{n}}{(1+2i)^{n}}\dfrac{1}{n}
+&\textrm{vi)}&
+\dis\sumasubn{1}\dfrac{1}{\sqrt{n}}\left(\dfrac{1+i\sqrt{3}}{2}\right)^n\\
+&\textrm{vii)}&\sumasubn{1}\left(\cos\dfrac{\pi}{n^{2}}+i\,\sen\dfrac{\pi}{n^{2}}\right)
+& \textrm{viii)}&\sumasubn{0}\dfrac{(3+4i)^{n}}{2i(4+3i)^{n}+7}
+\end{array}
+$$
+
+\propuesto Sea $\rho\en\R$ con $\abs{\rho}<1$ y $\vartheta\en\R$.
+Calcula los límites:
+$\dis\sumaf{n=0}{\infty}\rho^n\cos(n\,\vartheta)$ y $\dis
+\sumaf{n=0}{\infty}\rho^n\sen(n\,\vartheta)$.
+
+Sugerencia. Llama $A$ a la primera suma y $B$ a la segunda. Calcula $A+iB$.
+
+\propuesto Prueba que si la serie $\sumasubn{1}z_{n}$ converge y hay un n{\'u}mero $\dis
+0<\alpha<\frac{\pi}{2}$ tal que para todo $n\en\N$ se verifica que $\abs{\arg(z_{n})}<\alpha$,
+entonces dicha serie converge absolutamente.
+
+\propuesto Sup\'{o}n que las series $\sumasubn{1}z_{n}$ y
+$\sumasubn{1}z_{n}^{2}$ son convergentes y que  $\re(z_{n})\ge
+0$ para todo $n\en\N$. Prueba que $\sumasubn{1}|z_{n}|^{2}$ es
+convergente.
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto Estudia la convergencia de las series:
+$$
+\begin{array}{lll} \textrm{i)}\  \sumasubn{0}\dfrac{1}{(1+i)^{n}} &\textrm{ii)}\
+\sumasubn{1}\dfrac{\cos n+i\,\sen n}{n}  &\textrm{iii)}\ \sumasubn{1}\dfrac{\cos n+i\,\sen n}{n^{2}} \\
+\rule{0mm}{6mm} \textrm{iv)}\ \sumasubn{1}\dfrac{\cos\frac{\pi}{n}+i\,\sen\frac{\pi}{n}}{n} & \textrm{v)}\  \sumasubn{1}\dfrac{(2+i)^{n}}{(1+2i)^{n}}\dfrac{1}{n}& \textrm{vi)}\   \sumasubn{0}\dfrac{(3+4i)^{n}}{2i(4+3i)^{n}+7}
+\end{array}
+$$
+\sol i)\ $\dis\modulo{\dfrac{1}{(1+i)^{n}}}=\modulo{\dfrac{1}{1+i}}^{n}=\left(\dfrac{1}{\sqrt{2}}\right)^n$. La serie es absolutamente convergente. Observa que se trata de una serie geométrica de razón $z=\dfrac{1}{1+i}$.\hecho
+
+ii)\ $\dis\modulo{\dfrac{\cos n+i\,\sen n}{n}}=\frac{1}{n}$. La serie no es absolutamente convergente. Para estudiar la convergencia no absoluta aplicaremos el criterio particular de Dirichlet (corolario \ref{cpD}). Pongamos $b_n=\frac{1}{n}$ y $a_n=\cos n+i\sen n=\e^{in}$. Tenemos que \sucn{b}\ es monótona y converge a $0$. Además:
+$$
+\begin{aligned}
+\modulo{\dis\sum_{k=1}^n a_k}&=\modulo{\dis\sum_{k=1}^n\e^{ik}}=\modulo{\dis\sum_{k=1}^n\big(\e^{i}\big)^k}=
+\modulo{\dfrac{\e^{i(n+1)}-\e^i}{\e^i-1}}=\\
+&= \dfrac{\modulo{\e^{i(n+1)}-\e^i}}{\modulo{\e^i-1}}\le \dfrac{\modulo{\e^{i(n+1)}}+\modulo{\e^{i}}}{\modulo{\e^i-1}}=\dfrac{2}{\modulo{\e^i-1}}.
+\end{aligned}
+$$
+Puesto que $\dfrac{2}{\modulo{\e^i-1}}$ es una constante independiente de $n$, el criterio particular de Dirichlet nos dice que la serie es convergente.\hecho
+
+iii)\ $\dis\modulo{\dfrac{\cos n+i\,\sen n}{n^{2}}}=\dfrac{1}{n^2}$. La serie es absolutamente convergente.\hecho
+
+iv)\ La serie de las partes reales, $\dis\sum_{n\ge 1}\dfrac{\cos\frac{\pi}{n}}{n}$ es una serie de términos positivos divergente porque  $\dfrac{\cos\frac{\pi}{n}}{n}\sim\dfrac{1}{n}$. Luego la serie no converge.\hecho
+
+v)\ $\dis\modulo{\dfrac{(2+i)^{n}}{(1+2i)^{n}}\dfrac{1}{n}}=\dfrac{\modulo{2+i}^n}{\modulo{1+2i}^n}\dfrac{1}{n}=\dfrac{1}{n}$. La serie no converge absolutamente.Para estudiar la convergencia no absoluta podemos aplicar el criterio particular de Dirichlet. Pongamos $b_n=\frac{1}{n}$ y $a_n=\left(\frac{2+i}{1+2i}\right)^n$. Tenemos que \sucn{b}\ es monótona y converge a $0$. Además, poniendo $w=\frac{2+i}{1+2i}$, tenemos que:
+$$
+\begin{aligned}
+\modulo{\dis\sum_{k=1}^n a_k}&=\modulo{\dis\sum_{k=1}^n w^k}=\modulo{\dfrac{w^{n+1}-w}{w-1}}=\dfrac{\modulo{w^{n+1}-w}}{\modulo{w-1}}\le\dfrac{\modulo{w}^{n+1}+\modulo{w}}{\modulo{w-1}}=
+\dfrac{2}{\modulo{w-1}}.
+\end{aligned}
+$$
+Como $\dfrac{2}{\modulo{w-1}}$ es una constante independiente de $n$, el criterio particular de Dirichlet nos dice que la serie es convergente.
+
+Observa que el criterio particular de Dirichlet implica que las serie de números complejos de la forma $\serie{z^n b_n}$ donde \sucn{b}\ es una sucesión de números reales monótona y convergente a $0$ y $z$ es un número complejo de módulo $1$ y distinto de $1$, ($z\neq 1,\ \abs{z}=1$), son convergentes. Naturalmente si $\abs{z}<1$ tales series convergen absolutamente.\hecho
+
+vi)\ Es fácil comprobar que el término general de la serie no converge a cero y, por tanto, la serie no es convergente.\hecho
+
+\resuelto Sea $\rho\en\R$ con $\abs{\rho}<1$ y $\vartheta\en\R$.
+Calcula los límites:
+$\dis\sumaf{n=0}{\infty}\rho^n\cos(n\vartheta)$ y $\dis
+\sumaf{n=0}{\infty}\rho^n\sen(n\vartheta)$.
+
+Sugerencia. Llama $A$ a la primera suma y $B$ a la segunda. Calcula $A+iB$.
+
+\sol Observa que por ser $\abs{\rho}<1$ las dos series son absolutamente convergentes. Tenemos que:
+$$
+\begin{aligned}
+A+iB &=\sum_{n=0}^\infty \rho^n\big(\cos(n\vartheta)+i\sen(n\vartheta)\big)=\sum_{n=0}^\infty\big(\rho\e^{i\vartheta}\big)^n=\frac{1}{1-\rho\e^{i\vartheta}}=\\
+&=\frac{1-\rho\e^{-i\vartheta}}{1+\rho^2-2\rho\cos\vartheta}=\frac{1-\rho\cos\vartheta}{1+\rho^2-2\rho\cos\vartheta}+
+i\frac{\rho\sen\vartheta}{1+\rho^2-2\rho\cos\vartheta}.
+\end{aligned}
+$$
+Deducimos que:
+$$
+A=\sumaf{n=0}{\infty}\rho^n\cos(n\vartheta)=\frac{1-\rho\cos\vartheta}{1+\rho^2-2\rho\cos\vartheta},\quad
+B=\sumaf{n=0}{\infty}\rho^n\sen(n\vartheta)=\frac{\rho\sen\vartheta}{1+\rho^2-2\rho\cos\vartheta}.
+$$
+\end{ejercicios resueltos}
+\section{Cálculo elemental de $\varint_0^{+\infty}\frac{\sen x}{x}\df{x}$ y de $\sum_{n=1}^\infty\frac{1}{n^2}$}
+Necesitaremos el siguiente resultado que es un caso muy particular del llamado \emph{lema de Riemann -- Lebesgue}. Probaremos que si $f$ es una función con derivada continua en $[a,b]$ entonces se verifica que:
+\begin{equation}\label{eq:riemannlebesgue}
+\lim_{t\to +\infty}\varint_{a}^{b}\!f(x)\sen(tx)\df{x}=
+\lim_{t\to +\infty}\varint_{a}^{b}\!f(x)\cos(tx)\df{x}=0
+\end{equation}
+En las hipótesis hechas, la prueba es inmediata porque basta integrar por partes:
+$$
+\varint_{a}^{b}\!\!f(x)\sen(tx)\df{x}\!=[u(x)=\!f(x), v\tl(x)=\sen(tx)]=-\frac{1}{t}f(x)\cos(tx)\bigg|_{x=a}^{x=b}\!\!\!+\frac{1}{t}\varint_a^b\!\!f\tl(x)\cos(tx)\df{x}
+$$
+Como $\abs{\cos(u)}\le 1$ cualquiera sea $u\en\R$ se sigue que:
+$$
+\modulo{\varint_{a}^{b}\!f(x)\sen(tx)\df{x}}\le \dfrac{1}{t}\big(\abs{f(a)}+\abs{f(b)}\big)+\frac{1}{t}\varint_a^b\!\abs{f\tl(x)}\df{x}=\frac{K}{t}
+$$
+donde $K=\abs{f(a)}+\abs{f(b)}+\varint_a^b\!\abs{f\tl(x)}\df{x}$ es una constante. De esta desigualdad se sigue que $\dis\lim_{t\to +\infty}\varint_{a}^{b}\!f(x)\sen(tx)\df{x}=0$. Análogamente se prueba que  $\dis\lim_{t\to +\infty}\varint_{a}^{b}\!f(x)\cos(tx)\df{x}=0$.
+
+Haciendo ahora en la igualdad $2\sen x\cos y=\sen(x+y)-\sen(y-x)$ $y=2kx$ se obtiene:
+$$
+2\sen x\cos(2kx)=\sen\big((2k+1)x\big)-\sen\big((2k-1)x\big).
+$$
+Sumando estas igualdades desde $k=1$ hasta $k=n$ resulta:
+$$
+2\sen x\sum_{k=1}^n\cos(2kx)=\sen\big((2n+1)x\big)-\sen x
+$$
+de donde, dividiendo por $\sen x\neq 0$, se sigue que:
+\begin{equation}\label{eq:sumacosenosseno}
+\frac{\sen\big((2n+1)x\big)}{\sen x}=2\sum_{k=1}^n\cos(2kx)+1.
+\end{equation}
+Deducimos que:
+$$
+\varint_0^{\frac{\pi}{2}}\frac{\sen\big((2n+1)x\big)}{\sen x}\df{x}=\frac{\pi}{2}
+$$
+Como la función \func{f}{[0,\pi/2]}\ dada por $f(x)=\dfrac{1}{x}-\dfrac{1}{\sen x}$ para $x\neq 0$ y $f(0)=0$ tiene derivada continua en $[0,\pi/2]$, podemos usar el resultado probado al principio para deducir que:
+$$
+\lim_{n\to\infty}\varint_0^{\frac{\pi}{2}}\left(\dfrac{1}{x}-\dfrac{1}{\sen x}\right)\sen\big((2n+1)x\big)\df{x}=0.
+$$
+Y, teniendo en cuenta la igualdad antes obtenida, concluimos que
+$$
+\lim_{n\to\infty}\varint_0^{\frac{\pi}{2}}\!\dfrac{\sen\big((2n+1)x\big)}{x}\df{x}=\frac{\pi}{2}.
+$$
+Y, haciendo un sencillo cambio de variable obtenemos que:
+$$
+\varint_0^{\frac{\pi}{2}}\!\frac{\sen\big((2n+1)x\big)}{x}\df{x}=[(2n+1)x=u]=\varint_0^{\frac{(2n+1)\pi}{2}}\frac{\sen u}{u}\df{u}=\frac{\pi}{2}.
+$$
+Por otra parte la integral impropia $\varint_0^{+\infty}\!\!\frac{\sen x}{x}\df{x}$ es convergente como hemos visto en el ejercicio resuelto \ref{res:intsenodivxconverge}, es decir, existe el límite $\dis\lim_{t\to +\infty}\varint_0^{t}\!\frac{\sen x}{x}\df{x}$. Por tanto, por la conocida caracterización de los límites funcionales, para toda sucesión $\sucn{a}\to +\infty$ se tiene que:
+$$
+\varint_0^{+\infty}\frac{\sen x}{x}\df{x}=\lim_{n\to \infty}\varint_0^{a_n}\frac{\sen x}{x}\df{x}.
+$$
+Haciendo $a_n=(2n+1)\frac{\pi}{2}$ concluimos que:
+$$
+\varint_0^{+\infty}\frac{\sen x}{x}\df{x}=\lim_{n\to \infty}\varint_0^{\frac{(2n+1)\pi}{2}}\frac{\sen u}{u}\df{u}=\frac{\pi}{2}.
+$$
+\smallskip
+
+Calcularemos ahora la suma de la serie $\dis\sum_{n\ge 1}\dfrac{1}{n^2}$. Sustituyamos en la igualdad \ref{eq:sumacosenosseno}\  $x$ por $x/2$ para obtener:
+$$
+\frac{\sen\big((2n+1)\frac{x}{2}\big)}{\sen(x/2)}=2\sum_{k=1}^n\cos(kx)+1.
+$$
+Multiplicando esta igualdad por $x(x-2\pi)$ y teniendo en cuenta que:
+$$
+\varint_0^\pi x(x-2\pi)\cos(kx)\df{x}=\frac{2\pi}{k^2}
+$$
+como se comprueba fácilmente integrando por partes dos veces, obtenemos:
+$$
+\varint_0^\pi\frac{x(x-2\pi)}{\sen(x/2)}\sen\big((2n+1)\frac{x}{2}\big)\df{x}=4\pi\sum_{k=1}^n\frac{1}{k^2}+\varint_0^\pi x(x-2\pi)\df{x}=4\pi\sum_{k=1}^n\frac{1}{k^2}-\frac{2\pi^3}{3}.
+$$
+Como la función \func{f}{[0,\pi]}\ dada por $f(x)=\frac{x(x-2\pi)}{\sen(x/2)}$ para $x\neq 0$, $f(0)=-4\pi$ tiene derivada continua en $[0,\pi]$, podemos aplicar el resultado visto al principio de esta sección para deducir que:
+$$
+\lim_{n\to\infty}\varint_0^\pi\frac{x(x-2\pi)}{\sen(x/2)}\sen\big((2n+1)\frac{x}{2}\big)\df{x}=0.
+$$
+Lo que, teniendo en cuenta la igualdad anterior, implica que:
+$$
+\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}.
+$$

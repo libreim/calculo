@@ -1,0 +1,1267 @@
+\chapter{Números y límites. El infinito matemático}
+\vspace*{-1cm}
+\begin{minipage}[t]{.53\textwidth}
+\vspace{0pt}
+\phantom{aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}
+\end{minipage}%
+\begin{minipage}[t]{.47\textwidth}
+\vspace{0pt}
+{\small \textit{Even as the finite encloses an infinite series\\  And in the unlimited limits appear, \\ So the soul of immensity dwells in minuta\\  And in the narrowest limits, no limits inhere \\ What joy to discern the minute in infinity! \\ The vast to perceive in the small, what Divinity!} \\  Jakob Bernoulli}
+\end{minipage}%
+
+\section{Introducción}\vspace*{-1mm}
+Las confusas formulaciones iniciales, a finales del siglo XVII, de los conceptos principales del Cálculo, tienen un acentuado contenido geométrico o mecánico. Muy lentamente, a lo largo de los siglos XVIII y XIX, van evolucionando hasta que llegan finalmente a expresarse por medio del álgebra de desigualdades, ya totalmente desprovistas de referencias geométricas o mecánicas. Este largo proceso se conoce con el nombre de \emph{Aritmetización del Análisis}, y alcanza su máximo empuje y desarrollo en el siglo XIX gracias a los trabajos de Bolzano, Cauchy, Dedekind, Weierstrass y Cantor. Bajo su influencia, el Cálculo, que durante el siglo XVIII no era más que una colección de técnicas para resolver los más variados problemas, se fue transformando a lo largo del siglo XIX en una teoría científica sólidamente fundamentada y rigurosa en sus métodos: el Análisis Matemático.
+
+En el Capítulo anterior hemos estudiado dos conceptos fundamentales del Análisis Matemático: el de número real y el de límite funcional. Creo que es muy instructivo que conozcas algunas etapas del camino que condujo a su formulación actual, pues así podrás apreciarlos y entenderlos mejor.
+
+Las ideas que siguen están ampliamente desarrolladas y expuestas con claridad en los libros de Burton \cite{burton}, Giovanni Ferraro \cite{ferraro} y Gert Schubring \cite{rigor}. Así mismo las páginas de Wikipedia dedicadas al concepto de \href{http://en.wikipedia.org/wiki/Number}{número} y de \href{http://en.wikipedia.org/wiki/Negative_and_non-negative_numbers}{número negativo} y, muy especialmente, la página del profesor \href{http://publish.uwo.ca/~jbell/}{John L. Bell}, contienen información muy interesante.\vspace*{-3mm}
+\section{Evolución del concepto de número}
+\vspace*{-2mm}Si te pregunto ``¿qué es para ti el número 5?'' Me dirás: está claro, es justamente aquello que tienen en común todos los grupos de objetos que pueden contarse con los dedos de una mano. Sabes que es una abstracción, un concepto. Si sales ahí afuera, puedes encontrar cinco bicicletas o cinco bancos en el parque, pero seguro que en ninguno de ellos está sentado el número 5. También sabes que $\frac{7}{10}$ es un número y te lo representas sin ninguna dificultad: son siete décimas partes. De qué sean las partes eso no importa, pueden ser de cualquier cosa. El número $\frac{7}{10}$ también es una abstracción. Los números negativos no te causan problemas, sabes que son útiles para hacer cálculos y muy convenientes para representar valores en una escala. Y ¿qué me dices de los números como $\sqrt{2}$? Pues que tienen una expresión decimal que no acaba ni se repite, que pueden aproximarse por fracciones decimales, que pueden expresar el resultado exacto de una medida o, simplemente, que es un número cuyo cuadrado es igual a $2$. Del cero ya, ni te hablo, a estas alturas debe ser un viejo amigo tuyo. Pero debes tener bien claro que las cosas no siempre fueron así.\vspace*{-3mm}
+\subsection{Números y cantidades en la antigua Grecia}
+\vspace*{-2mm}Los griegos de la antigüedad distinguían entre \emph{``número''} y \emph{``cantidad''} o \emph{``magnitud''}. Para ellos un número era un agregado de unidades. Podemos precisar más. Un número es una multiplicidad que se obtiene por repetición de un individuo -- la unidad --, cuyas partes están separadas -- son discontinuas -- y tienen fronteras bien definidas. Por todo ello, una característica esencial de los números era su carácter \emph{discreto}. Por otra parte, los números no tienen sentido si se separan de los objetos materiales o ideales a los que enumeran. Así, ``tres árboles'' tiene sentido, pero ``tres'' por sí mismo carece de significado. Es decir, un número es un atributo de un grupo de objetos y carece de autonomía propia.
+
+Una ``cantidad'' puede ser, entre otras cosas, tiempo, longitud, volumen, velocidad o masa. La característica esencial de la cantidad es su \emph{continuidad}. Una cantidad puede dividirse indefinidamente, pero no está formada por partes separadas que son réplicas de una unidad, sino que sus componentes están unidos entre sí por fronteras comunes: donde acaba uno empieza otro. Por ejemplo, un área plana puede dividirse en trozos que, al estar unidos unos con otros, pierden su singularidad quedando como partes indiferenciadas de un todo. Por otra parte, los matemáticos griegos no estudiaron la cantidad como algo abstracto, para ellos \emph{las cantidades tienen siempre un carácter concreto}: son una cantidad de algo.
+
+El concepto de cantidad estaba estrechamente ligado a la Geometría. Una proporción entre dos segmentos es una cantidad que a veces puede expresarse con ayuda de números. Cuando dichos segmentos admiten una unidad de medida común podemos decir que la razón de uno a otro es, por ejemplo, de $7:10$ pero, para los griegos, $7:10$ no es un número sino una forma de expresar una cantidad concreta, que podría leerse algo así como ``siete partes de diez''. Ellos \emph{solamente consideraban como números los enteros positivos} y ni siquiera consideraban como número a la unidad. La unidad era, eso, ``la unidad'' de la que estaban formados los números, pero ella misma no era un número.\pagebreak
+
+ \begin{figure}[ht]
+ \centering
+     \begin{minipage}[t]{.35\textwidth}
+     \vspace{0pt}
+     \flushleft
+      \includegraphics[width=3.5cm]{euclides.eps}
+    \captionsetup{singlelinecheck=off,justification=raggedright,margin={1mm,0mm}}
+\caption{Euclides}
+    \end{minipage}
+    \vspace{0pt}
+    \hspace{1mm}
+    \begin{minipage}[t]{.62\textwidth}
+    En el Capítulo 1 nos ocupamos  del descubrimiento de las \hyperlink{magnitudes}{cantidades inconmensurables}, esto es, razones de segmentos que no admiten una unidad de medida común. El hallazgo de lo que nosotros llamamos ``números irracionales'', como $\sqrt{2}$, no tiene ningún significado aritmético para los griegos; su significado era geométrico: no puedes medir la diagonal de un cuadrado con su lado.
+    \href{http://divulgamat.ehu.es/weborriak/historia/mateospetsuak/Euclides.asp}{Euclides}, el matemático más famoso de la Escuela de Alejandría, en el Libro X de los \emph{Elementos} (300 a.C.), clasifica las magnitudes inconmensurables en los tipos siguientes (uso, claro está, la notación actual):
+\end{minipage}
+  \end{figure}
+
+\vspace*{-2mm}\centerline{$\displaystyle{a\pm\sqrt{b},\quad\sqrt{a}\pm\sqrt{b},\quad\sqrt{a\pm\sqrt{b}},\quad\sqrt{\sqrt{a}\pm\sqrt{b}}}$}
+
+Donde se entiende que $a$ y $b$ son racionales.
+
+La existencia de segmentos inconmensurables era un serio problema para el desarrollo de la geometría pues, como dichos segmentos no pueden compararse, no se sabía cómo interpretar su proporción. Por ejemplo, un resultado, sin duda conocido por los pitagóricos, afirma que \emph{las áreas de dos triángulos con igual altura están en la misma proporción que sus bases}. ¿Qué sentido tiene esta afirmación si las bases no son segmentos conmensurables? El problema está en que no había una forma de comparar proporciones entre magnitudes inconmensurables. Un matemático, \href{http://divulgamat.ehu.es/weborriak/historia/MateOspetsuak/Inprimaketak/Eudoxo.asp}{Eudoxo de Cnido} (\emph{c.}\,400 - 347 a.C.), propuso una teoría axiomática de las magnitudes inconmensurables, que está recogida en el Libro V de los \emph{Elementos}, en la que destacan los siguientes puntos.
+
+\noindent \textbf{E1} \hypertarget{propiedadarquimediana}{(\emph{Propiedad arquimediana})} Dadas dos magnitudes  siempre hay un múltiplo de una de ellas que excede a la otra. Es decir, si es $0<a<b$ hay algún \nN\ tal que $na>b$.
+
+\noindent \textbf{E2} (\emph{Criterio de igualdad}) Las proporciones $a:b$ y $c:d$ son iguales si cualesquiera sean los enteros positivos $m$, $n$ se tiene que
+\begin{equation}\label{eudoxo}
+ma<nb \Longrightarrow mc<nd,\quad ma=nb\Longrightarrow mc=nd,\quad ma>nb\Longrightarrow mc>nd
+\end{equation}
+Volveremos a considerar más adelante este elaborado criterio de igualdad que, desde luego, no aclaraba nada sobre la naturaleza de las cantidades irracionales y ponía de manifiesto la dificultad de reducir a la aritmética el estudio de las mismas.
+
+La carencia de una teoría aritmética satisfactoria de las cantidades inconmensurables, hizo que los matemáticos griegos consideraran la Geometría como una ciencia más general que la Aritmética, y dedicaran sus esfuerzos al estudio de la primera en detrimento de la última. La consecuencia fue que durante casi 2000 años, en Europa, casi todo razonamiento matemático riguroso se expresó en lenguaje geométrico.
+
+Quizás el único matemático griego, después de los pitagóricos, que no hizo Geometría sino Aritmética fue Diofanto de Alejandría (c.\,214 - 298). En su obra llamada \emph{Aritmética}, de la que se han conservado seis libros de un total de trece, resuelve diversos tipos de ecuaciones algebraicas admitiendo como soluciones números enteros o números fraccionarios positivos, los cuales son considerados por Diofanto como auténticos números y no solamente como proporciones. Otra innovación de Diofanto fue la invención de una notación ``sincopada'' que constituye el primer ejemplo de simbolismo matemático.
+
+\subsection{De la antigua Grecia a la invención del Cálculo}
+Es sabido que la civilización Romana, tan excelente en tantos aspectos, no destacó en el estudio de las ciencias puras y, en particular, de las matemáticas. La prueba de ello es que no hay ningún matemático Romano digno de mención. No obstante, el sistema de numeración Romano se impuso extendiéndose por todo el Imperio.
+
+Con el triunfo del Cristianismo a finales del siglo IV y la caída del Imperio Romano de Occidente en el año 476, se inicia una larga era de oscurantismo en Europa. La fe y los dogmas no son demostrables lógicamente; absurdas disputas teológicas ocupan el lugar de los estudios de la Naturaleza y la Biblia es la fuente de todo conocimiento. Según San Agustín ``las palabras de las Escrituras tienen más autoridad que toda la inteligencia humana''. El racionalismo científico es sospechoso de paganismo. Entonces\dots ¿Para qué pensar?
+
+A diferencia que en Grecia, en la India se había desarrollado principalmente la Aritmética y se conocía el sistema de numeración posicional decimal desde el siglo VI. La primera vez que el cero es tratado como un número de pleno derecho es en la obra \emph{Brahmasphutasiddhanta} del matemático y astrónomo indio \href{http://en.wikipedia.org/wiki/Brahmagupta}{Brahmagupta} (598 - 670). Esta obra también contenía el principio de la numeración decimal posicional y los métodos de cálculo del álgebra india. En ella se tratan los números negativos en términos muy parecidos a los actuales.
+
+
+
+ \begin{figure}[ht]
+ \centering
+     \begin{minipage}[t]{.35\textwidth}
+     \vspace{0pt}
+     \flushleft
+      \includegraphics[width=3.5cm]{alkwarizmi.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright,margin={1mm,0mm}}
+\caption{al-Jwarizmi}
+    \end{minipage}
+    \begin{minipage}[t]{.63\textwidth}
+    \rule{4mm}{0mm}La herencia matemática griega pasa a los árabes. La cultura árabe tiene una época de esplendor en los siglos VIII - XII. Al-Mamun (c.\,786 - 833), sexto califa de la dinastía Abasida, fundó en Bagdad la Casa de la Sabiduría, una especie de academia con una biblioteca y un observatorio. Allí se tradujeron las obras de los matemáticos y filósofos griegos y tuvieron conocimiento de las matemáticas indias.
+   \newline\rule{0mm}{5mm} \rule{4mm}{0mm} El más conocido matemático de la Escuela de Bagdad fue Muhammad ibn-Musa al-Jwarizmi de quien ya hemos hablado en el Capítulo 2. En su obra \emph{Libro de la Adición y la Sustracción según el cálculo de los hindúes} se describe el sistema decimal posicional y se dan métodos para realizar cálculos aritméticos con dicho sistema.
+     \end{minipage}
+  \end{figure}\vspace{-4mm}
+ \begin{figure}[ht]
+ \centering
+     \begin{minipage}[t]{.35\textwidth}
+     \vspace{-3cm}
+     \includegraphics[width=3.5cm]{fibonacci.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright,margin={1mm,0mm}}
+\caption{Fibonacci}
+    \end{minipage}
+    \begin{minipage}{.63\textwidth}
+     \rule{4mm}{0mm}\rule{0mm}{5mm}
+     \href{http://divulgamat.ehu.es/weborriak/Historia/MateOspetsuak/LeonardoPisa.asp}{ Leonardo de Pisa} (c. 1170 - 1250), más conocido como Fibonacci, aprendió en sus viajes por los países árabes del Mediterráneo a usar los métodos de al-Jwarizmi. Al regresar a Italia, publicó en 1202 el \emph{Liber abaci}, obra que contribuyó a extender el sistema de numeración indo-árabe en Occidente. Estudiando las soluciones de una ecuación de tercer grado, Fibonacci probó que había números irracionales diferentes de los considerados por Euclides. En consecuencia, las técnicas del álgebra geométrica griega no permitían construir todas las cantidades inconmensurables.
+     \end{minipage}
+  \end{figure}%\vspace*{-8mm}
+
+\noindent  Fibonacci dio también una interpretación de los números negativos como pérdidas o deudas, que tuvo bastante buena acogida. Pero todavía deberá pasar mucho tiempo para que los números negativos y el cero sean totalmente aceptados como números.
+
+En este apresurado repaso que estamos dando a la historia de los números, debemos avanzar ahora casi trescientos años para llegar a la siguiente etapa protagonizada por los matemáticos italianos del Renacimiento \href{http://www-groups.dcs.st-and.ac.uk/~history/Biographies/Tartaglia.html}{Niccoló Tartaglia} (\emph{c.}\,1500 - 1557), \href{http://es.wikipedia.org/wiki/Cardano}{Gerolamo Cardano} (1501 - 1576), \href{http://www-groups.dcs.st-and.ac.uk/~history/Biographies/Bombelli.html}{Rafael Bombelli} (1526 - 1572) y \href{http://www-groups.dcs.st-and.ac.uk/~history/Biographies/Ferrari.html}{Ludovico Ferrari} (1522 - 1565). Los dos primeros resolvieron la ecuación general de tercer grado de la cual solamente se conocían las soluciones en algunos casos particulares. En la resolución de la cúbica, Cardano tuvo en cuenta las\linebreak
+
+   \begin{figure}[ht]
+ \centering
+     \begin{minipage}[t]{.35\textwidth}
+     \vspace*{-2.7cm}
+     %\flushleft
+      \includegraphics[width=3.5cm]{tartaglia.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright,margin={1mm,0mm}}
+\caption{Tartaglia}
+    \end{minipage}
+    \begin{minipage}{.63\textwidth}
+   \vspace*{-5mm} soluciones negativas aunque las llamó ``ficticias'', y comprobó que la cúbica podía tener tres soluciones. Así mismo, Cardano reconoció por primera vez la existencia de lo que ahora llamamos números complejos (a los que Napier llamó ``los fantasmas de los números reales'') aunque no los aceptó como posibles soluciones. Por su parte, Bombelli fue el primero en especificar las reglas para sumar y multiplicar números complejos. Usando dichas reglas, probó que podían obtenerse soluciones reales correctas para la cúbica, incluso cuando la fórmula de Tartaglia -- Cardano requería el cálculo de raíces de números negativos.
+     \end{minipage}
+  \end{figure}\vspace*{-3mm}
+De esta época es también un opúsculo \emph{De Thiende} (1585) (``El Décimo'') -- 36 páginas -- de \href{http://divulgamat.ehu.es/weborriak/historia/MateOspetsuak/Stevin.asp}{Simon Stevin} (1548 - 1620), ingeniero y matemático nacido en Brujas, en el que se introducen las fracciones decimales y se explica su uso en las operaciones aritméticas. Así mismo, en su obra \emph{L'Arithmetique} (1585) escribió que ``no hay números inexplicables, irregulares, irracionales, surds\footnote{La palabra griega ``alogos'', $\alpha\lambda o\gamma o\varsigma$, usada por los griegos para designar a los números irracionales, también significa ``sin discurso'' y los árabes la tradujeron por \emph{asamm}, ``sordo'' o ``mudo'', que fue traducida al latín por \emph{surdus}.} o absurdos'', indicando con esto que todos los números debían ser tratados por igual y no hacer distinciones entre ellos como si fueran de distinta naturaleza. Después de Stevin, la idea de que 1 era un número ganó una amplia aceptación.
+
+A pesar de estos avances, los conceptos de ``número'' y ``cantidad'' de la antigüedad permanecen sin cambios notables hasta el siglo XVII cuando se desarrolla el simbolismo algebraico.
+
+Lo importante del simbolismo algebraico, no es tanto el uso de los símbolos por sí mismos, sino la elaboración de reglas formales para realizar operaciones de forma simbólica. Por ejemplo, $a^2$ puede entenderse como una forma simplificada de escribir ``el área del cuadrado de lado $a$''. Eso es muy distinto de escribir $(a+b)^2=a^2+2ab+b^2$. Esto último ya es una manipulación simbólica abstracta en la que las letras $a$, $b$ no son más que símbolos sin una naturaleza concreta.
+
+\href{http://es.wikipedia.org/wiki/Fran\%C3\%A7ois_Vi\%C3\%A8te}{Fran\c{c}ois Viéte} en su \emph{In artem analyticem isagoge} (1591) expone una ``logistica speciosa'' (\emph{specis}: símbolo), o arte de calcular con símbolos, que fue un paso decisivo para el desarrollo del concepto de cantidad abstracta. No obstante, Viéte consideraba que solamente las cantidades homogéneas podían compararse entre sí. Para entender esto debes tener en cuenta que, desde la antigüedad, el producto de dos cantidades, por ejemplo $ab$, representaba el área de un rectángulo de lados $a$ y $b$. De la misma forma, $abc$ representaba el volumen de un ortoedro. Una expresión como $ab+c$ no tenía significado porque no se podía sumar una longitud y un área: no eran cantidades homogéneas.
+
+ \begin{figure}[ht]
+ \centering
+     \begin{minipage}{.275\linewidth}
+     %\medskip
+     \flushleft
+      \includegraphics[width=3.5cm]{viete.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright,margin={3mm,0mm}}
+\caption{Viéte}
+    \end{minipage}
+    \begin{minipage}{.275\linewidth}
+      %\medskip
+     \centering
+      \includegraphics[width=3.5cm]{fermat.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright,margin={5mm,0mm}}
+\caption{Fermat}
+\end{minipage}
+\begin{minipage}{.275\linewidth}
+      %\medskip
+     \flushright
+      \includegraphics[width=3.5cm]{descartes.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright,margin={6mm,0mm}}
+\caption{Descartes}
+\end{minipage}
+  \end{figure}
+
+El siguiente paso definitivo fue el invento de la \emph{geometría analítica} en los años 1630 por \href{http://en.wikipedia.org/wiki/Fermat}{Pierre Fermat} y \href{http://es.wikipedia.org/wiki/Ren\%C3\%A9_Descartes}{René Descartes}. La introducción de coordenadas y la representación de curvas por medio de ecuaciones supuso un cambio de perspectiva revolucionario. Piensa que, en la Antigüedad, solamente podían estudiarse aquellas curvas para las que se conocía un método de construcción con regla y compás. Ahora, por primera vez, los objetos geométricos podían estudiarse por medio del simbolismo algebraico, cuando hasta entonces lo usual había sido que el simbolismo algebraico fuera un pálido reflejo de relaciones geométricas.
+
+Una importante creación de Descartes fue el desarrollo de un ``álgebra de segmentos''. Para ello, tomando como unidad un segmento $u$, construyó un segmento (cantidad) $c$ que verificaba la proporción $u:a = b:c$. Dicho segmento $c$ representaba el producto de los dos segmentos (cantidades) $a$ y $b$. También construyó segmentos que se correspondían con la suma, la diferencia y el cociente de segmentos. De esta manera, cualquier operación con cantidades se corresponde con un segmento, lo que hace que todas las cantidades sean homogéneas. Una expresión como $ab+c$ ya es correcta porque representa un segmento de línea. Esta homogeneización de todas las cantidades conduce al concepto de \emph{cantidad abstracta} desconocido en la antigüedad.
+
+Por esta época ya también los números eran objetos abstractos del pensamiento. Es decir, ya no eran simplemente un atributo del grupo al que contaban sino que se habían convertido en entidades autónomas.
+
+Descartes introdujo el término ``imaginario'' para referirse a aquellas soluciones de una ecuación polinómica que solamente están en ``nuestra imaginación''. Como era costumbre, llamaba ``soluciones falsas'' a las soluciones negativas. Las ``raíces verdaderas'' eran las positivas.
+
+A estos progresos en matemáticas hay que agregar los realizados en astronomía y en mecánica por \href{http://es.wikipedia.org/wiki/Cop\%C3\%A9rnico}{Copérnico} (1473-1543), \href{http://es.wikipedia.org/wiki/Kepler}{Kepler} (1571-1630) y \href{http://es.wikipedia.org/wiki/Galileo}{Galileo}(1564-1642). Todos ellos se apoyan en métodos experimentales y empíricos cuantitativos para formular sus resultados como Leyes de la Naturaleza de contenido matemático.
+
+Al mismo tiempo, a lo largo de los dos primeros tercios del siglo XVII, se van desarrollando una gran variedad de ``métodos infinitesimales'', cuyos precedentes clásicos estaban en Eudoxo y Arquímedes, para resolver multitud de problemas de tipo geométrico y analítico, como cálculo de tangentes a curvas, cálculo de áreas y de valores máximos. Los trabajos de \href{http://www.unex.es/~fan/cuantica/mc\%2010/Web/Tales/cava.html}{Cavalieri} (1598 - 1647) , \href{http://es.wikipedia.org/wiki/John_Wallis}{Wallis} (1616 - 1703) y \href{http://en.wikipedia.org/wiki/Isaac_Barrow}{Barrow} (1630 - 1677) entre otros muchos, establecieron las bases sobre las que dos grandes genios, \href{http://en.wikipedia.org/wiki/Isaac_Newton}{Newton} (1643 - 1727) y \href{http://en.wikipedia.org/wiki/Leibniz}{Leibniz} (1646 - 1716) desarrollaron el Cálculo Infinitesimal. Más adelante veremos con algún detalle todo este proceso, pues ahora quiero considerar solamente aquellos aspectos del mismo relacionados con las ideas de número y de cantidad.
+
+El Cálculo Infinitesimal son las matemáticas del cambio y del movimiento. Las ideas de magnitud variable y de dependencia entre magnitudes son fundamentales en estas nuevas matemáticas. Surge así el concepto de ``variable'' que se forma a partir de la idea de cantidad abstracta. En el libro de L'Hôpital \emph{Analyse des infiniment petits, pour l'intelligence des lignes courbes} (1696) se lee:
+\begin{quote}
+\emph{Se llaman cantidades variables aquellas que aumentan o disminuyen continuamente, y por contraste cantidades constantes aquellas que permanecen igual mientras las otras cambian.}
+\end{quote}
+Los matemáticos de los siglos XVII y XVIII usan el término ``cantidad'' para referirse a cantidades generales abstractas, así como a cantidades geométricas concretas, pero siempre se consideran dichas cantidades como continuas. La noción de cantidad continua no se discute, se trataba de un concepto basado en la realidad física. Según Leibniz ``Natura non facit saltus''.
+
+La idea de cantidad es más general que la idea de número. Un segmento de línea, por ejemplo, representa una cantidad, pero él mismo no se reduce a números. La idea de número como elemento de un conjunto no existe en el siglo XVIII. Por la misma razón, un segmento no puede ``separarse'' de sus extremos y siempre los incluye. Los números eran interpretados como medidas. En \emph{Arithmetica universalis} (1707) Newton escribe:
+\begin{quote}
+\emph{Por \emph{número} entendemos no tanto una multitud de cantidades, como la razón abstracta de cualquier cantidad a otra cantidad de la misma clase que tomamos por unidad. Un entero es lo que es medido por la unidad, una fracción, aquello a lo que una parte submúltiplo de la unidad mide, y un surd, aquello que es inconmensurable con la unidad.}
+\end{quote}
+Esta interpretación de los números se corresponde con la consideración de las Matemáticas en los siglos XVII y XVIII como una Ciencia de la Naturaleza y, en consecuencia, los objetos matemáticos deben estar vinculados, directa o indirectamente, con la realidad física. Por ello, solamente se consideran como ``verdaderos números'' los que representan el resultado de una medida: los enteros y los racionales positivos. Los demás números (negativos, el 0 y los imaginarios) son necesarios y útiles para los cálculos, pero no son considerados ``verdaderos números'' son ``ficticios''.
+
+Los números irracionales positivos, aunque no son números en sentido estricto, tampoco son propiamente ``ficticios'', porque pueden representarse por un segmento y sirven para medir cantidades geométricamente especificadas. Los racionales e irracionales positivos son llamados ``números reales'' en oposición a los números imaginarios.
+
+Los números empiezan a considerarse como entidades simbólicas sobre las que se opera con unas reglas establecidas (pero que no pueden ser libremente definidas). Por ejemplo, según Euler, $\sqrt{12}$ es un número que multiplicado por sí mismo es igual a $12$, y esto es una definición simbólica de $\sqrt{12}$.
+
+El desarrollo inicial del Cálculo, en el último tercio del siglo XVII, se basa en ideas vagas e imprecisas como ``cantidad evanescente'', ``razón última'' o ``infinitamente pequeño''. El uso de los ``infinitésimos'', considerados como cantidades que, sin ser nulas, son más pequeñas que cualquier cantidad positiva imaginable, es característico de las técnicas del Cálculo.
+
+Después de la invención del Cálculo el objetivo era usarlo para descubrir nuevos resultados. Al principio, nadie se preocupó mucho por la corrección matemática de los procedimientos empleados. La confianza en dichas técnicas descansaba en su extraordinaria eficacia para resolver multitud de problemas. Sin embargo, a finales del siglo XVIII, el uso continuado de los infinitésimos, que nadie sabía explicar, unido a la incomprensión que se tenía de los números irracionales y de los procesos de convergencia, propiciaron estudios críticos de los conceptos básicos del Cálculo, que acabaron llevando a una nueva formulación de los mismos mucho más formal y rigurosa, según los criterios actuales, pero también mucho menos intuitiva.
+
+\subsection{Infinitésimos y el continuo numérico}
+Estás leyendo \emph{ahora mismo} estas palabras. Tienes un sentido preciso del ``ahora'', al igual que del ``pasado'' y del ``futuro''. Tenemos una percepción muy clara del ``flujo del tiempo''. Percibimos el tiempo como un continuo: lo que separa dos instantes de tiempo es \dots tiempo. Dado un pequeño intervalo de tiempo, digamos un segundo, siempre podemos concebir otro intervalo más pequeño todavía, medio segundo o una cienbillonésima parte de un segundo. ¿Has pensado alguna vez hasta dónde es posible \emph{dividir el tiempo}? Si aceptamos que el ``instante'' es lo que no tiene duración, parece difícil aceptar que el tiempo esté formado por instantes. ¿Debemos considerar entonces que hay una \emph{unidad mínima} de tiempo, todo lo pequeña que queramos, pero que no se reduce a un instante? Estarás de acuerdo en que esa unidad mínima de tiempo sería algo así como una unidad de tiempo ``infinitesimal''. ¿Cuántas unidades infinitesimales de tiempo caben en un minuto? ¿Un número finito? ¿Una cantidad infinita?
+
+En el párrafo anterior podemos cambiar la palabra ``tiempo'' por ``espacio'' e ``instante'' por ``punto'' y llegaremos a los problemas derivados de la ``infinita divisibilidad'' del espacio. Tiempo y espacio son ejemplos de ``continuo''.  Una entidad continua, un \emph{continuo}, es lo que no está roto ni separado ni tiene huecos, lo que puede ser indefinidamente dividido sin que pierda su naturaleza. Por ejemplo, un volumen de líquido, un segmento, un movimiento o, los ejemplos más inmediatos, el espacio y el tiempo.
+
+Lo que relaciona espacio y tiempo es el movimiento. El Cálculo es la matemática del movimiento, del cambio continuo. El Cálculo se apoya en la geometría analítica de Descartes y Fermat y en la Aritmética. La Geometría se ocupa de cantidades continuas; la Aritmética de lo discreto. El Cálculo es la síntesis de lo ``discreto'' y lo ``continuo''. Los ``infinitésimos'', las cantidades infinitesimales, son el puente entre lo discreto y lo continuo.
+
+Los procedimientos del Cálculo, límites, convergencia, continuidad, pueden describirse como matemáticas del \emph{continuo numérico}. La expresión ``continuo numérico'' puede parecer un oxímoron, esto es, una combinación de dos palabras con significados opuestos y, en cierto sentido, es así. Los números sirven para contar grupos de cosas de igual naturaleza; por ejemplo árboles, o lo que quiera que sea, pero cada una de ellas con su propia individualidad, separadas entre sí, cosas que no tiene sentido dividir porque al hacerlo pierden su naturaleza. Todo esto se resume diciendo que los números tienen un carácter \emph{discreto}. Los números siempre fueron considerados como lo opuesto del continuo.
+
+La oposición continuo  -- discreto ha ocupado a los filósofos desde hace 2500 años y tiene como primeros representantes respectivos a \href{http://es.wikipedia.org/wiki/Parm\%C3\%A9nides_de_Elea}{Parménides} (\emph{c.}\,510 - 450 a.C.) y a \href{http://es.wikipedia.org/wiki/Dem\%C3\%B3crito}{Demócrito} (\emph{c.}\,460 - 370 a.C.).
+
+Parménides, el filósofo más famoso de la Escuela Eleática, afirma en su hermoso poema \emph{Sobre la Naturaleza}, que lo que Es, el Ser, es uno, ingénito, homogéneo, continuo, indivisible e inmutable. Este concepto del Ser excluye toda posibilidad de nueva generación de seres o sustancias y, por tanto, el cambio y el movimiento son mera ilusión, porque ambos presuponen que lo que no es pueda llegar a ser.
+
+Demócrito es el representante más conocido de la Escuela Atomista cuyo materialismo se opone al idealismo de la Escuela Eleática. Demócrito mantiene que el universo está compuesto de pequeños corpúsculos invisibles, los ``átomos'',  que pueden poseer diferentes formas y extensiones y que por movimientos y combinaciones diversas en el vacío engendran la totalidad de lo existente.
+
+\href{http://es.wikipedia.org/wiki/Zen\%C3\%B3n_de_Elea}{Zenón de Elea}, discípulo de Parménides, es famoso por sus \emph{aporías}, en las que trata de probar que tanto si el espacio o el tiempo son infinitamente divisibles, como si no lo son, el movimiento no existe o es imposible. Las aporías de Zenón son un extraordinario desafío, al que filósofos y matemáticos han dado diversas respuestas, sin que aún hoy se tenga conciencia clara de haberlas podido explicar de forma totalmente convincente.
+
+Según Aristóteles, los atomistas preguntaban, en el supuesto de que una magnitud sea infinitamente divisible, qué es lo que quedaba de ella después de haberla sometido a un proceso de división exhaustivo. Y decían, si queda algo como polvo, es porque todavía no se ha completado el proceso de división, y si lo que queda son puntos o algo sin extensión, ¿cómo es posible recomponer una magnitud extensa con algo que no tiene extensión? Según ellos, la respuesta eran los átomos. La palabra griega ``átomos'' significa ``lo que no puede dividirse'', por tanto, la Escuela Atomista negaba la infinita divisibilidad de la materia y afirmaba que cualquier magnitud contiene elementos indivisibles.
+
+De la oposición continuo -- discreto siguieron ocupándose los filósofos de la Antigüedad,  \href{http://es.wikipedia.org/wiki/Platon}{Platón} (\emph{c.}\,427 - 347 a.C.), \href{http://es.wikipedia.org/wiki/Aristoteles}{Aristóteles} (384 - 322a.C.), \href{http://es.wikipedia.org/wiki/Epicuro}{Epicuro} (341 - 270 a.C.); y de la Edad Media \href{http://es.wikipedia.org/wiki/Duns_Scoto}{Duns Scoto} (\emph{c.}\,1266 - 1308), \href{http://es.wikipedia.org/wiki/Guillermo_de_Ockham}{Guillermo de Ockham} (\emph{c.}\,1280 - 1349), \href{http://es.wikipedia.org/wiki/Nicolas_de_Cusa}{Nicolás de Cusa} (1401 - 1464), entre otros. Éste último, en una supuesta demostración de la cuadratura del círculo, consideró una circunferencia como un polígono regular de infinitos lados. La idea de considerar que una curva está formado por infinitos segmentos infinitesimales de línea recta  fue usada, entre otros, por Kepler, Galileo y Leibniz y está recogida en el libro de Guillaume de L'Hôpital \emph{Analyse des Infiniment Petits pour l'Intelligence des Lignes Courbes} (1696) al cual ya nos hemos referido anteriormente.
+
+A finales del siglo XVII, con el invento del Cálculo, resurgió la oposición entre lo continuo y lo discreto, esta vez centrada en el concepto de cantidad infinitesimal. Algunos consideraban los infinitésimos como algo real, infinitamente pequeño, parecido a los átomos de Demócrito, salvo que ahora su número era infinito. La integración se consideraba como una suma infinita de estos infinitésimos. Una diferencial de una cantidad variable era un incremento infinitesimal de dicha variable, y un cociente o una razón de diferenciales ``en el momento en que se anulan'', lo que Newton llamaba \emph{cantidades evanescentes}, era lo que ahora llamamos una derivada, y Newton llamaba una \emph{fluxión}.
+
+El uso de los infinitésimos en el Cálculo demostraba ser muy eficaz y, aunque a algunos, como al mismo Newton, les hubiera gustado evitarlo, lo cierto es que no se sabía bien cómo hacerlo. Lo peor de todo, no es que el mero concepto de infinitésimo sea de por sí difícilmente sostenible, sino la forma en que los infinitésimos se manejaban en los cálculos. Podemos destacar dos características.
+\begin{itemize}
+\item[$\bullet$] Con los infinitésimos podía operarse como con cantidades finitas no nulas y, en particular, podía dividirse por ellos.
+\item[$\bullet$] Los infinitésimos podían ser tratados como cantidades nulas. Así, si $x$ es una cantidad positiva y $o$ un infinitésimo, entonces $\,x+o=x$.
+\end{itemize}
+Dependiendo del tipo de cálculo eran tratados de una forma u otra. Además, había infinitésimos de primer orden despreciables frente a cantidades finitas; de segundo orden que eran despreciables frente a los de primer orden, y así sucesivamente. Para acabar de empeorar las cosas, los infinitésimos no respetaban la \hyperlink{propiedadarquimediana}{propiedad arquimediana}, pues el producto de cualquier cantidad finita por un infinitésimo seguía siendo un infinitésimo.
+\begin{ejemplo}
+Un ejemplo típico es el cálculo de la diferencial de un producto de dos cantidades $x$ e $y$. Se razonaba como sigue. Cuando $x$ cambia a $x+\df{x}$, $y$ cambia a $y+\df{y}$, por lo que $xy$ se transforma en $$(x+\df{x})(y+\df{y})=xy+x\df{y}+y\df{x}+\df{x}\!\df{y}$$
+por lo que la diferencial de $xy$ es $x\df{y}+y\df{x}+\df{x}\!\df{y}$, pero como $\df{x}\!\df{y}$ es una cantidad infinitamente pequeña con respecto a los otros términos, se sigue que la diferencial de $xy$ es $x\df{y}+y\df{x}$.
+\end{ejemplo}
+\begin{ejemplo}\label{derivadainfinitesimal}
+Veamos otro ejemplo típico. Consideremos dos cantidades $x$, $y$ relacionadas por $y-x^3=0$. Cuando $x$ cambia a $x+\df{x}$, $y$ cambia a $y+\df{y}$, por lo que
+$$
+0=y+\df{y}-(x+\df{x}\!)^3=y+\df{y}-x^3-3x^2\df{x}-3x(\df{x}\!)^2-(\df{x}\!)^3
+$$
+Teniendo en cuenta que $y-x^3=0$, deducimos:
+$$
+\df{y}=3x^2\df{x}+3x(\df{x}\!)^2+(\df{x}\!)^3
+$$
+Dividiendo por $\df{x}$ la igualdad obtenida resulta:
+$$
+\dfrac{\df{y}}{\df{x}}=3x^2+3x\df{x}+(\df{x}\!)^2
+$$
+Y como $3x\df{x}+(\df{x}\!)^2$ es infinitamente pequeño respecto de $3x^2$, concluimos que $\dfrac{\df{y}}{\df{x}}=3x^2$.
+
+En lenguaje actual, lo que hemos hecho es calcular la derivada de la función $f(x)=x^3$. Y\dots ¡el resultado es correcto! A pesar de que hemos dividido por una cantidad que después hemos hecho igual a cero.
+\end{ejemplo}
+En 1734 el filósofo \href{http://es.wikipedia.org/wiki/Bishop_Berkeley}{George Berkeley} (1685 - 1753) publicó una obra cuyo título es \emph{El analista, o discurso dirigido a un matemático infiel, donde se examina si el objeto, principios e inferencias del análisis moderno están formulados de manera más clara, o deducidos de manera más evidente, que los misterios de la religión y las cuestiones de la fe}. En dicha obra Berkeley, que fue obispo anglicano de Cloyne, hace una crítica de los fundamentos del Cálculo que tuvo una gran influencia. Afirmaba Berkeley que si se acepta que el Cálculo  puede alcanzar soluciones exactas por medio de razonamientos erróneos, entonces debe admitirse que la fe puede alcanzar la verdad por vías místicas. Es famoso su comentario:
+\begin{quote}
+\emph{¿Qué son las fluxiones? Las velocidades de incrementos evanescentes. Y ¿qué son estos mismos incrementos evanescentes? Ellos no son ni cantidades finitas, ni cantidades infinitamente pequeñas, ni siquiera son nada. ¿No las podríamos llamar los fantasmas de las cantidades desaparecidas?}
+\end{quote}
+Los embrollos en que andaban metidos los matemáticos se reflejan en la novela de Jonathan Swift \emph{Los viajes de Gulliver} (1726) donde aparecen los diminutos enanos de Lilliput y los enormes gigantes de Brobdingnag, y en la narración corta \emph{Micromegas} (1752) de Voltaire.
+
+La realidad es que los matemáticos del siglo XVIII, y hasta bien entrado el siglo XIX, estaban mucho más interesados en desarrollar y aplicar las técnicas del Cálculo, que en ocuparse de problemas de fundamentos. Entre los principales matemáticos de esta época hay que citar a \href{http://divulgamat.ehu.es/weborriak/Historia/MateOspetsuak/Euler.asp}{Leonard Euler} (1707 - 1783), \href{http://www-history.mcs.st-andrews.ac.uk/history/Biographies/D'Alembert.html}{Jean d'Alembert} (1717 - 1783), \href{http://www-history.mcs.st-andrews.ac.uk/history/Biographies/Lagrange.html}{Joseph-Louis Lagrange} (1736 - 1813), \href{http://www-history.mcs.st-andrews.ac.uk/history/Biographies/Laplace.html}{Pierre-Simon Laplace} (1749 - 1827), \href{http://www-history.mcs.st-andrews.ac.uk/history/Biographies/Fourier.html}{Joseph Fourier} (1768 - 1830), \href{http://divulgamat.ehu.es/weborriak/Historia/MateOspetsuak/Gauss.asp}{Carl Friedrich Gauss} (1777 - 1855). El espíritu de los tiempos, el Siglo de las Luces, queda bien reflejado en la siguiente frase.
+\begin{quote}
+\emph{Todos los efectos de la naturaleza son tan sólo las consecuencias matemáticas de un pequeño número de leyes inmutables.}\hfill{Laplace}
+\end{quote}
+En el primer tercio del siglo XIX, el ideal de Newton de ``someter los fenómenos de la Naturaleza a las leyes matemáticas'', podía considerarse esencialmente realizado.
+\subsection{El triunfo de Pitágoras}
+Llegamos así al siglo XIX que, en cuanto a matemáticas se refiere, ha sido llamado el Siglo del Rigor. Veamos cómo se entendían en los primeros años de dicho siglo los conceptos básicos del Cálculo.
+\begin{itemize}
+\item[$\bullet$] Concepto de función. No existía tal como lo entendemos en la actualidad. En vez de funciones, se consideraban relaciones entre variables, es decir, ecuaciones. Las correspondencias entre variables se interpretaban en términos geométricos. No existía la idea del dominio de una variable.
+\item[$\bullet$] Concepto de continuidad. El concepto de continuidad puntual no había sido siquiera formulado matemáticamente. La idea de Euler de función continua, como aquella que está definida por una única expresión analítica, era todo lo que había.
+\item[$\bullet$] Concepto de límite. Solamente se tenían algunas ideas confusas agravadas por el uso de los infinitésimos. Los infinitésimos empezaban a considerarse como variables con límite cero.
+\item[$\bullet$] Concepto de número. La idea de cantidad abstracta variable, a la que podían asignarse valores concretos, no había experimentado cambios notables en casi un siglo. Los números complejos ya eran aceptados, gracias a los trabajos de Euler y, sobre todo, de Gauss, pero seguía sin tenerse una idea clara de los números irracionales, y prevalecía una interpretación geométrica de los mismos.
+\end{itemize}
+Esta situación iba a cambiar gracias principalmente a los trabajos de \href{http://es.wikipedia.org/wiki/Bernard_Bolzano}{Bernad Bolzano} (1781 - 1848),
+\href{http://www-history.mcs.st-andrews.ac.uk/Biographies/Cauchy.html}{Augustin Louis Cauchy} (1789 - 1857) y \href{http://www-history.mcs.st-andrews.ac.uk/Biographies/Weierstrass.html}{Karl Weierstrass} (1815 - 1897) de los que nos ocuparemos al estudiar la formalización del concepto de límite. Ahora quiero detenerme solamente en la evolución de la idea de número real. A los tres matemáticos citados hay que agregar los nombres de \href{http://divulgamat.ehu.es/weborriak/Historia/MateOspetsuak/Dedekind.asp}{Richard Dedekind} (1831 - 1916) y \href{http://en.wikipedia.org/wiki/Georg_Cantor}{George Cantor} (1845 - 1918), fueron ellos quienes desarrollaron la teoría de los números reales que hemos estudiado en los Capítulos 1 y 4. Es lógico preguntarse por qué esto no se hizo antes. Pueden darse varias razones para ello.
+\begin{itemize}
+\item[$\bullet$] En el siglo XVIII las matemáticas son consideradas una Ciencia de la Naturaleza. Las teorías matemáticas deben reflejar la realidad física. Las matemáticas son una herramienta para formular y descubrir las Leyes de la Naturaleza. Las teorías matemáticas no se inventan, se descubren.
+\item[$\bullet$] Los números reales estaban asociados con magnitudes y se interpretaban geométricamente. Eran algo dado en la realidad física. A los matemáticos del siglo XVIII no les pareció necesario dar una definición matemática de los mismos.
+\item[$\bullet$]  Observa que para precisar un número como $\sqrt{2}$ debes dar todas sus cifras decimales en su orden, es decir, un vector de infinitas componentes. Fíjate también que la condición dada por Eudoxo (\ref{eudoxo}) para comparar razones inconmensurables hace intervenir a \emph{todos} los números naturales. Esto no es casual. La idea de número irracional lleva consigo asociada la de infinito. Hasta que no se elaboraron los fundamentos de una teoría matemática del infinito, no pudo desarrollarse una teoría satisfactoria de los números reales.
+\end{itemize}
+En el siglo XVIII las definiciones matemáticas eran descriptivas; no creaban objetos matemáticos sino que describían algo que se suponía debía imitar una realidad externa. Por la misma razón, no podían inventarse reglas para operar con los objetos matemáticos. Las reglas había que descubrirlas, pero no podían elegirse libremente.  Se consideraba que la Naturaleza imponía unas normas que las Matemáticas de alguna manera debían imitar, no se era libre para inventar una teoría matemática. La idea de una Matemática como juego lógico formal era algo impensable en el siglo XVIII.
+
+La idea que los matemáticos tenían de su Ciencia cambió de forma radical como consecuencia de la invención en el siglo XIX de las geometrías no euclídeas por \href{http://www-history.mcs.st-andrews.ac.uk/Biographies/Bolyai.html}{Janos Bolyai} (1802 - 1860) y \href{http://www-history.mcs.st-andrews.ac.uk/Biographies/Lobachevsky.html}{Nikolai I. Lobachevsky} (1792 - 1856). Quedó claro a partir de entonces que las matemáticas no son una Ciencia de la Naturaleza, que la definición usual de las matemáticas como la ciencia que estudia la cantidad y la forma es inadecuada, y pasó a considerarse que la matemática es la ciencia que obtiene conclusiones lógicas de sistemas axiomáticos. Las matemáticas son, pues, una ciencia puramente deductiva. Una teoría matemática es un conjunto de axiomas que contienen ciertos términos indefinidos, y un sistema de reglas de inferencia lógica. El papel que juegan las definiciones en una teoría matemática consiste en crear nuevos objetos matemáticos y precisar su significado en dicha teoría. Todos los objetos que se estudian en una teoría matemática, o bien son términos indefinidos de dicha teoría o son objetos creados por medio de definiciones que remiten a los axiomas. En el XVIII los números reales son algo dado y externo que las matemáticas deben explicar, al final del XIX los números serán algo completamente diferente.
+
+La idea de número real es el soporte de otras ideas básicas del Cálculo como las de continuidad y límite. Los procesos de convergencia dependen de la propiedad de completitud de los números reales. Por todo ello, los matemáticos eran cada vez más conscientes de que los progresos del Cálculo dependían de un mejor conocimiento de los mismos.
+\subsubsection{Cortaduras de Dedekind}
+A mediados del siglo XIX no era posible demostrar algunos resultados básicos del cálculo; por ejemplo, que toda función creciente y acotada tiene límite, o el teorema del valor intermedio para funciones continuas. Ello se debía a que faltaba codificar matemáticamente una propiedad fundamental de los números reales, la que ahora llamamos \emph{completitud} y entonces se llamaba \emph{propiedad de continuidad}. En 1872 se publicaron dos trabajos, uno de Cantor y otro de Dedekind, en los que, tomando como punto de partida el sistema de los números racionales, cada autor desarrollaba una construcción matemática de los números reales. Nos vamos a ocupar aquí del trabajo de Dedekind, titulado \emph{Continuidad y números irracionales}. En dicho trabajo, Dedekind manifiesta su propósito de reducir los números reales a la aritmética, eliminando así todo contenido geométrico en la idea de número real. Para explicar lo que él hizo vamos a partir de la intuición de una recta.
+ \begin{figure}[ht]
+\begin{center}
+     \begin{minipage}[t]{.3\textwidth}
+     \vspace{0pt}
+     \hspace{2mm}
+      \includegraphics[width=3cm]{dedekind.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright}%,margin={1mm,0mm}
+\caption{Dedekind}
+    \end{minipage}%
+       \begin{minipage}[t]{.7\textwidth}
+       \vspace{0pt}
+   Una recta es un ejemplo claro de continuidad. Elegido un punto como origen y un segmento como unidad, podemos hacer corresponder a cada número racional un punto de esa recta. Ya hemos visto, al hablar de las magnitudes inconmensurables, que los números racionales no agotan todos los puntos de la recta; cualquier punto que corresponda con un segmento de longitud inconmensurable con la unidad elegida no puede ser representado por un número racional, es decir, en la recta racional hay ``huecos''. Por tanto, los números racionales no son suficientes para describir numéricamente ``el continuo''. Se pregunta Dedekind:
+     \end{minipage}
+      \end{center}
+  \end{figure}\vspace*{-1.1cm}
+\begin{quote}
+\emph{¿En qué consiste esta continuidad? Todo depende de la respuesta a esta pregunta, y solamente a través de ella obtendremos una base científica para la investigación de todos los dominios continuos. Con vagas observaciones sobre la unión sin rotura de las partes más pequeñas, obviamente nada se gana; el problema es indicar una característica precisa de la continuidad que pueda servir como base para deducciones válidas. Durante largo tiempo he meditado sobre esto en vano, pero finalmente he encontrado lo que pretendía.}
+\end{quote}
+Dedekind se dispone a revelar el secreto, pero como su idea además de ser genial es muy sencilla, previene al lector con esta observación.
+\begin{quote}
+\emph{Muchos de mis lectores quedarán grandemente disgustados al saber que por esta vulgar observación se revela el secreto de la continuidad.}
+\end{quote}
+¿Cuál es esa \emph{vulgar} observación? Vamos a explicarla. Todo punto en una recta $R$ la divide en dos partes disjuntas, la parte $A$, formada por los puntos de la recta que están a su izquierda, y la parte $B$, formada por los puntos de la recta que están a su derecha. El propio punto podemos incluirlo bien en $A$ o en $B$. Dice Dedekind:
+\begin{quote}
+\emph{He encontrado la esencia de la continuidad en el recíproco, es decir, en el siguiente principio:\emph{``Si todos los puntos de la recta se dividen en dos clases tales que todo punto de la primera clase queda a la izquierda de todo punto de la segunda clase, entonces existe un, y sólo un punto, que produce esta división de todos los puntos en dos clases, esta escisión de la línea recta en dos partes.''}}
+\end{quote}
+Las ideas geniales, que además son sencillas, son doblemente geniales. Igual que el tiempo es continuo porque entre dos instantes de tiempo solamente hay tiempo, la recta es continua porque entre dos puntos de ella solamente hay puntos de la misma recta. Es esta la idea que Dedekind ha sabido expresar matemáticamente de una forma insuperable. Para entenderla un poco mejor, vamos a considerar el conjunto \Q\ de los números racionales como puntos de una recta en la que hemos elegido un origen y una unidad, la recta racional.
+\begin{definicion}
+Una \emph{cortadura} de \Q\ es un par $(A,B)$, donde $A$ y $B$ son conjuntos no vacíos de números racionales tales que $\,\Q=A\cup B$, y todo número de $A$ es menor que todo número de $B$ y $A$ no tiene máximo.
+\end{definicion}
+Todo número racional $r\en\Q$ produce una cortadura dada por
+$$
+A=\set{x\en\Q:x<r},\qquad B=\set{x\en\Q:r\ge x}
+$$
+Pero en la recta racional hay muchas cortaduras que no están producidas por números racionales. En el ejercicio (\ref{cortenoracional}) hemos visto que los conjuntos
+$$
+A=\{x\en\Q:x\leqslant 0 \ \ {\rm o}\ \ x^{2}<2\},\ \ B=\{x\en\Q:x>0\ \ {\rm y}\ \ x^{2}\geqslant 2\}
+$$
+definen una cortadura de \Q\ que no está producida por ningún número racional. De hecho, si te imaginas la recta racional dentro de la recta real, y tomas un número $\alpha$ que sea irracional, los conjuntos
+$$
+A=\set{x\en\Q:x<\alpha},\qquad B=\set{x\en\Q:r>\alpha}
+$$
+Definen una cortadura de \Q\ que no está producida por ningún número racional. Es decir, considerando \Q\ dentro de \R, vemos que cada cortadura de \Q\ está determinada por un punto que puede ser racional o irracional.
+
+Pero claro, \emph{está prohibido usar la recta real cuando lo que queremos es justamente construirla a partir de} \Q. ¿De dónde sacamos los números reales si todo lo que tenemos son los racionales? Esta es la idea genial de Dedekind.
+\begin{definicion}
+Un número real es una cortadura de \Q.
+\end{definicion}
+El conjunto de todos los números reales se representa por \R. Observa el papel que desempeñan las definiciones en una teoría matemática: crean nuevos objetos de la teoría. La definición anterior dice lo que es un número real en términos exclusivamente de números racionales. Vuelve ahora a leer la definición de Eudoxo (\ref{eudoxo}) para la igualdad de razones inconmensurables. ¡Lo que dice (\ref{eudoxo}) es que dos razones inconmensurables son iguales si producen una misma cortadura en \Q! Salvo esto, ningún otro parecido hay entre Dedekind y Eudoxo.
+
+Los números racionales se construyen a partir del conjunto \Z\ de los enteros, y éstos se obtienen fácilmente a partir de los naturales. Dedekind y \href{http://es.wikipedia.org/wiki/Giuseppe_Peano}{Giuseppe Peano} establecieron una base axiomática para el conjunto \N\ de los números naturales. Ya ves, al final, Pitágoras ha regresado: todo es número.
+
+\subsubsection{Métodos axiomáticos y métodos constructivos}
+Supongo lo que estás pensando: ``¡Vaya definición extraña de número real! Ahora resulta que un número es una cortadura\dots ¡nada menos que dos conjuntos infinitos de números!''. Vayamos poco a poco.
+\begin{itemize}
+\item[$\bullet$] Es una definición operativa, es decir, permite definir la suma y el producto de números reales, así como la relación de orden y demostrar las propiedades \textbf{P1} - \textbf{P7} del Capítulo 1, y también la propiedad del supremo \textbf{P8}. Además, todo esto se hace de forma sencilla aunque laboriosa. Si tienes curiosidad, puedes consultar el Capítulo 28 de \cite{spivak}.
+\item[$\bullet$] Lo importante de la definición es que define los números reales solamente usando los números racionales. Es decir, resuelve un problema de \emph{existencia} en sentido matemático.
+\end{itemize}
+
+Las propiedades o axiomas \textbf{P1} - \textbf{P7} del Capítulo 1, junto con la propiedad del supremo \textbf{P8}, definen una estructura que se llama \emph{cuerpo ordenado completo}. Aunque en el Capítulo 1 dijimos que no era nuestro propósito decir qué son los números reales, podemos ahora responder a dicha pregunta: \emph{los números reales son el único cuerpo ordenado completo}. La demostración de que {\em existe\/} un cuerpo ordenado completo y es {\em único\/} es larga, laboriosa y depende de las hipótesis de partida.
+
+Lo más usual es dar por conocidos los números racionales y a partir de ellos {\em construir} \R. Esto puede parecer extra\~no a primera vista, porque si sólo conocemos los números racionales, ¿de dónde van a salir los demás? De eso precisamente se ocupan los \emph{métodos constructivos} (Cantor, Dedekind). Por ejemplo, si partimos de la intuición de que con los números reales se pueden representar {\em todos\/} los puntos de una recta, es claro que un número real queda determinado de forma única por los números racionales menores que él. Esta idea conduce a la {\em definición} de número real dada por Dedekind.
+La definición de Cantor es mucho menos intuitiva pues, para Cantor, un número real es una clase de infinitas sucesiones de números racionales que cumplen una cierta propiedad.
+
+Es posible probar, partiendo de estas definiciones, que el conjunto de los
+números reales así definidos puede dotarse de una estructura algebraica y de orden de manera que satisface los axiomas \textbf{P1} - \textbf{P8}. Este proceso es bastante laborioso; además se corre el peligro de centrar la atención en el proceso en sí mismo olvidándose de lo que se persigue. Por otra parte, las definiciones de Dedekind o de Cantor no son las únicas, hay otras definiciones de número real. Pensarás que esto no es serio. ¿Qué está ocurriendo aquí? Ocurre, sencillamente, que cualquier definición de los números reales a partir de los racionales, esto es, cualquier método constructivo de \R, tiene su razón última de ser en el {\em problema de la existencia}: ¿puede ser construido un cuerpo ordenado completo a partir de los axiomas usuales de la Teoría de Conjuntos? Pues bien, la respuesta es que sí; además, y esto es fundamental, matemáticamente, en un sentido preciso, dicho cuerpo {\em es único}.
+
+Da igual, por tanto, cómo se interprete lo que es un número real, lo importante es que de cualquier forma que lo hagamos, los axiomas \textbf{P1} - \textbf{P8} determinan totalmente sus propiedades matemáticas. Es decir, una vez que sabemos que hay un único cuerpo ordenado completo, lo mejor es olvidar cualquier posible interpretación de cómo sean sus elementos (ningún matemático
+cuando considera el número real $\,\sqrt{2}\,$ piensa que $
+\sqrt{2}=\{x\en\Q:x<0 \ \ {\rm o}\ \  x^{2}<2\}$) y quedarnos exclusivamente con las propiedades de los mismos. Esto es precisamente lo que se hace con el método axiomático que nosotros hemos elegido para presentar \R.
+\subsubsection{El regreso de los pequeñitos}
+Con la reducción del continuo a lo discreto, parece que finalmente ha triunfado la Aritmética. Pero la historia continua. Por una parte, los números naturales tuvieron un reinado efímero, pues fueron esencialmente reducidos a pura lógica como consecuencia del trabajo pionero de \href{http://es.wikipedia.org/wiki/Frege}{Gottlob Frege}. Por otra parte en  1960, el lógico \href{http://www-history.mcs.st-andrews.ac.uk/Biographies/Robinson.html}{Abraham Robinson} (1918 - 1974) construyó un sistema numérico, los \emph{\href{http://en.wikipedia.org/wiki/Hyperreal_number}{hiperreales}}, un cuerpo totalmente ordenado no arquimediano, que contiene una copia de los números reales y en el que hay números infinitamente pequeños y números infinitamente grandes. Las técnicas desarrolladas por Robinson se conocen con el nombre de \emph{Análisis No Estándar}. Con dichas técnicas pueden probarse los resultados fundamentales del Cálculo de forma intuitiva y directa al estilo de Newton y Leibniz. ¡Están aquí! ¡Los infinitésimos han regresado!
+
+\begin{ejercicios propuestos}
+\propuesto Prueba que la propiedad del supremo es equivalente a la siguiente propiedad.
+
+\textbf{Propiedad del continuo}. Dados subconjuntos no vacíos $\,A\,$ y $\,B\,$ de números reales cuya unión es igual a \R, y tales que todo elemento de $\,A\,$ es menor que todo elemento de $\,B$, se verifica que existe un número real $\,z\en\R$, tal que todo número real menor que $z$ está en $A$ y todo número real mayor que $z$ está en $B$.
+\end{ejercicios propuestos}
+
+\section{Evolución del concepto de límite funcional}
+Lo más específico del Análisis Matemático son los procesos de convergencia, o procesos ``de paso al límite'', que en él se consideran. Aquí nos vamos a ocupar solamente del concepto de límite funcional. Dicho concepto está estrechamente relacionado con los de función y de número real; y los tres juntos constituyen el núcleo del Análisis. Por ello, la historia de su evolución es también la del desarrollo del Cálculo, de los sucesivos intentos para fundamentarlo sobre bases lógicas rigurosas.  Aislar en este proceso aquellos aspectos directamente relacionados con el concepto de límite funcional, conlleva una pérdida de perspectiva que, espero, quedará compensada en capítulos siguientes al estudiar la evolución de los conceptos de derivada, integral y convergencia de series.
+
+\subsection{La teoría de las ``razones últimas'' de Newton}
+En las matemáticas de la Antigüedad no existía una idea de ``límite'' que pueda ser considerada como un precedente lejano de la actual. Lo más parecido era el método de exhausción (\pageref{pag:exhauscion}), empleado con maestría por Arquímedes para realizar diversas cuadraturas (\ref{pag:cuadraturas}). Pero dicho método no consistía en un límite, sino que, precisamente, lo que hacía era evitarlo y sustituirlo por un esquema de razonamiento de doble reducción al absurdo, típico de las matemáticas griegas. La matemática Griega abomina del infinito y la idea de límite connota la de infinito. Es notable, sin embargo, que cuando los matemáticos Griegos tienen que enfrentarse al infinito como, por ejemplo, Eudoxo al definir la igualdad de razones de magnitudes inconmensurables (\ref{eudoxo}), lo que hace es basar su definición de \emph{igualdad} en un álgebra de \emph{desigualdades}.
+
+Tenemos que llegar al siglo XVII, con la invención de las técnicas infinitesimales que preludian el descubrimiento del Cálculo, para encontrar las primeras referencias confusas de procesos de convergencia. El primer indicio del concepto de límite funcional aparece en estrecha relación con el cálculo de fluxiones (velocidades instantáneas) (\ref{pag:fluxiones}) de Newton. En su teoría de las ``razones últimas'' expuesta en \emph{Philosophiae Naturalis Principia Mathematica} (1687) se lee:
+\begin{quote}
+\footnotesize{It can also be contended, that if the ultimate ratios of vanishing quantities are given, their ultimate magnitudes will also be given; and thus every quantity will consist of indivisibles, contrary to what Euclid has proved.... But this objection is based on a false hypothesis. Those ultimate ratios with which quantities vanish are not actually ratios of ultimate quantities, but limits which ... they can approach so closely that their difference is less than any given quantity... This matter will be understood more clearly in the case of quantities indefinitely great. If two quantities whose difference is given are increased indefinitely, their ultimate ratio will be given, namely the ratio of equality, and yet the ultimate or maximal quantities of which this is the ratio will not on this account be given.}
+\end{quote}
+\noindent Traduzco lo mejor que puedo:
+\begin{quote}
+\footnotesize{También puede alegarse que si las razones últimas de cantidades evanescentes son dadas, sus últimas magnitudes también serán dadas; y por tanto toda cantidad consistirá de indivisibles, en contra de lo que Euclides ha probado\dots Pero esta objeción está basada sobre una hipótesis falsa. Aquellas razones últimas con las que tales cantidades desaparecen no son en realidad razones de cantidades últimas, sino límites\dots a los que ellas pueden aproximarse tanto que su diferencia es menor que cualquier cantidad dada\dots Este asunto será entendido más claramente en el caso de cantidades indefinidamente grandes. Si dos cantidades cuya diferencia es dada son indefinidamente aumentadas, su última razón será dada, a saber, la razón de igualdad y, no obstante, las cantidades últimas o máximas de las cuales esta es la razón no serán por eso dadas.}
+\end{quote}
+Lo que yo entiendo que quiere decir Newton es lo que sigue. La expresión ``razones últimas de cantidades evanescentes'' puede interpretarse como el límite de un cociente cuyo numerador y denominador tienen límite cero: ${\dis\lim_{x\to a}}\frac{f(x)}{g(x)}=L$, donde $\dis\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=0$. En el primer párrafo, Newton dice que el hecho de que la razón última sea dada igual a $L$, no quiere decir que el cociente de las últimas magnitudes, $\frac{f(a)}{g(a)}$, sea igual a $L$. De manera muy interesante, Newton relaciona esto con la estructura del continuo, pues la idea que expresa es que si el valor de todo límite se alcanza, entonces el continuo estaría formado por últimas partes indivisibles. En el segundo párrafo, además de insistir en la idea anterior, queda claro que por ``razones últimas'' Newton entendía algo muy parecido a nuestra idea actual de límite. Finalmente, Newton propone un ejemplo excelente; consideremos, dice, dos cantidades $f(x)$ y $g(x)$ cuya diferencia está dada, $f(x)-g(x)=\alpha\neq 0$, y tales que $\dis\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=+\infty$, en tal caso tendremos que su razón última será de igualdad, esto es, ${\dis\lim_{x\to a}}\frac{f(x)}{g(x)}=1$ y está claro que para ningún valor de $x$ es $\frac{f(x)}{g(x)}=1$ y que tampoco las magnitudes $f(x)$ y $g(x)$ tienen un último valor.
+
+Siempre es arriesgado hacer interpretaciones de esta naturaleza, pero creo que lo dicho es esencialmente correcto y, por tanto, manifiesto mi desacuerdo con quienes afirman que Newton tenía ideas muy confusas con respecto al límite. Lo que no tenía (no podía tener) era el concepto de función (por eso habla de cantidades o magnitudes), ni el simbolismo apropiado, ni el concepto de variable real continua\dots pero la idea de límite la tenía bien clara.
+
+Además, Newton considera que los infinitésimos no son cantidades fijas y, en los \emph{Principia}, advierte a sus lectores  que cuando hable de cantidades mínimas, o evanescentes, o de cantidades últimas, éstas no debieran entenderse como cantidades fijas que tienen un determinado valor, sino como cantidades que fueran indefinidamente disminuidas:\vspace*{-2mm}
+\begin{quote}
+\footnotesize{Therefore in what follows, for the sake of being more easily understood, I should happen to mention quantities at least, or evanescent, or ultimate, you are not to suppose that quantities of any determinate magnitude, but such as are conceived to be always diminished without end.}
+\end{quote}\vspace*{-2mm}
+Estas ideas de Newton fueron desarrolladas por el matemático escocés Colin MacLaurin (1698 - 1746) que, en su gran obra \emph{A Treatise of Fluxions} (1742), establece el cálculo sobre la base de una teoría geométrico -- cinemática de límites. MacLaurin rechazaba los infinitésimos, afirmaba que los antiguos nunca reemplazaron curvas por polígonos y que la base de la geometría de Arquímedes era el concepto de límite. Lo sorprendente es que MacLaurin usa el concepto de límite como algo evidente que no precisa ser explícitamente presentado ni analizado. Esto se debe a que el cálculo de MacLaurin se sustenta sobre las ideas de espacio, tiempo y movimiento lo que le lleva a aceptar como evidentes la continuidad y la diferenciabilidad.\vspace*{-3mm}
+\subsection{La \emph{metafísica del Cálculo} en D'Alembert y Lagrange}
+ \begin{figure}[ht]
+\begin{center}
+     \begin{minipage}[t]{.3\textwidth}
+     \vspace{0pt}
+     %\hspace{2mm}
+     \flushleft
+      \includegraphics[width=3.5cm]{dalembert.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright}%,margin={1mm,0mm}
+\caption{D'Alembert}
+    \end{minipage}%
+       \begin{minipage}[t]{.7\textwidth}
+       \vspace{0pt}
+       \hspace{8mm}
+   Durante el siglo XVIII, por una parte, el uso permanente de los infinitesimales dificultaba la comprensión de los procesos de paso al límite y, por otra parte, el recién inventado Cálculo era una herramienta maravillosa para estudiar y formular matemáticamente multitud de fenómenos naturales. Además, los resultados obtenidos eran correctos, por tanto no había por qué preocuparse mucho de la coherencia lógica de los fundamentos, ya habría tiempo para ello más adelante.
+
+   $\qquad$Debemos destacar, no obstante, la propuesta de Jean le Rond d'Alembert (1717 - 1783) de fundamentar el Cálculo sobre el concepto de límite: \emph{``La théorie des limites est la base de la vraie Métaphysique du calcul différentiel''}.
+      \end{minipage}
+      \end{center}
+  \end{figure}\vspace*{-.5cm}
+
+\noindent D'Alembert redactó la mayoría de los artículos de matemáticas y ciencias para la obra inmortal del Siglo de las Luces la \emph{Encyclopédie, ou Dictionnaire Raisonné des Sciences, des Arts et des Métiers} (1751 - 65). En el artículo Différentiele (1754), después de criticar la ``metafísica del infinito'' de Leibniz, escribe:
+\begin{quote}
+\footnotesize{Newton partía de otro principio; y se puede decir que la metafísica de este gran geómetra sobre el cálculo de fluxiones es muy exacta y luminosa, aunque solamente la ha dejado entrever. Él no ha considerado nunca el cálculo diferencial como el cálculo de cantidades infinitamente pequeñas, sino como el método de las primeras y últimas razones, es decir, el método para hallar los límites de las razones.
+
+[\dots] La suposición que se hace de las cantidades infinitamente pequeñas sólo sirve para acortar y simplificar los razonamientos; pero en el fondo el cálculo diferencial no precisa suponer la existencia de tales cantidades; y más aún, este cálculo consiste meramente en la determinación algebraica del límite de una razón.}
+\end{quote}
+D'Alembert fue el primer matemático que afirmó haber probado que los infinitamente pequeños  \emph{``n'existent réellement ni dans la nature, ni dans les suppositions des Géomètres''}. Según d'Alembert:
+\begin{quote}
+\footnotesize{Una cantidad es algo o nada; si es algo, aún no se ha desvanecido; si no es nada, ya se ha desvanecido literalmente. La suposición de que hay un estado intermedio entre estos dos es una quimera.}
+\end{quote}
+En el artículo \emph{Limite} (1765), también escrito para la \emph{Encyclopédie} junto con Jean-Baptiste de La Chapelle (1710 - 1792), se da la siguiente definición de límite:
+\begin{quote}
+\footnotesize{Se dice que una magnitud es el límite de otra magnitud, cuando la segunda puede aproximarse a la primera, sin llegar nunca a excederla, en menos que cualquier cantidad dada tan pequeña como se quiera suponer.}
+\end{quote}
+Este artículo también contiene los resultados sobre la unicidad del límite y sobre el límite del producto de dos magnitudes, por supuesto, enunciados retóricamente sin ningún tipo de símbolo para representar los límites. Dichos resultados habían aparecido en el libro de La Chapelle \emph{Institutions de Géométrie} (1757). Tanto d'Alembert como La Chapelle tenían una idea esencialmente geométrica del concepto de límite, así el ejemplo que ponen en el citado artículo es el de la aproximación de un círculo por polígonos.
+
+El punto de vista de d'Alembert, esencialmente correcto, no era compartido por otros matemáticos, de forma destacada, por Joseph-Louis de Lagrange (1736 - 1813) quien en su obra \emph{Théorie des fonctions analytiques} (1797), cuyo subtítulo era nada menos que \emph{Les Principes du Calcul Différentiel, dégagés de toute considération d'infiniment petits, d'évanouissants, de limites et de fluxions, et réduits à l'analyse algébrique des quantités finies}, pretendió establecer una fundamentación algebraica del Cálculo, eliminando toda referencia a los infinitesimales y a los límites. Lagrange criticaba la teoría de las ``últimas razones'' de Newton y afirmaba:
+\begin{quote}
+\footnotesize{Ese método tiene el gran inconveniente de considerar cantidades en el momento en que ellas cesan, por así decir, de ser cantidades; pues aunque siempre podemos concebir adecuadamente las razones de dos cantidades en tanto en cuanto ellas permanecen finitas, esa razón no ofrece a la mente ninguna idea clara y precisa tan pronto como sus términos ambos llegan a ser nada a la vez.} \end{quote}
+Esta severa crítica va realmente dirigida contra Euler, quien concebía las cantidades infinitesimales como ceros exactos y, por tanto, un cociente de diferenciales lo interpretaba como $\frac{0}{0}$, expresión de la cual había que hallar en cada caso ``su verdadero valor''. Lo llamativo es que la propuesta de Lagrange se basaba en los desarrollos en series de Taylor, considerados como una generalización del álgebra de polinomios, con lo que, de hecho, estaba usando la idea de límite que quería evitar. Por otra parte, es conocida la jactancia de Lagrange de que en su monumental \emph{Mécanique analytique}(1772 - 88) no había usado ni necesitado ninguna figura. Lagrange seguía así la tendencia, cada vez mayor, de separar el cálculo y la geometría. De hecho, Lagrange puede considerarse un ``matemático puro''; su rechazo a la teoría de fluxiones se debe a que está basada en la idea de movimiento, que no es matemática, y su rechazo de los límites es debido a la confusa formulación de dicho concepto en su tiempo.
+\subsection[El premio de la Academia de Berlín de 1784]{El premio de la Academia de Berlín y otras propuestas en el último tercio del siglo XVIII}
+Jacques-Antoine-Joseph Cousin (1739 - 1800) escribió un libro de texto \emph{Leçons de Calcul Différentiel et de Calcul Intégral} (1777), en el que, siguiendo la idea de d'Alembert, afirmaba fundamentar el cálculo sobre el concepto de límite, el cual, para Cousin, es el mismo que el expresado por La Chapelle en el artículo \emph{Limite} de la \emph{Encyclopédie} antes reseñado. En particular, no hace distinción entre cantidades variables y constantes.  Desde un punto de vista operativo, Cousin introduce, sin justificación, un principio de conservación de las razones entre dos variables por paso al límite. Una novedad importante es que Cousin reconoce la necesidad de un símbolo para expresar el límite, pero no hace nada al respecto.
+
+Roger Martin (1741 - 1811) publicó un libro de texto \emph{Éléments de Mathématiques} (1781) con igual propósito que Cousin. La definición de límite de Martin es más precisa:
+\begin{quote}
+\footnotesize{Por el límite de una cantidad variable se entiende el valor o estado hacia el cual ella siempre tiende conforme varía, sin alcanzarlo nunca; pero al cual, no obstante, puede aproximarse de manera que difiera de él por una cantidad menor que cualquier cantidad dada.}
+\end{quote}
+La condición de pequeñez de la diferencia está formulada en la forma que después sería la usual, además, distingue entre variable y valor constante.
+
+En 1784 la Academia de Berlin, cuyo director era Lagrange, anunció la convocatoria de un premio para ``una teoría clara y precisa de lo que se llama el infinito en matemáticas''. El propósito de la Academia era eliminar el uso de los infinitesimales:
+\begin{quote}
+\footnotesize{Es bien sabido que la geometría superior emplea regularmente lo \emph{infinitamente grande} y lo \emph{infinitamente pequeño}\dots La Academia, en consecuencia, desea una explicación de cómo es posible que se hayan conseguido deducir tantos teoremas correctos a partir de unos presupuestos contradictorios, así como\dots un principio verdaderamente matemático que pueda sustituir correctamente al del infinito.}
+\end{quote}
+El premio fue concedido en 1786 a Simon-Antoine-Jean L'Huilier (1750 - 1840) por su ensayo \emph{Exposition élémentaire des principes des calculs supérieurs} en el cual L'Huilier desarrollaba una teoría de límites. Su definición de límite es:
+\begin{quote}
+\footnotesize{Sea una cantidad variable, siempre menor o siempre mayor que una propuesta cantidad constante; pero de la cual puede diferir menos que cualquier propuesta cantidad menor que ella misma: esta cantidad constante se dice que es el límite por exceso o por defecto de la cantidad variable.}
+\end{quote}
+La novedad aquí está en los conceptos de ``límite por exceso'' y ``límite por defecto''. Al introducir esta distinción, L'Huilier observaba que hasta entonces no se había tenido en cuenta el hecho de que la aproximación al límite puede realizarse tanto desde una variable con valores crecientes como desde una variable con valores decrecientes. Por ello, L'Huilier introduce los conceptos de \emph{límite por la derecha} y de \emph{límite por la izquierda}.
+
+En esta obra es donde, por primera, se usa el símbolo ``$\lim$.'' (con el punto, como si fuera una abreviación de ``límite'') para representar el límite, aunque L'Huilier no lo hace de una forma regular.
+
+El principal logro de L'Huilier fue extender la aplicabilidad del concepto de límite. Mientras que sus predecesores habían dado solamente un par de reglas básicas, él realizó un desarrollo más sistemático, probando las reglas del producto y del cociente para límites, y obteniendo la regla de la derivada de un producto por medio de límites.
+
+En esta exposición estoy siguiendo muy de cerca el excelente libro de Schubring \cite{rigor}. Este autor hace un notable descubrimiento. Se trata de un ensayo de 100 páginas, titulado \emph{Compendio da Theorica dos Limites, ou Introduc\c{c}a\~{o} ao Methodo das Flux\~{o}es}, que fue publicado por la Academia de Ciencias de Lisboa en 1794, aunque su autor Francisco de Borja Gar\c{c}\~{a}o Stockler (1759 - 1829) lo había presentado ya en 1791. Stockler nació en Lisboa, su padre era alemán y su madre portuguesa. Estudió la carrera militar y también matemáticas en la Universidad de Coimbra. Desarrolló una gran actividad tanto política como científica. La importancia del citado libro de Stockler es que contiene el primer intento de una presentación algebraica del concepto de límite. Stockler tenía un excelente conocimiento de la literatura matemática de su época, y en su libro se apoya precisamente en los autores que hemos citado anteriormente. Pero Stockler aventaja ampliamente a sus fuentes al separar el concepto de límite del concepto geométrico, algebraizándolo tanto para variables como para funciones. Además, es un pionero en el uso de desigualdades. Su definición de límite es la siguiente:
+\begin{quote}
+\footnotesize{Una cantidad constante es llamada ``Límite'' de una variable si la última puede ir aumentando o disminuyendo -- aunque sus valores nunca lleguen a ser igual al de la constante -- da tal forma que puede aproximar la constante tanto que la diferencia llega a ser menor que cualquier cantidad dada, por pequeña que esta pueda haber sido escogida.}
+\end{quote}
+La definición es parecida a la de Martin, aunque hay un mayor énfasis en que el límite es un valor constante. Stockler también usa los conceptos de límites por la derecha y por la izquierda de L'Huilier.
+
+Debemos notar que todas estas definiciones de límite que estamos dando se refieren a variables y que dichas variables suelen interpretarse como cantidades geométricas (áreas, longitudes de arco, medidas de ángulos, etc.). Además, una ``cantidad constante'' es interpretada generalmente como una cantidad positiva. Con frecuencia se considera que el cero tiene un carácter especial y se dan definiciones específicas para tenerlo en cuenta. Precisamente, eso es lo que hace Stockler introduciendo el concepto de \emph{``variable sin límite de disminución''} con el significado de una variable con límite cero. De esta forma, también evita usar infinitésimos. Stockler establece como un resultado fundamental que
+\begin{quote}
+\footnotesize{Toda cantidad capaz de un límite, tiene necesariamente que ser igual a su límite, más o menos una cantidad variable sin límite de disminución.}
+\end{quote}
+Stockler desarrolla todo un álgebra de límites y no se limita a las operaciones de suma, producto y cociente. He aquí una muestra:
+\begin{quote}
+\footnotesize{Una potencia $\dis a^x$, donde $a<1$ es una constante y $x$ una variable con valores positivos y sin límite de aumento, forma una sucesión nula.}
+\end{quote}
+Stockler explica el uso del símbolo ``Lim.'' para representar límites y lo emplea de forma operativa para permutar límites. Por ejemplo, si $b = \textrm{Lim.\ } x$ y $a$ es constante, $\textrm{Lim.\ }(a^x) = a^b$.
+
+Stockler no considera solamente límites de variables sino también de funciones. De forma explícita establece la permutabilidad del límite con una función:
+\begin{quote}
+\footnotesize{El límite de cualquier función $Fx$ de una variable $x$ que es capaz de (tiene) límite, es igual al valor homólogo por la función de su límite.}
+\end{quote}
+Simbólicamente, Stockler expresa el teorema como sigue: Para $a=\textrm{Lim.\ } x$, se sigue que $\textrm{Lim.\ } Fx=Fa$.
+\subsection{Cauchy y su \emph{Cours D'Analyse} de 1821}
+A principios del siglo XIX, parecía cada vez más necesario consolidar la enorme cantidad de resultados que ya se habían obtenido usando las técnicas precariamente fundamentadas del cálculo. Había llegado el momento en que se disponía de las herramientas necesarias para desvelar las sutilezas del concepto de límite, cuya lenta y trabajosa evolución a lo largo del siglo XVIII acabamos de ver. Lo que se necesitaba era dar definiciones precisas, simbólicas y operativas, que no estuvieran basadas en intuiciones geométricas ni cinemáticas. Para ello, había que precisar las expresiones vagas que solían usarse, al estilo de ``aproximarse más que una cantidad dada, por pequeña que ésta sea'', y dotarlas de un significado matemático preciso que pudiera ser usado para dar demostraciones. Lo que se necesitaba era traducir las definiciones verbales de límite mediante el álgebra de desigualdades que en esa época ya se había desarrollado. Esto puede parecer fácil visto desde nuestra perspectiva actual, pero no lo era en absoluto.
+
+\begin{figure}[ht]
+\begin{center}
+     \begin{minipage}[t]{.3\textwidth}
+     \vspace{3pt}
+     %\hspace{2mm}
+     \flushleft
+      \includegraphics[width=3.5cm]{cauchy.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright}%,margin={1mm,0mm}
+\caption{Cauchy}
+    \end{minipage}%
+       \begin{minipage}[t]{.7\textwidth}
+       \vspace{0pt}
+       \hspace{8mm}
+       Si vuelves a leer la definición de límite (\ref{def:deflimite}), puedes comprobar lo abstracta que es: no queda nada en ella de la intuición inicial con la que Newton imaginaba sus ``razones últimas''. Es una definición ``estática'' y todo en ella es aritmética: valor absoluto, desigualdades\dots ¡no contiene ninguna igualdad! Ganamos rigor a costa de la intuición.
+   Quien realizó la hazaña de fundamentar con rigor el cálculo sobre el concepto de límite fue \href{http://www.librosmaravillosos.com/grandesmatematicos/capitulo15.html}{Augustin - Louis Cauchy} (1789 - 1857). Nos vamos a centrar aquí exclusivamente en este aspecto de su obra, de la que nos ocuparemos con más detalle en un capítulo posterior. Conviene, no obstante decir, que hay interpretaciones muy distintas de la obra de Cauchy. En particular, se ha escrito mucho sobre el uso que Cauchy hace de los\linebreak
+     \end{minipage}
+      \end{center}
+  \end{figure}\vspace*{-1.2cm}
+\noindent infinitésimos. Creo que la documentada exposición que hace Schubring en \cite{rigor} es muy convincente. Su tesis es que Cauchy, por su propia voluntad, nunca hubiera dejado entrar a los infinitésimos en sus libros, pero que se vio en la necesidad de hacerlo por la presión del entorno de l'École Polytechnique donde desempeñaba su labor docente. De todas formas, su concepto de infinitésimo, como veremos enseguida, no es el de una cantidad no nula pero infinitamente pequeña. En su \emph{Cours d'Analyse de l'École Polytechnique} (1821), Cauchy empieza exponiendo su concepto de número, de cantidad y seguidamente, en la página 19, aparecen las siguientes definiciones:
+\begin{quote}
+\footnotesize{Se llama cantidad \emph{variable} aquella que se considera debe recibir sucesivamente varios valores diferentes unos de otros.[\dots] Cuando los valores sucesivamente atribuidos a una misma variable se aproximan indefinidamente a un valor fijo, de manera que acaban por diferir de él tan poco como se quiera, éste último es llamado el \emph{límite} de todos los otros.
+
+[\dots] Cuando los valores numéricos (valores absolutos) sucesivos de una misma variable decrecen indefinidamente, de manera que quedan por debajo de todo número dado, esta variable recibe el nombre de \emph{infinitésimo} o de cantidad \emph{infinitamente pequeña}. Una variable de esta naturaleza tiene por límite a cero.}
+
+Cuando los valores numéricos (valores absolutos) sucesivos de una misma variable crecen más y más, de manera que permanecen por encima de todo número dado, se dice que esta variable tiene por límite el \emph{infinito positivo}, indicado por el signo $\infty$, cuando se trata de una variable positiva, y el \emph{infinito negativo}, indicado por la notación $-\infty$, cuando se trata de una variable negativa.
+\end{quote}
+Llama la atención en esta definición la idea repetida de ``sucesivos valores'' que algunos autores interpretan como si Cauchy considerara a las cantidades variables como sucesiones. Aunque sigue siendo una definición verbal, es mucho más precisa que las anteriores y lo importante es la forma en que Cauchy la interpreta por medio del álgebra de desigualdades. Podemos hacernos una idea de la forma de trabajar de Cauchy considerando el siguiente resultado que aparece en la página 54 del \emph{Cours d'Analyse}. Traduzco y hago algunos comentarios que van en cursiva y entre paréntesis.
+
+{\small{
+\noindent{\textbf{Teorema I} (Cauchy - Cours d'Analyse, p.54).} Si para valores crecientes de $x$, la diferencia
+$$
+f(x+1)-f(x)
+$$
+converge hacia un cierto límite $k$, la fracción
+$$
+\frac{f(x)}{x}
+$$
+convergerá al mismo tiempo hacia el mismo límite.
+
+\noindent{\emph{Demostración}}. Supongamos para empezar que la cantidad $k$ tenga un valor finito, y designemos por \eps\ un número tan pequeño como se quiera. Puesto que los valores crecientes de $x$ hacen converger la diferencia
+$$
+f(x+1)-f(x)
+$$
+hacia el límite $k$, se podrá dar al número $h$ un valor suficientemente grande para que, siendo $x$ igual o mayor que $h$, la diferencia correspondiente esté constantemente comprendida entre los límites
+$$
+k-\eps,\qquad k+\eps.
+$$
+(\emph{Este comienzo es impecable y nosotros lo haríamos exactamente igual. Con nuestras notaciones actuales, la hipótesis es que
+$$
+\dis\lim_{x\to +\infty}\big(f(x+1)-f(x)\big)=k.
+$$
+Por tanto, dado \epos, existe $h>0$ tal que para todo $x\ge h$ se verifica que $\abs{f(x+1)-f(x)-k}<\eps$. Eso es exactamente lo que escribe Cauchy.})
+
+Supuesto esto, si se designa por $n$ un número entero cualquiera, cada una de las cantidades
+$$
+\begin{array}{l}
+  f(h+1)-f(h) \\
+  f(h+2)-f(h+1) \\
+  \dots\dots\dots\dots\dots\dots\dots\dots \\
+  f(h+n)-f(h+n-1)
+\end{array}
+$$
+y, en consecuencia, su media aritmética, a saber
+$$
+\frac{f(h+n)-f(h)}{n}
+$$
+se encontrará comprendida entre los límites $k-\eps$, $k+\eps$. Se tendrá pues
+$$
+\frac{f(h+n)-f(h)}{n}=k+\alpha
+$$
+siendo $\alpha$ una cantidad comprendida entre los límites $-\eps$, $+\eps$. Sea ahora
+$$
+h+n=x
+$$
+La ecuación precedente se convertirá en
+\begin{equation}\label{C1}
+\frac{f(x)-f(h)}{x-h}=k+\alpha,
+\end{equation}
+y se concluirá
+\begin{eqnarray}
+\nonumber   f(x) &=& f(h)+(x-h)(k+\alpha) \\
+  \rule{0mm}{7mm}\dfrac{f(x)}{x} &=&  \dfrac{f(h)}{x}+\left(1-\dfrac{h}{x}\right)(k+\alpha)\label{C2}
+\end{eqnarray}
+(\emph{Hasta aquí, nada que objetar. Todo es correcto.})
+
+Además, para hacer crecer indefinidamente el valor de $x$, será suficiente hacer crecer indefinidamente el número entero $n$ sin cambiar el valor de $h$. Supongamos, en consecuencia, \marginpar{\flushright\curvasl} que en la ecuación (\ref{C2}) se considera $h$ como una cantidad constante, y $x$ como una cantidad variable que converge hacia el límite $\infty$. Las cantidades
+$$
+\dfrac{f(h)}{x},\qquad \dfrac{\,h\,}{x},
+$$
+encerradas en el segundo miembro, convergerán hacia el límite cero, y el propio segundo miembro hacia un límite de la forma
+$$
+k+\alpha,
+$$
+$\alpha$ estando siempre comprendida entre $-\eps$ y $+\eps$. Por consiguiente, la razón
+$$
+\dfrac{f(x)}{x}
+$$
+tendrá por límite una cantidad comprendida entre $k-\eps$ y $k+\eps$. Debiendo subsistir esta conclusión, cualquiera que sea la pequeñez del número \eps, resulta que el límite en cuestión será precisamente igual a la cantidad $k$. En otras palabras, se tendrá
+\begin{equation}\label{C3}
+    \lim\dfrac{f(x)}{x}=k=\lim[f(x+1)-f(x)].
+\end{equation}
+(\emph{Seguidamente, Cauchy pasa a considerar los casos en que $k=\infty$ y $k=-\infty$.})\hfill$\Box$}}
+
+\medskip
+
+Esta demostración es notable, por su rigor y también porque \emph{no es correcta}. Te daré un contraejemplo en un ejercicio. ¿Serías capaz de explicar a Cauchy dónde está el error en su razonamiento? Por supuesto, lo que interesa aquí es la forma en que Cauchy traduce los conceptos de límite por medio de desigualdades. El error es anecdótico, además, cuando Cauchy emplea este resultado lo hace siempre en casos en que la tesis es correcta; por ejemplo, para la función $\dis\log x$ ,se tiene que $\dis\lim_{x\to +\infty}\big(\log(x+1)-\log(x)\big)=0$ y, por tanto, $\dis\lim_{x\to +\infty}\dfrac{\log x}{x}=0$ lo cual es correcto. Si hasta el mismo Cauchy se equivocaba en cosas aparentemente fáciles, no te extrañes si a ti te cuesta trabajo entender bien la definición de límite, esa experiencia la hemos tenido todos los que hemos estudiado Análisis.
+
+Durante el siglo XVIII, el concepto de continuidad no había merecido nada más que una esporádica atención, y siempre había sido considerado desde un punto de vista filosófico, más como una ley de la naturaleza que como un concepto propiamente matemático. Generalmente la continuidad de una función se entendía en el sentido de Euler, y significaba que dicha función estaba definida por una única expresión analítica. En su \emph{Cours d'Analyse}, Cauchy define el concepto de función continua y, lo que es notable, de función discontinua; y su definición es realmente muy minuciosa. Dice así:
+\begin{quote}
+\footnotesize{Sea $f(x)$ una función de la variable $x$, y supongamos que, para cada valor de $x$ comprendido entre ciertos límites dados, esta función admite constantemente un valor único y finito. Si, partiendo de un valor de $x$ comprendido entre estos límites, se atribuye a la variable $x$ un incremento infinitamente pequeño $\alpha$, la función misma recibirá por incremento la diferencia
+$$
+f(x+\alpha)-f(x)
+$$
+que dependerá a la vez de la nueva variable $\alpha$ y del valor de $x$. Dicho esto, la función $f(x)$ será, entre los dos límites asignados a la variable $x$, función \emph{continua} de esta variable, si, para cada valor de $x$ intermedio entre estos límites, el valor numérico (valor absoluto) de la diferencia
+$$
+f(x+\alpha)-f(x)
+$$
+decrece indefinidamente con el de $\alpha$. En otras palabras, \emph{la función $f(x)$ permanecerá continua con respecto a $x$ entre los límites dados, si, entre estos límites un incremento infinitamente pequeño de la variable produce siempre un incremento infinitamente pequeño de la función}.
+
+Se dice también que la función $f(x)$ es, en un entorno de un valor particular atribuido a la variable $x$, función continua de esta variable, siempre que ella sea continua entre dos límites de $x$, por cercanos que estén, que encierren al valor considerado. Finalmente, cuando una función deja de ser continua en el entorno de un valor particular de la variable $x$, se dice entonces que ella se hace \emph{discontinua} y que para este valor particular de $x$ hay una \emph{solución de continuidad}}.
+\end{quote}
+Cauchy da realmente dos definiciones; primero define lo que nosotros llamaríamos ``continuidad en un intervalo'' y, después, la continuidad puntual. La primera definición ha sido interpretada en el sentido de que lo que Cauchy entiende por continuidad es lo que ahora llamamos ``continuidad uniforme''.
+
+Seguidamente a esta definición, Cauchy pasa a estudiar la continuidad de las funciones elementales, considerando en cada caso, los límites entre los que cada función es continua. Después demuestra el teorema de los valores intermedios (teorema de Bolzano) del cual da dos demostraciones. Una que se apoya de forma decisiva en la intuición geométrica y, en una nota al final del texto, otra, que él califica de ``puramente analítica'', que consiste en el método de bisección, en la que Cauchy usa, sin demostración ni comentario, que una sucesión monótona acotada es convergente, propiedad que equivale a la completitud del sistema de los números reales.
+
+El citado texto de Cauchy, así como los libros \emph{Résumé des le\c{c}ons sur le Calcul Infinitésimal} (1823) y \emph{Le\c{c}ons sur le Calcul Différentiel} (1829), en los que se recogen los cursos impartidos por Cauchy en la École Polytechnique durante los años precedentes, tuvieron una gran influencia y establecieron nuevas exigencias de rigor. En el cálculo de Cauchy los conceptos de función y de límite son los conceptos fundamentales.
+\subsection{El innovador trabajo de Bolzano}
+\begin{figure}[ht]
+\begin{center}
+     \begin{minipage}[t]{.3\textwidth}
+     \vspace{0pt}
+     %\hspace{2mm}
+     \flushleft
+      \includegraphics[width=3.5cm]{bolzano.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright}%,margin={1mm,0mm}
+\caption{Bolzano}
+    \end{minipage}%
+       \begin{minipage}[t]{.7\textwidth}
+       \vspace{0pt}
+       \hspace{8mm}
+   Es obligado citar a \href{http://es.wikipedia.org/wiki/Bernard_Bolzano}{Bernhard Bolzano} (1781 - 1848), matemático, lógico y filósofo, profesor en la Universidad de su ciudad natal, Praga, desde 1805 a 1820. Bolzano, cuyas obras completas comprenderán, cuando terminen de editarse, alrededor de 140 volúmenes, fue un innovador en todos los campos que trabajó. En sus trabajos matemáticos anticipó muchos de los conceptos que posteriormente redescubrieron y desarrollaron matemáticos como Cauchy, Weierstrass o Cantor. Debido a su relativo aislamiento en la ciudad de Praga, en una época en la que el centro de toda la producción matemática estaba en París, la obra matemática de Bolzano fue poco conocida y no tuvo la influencia que merecía por su rigor y profundidad.
+     \end{minipage}
+      \end{center}
+  \end{figure}\vspace*{-.7cm}
+Por lo que a la continuidad de una función se refiere, Bolzano publicó en 1817 un pequeño libro de 60 páginas \emph{Purely analytic proof of the theorem that between any two values which give results of opposite sign there lies at least one real root of the equation} \cite{bolzano}, en el que, entre otras cosas, demuestra el teorema que ahora lleva su nombre. Bolzano empieza razonando que las demostraciones conocidas de ese teorema eran inapropiadas. La claridad de ideas con que se expresa es muy llamativa (traduzco de \cite{bolzano}):
+\begin{quote}
+\footnotesize{
+No obstante, un examen más cuidadoso muestra muy pronto que ninguna de estas pruebas puede considerarse adecuada.
+
+I.$\quad$ El tipo de demostración más usual depende de una verdad pedida en préstamo a la geometría, a saber, que toda línea continua de curvatura simple cuyas ordenadas son primero positivas y después negativas (o recíprocamente) necesariamente debe intersecar en algún lugar al eje de abscisas en un punto comprendido entre aquellas ordenadas. Ciertamente, nada  hay que objetar respecto a la corrección, ni tampoco a la obviedad, de esta proposición geométrica. Pero está claro que es una intolerable ofensa contra el método correcto, deducir verdades de las matemáticas puras (o generales, i.e. aritmética, álgebra, análisis) a partir de consideraciones que pertenecen simplemente a una parte aplicada (o especial), a saber, la geometría.
+
+[\dots] Consideremos ahora la razón objetiva por la que una línea en las circunstancias antes mencionadas interseca el eje de abscisas. Sin duda, todo el mundo verá enseguida que esta razón descansa en nada más que en el asentimiento general, como consecuencia del cual toda función continua de $x$ que sea positiva para algún valor de $x$, y negativa para otro, debe ser cero para algún valor intermedio de $x$. Y ésta es, precisamente, la verdad que debe ser probada.
+
+II.$\quad$ No menos reprobable es la demostración que algunos han construido a partir del concepto de la continuidad de una función con la inclusión de los conceptos de tiempo y movimiento. [\dots] Esto es adicionalmente ilustrado por el ejemplo del movimiento de dos cuerpos, uno de los cuales está inicialmente detrás del otro y posteriormente delante del otro. Necesariamente se deduce que en un tiempo debe haber estado al lado del otro. Nadie negará que los conceptos de tiempo y movimiento son tan extraños a la matemática general como el concepto de espacio. No obstante, si estos conceptos fueran introducidos solamente por motivos de claridad, no tendríamos nada en contra de ello. [\dots] Por tanto, debe observarse que no consideramos que los ejemplos y aplicaciones disminuyan en lo más mínimo la perfección de una exposición científica. De otra manera, estrictamente exigimos sólo esto: que los ejemplos nunca sean empleados como argumentos en lugar de las demostraciones, y que la esencia de una deducción nunca esté basada sobre el uso meramente metafórico de frases o sobre sus ideas relacionadas, de forma que la deducción misma quedaría vacía tan pronto como éstas fueran cambiadas.}
+\end{quote}
+Es difícil expresarse con más claridad que como lo hace Bolzano. Su definición de continuidad, en el citado trabajo, es como sigue:
+\begin{quote}
+\footnotesize{Una función $f(x)$ varía según la ley de continuidad para todos los valores de $x$  dentro o fuera de ciertos límites, significa exactamente que: si $x$ es algún tal valor, la diferencia $f(x+\omega)-f(x)$ puede ser hecha más pequeña que cualquier cantidad dada, supuesto que $\omega$ puede ser tomado tan pequeño como queramos.}
+\end{quote}
+Seguidamente, Bolzano establece un teorema previo cuyo asombroso enunciado es como sigue:
+\begin{quote}
+\footnotesize{Si una propiedad $M$ no pertenece a todos los valores de una variable $x$, pero sí pertenecen todos los valores que son menores que un cierto $u$, entonces existe siempre una cantidad $U$ que es la mayor de aquellas de las cuales puede afirmarse que toda más pequeña $x$ tiene la propiedad $M$.}
+\end{quote}
+Comprendes por qué califico de ``asombroso'' ese enunciado, ¿verdad? ¡Es la propiedad de extremo inferior!¡En el año 1817, 55 años antes de que Dedekind y Cantor publicaran sus teorías de los números reales!
+
+El conocido historiador de las matemáticas Ivor Grattan - Guinness, en un polémico trabajo titulado \emph{Bolzano, Cauchy and the ``New Analysis'' of Early Nineteenth Century} \cite{grattan}, expresa su opinión de que Cauchy conocía el trabajo de Bolzano pero nunca lo reconoció. Desde luego, ni en las numerosas obras de Cauchy, ni en su correspondencia particular, se ha encontrado ninguna referencia a Bolzano, por lo que la afirmación de Grattan - Guinness, como él mismo reconoce, no está sustentada en pruebas documentales.
+\subsection{Weierstrass nos dio los $\varepsilon-\delta$}
+\begin{figure}[ht]
+\begin{center}
+     \begin{minipage}[t]{.3\textwidth}
+     \vspace{0pt}
+     %\hspace{2mm}
+     \flushleft
+      \includegraphics[width=3.5cm]{weierstrass.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright}%,margin={1mm,0mm}
+\caption{Weierstrass}
+    \end{minipage}%
+       \begin{minipage}[t]{.7\textwidth}
+       \vspace{-3pt}
+       \hspace{8mm}
+       Una característica de los textos citados de Cauchy es que en ellos no hay ni una sola figura. Cauchy liberó al cálculo de sus ataduras geométricas, aunque todavía sus definiciones contenían términos imprecisos como ``tan pequeño como queramos'' y ``disminuir  indefinidamente hasta converger al límite cero'', o ideas de movimiento como ``variable que se acerca a un límite'' por no hablar de sus ``infinitamente pequeños''. Para seguir avanzando era necesario acabar de una vez con las distinciones entre número y cantidad. Los números reales todavía eran considerados geométricamente y no se habían establecido sus propiedades de forma explícita. El cero y los números negativos eran vistos aún por muchos matemáticos como algo de naturaleza diferente a los números positivos.
+               \end{minipage}
+      \end{center}
+  \end{figure}\vspace*{-.8cm}
+En definitiva, debía concretarse el significado de expresiones como ``cantidad variable'' y ``variable continua''. También era preciso separar la idea de función de su representación analítica concreta, lo cual, como ya vimos en el Capítulo 2, fue hecho por Dirichlet en 1837 con su definición general de función como correspondencia arbitraria. Finalmente, pero no menos importante, estaban las cuestiones referentes a la convergencia de sucesiones y series numéricas y funcionales, aún mal comprendidas en la época de Cauchy, de las que nos ocuparemos en otro lugar.
+
+En los cincuenta años que van de 1830 a 1880 se lograron desentrañar todas estas cuestiones fundamentales gracias, principalmente, a los trabajos de Dirichlet, Riemann, Weierstrass,\linebreak Dedekind y Cantor. Ya conocemos una parte de este complejo proceso, la que culmina en 1872 con la fundamentación del sistema de los números reales por Dedekind y Cantor.
+
+Fue \href{http://www-groups.dcs.st-and.ac.uk/~history/Biographies/Weierstrass.html}{Karl Weierstrass} (1815 - 1897) quien llevó a sus últimas consecuencias el proceso de ``aritmetización del Análisis''. Weierstrass era un desconocido profesor de instituto, cuando en 1854 publicó un trabajo sobre las funciones abelianas que causó sensación en la comunidad matemática. Poco después, en 1856, Weierstrass ya era profesor de la Universidad de Berlín. Los cursos que Weierstrass impartió en Berlín durante más de treinta años atrajeron a numerosos matemáticos de toda europa. Discípulos suyos fueron, entre muchos otros menos conocidos, George Cantor (1845 - 1918), Sonya Kovalevsky (1850 - 1891), Max Planck (1858 - 1947) y David Hilbert (1862 - 1943).
+
+Weierstrass estaba convencido de que el Análisis debía ser liberado de los razonamientos geométricos y de los conceptos intuitivos de espacio, tiempo y movimiento y debía ser  fundamentado sobre los enteros positivos. Acometió la tarea de revisar radicalmente los conceptos fundamentales del Análisis y a este fin dedicó algunos de sus cursos. Entre otras cosas, desarrolló en ellos una teoría aritmética de los números reales parecida a la de Cantor. Aunque Weierstrass no publicó mucho, su influencia fue enorme y sus conferencias magistrales fueron difundidas por toda Europa por sus numerosos alumnos. Weierstrass es considerado como el más grande analista del último tercio del siglo XIX y se le ha llamado ``el padre del análisis moderno''. Más adelante tendremos ocasión de exponer algunas de sus contribuciones.
+
+Por lo que al concepto de límite funcional se refiere, Weierstrass tradujo por medio de desigualdades y de valores absolutos las definiciones verbales de límite y de continuidad dadas por Cauchy y Bolzano. Para Weierstrass, una variable solamente es un símbolo que sirve para designar cualquier elemento del conjunto de valores que se le pueden atribuir. Una variable continua es aquella cuyo conjunto de valores no tiene puntos aislados. La definición de límite dada por Weierstrass, tal como la recogió en sus notas el matemático H.E. Heine (1821 - 1881) es la siguiente:
+\begin{quote}
+\footnotesize{Se dice que $L$ es el límite de una función $f(x)$ para $x=x_0$ si, dado cualquier \eps, existe un $\delta_0$ tal que para $0<\delta<\delta_0$, la diferencia $f(x_0\pm\delta)-L$ es menor en valor absoluto que \eps.}
+\end{quote}
+Cuando una teoría ha sido desarrollada, llega el momento del rigor. Así el concepto de límite, fundamental en cálculo porque en él se basan los de continuidad, derivada, integral y los distintos tipos de convergencia, y es el concepto que confiere al cálculo su característica distintiva, solamente pudo ser expresado de forma rigurosa (según nuestros criterios actuales) en el último tercio del siglo XIX, después de haberse estado usando, de forma más o menos disfrazada por los infinitésimos y otros conceptos afines como el movimiento, durante doscientos años. Curiosamente, la letra griega \eps, que usaba Cauchy con un significado de ``error'', se ha convertido en el paradigma de la precisión en nuestras actuales definiciones heredadas de Weierstrass.
+
+La flechita en la notación para límites, $\dis\lim_{x\to x_0}f(x)$, fue introducida por G.H. Hardy (1877 - 1947) en su notable libro \emph{A Course of Pure Mathematics} (1908).
+
+\begin{ejercicios propuestos}
+\propuesto Considera la función \func{f}{\Rp}\ dada por
+$$
+f(x)=\dfrac{1}{1-x+E(x)}
+$$
+Donde, como de costumbre, $E(x)$ es la parte entera de $x$. Estudia los límites en $+\infty$ de las funciones $f(x+1)-f(x)$ y $\dfrac{f(x)}{x}$.
+\end{ejercicios propuestos}
+
+\section{Breve historia del infinito}
+Es conocida la exclamación de  David Hilbert \emph{¡El infinito! Ninguna cuestión ha conmovido tan profundamente el espíritu del hombre}. Es verdad, el infinito atrae poderosamente nuestra imaginación. ¿Quién no ha gritado en su infancia para devolver un agravio ``\emph{\dots y tú diez veces más\dots ¡infinitas veces más que yo!}''? Es difícil imaginar que el tiempo tuviera un comienzo y también que el espacio sea finito, porque no podemos pensar en una frontera para el espacio tras de la cual no exista más espacio, ni un origen para el tiempo antes del cual no hubiera tiempo. Cualquier respuesta a estas preguntas conduce siempre a nuevas preguntas. Un error típico consiste en creer que si algo fuera infinito debería contener todas las cosas, algo así como el Aleph borgiano. Matemáticamente, es claro que no tiene por qué ser así: los números pares son infinitos y no son todos los números. Algo infinito tampoco tiene por qué ser necesariamente muy grande. El Aleph de la narración de Borges es una pequeña esfera, un conjunto fractal contiene infinitas copias de sí mismo, el veloz Aquiles permanece corriendo sin alcanzar jamás a la tortuga que le lleva unos pocos metros de ventaja\dots .
+\subsection{La idea de infinito en la filosofía y la matemática Griegas}
+\subsubsection{Las aporías de Zenón de Elea}
+\vspace*{-.5cm}
+\begin{minipage}[t]{.57\textwidth}
+\vspace{0pt}
+\phantom{aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}
+\end{minipage}%
+\begin{minipage}[t]{.43\textwidth}
+\vspace{0pt}
+{\small \textit{¡Zenón, cruel Zenón, Zenón de Elea!\\ Me has traspasado con la flecha alada. \\ Que, cuando vibra volando, no vuela.\\ Me crea el son y la flecha me mata. \\ ¡Oh sol, oh sol! ¡Qué sombra de tortuga \\ Para el alma: si en marcha Aquiles, quieto!} \\  Paul Valery}
+\end{minipage}
+
+\smallskip
+
+Un griego llamado Zenón, del que se sabe muy poco y de forma indirecta a través del \emph{Parménides} de Platón, cuyo nacimiento se fecha hacia el año 490 a.C en la ciudad de Elea en el sur de Italia, y que fue discípulo de Parménides, sigue manteniendo desde hace 2300 años su permanente desafío a la razón.
+
+Te recuerdo que, según Parménides, el ser es necesariamente uno, eterno, continuo, indivisible e inmutable. Los cambios, transformaciones y multiplicación de los seres, son meras apariencias a las cuales no responde realidad alguna. La filosofía de Parménides fue muy criticada porque choca con nuestras creencias más básicas sobre la realidad.
+
+Zenón ideó sus paradojas o aporías (proposiciones sin salida lógica) para desacreditar a quienes negaban las ideas de Parménides, y afirmaban la realidad del cambio y la pluralidad de los seres. Aristóteles califica a Zenón de ``inventor de la dialéctica'', una elaborada forma de razonamiento que consiste en probar al oponente que de sus ideas se deducen consecuencias inaceptables. Los argumentos de Zenón son realmente del tipo ``reducción al absurdo'': se acepta provisionalmente una hipótesis y, razonando correctamente a partir de ella, se llega a una conclusión inaceptable, lo que obliga a rechazar la hipótesis inicial.
+
+Vamos a exponer, en lenguaje actual, tres de las paradojas de Zenón que van dirigidas contra las dos teorías del movimiento sostenidas en la antigüedad, las cuales dependen, claro está, de la supuesta naturaleza del tiempo y del espacio. Debes tener en cuenta que Zenón no niega el movimiento sino su inteligibilidad; la afirmación de que ``el movimiento se demuestra andando'' no refuta a Zenón, su desafío no es a la experiencia sensible sino a la razón.
+
+Las dos primeras paradojas parten del supuesto de que el espacio y el tiempo son \emph{infinitamente divisibles} y el movimiento continuo y uniforme.
+
+\noindent\textbf{La dicotomía.}\vspace*{-4mm}
+\begin{quote}
+\small{Para que un móvil pueda llegar a un punto dado, debe recorrer primero la mitad de la distancia; pero antes de alcanzar esa mitad debe recorrer la mitad de la mitad. Y así sucesivamente, ``ad infinitum''. De este modo para alcanzar completamente cualquier distancia tendría que recorrer un número infinito de divisiones, lo cual es imposible en un tiempo finito.}
+\end{quote}
+\noindent\textbf{Aquiles y la tortuga.}\vspace*{-4mm}
+\begin{quote}
+\small{Aquiles, el de los pies ligeros, nunca alcanzará a la tortuga que avanza lentamente unos cuantos metros por delante de él. Pues cuando Aquiles alcance el punto donde estaba la tortuga, ésta ya estará un poco más adelante; y cuando de nuevo Aquiles alcance ese lugar, la tortuga habrá avanzado un poco más. Sin desanimarse, sigue corriendo, pero al llegar de nuevo donde estaba la tortuga, esta ha avanzado un poco más\dots . De este modo, la tortuga estará siempre por delante de Aquiles.}
+\end{quote}
+Ambos argumentos están relacionados. Según la Dicotomía, para que haya movimiento debe haber un comienzo, pero no hay una distancia mínima con la que empezar; por tanto el movimiento no puede empezar, luego no hay movimiento. Según Aquiles, un móvil para alcanzar su destino debe cubrir primero la mitad de la distancia que lo separa, pero antes deberá recorrer la mitad de esa mitad, y así sucesivamente; luego debe recorrer infinitas divisiones lo cual es imposible en tiempo finito, por tanto nunca alcanzará su destino. Es decir, una vez empezado, el movimiento no puede parar.
+
+La tercera paradoja, que se refiere a una flecha lanzada al aire, supone que el espacio y el tiempo están formados por \emph{unidades mínimas indivisibles} y el movimiento es una sucesión de diminutos saltos consecutivos.
+
+\noindent\textbf{La flecha.}\vspace*{-4mm}
+\begin{quote}
+\small{En un instante indivisible de tiempo la flecha debe permanecer quieta, pues si se moviera el instante contendría unidades de tiempo más pequeñas en las que dicho movimiento tendría lugar en contra de lo supuesto. Por tanto, en cada instante la flecha está quieta y, como el tiempo se compone de instantes, la flecha está siempre quieta y el movimiento no tiene lugar.}
+\end{quote}
+La influencia de las aporías de Zenón en filosofía, lógica y matemáticas ha sido notable y se ha escrito y se sigue escribiendo mucho sobre ellas (\cite{zenon} es una de las referencias más interesantes). Más adelante veremos algunos intentos, bastante ingenuos, de resolver las dos primeras por medio de la teoría de series. Despidamos a Zenón con una cita de Borges.
+\begin{quote}
+\small{\emph{Zenón es incontestable, salvo que confesemos la idealidad del espacio y del tiempo. Aceptemos el idealismo, aceptemos el crecimiento concreto de lo percibido, y eludiremos la pululación de abismos de la paradoja. ¿Tocar a nuestro concepto del universo, por ese pedacito de tiniebla griega?, interrogará mi lector.}}
+
+\hfill{J.L. Borges, ``La perpetua carrera de Aquiles y la tortuga''.}
+\end{quote}
+\subsubsection{Atomismo y divisibilidad infinita}
+El filósofo Anaximandro (\emph{ca.}610 - 546 a.C.) introdujo el infinito en la filosofía Griega. Afirmó que el principio de todas las cosas existentes es el \emph{ápeiron}. Etimológicamente \emph{ápeiron} significa \emph{lo sin límites}. Según Anaximandro, el \emph{ápeiron} es infinito, porque provee la energía para que en el mundo no cese la generación y corrupción, e indeterminado, porque no es concreto y no se identifica con ninguno de los elementos agua, aire, tierra, fuego. Podemos interpretarlo como la fuente de energía primordial que garantiza la transformación y la unidad del cosmos.
+
+En el período que separa a Zenón de Elea de Aristóteles surgió la filosofía del atomismo, iniciada por Leucipo (\emph{ca.} 450 - 420 a.C.) y desarrollada por Demócrito (\emph{ca.} 460 - 370 a.C.). El atomismo es una filosofía materialista que se ha interpretado como una respuesta al idealismo de la Escuela Eleática (Parménides, Zenón). Los atomistas mantienen que hay dos principios fundamentales: los átomos y el vacío. Los átomos son indivisibles e invisibles, infinitos en número y de diversas formas y tamaños, perfectamente sólidos, indestructibles y permanentes. Las substancias materiales son producidas por la unión y separación de esos átomos moviéndose en el vacío. El movimiento se produce por la reordenación de los átomos entre sí; según Aristóteles, los atomistas reducen todo cambio a un mero cambio de lugar. Los atomistas admiten la pluralidad y el movimiento y niegan la infinita divisibilidad del espacio y la materia.
+
+El atomismo fue cuestionado por \href{http://es.wikipedia.org/wiki/Arist\%C3\%B3teles}{Aristóteles} (384 - 322 a.C.), que realizó un análisis sistemático del continuo. Aristóteles divide las cantidades en discretas y continuas. Los números y el lenguaje hablado son discretas y las líneas, superficies, sólidos, tiempo y espacio son continuas.
+La respuesta a la pregunta de si una magnitud continua (un \emph{continuo}) es permanentemente divisible en partes cada vez más pequeñas, o hay un límite más allá del cual no puede proseguirse el proceso de división, depende de la naturaleza del infinito. Aristóteles dedica el Libro III de su \emph{Física} a un estudio sistemático del infinito. Considera que el estudio del infinito forma parte del estudio de la naturaleza, pues lo característico de ésta es el movimiento y el cambio, y el movimiento es pensado como algo continuo, y lo que es continuo es definido con frecuencia como algo infinitamente divisible.
+
+Primero, dice Aristóteles, \emph{``hay que examinar en general si es o no es posible que haya un cuerpo sensible infinito''}. Después del correspondiente estudio, llega a la conclusión de que \emph{``no existe un cuerpo que sea actualmente infinito''}. Pero \emph{``la negación absoluta del infinito es una hipótesis que conduce a consecuencias imposibles''}.
+
+Aristóteles expone algunas razones que apoyan la creencia en la realidad del infinito y considera los distintos sentidos de dicho término. Entre las primeras: la infinitud del tiempo, la divisibilidad de las magnitudes y la infinitud de los números; entre los segundos: lo que no puede ser recorrido o se puede recorrer pero sin llegar a un término.
+\begin{quote}
+\footnotesize{Es también evidente que no es posible que lo infinito exista como un ser en acto o como una substancia y un principio. Luego lo infinito existe como un atributo.}
+\end{quote}
+Lo infinito es un atributo que puede predicarse de la cantidad o de determinados procesos; especialmente, los procesos de adición y de división. Aristóteles, habla en ese sentido del infinito por adición y el infinito por división o la divisibilidad infinita de un continuo.
+\begin{quote}
+\footnotesize{Ahora bien, el ser se dice o de lo que es en potencia o de lo que es en acto, mientras que el infinito es o por adición o por división. Y ya se ha dicho que la magnitud no es actualmente infinita [\dots] Nos queda, entonces, por mostrar que el infinito existe potencialmente.
+
+Pero la expresión ``existencia potencial'' no se debe tomar en el sentido en que se dice, por ejemplo, ``esto es potencialmente una estatua, y después será una estatua'', pues no hay un infinito tal que después sea en acto. Y puesto que el ser se dice en muchos sentidos, decimos que el infinito ``es'' en el sentido en que decimos ``el día es''.}
+\end{quote}
+Aristóteles distingue, pues, dos clases de infinito: el infinito como una totalidad completa, que llama el infinito actual y cuya existencia niega; y el infinito potencial, que concibe como un proceso secuencial de adición o de subdivisión sin final. Lo metáfora del día es muy apropiada, pues el \emph{ser} de un día es un \emph{estar siendo} de forma sucesiva, de manera que en ningún momento el día queda realizado plenamente como un todo. Análogamente, el infinito potencial nunca será plenamente realizado \emph{pues no hay un infinito tal que después sea en acto}. La infinitud potencial es la forma usual en que concebimos el tiempo como una línea recta indefinidamente prolongable o la sucesión de los números que podemos ir formando por adición consecutiva de la unidad.
+
+Esta concepción aristotélica del infinito se aceptó sin mayores cambios hasta el siglo XIX. Es una teoría que plantea bastantes dificultades, algunas de ellas consecuencia de las ideas sobre el espacio y el tiempo del propio Aristóteles, y otras internas a la propia teoría. La forma en que la existencia potencial del infinito se relaciona con su existencia como un proceso no es fácil de interpretar, pues si el infinito actual nunca es posible, es preciso que haya un sentido en el cual un proceso que está ocurriendo en el presente mantenga su existencia potencial. Por otra parte, Aristóteles mantiene que el tiempo es infinito lo que, aparentemente, contradice la no existencia de infinitos actuales. Respecto al espacio, afirma que es finito y \emph{``resulta entonces razonable pensar que no hay un infinito por adición que sea tal que pueda superar toda magnitud''}. Esto puede interpretarse como que Aristóteles niega la posibilidad, incluso potencial, de un infinito por adición de magnitudes. De todas formas, Aristóteles cree que la negación del infinito actual no afecta a los matemáticos:
+\begin{quote}
+\footnotesize{Esta argumentación no priva a los matemáticos de sus especulaciones por el hecho de excluir que el infinito por adición pueda recorrerse en acto. Porque no tienen necesidad de este infinito ya que no hacen uso de él, sino sólo, por ejemplo, de una línea finita que se prolongue tanto como ellos quieran.}
+\end{quote}
+Sobre todo esto se ha escrito y se sigue escribiendo mucho. Más interesante para nosotros es la relación del infinito con la divisibilidad infinita del continuo.
+
+Los atomistas negaban la divisibilidad infinita. Su argumento era que si una magnitud continua fuera dividida en todo punto, entonces no quedaría nada o solamente quedarían puntos sin extensión, porque en caso contrario el proceso de división podría proseguir. Pero, decían, si quedan puntos sin extensión, entonces no es posible recomponer la magnitud original a partir de ellos, pues por la agregación de puntos sin extensión no puede lograrse nunca una magnitud finita. Concluían que en cualquier caso la magnitud inicial se ha convertido en algo incorpóreo y, por tanto, algo que tenía existencia ha dejado de ser, lo cual, evidentemente, es un imposible.
+
+Aristóteles defendía la divisibilidad infinita pero debía refutar el argumento atomista. Su solución es muy original, pues afirma que aunque una magnitud continua puede ser dividida en cualquier punto, no puede ser dividida en todo punto. Para Aristóteles, dividir un continuo en todos sus puntos es reducirlo a lo discreto. Mientras que un continuo tiene la propiedad de densidad, es decir, entre dos cualesquiera de sus puntos siempre hay otro punto del continuo, los puntos obtenidos, después de una división infinita actual de un continuo, serían adyacentes unos con otros, y  esto implica que la propiedad de densidad se habría perdido. Pero si dividimos un continuo, lo que obtenemos son dos continuos cada uno de ellos con la propiedad de densidad. Por tanto, es imposible llegar, por divisiones sucesivas, a reducir un continuo a puntos. Así, Aristóteles afirma la divisibilidad infinita pero niega la divisibilidad en todo punto, con lo que el argumento atomista deja de tener valor.
+
+Esta es una posible interpretación de los argumentos de Aristóteles sobre la divisibilidad infinita, que a veces son bastante oscuros y confusos. Además, como veremos más adelante, puede darse una interpretación matemática rigurosa de la misma.
+
+Las matemáticas griegas evitan el infinito actual. Así, Euclides, considera rectas que pueden ser prolongadas cuanto se quiera, pero no ``rectas infinitas''. Igualmente, al enunciar que los números primos son infinitos, lo expresa diciendo que \emph{``Hay más números primos que cualquier cantidad de números primos propuesta''}. De esta forma evita considerar el infinito actual de los números primos.
+
+En \emph{Los Elementos} Euclides expone el \emph{método de exhausción} (\ref{pag:exhauscion}) de Eudoxo de Cnido, que se utilizaba para calcular áreas (cuadraturas) de regiones planas. Es frecuente afirmar que este método consiste en una aproximación al área seguida de un proceso límite. No es así. Aunque su nombre sugiere ``agotamiento'' de una figura plana por polígonos inscritos, el método estaba basado en un razonamiento muy cuidadoso de doble reducción al absurdo (llamado razonamiento \emph{apagógico}), precisamente para evitar la consideración de un infinito actual.
+
+Mención aparte merece Arquímedes. Por una parte, probó en su obra \emph{El arenario} que si el Universo estuviera completamente lleno de granos de arena, su número sería finito. Para lo cual desarrolla un sistema de numeración apropiado para manejar grandes números (para los griegos el número mayor era la miríada de miríadas, equivalente a $10^8$) que le permite describir un número que, en base diez, tendría unos 80000 millones de millones de cifras. Pero también Arquímedes ideó métodos heurísticos\footnote{Por \emph{método heurístico} se entiende cualquier proceso que facilite anticipar un resultado. Son métodos que se apoyan en alguna forma de intuición que conduce a la formulación de conjeturas razonables, que después deben ser probadas con métodos científicos rigurosos} que están expuestos en su obra \emph{El Método} (ver \ref{pag:metodo}), descubierta en 1906, en la que explica cómo anticipó algunos de sus descubrimientos por medio de técnicas de equilibrio usando la ley de la palanca. En estas técnicas, Arquímedes hace un uso muy libre del infinito; por ejemplo, descompone áreas planas como sumas infinitas de segmentos, es decir, reduce un continuo a elementos indivisibles, con lo cual podrían estar de acuerdo los atomistas, pero no Aristóteles.
+
+\subsubsection{La rueda de Aristóteles}
+Así se conoce un interesante problema propuesto por Aristóteles en su
+\emph{Mechanica}. Si un círculo de radio $r$ gira sin deslizar sobre su tangente horizontal, al completar un ciclo habrá avanzado una distancia igual a $2\pi r$. Consideremos dos círculos $C_1$ y $C_2$, de radios $r_1$ y $r_2$, concéntricos, rígidamente unidos entre sí. Cada uno de dichos círculos puede avanzar girando sin deslizar sobre su tangente horizontal. Al estar rígidamente unidos, el movimiento de giro de un círculo obliga al otro círculo a girar de igual manera y, además, ambos círculos avanzarán la misma distancia, que será igual a la distancia recorrida por su centro común.
+\begin{figure}
+\begin{pspicture}(-2.5,-2.5)(10,2)
+\psset{labelsep=2.5pt,arrowscale=1.7}
+\psarcn{->}(0,0){.75}{-45}{315}
+\psarcn{->}(0,0){1.5}{-45}{315}
+\psline[linewidth=.6pt,ArrowInside=->](0,-.75)(10,-.75)
+\psline[linewidth=.6pt,ArrowInside=->](0,-1.5)(10,-1.5)
+\psline[linewidth=.6pt,ArrowInside=->](0,0)(10,0)
+\psline[linewidth=.6pt](10,-1.5)(10,1.5)
+\psline[linewidth=.6pt](0,-1.5)(0,1.5)
+\uput[l](-1.5,0){\scalefont{.8}$C_1$}
+\uput[l](-.75,0){\scalefont{.8}$C_2$}
+\uput[l](0,0){\scalefont{.8}$O$}
+\uput[dl](0,-1.5){\scalefont{.8}$P$}
+\uput[dl](0,-.75){\scalefont{.8}$Q$}
+\end{pspicture}\vspace*{-4mm}
+\caption{Rueda de Aristóteles}\vspace*{-3mm}
+\end{figure}
+Supongamos que el círculo $C_1$ gira sin deslizar un ciclo completo, en cuyo caso también $C_2$ gira un ciclo completo. El camino recorrido por $C_1$ es igual a $2\pi r_1$ que es la longitud de su circunferencia; y el camino recorrido por $C_2$ también es $2\pi r_1$, aunque la longitud de su circunferencia es $2\pi r_2<2\pi r_1$. Aristóteles vio en esto algo paradójico.
+
+Desde un punto de vista cinemático no hay dificultad en explicar lo que sucede. Al girar $C_1$, con velocidad angular $\omega$, hace girar igualmente a $C_2$ con igual velocidad angular. Pero también $C_1$, al avanzar, comunica a $C_2$ un movimiento de traslación de magnitud $\omega r_1$. El movimiento de cada punto de la circunferencia de $C_2$ es por tanto la resultante de un movimiento circular simple de velocidad angular $\omega$ y de un movimiento de traslación horizontal de magnitud $\omega r_1$. Es la magnitud mayor, $\omega r_1>\omega r_2$, de esta componente de traslación la que hace posible que el círculo pequeño, aunque realiza el mismo número de ciclos que el grande, recorra igual camino que el grande.
+
+Pero es ahora donde se plantea el problema. Es claro que ambos círculos giran continuamente, por lo que el punto de tangencia de la circunferencia de cada uno de ellos con la tangente horizontal, cambia también de manera continua. Por tanto, el hecho de que ambos círculos mantengan igual ritmo de avance no puede explicarse porque el círculo menor se deslice sobre su tangente pues tal cosa no sucede. Aquí tenemos la paradoja: ¿cómo es posible que los dos caminos sean iguales sin que se produzcan deslizamientos del círculo menor que compensen la diferencia?
+
+Naturalmente, podemos suponer que el círculo que gira es el pequeño y obtenemos una situación similar a la antes descrita, en la que ahora los dos círculos recorren un camino que es igual a la longitud de la circunferencia del círculo pequeño, a pesar de que ambos realizan un ciclo completo.
+
+Se trata de un problema entre cuyos diversos aspectos, todos ellos relacionados con la idea de infinito, podemos destacar:
+
+$\bullet$\ El problema del movimiento y la idea de continuidad.\newline
+\indent $\bullet$\ La estructura del continuo y la divisibilidad infinita.\newline
+\indent $\bullet$\ La correspondencia uno a uno entre los puntos de dos caminos de diferente longitud.
+
+Aristóteles solamente consideró el problema como un ejemplo de un cuerpo que mueve a otro. Observó que era indiferente que los círculos fueran concéntricos y que podían suponerse tangentes exteriores, de forma que uno se mueve apoyándose contra el otro, en cuyo caso, dijo, es claro que el camino recorrido debe ser el del círculo que se mueve.
+
+\subsection{El infinito desde la Edad Media hasta el siglo XIX}
+\subsubsection{El infinito en la Escolástica}
+Es sabido que las religiones lo contaminan todo de irrealidad. Después del triunfo de la Iglesia Católica, las discusiones sobre el infinito adquieren una orientación marcadamente teológica.
+
+San Agustín (354 - 430), filósofo cristiano, admite el infinito actual como atributo de Dios, pero niega que Dios creara nada infinito. En su obra \emph{La Ciudad de Dios} escribe refiriéndose a los números:
+\begin{quote}
+\footnotesize{Así que son desiguales entre sí y diferentes; cada uno es finito y todos son infinitos. ¿Y que sea posible que Dios todopoderoso no sepa los números por su infinidad, y que la ciencia de Dios llegue hasta cierta suma de números, y que ignore los demás, quién habrá que pueda decirlo, por más ignorante y necio que sea? [\dots] Y así que la infinidad de los números para la ciencia de Dios, que la comprende, no puede ser infinita.}
+\end{quote}
+En esa insólita cuadratura del círculo que fue la Escolástica, en su intento
+de conciliar la filosofía de Platón y Aristóteles con la revelación cristiana, destaca Santo Tomás de Aquino (\emph{ca.} 1225 - 1274). La infinitud actual de Dios en todos los sentidos es un dogma Católico y Tomás de Aquino es una autoridad en tan delicada cuestión teológica. En su obra \emph{Summa Contra Gentiles}, Capítulo 43, proporciona catorce argumentos breves para demostrar la infinitud de Dios, cada uno de ellos termina con la letanía \emph{``Por tanto Dios es infinito''}.
+
+\subsubsection{Galileo y el infinito}
+Para encontrar ideas más interesantes sobre el infinito debemos referirnos a Galileo Galilei (1564 - 1642). En su obra pionera sobre la dinámica y estática de sólidos \emph{Discorsi e dimostrazioni matematiche intorno a due nuove science attenenti alla meccanica e i movimenti locali} (1638), Galileo expone sus ideas sobre el infinito.
+
+Desde los tiempos de Aristóteles, la paradoja de los dos círculos había sido considerada por diversos estudiosos aunque sin avances destacables. Galileo, en la citada obra, realiza un detallado estudio de la misma y propone soluciones originales. Galileo observa que la circunferencia del círculo pequeño debe tocar con cada uno de sus puntos una sola vez la tangente horizontal y avanzar sobre ella una distancia mayor que su longitud. Galileo se pregunta cómo es posible que el círculo más pequeño recorra una distancia mayor que su circunferencia sin dar saltos. Antes de exponer el estudio de Galileo, debemos comentar las opiniones de su casi exacto contemporáneo Giovanni di Guevara (1561 - 1641). Sin duda, Guevara conoce las ideas matemáticas de cantidades infinitesimales y de indivisibles que se estaban desarrollando en esta época. Guevara escribe en su obra \emph{In Aristotelis Mechanicas commentarii} (1627)\footnote{Traduzco libremente una cita de Guevara recogida en el trabajo más completo que conozco sobre la rueda de Aristóteles \cite{ruedas}, el cual estoy siguiendo muy de cerca en esta exposición}:
+\begin{quote}
+\footnotesize{Ambos, el círculo conductor y el que es movido tocan sucesivamente todas las partes individuales indivisibles de la línea del plano con un número igual de sus propias partes indivisibles, pero con la diferencia de que cuando el círculo conductor las toca, las partes en contacto son iguales entre sí, mientras que cuando el círculo movido las toca, las partes correspondientes son diferentes. Pues el contacto igual de dos cantidades depende del ajuste exacto conjuntamente de iguales partes de ambas, de forma que puedan coexistir en el mismo lugar. Pero no puede darse este ajuste exacto conjunto cuando los caminos son desiguales, pues esta desigualdad de los caminos también está presente en los lugares de contacto\dots}
+\end{quote}
+Guevara indica que cuando el círculo menor es movido por el mayor, una parte más pequeña del círculo menor siempre está en contacto con una parte mayor de la horizontal, esto hace que dicho círculo avance más rápidamente y de esta forma se compensa la menor longitud del arco de circunferencia girado.
+
+Galileo se pregunta, en la citada obra, por la constitución básica de la materia y si la cohesión de los sólidos puede explicarse por la existencia de diminutos vacíos entre partículas materiales y, más concretamente, si puede haber un número infinito de vacíos en una extensión finita. La Rueda de Aristóteles le parece un modelo matemático adecuado para estudiar este asunto.
+
+Galileo empieza su estudio considerando, en vez de círculos,  polígonos regulares concéntricos rígidamente unidos. Primero considera exágonos.
+\bigskip
+\begin{figure}[ht]
+\begin{pspicture}(-2,-2)(9,2)
+\uput[d](0,0){\scalefont{.6}$O$}
+\psset{labelsep=2.5pt,arrowscale=1.3,unit=1.35cm}
+\SpecialCoor
+\psline(.75;0)(.75;60)(.75;120)(.75;180)(.75;240)(.75;300)(.75;360)
+\psline(1.5;300)(1.5;360)(1.5;60)(1.5;120)(1.5;180)(1.5;240)(1.5;300)
+\psline[ArrowInside=->](.75;0)(.75;-60)
+\psline[ArrowInside=->,ArrowInsidePos=0.83](1.5;0)(1.5;-60)
+\psline[linewidth=.5pt](1.5;60)(1.5;240)
+\psline[linewidth=.5pt](1.5;120)(1.5;300)
+\psline[linewidth=.5pt](0,-.649)(7.85,-.649)
+\psline[linewidth=.5pt](0,-1.29)(8.25,-1.29)
+\psline[linewidth=.5pt](1.5;180)(7.5,0)
+\psline[linewidth=.5pt](2.25,-1.39)(2.25,-1.19)
+\psline[linewidth=.5pt](3.75,-1.39)(3.75,-1.19)
+\psline[linewidth=.5pt](5.25,-1.39)(5.25,-1.19)
+\psline[linewidth=.5pt](6.75,-1.39)(6.75,-1.19)
+\psline[linewidth=.5pt](8.25,-1.39)(8.25,-1.19)
+\uput[d](1.5;-120){\scalefont{.8}$A$}
+\uput[d](1.5;-60){\scalefont{.8}$B$}
+\uput[ur](1.5;0){\scalefont{.8}$C$}
+\uput[u](1.5;60){\scalefont{.8}$D$}
+\uput[u](1.5;120){\scalefont{.8}$E$}
+\uput[l](1.5;180){\scalefont{.8}$F$}
+\uput[d](2.25,-1.39){\scalefont{.8}$c$}
+\uput[d](3.75,-1.39){\scalefont{.8}$d$}
+\uput[d](5.25,-1.39){\scalefont{.8}$e$}
+\uput[d](6.75,-1.39){\scalefont{.8}$f$}
+\uput[d](8.25,-1.39){\scalefont{.8}$a$}
+\psarc[linestyle=dashed,dash=2pt,linewidth=.25pt](.75,-1.29){1.5}{0}{120}
+\rput(4.5,0){\psline[linestyle=dashed,dash=2pt,linewidth=.25pt](1.5;300)(1.5;360)(1.5;60)(1.5;120)(1.5;180)(1.5;240)(1.5;300)
+\uput[ur](1.5;0){\scalefont{.8}$F$}}
+\rput(3,0){\psline[linestyle=dashed,dash=2pt,linewidth=.25pt](1.5;300)(1.5;360)(1.5;60)(1.5;120)(1.5;180)(1.5;240)(1.5;300)
+\uput[ur](1.5;60){\scalefont{.8}$F$}
+\psline[linestyle=dashed,dash=2pt,linewidth=.25pt](.75;0)(.75;60)(.75;120)(.75;180)(.75;240)(.75;300)(.75;360)
+\uput[dl](.75;-120){\scalefont{.6}$c\tl$}
+\uput[dl](.75;-60){\scalefont{.6}$D\tl$}}
+\rput(1.5,0){\psline[linestyle=dashed,dash=2pt,linewidth=.25pt](1.5;300)(1.5;360)(1.5;60)(1.5;120)(1.5;180)(1.5;240)(1.5;300)
+\psline[linestyle=dashed,dash=2pt,linewidth=.25pt](.75;0)(.75;60)(.75;120)(.75;180)(.75;240)(.75;300)(.75;360)
+\uput[dl](.75;-120){\scalefont{.6}$b\tl$}
+\uput[dl](.75;-60){\scalefont{.6}$C\tl$}}
+\psset{labelsep=1.5pt}
+\uput[dl](.75;-120){\scalefont{.6}$A\tl$}
+\uput[dl](.75;-60){\scalefont{.6}$B\tl$}
+\uput[dr](.75;0){\scalefont{.6}$C\tl$}
+\uput[r](.75;60){\scalefont{.6}$D\tl$}
+\uput[ur](.75;120){\scalefont{.6}$E\tl$}
+\uput[ul](.75;180){\scalefont{.6}$F\tl$}
+\rput(7.5,0){\psline[linestyle=dashed,dash=2pt,linewidth=.25pt](1.5;300)(1.5;360)(1.5;60)(1.5;120)(1.5;180)(1.5;240)(1.5;300)
+\psline[linestyle=dashed,dash=2pt,linewidth=.25pt](.75;0)(.75;60)(.75;120)(.75;180)(.75;240)(.75;300)(.75;360)
+\uput[dl](.75;-120){\scalefont{.6}$f\tl$}
+\uput[dl](.75;-60){\scalefont{.6}$a\tl$}}
+\end{pspicture}%\vspace*{-4mm}
+\caption{Exágonos de Galileo}\vspace*{-3mm}
+\end{figure}
+
+Sometemos el exágono mayor a un giro de 60 grados con centro en el vértice $B$. Este giro lleva el vértice $C$ al punto del mismo nombre, $c$, sobre la línea de base, y el centro $O$ lo lleva a donde estaba el vértice $C$. Este giro lleva el lado $B\tl C\tl$ del exágono menor al segmento del mismo nombre $b\tl C\tl$ de la línea de base de dicho exágono, y al hacerlo deja en medio un segmento $B\tl b\tl$. Este proceso se repite con sucesivos giros de 60 grados con centros respectivos en los puntos $c, d, e, f$ hasta completar un ciclo. El exágono mayor ha recorrido sobre su línea de base una distancia igual a su perímetro. El exágono menor avanza a saltos, pues en cada giro deja en medio un segmento de su línea de base con el que no entra en contacto ($B\tl b\tl$, $C\tl c\tl$\dots). El camino que dicho exágono recorre es su perímetro más los saltos correspondientes que, en el caso considerado en la figura, sería igual a 5 veces y media el lado del exágono mayor. Por su parte, el centro recorre una distancia igual a 5 veces el lado del exágono mayor.
+
+Es claro que conforme aumenta el número de lados, la longitud del lado del polígono mayor es cada vez más pequeña y las longitudes recorridas son cada vez más parecidas. En este punto, Galileo considera los círculos como polígonos con un número infinito de lados (un infinito actual, no potencial) y escribe:
+\begin{quote}
+\footnotesize{La distancia recorrida por el infinito número de lados continuamente distribuidos del círculo mayor es igualado por la distancia recorrida por el infinito número de lados del menor, pero, en el último caso, por la interposición de igual número de vacíos entre los lados. Y al igual que los lados no son finitos en número sino infinitos, igualmente los vacíos interpuestos no son finitos sino infinitos. Es decir, el número infinito de puntos sobre la línea recorrida por el círculo mayor son todos ellos ocupados (esto es, en el transcurso de la revolución de ese círculo han sido ocupados por un ``lado'' del círculo), pero sobre la recorrida por el círculo menor son parcialmente ocupados y parcialmente vacíos.}
+\end{quote}
+%Los infinitos lados de un círculo son las \emph{partes indivisibles} del mismo. %Galileo no considera como cantidades o magnitudes a dichas partes indivisibles, para él son ``non-quanta''.
+
+Otra paradoja estudiada por Galileo es la de la ``equivalencia entre una circunferencia y un punto''. Para explicarla, consideremos un rectángulo formado por dos cuadrados iguales unidos por un lado común. Recortemos en este rectángulo una semicircunferencia de centro en la mitad del lado superior del rectángulo e igual radio. La figura que resulta de quitar dicha semicircunferencia al rectángulo se gira alrededor de su eje de simetría y se obtiene un sólido de revolución parecido a un cuenco. Supongamos ahora inscrito en dicho sólido un como circular recto cuya base coincide con la del cuenco y de altura igual a la del cuenco.
+
+\begin{figure}[ht]
+\centering
+\begin{pspicture}(-1.2,0)(1.2,5)
+\psset{unit=4cm}
+\psframe(-1,0)(1,1)
+\psline[linewidth=.4pt,linestyle=dashed,dash=3pt](0,0)(0,1)
+\psline(-1,0)(0,1)(1,0)
+\psarc(0,1){1}{180}{360}
+\psline[linewidth=.4pt,linestyle=dashed,dash=2pt](-1,.4)(1,.4)
+\psline[linewidth=.4pt,linestyle=dashed,dash=2pt](0,1)(.5,0)
+\uput[u](0,1){$O$}
+\uput[r](1,0){$A$}
+\uput[r](1,1){$B$}
+\uput[l](-1,1){$C$}
+\uput[l](-1,0){$D$}
+\uput[l](-1,.4){$U$}
+\uput[r](1,.4){$V$}
+\psset{labelsep=2.5pt}
+\uput[d](.5,0){\scalefont{.8}$P$}
+\uput[r](.45,0.09){\scalefont{.8}$Q$}
+\end{pspicture}
+\caption{Paradoja circunferencia-punto}
+\end{figure}
+Cada plano paralelo a la base del cuenco determina en su intersección con el cono un círculo, y en su intersección con el cuenco una corona circular. Es muy fácil comprobar que dichos círculo y corona circular tienen igual área. Si ahora consideramos planos paralelos a la base del cuenco que se van acercando al borde superior del mismo, las áreas de las intersecciones de dichos planos con el cono y el cuenco son siempre iguales. El último de dichos planos da como intersección con el cuenco una circunferencia (el borde del cuenco) y con el cono un punto (el vértice del cono). Como los límites de cantidades iguales entre sí deben también ser iguales entre sí, Galileo se pregunta por qué no podemos considerar la circunferencia como igual a su centro. Si lo hacemos, llegaremos a la conclusión de que todas las circunferencias son iguales entre sí e iguales a un punto.
+
+La misma figura anterior pone de manifiesto que la semicircunferencia está formada por tantos puntos como los que forman la poligonal $CDAB$. Pues cada semirrecta con origen en $O$ corta a la semicircunferencia en un único punto $Q$ y a la poligonal en otro único punto $P$. Así podemos emparejar los puntos de la semicircunferencia con los de la poligonal y de esta forma los agotamos todos. Por tanto ambas líneas tienen igual número infinito de puntos. Si llamamos $\ell$ a la longitud de $AB$, la semicircunferencia tiene longitud $\pi\ell$, menor que la longitud de la poligonal $CDAB$ que es igual a $4\ell$. Galileo escribe al respecto:
+\begin{quote}
+\footnotesize{Estas dificultades son reales; y no son las únicas. Pero recordemos que estamos tratando con infinitos e indivisibles, los cuales trascienden nuestra comprensión finita, los primeros a causa de su magnitud, los últimos debido a su pequeñez.
+
+[\dots] intentamos, con nuestras mentes finitas, discutir sobre el infinito, asignándole propiedades que damos a lo finito y limitado; pero pienso que esto es incorrecto, dado que no podemos hablar de cantidades infinitas como si fuesen mayores, menores o iguales a otras.}
+\end{quote}
+Otra paradoja considerada por Galileo, es la que se deduce de la observación de que para cada número natural $n$ podemos construir un cuadrado de lado $n$, cuya área es igual a $n^2$, de donde se deduce que hay tantos números naturales como cuadrados perfectos. Sin embargo la mayoría de los números no son cuadrados perfectos. A la vista de ello, Galileo escribe:
+\begin{quote}
+\footnotesize{[\dots] el total de los números es infinito, y el número de cuadrados es infinito; ni es menor el número de cuadrados que el de la totalidad de números, ni el otro mayor que el anterior; y, finalmente, los atributos ``igual'', ``mayor'' y ``menor'' no son aplicables al infinito, sino solo a cantidades finitas. }
+\end{quote}
+\subsubsection{El Cálculo y el infinito}
+Una característica de las matemáticas del siglo XVII es el libre uso del infinito. En los dos primeros tercios del siglo XVII se desarrollan una variedad de métodos infinitesimales que preludian el cálculo diferencial, así como técnicas de cuadraturas basadas en la descomposición de recintos planos o de sólidos en infinitos \emph{elementos indivisibles}. El matemático inglés John Wallis introdujo en 1655 en su obra \emph{De Sectionibus Conicis}, el símbolo del ``lazo del amor'', $\infty$, con el significado de ``infinito''.
+
+La invención del Cálculo, en el último tercio del siglo XVII, ordena y sistematiza estos procedimientos, y proporciona algoritmos generales para resolver multitud de problemas que antes se abordaban con técnicas específicas para cada caso. Las cantidades infinitesimales, los casi imprescindibles infinitésimos, que ya son viejos amigos nuestros, son otra forma del infinito, en este caso, de lo infinitamente pequeño. Durante el siglo XVIII y parte del XIX, los infinitésimos se usaron de forma casi generalizada porque, a pesar de los problemas de todo tipo que planteaban, eran útiles y eficaces para resolver problemas y una herramienta heurística muy apreciada. Es preferible diferir, hasta que estudiemos el nacimiento del Cálculo, el estudio de algunos aspectos de este proceso cuya consideración ahora nos apartaría del tema que estamos viendo.
+\subsection{El infinito matemático y el nacimiento de la teoría de conjuntos}
+A principios del siglo XIX, la actitud de los matemáticos ante el infinito no
+era diferente a la mantenida por Galileo doscientos años antes. La consideración del infinito actual conducía a paradojas; en particular, la llamada \emph{paradoja de la reflexividad}, es decir, la posibilidad de establecer una biyección entre un conjunto infinito y una parte del mismo, indicaba que la consideración del infinito actual contradecía el principio lógico de que ``el todo es mayor que las partes''. Para los principales matemáticos de la época, como Gauss y Cauchy, el infinito seguía siendo un infinito potencial, un concepto sin contenido matemático, una palabra que servía para designar un proceso sin punto final. Gauss lo expresó claramente en una carta a su amigo Schumacher en 1831:
+\begin{quote}
+\footnotesize{Debo protestar vehementemente contra el uso del infinito como algo completado, pues esto nunca está permitido en matemáticas. El infinito es simplemente una forma de hablar; una forma resumida para la afirmación de que existen los límites a los cuales ciertas razones pueden aproximarse tanto como se desee, mientras otras son permitidas crecer ilimitadamente.}
+\end{quote}
+La consideración del infinito actual como objeto matemático exige disponer de objetos matemáticos que puedan ser llamados ``infinitos''. Que los números naturales son potencialmente infinitos quiere decir que son una sucesión a la que podemos agregar términos indefinidamente, muy diferente es la consideración del infinito actual de todos los números naturales (a lo que estamos ya acostumbrados y no nos causa mayor problema), que equivale a considerarlos como un todo acabado, como un conjunto formado por todos ellos. Esto indica que una teoría matemática del infinito supone la consideración de conjuntos infinitos. Es imposible separar la teoría de conjuntos y la teoría del infinito.
+
+En esto, como en otras cosas, Bernahrd Bolzano fue un adelantado a su tiempo. En su libro \emph{Las Paradojas del Infinito}, publicado en 1851, tres años después de su muerte, Bolzano se propone estudiar las paradojas conocidas y mostrar que, debido a la falta de precisión en el uso del término \emph{infinito}, daban lugar a \emph{aparentes} contradicciones. Es necesario, afirma, definir el término \emph{infinito} y las matemáticas son el contexto apropiado para ello. Naturalmente, Bolzano, está refiriéndose al infinito actual. Con la idea de fundamentar matemáticamente la noción de infinito actual, Bolzano introduce los términos de \emph{agregado}, \emph{conjunto} y \emph{multitud}, siendo en esta obra la primera vez que la palabra ``conjunto'' es usada con un significado matemático preciso. Un agregado es una totalidad compuesta de objetos bien definidos; un conjunto es un agregado donde el orden de sus partes es irrelevante y donde nada esencial se cambia si solo se cambia el orden (es decir, un agregado sin estructura alguna); una multitud es un conjunto cuyos miembros son individuos de una misma especie.
+
+Bolzano considera un conjunto como un todo, sin necesidad de considerar separadamente cada uno de sus elementos. El ejemplo que propone es muy significativo a este respecto:
+\begin{quote}
+\footnotesize{\dots puedo pensar en el conjunto, o agregado, o si se prefiere, en la totalidad de los habitantes de Praga o de Pekín sin formar una representación separada de cada habitante individual.}
+\end{quote}
+Bolzano abandona así el punto de vista constructivo, la idea de que un conjunto se va formando a partir de sus elementos mediante alguna clase de algoritmo.
+
+Bolzano define una multitud infinita como aquella de la cual cualquier multitud finita solamente puede ser parte de la misma. Debemos observar que esta definición no es la tradicional en la que infinito es definido como la negación de lo finito. Con respecto a la existencia de conjuntos infinitos, Bolzano afirmó que ``el conjunto de todas las verdades absolutas es un conjunto infinito''. Su idea es partir de una proposición que se sabe verdadera a la que podemos llamar $A$; a partir de ella podemos formar otra ``$A$ es verdadera'' que, claramente, es diferente de la proposición $A$ y este proceso puede proseguirse indefinidamente. Esta idea parece muy ingenua pero, más de treinta años después, Dedekind  se inspiró en ella para probar el mismo resultado.
+
+Bolzano mantiene que el criterio de validez para la existencia de conjuntos infinitos debe basarse en su naturaleza no contradictoria.
+\begin{quote}\vspace*{-3mm}
+\footnotesize{Tan pronto como disponemos de un concepto, $A$, el cual representa los objetos $a, b, c, d,\dots$ y no otros, es extremadamente fácil llegar a un concepto que represente el agregado de todos estos objetos tomados juntos. Solamente se necesita combinar la idea expresada por la palabra ``agregado'' y el concepto $A$, en la manera expresada por las palabras ``el agregado de todo $A$''. Esta simple observación, cuya corrección confío que será evidente para todos, elimina todas las dificultades planteadas contra la idea de un conjunto que comprende infinitos miembros.}
+\end{quote}\vspace*{-3mm}
+En términos actuales, lo que Bolzano afirma es que dada una proposición $P(x)$, relativa a los elementos de un conjunto $X$, podemos formar el conjunto $Y=\set{x\en X: P(x) \textrm{ es verdadera}}$.
+
+Bolzano se propone establecer un criterio de comparación para conjuntos infinitos. La paradoja de la reflexividad no le preocupa tanto como a Galileo; al contrario, el hecho de que pueda establecerse una biyección entre un conjunto y una parte de él le parece ``una de las más notables característica de los conjuntos infinitos''. Pero en este punto crucial Bolzano no eligió el criterio adecuado.
+\begin{quote}\vspace*{-3mm}
+\footnotesize{\dots el conjunto de todas las cantidades entre $0$ y $5$ (o menores que $5$) es claramente infinito, al igual que lo es el conjunto de todas las cantidades menores que $12$. Con no menos seguridad es el último conjunto mayor que el primero, pues el primero constituye solamente una parte del último [\dots] Pero no menos cierto que todo esto es lo siguiente: si $x$ representa una cantidad arbitraria entre $0$ y $5$, y si fijamos la razón entre $x$ e $y$  por la ecuación $\,5y = 12x$, entonces $y$ es una cantidad entre $0$ y $12$; y recíprocamente, siempre que $y$ esté entre $0$ y $12$, $x$ está entre $0$ y $5$.}
+\end{quote}\vspace*{-3mm}
+Es decir, Bolzano afirma que la aplicación dada por $y=\dfrac{12}{5}x$ para $x\en [0,5]$ establece una biyección entre dicho intervalo y el intervalo $[0,12]$. Pero, cuando se trata de conjuntos infinitos, a Bolzano no le parece que la existencia de una biyección sea criterio suficiente para afirmar que ambos conjuntos son ``equinumerosos'' y elige como criterio de comparación la relación de inclusión entre conjuntos. De esta forma puede comparar conjuntos infinitos pero no puede \emph{cuantificar} el infinito y, por tanto, no logra desarrollar, pese a su intento, una aritmética del infinito.
+
+Le estaba reservada a \href{http://www-groups.dcs.st-and.ac.uk/~history/Biographies/Cantor.html}{Georg Cantor} (1845 - 1918) la gloria de ser el primer matemático que domesticara el infinito. Cantor se vio obligado a defender constantemente sus innovadoras ideas en contra de las opiniones de influyentes matemáticos de su tiempo, alguno de los cuales, como Leopold Kronecker, pasó incluso del ataque científico al ataque personal, si bien otros destacados matemáticos como Weierstrass, Dedekind o Hilbert estuvieron de su parte.
+   El interés de Cantor por los conjuntos infinitos de puntos y la naturaleza del continuo procede de sus tempranos trabajos en series trigonométricas. En un notable trabajo de 1872, Cantor desarrolló una teoría de los números reales basada en sucesiones de números racionales. Ese mismo año, un poco antes, Dedekind había publicado su teoría de las cortaduras.
+   
+   No es ésta la única ocasión en que coinciden los intereses de Cantor y Dedekind. De hecho, la contribución de Dedekind a la creación de la teoría de conjuntos es mucho más importante de lo que suele reconocerse. En su famoso trabajo \emph{Was sind und was sollen die Zahlen} (\emph{¿Qué son y para qué sirven los números?}) publicado en 1888, Dedekind precisa el significado de las operaciones elementales de la teoría de conjuntos \emph{ingenua}, y da la definición general de función entre conjuntos abstractos, generalizando así la anteriormente dada por Dirichlet para funciones reales. Así mismo Dedekind da la siguiente definición:
+\begin{quote}
+\footnotesize{Un sistema $S$ se llama \emph{infinito} cuando es semejante a una parte propia de sí mismo; en caso contrario, se dice que $S$ es un sistema finito.}
+\end{quote}
+En términos actuales: un conjunto $S$ es infinito, si hay un subconjunto propio, $\vac\subsetneqq A\subsetneqq S$, y una biyección de $A$ sobre $S$.
+En una nota a pie de página, Dedekind, afirma haber comunicado esa definición a Cantor ya en 1882 y varios años antes a otros colegas. También fue Dedekind un precursor de las técnicas conjuntistas en Álgebra, introduciendo, entre otros, los conceptos de \emph{cuerpo}, \emph{ideal} y \emph{módulo}.
+
+\begin{figure}[ht]
+\begin{center}
+     \begin{minipage}[t]{.3\textwidth}
+     \vspace{10pt}
+     %\hspace{2mm}
+     \flushleft
+      \includegraphics[width=3.5cm]{cantor.eps}
+      \captionsetup{singlelinecheck=off,justification=raggedright}%,margin={1mm,0mm}
+\caption{Cantor}
+    \end{minipage}%
+       \begin{minipage}[t]{.7\textwidth}
+       \vspace{0pt}
+       \hspace{8mm}
+   En una carta a Dedekind, de fecha 29 de noviembre de 1873, Cantor afirmaba, sin incluir prueba alguna, que los racionales positivos y, más generalmente, el conjunto de las sucesiones finitas de enteros positivos, podía ponerse en correspondencia biyectiva con los enteros positivos, y preguntaba si eso mismo se podía hacer con los números reales. Dedekind le respondió, a vuelta de correo, que en su opinión nada se oponía a ello, y añadió, con demostración incluida, que el conjunto de los números algebraicos sí es biyectivo con el de los enteros positivos.
+     \end{minipage}
+      \end{center}
+  \end{figure}\vspace*{-6mm}
+
+
+
+
+
+\begin{definicion}
+Los \emph{números algebraicos} son números, reales o complejos, que son raíces de alguna ecuación polinómica con coeficientes enteros. Por tanto, un número real o complejo $x$ es algebraico si hay números enteros $c_k\en\Z$, ($k=01,2,\dots n$) tal que $x$ satisface la ecuación polinómica
+$$
+c_0+c_1 x+c_2 x^2+\cdots+c_n x^n=0
+$$
+Los números que no son algebraicos se llaman \emph{trascendentes}.
+\end{definicion}
+Todo número racional es evidentemente algebraico, pero también lo son las raíces de cualquier orden de números racionales positivos y muchos más. Intuitivamente, los números algebraicos son los que pueden obtenerse a partir de los enteros por procedimientos algebraicos: suma, producto, cociente, división, raíces, iterados un número finito cualquiera de veces. En ese sentido podemos decir que los números algebraicos no están ``muy alejados'' de los enteros. Los números trascendentes son justamente lo contrario: son números irracionales ``muy alejados'' de los enteros.
+
+Para facilitar la exposición que sigue voy a dar algunas definiciones de conceptos introducidos por Cantor años más tarde.
+\begin{definicion}
+Se dice que dos conjuntos $A$ y $B$ son \emph{equipotentes} si existe una aplicación biyectiva de uno de ellos sobre el otro. Los conjuntos equipotentes al conjunto \N\ de los números naturales se llaman conjuntos \emph{numerables}. \end{definicion}
+Los conjuntos numerables son aquellos conjuntos cuyos elementos se pueden contar ¡aunque sean infinitos! El resultado, citado por Cantor, de que \Q\ es numerable, no deja de ser muy sorprendente y contrario a la intuición, pues si $r<s$ son números racionales cualesquiera, entre ellos dos hay siempre infinitos números racionales. Pese a ello, no hay más números racionales que números naturales.
+
+Poco después de las cartas citadas, Cantor logró demostrar que el conjunto de los números reales no es numerable. De aquí se deduce enseguida que en todo intervalo de \R, hay infinitos números trascendentes. Cantor publicó estos resultados, el suyo y el de Dedekind, en un trabajo de tres páginas titulado \emph{Uber eine Eigenshaft des Inbegriffes aller reellen algebraischen Zahlen} (\emph{Sobre una propiedad del sistema de todos los números algebraicos reales}) (1874). Es muy llamativo que el título de este trabajo, considerado como el nacimiento oficial de la teoría de conjuntos, no haga referencia alguna al resultado que hoy consideramos como el principal: la no numerabilidad de \R. Además la propia presentación del trabajo elude destacar estos resultados. Posiblemente, Cantor temía la reacción que pudiera provocar un trabajo tan radicalmente innovador. Porque lo que él hacía era probar que en cualquier intervalo $[a,b]\subset\R$ con $a<b$ hay, en un sentido matemático preciso, más números que todos los números algebraicos juntos, de donde se deducía que en $[a,b]$ tenía que haber números trascendentes. Esta es una demostración de \emph{existencia pura}, algo nuevo en las matemáticas.
+
+Demostrar que un número concreto es trascendente es muy difícil. Era conocida la trascendencia del número $\e$, demostrada por Charles Hermite en 1873, y Ferdinand Lindemann logró probar la trascendencia de $\pi$ en 1882 (demostrando así que el problema de la cuadratura del círculo no tenía solución).
+
+Naturalmente, Cantor sabía muy bien que había descubierto una propiedad específica del continuo: su no numerabilidad. Disponía ya de dos tipos de conjuntos infinitos: \N\ y \R, claramente \N\ tenía un tamaño más pequeño que \R. Precisar esa idea de tamaño y elaborar una teoría de comparación de conjuntos infinitos es lo que hizo Cantor en los siguientes veinte años y, casi contra su voluntad, se vio llevado a desarrollar la teoría de números transfinitos y la teoría de conjuntos como una disciplina matemática independiente.
+
+En  1877, Cantor probó, para su propia sorpresa, que los puntos del plano podían ponerse en correspondencia biyectiva con \R, y, más general, que los espacios $\R^n$ son todos ellos biyectivos a la recta real. Este resultado fue de los que más desconcierto provocó entre los matemáticos contemporáneos.
+
+Cantor siguió desarrollando sus ideas en una serie de seis trabajos publicados en los años 1878 a 1884. En 1883, en su trabajo \emph{Fundamentos de una teoría general de conjuntos}, escribe:
+\begin{quote}
+\footnotesize{La presentación de mis investigaciones hasta la fecha en teoría de conjuntos, ha alcanzado un punto donde su progreso depende de una extensión del concepto de número entero más allá de sus límites actuales. Esta extensión señala en una dirección que, por lo que yo sé, no ha sido investigada por nadie todavía.
+
+[\dots] Por atrevido que esto pueda parecer, tengo que expresar, no sólo la esperanza, sino también la firme convicción de que esta extensión tendrá que ser considerada con el tiempo como absolutamente simple, adecuada y natural. Pero no se me oculta de ninguna manera el hecho de que en esta empresa me encuentro situado en una cierta oposición a concepciones muy extendidas acerca del infinito matemático, y a opiniones formuladas frecuentemente sobre la naturaleza del número.}
+\end{quote}
+En este trabajo Cantor introduce los \emph{números transfinitos} o \emph{cardinales transfinitos}. Por el mismo proceso que podemos abstraer la idea de número $5$ como la clase de todos los conjuntos equipotentes a un conjunto cualquiera con cinco elementos, ${a,b,c,d,e}$, de la misma forma este proceso permite, dado un conjunto $M$, por doble abstracción de la naturaleza de sus elementos y del posible orden en que estén dados, asociar a $M$ un objeto matemático, representado por $\sharp M$, que se llama \emph{su número cardinal} o \emph{potencia}, que es el mismo para todos los conjuntos equipotentes a $M$. Cuando $M$ es finito, $\sharp M$ es el número de elementos de $M$; la potencia de los conjuntos numerables (infinitos) la representó Cantor por $\aleph_0$ ($\aleph$ es la primera letra del alfabeto hebreo, se pronuncia ``alef''); la potencia de la recta real y de cualquier intervalo de la misma, no vacío y no reducido a un punto, se representa por $\bm{\mathfrak{c}}$ y se llama la \emph{potencia del continuo}.
+
+Cantor define una relación de orden entre números cardinales: si $M$, $N$ son dos conjuntos, diremos que $\sharp M\preccurlyeq\sharp N$ si existe una biyección de $M$ sobre \emph{una parte} de $N$. Si, además, no existe ninguna biyección entre ninguna parte de $M$ y la totalidad de $N$, se escribe  $\sharp M\prec\sharp N$. Con esta definición se tiene que $\aleph_0\prec\bm{\mathfrak{c}}$. Para números cardinales finitos esta relación de orden es la usual. La demostración de que $\preccurlyeq$ es una relación de orden entre números cardinales está muy lejos de ser fácil. La dificultad estaba en probar la propiedad reflexiva, es decir, si $\sharp M\preccurlyeq\sharp N$ y también $\sharp N\preccurlyeq\sharp M$, entonces es $\sharp M=\sharp N$. Este resultado fue probado en 1898, y se conoce como teorema de Cantor - Bernstein. Se verifica, además, que $\preccurlyeq$ es una relación de orden total, es decir, dados conjuntos $M$ y $N$ se verifica alguna de las relaciones $\sharp M\preccurlyeq\sharp N$ o $\sharp N\preccurlyeq\sharp M$. La demostración de este resultado exige usar el llamado axioma de Zermelo.
+
+Todos esto está muy bien, pero ¿cuántos números cardinales infinitos hay? Hasta ahora solamente conocemos dos. Cantor ideó un procedimiento por el cual, dado un conjunto $M$, se puede construir un conjunto cuyo cardinal es estrictamente mayor. Para ello, definió el conjunto $\mathcal{P}(M)$ como el conjunto cuyos elementos son todos los subconjuntos de $M$
+$$
+\mathcal{P}(M)=\set{A: A\subset M}
+$$
+Es fácil probar que $\sharp M \prec\sharp \mathcal{P}(M)$. Suele escribirse $\sharp\mathcal{P}(M)=2^{\sharp M}$, igualdad que, para el caso de conjuntos finitos, es cierta.
+
+Por tanto, los conjuntos
+$$
+\mathcal{P}(M), \mathcal{P}\big(\mathcal{P}(M)\big), \mathcal{P}\left( \mathcal{P}\big(\mathcal{P}(M)\big)\right)\dots
+$$
+tienen todos ellos distinto número cardinal.
+
+Las operaciones con números transfinitos se definen con facilidad por medio de las correspondientes operaciones conjuntistas. Por ejemplo, el producto $\sharp M\cdot\sharp N$ es, por definición, igual a $\sharp(M\times N)$ donde $M\times N$ es el conjunto producto cartesiano de $M$ y $N$. Análogamente se define la suma $\sharp M + \sharp N$ como el número cardinal de la unión disjunta de $M$ y $N$. Estas operaciones son asociativas, conmutativas y distributivas pero, para cardinales transfinitos se cumple que
+$$
+\sharp M + \sharp N=\sharp M \cdot\sharp N=\max\set{\sharp M, \sharp N}
+$$
+Esto es, la aritmética transfinita no responde a las reglas usuales de la aritmética finita. Pero esto no quiere decir que sea contradictoria, simplemente, es diferente.
+
+El desarrollo de la teoría de conjuntos condujo a algunas contradicciones, las llamadas \emph{paradojas de la teoría de conjuntos}. Ello era debido al punto de vista ingenuo adoptado respecto a los conjuntos. Se pensaba que cualquier propiedad matemática, $P(x)$, definía su correspondiente conjunto, a saber, el formado por los elementos para los cuales dicha propiedad es verdadera. El propio Bolzano tenía esta idea. Consideremos la siguiente propiedad $P(x)=x\notin x$ y definamos el conjunto $A=\set{x: P(x) \textrm{ es verdadera}}$. Entonces resulta que si $A\en A$ es porque $A\notin A$ y si $A\notin A$ debe ser $A\en A$. Una contradicción insalvable, conocida como la \emph{paradoja de Russell}. La solución fue axiomatizar la teoría de conjuntos para evitar que pudieran formularse paradojas como la anterior y, además, restringir de alguna forma la existencia de conjuntos ``demasiado grandes''.
+
+Considero que lo dicho hasta aquí es suficiente para que tengas una idea del trabajo de Cantor. Este trabajo cambió la forma de ver las matemáticas y acabó por ser ampliamente aceptado. La visión que Cantor tenía de las matemáticas puras es muy hermosa; para él, las matemáticas puras son el reino de la libertad y las llamaba ``matemáticas libres'', porque son una creación de la libertad del espíritu humano cuyas únicas limitaciones son la coherencia y la no contradicción.
+
+\subsubsection{La no numerabilidad del continuo}
+En esta sección final, vamos a probar la numerabilidad de \Q\ y la no numerabilidad de \R. Así mismo, estudiaremos algunos tipos de conjuntos densos y te propondré algunos ejercicios interesantes.
+
+Empezaremos demostrando un resultado que, por su aparente evidencia, parece que no precisa demostración. Se trata de un resultado muy importante y muy útil y cuya demostración me parece instructiva.
+\begin{teorema}\label{maxminz}
+a) Todo conjunto de números enteros no vacío y mayorado tiene máximo.
+
+b) Todo conjunto de números enteros no vacío y minorado tiene mínimo.
+\end{teorema}
+\dem La estrategia de la demostración es obligada; para probar que un conjunto de números reales no vacío y mayorado tiene máximo, debemos probar que su supremo está en el conjunto. Sea $E\subset\R$ no vacío y mayorado. En virtud del principio del supremo, hay un número $\beta\in\R$ que es el mínimo mayorante de $E$. Puesto que $\beta-1<\beta$, debe haber algún $z\en E$ tal que $\beta-1<z\,$ y, claro está, $z\leqslant \beta$. Supongamos que los elementos de $E$ son números enteros,
+$E\subset\Z$, y probemos que, en tal caso, debe ser $z=\beta$. Si fuera $z<\beta$ tendría que haber algún $w\en E$ tal que $z<w\leqslant \beta\,$ pero entonces el número $\,w-z\,$ es un entero positivo tal que $w-z<1$ lo cual es contradictorio. En consecuencia $z=\beta\en E$ y $\beta$ es el máximo de $E$.
+
+Análogamente se prueba que un conjunto no vacío y minorado de enteros tiene mínimo.\fin
+
+Del teorema anterior se deducen dos importantes consecuencias.
+
+\begin{teorema}[Principio de buena ordenación de \N]
+Todo conjunto no vacío de números naturales tiene mínimo.
+\end{teorema}
+
+La siguiente propiedad, también consecuencia del teorema, nos dice que \N\ no está mayorado en \R. Observa que es evidente que \N\ está mayorado en \Q. Pero \R\ tiene muchos más elementos (muchísimos más, como enseguida veremos) que \Q; ¿quién te asegura que, en la ampliación de \Q\ a \R, no se han colado números irracionales más grandes que cualquier natural? De eso se trata.
+
+\begin{teorema}[Propiedad arquimediana]\label{th:arquimediana}
+Dado cualquier número real se verifica que hay números naturales mayores que él.
+\end{teorema}
+\dem Como \N\ no tiene máximo, el teorema (\ref{maxminz}) implica que \N\ no puede estar mayorado en \R, por tanto, dado $x\!\in\!\R$, tiene que haber algún $n\en\N$ tal que $n>x\,$.\fin
+
+La propiedad arquimediana del orden de \R\ prohíbe la existencia de cantidades infinitesimales, es decir, de números positivos pero ``tan pequeños'' que al multiplicarlos por cualquier número natural el producto seguía siendo ``muy pequeño''. Convenzámonos de que tales ``infinitésimos'', si es que los hay, no pueden ser números reales. En efecto, si $\,x,y\,$ son números reales positivos, la propiedad arquimediana del orden de \R\ nos dice que tiene haber algún $n\en\N$ tal que $\,n>y/x$ y, por tanto, $nx>y$. En consecuencia, por ``pequeño'' que sea el número real $x\!>\!0$ y por ``muy grande'' que sea el número real $y\!>\!0$, siempre hay múltiplos naturales de $x$  mayores que $y$.
+
+\begin{definicion}
+Se dice que un conjunto $E\subset\R$ es denso en \R, si en todo intervalo abierto no vacío hay puntos de $E$. Equivalentemente, si dados $x,y\en\R$ con $x<y$ hay algún $z\en E$ tal que $x<z<y$.
+\end{definicion}
+\begin{proposicion}\label{prop:densidad}
+\begin{enumerate}[a)]
+\item El conjunto de los números racionales es denso en \R.
+\item El conjunto de los números irracionales es denso en \R.
+\end{enumerate}
+\end{proposicion}
+\dem \emph{a)} Supongamos que $x,y\en\R$ con $x<y$. La idea es tomar una unidad racional de medida, $u$, en la recta que sea menor que $y-x$, pues entonces es claro que un múltiplo apropiado, $m u$, de $u$ estará comprendido entre $x$ e $y$. Hay muchas posibilidades, se trata de elegir $u$ y $m$ con algún criterio que nos permita probar que $x<mu<y$. Los números más sencillos que podemos tomar para $u$ son los de la forma $1/n$, donde $n\en\N$, con la condición $1/n<y-x$, esto es, $n>1/(y-x)$. Parece razonable tomar el menor $n$ que cumpla dicha desigualdad. Sea, pues:
+$$
+q=\min\set{n\en\N: n>1/(y-x)}
+$$
+Ahora se trata de tomar un múltiplo de $u=1/q$ que exceda a $x$, pero no demasiado. Se impone la elección:
+$$
+p=\min\set{m\en\Z: m > q x}
+$$
+Tenemos que:
+$$
+x<\frac{p}{\ q\ }=\frac{p-1}{q}+\frac{1}{q}<x+(y-x)=y
+$$
+Lo que concluye la demostración. Observa que en las definiciones de $q$ y de $p$ se usan los resultados que acabamos de ver.
+
+\emph{b)} Supongamos que $x,y\en\R$ con $x<y$. Por lo ya probado, existe $\,r\en\Q\,$ tal que $$x-\sqrt{2}<r<y-\sqrt{2},$$ lo que implica que $\,x<r+\sqrt{2}<y$. Puesto que, $\sqrt{2}\,$ es irracional y $\,r\en\Q$, se sigue que $\,r+\sqrt{2}\,$ es irracional y concluimos que \irr\ es denso en \R.\fin
+
+Este resultado nos dice que los números racionales y los irracionales están repartidos de manera que entre dos racionales o entre dos irracionales siempre hay infinitos racionales e infinitos irracionales. Son dos conjuntos muy grandes, pero uno de ellos es muchísimo más grande que el otro.
+
+Hemos definido antes un conjunto numerable como aquél que es equipotente a \N; es conveniente incluir también entre los conjuntos numerables a los conjuntos finitos pues los elementos de un conjunto finito se pueden contar. Estas dos posibilidades pueden resumirse en el hecho de que exista una aplicación \emph{inyectiva} del conjunto en \N. Por convenio, se admite que el conjunto vacío es numerable.
+
+\begin{definicion}
+Un conjunto se llama numerable si es vacío o si existe una aplicación inyectiva de él en el conjunto de los enteros positivos.
+\end{definicion}
+Realmente esta definición lo que nos da es cierta libertad para probar que un conjunto es numerable; de hecho, se verifica el siguiente resultado.
+\begin{proposicion}
+Un conjunto no vacío es numerable si, y sólo si, es finito o es equipotente a \N.
+\end{proposicion}
+El siguiente resultado es muy útil y fácil de entender.
+\begin{proposicion}\label{criterioenumera}
+Un conjunto no vacío $\,A\,$ es numerable si, y sólo si, hay una aplicación sobreyectiva de \N\ sobre $\,A$.
+\end{proposicion}
+\dem Sea $\,f:\N\rightarrow A\,$ una aplicación sobreyectiva. Para cada elemento $\,a\en A\,$ el conjunto $\,\{n\en\N:f(n)=a\}\,$ no es vacío por lo que podemos definir, haciendo uso del principio de buena ordenación,
+una aplicación $\,g:A\rightarrow\N\,$ por:
+$$
+g(a)=\min \{n\en\N:f(n)=a\} \qquad \textrm{para todo }\  a\en A
+$$
+Con ello se tiene que $\,f(g(a))=a$ para todo $a\en A\,$ lo que implica que $\,g\,$ es inyectiva y por tanto que $\,A\,$ es numerable.
+
+La afirmación recíproca es consecuencia de la proposición anterior. \fin
+
+Aunque el conjunto $\N\times\N$ parece mucho más grande que \N; de hecho no es así. Podemos contar con facilidad los elementos de $\N\times\N$ siguiendo el camino que se sugiere (habría que prolongarlo hacia arriba y hacia la derecha) en la figura (\ref{fig:contandonn}).
+
+\begin{proposicion}
+$\N\times\N$ es equipotente a \N.
+\end{proposicion}
+\dem\footnote{En el ejercicio (\ref{biyeccionnn}) se define una biyección de $\N\times\N$ sobre \N} La aplicación \mbox{$\ff\!:\!\N\!\times\!\N\!\rightarrow\!\N$} dada por ${\dis \,\ff(p,q)=2^{p}3^{q}}$ para todo $(p,q)\en\N\times\N$, es inyectiva. En consecuencia $\N\times\N$ es numerable y como es infinito concluimos que
+es equipotente a \N.\fin
+
+El siguiente resultado nos dice que si hacemos la unión de una ``cantidad numerable'' de conjuntos numerables obtenemos un conjunto que sigue siendo numerable. El enunciado del teorema precisa estas ideas.
+\begin{teorema}
+Sea $\,B\,$ un conjunto numerable no vacío. Supongamos que para cada $\,x\en B\,$ tenemos un conjunto numerable no vacío $\,A_{x}$. Se verifica entonces que el conjunto $\dis{\,{\mathcal A} = \bigcup_{x\in B}A_{x}}$ es numerable.
+\end{teorema}
+
+
+\begin{figure}[ht]
+\centering
+\begin{pspicture}(0,0)(10,10)%
+\psset{labelsep=2pt, arrowscale=1.4,xunit=1.2cm}
+\psaxes[linewidth=.6pt]{->}(0,0)(-.2,-.2)(10,10)
+\multido{\in=1+1}{9}{%
+\multido{\im=1+1}{9}{%
+\uput[u](\in,\im){\scalefont{.6}$(\im,\in)$}%
+\qdisk(\in,\im){1.2pt}}}
+\psline[linewidth=.4pt,ArrowInside=->]{->}(1,1)(2,1)(1,2)(1,3)(2,2)(3,1)(4,1)(3,2)(2,3)(1,4)(1,5)(2,4)(3,3)(4,2)(5,1)(6,1)(5,2)(4,3)(3,4)(2,5)(1,6)(1,7)(2,6)(3,5)(4,4)(5,3)(6,2)(7,1)(8,1)(7,2)(6,3)(5,4)(4,5)(3,6)(2,7)(1,8)(1,9)(2,8)(3,7)(4,6)(5,5)(6,4)(7,3)(8,2)(9,1)(9,2)(8,3)(7,4)(6,5)(5,6)(4,7)(3,8)(2,9)(3,9)(4,8)(5,7)(6,6)(7,5)(8,4)(9,3)(9,4)(8,5)(7,6)(6,7)(5,8)(4,9)(5,9)(6,8)(7,7)(8,6)(9,5)(9,6)(8,7)(7,8)(6,9)(7,9)(8,8)(9,7)(9,8)(8,9)(9,9)
+\end{pspicture}\vspace*{3mm}
+\caption{Contando $\N\times\N$}\label{fig:contandonn}
+\end{figure}
+
+\dem Es suficiente probar que hay una aplicación sobreyectiva de $\N\times\N$ sobre $\,\mathcal A$. Por ser $\,B\,$ numerable hay una aplicación sobreyectiva $\,\phi :\N\rightarrow B$. Para cada $\,x\en B$, por ser $\,A_{x}$ numerable, hay una aplicación sobreyectiva $\,F_{x}:\N\rightarrow A_{x}$. Es muy fácil comprobar ahora que la aplicación $\,G:\N\times\N\rightarrow{\mathcal A}\,$ definida por $G(m,n)=F_{\phi(m)}(n)$ para todo $(m,n)\en\N\times\N$, es
+sobreyectiva. \fin
+
+Puede que el siguiente diagrama sea más claro y directo que la demostración anterior. Podemos suponer que $B=\N$, con lo que  $\dis{\,{\mathcal A} = \bigcup_{n\in\N}A_{n}}$. Como $A_n$ es numerable, podemos escribir sus elementos como una sucesión:
+$$
+A_n=\set{a_{mn}:m\en\N}=\set{a_{1n},a_{2n},a_{3n},\dots,a_{mn},\dots}
+$$
+El conjunto $\mathcal{A}$ podemos representarlo como una matriz (ver figura (\ref{fig:unionnumerable})), y contar sus elementos de forma parecida a como lo hemos hecho antes con $\N\times\N$.
+
+\begin{figure}[ht]
+\centering
+\begin{pspicture}(0,0)(8.5,8.5)%
+\psset{labelsep=2pt, arrowscale=1.4,unit=.85cm}
+%\psaxes[linewidth=.6pt]{->}(0,0)(-.2,-.2)(10,10)
+\multido{\in=1+1}{9}{%
+\multido{\im=1+1}{9}{%
+\uput[u](\in,\im){\scalefont{.7}$a_{\im\in}$}}}
+\psline[linewidth=.3pt,ArrowInside=->,linestyle=dashed,linearc=.1]{->}(1,1)(2,1)(1,2)(1,3)(2,2)(3,1)(4,1)(3,2)(2,3)(1,4)(1,5)(2,4)(3,3)(4,2)(5,1)(6,1)(5,2)(4,3)(3,4)(2,5)(1,6)(1,7)(2,6)(3,5)(4,4)(5,3)(6,2)(7,1)(8,1)(7,2)(6,3)(5,4)(4,5)(3,6)(2,7)(1,8)(1,9)(2,8)(3,7)(4,6)(5,5)(6,4)(7,3)(8,2)(9,1)(9,2)(8,3)(7,4)(6,5)(5,6)(4,7)(3,8)(2,9)(3,9)(4,8)(5,7)(6,6)(7,5)(8,4)(9,3)(9,4)(8,5)(7,6)(6,7)(5,8)(4,9)(5,9)(6,8)(7,7)(8,6)(9,5)(9,6)(8,7)(7,8)(6,9)(7,9)(8,8)(9,7)(9,8)(8,9)(9,9)
+\end{pspicture}\vspace*{-3mm}
+\caption{Unión numerable}\label{fig:unionnumerable}
+\end{figure}
+
+\begin{teorema}
+El conjunto de los números racionales es numerable.
+\end{teorema}
+\dem
+Puesto que la aplicación $\,\ff:\Z\rightarrow\N\,$ definida por:
+$$
+\ff(n)=\left\{ \begin{array}{ll}
+                2n & \mbox{si \, $n>0$} \\
+                1-2n & \mbox{si \, $n\leqslant 0$}
+                \end{array}
+\right. $$ es una biyección, y para cada $\,m\in\Z$ el conjunto:
+$$
+A_{m}=\left\{ \frac{m}{p}\,:\,p\in\N \right\}
+$$
+es numerable, se sigue del resultado anterior que ${\dis \,\Q=\bigcup_{m\in\Z}\!A_{m}}$  es numerable. \fin
+
+Por ser \Q\ numerable infinito se verifica que \Q\ es equipotente a \N, es decir, existen biyecciones de \N\ sobre \Q. Hemos respondido en parte a nuestra pregunta inicial: hay tantos números racionales como números naturales. Nos falta todavía dar alguna información del tamaño de \irr.
+
+\begin{teorema}[Principio de los intervalos encajados] Para cada número natural $\,n\,$ sea $\,I_{n}=[a_{n},b_{n}]\,$ un intervalo cerrado no vacío y supongamos que para todo $n\in\N$ es $\,I_{n+1}\subset I_{n}$. Se verifica entonces que:
+
+\noindent i)${\dis \ \ \alpha=\sup \{a_{n}:n\in\N\} \leqslant \beta=\inf
+\{b_{n}:n\in\N\}}$.
+
+\noindent ii) ${\dis \ \bigcap_{n\in\N}\!I_{n}=[\alpha,\beta]}$.
+
+\noindent En particular, el conjunto ${\dis \,\bigcap_{n\in\N}\!I_{n}}$ no es vacío.
+\end{teorema}
+\dem \emph{i)} Las hipótesis $\vac\!\neq\! I_{n+1}\!\subset\!I_{n}$, implican que $a_{n}\leqslant a_{n+1}\leqslant b_{n+1}\leqslant b_{n}$ para todo $n\in\N$. Deducimos que las aplicaciones $\,n\mapsto a_{n}$ y $\,n\mapsto -b_{n}$, son crecientes, esto es, $\,a_{n}\leqslant a_{m},\ b_{m}\leqslant b_{n}$ siempre que $\,n<m$. Ahora, dados $\,p,q\in\N$ y poniendo $\,k=\max\{p,q\}$, tenemos que $\,a_{p}\leqslant a_{k}\leqslant b_{k}\leqslant b_{q}$. Hemos obtenido así que cualesquiera sean los números naturales $\,p,q\,$ es $\,a_{p}\leqslant b_{q}$. Luego todo elemento de $\,B=\{b_{n}:n\in\N\}\,$ es  mayorante de $\,A=\{a_{n}:n\in\N\}\,$ y por tanto $\,\alpha=\sup A \leqslant b_{n}$ para todo $n\in\N$. Lo cual, a su vez, nos dice que $\,\alpha\,$ es un minorante de $\,B\,$ y por tanto concluimos que $\,\alpha\leqslant \beta=\inf B$.
+
+\emph{ii)} Es consecuencia de que ${\dis x\in\!\!\bigcap_{n\in\N}\!I_{n}}$ equivale a que $a_{n}\leqslant x \leqslant b_{n}$ para todo $n\in\N$, lo que equivale a que $\alpha\leqslant x\leqslant\beta$, es decir $x\in [\alpha,\beta]$.\fin
+
+\begin{teorema}
+Dados dos números reales $\,a<b\,$ se verifica que el intervalo $[a,b]$ no es numerable.
+\end{teorema}
+\dem Si $[a,b]$ fuera numerable tendría que ser equipotente a \N. Veamos que esto no puede ocurrir. Supongamos que $\,\ff :\N\rightarrow [a,b]\,$ es una biyección de \N\ sobre $[a,b]$. En particular $\,\ff\,$ es sobreyectiva por lo que deberá ser $\,[a,b]=\{\ff(n):n\in\N\}$. Obtendremos una contradicción probando que tiene que existir algún elemento $\,z\in [a,b]\,$ tal que $\,z\not\in \{\ff(n):n\in\N\}$.
+
+Para ello se procede de la siguiente forma. Dividimos el intervalo $[a,b]$ en tres intervalos cerrados de igual longitud:
+$$
+\left [ a,a+\frac{b-a}{3}\right ],\ \ \left [ a+\frac{b-a}{3},b-\frac{b-a}{3}\right ],\ \
+\left [b-\frac{b-a}{3},b \right ]
+$$
+y llamamos $\,I_{1}$ al primero de ellos (es decir el que está más a la izquierda) que no contiene a $\,\ff(1)$. Dividamos ahora el intervalo $\,I_{1}$ en tres intervalos cerrados de igual longitud y llamemos $\,I_{2}$ al primero de ellos que no contiene a $\,\ff(2)$.
+
+Este proceso puede ``continuarse
+indefinidamente'' pues, supuesto que $\,n\in\N,\,n\geqslant 2$, y que tenemos intervalos cerrados de longitud {\em positiva\/} $I_{k},\ 1\leqslant k\leqslant n,$ tales que $I_{k+1}\subset I_{k}$ para $\,1\leqslant k\leqslant n-1$, y $\ff(k)\not\in I_{k}$ para $\,1\leqslant k\leqslant n$, dividimos el intervalo $\,I_{n}$ en tres intervalos cerrados de igual longitud y llamamos $\,I_{n+1}$ al primero de ellos que no contiene a $\,\ff(n+1)$. De esta forma para cada $\,n\in\N$ tenemos un intervalo cerrado $\,I_{n}$ no vacío verificándose que $\,I_{n+1}\subset I_{n}$ y $\ff(n)\not\in I_{n}$ para todo $n\in\N$. El principio de los intervalos encajados nos dice que hay algún número real $\,z\,$ que est\'a en {\em todos\/} los $\,I_{n}$. Por tanto, cualquiera sea $\,n\in\N$, por ser $\,z\in I_{n}$ y $\,\ff(n)\not\in I_{n}$, se tiene necesariamente que $\,z\neq\ff(n)$, esto es, $z\not\in\{\ff(n):n\in\N\}$ pero,
+evidentemente, $z\in [a,b]$. \fin
+
+¿Te recuerda algo la demostración anterior? ¿Quizás a la divisibilidad infinita del continuo? Pues claro, lo que estamos haciendo es dividir infinitas veces un segmento (el prototipo de \emph{continuo}). Lo que nos dice este resultado es que, aunque lo dividamos en un infinito actual de partes, siempre nos quedarán puntos que no habremos tocado. Aristóteles afirmaba que un continuo puede dividirse en cualquier parte pero no en todas partes: hay que darle la razón en este punto.
+
+\begin{teorema}
+\R\ y \irr\ son conjuntos no numerables.
+\end{teorema}
+\dem Evidentemente todo subconjunto de un conjunto numerable también es numerable. Como acabamos de ver que hay subconjuntos de \R\ que no son numerables deducimos que \R\ no es numerable. Puesto que $\,\R=\Q\cup(\irr)\,$ y sabemos que \Q\ es numerable y \R\ no lo es, deducimos que \irr\  no es numerable. \fin
+
+El teorema anterior demuestra no solamente que \irr\ no es vacío sino
+que ``hay muchos más números irracionales que racionales'' pues
+mientras que podemos enumerar los racionales no podemos hacer lo mismo
+con los irracionales ya que no hay biyecciones de \N\ sobre \irr.
+
+Deducimos también la siguiente estrategia \emph{para probar que un conjunto $A\!\subset\!\R$ no es vacío es suficiente probar que su complemento $\,\R\!\setminus\! A\,$ es numerable} (!con lo cual, de hecho, estamos probando que $\,A\,$ es infinito no numerable!).
+
+\begin{ejercicios propuestos}
+\propuesto\label{biyeccionnn} Prueba que la aplicación
+$\,F:\N\times\N\rightarrow\N\,$ dada por: $$ f(m,n)=
+n+\frac{(m+n-2)(m+n-1)}{2}\ \ \ {\mbox{\rm para todo}}\
+(m,n)\in\N\times\N $$ es una biyección.
+
+Sugerencias: para cada $\,p\in\N$ definamos: $$ \ff(p)=\max\left\{q\in\N:q<\sqrt{2p+\frac{1}{4}}+\frac{1}{2}\right\} $$ Observa que $\ff(p)$ es un número natural mayor o igual que $2$. Prueba que para todo $\, p\in\N$ se verifica: $$ \frac{(\ff(p)-2)(\ff(p)-1)}{2}<p\leqslant \frac{(\ff(p)-1)\ff(p)}{2} \ \
+\ \ \ (*) $$ Definamos ahora: $$ h(p)=p-\frac{(\ff(p)-2)(\ff(p)-1)}{4},\quad {\mbox{\rm
+para todo}}\  p\in\N $$ Justifica, teniendo en cuenta $(*)$, que $\,h(p)\in\N$ y $\ff(p)-h(p)\geqslant 1.$
+
+Comprueba finalmente que, $\,p=F(\ff(p)-h(p),h(p))$, para cada $\,p\in\N.$
+
+\propuesto Sea \func{f}{[a,b]} creciente. Para cada $\,\alpha\in ]a,b[$
+definamos: $$ \omega(f,\alpha)=\inf\{f(t):\alpha<t\leqslant b\}-\sup\{f(s):a\leqslant
+s<\alpha\} $$ Prueba que:
+
+i) $\,\omega(f,\alpha)\geqslant 0$ y $\omega(f,\alpha)=0$ si, y sólo si, $f$ es continua en $\alpha$.
+
+ii) Si $\,a<\alpha_{1}<\alpha_{2}<\cdots<\alpha_{p}<b$, entonces: $$
+\omega(f,\alpha_{1})+\omega(f,\alpha_{2})+\cdots+\omega(f,\alpha_{p})\leqslant f(b)-f(a)
+$$
+iii) Para cada $\,n\in\N$ el conjunto $\,S_{n}=\{\alpha\in ]a,b[\,:\, \omega(f,\alpha)\geqslant 1/n\}\,$ es finito.
+
+iv) El conjunto $\,S=\{\alpha\in ]a,b[\,:\, \omega(f,\alpha)>0\}\,$ de las discontinuidades de $f$ es numerable.
+
+Muestra con un ejemplo que el conjunto $\,S\,$ puede ser infinito.
+
+\propuesto \label{numeroejercicio}Prueba que el conjunto de los números algebraicos es numerable.
+\end{ejercicios propuestos}
+
+Para terminar, recordemos que los poetas también se interesan por el infinito y lo llaman \emph{amor} y también \emph{deseo}.
+\begin{quote}
+\small{\emph{This is the monstruosity in love, lady,\\ that the will
+is infinite \\ and the execution confined, \\ that the
+desire is boundless\\ and the act a slave to limit.}}\newline
+\footnotesize{Shakespeare - Troilus and Cressida}
+\end{quote}
+
+
+
+
+
+
+
+
+

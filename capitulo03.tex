@@ -1,0 +1,1826 @@
+\chapter{Números complejos. Exponencial compleja}
+\vspace*{-1cm}
+\begin{flushright}
+{\small \textit{El camino más corto entre dos verdades del análisis \\ real pasa con
+ frecuencia por el análisis complejo.} \\  Jaques Hadamard}
+\end{flushright}
+
+\section{Un poco de historia}
+Los números que hoy llamamos
+``complejos'' fueron durante muchos a\~{n}os motivo de
+polémicas y controversias entre la comunidad científica.
+Poco a poco, por la creciente evidencia de su utilidad, acabaron
+por ser comúnmente aceptados, aunque no fueron bien
+comprendidos hasta épocas recientes. Nada hay de extra\~{n}o
+en ello si pensamos que los números negativos no fueron
+plenamente aceptados hasta finales del siglo XVII.
+
+Los números complejos hacen sus primeras tímidas
+apariciones en los trabajos de Cardano (1501-1576) y Bombelli
+(1526-1672) relacionados con el cálculo de las raíces de
+la cúbica o ecuación de tercer grado. Fue René
+Descartes (1596-1650) quien afirmó que \textit{``ciertas
+ecuaciones algebraicas sólo tienen solución en nuestra
+imaginación''} y acu\~{n}ó el calificativo
+\textit{``imaginarias''} para referirse a ellas. Desde el siglo
+XVI hasta finales del siglo XVIII los números complejos o
+imaginarios son usados con recelo, con desconfianza. Con
+frecuencia, cuando la solución de un problema resulta ser un
+número complejo se interpreta esto como que el problema no
+tiene solución. Para Leibniz \textit{``el número
+imaginario es un recurso sutil y maravilloso del espíritu
+divino, casi un anfibio entre el ser y el no ser.''}
+
+Las razones de todo esto son claras. Así como los números
+reales responden al problema bien cotidiano de la medida de
+magnitudes, no ocurre nada similar con los números complejos.
+Mientras los matemáticos necesitaron interpretar en
+términos físicos sus objetos de estudio, no se avanzó
+mucho en la comprensión de los números complejos.
+
+El éxito de Euler y Gauss al trabajar con números
+complejos se debió a que ellos no se preocuparon de la
+\textit{``naturaleza''} de los mismos; no se preguntaron
+``?`qué es un número complejo?'', sino que se dijeron
+\textit{``a ver, para qué sirven, qué puede hacerse con
+ellos''}. Es Gauss quien definitivamente concede a los números
+complejos un lugar privilegiado dentro de las matemáticas al
+probar en 1799 el resultado conocido como \emph{Teorema
+Fundamental del álgebra} que afirma que toda ecuación
+polinómica de grado $n$ con coeficientes complejos tiene, si
+cada raíz se cuenta tantas veces como su orden, $n$
+raíces que \textit{también son números complejos}. Merece la pena que entiendas bien lo que afirma este resultado. Fíjate en cada una de las
+ecuaciones:
+$$x+3=0,\quad 2x +
+3=0,\quad   x^2-2=0,\quad x^2+2x+2=0$$ Cuyas soluciones
+$$x=-3,\quad x=-3/2,\quad x=\pm\sqrt{2},\quad x=-1\pm i$$ tienen sentido cuando $x$
+es, respectivamente, un número entero, racional, real o
+complejo. Podría ocurrir que este proceso de ampliación
+del campo numérico continuara. ?`Qué ocurrirá si ahora
+consideramos ecuaciones polinómicas con coeficientes
+complejos? Por ejemplo: $$ x^5+(1-i)x^4+(1/5 -
+i\sqrt{2})x^2-8x+3-i/\sqrt{3}=0$$ ?`Cómo serán sus
+soluciones? ?`Aparecerán también nuevos tipos de
+números? El Teorema Fundamental del álgebra nos dice que
+esa ecuación tiene soluciones que \textit{también} son
+números complejos y, por tanto, que no aparecerán ya por
+este procedimiento nuevos tipos de números.
+
+El término, hoy usado de \textit{``números complejos''} se
+debe a Gauss, quien también hizo popular la letra ``$i$'' que
+Euler (1707-1783) había usado esporádicamente. En 1806
+Argand interpreta los números complejos como vectores en el
+plano. La fecha de 1825 es considerada como el nacimiento de la
+teoría de funciones de variable compleja, pues se publica en
+dicho a\~{n}o la Memoria sobre la Integración Compleja que
+Cauchy había escrito ya en 1814.
+
+Los números complejos son una
+herramienta básica de cálculo. Son especialmente útiles para
+trabajar con funciones sinusoidales, y por eso se hace uso constante
+de ellos siempre que representamos una señal por medio de dichas
+funciones, y no hay que olvidar que ése es el propósito básico de
+los \emph{``métodos de Fourier''}. La \emph{Transformada de Fourier
+Discreta}, una herramienta fundamental en el tratamiento digital de
+señales, toma valores complejos. Las \emph{transformadas de Fourier
+y de Laplace} son funciones complejas. La \emph{transformada $z$},
+al igual que otras transformadas de uso frecuente, se define como
+una serie de números complejos. La función exponencial compleja
+desempeña un papel fundamental en el estudio de los sistemas LTI
+(sistemas lineales invariantes en el tiempo) y también en la teoría
+de las ecuaciones diferenciales lineales.
+
+\section{Operaciones básicas con números complejos}
+\begin{definicion} Consideremos en el conjunto \Rx{2}\ las
+operaciones de adición y producto definidas por
+\begin{eqnarray}
+(x, y) + (u, v) & = & (x + u, y + v) \label{sumacompleja}\\
+(x, y)(u, v) & =  & (xu - yv, xv + yu)\label{productocomplejo}
+\end{eqnarray}
+Es muy fácil comprobar las propiedades asociativa, conmutativa y
+distributiva de las operaciones así definidas. El elemento neutro de
+la suma es $(0,0)$ y $(1,0)$ es la unidad del producto. Además,
+$(-x,-y)$ es el opuesto de $(x,y)$, y todo
+ $(x,y)\neq (0,0)$ tiene inverso
+ $$\,(x,y)\left(\dfrac{x}{x^2+y^2},\dfrac{-y}{x^2+y^2}\right)=(1,0)$$
+Todas estas propiedades se resumen diciendo que $(\Rx{2},+,\cdot)$
+(léase ``el conjunto \Rx{2}\ con las operaciones de adición y
+producto'') es un \emph{cuerpo}. Dicho cuerpo se representa
+simbólicamente por \C\ y sus elementos se llaman \textit{números
+complejos}.
+\end{definicion}
+
+\subsection{Comentarios a la definición de número complejo}
+No debes olvidar que cada concepto matemático tiene sentido dentro de una determinada estructura. Con frecuencia, cuando sobre un mismo conjunto hay definidas varias estructuras, la terminología que se usa indica la estructura a la que nos referimos. Eso pasa en \Rx{2}\ donde conviven varias estructuras cada una con su terminología propia. Usualmente en $\R^2$ se consideran las siguientes estructuras.
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-5pt}}
+\item Ninguna. Es decir, solamente consideramos que $\R^2$ es un conjunto. En tal caso llamamos a sus elementos \emph{pares ordenados de números reales}.
+\item La estructura de espacio vectorial. Esto es, vemos $\R^2$ como un espacio vectorial real. En tal caso a sus elementos los llamamos \emph{vectores}.
+\item La estructura de espacio euclídeo que se obtiene añadiendo a la estructura de espacio vectorial la distancia euclídea definida por el producto escalar usual. Esto es, vemos $\R^2$ como el plano euclídeo de la geometría elemental. En este caso a sus elementos los llamamos \emph{puntos}. La misma terminología se emplea cuando se considera en $\R^2$ la estructura de espacio afín o de espacio topológico.
+\item La estructura de cuerpo definida por las operaciones (\ref{sumacompleja}) y (\ref{productocomplejo}). En tal caso, a los elementos de $\R^2$ se les llama \emph{números complejos}.
+\end{list}
+Ocurre que estos términos se usan a veces en un mismo
+párrafo lo que puede resultar confuso. La regla que debes tener
+siempre presente es que todo concepto matemático tiene
+sentido propio dentro de una determinada estructura
+matemática. Por ello, a un elemento de \Rx{2}\ se le llama número
+complejo cuando se va a usar el producto definido en (\ref{productocomplejo}) que es lo
+que en realidad distingue a los números complejos de los vectores
+de \Rx{2}.
+
+\subsection{Forma cartesiana de un número complejo}
+El símbolo usual $(x,y)$ para representar pares ordenados no es
+conveniente para representar el número complejo $(x,y)$. Para
+convencerte calcula, usando la definición (\ref{productocomplejo}), $(1,-1)^4$. Representaremos los números
+complejos con un simbolismo más apropiado en el que va a intervenir el producto complejo. Para ello, observa que:
+\[
+    \begin{split}
+        (x, 0) + (y, 0) &= (x + y, 0) \\
+        (x, 0)(y, 0) &=  (x y, 0)
+    \end{split}
+\]
+Esto indica que los números complejos de la forma $(x, 0)$ se comportan respecto a la
+suma y la multiplicación de números complejos exactamente de la misma forma que lo
+hacen los números reales respecto a la suma y multiplicación propias. En términos más
+precisos, $\R\times\{0\}$ es un subcuerpo de \C\ isomorfo a \R. Por esta razón, en las
+operaciones con números complejos podemos sustituir los complejos del tipo $(x,0)$ por
+el número real $\,x$. Es decir, hacemos la identificación $(x,0)=x$.
+
+Fíjate que con dicha identificación el producto $\,x(u,v)\,$ tiene dos posibles
+interpretaciones: producto del escalar real $\,x\,$ por el vector $\,(u,v)$ (estructura
+vectorial de \Rx{2}) y producto del complejo $\,(x,0)\,$ por el complejo $\,(u,v)$.
+Pero ambos coinciden y son iguales a $(x u,x v)$.
+
+El número complejo $(0, 1)$ lo representaremos por $i$ y lo llamaremos \emph{unidad
+imaginaria}. Con ello tenemos que
+$$ i^2 = (0,1)(0,1) = (-1,0) = -1$$ Ahora podemos escribir
+$$
+(x, y) = (x, 0) + (0, y)=(x, 0) + (0, 1)(y,0) = x + i y
+$$
+Se dice que $x+i y$ es la \emph{expresión cartesiana} (también se le llama \emph{expresión binómica}) del número complejo $(x,y)$.  El producto ahora es
+muy fácil de recordar pues
+$$(x+i y)(u+i v)=x u + i^2 y v+i(x v + y u)= x u - y v + i(x v + y u)$$
+\begin{definicion}
+Se dice que $\,x\,$ es la \emph{parte real}\index{parte real} e $\,y\,$ es la \emph{parte
+imaginaria}\index{parte imaginaria} del número complejo $x+i y$.
+\end{definicion}
+Naturalmente, dos números complejos son iguales cuando
+tienen igual parte real e igual parte imaginaria.
+
+\noindent\textbf{Notación.} Es costumbre representar los números complejos con las letras
+$\,z$ y  $\,w$ y reservar las letras $\,x$, $y$, $u$, $v$ para
+representar números reales. Una expresión de la forma
+$z=x+iy$ se interpreta como que $z$ es el número complejo cuya
+parte real es $x$ y cuya parte imaginaria es $y$. Se escribe
+$\re(z)$ e $\im(z)$ para representar las partes real e imaginaria
+de $z$.
+
+\subsection{Comentarios a la definición usual $\,i=\sqrt{-1}$}
+Acabamos de ver que $i^2=-1$ pero eso no nos permite escribir así,
+sin más ni más, que $i=\sqrt{-1}$. Fíjate lo que ocurre si ponemos
+$i=\sqrt{-1}$ y manejamos ese símbolo con las reglas a las que
+estamos acostumbrados:
+$$
+-1=i^2=i\,i=\sqrt{-1}\sqrt{-1}=\sqrt{(-1)(-1)}=\sqrt{1}=1$$ Luego
+$1=-1$. Por tanto, las matemáticas son contradictorias y
+aquí hemos acabado.
+
+Naturalmente, el error procede de que estamos haciendo disparates.
+Fíjate que en la expresión $\sqrt{-1}$ \emph{no puedes interpretar
+que $-1$ es el número real $-1$} (porque, como sabes, los números
+reales negativos no tienen raíz cuadrada real), \emph{sino que
+tienes que interpretar $-1$ como el número complejo $-1$} (espero
+que ya tengas clara la diferencia). Resulta así que estamos usando
+raíces de números complejos \emph{sin haberlas definido y dando
+por supuesto que dichas raíces verifican las mismas propiedades que
+las de los números reales positivos}.
+
+\emph{Antes} de escribir $\sqrt{-1}$ hay que definir qué significa
+$\sqrt{z}$ para $z\en\C$. Cuando lo hagamos veremos ¡sorpresa! que
+\emph{la igualdad} $\sqrt{z}\sqrt{w}=\sqrt{z w}$, válida cuando
+$z,w\in\Rp$, \emph{no es cierta en general cuando} $z,w\in\C$.
+
+Todavía más disparatado es \emph{definir} $i=\sqrt{-1}$ sin ni
+siquiera haber definido antes los números complejos. Sin embargo,
+y aunque parezca mentira, en muchos textos se define (porque sí,
+sin más explicaciones) $\,i=\sqrt{-1}$ y a continuación se dice
+que los números de la forma $a+ib$ son los números complejos. No
+es de extrañar que luego resulte que $1=-1$. Todavía pueden hacerse peor las cosas. Recientemente he encontrado en un texto de una institución de educación a distancia escrito por varios profesores la siguiente asombrosa definición: $\,i=+\sqrt{-1}$.
+
+\subsection{No hay un orden en \C\ compatible con la estructura
+algebraica}
+Al ampliar \R\ a \C\ ganamos mucho pero también perdemos algo. Te
+recuerdo que \R\ tiene dos estructuras: la algebraica y la de orden.
+Ambas estructuras están armoniosamente relacionadas. Pues bien, en
+\C\ no hay nada parecido. Podemos definir relaciones de orden en \C,
+pero no hay ninguna de ellas que sea compatible con la estructura
+algebraica. Es decir, es imposible definir un concepto de número
+complejo positivo de forma que la suma y el producto de complejos
+positivos sea positivo. Por ello no se define en \C\ ningún orden.
+Así que ya sabes: ¡nunca escribas desigualdades entre números
+complejos! Naturalmente, puedes escribir desigualdades entre las
+partes reales o imaginarias de números complejos, porque tanto la
+parte real como la parte imaginaria de un número complejo son
+números reales.
+
+\section{Representación gráfica. Complejo conjugado y
+módulo}
+Es usual representar el número complejo $z=x + i y$ como el vector del
+plano $(x,y)$ y, en ese sentido, se habla del \emph{plano complejo}.
+El eje horizontal recibe el nombre de \emph{eje real}, y el eje
+vertical recibe el nombre de \emph{eje imaginario}.
+
+\begin{figure}[ht]
+\centering
+\begin{pspicture}(-.5,-2.5)(4,2.5)
+\psaxes[labels=none,ticks=none,linewidth=.6pt,arrowscale=1.7]{->}(0,0)(-.5,-2.5)(4,2.5)[$X$,0][$Y$,0]
+\psset{arrowscale=2}
+\psline[linewidth=1pt]{->}(0,0)(2,2)
+\psline[linestyle=dashed,linewidth=.5pt](0,2)(2,2)(2,0)
+\psline[linestyle=dashed,linewidth=.8pt]{->}(0,0)(2,-2)
+\uput[d](2,0){$x$}
+\uput[l](0,2){$y$}
+\uput[r](2,2){$z=x+iy$}
+\uput[r](2,-2){$\conj{z}=x-iy$}
+\uput[u](1,1){$\abs{z}$}
+\end{pspicture}
+\caption{Representación de un número complejo
+\label{fig:numero_complejo}}
+\end{figure}
+
+Si $z = x + iy$ es un número complejo (con $x$ e $y$ reales),
+    entonces el \textbf{conjugado} de $z$ se define como:
+$$
+\conj{z} = x - iy
+$$
+y el  \textbf{módulo} o \textbf{valor absoluto} de $z$, se define
+como:
+$$
+\abs{z} = \sqrt{x^2 + y^2}
+$$
+Observa que $\sqrt{x^2 + y^2}$ está definido sin ambigüedad; es la
+raíz cuadrada del número real no negativo $x^2 + y^2$.
+
+Geométricamente, $\conj{z}$ es la reflexión de $z$ respecto al eje
+real, mientras que $\abs{z}$ es la distancia euclídea del punto
+$(x,y)$ a $(0, 0)$ o, también, la longitud o \textbf{norma euclídea}
+del vector $(x,y)$ (ver figura \ref{fig:numero_complejo}). La
+\textbf{distancia} entre dos números complejos $z$ y $w$ se define
+como $\abs{z - w}$ y es la distancia euclídea entre los respectivos puntos del plano.
+
+La representación gráfica de la suma es la usual para la suma de vectores. Dos números complejos $z = x+iy$ y $w = u+iv$ determinan un paralelogramo cuya
+diagonal (ver figura \ref{fig:suma}) es $z + w$ (la otra diagonal es $z-w$).
+\begin{figure}[ht]
+\centering
+\psset{unit=1.5cm}
+\begin{pspicture}(-.2,-.2)(4,4)
+\psaxes[labels=none,ticks=none,linewidth=.6pt,arrowscale=1.7]{->}(0,0)(-.2,-.2)(4,4)[$X$,0][$Y$,0]
+\psset{arrowscale=2}
+\psline[linewidth=1pt]{->}(0,0)(1,2)
+\psline[linewidth=1pt]{->}(0,0)(2,1)
+\psline[linewidth=1pt]{->}(0,0)(3,3)
+\psline[linestyle=dashed,linewidth=.5pt](1,2)(3,3)(2,1)
+\psline[linestyle=dashed,linewidth=.5pt](1,2)(1,0)
+\psline[linestyle=dashed,linewidth=.5pt](2,1)(2,0)
+\psline[linestyle=dashed,linewidth=.5pt](3,3)(3,0)
+\uput[26.5](2,1){$w$}
+\uput[d](2,0){$u$}
+\uput[45](3,3){$z+w$}
+\uput[d](1,0){$x$}
+\uput[d](3,0){$x+u$}
+\uput[63.4](1,2){$z$}
+\end{pspicture}
+\caption{Suma de números complejos \label{fig:suma}}
+\end{figure}
+
+Las siguientes propiedades de la conjugación compleja son de comprobación muy sencilla.
+\begin{proposicion}
+Cualesquiera sean los números complejos $z$ y $w$ se
+verifica que:
+\begin{equation}
+\conj{\conj{z}}=z,\quad\conj{z+w}=\conj{z}+\conj{w},\quad \conj{zw}=\conj{z}\conj{w}.
+\end{equation}
+\end{proposicion}
+
+El siguiente resultado establece las principales propiedades del módulo de un número complejo. Como verás son muy parecidas a las propiedades del valor absoluto y su demostración es prácticamente la misma.
+\begin{teorema}
+Cualesquiera sean los números complejos $z,w\in\C$ se verifica que:
+\begin{enumerate}[a)]
+\item \begin{equation}\label{desigualdadbasica}
+\max\{\abs{\re z},\abs{\im z}\}\leqslant
+    \abs{z}\leqslant\abs{\re z}+\abs{\im z}
+\end{equation}
+En particular, $\re z=\abs{z}$ si, y sólo si, $z\en\Rpo$.
+\item El módulo de un producto es igual al producto de los módulos.
+\begin{equation}\label{moduloproducto}
+\abs{z w} = \abs{z} \abs{w}
+\end{equation}
+\item El módulo de una suma es menor o igual que la suma de los módulos.
+\begin{equation}
+\abs{z + w} \leqslant \abs{z} + \abs{w}\qquad \textrm{(desigualdad triangular)}
+\end{equation}
+La desigualdad triangular es una igualdad si, y solamente si, alguno de los números es cero o uno de ellos es un múltiplo positivo del otro; equivalentemente, están en una misma semirrecta a partir del origen.
+\end{enumerate}
+\end{teorema}
+\dem La demostración de a) es inmediata. Para demostrar b) y c) usaremos la igualdad
+ $\,\abs{z}^2=z\conj{z}\,$ que se deduce directamente
+de la definición de módulo de un número complejo, y la estrategia (\ref{estrategiadesigualdadpositivos}) que ya usamos para probar las propiedades análogas del valor absoluto.
+
+b) Basta observar que $\abs{z w}$ y $\abs{z} \abs{w}$ son números positivos cuyos cuadrados coinciden, pues
+$$\abs{z w}^2=zw\conj{zw}=zw\conj{z}\conj{w}=z\conj{z}w\conj{w}=\abs{z}^2\abs{w}^2=(\abs{z}\abs{w})^2$$
+c) Es suficiente probar que $\abs{z+w}^2\leqslant(\abs{z}+\abs{w})^2$. En efecto:
+$$
+\begin{aligned}
+\abs{z+w}^2 &
+=(z+w)\conj{(z+w)}=(z+w)(\conj{z}+\conj{w})=z\conj{z}+w\conj{w}+z\conj{w}+\conj{z}w=\\
+&=\abs{z}^2+\abs{w}^2+2\re{(z\conj{w})}\leqslant\abs{z}^2+\abs{w}^2+2\abs{\re{(z\conj{w})}}\leqslant\\
+&\leqslant
+\abs{z}^2+\abs{w}^2+2\abs{z\conj{w}}=\abs{z}^2+\abs{w}^2+2\abs{z}\abs{\conj{w}}=\abs{z}^2+\abs{w}^2+2\abs{z}\abs{w}=\\
+&=(\abs{z}+\abs{w})^2
+\end{aligned}
+$$
+Evidentemente, si $z=0$ o si $w=0$, se verifica la igualdad. Supongamos que $z\neq 0$ y $w\neq 0$. De lo anterior deducimos que se verifica la igualdad
+$\abs{z+w}=\abs{z}+\abs{w}$ si, y sólo si, $\re{z\conj{w}} =\abs{z\conj{w}}$, esto es, si $z\conj{w} \in \Rp$, o lo que es lo
+mismo $z\conj{w} = \rho$ donde $\rho \en \Rp$. Esta igualdad,
+puede escribirse de forma equivalente, multiplicando por $w$, como
+$z\abs{w}^2 = \rho w$; y dividiendo ahora por $\abs{w}^2$, obtenemos  $z = \lambda w$ para algún
+$\lambda\in\Rp$, lo que quiere decir que $z$ y $w$ están en
+una misma semirrecta a partir del origen.\fin
+
+\noindent{\textbf{Observación.}}\
+Para expresar un cociente de complejos en forma cartesiana se multiplica numerador y denominador por el conjugado del denominador:
+$$
+\frac{u+iv}{x+i y}=\frac{(u+iv)(x-iy)}{x^2+y^2}=\frac{ux+vy}{x^2+y^2}+i\frac{vx-uy}{x^2+y^2}.
+$$
+
+\subsection{Forma polar y argumentos de un número complejo}
+El uso de coordenadas polares en el plano facilita mucho los
+cálculos con productos de números complejos. Para cualquier número
+complejo $z=x+iy \neq 0$ podemos escribir
+$$ z = \abs{z} \left(\dfrac{x}{\abs{z}}+i\dfrac{y}{\abs{z}}\right) $$
+Como $\left(\dfrac{x}{\abs{z}},\dfrac{y}{\abs{z}}\right)$ es un punto de la
+circunferencia unidad, puede escribirse en la forma
+$$\left(\dfrac{x}{\abs{z}},\dfrac{y}{\abs{z}}\right)=(\cos\vartheta,\sen\vartheta)$$
+para algún número $\vartheta\en\R$. Resulta así que
+$$z=\abs{z}(\cos\vartheta+i\sen\vartheta)$$
+Esta forma de expresar un número complejo recibe el nombre de
+\textbf{forma polar}, cuya interpretación gráfica vemos en la figura
+(\ref{fig:forma_polar}).
+
+\begin{figure}[ht]
+\centering
+\psset{unit=2cm}
+\begin{pspicture}(-.2,-.2)(3,3)
+\psaxes[linewidth=.6pt,labels=none,ticks=none,arrowscale=2]{->}(0,0)(-.2,-.2)(3,3)[$X$,0][$Y$,0]
+\psset{arrowscale=2,arrowinset=.6}
+\psline[linewidth=1pt]{->}(0,0)(2,2)
+\psarc[linewidth=.5pt](0,0){1}{0}{45}
+\SpecialCoor
+\uput[r](1;22){$\vartheta$}
+\uput[u](1,1){$\abs{z}$}
+\end{pspicture}
+\caption{Forma polar de un número complejo \label{fig:forma_polar}}
+\end{figure}
+
+Dado $z\en\C$, $z\neq 0$, hay infinitos números $t\en\R$ que
+verifican la igualdad $z=\abs{z}(\cos t,\sen t)$ cualquiera de
+ellos recibe el nombre de \textbf{argumento} de $z$. El conjunto de
+todos los argumentos de un número complejo no nulo se representa por
+$\Arg(z)$. $$\psframebox{\ \Arg(z)=\set{t\en\R : z=\abs{z}(\cos t+i\sen t)}\ }$$
+Observa que
+$$s,\,t\en\Arg(z)\Longleftrightarrow\left\{\begin{aligned}\cos(t)&=\cos(s)\\
+\sin(t)&=\sin(s)\end{aligned}\right\}\Longleftrightarrow s=t +
+2k\pi\ \ \textrm{para algún}\ \ k\en\Z$$ Por tanto, conocido un
+argumento $t_0\en\Arg(z)$ cualquier otro es de la forma $t_0+2k\pi$
+para algún $k\en\Z$, es decir, $\Arg(z)=t_0+2\pi\Z$.
+
+De entre todos los argumentos de un número complejo $z\neq 0$ hay
+uno único que se encuentra en el intervalo $]-\pi, \pi]$, se
+representa por $\arg(z)$ y se le llama \textbf{argumento principal}
+de $z$. No es difícil comprobar (véase el ejercicio resuelto (\ref{formulaargumentoprincipal})) que el argumento principal de
+$z=x+iy\neq 0$ viene dado por:
+$$
+\cajadoble{
+\arg(z)=\begin{cases}\arctg(y/x)-\pi \ \ \textrm{si $y<0$, $x<0$}\\ -\pi/2\ \ \textrm{si $y<0$, $x=0$}\\
+\arctg(y/x)\ \ \textrm{si $x>0$}\\ \pi/2\ \ \textrm{si $y>0$,
+$x=0$}\\ \arctg(y/x)+\pi \ \ \textrm{si $y\geqslant 0$,
+$x<0$}\end{cases}}
+$$
+
+\subsubsection*{Igualdad de dos números complejos en forma polar}
+Para que dos números complejos escritos en forma polar $z=\abs{z}(\cos\vartheta+i\sen\vartheta)$ y \linebreak $w=\abs{w}(\cos\varphi+i\sen\varphi)$, sean iguales es condición necesaria y suficiente que los módulos sean iguales $\abs{z}=\abs{w}$, y los argumentos sean iguales, $\Arg(z)=\Arg(w)$, y ésta condición equivale a que $\vartheta-\varphi$ sea un múltiplo entero de $2\pi$.
+$$
+\abs{z}(\cos\vartheta+i\sen\vartheta)=\abs{w}(\cos\varphi+i\sen\varphi)\Longleftrightarrow\left\{
+                                                                                            \begin{array}{rcl}
+                                                                                              \abs{z}&=&\abs{w} \\
+                                                                                              \vartheta-\varphi&=& 2m\pi\quad (m\en\Z)
+                                                                                            \end{array}
+                                                                                          \right.
+$$
+\subsection{Observaciones a la definición de argumento
+principal}
+
+Puede parecer un poco extraña la forma de elegir el argumento
+principal de un número complejo. La elección que hemos hecho
+supone que medimos ángulos en el semiplano superior de $0$ a
+$\pi$ y en el semiplano inferior de $0$ a $-\pi$.
+
+\begin{figure}
+\vspace*{1cm}
+\centering
+\begin{pspicture}(-2.5,-2.5)(2,2)
+\psset{unit=1.5cm}
+\psaxes[linewidth=.6pt,labels=none,ticks=none](0,0)(-2.5,-1.5)(1.2,1.5)%[$X$,90][$Y$,90]
+\psset{arrowscale=1.5}
+\psarc[linewidth=.6pt]{->}(0,0){.9}{0}{170}
+\psarc[linewidth=.6pt]{<-}(0,0){.9}{190}{360}
+\psset{arrowscale=2,arrowinset=.6}
+\psline[linewidth=1pt]{->}(0,0)(2;170)
+\psline[linewidth=1pt]{->}(0,0)(2;190)
+\uput[u](2;170){\scalefont{.8}$w=x+iv$}
+\uput[d](2;190){\scalefont{.8}$z=x+iy$}
+\uput[r](0,1.2){$\frac{\pi}{2}$}
+\uput[r](0,-1.2){$-\frac{\pi}{2}$}
+\uput[u](-2.2,0){\scalefont{.8}$\pi$}
+\uput[d](-2.2,0){\scalefont{.8}$-\pi$}
+\uput[r](1.3,0){\psframebox{\scalefont{.8}$\arg(z)=\arctg(y/x)$}}
+\uput[l](-.85,1){\psframebox{\scalefont{.8}$\arg(z)=\arctg(y/x)+\pi$}}
+\uput[l](-.85,-1){\psframebox{\scalefont{.8}$\arg(z)=\arctg(y/x)-\pi$}}
+\end{pspicture}
+\caption{Argumento principal}
+\end{figure}
+
+Fíjate que si tomas un número complejo que esté situado en el tercer
+cuadrante $z=x+iy$ con $x<0,y<0$ y supones que $\,y\,$ es próximo a
+$0$, su argumento principal está próximo a $-\pi$, y si tomas un
+número complejo que esté situado en el segundo cuadrante, $w=x+iv$
+con $x<0,v>0$, y supones que $\,v\,$ es próximo a $0$, su argumento
+principal está próximo a $\pi$. Además, la distancia
+$\abs{w-z}=\abs{v-y}=v-y$ es tan pequeña como quieras. Esto nos dice
+que el argumento principal tiene una discontinuidad en el eje real
+negativo: salta de $-\pi$ a $\pi$ cuando atravesamos dicho eje desde
+el tercer al segundo cuadrante.
+
+Peor todavía dirás. Hasta cierto punto. Primero, la discontinuidad es inevitable. Si
+queremos elegir argumentos en un intervalo de longitud $2\pi$, digamos
+$[\alpha,\alpha+2\pi[$, entonces dichos argumentos saltan de $\alpha$ a $\alpha+2\pi$
+cuando atravesamos la semirrecta $(x,y)=\rho(\cos\alpha,\sen\alpha)$, $(\rho>0)$. En
+particular, si tomamos argumentos en el intervalo $[0,2\pi[$ (cosa que, a primera
+vista, parece lo razonable) nos encontramos con que entonces se produce una
+discontinuidad de dichos argumentos en \textit{el eje real positivo}. Bien, sucede que
+\textit{la extensión a } $\C$ de algunas funciones definidas en $\Rp$ (el logaritmo,
+las raíces) hace intervenir el argumento principal. Naturalmente, queremos que dichas
+extensiones sigan siendo continuas en $\Rp$ y ello justifica que tengamos que tomar
+argumentos principales de la forma en que lo hemos hecho: porque preferimos introducir
+una discontinuidad en $\Rm$ a perder la continuidad en $\Rp$.
+
+\subsubsection{Fórmula de De Moivre}
+Veamos cómo la forma polar permite hacer fácilmente productos de
+números complejos.
+\begin{proposicion}\label{argumentodeunproducto}
+Sean $z$, $w$ conplejos no nulos, $\vartheta\in\Arg(z)$ y $\varphi\in\Arg(w)$. Entonces se verifica que $\vartheta+\varphi\in\Arg(zw)$.
+\end{proposicion}
+\dem Tenemos que
+\[
+\begin{split}
+        z &= \abs{z}(\cos{\vartheta} + i\sen{\vartheta}) \\
+        w &= \abs{w}(\cos{\varphi} + i\sen{\varphi})
+    \end{split}
+\]
+Usando ahora las igualdades (\ref{senodeunasuma})  y (\ref{cosenodeunasuma}), obtenemos:
+\[
+    \begin{split}
+        z w &= \abs{z}\abs{w}(\cos{\vartheta} + i\sen{\vartheta})(\cos{\varphi} + i\sen{\varphi}) = \\
+    &= \abs{zw} [(\cos{\vartheta}\cos{\varphi} - \sen{\vartheta}\sen{\varphi}) + i(\sen{\vartheta}\cos{\varphi} + \cos{\vartheta}\sen{\varphi})] = \\
+    &= \abs{zw}(cos{(\vartheta + \varphi)} + i \sen{(\vartheta + \varphi)})
+    \end{split}
+\]
+Lo que nos dice que $\vartheta+\varphi\in\Arg(zw)$.\fin
+
+Hemos probado que \textit{para multiplicar dos números complejos se
+multiplican sus módulos y se suman sus argumentos.}
+
+Así pues, el producto de dos números complejos es geométricamente un
+giro (pues se suman los argumentos de los números que estamos
+multiplicando) seguido de una homotecia (el producto de los módulos
+de ambos números).
+
+Observa que, como consecuencia de la proposición (\ref{argumentodeunproducto}), tenemos que $\arg z+\arg w\in\Arg(zw)$; es decir, $\arg z+\arg w$ es \emph{un} argumento de $zw$, pero lo que no podemos afirmar es que $\arg z+\arg w$ sea igual al argumento principal de $zw$. Naturalmente, esto ocurrirá cuando $-\pi<\arg z+\arg w\le \pi$.
+\begin{equation}\label{argumentoprincipalproducto}
+\psframebox{\arg z +\arg w=\arg(zw) \Longleftrightarrow -\pi<\arg z+\arg w\le \pi}
+\end{equation}
+La siguiente igualdad, muy útil, conocida como \emph{fórmula de De Moivre}, se demuestra fácilmente por inducción a partir de la proposición (\ref{argumentodeunproducto}).
+
+\begin{proposicion}[\textbf{Fórmula de De Moivre}]
+Si $z$ es un complejo no nulo, $\vartheta$ es un argumento de $z$ y
+$n$ es un número entero, se verifica que $\,n
+\vartheta\en\Arg(z^{\,n})$, es decir:
+\begin{equation}\label{formulademoivre}
+\cajadoble{z^{\,n}
+=\big(\abs{z}(\cos\vartheta+i\,\sen\vartheta)\big)^n= \abs{z}^n
+(\cos{n\vartheta} + i\sen{n\vartheta}),\qquad\vartheta\en\Arg(z),\
+n\en\Z}
+\end{equation}
+\end{proposicion}
+
+\subsection{Raíces de un número complejo}
+Se trata ahora de resolver la ecuación $\,w^n = z$ donde $n$ es un
+número natural, $n\geqslant 2$, y $z\neq 0$ es un número complejo
+conocido. Escribamos $w$ en forma polar:
+$$
+w = \abs{w}(\cos{\varphi} + i\sen{\varphi})
+$$
+Ahora, usando la fórmula de De Moivre, podemos escribir la
+ecuación $w^n=z$ en la forma equivalente:
+$$
+w^n = \abs{w}^n (\cos{n\varphi} + i\sen{n\varphi}) = \abs{z}
+(\cos{\vartheta} + i\sen{\vartheta})
+$$
+Donde $\vartheta=\arg z$. Esta igualdad se da cuando $\abs{w}^n =
+\abs{z}$ y $n\varphi = \vartheta + 2k\pi$ donde $k \in \Z$.
+Deducimos que $\abs{w}= \sqrt[n]{\abs{z}}$ (ojo: se trata de la
+raíz $n$--ésima de un número positivo, cosa ya conocida). Ahora
+bien, para cualquier número $\varphi_k$ de la forma $\varphi_k =
+(\vartheta + 2k\pi) /n$ tenemos un número complejo
+$$w_k=\sqrt[n]{\abs{z}}(\cos\varphi_k+i\sen\varphi_k)$$ tal
+que $(w_k)^n = z$. Como una ecuación polinómica de grado
+$n$ no puede tener más de $n$ soluciones, se sigue que
+distintos valores de $k$ deben dar lugar al mismo número
+$w_k$. Veamos:
+$$
+w_k = w_q \Leftrightarrow \varphi_k - \varphi_q = 2m \pi
+\Leftrightarrow k-q = nm
+$$
+Es decir, si $k$ y $q$ dan el mismo resto al dividirlos por $n$
+entonces $\,w_k = w_q$. Deducimos que para \mbox{$k = 0, 1, 2,
+\ldots, n-1$} obtenemos $w_k$ distintos y cualquier otro $w_q$ es
+igual a uno de ellos. Por tanto hay $n$ raíces n--ésimas distintas
+de $z$.
+
+Hemos obtenido que las $n$ raíces n--ésimas de $z$ vienen dadas por
+\begin{equation}
+\cajadoble{z_k=\abs{z}^{1/n} \left(
+\cos{\frac{\arg{z}+2k\pi}{n}} + i \sen{\frac{\arg z
++2k\pi}{n}}\right)\quad k=0,1,2,\dots,n-1}
+\end{equation}
+Observa que definiendo $u=\cos(2\pi/n)+i\sen(2\pi/n)$, los números
+\mbox{$u_0=1,\,u,\,u^2,\dots,u^{n-1}$} son las raíces n--ésimas de
+la unidad. Podemos escribir las raíces n--ésimas de $z$ en la forma
+$\,z_{\,k}=z_{\,0}\,u^k$. Como multiplicar por $u$ es un giro de
+amplitud $2\pi/n$, deducimos que las $n$ raíces de $z$ se obtienen
+girando la raíz n--ésima principal, $z_{0}$, con giros sucesivos
+de amplitud $2\pi/n$. Es decir, si representamos todas las raíces
+n--ésimas de $z$ obtenemos $n$ puntos sobre una circunferencia de
+centro $(0,0)$ y radio $\sqrt[n]{\abs{z}}$ que forman un polígono
+regular de $n$ lados.
+
+\begin{figure}[htbp]
+\centering
+\begin{pspicture}(-3,-3)(3,3)
+\psset{unit=1.3cm,arrowscale=2,arrowinset=.6}
+\SpecialCoor
+\pscircle[linewidth=.3pt](0,0){2}
+\pspolygon(2;0)(2;40)(2;80)(2;120)(2;160)(2;200)(2;240)(2;280)(2;320)
+\multido{\n=0.0+40}{9}{%
+\rput{\n}{\psline{->}(0,0)(2;0)}
+}
+\end{pspicture}
+\caption{Raíces novenas de la unidad}
+\end{figure}
+
+De entre todas las raíces n--ésimas de $z$ vamos a designar con el
+símbolo $\sqrt[n]{z}$ a la \textbf{raíz n-ésima principal}, que está
+definida por
+\begin{equation}\label{raizprincipal}
+\cajadoble{ \sqrt[n]{z} = \abs{z}^{1/n} \left(
+\cos{\frac{\arg{z}}{n}} + i \sen{\frac{\arg z}{n}}\right)}
+\end{equation}
+Observa que $\arg\big(\sqrt[n]{z}\big)=\dfrac{\arg z}{n}$ y, en consecuencia:
+\begin{equation}\label{conodelaraiz}
+-\dfrac{\pi}{n}<\arg\big(\sqrt[n]{z}\big)\le\dfrac{\pi}{n}
+\end{equation}
+\emph{Además, la raíz n-ésima principal de $z$ es la única de las raíces n-ésimas de $z$ cuyo argumento principal está en el intervalo $]-\pi/n,\pi/n]$}. Dicho de otra forma, la raíz n-ésima principal de un número complejo está situada en una región angular, simétrica con respecto al eje real y de amplitud $2\pi/n$, que incluye a su borde superior pero no incluye a su borde inferior.
+
+\subsubsection{Notación de las raíces complejas}\label{notacionraices}
+Observa que en el caso particular de que $z$ sea un número real
+positivo, entonces la raíz principal de $z$ (considerado como número
+complejo) coincide con la raíz de $z$ (considerado como número real
+positivo). Es decir, acabamos de \emph{extender} la función raíz n-ésima de \Rp\ a todo \C\ conservando el significado que esa función tenía en \Rp. Observa, sin embargo, que si $x\in\Rm$ y $n$ es impar, la raíz real de orden $n$ de $x$ no coincide con el valor principal de la raíz de orden $n$ de $x$ considerado como número complejo. Este pequeño inconveniente no es tal si tenemos claro dónde estamos trabajando si en \R\ o en \C; esto es, si cuando $n$ es impar estamos considerando funciones raíces n-ésimas definidas en \R, o si estamos considerando dichas funciones definidas en \C. Observa que para $n$ par no hay confusión alguna, solamente cuando $n$ es impar y $x$ es un número real negativo hay que tener cuidado. Por ejemplo, $\sqrt[3]{-1}=-1$ cuando consideramos a la raíz cúbica como una función real, y $\sqrt[3]{-1}=\cos(\pi/3)+i\sen(\pi/3)$ cuando consideramos a la raíz cúbica como función compleja. Programas de cálculo simbólico, como \emph{Mathematica}, siguen precisamente este convenio y usan la notación $\sqrt[n]{z}$ para el valor principal de la raíz n-ésima del número complejo $z$.
+
+Mucho peor es lo que ocurre cuando se usan notaciones disparatadas como suele hacerse en muchos libros de texto. Como es posible que te las encuentres, conviene que sepas a qué atenerte. El hecho es que en muchos textos se representa con el símbolo $\sqrt[n]{z}$ \emph{el conjunto formado por todas las raíces n-ésimas del número complejo} $z$. Pues bueno\dots \emph{¡acabamos de perder la función raíz n-ésima real y compleja!} Porque, digo yo, si hemos de ser coherentes, habrá que entender que $\sqrt[27]{1}$ ya no vale $1$ sino que es un conjunto formado por $27$ números complejos. Y las reglas que conocemos para las raíces reales ya ni siquiera pueden formularse. ¿Qué sentido tiene ahora escribir que $\sqrt[5]{2}\sqrt[5]{1}=\sqrt[5]{2}$? ¿Es una igualdad entre conjuntos? ¿Debemos multiplicar cada elemento del conjunto $\sqrt[5]{2}$ por cada elemento del conjunto $\sqrt[5]{1}$ y comprobar que de esa forma obtenemos todos los elementos de $\sqrt[5]{2}$? ¿Cómo hay que sumar ahora $\sqrt[3]{2}+\sqrt[7]{3}$? Porque $\sqrt[3]{2}$ debe entenderse como un conjunto de 3 elementos y $\sqrt[7]{3}$ como un conjunto de 7 elementos.
+
+Estos ejemplos te habrán convencido de lo disparatado de esta forma de proceder. Pero hay más disparates. Alguien puede argumentar que todo esto se arregla interpretando que cuando $z$ es real, $\sqrt[n]{z}$, representa siempre la raíz n-ésima real del número $z$. Bueno, pero esto no arregla el disparate de que $\sqrt[n]{z}$ no es una función, porque todavía persiste el hecho de que para $z$ complejo no real, $\sqrt[n]{z}$  no es un número sino un conjunto de $n$ números complejos. Lo peor de todo esto es que los autores que cometen estos disparates ni siquiera son conscientes de ellos, y usan el símbolo $\sqrt[n]{z}$ en sucesiones, límites o integrales como si de una función usual se tratara. Habría que decirles ¡oiga! si para usted $\sqrt[n]{z}$ son $n$ números, ¿qué significado tiene una expresión como $\lim_{n\to\infty}\ n\big(\sqrt[n]{z}-1)$? Pues eso, ni se dan cuenta.
+
+Finalmente, observa que en la definición (\ref{raizprincipal}) de $\sqrt[n]{z}$ interviene el argumento principal, $\arg(z)$. Por la definición dada de argumento principal, tenemos que $-\pi<\arg z\le \pi$ y, como ya hemos visto anteriormente, se produce una discontinuidad del argumento principal en el eje real negativo y, en consecuencia, la función $z\mapsto\sqrt[n]{z}$ es discontinua en el eje real negativo. Te informo que no hay que preocuparse mucho por esta discontinuidad, de hecho es muy útil y, entre otras cosas, sirve para contar ceros de funciones. Lo que quiero es llamarte la atención sobre lo que ocurre cuando se elige el argumento principal en en el intervalo $[0,2\pi[$. Cuando se hace así, la función $z\mapsto\sqrt[n]{z}$ resulta ser discontinua en el eje real positivo. Mala cosa; con esa elección para el argumento principal, una función que era continua en \Rp, al extenderla a \C\ ya no es continua en \Rp.
+
+\subsubsection{La igualdad $\sqrt[n]{z}\sqrt[n]{w}=\sqrt[n]{zw}$}
+En general, no es cierto que, dados dos números complejos $z$ y $w$,
+el producto de las raíces n-ésimas \textit{principales} de
+$z$ y de $w$ sea igual a la raíz n-ésima \textit{principal} de
+$z w$. Lo que, evidentemente, sí es cierto es que el producto de dos raíces
+n-ésimas cualesquiera de $z$ y de $w$ es una raíz n-ésima de $z w$.
+Por tanto, $\sqrt[n]{z}\sqrt[n]{w}$, es \emph{una} raíz n-ésima de
+$zw$ \emph{pero no tiene por qué ser la principal}. Vamos a ver qué condiciones deben cumplirse para que $\sqrt[n]{z}\sqrt[n]{w}$ sea la raíz n-ésima principal de $zw$. Para ello, bastará con exigir que el argumento principal de $\sqrt[n]{z}\sqrt[n]{w}$ esté en el intervalo $]-\pi/n,\pi/n]$. Como suponemos que $n$ es un número natural $n\ge 2$, tenemos que\rule{0mm}{6mm} $-\pi<\dfrac{\arg z}{n}+\dfrac{\arg w}{n}\le \pi$ y, por (\ref{argumentoprincipalproducto}), deducimos que $\arg\big(\sqrt[n]{z}\sqrt[n]{w}\big)=\dfrac{\arg z}{n}+\dfrac{\arg w}{n}=\dfrac{\arg z+\arg w}{n}$. Tenemos que:
+$$
+\arg\big(\sqrt[n]{z}\sqrt[n]{w}\big)=\dfrac{\arg z+\arg w}{n}\in \left]-\dfrac{\pi}{n},\dfrac{\pi}{n}\right]\Longleftrightarrow -\pi<\arg z+\arg w\le\pi
+$$
+Hemos probado que
+$$
+\cajadoble{\sqrt[n]{z}\sqrt[n]{w} = \sqrt[n]{zw}\Longleftrightarrow
+-\pi<\arg(z)+\arg(w)\leqslant\pi}
+$$
+Por ejemplo, si los números $z$ y $w$ están en el
+semiplano de la derecha, es decir, $\re z>0$, $\re w>0$, entonces
+$-\pi/2<\arg(z)<\pi/2$ y  $-\pi/2<\arg(w)<\pi/2$; por tanto en este caso
+$\arg(z)+\arg(w)=\arg(zw)$ por lo que
+$\sqrt[n]{z}\sqrt[n]{w}=\sqrt[n]{zw}$. En particular, esto es cierto cuando $z,w\in\Rp$. Por tanto, \emph{no perdemos ninguna de las propiedades de las raíces reales positivas al extender las raíces a} \C.
+
+En el caso en que $\,n=2$, $z=w=-1$, tenemos que
+$\arg(-1)+\arg(-1)=2\pi$, y no se cumple la
+condición anterior. En este caso
+$$\sqrt{-1}\sqrt{-1}=-1\neq 1=\sqrt{1}=\sqrt{(-1)(-1)}$$
+es decir $\,\sqrt{-1}\sqrt{-1}=-1\,$ es una raíz cuadrada de
+$1=(-1)(-1)$ pero no es la raíz cuadrada principal de $1$.
+Ahora ya sabes dónde está el error en lo que sigue:
+$$
+-1=i^{2}=i\,i=\sqrt{-1}\sqrt{-1}=\sqrt{(-1)(-1)}=\sqrt{1}=1
+$$
+%\pagebreak
+\begin{ejercicios propuestos}
+\propuesto Realiza las operaciones indicadas y expresa el resultado en
+la forma $a+i\,b$. $$\begin{array}{rlrlrlrl} \textrm{i)}&
+(7-2i)(5+3i) &\textrm{ii)}& (i-1)^3 &\textrm{iii)}&
+\conj{(1+i)(2+i)}(3+i) &\textrm{iv)}& \dfrac{\,\ 3+i\
+\,}{\conj{2+i}}\\ \textrm{v)}& \dfrac{(4-i)(1-3i)}{-1+2i}
+&\textrm{vi)}& (1+i)^{-2}
+&\textrm{vii)}& \dfrac{1+2 i}{2-i} &\textrm{viii)}&  i^2(1+i)^3
+\end{array}$$
+\propuesto Calcula la parte real e imaginaria de las funciones:
+$$
+\textrm{a)}\ f_1(z)=\conj{z}^{2}\quad  \textrm{b)}\ f_2(z)=z^3
+\quad \textrm{c)}\ f_3(z)=\dfrac{1}{z} \quad \textrm{d)}\
+f(z)=\dis\dfrac{1}{1+z^{2}}\quad\textrm{e)}\
+f_4(z)=\dfrac{z+i}{z-i}
+$$
+\propuesto Calcula las siguientes cantidades.
+$$
+\textrm{a)}\ \abs{(1+i)(2-i)} \quad \textrm{b)}\
+\left|\dfrac{4-3i}{2-i\sqrt{5}}\right| \quad \textrm{c)}\
+\abs{(1+i)^{20}} \quad \textrm{d)}\ \abs{\sqrt{2}+i(\sqrt{2}+1)}
+$$
+
+\propuesto Calcula los números complejos $\,z$ tales que
+$\dis\,\frac{1+z}{1-z}\,$ es:
+
+a) Un número real; b) Un número imaginario puro.
+
+\propuesto Expresa en forma polar los siguientes números complejos.
+$$
+\textrm{a)}\ -\sqrt{3}-i \quad\textrm{b)}\ -\sqrt{3}+i \quad
+\textrm{c)}\  \dfrac{3}{\sqrt{3}+i}\quad \textrm{d)}\
+\dfrac{1+i\sqrt{3}}{(1+i)^2}
+$$
+
+\propuesto Expresa los siguientes números en la forma $a+i\,b$:
+$$
+\textrm{a)}\ (-1+i\sqrt{3})^{11}\quad \textrm{b)}\
+\left(\frac{1+i}{1-i}\right)^{5}\quad \textrm{c)}\
+\left(\frac{1+i\sqrt{3}}{1-i}\right)^{6}\quad \textrm{d)}\
+(-\sqrt{3}+i)^{13}
+$$
+
+\propuesto Prueba que para $z\en\C\setminus\Rmo$ el argumento principal viene dado
+por
+$$\arg z=2\arctg{\frac{\im z}{\re z + \abs{z}}}$$
+Sugerencia. Ver el ejercicio resuelto (\ref{polaresprimer}).
+
+\propuesto Calcula $\,\arg(zw)\,$ y
+$\dis\,\arg\left(\frac{z}{w}\right)$ supuestos conocidos $\arg z$
+y $\arg w$.
+
+\propuesto Supuesto que $\abs{z}=1$, prueba que
+$$
+\arg\left(\dfrac{z-1}{z+1}\right)=\begin{cases} \pi/2\quad
+\textrm{si\ } \im z>0 \\ -\pi/2 \quad \textrm{si\ } \im z <0
+\end{cases}
+$$
+
+\propuesto Sea $z=x+i\,y$. Supuesto que $\abs{z}=1$, $z\neq 1$,
+$z\neq -i$, prueba que
+$$
+\arg\left(\dfrac{z-1}{z+i}\right)=\begin{cases}\ \ \ \ \pi/4\quad
+\textrm{ \ \ si\ \ \ } 1-x+y>0 \\ -3\pi/4 \quad \textrm{\ \ si\ \
+\ } 1-x+y <0
+\end{cases}
+$$
+\propuesto Resuelve la ecuación cuadrática $\,az^{2}+bz+c=0\,$
+donde $a,b,c$, son números complejos conocidos y $a\neq 0$.
+\propuesto Calcula todas las soluciones de las siguientes ecuaciones:
+$$
+\textrm{a)}\ z^3=1+i\quad \textrm{b)}\ z^4=i \quad \textrm{c)}\
+z^3=-1+i\sqrt{3} \quad \textrm{d)}\ z^8=1\quad \textrm{e)}\
+z^2+2iz-\sqrt{3}i=0
+$$
+
+\propuesto Prueba que si una ecuación polinómica con coeficientes reales admite una raíz compleja, $z$, entonces también admite como raíz a $\conj{z}$. Da un ejemplo de una ecuación polinómica de grado mayor que 1 que tenga como raíz compleja $1+i$ pero no admita como raíz a $1-i$.
+
+\propuesto Calcula las soluciones de las ecuaciones:
+$$
+\textrm{a)}\ z^4+2 z^3+7z^2-18 z+26=0;\qquad \textrm{b)}\ z^4 + (5 + 4 i)z^2 + 10 i=0$$
+Sugerencia. El número $1+i$ es raíz de la ecuación del apartado a).
+
+\propuesto Demuestra la llamada ``igualdad del paralelogramo'':
+$$
+|z+w|^{2}+|z-w|^{2}=2(|z|^{2}+|w|^{2})\quad (z,w\in\C)
+$$
+y explica su significado geométrico.
+
+\propuesto Dados dos números complejos $\alpha$ y $\beta$, calcula el
+mínimo valor para $\,z\in\C$ de la cantidad $
+\,|z-\alpha|^{2}+|z-\beta|^{2}. $
+
+\noindent Sugerencia: La igualdad del paralelogramo puede ser
+útil.
+
+\propuesto Prueba que $\dis{\left|\dfrac{z-a}{1-\conj{a}\,z}\right|<1}\
+$ si $\abs{z}<1$ y $\abs{a}<1$ y también si $\abs{z}>1$ y
+$\abs{a}>1$.
+
+\noindent Sugerencia: Una estrategia básica para probar
+desigualdades entre {\em módulos\/} de números complejos
+consiste en elevar al cuadrado ambos miembros de la desigualdad.
+
+\propuesto Sea $w$ un número complejo de módulo 1. Expresa los números $w-1$ y $w+1$ en forma polar.
+
+\propuesto Sea $x$ un número real que no es múltiplo entero de $2\pi$.
+Prueba las igualdades
+$$
+\begin{array}{llrll}
+&\textrm{a)}& 1+\cos x+\cos 2x+\cdots+\cos nx & = &
+\cos\left(\dfrac{n}{2}x\right)\dfrac{\sen\left(\dfrac{n+1}{2}x\right)}{\sen\left(\dfrac{x}{2}\right)}\\
+&\textrm{b)}\rule{0mm}{12mm}&\sen x+\sen 2x+\cdots+\sen
+nx&=&\sen\left(\dfrac{n}{2}x\right)\rule{0mm}{9mm}\dfrac{\
+\sen\left(\dfrac{n+1}{2}x\right)\ }{\sen\left(\dfrac{x}{2}\right)}
+\end{array}
+$$
+Sugerencia: Si llamamos $\,A\,$ a la primera suma y $\,B\,$ a la
+segunda, calcula $A+iB$ haciendo uso de la fórmula de De Moivre.
+
+\propuesto Calcula una fórmula para la suma
+$$\sum_{k=-N}^N \big(\cos(2k \pi  t)+i\sen(2k \pi t)\big)$$
+(tu respuesta debería de ser un cociente de senos).
+
+\propuesto Sea $n\en\N$, $n\geq 2$ y
+$\dis\,w=\cos\frac{2\pi}{n}+i\,\sen\frac{2\pi}{n}$. Dado un número
+entero $m\in\Z$, calcula el valor de las expresiones:
+\begin{enumerate}
+\propuesto $1+w^{m}+w^{2m}+\cdots+w^{(n-1)m}$;
+\propuesto
+$1-w^{m}+w^{2m}-\cdots+(-1)^{n-1}w^{(n-1)m}$.
+\end{enumerate}
+
+\propuesto Haciendo uso de la fórmula de De Moivre prueba que:
+\begin{enumerate}
+\item $\sen 3\varphi=3\,\sen\varphi-4\,\sen\!^{3}\varphi$.
+\item $\cos 4\varphi=8\,\cos\!^{4}\varphi-8\,\cos\!^{2}\varphi+1$.
+\item $\sen 5\varphi=5\,\sen\varphi-20\,\sen\!^{3}\varphi+16\,\sen\!^{5}\varphi$.
+\end{enumerate}
+
+\propuesto Representa gráficamente los conjuntos de números complejos
+$z$ que verifican:
+$$
+\begin{array}{llll}
+\abs{z-3}\leq 3; & 2<\abs{z-i}\leq 3; & \abs{\arg z}<\pi/6; & \abs{z-i}+\abs{z+i}=4 \\
+\abs{z-1}=\abs{z-2i}; & \left|\dfrac{z-i}{z+2i}\right|=2; &
+\im(z^{2})>6; & \abs{z-i}=\im z + 1
+\end{array}
+$$
+
+\propuesto Encuentra los vértices de un polígono regular de $n$
+lados si su centro se encuentra en el punto $z=0$ y uno de sus
+vértices $z_{1}$ es conocido.
+
+\propuesto Resuelve la ecuación $\,(z-1)^{n}=(z+1)^{n}$, donde
+$z\in\C$ y $n\en\N$, $n\geq 2$.
+
+\propuesto Sea $\abs{z_1}=\abs{z_2}=\abs{z_3}=1$. Prueba que $z_1$,
+$z_2$, $z_3$ son vértices de un triángulo equilátero si, y sólo
+si, $z_1+z_2+z_3=0$.
+
+\propuesto Si $0\leq \arg w-\arg z<\pi$, prueba que el área del
+triángulo de vértices $0$, $z$ y $w$ viene dada por
+$\frac{1}{2}\im(\conj{z}w)$.
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto Calcula la parte real e imaginaria de
+$\dfrac{\conj{z}}{1+z^2}\,$ donde $\,z\en\C\setminus\set{i,-i}$.
+
+\sol Todo lo que hay que hacer es realizar las operaciones
+indicadas. Pongamos para ello $\,z=x + i y\,$ con $x,y\en\R$.
+Tenemos que
+\begin{multline*}
+\dfrac{\conj{z}}{1+z^2}=\dfrac{x-i y}{1+(x+i
+y)^2}=\dfrac{x-iy}{1+x^2-y^2 + 2 x y i}= \dfrac{(x-iy)(1+x^2-y^2 -
+2 x y i)}{(1+x^2-y^2)^2 + 4x^2 y^2}=\\ =
+\rule{0mm}{6mm}\dfrac{x+x^3-3x y^2 +i(-y-3x^2
+y+y^3)}{(1+x^2-y^2)^2 + 4x^2 y^2}=\\ =\dfrac{x+x^3-3x
+y^2}{(1+x^2-y^2)^2 + 4x^2 y^2}+i\dfrac{-y-3x^2
+y+y^3}{(1+x^2-y^2)^2 + 4x^2 y^2}
+\end{multline*}
+Luego
+$$
+\re\left(\dfrac{\conj{z}}{1+z^2}\right)=\dfrac{x+x^3-3x
+y^2}{(1+x^2-y^2)^2 + 4x^2 y^2},\
+\im\left(\dfrac{\conj{z}}{1+z^2}\right)=\dfrac{-y-3x^2
+y+y^3}{(1+x^2-y^2)^2 + 4x^2 y^2}
+$$\hecho
+
+\resuelto Calcula
+$\left|\dfrac{(2+i\sqrt{5})(1+i\sqrt{3})^3}{\sqrt{5}+i\sqrt{3}}\right|$.
+
+\sol Como lo que nos piden es el módulo no es preciso realizar
+las operaciones indicadas. Basta tener en cuenta que el módulo de
+un producto es el producto de los módulos y, por tanto, el módulo
+de un cociente es el cociente de los módulos. En consecuencia:
+$$
+\left|\dfrac{(2+i\sqrt{5})(1+i\sqrt{3})^3}{\sqrt{5}+i\sqrt{3}}\right|=
+\dfrac{\big|2+i\sqrt{5}\,\big|\big|1+i\sqrt{3}\,\big|^3}{\big|\sqrt{5}+i\sqrt{3}\,\big|}=6\sqrt{2}
+$$\hecho
+
+\resuelto Calcula los números complejos $\,z$ tales que
+$\dis\,w=\frac{2z-i}{2+iz}\,$ es
+
+a) Un número real;
+
+b) Un número imaginario puro.
+
+\sol Pongamos $\,z=x + i y\,$ con $x,y\en\R$. Tenemos que
+$$
+w=\dfrac{2x+i(2y-1)}{2-y+i
+x}=\dfrac{(2x+i(2y-1))(2-y-i x)}{(2-y)^2+x^2}=
+\dfrac{3x+i(-2x^2-2y^2+5y-2 )}{(2-y)^2+x^2}
+$$
+Por tanto, $w$ es real si, y sólo si
+$$
+-2x^2-2y^2+5y-2=0 \ \Longleftrightarrow \ x^2+(y-5/4)^2=9/16
+$$
+Es decir, $z$ está en la circunferencia de centro $(0,5/4)$ y
+radio $3/4$.
+
+Análogamente, $w$ es imaginario puro si, y sólo si, $x=0$, es
+decir, $z$ está en el eje imaginario.\hecho
+
+\resuelto Calcula los números complejos $\,z$ tales que
+$\dis\,w=\dfrac{z-1-i}{z+1+i}\,$
+
+a) Es un número real;
+
+b) Tiene módulo 1.
+
+\sol Pongamos $\,z=x + i y\,$ con $x,y\en\R$. Tenemos que
+\begin{multline*}
+w=\dfrac{z-1-i}{z+1+i}=\dfrac{x-1+i(y-1)}{x+1+i(y+1)}=
+\dfrac{\big(x-1+i(y-1)\big)\big(x+1-i(y+1)\big)}{(x+1)^2+(y+1)^2}=\\ = \dfrac{x^2
++ y^2-2 +i(2y-2x)}{(x+1)^2+(y+1)^2}
+\end{multline*}
+Por tanto, $w$ es real si, y sólo si, $y=x\neq -1$, es decir, $z$ está en la bisectriz de los
+cuadrantes primero y tercero y $z\neq -(1+i)$.
+
+Es claro que $\abs{w}=1$ si, y sólo si
+$$
+\abs{z-1-i\,}=\abs{z+1+i\,}\ \Longleftrightarrow\
+(x-1)^2+(y-1)^2=(x+1)^2+(y+1)^2\ \Longleftrightarrow\  x+y=0
+$$
+Es decir, $z$ está en la bisectriz de los cuadrantes segundo y cuarto.\hecho
+
+\resuelto\label{formulaargumentoprincipal} Comprueba que el argumento principal de $z=x+iy\neq 0$
+viene dado por
+$$
+\vartheta=\begin{cases}\arctg(y/x)-\pi \ \ \textrm{si $y<0$, $x<0$}\\ -\pi/2\ \ \textrm{si $y<0$, $x=0$}\\
+\arctg(y/x)\ \ \textrm{si $x>0$}\\ \pi/2\ \ \textrm{si $y>0$,
+$x=0$}\\ \arctg(y/x)+\pi \ \ \textrm{si $y\geqslant 0$,
+$x<0$}\end{cases}
+$$
+\sol Teniendo en cuenta que para $t<0$ es  $-\pi/2<\arctg t<0$ y
+para $0\leq t$ es \mbox{$0\leq\arctg t<\pi/2$,} se sigue que el
+número $\vartheta$ definido por las igualdades anteriores verifica
+que $-\pi<\vartheta\leq \pi$. Por tanto, para probar que
+$\vartheta=\arg(z)$ bastará que comprobemos la igualdad
+$z=\abs{z}(\cos\vartheta + i\sen\vartheta)$, es decir, las
+igualdades $x=\abs{z}\cos\vartheta$, $y=\abs{z}\sen\vartheta$.
+
+Para $\vartheta=\pi$, $\vartheta=\pi/2$ y $\vartheta=-\pi/2$
+dichas igualdades son evidentes.
+
+Sea $x>0$ en cuyo caso $\vartheta=\arctg(y/x)$. En este
+caso, como $-\pi/2<\vartheta<\pi/2$, tenemos que
+$\,\tg\vartheta=y/x\,$ y deducimos
+$$
+\dfrac{1}{\cos^2\vartheta}=1+\tg^2\vartheta=1+\dfrac{y^2}{x^2}=\dfrac{x^2+y^2}{x^2}\
+\Longrightarrow\ x^2=(x^2+y^2)\cos^2\vartheta\ \Longrightarrow\
+x=\abs{z}\cos\vartheta
+$$
+donde, en la última implicación, hemos tenido en cuenta que $x>0$
+y $\cos\vartheta>0$. Deducimos también que
+$$
+y=x\,\tg\vartheta=\dfrac{x}{\cos\vartheta}\sen\vartheta=\abs{z}\sen\vartheta
+$$
+
+Consideremos  $x<0$ e $y>0$. Tenemos que
+$\pi/2<\vartheta=\arctg(y/x)+\pi<\pi$, por lo que
+$-\pi/2<\vartheta-\pi<0$, y deducimos
+$\tg\vartheta=\tg(\vartheta-\pi)=y/x$. Razonando como antes
+obtenemos que $x^2=(x^2+y^2)\cos^2\vartheta$. Como $x<0$ y
+$\cos\vartheta<0$, se sigue que $x=\abs{z}\cos\vartheta$. De
+esta igualdad deducimos, al igual que antes, que
+$y=\abs{z}\sen\vartheta$.
+
+Consideremos  $x<0$ e $y<0$. Tenemos que
+$-\pi<\vartheta=\arctg(y/x)-\pi<-\pi/2$, por lo que
+$0<\vartheta+\pi<\pi/2$, y deducimos
+$\tg\vartheta=\tg(\vartheta+\pi)=y/x$. Razonando como en el caso
+anterior volvemos a obtener las igualdades
+$x=\abs{z}\cos\vartheta$, $y=\abs{z}\sen\vartheta$.\hecho
+
+\resuelto Expresa en forma polar los siguientes números complejos.
+$$
+\textrm{a)}\ -1+i \quad\textrm{b)}\ \dfrac{-\sqrt{3}+i}{1+i} \quad
+\textrm{c)}\ \dfrac{1}{-1+i\sqrt{3}}
+$$
+\sol a)\ Tenemos que $\arg(-1+i)=\arctg(-1)+\pi=3\pi/4$, por lo
+que $$-1+i=\sqrt{2}\big(\cos(3\pi/4)+i\sen(3\pi/4)\big)$$
+
+b)\ Tenemos que
+\begin{align*}
+\arg(-\sqrt{3}+i)&=\arctg(-1/\sqrt{3})+\pi=-\arctg(1/\sqrt{3})+\pi=-\pi/6+\pi=5\pi/6\\
+\arg(1+i)&=\arctg(1)=\pi/4\ \Longrightarrow\
+\arg\left(\dfrac{1}{1+i}\right)=-\pi/4
+\end{align*}
+deducimos que $\dfrac{5\pi}{6} -
+\dfrac{\pi}{4}=\dfrac{7\pi}{12}\en\Arg\left(\dfrac{-\sqrt{3}+i}{1+i}\right)$.
+Por tanto
+$$\dfrac{-\sqrt{3}+i}{1+i}=\sqrt{2}\big(\cos(7\pi/12)+i\sen(7\pi/12)\big)$$
+
+c)\ $\arg(-1+i\sqrt{3})=\arctg(-\sqrt{3})+\pi=-\arctg(\sqrt{3})+\pi=-\pi/3+\pi=2\pi/3$,
+por lo que $\arg\left(\dfrac{1}{-1+i\sqrt{3}}\right)=-2\pi/3$. Por
+tanto $$
+\dfrac{1}{-1+i\sqrt{3}}=\dfrac{1}{2}\big(\cos(-2\pi/3)+i\sen(-2\pi/3)\big)$$\hecho
+
+\resuelto Calcula $\,\arg(zw)\,$ y
+$\dis\,\arg\left(\frac{z}{w}\right)$ supuestos conocidos $\arg z$
+y $\arg w$.
+
+\sol Sabemos que $\arg z+\arg w\en\Arg(zw)$; además $-2\pi<\arg
+z+\arg w\leq 2\pi$. Tenemos las siguientes posibilidades:
+\begin{align*}
+-2\pi<\arg z+\arg w\leq -\pi & \Longrightarrow\ 0<\arg z+\arg
+w+2\pi\leq \pi\ \Longrightarrow\\ & \Longrightarrow \arg(zw)=\arg z+\arg w+2\pi \\
+-\pi<\arg z+\arg w\leq\pi &  \Longrightarrow\ \arg(zw)=\arg
+z+\arg w \\
+\pi<\arg z+\arg w\leq 2\pi &  \Longrightarrow\ -\pi<\arg z+\arg
+w-2\pi\leq\! 0 \Longrightarrow\\ & \Longrightarrow\arg(zw)=\arg z+\arg w-2\pi
+\end{align*}
+Para calcular $\dis\,\arg\left(\frac{z}{w}\right)$ se procede de
+forma análoga teniendo en cuenta ahora que\linebreak $\arg z-\arg
+w\en\Arg\left(\dfrac{z}{w}\right)$ y que $-2\pi<\arg z-\arg w<
+2\pi$.\hecho
+
+\resuelto Calcula los números complejos $\,z$ tales que
+$\dis\,w=\frac{2z-1}{z-2}\,$
+
+a) Tiene argumento principal igual a $\pi/2$;
+
+b) Tiene argumento principal igual a $-\pi/2$.
+
+\sol Pongamos $\,z=x+i y\,$ con $\,x,y\en\R$. Como
+$$
+\frac{2z-1}{z-2}=\frac{2x-1+2yi}{x-2+iy}=\frac{(2x-1+2yi)(x-2-iy)}{(x-2)^2+y^2}=
+\frac{2x^2+2y^2-5x+2-3yi}{(x-2)^2+y^2}
+$$
+deducimos que $\arg w=\pi/2$ si, y sólo si, $2x^2+2y^2-5x+2=0\,$ e
+$\,y<0$. Como
+$$
+2x^2+2y^2-5x+2=0\ \Longleftrightarrow\ (x-5/4)^2+y^2=9/16
+$$
+deducimos que $\arg w=\pi/2$ cuando $z$ está en la semicircunferencia de centro
+$(5/4,0)$ y radio $3/4$ que está contenida en el semiplano inferior. También También deducimos
+que $\arg w=-\pi/2$ cuando $z$ está en la semicircunferencia de centro $(5/4,0)$ y
+radio $3/4$ que está contenida en el semiplano superior.\hecho
+
+\resuelto Resuelve la ecuación cuadrática
+$\,az^{2}+bz+c=0\,$ donde $a,b,c$, son números complejos
+conocidos y $a\neq 0$.
+
+\sol Tenemos que
+\begin{align*}
+az^{2}+bz+c=0  \ & \Longleftrightarrow\
+z^2+\dfrac{b}{a}z+\dfrac{c}{a}=0\ \Longleftrightarrow\
+\left(z+\dfrac{b}{2a}\right)^2+\dfrac{c}{a}-\dfrac{b^2}{4a^2}=0\\
+& \Longleftrightarrow
+\left(z+\dfrac{b}{2a}\right)^2-\dfrac{b^2-4ac}{4a^2}=0\\ &
+\Longleftrightarrow\
+\left[\left(z+\dfrac{b}{2a}\right)-\dfrac{\sqrt{\rule{0mm}{3mm}b^2-4ac\,}}{2a}\right]
+\left[\left(z+\dfrac{b}{2a}\right)+\dfrac{\sqrt{\rule{0mm}{3mm}b^2-4ac\,}}{2a}\right]=0\\
+& \Longleftrightarrow\begin{cases}
+z=\dfrac{-b+\sqrt{\rule{0mm}{3mm}b^2-4ac\,}}{2a} \\
+\rule{0mm}{8mm} z=\dfrac{-b-\sqrt{\rule{0mm}{3mm}b^2-4ac\,}}{2a}
+\end{cases}
+\end{align*}
+
+Las dos soluciones obtenidas suelen expresarse en la forma
+$$
+az^{2}+bz+c=0  \  \Longleftrightarrow\ z=\dfrac{-b\pm
+\sqrt{\rule{0mm}{3mm}b^2-4ac\,}}{2a}
+$$
+Observa que hemos seguido el mismo procedimiento que en el caso
+real\footnote{Antes, en la enseñanza media se resolvía la ecuación $ax^2+bx+c=0$ donde $a,b,c$ son números reales, igual que lo hemos hecho aquí. He comprobado que ahora los estudiantes llegan a la Universidad sin saberla resolver.}.
+Debes entender bien la igualdad
+\begin{equation}\label{raicestrinomiocomplejas}
+z=\dfrac{-b\pm \sqrt{\rule{0mm}{3mm}b^2-4ac\,}}{2a}
+\end{equation}
+Aquí $b^2-4ac$ es un número complejo (en particular, puede ser real), $\sqrt{\rule{0mm}{3mm}b^2-4ac\,}$ es su raíz cuadrada principal y $-\sqrt{\rule{0mm}{3mm}b^2-4ac\,}$ es \emph{la otra raíz cuadrada} (todo número complejo tiene \emph{dos} raíces cuadradas: la principal y su opuesta). \marginpar{\flushright{\curvasr}}Aquí no hay positivos ni negativos, ni nada parecido ¡estamos trabajando con números complejos! Comento esto para volver a insistir en que los símbolos $+$ y $-$ tienen un carácter puramente algebraico: no indican positivo y negativo.
+
+En general, para resolver ecuaciones con números complejos
+no es buena estrategia separar la ecuación en su parte real y su
+parte imaginaria y resolver éstas por separado, sino que debes
+trabajar con la variable compleja $\,z$. No olvides que con los
+números complejos puedes hacer las mismas operaciones que con los
+números reales y algunas más que no siempre puedes hacer con los
+números reales, como extraer raíces y otras que pronto
+estudiaremos.\hecho
+
+\resuelto Calcula las soluciones de la ecuación $\
+z^4+(1+i)z^2+5i=0$.
+
+\sol Poniendo $w=z^2$, la ecuación queda $w^2+(1+i)w+5i=0$, cuyas soluciones son
+\begin{multline*}
+\dfrac{-(1+i)\pm\sqrt{(1+i)^2-20i}}{2}=\dfrac{-(1+i)\pm\sqrt{-18i}}{2}=\\ = \dfrac{-(1+i)\pm\sqrt{18}(\cos(-\pi/4)+i\sen(-\pi/4))}{2}=\\
+=\dfrac{-(1+i)\pm\sqrt{18}(1/\sqrt{2}-i/\sqrt{2})}{2}=\dfrac{-(1+i)\pm 3(1-i)}{2}=\left\{
+                                                                                    \begin{array}{c}
+                                                                                      1-2i \\
+                                                                                      -2+i
+                                                                                    \end{array}
+                                                                                  \right.
+\end{multline*}
+Las soluciones de la ecuación dada son las raíces $\pm\sqrt{1-2i}$ y $\pm\sqrt{-2+i}$. Tenemos que
+$\arg(1-2i)=-\arctg 2$ y $\arg(-2+i)=\pi-\arctg(1/2)$. Usando que $\cos(x+\pi/2)=-\sen x$ y $\sen(x+\pi/2)=\cos x$, obtenemos:
+\begin{align*}
+\pm\sqrt{1-2i}&=\pm\sqrt[4]{5}\big(\cos\left(\dfrac{\arctg 2}{2}\right)-i\sen\left(\dfrac{\arctg 2}{2}\right)\big)\\
+\pm\sqrt{-2+i}&=\pm\sqrt[4]{5}\left(\sen\left(\dfrac{\arctg(1/2)}{2}\right)+i\cos\left(\dfrac{\arctg(1/2)}{2}\right)\right)
+\end{align*}
+Observa que las soluciones son números complejos pero no son complejos conjugados. La ecuación dada tiene coeficientes complejos.\hecho
+
+\resuelto Calcula las soluciones de las ecuaciones:
+$$
+\textrm{a)}\ z^4+2 z^3+7z^2-18 z+26=0;\qquad \textrm{b)}\ z^4 + (5 + 4 i)z^2 + 10 i=0$$
+Sugerencia. El número $1+i$ es raíz de la ecuación del apartado a).
+
+\sol Haremos el apartado a). Para ello usaremos un resultado, que se supone que debes conocer, según el cual si un polinomio $P(x)$ se anula para un valor $\alpha$, $P(\alpha)=0$, entonces es divisible por $x-\alpha$, es decir $P(x)=(x-\alpha)Q(x)$ donde $Q(x)$ es un polinomio de un grado menor que $P(x)$.
+
+Como la ecuación dada es polinómica con coeficientes reales y nos dicen que $1+i$ es raíz, también es raíz $1-i$. Por tanto, el polinomio dado debe de ser divisible por $(z-(1+i))(z-(1-i))=z^2-2z+2$. Haciendo la división, obtenemos que
+$$
+z^4+2 z^3+7z^2-18 z+26=(z^2+4z+13)(z^2-2z+2)
+$$
+Lo que queda ya es inmediato.\hecho
+
+\resuelto Demuestra la llamada ``igualdad del paralelogramo'':
+\begin{equation}\label{igualdadparalelogramo}
+|z+w|^{2}+|z-w|^{2}=2(|z|^{2}+|w|^{2})\quad (z,w\in\C)
+\end{equation}
+y explica su significado geométrico.
+
+\sol Basta realizar las operaciones indicadas. Tenemos que:
+\begin{align}
+\abs{z+w}^2 & =(z+w)(\conj{z}+\conj{w})=z\conj{z}+w\conj{w}+z\conj{w}+\conj{z}w=\abs{z}^2+\abs{w}^2+2\re(z\conj{w})\label{cuadradomodulosuma}\\
+\abs{z-w}^2 &= (z-w)(\conj{z}-\conj{w})=z\conj{z}+w\conj{w}-z\conj{w}-\conj{z}w=\abs{z}^2+\abs{w}^2-2\re(z\conj{w})\label{cuadradomodulodiferencia}
+\end{align}
+Sumando estas igualdades se obtiene la igualdad del enunciado. Su significado geométrico es que la suma de los cuadrados de las longitudes de las diagonales de un paralelogramo es igual a la suma de los cuadrados de las longitudes de sus lados.\hecho
+
+\begin{figure}[ht]
+\vspace*{1.8cm}
+\centering
+\begin{pspicture}(0,0)(3.5,3.5)
+\psset{xunit=1.25cm,yunit=1.5cm}
+\psaxes[linewidth=.6pt,labels=none,ticks=none]{->}(0,0)(3.5,3.5)
+\psset{arrowscale=2,arrowinset=.6}
+\psline[linewidth=1pt]{->}(0,0)(.5,2.5)
+\psline[linewidth=1pt]{->}(0,0)(2,1)
+\psline[linewidth=.5pt]{->}(.5,2.5)(2.5,3.5)
+\psline[linewidth=.5pt]{->}(2,1)(2.5,3.5)
+\psline[linestyle=dashed,dash=3pt,linewidth=.5pt]{->}(0,0)(2.5,3.5)
+\psline[linestyle=dashed,dash=3pt,linewidth=.5pt]{->}(.5,2.5)(2,1)
+\uput[r](2,1){$z$}
+\uput[l](.5,2.5){$w$}
+\pstextpath[c](.8,.1){\psline[linestyle=none](0,0)(2.5,3.5)}{\scalefont{.8}$z+w$}
+\pstextpath[c](.6,.1){\psline[linestyle=none](.5,2.5)(2,1)}{\scalefont{.8}$z-w$}
+\end{pspicture}
+\caption{Igualdad del paralelogramo}
+\end{figure}
+
+\resuelto Dados dos números complejos $\alpha$ y $\beta$, calcula el
+mínimo valor para $\,z\in\C$ de la cantidad $
+\,|z-\alpha|^{2}+|z-\beta|^{2}. $
+
+\noindent Sugerencia: La igualdad del paralelogramo puede ser
+útil.
+
+\sol La sugerencia y un poco de intuición deben ser suficientes para hacer este ejercicio. La intuición lo que dice es que el punto que buscamos debe ser la el punto medio del segmento de extremos $\alpha$ y $\beta$, es decir el punto $u=\dfrac{\alpha+\beta}{2}$. Ahora debemos relacionar la cantidad que nos dan con $\abs{z-u}$. Usando la igualdad del paralelogramo (\ref{igualdadparalelogramo}) con $z$ sustituido por $z-\alpha$ y $w$ por $z-\beta$ y escribiéndola de derecha izquierda, tenemos que
+$$
+2\big(|z-\alpha|^{2}+|z-\beta|^{2}\big)=\abs{2z-\alpha-\beta}^2+\abs{\beta-\alpha}^2
+$$
+de donde
+$$
+|z-\alpha|^{2}+|z-\beta|^{2}=2\modulo{z-\dfrac{\alpha+\beta}{2}}^2+\dfrac{1}{2}\abs{\beta-\alpha}^2
+$$
+Deducimos que $|z-\alpha|^{2}+|z-\beta|^{2}\ge \dfrac{1}{2}\abs{\beta-\alpha}^2$ para todo $z\in\C$ y la igualdad se da si, y sólo si, $z=\dfrac{\alpha+\beta}{2}$.
+\resuelto Prueba las desigualdades:
+\begin{enumerate}[a)]
+\item $\left||z|-|w|\right|\leq |z-w|$ \item $\dis
+|z+w|\geq\frac{1}{2}(|z|+|w|)\left|\frac{z}{|z|}+\frac{w}{|w|}\right|$
+\end{enumerate}
+donde $\,z,w\,$ son números complejos no nulos. Estudia también cuándo se da la
+igualdad en cada una de dichas desigualdades.
+
+Sugerencia. Una estrategia básica para probar desigualdades entre {\em
+módulos\/} de números complejos consiste en elevar al cuadrado
+ambos miembros de la desigualdad.
+
+\sol Siguiendo la sugerencia, es muy fácil hacer el apartado a). Haremos el apartado b). Siguiendo la sugerencia, elevamos al cuadrado y comprobamos que la diferencia es positiva.
+\begin{multline*}
+\abs{z+w}^2-\dfrac{1}{4}(\abs{z}+\abs{w})^2\modulo{\dfrac{z}{\abs{z}}+\dfrac{w}{\abs{w}}}^2=\\
+=\abs{z}^2+\abs{w}^2+2\re(\conj{z}w)-\dfrac{1}{4}(\abs{z}^2+\abs{w}^2+2\abs{z}\abs{w})\left(2+2\dfrac{\re(\conj{z}w)}{\abs{z}\abs{w}}\right)=\\
+=\abs{z}^2+\abs{w}^2+2\re(\conj{z}w)-\dfrac{1}{2}\abs{z}^2-\dfrac{1}{2}\abs{w}^2-\abs{z}\abs{w}-\dfrac{1}{2}\big(\abs{z}^2+\abs{w}^2+2\abs{z}\abs{w}\big)\dfrac{\re(\conj{z}w)}{\abs{z}\abs{w}}=\\
+=\dfrac{1}{2}(\abs{z}^2+\abs{w}^2-2\abs{z}\abs{w})+2\dfrac{\re(\conj{z}w)}{\abs{z}\abs{w}}\abs{z}\abs{w}-\dfrac{1}{2}\big(\abs{z}^2+\abs{w}^2+2\abs{z}\abs{w}\big)\dfrac{\re(\conj{z}w)}{\abs{z}\abs{w}}=\\
+=\dfrac{1}{2}(\abs{z}-\abs{w})^2-\dfrac{1}{2}\big(\abs{z}^2+\abs{w}^2-2\abs{z}\abs{w}\big)\dfrac{\re(\conj{z}w)}{\abs{z}\abs{w}}=\\
+=\dfrac{1}{2}(\abs{z}-\abs{w})^2\left(1-\dfrac{\re(\conj{z}w)}{\abs{z}\abs{w}}\right)\ge 0
+\end{multline*}
+Porque $\re(\conj{z}w)\le\abs{\conj{z}w}=\abs{z}\abs{w}$. La igualdad se da si, y sólo si,  $\abs{z}=\abs{w}$ o $\re(\conj{z}w)=\abs{\conj{z}w}$ lo que equivale a que $\conj{z}w=\lambda\in\Rp$ que equivale a que $z$ y $w$ estén en una misma semirrecta a partir del origen, o sea, que tengan los mismos argumentos.
+
+\resuelto Expresa en forma binómica los números
+$$
+(1+i)^{25},\quad (\sqrt{3}+i)^{37},\quad
+\left(\dfrac{1+i\sqrt{3}}{-1+i}\right)^{24}
+$$
+\sol Naturalmente, se trata de aplicar la fórmula de De Moivre y para ello todo lo que hay que hacer es expresar los números en su forma polar. Consideremos el número
+$z=\dfrac{1+i\sqrt{3}}{-1+i}$. Tenemos que $\abs{z}=\sqrt{2}$ (cociente de los módulos) y un argumento de $z$ es $$\arg(1+i\sqrt{3})-\arg(-1+i)=\arctg(\sqrt{3})-(\arctg(-1)+\pi)=\dfrac{\pi}{3}-\dfrac{3\pi}{4}=-\dfrac{5\pi}{12}$$
+Por tanto
+$$
+\left(\dfrac{1+i\sqrt{3}}{-1+i}\right)^{24}=
+(\sqrt{2})^{24}\left(\cos\left(-24\dfrac{5\pi}{12}\right)+i\sen\left(-24\dfrac{5\pi}{12}\right)\right)=2^{12}=4096
+$$
+\resuelto Haciendo uso de la fórmula de De Moivre prueba que:
+\begin{enumerate}[a)]
+\item $\sen 3\varphi=3\,\sen\varphi-4\,\sen\!^{3}\varphi$.
+\item $\cos 4\varphi=8\,\cos\!^{4}\varphi-8\,\cos\!^{2}\varphi+1$.
+\item $\sen 5\varphi=5\,\sen\varphi-20\,\sen\!^{3}\varphi+16\,\sen\!^{5}\varphi$.
+\end{enumerate}
+\sol La fórmula de De Moivre es una herramienta excelente para obtener identidades trigonométricas. Lo único que hay que hacer es usar la igualdad
+$$
+(\cos x + i\sen x)^n=\cos(nx)+i\sen(nx)\qquad (n\in\N, x\in\R)
+$$
+Desarrollando la potencia del lado izquierdo por medio del binomio de Newton y agrupar la parte real, que será igual a $\cos(nx)$ y la parte imaginaria, que será igual a $\sen(nx)$. Por ejemplo, para $n=2$ se obtiene inmediatamente que
+$\cos(2x)=\cos^2x-\sen^2x$ y $\sen(2x)=2\sen x\cos x$. Haciendo $n=3$ obtenemos
+$$
+\cos^3x+3i\cos^2x\sen x-3\cos x\sen^2x-i\sen^3x=\cos(3x)+i\sen(3x)
+$$
+Igualando partes imaginarias, resulta:
+$$
+\sen(3x)=3\cos^2x\sen x-\sen^3 x=3(1-\sen^2x)\sen x-\sen^3x=3\sen x-4\sen^3 x
+$$
+Esta es la igualdad a). Las otras dos igualdades b) y c) se obtiene de forma parecida.
+
+\resuelto Sean $n\en\N$, $n\geq 2$, y $\dis\,w=\cos\frac{2\pi}{n}+i\,\sen\frac{2\pi}{n}$. Dado
+un número entero, $m\en\Z$, calcula el valor de las expresiones:
+\begin{enumerate}[a)]
+\item $1+w^{m}+w^{2m}+\cdots+w^{(n-1)m}$.
+\item $1-w^{m}+w^{2m}-\cdots+(-1)^{n-1}w^{(n-1)m}$.
+\end{enumerate}
+\sol Necesitamos la expresión de la suma de una progresión geométrica. Sean $z$ un número complejo distinto de 1 y $n\en\N$. Pongamos $S=1+z+z^2+z^3+\cdots+z^n$. Tenemos que
+$$
+\left.
+  \begin{array}{rclll}
+    S &=& 1+z+z^2+z^3+\cdots+&z^n \\
+   Sz &=& \phantom{mm}z+z^2+z^3+\cdots+&z^n+z^{n+1}
+  \end{array}
+\right\}\Longrightarrow S(z-1)=z^{n+1}-1
+$$
+Y deducimos que
+\begin{equation}\label{sumaprogresiongeometrica}
+\psframebox{1+z+z^2+z^3+\cdots+z^n = \dfrac{z^{n+1}-1}{z-1}}
+\end{equation}
+La suma en a) es una progresión geométrica de razón $w^m$. Debemos distinguir el caso en que $w^m=1$, lo que ocurre cuando $m$ es un múltiplo de $n$, en cuyo caso la suma en a) es igual a $n$. En los demás casos, tenemos que
+$$
+1+w^{m}+w^{2m}+\cdots+w^{(n-1)m}=\dfrac{w^{nm}-1}{w^m-1}=0
+$$
+En particular, haciendo $m=1$, deducimos que la suma de las raíces n-ésimas de la unidad es igual a 0.
+El apartado b) se hace de forma parecida.\hecho
+
+\resuelto Sea $w$ un número complejo de módulo 1. Expresa los números $w-1$ y $w+1$ en forma polar.
+
+\sol Sea $w=\cos t+i\sen t$ con $t=\arg(w)$. Pongamos $u=\cos(t/2)+i\sen(t/2)$. Con lo que $u^2=w$ y $u\conj{u}=1$. Tenemos que
+\begin{equation}\label{igualdadutil}
+w-1=u^2-u\conj{u}=u(u-\conj{u})=2i\sen(t/2)u
+\end{equation}
+Deducimos que $\abs{w-1}=2\abs{\sen(t/2)}$. Supondremos en lo que sigue que $w\neq 1$. Observa que $w-1$ es producto de 3 números: el número $i$, cuyo argumento principal es $\pi/2$, el número $u$, cuyo argumento principal es $t/2$ y el número $2\sen(t/2)$ cuyo argumento principal es $0$ cuando $\sen(t/2)>0$, y $\pi$ cuando $\sen(t/2)<0$. Un argumento de $w-1$ será $\pi/2+t/2+\arg(\sen(t/2))$. Observa que $-\pi<t\le \pi$ y $t\neq 0$. Distinguiremos dos casos:
+\begin{align*}
+& 0 < t\le\pi  \Longrightarrow  \sen(t/2)> 0  \Longrightarrow  \arg(w-1)=\dfrac{\pi}{2}+\dfrac{t}{2}=\dfrac{t+\pi}{2} \Longrightarrow \\ \rule{0mm}{6mm} & \Longrightarrow  w-1=2\sen(t/2)\big(-\sen(t/2)+i\cos(t/2)\big)\\
+& -\pi < t<0 \rule{0mm}{6mm} \Longrightarrow  \sen(t/2)< 0  \Longrightarrow \arg(w-1)=\dfrac{\pi}{2}+\dfrac{t}{2}-\pi=\dfrac{t-\pi}{2} \Longrightarrow \\  & \Longrightarrow  \rule{0mm}{6mm} w-1=-2\sen(t/2)\big(\sen(t/2)-i\cos(t/2)\big)
+\end{align*}
+Fíjate en que si en (\ref{igualdadutil}) hacemos el producto $i u$ y distinguimos los casos  $\sen(t/2)>0$  y  $\sen(t/2)<0$, obtenemos las mismas expresiones para $w-1$.\hecho
+
+\resuelto \label{res:sumasenos} Sea $x$ un número real que no es múltiplo entero de
+$2\pi$. Prueba las igualdades
+$$
+\begin{array}{llrll}
+&\textrm{a)}& 1+\cos x+\cos 2x+\cdots+\cos nx & = &
+\cos\left(\dfrac{n}{2}x\right)\dfrac{\sen\left(\dfrac{n+1}{2}x\right)}{\sen\left(\dfrac{x}{2}\right)}\\
+&\textrm{b)}\rule{0mm}{12mm}&\sen x+\sen 2x+\cdots+\sen
+nx&=&\sen\left(\dfrac{n}{2}x\right)\rule{0mm}{9mm}\dfrac{\
+\sen\left(\dfrac{n+1}{2}x\right)\ }{\sen\left(\dfrac{x}{2}\right)}
+\end{array}
+$$
+\sol Si llamamos $\,A\,$ a la primera suma y $\,B\,$ a la segunda,
+podemos calcular $A+iB$ haciendo uso de la fórmula de De Moivre.
+
+\sol Pongamos $w=\cos x+i\sen x$; $u=\cos(x/2)+i\sen(x/2)$. Tenemos que $w\neq 1$ porque $x\notin 2\pi\Z$.
+$$
+A+i B=1+w+w^2+w^3+\cdots+w^n=\dfrac{w^{n+1}-1}{w-1}=\textrm{(por (\ref{igualdadutil}))}=
+\dfrac{w^{n+1}-1}{2i\sen(x/2)u}
+$$
+Teniendo en cuenta que $w^{n+1}=\cos\big((n+1)x\big)+i\sen\big((n+1)x\big)$ es un número complejo de módulo 1 y que $u^{n+1}=\cos\big((n+1)x/2\big)+i\sen\big((n+1)x/2\big)$, podemos usar la igualdad (\ref{igualdadutil}) para obtener que:
+$$
+w^{n+1}-1=2i\sen\big((n+1)x/2\big)u^{n+1}
+$$
+Deducimos que
+$$
+A+iB=u^{n+1}\dfrac{\
+\sen\left(\dfrac{n+1}{2}x\right)\ }{\sen\left(\dfrac{x}{2}\right)}=\left(\cos\left(\dfrac{n+1}{2}x\right)+i\sen\left(\dfrac{n+1}{2}x\right)\right)\dfrac{\
+\sen\left(\dfrac{n+1}{2}x\right)\ }{\sen\left(\dfrac{x}{2}\right)}
+$$
+Igualando partes real e imaginaria, se obtienen las dos igualdades del enunciado.\hecho
+
+\resuelto Dados dos números complejos
+distintos $a,\,b\en\C$, justifica que para $z\neq b$ el número $\dis\dfrac{z-a}{z-b}$ es
+real si, y sólo si, $z$ está en la recta que pasa
+por $a$ y por $b$; y es real  \rule{0mm}{4mm} negativo si, y sólo si, $z$ está en
+el segmento que une $a$ con $b$.
+
+\sol Sea $t\in\R$, $t\neq 1$. Tenemos que
+$$
+\dfrac{z-a}{z-b}=t\Longleftrightarrow z=\dfrac{a-bt}{1-t}=a+\dfrac{t}{1-t}(a-b)
+$$
+La recta que pasa por $a$ y $b$ tiene la ecuación paramétrica $z=a+\lambda(a-b)$, con $\lambda\in\R$, por lo que la igualdad anterior nos dice que $\dis\dfrac{z-a}{z-b}$ es real si, y sólo si, $z$ está en dicha recta.
+
+Si $t<0$, la igualdad anterior puede escribirse, cambiando $t$ por $-s$, en la forma
+$$
+\dfrac{z-a}{z-b}=-s\Longleftrightarrow z=\dfrac{a+bs}{1+s}=\dfrac{s}{1+s}b+\dfrac{1}{1+s}a
+$$
+Lo que nos dice que $z$ es de la forma $\lambda b+ (1-\lambda)a$ con $0<\lambda=\dfrac{s}{1+s}<1$ pero esos son justamente los puntos del segmento que une $a$ con $b$ (excluidos los extremos).
+
+\resuelto\begin{enumerate}[a)]\item Sea
+$\abs{z_1}=\abs{z_{2}}=\abs{z_3}=1$. Prueba que $z_1$,
+$z_{2}$, $z_3$ son vértices de un triángulo equilátero si, y
+sólo si, $z_1+z_{2}+z_3=0$. \item Deduce de lo anterior que si
+el baricentro y el circuncentro de un triángulo coinciden, dicho
+triángulo debe ser equilátero.
+\end{enumerate}
+\sol a) Si $z_1$, $z_{2}$, $z_3$ son vértices de un triángulo equilátero, entonces cada uno debe estar girado un ángulo de $\pi/3$ radianes respecto de otro. Sabemos que multiplicar por un complejo, $u$, de módulo 1 es un giro de amplitud igual a $\arg(u)$. Definamos $u=\cos(\pi/3)+i\sen(\pi/3)$. Los tres vértices los podemos escribir como $z_1$, $z_1 u$, $z_2 u^2$ y, por tanto:
+$$
+z_1+z_2+z_3=z(1+u+u^2)=z\dfrac{u^3-1}{u-1}=0
+$$
+Supongamos ahora que $\abs{z_1}=\abs{z_{2}}=\abs{z_3}=1$, y que  $z_1+z_{2}+z_3=0$. Para probar que dichos números son vértices de un triángulo equilátero, lo que vamos a hacer es comprobar que son las raíces cúbicas de un número complejo. Es decir, se trata de probar que hay un número $\alpha$ tal que $z_1$, $z_2$ y $z_3$ son las raíces de la ecuación polinómica $z^3-\alpha=0$. Para esto es necesario y suficiente que el producto $(z-z_1)(z-z_2)(z-z_3)$ puede escribirse en la forma $z^3-\alpha$. Tenemos:
+\begin{align*}
+&(z-z_1)(z-z_2)(z-z_3)=z^3-(z_1+z_2+z_3)z^2+(z_1z_2+z_1z_3+z_2z_3)z-z_1z_2z_3= \\ & =z^3+(z_1z_2+z_1z_3+z_2z_3)z-z_1z_2z_3
+\end{align*}
+Poniendo $\alpha=z_1z_2z_3$, lo que hay que probar es que $z_1z_2+z_1z_3+z_2z_3=0$. Todavía no hemos usado la hipótesis de que $\abs{z_1}=\abs{z_{2}}=\abs{z_3}=1$. Vamos a usarla ahora para intentar sacar factor común en la suma $z_1z_2+z_1z_3+z_2z_3=0$ la expresión $z_1+z_2+z_3$. Tenemos que:
+$$
+z_1z_2+z_1z_3+z_2z_3=\conj{z_3}z_3z_1z_2+\conj{z_2}z_2z_1z_3+\conj{z_1}z_1z_2z_3=(\conj{z_1}+\conj{z_2}+\conj{z_3})z_1z_2z_3=0
+$$
+Pues $\conj{z_1}+\conj{z_2}+\conj{z_3}=\conj{z_1+z_2+z_3}=0.$
+
+El apartado b) se deduce fácilmente de a) siempre que sepas lo que es el baricentro y el circuncentro de un triángulo.\hecho
+
+\resuelto Si $0\leq \arg w-\arg z<\pi$, prueba que el área del
+triángulo de vértices $0$, $z$ y $w$ viene dada por
+$\frac{1}{2}\im(\conj{z}w)$.
+
+\sol El área de todo triángulo es la mitad de la base por la altura. En la figura (\ref{fig:triangulo}) se ha tomado como base el vector $z$ con longitud $\abs{z}$ y la altura es $h$. Observa que $\sen(\ff-\vartheta)=\dfrac{h}{\abs{w}}$. Por tanto
+$$
+\textrm{área}=\dfrac{1}{2}\abs{z}h=\dfrac{1}{2}\abs{z}\abs{w}\sen(\ff-\vartheta)
+$$
+\begin{figure}[ht]
+\vspace*{2cm}
+\centering
+\begin{pspicture}(0,0)(4,4)
+\psset{arrowscale=2,arrowinset=.6,unit=1.5cm}
+\SpecialCoor
+\psaxes[labels=none,ticks=none,linewidth=.6pt](0,0)(4,4)
+\psline{->}(0,0)(2;20)
+\psline{->}(0,0)(4;70)
+\psline[linestyle=dashed,dash=3pt,linewidth=.5pt](2;20)(4;70)
+\psline[linestyle=dashed,dash=3pt,linewidth=.5pt](2;20)(2.58;20)(4;70)
+\psarc[linewidth=.4pt]{->}(0,0){1.2}{0}{20}
+\psarc[linewidth=.4pt]{->}(0,0){1}{0}{70}
+\psarc[linewidth=.4pt]{<->}(0,0){.6}{20}{70}
+\uput[dr](2;20){$z$}
+\uput[r](4;70){$w$}
+\uput[r](1.2;10){$\vartheta$}
+\uput[r](1;50){$\varphi$}
+\uput[r](3;50){$h$}
+\end{pspicture}
+\caption{Área de un triángulo}
+\label{fig:triangulo}
+\end{figure}
+Esto ya deberías saberlo: el área de cualquier triángulo es igual a la mitad del producto de las longitudes de dos lados por el seno del ángulo que forman. Pongamos $z=x+i y$, $w=u+iv$. Como $\vartheta=\arg(z)$ y $\ff=\arg(w)$, tenemos que
+\begin{align*}
+\textrm{área}=\dfrac{1}{2}\abs{z}\abs{w}\sen(\ff-\vartheta)=\dfrac{1}{2}\abs{z}\abs{w}\big(\sen(\ff)\cos(\vartheta)-\cos(\ff)\sen(\vartheta)\big)=\\
+=\dfrac{1}{2}\abs{z}\abs{w}\left(\dfrac{v}{\abs{w}}\dfrac{x}{\abs{z}}-\dfrac{u}{\abs{w}}\dfrac{y}{\abs{z}}\right)=\dfrac{1}{2}(vx-uy)=\dfrac{1}{2}\im(\conj{z}w)
+\end{align*}\hecho
+\end{ejercicios resueltos}
+
+\section{Funciones elementales complejas}
+Las funciones complejas no son más que las funciones definidas en subconjuntos de
+\Rx2\ con va\-lo\-res en \Rx2, cuando en \Rx2\ consideramos su
+estructura compleja. Dado un conjunto $A\subset\C$, a toda función
+compleja \cfunc{f}{A}\ se le asocian dos funciones reales: la
+función \mbox{$u=\re f$} ``parte real de $f$'' y la función $v=\im f$
+``parte imaginaria de $f$'' definidas para todo \mbox{$(x,y)=x+i y\en
+A$} por:
+$$
+u(x,y)=\re f(x+ i y),\quad v(x,y)=\im f(x+ i y)
+$$
+Naturalmente, $f(x+ i y)=u(x,y)+ i\,v(x,y)$.
+
+\subsection{La función exponencial}
+Definimos\footnote{Más adelante veremos la justificación de esta
+definición.} la exponencial compleja de un número $z=x+i\,y$ como
+\begin{equation}\label{definicionexponencial}
+\cajadoble{\e^{x+i\,y}=\exp(x+i\,y) = \e^{x}\bigl(\cos{y} + i \sen{y} \bigr)}
+\end{equation}
+Observa que
+\begin{equation}
+\psframebox{\vert \e^z \vert=\e^{\re z},\quad \im z\en\Arg(\e^z)}
+\end{equation}
+En particular, obtenemos la llamada \textit{fórmula de Euler}:
+\begin{equation}\label{formuladeeuler}
+   \psframebox{\   \e^{i\,t} = \cos{t} + i \sen{t} \qquad (\text{para todo  } t \in
+   \R)}
+\end{equation}
+que establece una relación entre la exponencial compleja y las
+funciones trigonométricas. De la fórmula de Euler se deducen
+fácilmente las llamadas \textit{ecuaciones de Euler}:
+\begin{equation}\label{ecuacionesdeeuler}
+\psframebox{\cos{t} = \frac{\e^{i\,t} + \e^{-i\,t}}{2}, \qquad
+\sen{t} = \frac{\e^{i\,t} - \e^{-i\,t}}{2i}\quad (t\en\R)}
+\end{equation}
+
+ La exponencial compleja tiene la propiedad fundamental de transformar sumas en productos. Se prueba fácilmente, haciendo uso de la definición (\ref{definicionexponencial} y de las igualdades (\ref{senodeunasuma}) y (\ref{cosenodeunasuma}) que
+\begin{equation}\label{ecuacionexponencial}
+\psframebox{\e^{z+w}=\e^z\e^w\qquad \textrm{para todos } z,w\en\C}
+\end{equation}
+Esta propiedad, junto con las ecuaciones de Euler (\ref{ecuacionesdeeuler}), hacen que la exponencial compleja sea la herramienta más usada para trabajar con las funciones seno y coseno. Por ejemplo, de la fórmula de Euler (\ref{formuladeeuler}) y de la igualdad anterior, se deduce enseguida la fórmula de De Moivre.
+\begin{equation}
+\cos(nt)+i\sen(nt)=\e^{it n}=\big(\e^{it}\big)^n=\big(\cos t+i\sen t)^n\qquad (n\en\Z, t\en\R)
+\end{equation}
+Igualmente, de las igualdades
+$$
+\cos(a+b)+i\sen(a+b)=\e^{(a+b)i}=\e^{ia}\e^{ib}=(\cos a+i\sen a)(\cos b+i\sen b)
+$$
+se deducen en seguida, haciendo el producto indicado e igualando partes real e imaginaria, las igualdades (\ref{senodeunasuma}) y (\ref{cosenodeunasuma}).
+
+Otras identidades trigonométricas se obtienen también muy fácilmente. Por ejemplo, para expresar un producto de senos o cosenos como una suma de senos o de cosenos se puede hacer lo que sigue.
+\begin{equation}\label{sumaexponenciales}
+\e^{i a}+\e^{i b}=\e^{i(a+b)/2}\big(\e^{i(a-b)/2}+\e^{i(b-a)/2}\big)=2\e^{i(a+b)/2}\cos((a-b)/2)
+\end{equation}
+
+Igualando partes real e imaginaria, deducimos que:
+\begin{eqnarray}
+  \cos a+\cos b &=& 2\cos((a-b)/2)\cos((a+b)/2) \\
+  \sen a+\sen b &=& 2 \cos((a-b)/2)\sen((a+b)/2)
+\end{eqnarray}
+De la igualdad (\ref{ecuacionexponencial}), se deduce que para todo $z\en\C$ y todo $k\en\Z$ es
+$$
+\e^z = \e^{z + 2k\pi i}
+$$
+Lo que, en particular, nos dice que $\exp(z)=\exp(z+2\pi i)$, o sea, la exponencial compleja es una función
+\emph{periódica} con período $2\pi i$. Naturalmente, esto supone
+una gran diferencia con la exponencial real que es una función
+inyectiva.
+
+La función exponencial es particularmente útil para representar los números complejos de módulo 1, es decir los números complejos de la forma $\cos t+i\sen t$ ($t\en\R$). Recuerda que multiplicar por un número complejo de módulo 1 representa un giro cuya amplitud es el argumento de dicho número. Fíjate que el complejo conjugado de $\e^{it}$ es $\e^{-it}$.
+
+Una exponencial real es siempre positiva. Para la exponencial compleja no tiene sentido hablar de positiva, todo lo que podemos decir es que la \emph{exponencial compleja no se anula} nunca pues
+$\,\vert\e^z\vert=\e^{\re z}>0$.
+
+\subsection{Logaritmos complejos}
+El comportamiento periódico de la exponencial compleja se va a
+traducir, como vamos a ver enseguida,  en que la ecuación
+$\e^{w} = z$, donde $z$ es un número complejo no cero, va a
+tener infinitas soluciones $w\en\C$. Como
+\[
+\e^w = \e^{\re{w}}\bigl( \cos{(\im{w})} + i\sen{(\im{w})}\bigr)
+\]
+Para que $\e^w = z$ es necesario y suficiente que:
+\begin{enumerate}
+    \item $\abs{\e^w} = \abs{z\,}$, esto es, $\e^{\re{w}} = \abs{z}$,
+    es decir, $\re{w} = \log{\abs{z\,}}$ (logaritmo natural del número real positivo
+    $\abs{z\,}$).
+    \item $\Arg{(\e^w)} = \Arg{(z)}$. Como $\im w\in\Arg(\e^w)$, esta igualdad equivale a $\im{w} \en \Arg{z}$; y esto se
+    cumple si, y sólo si $\im{w} = \arg(z) + 2k\pi$, con $k \en
+    \Z$.
+\end{enumerate}
+Hemos probado que
+\[
+\{w \en \C: \e^w = z\} = \{\log\abs{z} + i(\arg(z) + 2k\pi), k
+\en \Z\}
+\]
+Por tanto, existen infinitos números complejos $w$ que
+satisfacen la ecuación $\e^w = z$. Cualquiera de ellos se
+llama \emph{un logaritmo} de $z$. El conjunto de todos ellos lo
+representaremos por $\Log z$.
+$$
+\cajadoble{\Log z= \{\log\abs{z} + i(\arg(z) + 2k\pi), k \en
+\Z\}}
+$$
+Todos los logaritmos de $z$ están situados en una misma recta vertical de abscisa $\log\abs{z}$, y a partir de uno cualquiera de ellos podemos situar todos los demás, desplazándolo hacia arriba o hacia abajo una distancia igual a un múltiplo entero de $2\pi$. De entre todos los logaritmos de $z$ elegimos uno, llamado \textbf{logaritmo principal}, definido por
+\[
+\psframebox{\log z = \log{\abs{z}} + i\arg(z) \qquad
+\text{para todo } z \in \C^*}
+\]
+Cuando $z$ es un número real positivo, $z\in\Rp$, el logaritmo principal que acabamos de definir coincide con el logaritmo real de $z$. Es decir, acabamos de \emph{extender} la función logaritmo real de \Rp\ a $\C^*$. Observa que cualquier otro logaritmo de $z$ es de la forma $\log z+i 2 k\pi$ para algún entero $k$. Además, de todos los logaritmos de $z$, el logaritmo principal es el único cuya parte imaginaria está en el intervalo $]-\pi,\pi]$.
+
+Es importante que observes que la igualdad
+$$
+\log{zw} = \log{z} + \log{w}
+$$
+que es válida para los logaritmos de los números reales positivos,
+no es siempre cierta para números complejos. Por ejemplo:
+$$
+\log\big(\e^{i \,2\pi/3}\big) = i\dfrac{2\pi}{\,3\,},\quad
+\log\big(\e^{i \,3\pi/4}\big) = i\dfrac{3\pi}{\,4\,}$$
+Y
+$$\log\big(\e^{i \,2\pi/3}\e^{i
+\,3\pi/4}\big)=\log\big(\e^{i\,17\pi/12}\big)=\log\big(\e^{-i
+7\pi/12}\big)=-i\dfrac{7\pi}{\,12\,}\neq i\dfrac{2\pi}{\,3\,}+i\dfrac{3\pi}{\,4\,}
+$$
+Lo que está claro es que el número $\log z + \log w\in\Log(zw)$,
+es decir, $\log z + \log w$ es \emph{un} logaritmo de $zw$ pero
+no tiene por qué ser el logaritmo \emph{principal} de $zw$.
+
+\noindent\textbf{Observación.}\ Muchos libros usan la notación $\Log z$ para representar el logaritmo principal de $z$ y $\log z$ para representar el conjunto de todos los logaritmos de $z$. De esta forma consiguen que la función $\log$, que era conocida para reales positivos, ya no pueda usarse más, porque ahora $\log 1$ ya no será 0 sino el conjunto $\set{2k\pi i: k\in\Z}$; y lo que antes escribíamos $\log 2$ ahora tendremos que escribirlo $\Log 2$. Es decir, no se gana nada y se pierde todo. Es lo que yo digo, ¿para qué hacer las cosas bien pudiendo hacerlas mal?
+
+\subsection{Potencias complejas}
+Recuerda que dados dos números reales $a>0$ y $b\en\R$, la potencia
+de base $a$ y exponente $b$ se define como $\dis a^b=\e^{b\log a}$. Ahora,
+dados $a, b \in \C$, con $a \neq 0$, sabemos que hay infinitos
+logaritmos de $a$, todos ellos de la forma $\log a + i 2k
+\pi$, con $k\en\Z$. Por ello, cualquier número complejo de la forma
+$\,\dis\e^{b(\log a + i\, 2k \pi)}\,$ donde $k\en\Z$, es
+\textbf{una} potencia de base $a$ y exponente $b$. Representamos por
+$[a^b]$ el conjunto de todas ellas.
+$$
+[a^b]=\set{\dis\e^{b(\log a + i\, 2k \pi)}:k\en\Z}
+$$
+Se destaca una:
+\[
+a^b = \e^{b\log{a}}
+\]
+que se llama \textbf{valor principal} de la potencia de base $a$ y
+exponente $b$. Observa que si $b=1/n$ donde $n\en\N$, el número
+$$
+a^{1/n}=\exp\left(\dfrac{1}{n}\log a\right)=\exp\left(\dfrac{\log
+a}{n}+i\dfrac{\arg a}{n}\right)=\abs{a}^{1/n}\left(\cos\dfrac{\arg
+a}{n}+i\sen\dfrac{\arg a}{n}\right)
+$$
+es el valor principal de la raíz n-ésima de $a$ que antes hemos
+notado por $\sqrt[n]{a}$.
+
+\begin{ejercicios propuestos}
+\propuesto Expresa los 8 números $\ \pm 1\pm i$, $\ \pm \sqrt{3}\pm i\
+$ en la forma $r\e^{i\ff}$.
+
+\propuesto Calcula el módulo y los argumentos principales de los
+números $$1+\e^{i\ff},\ 1-\e^{i\ff},\ -a\e^{i\ff}$$ donde
+$\abs{\ff}\le\pi$ y $a>0$.
+
+\propuesto Calcula $\log z$ y $\Log z$ cuando $z$ es uno de los números
+siguientes
+$$i,\,-i,\,\e^{-3},\,\e^{5i},\,4,\,-5\e,\,1+i$$
+
+\propuesto Calcula $\log(3i)+\log(-1+i\sqrt{3})$ y
+$\log\big(3i(-1+i\sqrt{3})\big)$.
+
+\propuesto Calcula $\log(-1-i)-\log i$ y
+$\log\dis\left(\dfrac{-1-i}{i}\right)$.
+
+\propuesto Calcula
+$$[(-4)^i],\,i^{-3i},\,[i^{2/\pi}],\,[i^{\,i}],\,1^{2i},\,3^{1-i},\,((-i)^i)^i,\,(1+i)^{1+i}$$
+\propuesto Estudia, para $z\!\in\!\C^{*}$ y $n\!\in\!\N$, las
+igualdades:
+$$
+\textrm{a)}\ \log(\e^z)=z\,;\ b)\ \exp(\log(z))=z\,; \ c)\
+\log(\sqrt[n]{z})=\dfrac{\log(z)}{n}\,;\ d)\ \log(z^{n})=n\log(z).
+$$
+\propuesto Prueba que la función logaritmo principal establece una biyección
+entre los conjuntos $\C\!\setminus\!\Rmo$ y
+$\,\Omega=\{z\!\in\!\C^{*}\!:-\pi<\im(z)<\pi\}$.
+
+\propuesto Estudia condiciones para que $\dis\big(a^b\big)^c=a^{bc}$.
+
+\propuesto Con una interpretación adecuada de la suma justifica que:
+$$
+\textrm{a)}\ \Arg(z w)=\Arg(z)+\Arg(w),\qquad \textrm{b)}\ \Log(z w)=\Log(z)+\Log(w)$$
+
+\propuesto Estudia, interpretándolas convenientemente cuando sea
+necesario, las siguientes igualdades:
+$$
+\textrm{a)}\ \Log[a^b]=b\Log(a)\quad \textrm{b)}\
+\log[a^b]=b\Log(a)\quad \textrm{c)}\ \log(a^b)=b\log a
+$$
+
+\propuesto Indica el error en los razonamientos siguientes:
+$(-z)^2=z^{2}$; por tanto $2\Log(-z)=2\Log(z)$ y, por
+consiguiente, $\Log(-z)=\Log(z)$.
+
+\propuesto Explica con detalle dónde está el error en las igualdades
+siguientes:
+$$i=(-1)^{1/2}=[(-1)^3]^{1/2}=(-1)^{3/2}=i^3=-i$$
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto Estudia, para $z\!\in\!\C^{*}$ y $n\!\in\!\N$, las
+igualdades:
+$$
+\textrm{a)}\ \log\big(\e^z\big)=z\,;\ b)\ \exp(\log(z))=z\,; \ c)\
+\log\big(\sqrt[n]{z}\big)=\dfrac{\log(z)}{n}\,;\ d)\ \log(z^{n})=n\log(z).
+$$
+\sol a) Es evidente que $z$ es \emph{un} logaritmo de $\e^z$ y será el logaritmo principal si, y sólo si, $-\pi<\im z\le \pi$. En consecuencia:
+$$
+\log\big(\e^z\big)=z\Longleftrightarrow -\pi<\im z\le \pi
+$$
+b) Los logaritmos de $z$ se definen como los números cuya exponencial es $z$, luego, en particular, $\exp(\log(z))=z$ cualquiera sea $z\in\C$.
+
+c)$$
+\begin{array}{rl}
+\dis \log\big(\sqrt[n]{z}\big)&=\log\modulo{\sqrt[n]{z}}+i\arg\big(\sqrt[n]{z}\big)=\dfrac{\log\abs{z}}{n}+i\dfrac{\arg z}{n}\\
+\dfrac{\log(z)}{n}&=\dfrac{\log\abs{z}}{n}+i\dfrac{\arg z}{n}
+\end{array}
+$$
+La igualdad en c) se verifica siempre.
+
+d)$$
+\begin{array}{rl}
+\log(z^{n})&=\log(\abs{z^n})+i\arg(z^n)=n\log(\abs{z})+i\arg(z^n)\\
+n\log(z) &= n\log(\abs{z})+in\arg(z)
+\end{array}
+$$
+La igualdad en d) equivale a que $\arg(z^n)=n\arg(z)$. Como $n\arg(z)$ es \emph{un} argumento de $z^n$, para que sea el argumento principal deberá ser $-\pi<n\arg(z)\le\pi$.\hecho
+
+\resuelto Estudia condiciones para que $\dis\big(a^b\big)^c=a^{bc}$.
+
+\sol Tenemos que
+$$
+\big(a^b\big)^c=\exp(c\log(a^b));\quad a^{bc}=\exp(bc\log a)
+$$
+Por otra parte
+$$
+\exp(c\log(a^b))=\exp\big(c\log(\e^{b\log a})\big)=\exp\big(c(b\log a+i2k\pi)\big)=\exp(bc\log a+ic2k\pi)
+$$
+Donde $k$ es un entero que hay que elegir por la condición de que $$-\pi<\im(b\log a+i2k\pi)\le\pi$$ Concluimos que si $k=0$, lo que ocurre solamente cuando  $-\pi<\im(b\log a)\le\pi$, entonces la igualdad del enunciado se cumple para todo $c$. En otro caso, la igualdad del enunciado se cumple solamente cuando $c$ es un número entero.\hecho
+
+\resuelto Con una interpretación adecuada de la suma justifica que:
+$$
+\textrm{a)}\ \Arg(z w)=\Arg(z)+\Arg(w),\qquad \textrm{b)}\ \Log(zw)=\Log(z)+\Log(w)
+$$
+\sol La forma razonable de interpretar la igualdad $\Arg(z w)=\Arg(z)+\Arg(w)$, es que sumando cada uno de los elementos de $\Arg(z)$ con cada uno de los elementos de $\Arg(w)$ obtenemos todos los elementos de $\Arg(zw)$. Que efectivamente esto es así es fácil de probar. Sean $s\in\Arg(z)$ y $t\in\Arg(w)$. Entonces, sabemos que $s+t$ es un argumento de $zw$, esto es $s+t\in\Arg(zw)$. Luego hemos probado la inclusión $\Arg(z)+\Arg(w)\subset\Arg(zw)$. Recíprocamente, sea $\ff\in\Arg(zw)$. Elijamos cualquier elemento $s\en\Arg(z)$ y pongamos $t=\ff-s$. Entonces $t$ es un argumento de $\dfrac{zw}{z}=w$, esto es, $t\in\Arg(w)$; luego $\ff=s+t\in\Arg(z)+\Arg(w)$. Lo que prueba la otra inclusión $\Arg(zw)\subset\Arg(z)+\Arg(w)$.
+
+Análogamente, La forma razonable de interpretar la igualdad $\Log(z w)=\Log(z)+\Log(w)$, es que sumando cada uno de los elementos de $\Log(z)$ con cada uno de los elementos de $\Log(w)$ obtenemos todos los elementos de $\Log(zw)$. Teniendo en cuenta que $\Log(z)=\log\abs{z}+i\Arg(z)$, la igualdad b) se deduce de a).
+
+\noindent Observación. Quien haya estudiado el concepto de \emph{grupo cociente}, puede interpretar la suma $\Arg(z)+\Arg(w)$ en el grupo cociente del grupo aditivo de los números reales respecto del subgrupo de los múltiplos enteros de $2\pi$, esto es, el grupo $G=\R/2\pi\Z$. Si $z$ es un complejo no nulo, se tiene que $\Arg(z)\in G$ y, por definición de suma en un grupo cociente, tenemos que $\Arg(z)+\Arg(w)$ es la clase que contiene a $\arg(z)+\arg(w)$ y, como $\arg(z)+\arg(w)\in\Arg(zw)$, obtenemos que $\Arg(z w)=\Arg(z)+\Arg(w)$.\hecho
+
+\resuelto Indica el error en los razonamientos siguientes: $(-z)^2=z^{2}$; por tanto $2\Log(-z)=2\Log(z)$ y, por
+consiguiente, $\Log(-z)=\Log(z)$.
+
+\sol De la igualdad $\Log(zw)=\Log(z)+\Log(w)$, probada en el ejercicio anterior, se deduce que $\Log(z^2)=\Log(z)+\Log(z)$. Es decir, que sumando de todas las formas posibles dos logaritmos de $z$ obtenemos todos los logaritmos de $z^2$. Pero eso es muy distinto a sumar cada logaritmo de $z$ consigo mismo. Es decir, el conjunto $2\Log(z)$ es solamente una parte del conjunto $\Log(z)+\Log(z)$.\hecho
+\end{ejercicios resueltos}
+\section{Aplicaciones de los números complejos}
+Como ya hemos dicho anteriormente, la exponencial compleja es la herramienta más útil para trabajar con funciones sinusoidales, esto es, las funciones seno y coseno. Muchísimos procesos naturales, entre los que destacan por su importancia y universalidad los movimientos oscilatorios y ondulatorios, se describen adecuadamente por medio de funciones sinusoidales. Eso explica la presencia de la exponencial compleja y de los números complejos en teorías que, a primera vista, nada tienen que ver con ellos. Veamos algunos ejemplos.
+
+\subsection{Movimiento armónico simple}
+
+\begin{figure}[ht]
+\begin{minipage}[t]{.5\textwidth}
+\vspace*{2cm}
+%\flushleft
+\centering
+\begin{pspicture}(-1.2,-1.2)(1.2,1.2)
+\psset{unit=2.3cm}
+\SpecialCoor
+\psaxes[ticks=none,labels=none,linewidth=.6pt,arrowscale=1.4,arrowinset=.6]{->}(0,0)(-1.2,-1.2)(1.2,1.2)%[$X$,-90][$Y$,0]
+\pscircle[linestyle=dashed,dash=3pt,linewidth=.5pt](0,0){1}
+\psarc[arcsepB=1pt,linewidth=.6pt]{->}(0,0){.3}{0}{35}
+\psline[linewidth=1pt,arrowscale=2,arrowinset=.6]{->}(0,0)(1;35)
+\psline[linewidth=1pt,arrowscale=2,arrowinset=.6]{->}(0,0)(1;60)
+\psarc[linewidth=.7pt,arrowscale=1.5,arrowinset=.6]{->}(0,0){.6}{35}{60}
+\psline[linestyle=dashed,dash=3pt,linewidth=.4pt](.5,0)(1;60)(0,.866)
+\qdisk(.5,0){1.2pt}
+\qdisk(0,.866){1.2pt}
+  \uput[ur](1;60){\scalefont{.85}$\vr(t)$}
+   \uput[r](1;35){\scalefont{.85}$\vr(0)$}
+  \uput[r](.3;18){\scalefont{.85}$\ff$}
+  %\uput[42](.4;52){\scalefont{.85}$\omega t$}
+  \pstextpath[c]{\psarcn[linestyle=none](0,0){.55}{60}{35}}{\scalefont{.75}{$\omega t$}}
+  \uput[ur](1,0){\scalefont{.85}$A$}
+  \uput[ul](-1,0){\scalefont{.85}$-A$}
+  \uput[315](0,0){\scalefont{.85}$O$}
+  \uput[d](.5,0){\scalefont{.85}$x(t)$}
+   \end{pspicture}
+   \vspace*{2cm}
+  \captionsetup{}%,singlelinecheck=off
+    \caption{Movimiento circular}
+\end{minipage}\vspace{1cm}%
+\begin{minipage}[t]{.5\textwidth}
+    \vspace{0pt}
+Un número complejo es un vector del plano que, escrito en forma polar, tiene asociado un ángulo y por eso, los números complejos son muy apropiados para representar giros y movimientos circulares. Consideremos un móvil que recorre una circunferencia centrada en el origen y de radio $R$ con una velocidad angular constante $\omega$. Supongamos que su posición inicial para $t=0$ viene dada por $(A\cos\ff,A\sen\ff)$. La posición de dicho móvil en el tiempo $t$ es
+$$
+\vr(t)=\big(A\cos(\omega t+\ff),A\sen(\omega t+\ff)\big)
+$$
+Usando números complejos, podemos escribir
+$$
+\vr(t)=A\cos(\omega t+\ff)+iA\sen(\omega t+\ff)
+$$
+\end{minipage}
+\end{figure}\vspace*{-1cm}
+
+\noindent Que se expresa mejor con la exponencial compleja:
+$$
+\vr(t)=A\cos(\omega t+\ff)+iA\sen(\omega t+\ff)=A\e^{i(\omega t+\ff)}=A\e^{i\ff}\e^{i\omega t}
+$$
+Recuerda que multiplicar por $\e^{i\omega t}$ es un giro de amplitud $\omega t$. La igualdad $\vr(t)=\dis A\e^{i\ff}\e^{i\omega t}$ nos dice que la posición del móvil en el tiempo $t$ se obtiene girando el vector que representa su posición inicial $\vr(0)=\dis A\e^{i\ff}$ un giro de amplitud $\omega t$.
+
+La proyección sobre el eje de abscisas del vector $\vr(t)$ es la primera componente de dicho vector:
+\begin{equation}\label{movimientoarmonico}
+x(t)=\re\vr(t)=A\cos(\omega t+\ff)
+\end{equation}
+Interpretamos $\abs{x(t)}$ como la distancia al origen en el instante $t$ de un móvil que se desplaza sobre el eje de abscisas y cuya posición en el tiempo $t$ viene dada por la igualdad (\ref{movimientoarmonico}). Observa que dicho móvil recorre el segmento $[-A,A]$ con un movimiento que se caracteriza porque se repite a intervalos regulares de tiempo, pues definiendo $T=2\pi/\omega$, se tiene que:
+$$
+x(t+T)=A\cos(\omega (t+T)+\ff)=A\cos(\omega t+2\pi+\ff)=A\cos(\omega t+\ff)=x(t)
+$$
+Dicho movimiento se llama \emph{movimiento armónico simple}. Naturalmente, la proyección sobre el eje de ordenadas del vector $\vr(t)$ también describe un movimiento armónico simple de ecuación
+\begin{equation}\label{movimientoarmonico2}
+y(t)=\im\vr(t)=A\sen(\omega t+\ff)
+\end{equation}
+Las ecuaciones (\ref{movimientoarmonico}) y (\ref{movimientoarmonico2}) representan un mismo tipo de movimiento pues un seno no es más que un coseno retrasado en $\pi/2$, como se sigue de la igualdad $\cos(x-\pi/2)=\sen x$.
+
+En el movimiento armónico simple $x(t)=A\cos(\omega t+\ff)$ el número $A$ se llama \emph{amplitud}, el número $\omega t+\ff$ se llama \emph{fase}, siendo $\ff$ la \emph{fase inicial};  $\omega$ es la \emph{frecuencia angular} que se mide en radianes por segundo. El número $T=2\pi/\omega$ es el \emph{periodo}, que es el tiempo, medido en segundos, que el móvil tarda en completar un ciclo. El número $f=1/T$ es la \emph{frecuencia}, que es el número de ciclos recorridos en un segundo. La unidad de la frecuencia es el ciclo por segundo que se llama \emph{herzio}.
+
+La representación compleja proporciona una visualización gráfica del movimiento que es muy útil para el estudio de la composición de movimientos armónicos simples. Consideremos dos movimientos armónicos simples de igual frecuencia dados por
+$$
+x_1(t)=A_1\cos(\omega t+\ff_1),\qquad x_2(t)=A_2\cos(\omega t+\ff_2)
+$$
+Queremos estudiar el movimiento dado por $\,x(t)=x_1(t)+x_2(t)$. La representación compleja de los movimientos permite dar una respuesta sin necesidad de hacer cálculos. Pongamos
+$$
+x_1(t)=\re\vr_1(t)=\re A_1\e^{i(\omega t+\ff_1)};\qquad x_2(t)=\re\vr_2(t)=\re A_2\e^{i(\omega t+\ff_2)}
+$$
+Claramente, $x(t)=x_1(t)+x_2(t)=\re(\vr_1(t)+\vr_2(t))$. Como los vectores $\vr_1(t)$ y $\vr_2(t)$ giran con igual velocidad angular, $\omega$, el vector suma $\vr(t)= \vr_1(t)+\vr_2(t)$ también gira con la misma velocidad angular (el paralelogramo de lados $\vr_1(t)$ y $\vr_2(t)$ gira todo él con velocidad angular $\omega$). Deducimos que $x(t)=\re(\vr(t))$ es la ecuación de un movimiento armónico simple de frecuencia angular $\omega$, amplitud igual al módulo de $\vr(t)$ (que debe ser constante) y fase igual al argumento del número complejo $\vr(t)$. El módulo de una suma lo hemos calculado en (\ref{cuadradomodulosuma}). En nuestro caso es
+$$
+\modulo{\vr(t)}^2=\modulo{\vr_1(t)}^2+\modulo{\vr_2(t)}^2+2\re(\vr_1(t)\conj{\vr_2(t)})=A_1^2+A_2^2+2A_1A_2\cos(\ff_1-\ff_2)
+$$
+\vspace*{-1cm}
+\begin{figure}[ht]
+\centering
+\begin{pspicture}(-.3,-.3)(7,7)
+\psset{unit=.8cm}
+\SpecialCoor
+\psaxes[ticks=none,labels=none,linewidth=.6pt,arrowscale=1.4,arrowinset=.6]{->}(0,0)(-.3,-.3)(7,7)%[$X$,-90][$Y$,0]
+\psarc[linestyle=dashed,dash=3pt,linewidth=.5pt,arrowscale=2,arrowinset=.6]{->}(0,0){3.162}{0}{90}
+\psarc[linestyle=dashed,dash=3pt,linewidth=.5pt,arrowscale=2,arrowinset=.6]{->}(0,0){4.123}{0}{90}
+\psarc[linestyle=dashed,dash=3pt,linewidth=.5pt,arrowscale=2,arrowinset=.6]{->}(0,0){6.4}{0}{90}
+\psline[linewidth=1pt,arrowscale=2,arrowinset=.6]{->}(0,0)(1,4)
+\psline[linewidth=1pt,arrowscale=2,arrowinset=.6]{->}(0,0)(3,1)
+\psline[linewidth=1pt,arrowscale=2,arrowinset=.6]{->}(0,0)(4,5)
+\psline[linestyle=dashed,dash=3pt,linewidth=.5pt](1,4)(4,5)(3,1)
+\psline[linestyle=dashed,dash=3pt,linewidth=.4pt](1,0)(1,4)
+\psline[linestyle=dashed,dash=3pt,linewidth=.4pt](3,0)(3,1)
+\psline[linestyle=dashed,dash=3pt,linewidth=.4pt](4,0)(4,5)
+\qdisk(1,0){1.2pt}
+\qdisk(3,0){1.2pt}
+\qdisk(4,0){1.2pt}
+  \uput[u](1,4){\scalefont{.85}$\vr_1(t)$}
+   \uput[r](3,1){\scalefont{.85}$\vr_2(t)$}
+  \uput[r](4,5){\scalefont{.85}$\vr(t)$}
+  \uput[d](1,0){\scalefont{.85}$x_1(t)$}
+   \uput[d](3,0){\scalefont{.85}$x_2(t)$}
+  \uput[d](4,0){\scalefont{.85}$x(t)$}
+    \uput[315](0,0){\scalefont{.85}$O$}
+   \end{pspicture}
+    \captionsetup{}
+   \caption{Composición de movimientos armónicos}
+   \end{figure}
+
+Como la frecuencia angular debe ser $\omega$, la fase será $\omega t+\ff$ donde $\ff$ es la fase inicial, que es el argumento del número complejo
+$$
+\vr(0)=\vr_1(0)+\vr_2(0)=A_1\e^{i\ff_1}+A_2\e^{i\ff_2}=(A_1\cos\ff_1+A_2\cos\ff_2)+i(A_1\sen\ff_1+A_2\sen\ff_2)
+$$
+que ya debes saber calcular.
+
+%\pagebreak
+
+\subsection{Circuitos eléctricos}
+
+\begin{figure}[ht]
+\vspace*{-1cm}
+\begin{minipage}[t]{.5\textwidth}
+\vspace{0pt}
+\flushleft
+\begin{pspicture}(-.5,-.5)(5,5)
+\psset{xunit=1cm,yunit=.7cm,linewidth=1.2pt,arrowscale=2}
+\psline(0,0)(0,1.75)
+\pscircle(0,2.5){.5}
+\psline(0,3.25)(0,5)
+\psline[ArrowInside=->](0,5)(2,5)
+\pszigzag[coilarm=.05cm,coilwidth=.5cm,coilheight=.5](2,5)(3.5,5)
+\psline(3.5,5)(5,5)(5,3)
+\psline(4.5,3)(5.5,3)
+\psline(4.5,2.5)(5.5,2.5)
+\psline(5,2.5)(5,0)(3.5,0)
+\pscoil[coilheight=.5,coilarm=.05cm,coilwidth=.5cm](3.5,0)(2,0)
+\psline(2,0)(0,0)
+\psarc(0.15,2.5){.15}{0}{180}
+\psarc(-0.15,2.5){.15}{180}{360}
+\uput[d](2.75,4.5){$R$}
+\uput[l](4.5,2.75){$C$}
+\uput[u](2.75,.5){$L$}
+\uput[d](1,5){$I(t)$}
+\uput[r](.5,2.5){$V(t)$}
+\end{pspicture}\vspace*{-3mm}
+\captionsetup{singlelinecheck=off,margin=1cm}%
+\caption{Circuito RLC}\label{fig:circuito}
+\end{minipage}%\vspace{1cm}%
+\begin{minipage}[t]{.5\textwidth}
+    \vspace*{1.2cm}
+En el análisis de circuitos eléctricos los números complejos, con el nombre de \emph{fasores}, fueron introducidos en 1863 por el matemático e ingeniero \href{http://en.wikipedia.org/wiki/Charles_Proteus_Steinmetz}{Charles Proteus Steinmetz} (1865-1923). Un fasor es un número complejo que representa la amplitud y fase inicial de una sinusoide. Los fasores proporcionan una herramienta útil para estudiar circuitos eléctricos cuyo voltaje es de tipo sinusoidal $V(t)=V_m\cos(\omega t+\ff)$. Aquí $V_m>0$ es la amplitud o máximo valor del voltaje, y $\ff$ la fase inicial. Podemos asociar a $V(t)$ un fasor que representamos $\mbf{V}$ y es el número\linebreak
+\end{minipage}
+\end{figure}\vspace*{-8mm}
+
+\noindent  complejo $\mbf{V}=V_m\e^{i\ff}$. De esta forma podemos escribir $V(t)=\re(\mbf{V}\e^{i\omega t})$ con lo que separamos la información de frecuencia y de fase. Observa que, conocida la frecuencia, la sinusoide queda determinada de forma única por su fasor asociado.
+
+La derivada de una sinusoide es otra sinusoide. El fasor que representa a la derivada se expresa muy fácilmente mediante el fasor que representa a la sinusoide.
+$$
+V\tl(t)=\derivada{V(t)}{t}=-V_m\omega\sen(\omega t+\ff)=V_m\omega\cos(\omega t+\ff+\pi/2)=\re(i\omega\mbf{V}\e^{i\omega t})
+$$
+Deducimos que el fasor que representa a $V\tl(t)$ es $i\omega\mbf{V}$. Observa que $i\omega\mbf{V}=\omega V_m\e^{i(\ff+\pi/2)}$, por lo que el fasor que corresponde a la derivada de una sinusoide va adelantado $90$ grados respecto a la sinusoide.
+
+De la misma forma, el fasor que representa a la primitiva de la sinusoide $V(t)$ es $\dfrac{1}{i\omega}\mbf{V}$ y va retrasado $90$ grados respecto a la sinusoide.
+
+Supongamos que en el circuito de la figura (\ref{fig:circuito}) se tiene que la intensidad de la corriente viene dada por una sinusoide (lo cual se sabe que es así cuando la fuerza electromotriz aplicada es sinusoidal). Pongamos $I(t)=I_m\cos(\omega t+\ff)$ y sea $\mbf{I}$ su fasor asociado. Expresemos la caída de potencial en cada uno de los elementos que forman el circuito mediante los fasores de la corriente y el voltaje. Se trata de un circuito RLC que consta de una resistencia de $R$ ohmios, un condensador de capacitancia $C$ y un inductor, con inductancia $L$.
+
+
+La diferencia de potencial en los extremos de la resistencia viene dada por
+  $$
+V_R(t)=R I(t)=R I_m\cos(\omega t+\ff)
+  $$
+La relación entre los fasores respectivos es
+$$
+\mbf{V_R}=R\mbf{I}.
+$$
+Como $R>0$ se tiene que el voltaje a través de una resistencia está en fase con la corriente.
+
+Es sabido que una corriente variable en un inductor produce un campo magnético que da lugar a una fuerza electromotriz inducida que se opone a la fuerza electromotriz aplicada, lo que origina una caída de potencial dada por
+$$
+V_L(t)=L\derivada{I(t)}{t}
+$$
+Deducimos que la relación entre los correspondientes fasores es $$\mbf{V_L}=i\omega L\mbf{I}$$
+y por tanto el voltaje a través de un inductor va adelantado $90$ grados respecto a la corriente.
+
+Llamando $Q(t)$ a la carga que almacena el condensador en el tiempo $t$, se sabe que la diferencia de potencial entre los extremos del condensador viene dada por la igualdad
+  $$
+V_C(t)=\dfrac{Q(t)}{C}=\dfrac{1}{C}\varint_{-\infty}^t I(s)\df{s}
+  $$
+Y deducimos que  la relación entre los correspondientes fasores es $$\mbf{V_C}=\dfrac{1}{i\omega C}\mbf{I}=-\dfrac{i}{\omega C}\mbf{I}$$ y por tanto el voltaje a través de un inductor va retrasado $90$ grados respecto a la corriente.
+
+La suma de las diferencias de potencial a través de los distintos elementos del circuito debe ser igual al voltaje aplicado. En términos de los fasores asociados, esto quiere decir que:
+\begin{equation}
+R\mbf{I}+i\omega L\mbf{I}-\dfrac{i}{\omega C}\mbf{I}=\left(R+i\omega L-\dfrac{i}{\omega C}\right)\mbf{I}=\mbf{V}
+\end{equation}
+El número complejo
+$$
+\mbf{Z}=R+i\omega L-\dfrac{i}{\omega C}
+$$
+se llama \emph{impedancia}. La impedancia depende de la frecuencia de la fuerza electromotriz aplicada y de las características del circuito. Cuando se conocen la impedancia y el voltaje, podemos calcular el fasor de la corriente por la igualdad
+$$
+\mbf{I}=\dfrac{\mbf{V}}{\mbf{Z}}=\dfrac{\mbf{V}}{R+i\omega L-\dfrac{i}{\omega C}}
+$$
+y la corriente en el circuito viene dada por $I(t)=\mbf{I}\e^{i\omega t}$.
+
+Tenemos que
+$$
+\modulo{\mbf{I}}=\dfrac{\modulo{\mbf{V}}}{\sqrt{R^2+\left(\omega L-\dfrac{1}{\omega C}\right)^2}}
+$$
+El número $\omega L-\dfrac{1}{\omega C}$ se llama \emph{reactancia}. El valor de la frecuencia para el que la reactancia se anula viene dado por $\omega_r=\dfrac{1}{\sqrt{LC}}$ y se llama \emph{frecuencia de resonancia}. Es el valor de la frecuencia para el cual el valor de $\modulo{\mbf{I}}$ es máximo.
+
+\subsection{Procesamiento digital de señales}
+
+Como sin duda sabes, los formatos digitales más frecuentes de audio e imagen son, respectivamente, MP3 y JPG. Cuesta trabajo imaginar cómo sería Internet sin estos formatos. Lo que quizás no sepas es que la codificación MP3 y la JPG se llevan a cabo con algoritmos que usan números complejos. El hecho, por extraño que pueda parecer, es que las principales herramientas para trabajar con todo tipo de señales (audio, vídeo, voz, imagen,\dots)  son complejas. La \emph{transformada Z}, \emph{la Transformada de Fourier en Tiempo Discreto}, la \emph{Transformada Discreta de Fourier}, la \emph{Función de Transferencia}, los \emph{modelos de polos y ceros}, la \emph{Transformada de Laplace} y otras muchas herramientas básicas para el tratamiento de señales, son todas ellas transformaciones que usan números complejos. Todavía más, las propias señales se caracterizan por su \emph{espectro} que ¡es un conjunto de números complejos! Si te sientes atraído por el apasionante mundo del tratamiento digital de señales, todo lo que sepas de números complejos te será útil en tu trabajo.
+
+Como lectura adicional te recomiendo el capítulo 24 del libro de Michael Spivak \cite{spivak}. 

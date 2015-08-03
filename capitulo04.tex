@@ -1,0 +1,1962 @@
+\chapter{Funciones Continuas y límite funcional}
+\vspace*{-1cm}
+\begin{flushright}
+{\small\textit{En matemáticas, la evidencia es enemiga de la corrección.} \\  Bertrand Russell}
+\end{flushright}
+
+\section{Introducción}
+En esta lección vamos a estudiar con
+algún detalle un concepto teórico importante que es el de
+continuidad. Para motivar la definición que vamos a dar de
+continuidad, consideremos una ley física de la forma $P=f(V)$, que
+relaciona los valores de una ``variable independiente $V$'' (podemos
+pensar que es el volumen de un gas) con otra ``variable dependiente
+$P$'' (podemos pensar que es la presión). Si queremos usar dicha
+ley, hemos de medir un valor $V_0$ de la variable $V$, y es
+inevitable que al hacerlo cometamos algún error el cual,
+naturalmente, influye en el correspondiente valor de $P$, que ya no
+será exactamente igual a $P_0=f(V_0)$. Surge así la pregunta
+natural: ¿de qué forma el error en la medida de $V$ afecta al valor
+resultante de $P$? Es claro que si para valores de $V$ ``muy
+próximos'' a $V_0$ obtengo valores de $P$ muy diferentes entre sí,
+la ley ``$f$'' que relaciona $V$ con $P$ no tendrá ninguna utilidad
+práctica.
+
+Puesto que los errores de medida son inevitables, no es razonable
+tratar de obtener ``el verdadero valor $P_0$''. Lo que sí puede
+hacerse es fijar una cota de error admisible para $P$ (la cual
+dependerá de cada situación concreta), llamemos ``\eps''\ a dicha
+cota ($\eps>0$), y tratar de obtener otra cota de error
+``$\delta$'' ($\delta>0$), de tal forma que siempre que midamos
+$V_0$ con un error menor que $\delta$ tengamos la seguridad de que
+el valor resultante para $P$ se diferencia de $P_0$ en menos que
+\eps. Esto es, $|f(V)-f(V_0)|<\eps$ siempre que $|V-V_0|<\delta$.
+Cuando esto efectivamente pueda hacerse para cualquier cota de error
+$\eps>0$ decimos que la ley ``$f$'' es continua en $V_0$.
+
+Observa
+que cabe esperar que la cota de error $\delta$ dependa del \eps\
+fijado en cada caso. Intuitivamente, cuanto más pequeño sea el error permitido en los datos finales, tanto mejor tendremos que medir la variable independiente. En general, la precisión $\delta$ con la que debemos medir $V_0$ para obtener un error final menor que \eps, depende no solamente del valor fijado de \eps\ sino también del valor de $V_0$. Esto es fácil de entender, no es lo mismo medir un volumen de varios metros cúbicos que otro de unos pocos milímetros cúbicos, la precisión de nuestra medida debe ser mejor en este último caso.
+
+Las ideas anteriores conducen, de forma natural, a la definición
+matemática de continuidad. En todo lo que sigue, la letra $A$
+representará un conjunto no vacío de números reales. En la práctica
+$A$ será siempre un intervalo o una unión de intervalos. Recuerda
+que la notación \funcreal{f}{A}\ quiere decir que $f$ es una función
+real cuyo dominio es $A$. Es muy importante advertir que $A$ no
+tiene por qué coincidir con el dominio natural de la función. Esto
+es así porque con frecuencia estamos interesados en estudiar
+propiedades de una función en una parte de su dominio natural.
+Además, la continuidad de $f$ depende tanto de la ``regla que la
+define'' como del conjunto en donde estamos trabajando. Enseguida
+pondremos ejemplos para aclarar esto.
+
+\section{Continuidad}
+
+\begin{definicion}[\textbf{Continuidad en un punto}] Una función
+\funcreal{f}{A}\ se dice que es continua en un punto $a\en A$ si,
+para cada número \epos, se puede encontrar un número \dpos\ (que, en
+general, dependerá de \eps\ y de $a$) tal que para todo $\,x\en A\,$
+con $\,|x-a|<\delta\,$ se verifica que $\,|f(x)-f(a)|<\eps$.
+\end{definicion}
+
+La definición anterior suele escribirse, con abuso del formalismo lógico, de la siguiente forma:
+\begin{equation}\label{definicioncontinuidad}
+\forall\eps\en\Rp\ \   \exists\,\delta\en\Rp\ : \left.
+\begin{array}{c}
+                                                       |x-a|<\delta \\
+                                                       x\en A
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ |f(x)-f(a)|<\eps
+\end{equation}
+\noindent{\textbf{Comentarios a la definición.}}\ Observa que en esta definición el conjunto $A$ tiene mucho
+protagonismo: sólo se consideran los valores de $f$ en $A$, lo que
+le pueda pasar a $f$ fuera de $A$ no nos interesa. El siguiente ejemplo es ilustrativo.
+\begin{enumerate}[a)]
+\item Sea \funcreal{f}{\R}\ la \emph{función de Dirichlet} dada por $f(x)=1$ si $x\en\Q$, $f(x)=-1$ si $x\en\R\setminus\Q$. Es la función que vale $1$ en los puntos racionales y $-1$ en los irracionales. Esta función no es continua en ningún punto. La razón es que en todo intervalo abierto, por pequeño que sea, siempre hay números racionales e irracionales. Por eso, la función $f$ oscila constantemente entre $1$ y $-1$.
+\item Las funciones \funcreal{g}{\Q}\ dada por $g(x)=1$ y \funcreal{h}{\R\setminus\Q}\ dada por $h(x)=-1$ son continuas (¡son funciones constantes!) en todo punto de sus respectivos dominios de definición.
+\end{enumerate}
+Debes tener claro \marginpar{\flushright\curvasr}que para poder hablar de la continuidad o de la no continuidad de una función en un punto, la función debe estar definida en dicho punto. La condición (\ref{definicioncontinuidad}) exige que el número $f(a)$ esté definido. Si no se conoce el valor de $f$ en $a$ no puede comprobarse si dicha condición se verifica o no y, por ello, no tiene sentido considerar la continuidad de esa función en dicho punto. Insisto en esta evidencia porque en muchos textos te vas a encontrar ejercicios del siguiente estilo:
+\begin{enumerate}[a)]
+\item Estudiar la continuidad de la función $f(x)=\dfrac{1}{x}$ en $x=0$.
+\item Estudiar la continuidad de la función $g(x)=\dfrac{\abs{x}}{x}$ en $x=0$.
+\item Estudiar la continuidad de la función $h(x)=x\sen(1/x)$ en $x=0$.
+\end{enumerate}
+Respuesta: Las funciones $f$, $g$ y $h$ no están definidas en $0$, por tanto no tiene sentido estudiar su continuidad en $0$. Para poder estudiar la continuidad en $0$ de estas funciones, primero hay que definirlas en $0$. Por ejemplo, podemos definir $f(0)=0$, $g(0)=1$, $h(0)=0$. Ahora la respuesta es: $f$ no es continua en $0$, $g$ no es continua en $0$ pero es continua por la derecha en $0$, y $h$ es continua en $0$.
+
+\begin{definicion}[\textbf{Continuidad en un conjunto}]
+Se dice que $f$ es continua en un conjunto \makebox{$C\subset A$,} si $f$
+es continua en todo punto de $C$.
+\end{definicion}
+
+No suele ser tarea fácil demostrar que una función dada es continua.
+Generalmente, lo que se hace es descomponer la función que queremos
+estudiar en otras más sencillas cuya continuidad ya es conocida
+previamente. Es por ello interesante saber qué tipo de operaciones
+realizadas con funciones continuas conducen a nuevas funciones
+continuas.
+
+\subsection{Propiedades básicas de las funciones continuas}
+
+\begin{teorema}\label{teor:operacionescontinuas}
+Sean $f$, $g$ funciones reales definidas en $A$. Se verifica que:
+\begin{enumerate}[a)]
+\item Las funciones $f+g$ y $fg$ son continuas en todo punto de $A$
+en el que las dos funciones $f$ y $g$ sean continuas. En particular,
+las funciones suma y producto de funciones continuas son funciones
+continuas.
+
+\item Si $g(x)\neq 0$ para todo $x\en A$, la función
+$\dis\frac{1}{g}$ es continua en todo punto de $A$ en el que $g$ sea
+continua. En consecuencia, la función cociente de dos funciones
+continuas cuyo denominador no se anula nunca es una función
+continua.
+\end{enumerate}
+\end{teorema}
+\dem a) Sea $a\en A$ un punto de $A$ en el que $f$ y $g$ son continuas. Debemos probar que $f+g$ y $fg$ son continuas en $a$. Escribamos nuestras hipótesis:
+\begin{eqnarray}
+  \forall \eps_1\en\Rp\ \exists\ \delta_1\en\Rp\,:\,x\en A \wedge \abs{x-a}<\delta_1 & \Longrightarrow & \modulo{f(x)-f(a)}<\eps_1 \label{continuidadf} \\
+  \forall \eps_2\en\Rp\ \exists\ \delta_2\en\Rp\,:\,x\en A \wedge \abs{x-a}<\delta_2 & \Longrightarrow & \modulo{g(x)-g(a)}<\eps_2 \label{continuidadg}
+\end{eqnarray}
+Naturalmente, $\delta_1=\delta_1(\eps_1)$ y $\delta_2=\delta_2(\eps_2)$ dependen del valor de $\eps_1$ y $\eps_2$. Debemos relacionar los números $\modulo{(f+g)(x)-(f+g)(a)}$ y $\modulo{(fg)(x)-(fg)(a)}$ con $\modulo{f(x)-f(a)}$ y $\modulo{g(x)-g(a)}$.
+
+Para la suma la cosa es muy sencilla.
+\begin{equation}
+\begin{array}{rcl}
+\modulo{(f+g)(x)-(f+g)(a)}&=&\modulo{\big(f(x)-f(a)\big)+\big(g(x)-g(a)\big)} \le \\  & \le & \rule{0mm}{5mm}\modulo{f(x)-f(a)}+\modulo{g(x)-g(a)}\label{continuidadsuma}
+\end{array}
+\end{equation}
+Dado \epos, hagamos en (\ref{continuidadf}) $\eps_1=\frac{\eps}{2}$ y en (\ref{continuidadg}) $\eps_2=\frac{\eps}{2}$ y sean $\delta_1=\delta_1(\frac{\eps}{2})$ y $\delta_2=\delta_2(\frac{\eps}{2})$. Pongamos $\delta=\min\set{\delta_1,\delta_2}$. Entonces, como consecuencia de las desigualdades (\ref{continuidadsuma}), (\ref{continuidadf}) y (\ref{continuidadg}), se deduce que $\modulo{(f+g)(x)-(f+g)(a)}<\frac{\eps}{2}+\frac{\eps}{2}=\eps$, siempre que $x\en A$ y $\abs{x-a}<\delta$.
+
+Para el producto hay que pensar un poquito más.
+\begin{equation}\label{desuno}
+\begin{array}{rcl}
+ \modulo{(fg)(x)-(fg)(a)}& = &\modulo{f(x)\big(g(x)-g(a)\big)+g(a)\big(f(x)-f(a)\big)} \le \\  & \le & \rule{0mm}{5mm}\modulo{f(x)}\modulo{g(x)-g(a)}+\modulo{g(a)}\modulo{f(x)-f(a)}
+\end{array}
+\end{equation}
+La cantidad $\modulo{g(a)}\modulo{f(x)-f(a)}$ puede controlarse fácilmente usando (\ref{continuidadf}). Dado \epos, hagamos en (\ref{continuidadf}) $\eps_1=\frac{\eps}{2(\abs{g(a)}+1)}$ (la precaución de dividir por $\abs{g(a)}+1$ es porque pudiera ocurrir que $g(a)=0$), y sea $\delta_1=\delta_1(\eps_1)$. Tenemos que
+\begin{equation}
+\begin{array}{rcl}\label{desdos}
+x\en A \wedge \abs{x-a}<\delta_1 & \Longrightarrow & \abs{g(a)}\modulo{f(x)-f(a)}<\abs{g(a)}\dfrac{\eps}{2(\abs{g(a)}+1)}<\dfrac{\eps}{2} \\
+\rule{0mm}{6mm} x\en A \wedge \abs{x-a}<\delta_1 &\Longrightarrow & \abs{f(x)}=\abs{f(a)+(f(x)-f(a))}<\abs{f(a)}+\eps_1
+\end{array}
+\end{equation}
+Pongamos $M=\abs{f(a)}+\eps_1$, hagamos en (\ref{continuidadg}) $\eps_2=\frac{\eps}{2M}$ y sea $\delta_2=\delta_2(\frac{\eps}{2M})$. Definamos $\delta=\min\set{\delta_1,\delta_2}$. Teniendo ahora en cuenta las desigualdades (\ref{desuno}) y (\ref{desdos}), deducimos que
+$$
+x\en A \wedge \abs{x-a}<\delta \Longrightarrow \!\left\{
+\begin{array}{l}
+                                                       \!\modulo{f(x)}\modulo{g(x)-g(a)}<M\dfrac{\eps}{2M}=\dfrac{\eps}{2}\! \\
+                                                      \rule{0mm}{6mm} \! \abs{g(a)}\modulo{f(x)-f(a)}<\dfrac{\eps}{2}
+                                                       \end{array}
+                                                       \right\}\!\Longrightarrow\modulo{(fg)(x)-(fg)(a)}<\eps
+$$
+La demostración del apartado b) se hace de forma parecida.\fin
+
+El teorema anterior es muy útil pero con frecuencia no se entiende bien lo que dice o se interpreta mal. Lo que dice es que la suma, producto y cociente de funciones continuas (siempre que no dividamos por 0) también es continua. De aquí puedes deducir fácilmente algunas consecuencias.
+\begin{corolario}\label{cor:operacionescontinuas}
+\begin{enumerate}[a)]
+\item Si la suma de dos funciones es continua y una de ellas es continua, la otra función también es continua.
+\item La suma de una función continua y otra discontinua es una función discontinua.
+\item Si el producto de dos funciones es continuo y una de ellas es continua y no se anula, la otra función es continua.
+\item El producto de una función continua y que no se anula por otra discontinua es una función discontinua.
+\end{enumerate}
+\end{corolario}
+Hasta aquí todo bien. El problema es cuando tenemos que estudiar la continuidad de la suma o el producto de dos funciones discontinuas. En esta situación el teorema anterior no nos dice nada. Peor aún; no puede haber ningún teorema que diga lo que pasa en este caso. La razón es que puede pasar cualquier cosa. \marginpar{\flushright\curvasr}La suma o el producto de dos funciones discontinuas puede ser unas veces continua y otras veces discontinua. Se trata de un problema que hay que estudiar en cada caso concreto y que depende de cómo sean las funciones que sumamos o multiplicamos.
+
+Por ejemplo, sea $f$ la función de Dirichlet que, como sabemos, es discontinua en todo punto. Sea $g$ una función continua cualquiera; por ejemplo, la identidad $g(x)=x$ para todo $x\en\R$. Las funciones $g+f$ y $g-f$ son discontinuas en todo punto pero su suma es la función $2g$ que es continua. Por otra parte, el cuadrado de $f$, esto es la función $h(x)=f(x)f(x)=(f(x))^2=1$, es la función constante igual a 1 y, por tanto, es continua.
+
+Teniendo en cuenta que las funciones polinómicas son sumas de productos de funciones constantes por potencias de la función identidad, deducimos el siguiente corolario.
+
+\begin{corolario}
+ Toda función racional es continua en su dominio natural de definición.
+ \end{corolario}
+
+De hecho, todas las funciones elementales que conoces son continuas
+en sus dominios naturales de definición. Esto no lo podemos probar todavía pero lo aceptaremos y lo usaremos cuando sea preciso; por ejemplo, para hacer ejercicios.
+
+Además de sumar y multiplicar funciones, también sabemos
+componerlas. Veamos cómo se comporta la continuidad respecto de la
+composición de funciones.
+
+\begin{teorema}[\textbf{Continuidad de una función compuesta}]\label{continuidadfuncioncompuesta}\ Sean \funcreal{f}{A}\
+y \funcreal{g}{B}\ funciones tales que $f(A)\subset B$. Supongamos
+que $f$ es continua en un punto $a\en A$ y que $g$ es continua en el
+punto $f(a)$. Entonces la función compuesta \funcreal{g\circ f}{A}\
+es continua en el punto $a$. En particular, si $g$ es continua en
+$f(A)$, entonces $g\circ f$ es continua en todo punto de $A$ en el
+que $f$ sea continua. Más en particular, la composición de funciones
+continuas es una función continua.
+\end{teorema}
+\noindent\textbf{Demostración.}\ Dado \epos, por la continuidad de
+$g$ en $f(a)$, existe $\rho>0$ tal que para todo $y\en B$ con
+$|y-f(a)|<\rho$ se tiene que $|g(y)-g(f(a))|<\eps$. Ahora, por la
+continuidad de $f$ en $a$, existe $\delta>0$ tal que para todo $x\en
+A$ con $|x-a|<\delta$ se tiene que $|f(x)-f(a)|<\rho$. Deducimos así
+que $|g(f(x))-g(f(a))|<\eps$ para todo $x\en A$ con $|x-a|<\delta$.
+Es decir, la función compuesta $g\circ f$ es continua en $a$.\fin
+
+\subsection{Propiedades locales}
+
+Intuitivamente, la continuidad de una función en un punto depende únicamente del comportamiento de la función en la ``proximidad'' de dicho punto. Esto se expresa diciendo que \emph{la continuidad es una propiedad local}. Vamos a precisar este concepto.
+
+\begin{definicion}
+Dados una función \func{f}{A}\ y un conjunto no vacío $C\subset A$, podemos definir \emph{una nueva función}, llamada
+\emph{restricción de $f$ a $C$} que se representa por $f_{|C}$, que es la función
+\emph{definida en el conjunto} $C$ que viene dada por $f_{|C}(x)=f(x)$ para todo $x\en C$.
+
+Dada una función \func{f}{A}, se dice que una función  \func{g}{B}\ es una
+\emph{extensión} de $f$, si $B\supset A$ y $f$ es la restricción de $g$ al conjunto $A$, es decir $f(x)=g(x)$ para todo $x\en A$.
+\end{definicion}
+
+Los conceptos de extensión y de restricción de una función son
+esencialmente el mismo: todo depende de que se mire ``para arriba'' o ``para abajo''.
+
+Es importante distinguir entre una función y su restricción a un conjunto. Veamos un ejemplo que nos permitirá introducir una función muy útil.
+
+\begin{ejemplo}[\textbf{Función parte entera}]\label{parteentera}
+La función que a cada número $x\en\R$
+asigna \emph{el mayor entero que es menor o igual que }$x$ se llama función \emph{parte entera}. Dicha función se representa con
+la letra $E$ y está definida para todo $x\en\R$ por las condiciones siguientes:
+$$
+E(x)\en\Z\quad\textrm{y}\quad E(x)\leqslant x<E(x)+1.
+$$
+\begin{figure}[ht]
+\begin{minipage}[t]{.45\textwidth}
+\vspace{0pt}
+\flushleft
+\begin{pspicture}(-3,-3)(3,3)
+\psaxes[Dx=1,dx=.5cm,Dy=1,dy=.5cm,linewidth=.5pt,xticksize=-3pt,yticksize=3pt,labelFontSize=\scriptsize,arrowscale=2]{<->}(0,0)(3,-2.5)(-3,3)
+\def\segmento{\psline[linewidth=1.2pt](0,0)(.5,0)}%
+\multips(-2,-2)(.5,.5){9}{\segmento}
+\multido{\n=0.5+0.5}{4}{%
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](\n,0)(\n,\n)}
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](2.5,0)(2.5,2)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](-2.0,0)(-2.0,-2)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](-1.5,0)(-1.5,-2)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](-1.,0)(-1.,-1.5)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](-.5,0)(-.5,-1)
+\end{pspicture}
+\captionsetup{,singlelinecheck=off,margin=1cm}%
+\caption{Función parte entera}
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+   % \vspace*{1.2cm}
+No es difícil probar que esta función es discontinua en todos los enteros. Ahora, si consideramos a dicha función trabajando
+solamente en el intervalo $[1,2[$, es decir, la función $f$ restricción de $E$ a $[1,2[$ cuyo dominio es el intervalo
+$[1,2[$ y que a cada punto de dicho intervalo asigna su ``parte entera'', $f(x)=E(x)$, para $1\leqslant x<2$; entonces la función $f$ es constante pues, claramente $f(x)=1$ para todo $x\en [1,2[$, luego $f$ es continua en todos los puntos de su dominio, en particular $f$ es continua en $1$ a pesar de que la función ``parte entera'' es discontinua en dicho punto.
+\end{minipage}
+\end{figure}
+
+\vspace*{-1cm}
+\end{ejemplo}
+
+El ejemplo anterior, y también el ejemplo de la función de Dirichlet antes visto, prueban que una restricción de una función  discontinua puede ser continua o, lo que es igual, una extensión de una función continua puede
+ser discontinua. Son importantes y útiles a este respecto los siguientes resultados fáciles de probar.
+
+\begin{proposicion}\label{restriccionextension}
+\begin{enumerate}[a)]
+\item Cualquier restricción de una función continua es también continua.
+\item Cualquier extensión de una función continua en un \emph{intervalo abierto} es también \emph{continua en dicho intervalo abierto}.
+\end{enumerate}
+\end{proposicion}
+Observa la importancia que en la afirmación b) anterior tiene el hecho de que el intervalo sea \emph{abierto}. El ejemplo de la función ``parte entera'', antes visto, pone de manifiesto que una extensión de una función continua en un intervalo \emph{no abierto} puede no ser continua.
+
+De las afirmaciones anteriores se deduce el siguiente resultado.
+
+\begin{teorema}[\textbf{Teorema de localización}]\label{teor:localizacion}
+Una función $f$ es continua en un intervalo
+abierto $I$ si, y sólo si, la restricción $f_{|I}$ es continua en $I$.
+\end{teorema}
+
+Este resultado es bastante útil para evitarnos hacer trabajo innecesario. Por
+ejemplo, si queremos estudiar la continuidad de la función parte entera, como dicha función es constante en los intervalos de la forma $]n,n+1[$ ($n\en\Z$), el resultado anterior nos dice que dicha función es continua en estos intervalos. Sólo queda así estudiar lo que pasa en los enteros.
+
+La continuidad de una función en un punto permite obtener información sobre el comportamiento de la función en los puntos próximos al mismo. Estos resultados se llaman \emph{locales}.
+
+\begin{teorema}[\textbf{Conservación local del signo}]\ Sea \funcreal{f}{A}\ continua
+en un punto $a\en A$ con $f(a)\neq 0$. Entonces hay un número $r>0$
+tal que para todo $x\en A$ con $|x-a|<r$ se verifica que
+$f(x)f(a)>0$. Es decir, $f(x)>0$ si $f(a)>0$, o $f(x)<0$
+si $f(a)<0$, en todo  punto $x\in ]a-r,a+r[\cap A$.
+\end{teorema}
+\noindent\textbf{Demostración.}\ Supondremos que $f(a)>0$. Podemos
+entonces tomar $\eps=f(a)/2$ en (\ref{definicioncontinuidad}) para obtener, en virtud de la continuidad de $f$ en $a$, un $r>0$ tal que para todo $x\en A$ con $|x-a|<r$ se verifica que $|f(x)-f(a)|<f(a)/2$, lo que implica que
+$f(x)>f(a)/2>0$. El caso en que $f(a)<0$ se reduce al anterior sin
+más que sustituir $f$ por $-f$.\fin
+
+\begin{proposicion}[\textbf{Acotación local}]\ Sea \func{f}{A}\ continua en un punto $a\en A$. Entonces hay números, $M_a>0$, $r_a>0$ tales que para todo $x\en A$ con $|x-a|<r_a$ se verifica que $|f(x)|\leqslant M_a$.
+\end{proposicion}
+\dem Hagamos $\eps=1$ en (\ref{definicioncontinuidad}) para obtener, en virtud de la continuidad de $f$ en $a$, un $r_a>0$ tal que para todo $x\en A$ con
+$|x-a|<r_a$ se verifica que $|f(x)-f(a)|<1$. Pongamos $M_a=1+\abs{f(a)}$. Entonces, para todo $x\in ]a-r_a,a+r_a[\cap A$ tenemos que:
+$$
+\abs{f(x)}=\abs{f(a)+(f(x)-f(a))}\le \abs{f(a)}+\abs{f(x)-f(a)}<1+\abs{f(a)}=M_a
+$$
+\fin
+\section{Teorema de Bolzano. Supremo e ínfimo}
+Si ahora mides 175cm y hace 10 años medías 135cm, es seguro que
+en algún momento intermedio medías con exactitud 161cm. Si una
+entrada de cine cuesta  5\EURtm\ \,y hace 3 años costaba 4\EURtm, es
+seguro que en algún momento ir al cine costaba exactamente
+4\raisebox{-2pt}{$\cdot$}99\EURtm. ¿Seguro? No, a ningún empresario de cine le parecería bien
+cobrar 4\raisebox{-2pt}{$\cdot$}99\EURtm\ por la entrada.
+
+La diferencia está en que la talla de una persona es una función
+continua del tiempo y para pasar de 135cm a 175cm tiene que
+pasar por todos los valores intermedios, pero el precio de las
+entradas de cine no varía de forma continua con el tiempo y puede
+pasar ``de golpe'' de 4\raisebox{-2pt}{$\cdot$}5\EURtm\ a 5\EURtm.
+
+La gráfica de una función continua en un intervalo,
+\funcreal{f}{[a,b]}, la imaginamos como una curva continua, por
+ello, si $f(a)<0<f(b)$, la gráfica de $f$ tiene que atravesar el eje
+de abscisas para pasar de un punto situado por debajo de él a otro que se
+encuentra por encima y, por tanto, $f$ \emph{tiene que\/} anularse
+en algún punto entre $a$ y $b$. Esto es precisamente lo que afirma
+el conocido \emph{teorema\/} que sigue.
+
+\sskip
+
+\begin{teorema}[\textbf{Teorema de los ceros de Bolzano}]\label{th:teoremadebolzano} Toda función continua en un
+intervalo que toma valores positivos y negativos se anula en algún
+punto de dicho intervalo.
+\end{teorema}
+\sskip
+
+Lo primero que llama la atención en este teorema es su
+\emph{evidencia}. No está de más a este respecto recordar que, como
+decía Bertrand Russell, ``en matemáticas, la evidencia es enemiga de
+la corrección''. Precisamente, el mérito de \href{http://es.wikipedia.org/wiki/Bernard_Bolzano}{Bernard Bolzano}
+(1781-1848) está en haber llamado la atención sobre la necesidad de
+\emph{demostrar} muchas proposiciones, aparentemente evidentes, que
+se refieren a las funciones continuas. Podemos añadir, además, que
+suele ser particularmente difícil demostrar matemáticamente lo que
+nuestra intuición presenta como evidente; de hecho, \emph{con las
+herramientas que tenemos hasta ahora no podemos demostrar el
+teorema.}
+
+La función $\ f(x)=x^{2}-2\,$ es continua y $f(0)<0<f(2)$, el
+teorema de Bolzano asegura que existe un número positivo en el que
+$f$ se anula. En otras palabras, el teorema prueba \emph{la
+existencia} del número $\sqrt{2}$ y, como dicho número no es
+racional, deducimos que para probar el teorema se precisa usar
+alguna propiedad que NO tienen los números racionales. Pero todas
+las propiedades de los números reales que enunciamos en el Capítulo 1
+las tienen también los números racionales. Concluimos que
+los números reales deberán tener otra propiedad que todavía no hemos
+considerado.
+
+\subsection{La propiedad del supremo}
+
+Comentamos en el Capítulo 1 que no debemos preocuparnos mucho \emph{por
+lo que sea} el número $\sqrt{2}$, pero al menos deberíamos de tener
+alguna forma de \emph{probar su existencia}; es decir, de las
+propiedades de los números reales se debería poder deducir que hay
+un número cuyo cuadrado es igual a 2. ¿Qué sabemos de $\sqrt{2}$? No
+es racional, pero podemos aproximarlo por racionales. Con una
+calculadora obtenemos sucesivas aproximaciones racionales de
+$\sqrt{2}$ por defecto:
+
+\centerline{1\raisebox{-2pt}{$\cdot\msi$}41,\ 1\raisebox{-2pt}{$\cdot\msi$}414,\  1\raisebox{-2pt}{$\cdot\msi$}4142,\  1\raisebox{-2pt}{$\cdot\msi$}41421,\ 1\raisebox{-2pt}{$\cdot\msi$}414213,\dots}
+
+Es claro que $\sqrt{2}$ debe ser el \emph{menor número mayor que
+todas ellas}. Pues bien, justamente necesitamos una propiedad que
+garantice la existencia de ese ``menor número mayor que''. Nos
+vendrá bien introducir alguna terminología nueva.
+
+\begin{definicion} Sea $E$ un conjunto no vacío de números reales. Un
+número $z\!\en\!\R$ se dice que es un \textbf{mayorante o cota
+superior} (resp. \textbf{minorante o cota inferior}) de $E$ si
+$x\!\leqslant\!z$ (resp.\ $z\!\leqslant\!x$)  para todo $x\!\en\!E$.
+
+Si hay algún elemento de $E$ que también sea mayorante (resp.\
+minorante) de $E$, dicho elemento es necesariamente único y se
+llama \textbf{ máximo} (resp.\textbf{ mínimo}) de $E$ y lo
+representaremos por $\max(E)$ (resp.\ $\min(E)\,$).
+
+Un conjunto que tiene algún mayorante (resp.\ minorante) se dice
+que está  \textbf{mayorado o acotado superiormente} (resp.\
+\textbf{minorado o acotado inferiormente}). Un conjunto que está
+mayorado y minorado se dice que está  \textbf{acotado}.
+\end{definicion}
+
+Está claro que un conjunto puede no tener mínimo ni máximo. Los
+problemas de ``optimización'' consisten, justamente, en estudiar
+condiciones que garanticen la existencia de valores máximos y
+mínimos para funciones de diversas clases. La siguiente propiedad
+garantiza que \emph{ciertos conjuntos\/} de números reales tienen
+mínimo.
+
+\noindent\textbf{P8}\ \textbf{Propiedad del supremo.}\ Para todo conjunto
+de números reales no vacío y mayorado se verifica que el
+conjunto de sus mayorantes tiene mínimo.
+
+\begin{definicion} Dado un conjunto $E\!\subset\!\R$, no vacío y mayorado,
+se llama \textbf{supremo o extremo superior} de $E$, al mínimo
+mayorante de $E$ y lo notaremos por $\,\sup(E)$.
+\end{definicion}
+Con esta terminología lo que dice la propiedad \textbf{P8} es que
+todo conjunto de números reales no vacío y mayorado tiene
+supremo (pero nótese que el supremo no tiene por qué pertenecer al
+conjunto).
+
+\subsection{Propiedad de extremo inferior}
+A partir de la propiedad del supremo, se prueba con facilidad el
+siguiente resultado.
+
+\begin{proposicion}[\textbf{Propiedad del ínfimo}]
+Para todo conjunto de números reales no vacío y minorado se verifica que el conjunto de sus minorantes tiene máximo.
+\end{proposicion}
+\dem Sea $E\!\subset\!\R$, un conjunto no vacío y minorado. Definamos $\,A=\set{-x:x\en E}$. El conjunto $A$ es no vacío y mayorado (pues si $z$ es un minorante de $E$ entonces $-z$ es mayorante de $A$). La propiedad del supremo nos dice que hay un número real $c$ que es el mínimo mayorante de $A$. Comprobemos que $-c$ es el máximo minorante de $E$. Para todo $x\en E$ se tiene que $-x\en A$ y como $c$ es un mayorante de $A$, tenemos que $-x\le c$, esto es, $-c\le x$. Por tanto $-c$ es un minorante de $E$. Veamos que es el máximo minorante, y para ello probaremos que ningún número mayor que $-c$ es minorante de $E$. Sea, pues, $u>-c$. Entonces $-u<c$ y, como $c$ es el mínimo mayorante de $A$, se sigue que $-u$ no puede ser mayorante de $A$, esto es, tiene que haber algún elemento $x\en A$ tal que $-u<x$. Pero entonces tenemos que $-x<u$ y, como $-x\en E$, concluimos que $u$ no es minorante de $E$.\fin
+
+\begin{definicion} Dado un conjunto $E\!\subset\!\R$, no vacío y minorado,
+se llama \textbf{ínfimo o extremo inferior} de $E$, al máximo
+minorante de $E$ y lo notaremos por $\,\inf(E)$.
+\end{definicion}
+
+Con esta terminología lo que dice la propiedad del ínfimo es que
+todo conjunto de números reales no vacío y minorado tiene
+ínfimo (pero nótese que el ínfimo no tiene por qué pertenecer al
+conjunto).
+
+\begin{estrategia}\label{desigualdadessupremo} Para probar desigualdades en las que intervienen supremos
+o ínfimos las siguientes observaciones, aunque evidentes,
+pueden ser útiles. Sea $\,C\subset\R$ un conjunto no vacío.
+\begin{enumerate}[a)]
+\item Si queremos probar que un número real $\,x\,$ verifica que
+$\,\sup(C)\leqslant x$, lo que tenemos que hacer es probar que
+$\,x\,$ es un mayorante de $\,C$.
+\item Si queremos probar que un número real $\,x\,$ verifica que
+$\,x\leqslant \inf(C)$, lo que tenemos que hacer es probar que
+$\,x\,$ es un minorante de $\,C$.
+\end{enumerate}
+\end{estrategia}
+Sea $C$ un conjunto no vacío y acotado de números reales. Pongamos $\alpha=\inf(C)$, $\beta=\sup(C)$. Los siguientes razonamientos son de uso constante:
+\begin{enumerate}[a)]
+\item Si un número real $\,x\,$ verifica que $x<\beta$ entonces $x$ no puede ser mayorante de $C$ (porque $\beta$ es el mínimo mayorante de $C$), por tanto tiene que haber algún $z\en C$ tal que $x<z$.
+\item Si un número real $\,x\,$ verifica que $x>\alpha$ entonces $x$ no puede ser minorante de $C$ (porque $\alpha$ es el máximo minorante de $C$), por tanto tiene que haber algún $u\en C$ tal que $u<x$.
+\end{enumerate}
+
+La propiedad del supremo es lo que distingue a los números reales de
+los racionales. Dicha propiedad se usa para probar la existencia de
+números reales que cumplen alguna determinada condición. La
+demostración del teorema de Bolzano es un ejemplo importante de
+ello.
+
+\subsubsection*{Demostración del teorema de los ceros de Bolzano}
+
+\noindent Es suficiente probar que si \funcreal{f}{[a,b]}\ es
+continua y $f(a)<0<f(b)$, entonces $f$ se anula en algún punto del
+intervalo $]a,b[$ . Una buena estrategia para demostrar un teorema
+es ``darlo por demostrado'' y \emph{trabajar hacia atrás}. Tenemos
+que buscar un punto $c\in ]a,b[$ tal que $f(c)=0$. Por supuesto,
+puede haber muchos puntos donde $f$ se anule (el teorema dice que
+\emph{al menos hay uno}), pero de todos ellos el más fácil de
+caracterizar es el ``primero'', porque a la izquierda de él la
+función es siempre negativa. Esto lleva a considerar el conjunto $E$
+de los puntos $x\en [a,b]$ tales que $f$ toma valores negativos en
+$[a,x]$:
+$$
+E=\{x\en [a,b]:f(t)<0\ \ \textrm{para todo}\ \ t\en [a,x]\}
+$$
+Por su definición, tenemos que $E\subset [a,b]$ y $a\en E$. La
+propiedad del supremo nos dice que hay un número real, $c$, que es
+el supremo de $E$. Es evidente que $a\leqslant c\leqslant b$. La
+propiedad de conservación local del signo implica que existe algún
+$\delta>0$ tal que $a+\delta<b-\delta$ y $f$ es negativa en todos
+los puntos del intervalo $[a,a+\delta]$ y positiva en todos los
+puntos del intervalo $[b-\delta,b]$. Esto implica que $a<c<b$.
+
+Veamos que $[a,c[\subset E$. Sea $a<x_0<c$.  Como $x_0<c$ y $c$ es
+el mínimo mayorante de $E$, tiene que existir algún punto $z_0\en E$
+tal que $x_0<z_0\leqslant c$. Por tanto, si $t\en [a,x_0]$ también
+$t\en [a,z_0]$ y, como, $z_0\en E$, será $f(t)<0$, luego $x_0\en E$.
+Nótese que hemos probado también que $f(x)<0$ para todo
+$x\en[a,c[$.
+
+Finalmente, probaremos que $f(c)=0$. Como a la
+izquierda de $c$ la función $f$ toma valores negativos y $f$ es
+continua, deducimos que \emph{no puede ser} $f(c)>0$ y, por tanto,
+$f(c)\leqslant 0$. Pero tampoco puede ser $f(c)<0$, pues entonces,
+por la conservación local del signo, habría un intervalo de la forma
+$[c-\rho,c+\rho]\subset [a,b]$ tal que $f(t)<0$ para todo $t\en
+[c-\rho,c+\rho]$ lo que implica que en $E$ hay puntos mayores que
+$c$ lo que es contradictorio. Concluimos así que $f(c)=0$.\fin
+
+
+Observa que la demostración que hemos dado no nos dice cómo calcular un punto en el que la función se anule. Es una demostración de ``existencia''. Veremos más adelante otra demostración, algo más constructiva, en la que se basa un algoritmo bastante eficaz para calcular de forma aproximada raíces de ecuaciones.
+
+Un enunciado \emph{equivalente} del teorema de Bolzano es el
+siguiente.
+
+\begin{teorema}[\textbf{Teorema del valor intermedio}]
+La imagen de un intervalo por una función continua es un intervalo.
+\end{teorema}
+\dem Supongamos que $I$ es un intervalo y \funcreal{f}{I}\ es una función continua en $I$. Queremos probar que la imagen de $f$, esto es, el conjunto $J=f(I)$ es un intervalo. Teniendo en cuenta la definición de intervalo (\ref{definicionintervalo}), deberemos probar que si dos números están en $J$, todos los números comprendidos entre ellos también se quedan dentro de $J$. Sean pues, $u,v$ elementos de $J$ con $u<v$. Debe haber elementos $\alpha,\beta$ en $I$ tales que $f(\alpha)=u$, $f(\beta)=v$. Como $f$ es una función, debe ser $\alpha\neq\beta$; podemos suponer que $\alpha<\beta$. Sea $z\in ]u,v[$, esto es, $u<z<v$. Definamos la función \funcreal{h}{I}\ dada por $h(x)=z-f(x)$ para todo $x\en I$. Como $f$ es continua, $h$ es continua en $I$. Tenemos que $h(\alpha)=z-f(\alpha)=z-u>0$ y $h(\beta)=z-f(\beta)=z-v<0$. Como $I$ es un intervalo, tenemos que $[\alpha,\beta]\subset I$. Podemos, pues, aplicar el teorema antes demostrado a la función $h$ en el intervalo $[\alpha,\beta]$ y obtenemos que tiene que haber algún punto $\lambda\en ]\alpha,\beta[$ tal que $h(\lambda)=z-f(\lambda)=0$. Hemos probado así que $f(\lambda)=z$. Como $\lambda\en [\alpha,\beta]\subset I$, concluimos que $z\en J=f(I)$. Como esto es cierto cualquiera sea el punto $z\in ]u,v[$, concluimos que $[u,v]\subset J$ y, en consecuencia, $J$ es un intervalo.
+
+Recíprocamente, si suponemos que la imagen de un intervalo por una función continua es un intervalo, y \funcreal{f}{I}\ es una función continua en un intervalo $I$ que toma valores positivos y negativos, entonces $J=f(I)$ es un intervalo en el que hay números negativos y positivos, luego debe contener al $0$, es decir $f$ tiene que anularse en algún punto de $I$.\fin
+
+Observa que el teorema del valor intermedio dice que una función
+continua en un intervalo toma \emph{todos los valores comprendidos entre
+dos cualesquiera de sus valores}. Bueno, eso es lo que nos dice la intuición ¿verdad?
+
+\begin{estrategia}\label{estrategiabolzano}
+El teorema de Bolzano proporciona una herramienta útil para probar que ciertas ecuaciones tienen solución. Consideremos el siguiente problema. Se trata de probar que hay un número real $c$ tal que $f(c)=g(c)$ o, dicho de otra forma, que la ecuación $f(x)=g(x)$ tiene soluciones. La forma de proceder para aplicar el teorema de Bolzano es la siguiente.
+\begin{itemize}
+\item[$\bullet$] Se pasan todos los términos de la ecuación a un lado y se define $h(x)=f(x)-g(x)$.
+\item[$\bullet$] Se comprueba que la función $h$ es continua y está definida en un intervalo $I$. Unas veces el intervalo donde $h$ está definida debemos elegirlo nosotros de forma adecuada, y otras veces viene impuesto por el enunciado del ejercicio.
+\item[$\bullet$] Se comprueba que hay puntos en $I$ donde la función $h$ es negativa y otros en los que $h$ es positiva. Se concluye, por el teorema de Bolzano, que $h$ debe anularse en algún punto de $I$, que es lo que queríamos probar.
+\end{itemize}
+
+\end{estrategia}
+
+\subsection{Consecuencias del teorema de Bolzano}
+Hay consecuencias de este teorema que están lejos de ser evidentes. Algunas de ellas están expuestas en
+el excelente libro de R. Courant y H. Robbins \emph{¿Qué es la Matemática?} (\cite{courant}). Por ejemplo, en dicho libro se demuestra, usando como herramienta básica el teorema de Bolzano, que, dadas dos regiones acotadas del plano, siempre existe una recta que divide simultáneamente a cada una de ellas en dos partes con igual área. Este resultado se puede generalizar. Puede probarse, con la ayuda del teorema de Bolzano, que si tenemos tres sólidos en el espacio (imagina que son tres
+bocadillos de muy distintos tamaños), es siempre posible encontrar
+un plano que los divida simultáneamente en dos partes de igual volumen (puedes
+cortar a los tres bocadillos exactamente ``por la mitad'' de un sólo tajo). Nosotros aquí nos conformaremos con obtener algunas consecuencias menos vistosas pero muy útiles.
+
+\begin{corolario}[\textbf{Existencia de raíces}]
+Dados $a>0$ y $k\en\N$ hay un único número $c>0$ tal que $c^{k}=a$.
+\end{corolario}
+\dem La función \funcreal{f}{\Rpo}\ dada por $f(x)=x^k-a$, es continua y $f(0)=-a<0$, $f(1+a)=(1+a)^k-a>0$. Deducimos que hay algún número $c>0$ tal que $f(c)=0$. Dicho número es único porque la función $f$ es estrictamente creciente.\fin
+
+\begin{corolario}[\textbf{Ceros de polinomios de grado impar}]\label{cerospolinomioimpar}
+Toda función polinómica de grado impar se anula en algún punto.
+\end{corolario}
+\dem Sea $$P(x)=c_0+c_1x+c_2x^2+\cdots+c_{n-1}x^{n-1}+c_{n}x^{n}$$ una función polinómica de grado impar $n\ge 3$. Nuestro objetivo es probar que $P(x)$ toma valores positivos y negativos. Podemos suponer que $c_{n}>0$. Supongamos en lo que sigue que $\abs{x}\ge 1$. Dividiendo por $x^{n}$ tenemos que
+\begin{equation}
+\dfrac{P(x)}{x^{n}}=\dfrac{c_0}{x^{n}}+\dfrac{c_1}{x^{n-1}}+\dfrac{c_2}{x^{n-2}}+\cdots+\dfrac{c_{n-1}}{x}+c_{n}
+\end{equation}
+Para $0\le k\le n-1$, tenemos, por ser $\abs{x}\ge 1$ y $n-k\ge 1$, que:
+$$
+\dfrac{\abs{c_k}}{\abs{x}^{n-k}}\le\dfrac{\abs{c_k}}{\abs{x}}
+$$
+Por otra parte
+$$
+\dfrac{\abs{c_k}}{\abs{x}}\le \dfrac{c_{n}}{2n}\Longleftrightarrow \abs{x}\ge \dfrac{\abs{c_k}}{c_{n}}2n
+$$
+Definamos
+$$
+M=\max\set{\dfrac{\abs{c_k}}{c_{n}}2n:k=0,1,2\dots,n-1},\quad K=\max\set{M,1}
+$$
+Para $\abs{x}\ge K$ y para $k=0,1,2,\dots,n-1$, tenemos que:
+$$
+\dfrac{c_k}{x^{n-k}}\ge -\dfrac{\abs{c_k}}{\abs{x}^{n-k}}\ge -\dfrac{\abs{c_k}}{\abs{x}}\ge - \dfrac{c_{n}}{2n}
+$$
+Deducimos que para $\abs{x}\ge K$ es:
+\begin{equation}\label{signopolinomio}
+\dfrac{P(x)}{x^{n}}\ge -(n-1)\dfrac{c_{n}}{2n}+c_{n}>-\dfrac{c_{n}}{2}+c_{n}=\dfrac{c_{n}}{2}>0
+\end{equation}
+Ahora si $x<-K$, se tiene por ser $n$ impar que $x^{n}<0$, y la desigualdad anterior implica que $P(x)<0$. Análogamente, si $x>k$ debe ser $P(x)>0$.
+
+Hemos probado que $P(x)$ toma valores positivos y negativos, como es una función continua y está definida en un intervalo, \R, concluimos que debe anularse en algún punto.\fin
+
+\subsubsection{Continuidad y monotonía}
+Hemos visto que la imagen de un intervalo por una función continua es un intervalo. Podemos preguntarnos si esta propiedad caracteriza la continuidad. En general, la respuesta es que no. Es fácil dar ejemplos de funciones discontinuas en un intervalo cuya imagen es un intervalo pero estas funciones no pueden ser monótonas. Es fácil entender que si una función monótona es discontinua es porque su gráfica ``da saltos'', es decir, su imagen \emph{no} es un intervalo. El siguiente resultado deja claro este punto.
+
+\begin{teorema}\label{continuidadymonotonia}
+Una función monótona en un intervalo\footnote{No es necesario suponer que la función está definida en un intervalo, de hecho en la demostración no se usa esta hipótesis. El enunciado que damos es para facilitar su visualización.} cuya imagen es un intervalo es continua.
+\end{teorema}
+\dem Sea \func{f}{I}\ una función creciente en un intervalo $I$ cuya imagen $J=f(I)$ es un intervalo. Queremos probar que $f$ es continua. Sea $a\en I$
+y supongamos que $a$ no es un punto extremo de $I$, esto es, que los conjuntos
+$$
+I_a^-=\set{x\en I:x<a},\quad I_a^+=\set{x\en I:x>a}
+$$
+no son vacíos. Para demostrar  que $f$ es continua en $a$, probaremos que
+$$
+\sup f(I_a^-)=\sup\set{f(x):x\en I, x<a}=f(a)=\inf\set{f(x):x\en I, x>a}=\inf f(I_a^+)
+$$
+Probemos que $f(a)= \sup f(I_a^-)$. Pongamos $\alpha=\sup f(I_a^-)$. Para todo $x\en I_a^-$ tenemos que $x<a$ y, como $f$ es creciente, $f(x)\le f(a)$. Luego $f(a)$ es un mayorante del conjunto $f(I_a^-)$ y, en consecuencia, debe ser $\alpha\le f(a)$. Veamos que no puede ocurrir que $\alpha<f(a)$. Para ello supondremos que $\alpha<f(a)$ y llegaremos a una contradicción. Tomemos un elemento cualquiera $z\in ]\alpha,f(a)[$. Sea $u\en I_a^-$. Entonces $f(u)\le\alpha<z<f(a)$. Como $f(u)$ y $f(a)$ están en $J=f(I)$ y $J$ es, por hipótesis, un intervalo, deducimos que $z\en J$, esto es, $z=f(s)$ para algún $s\en I$. No puede ser $s=a$ y, como $f$ es creciente y $z<f(a)$, debe verificarse que $s<a$, esto es, $s\en I_a^-$ en cuyo caso debe ser $f(s)\le\alpha$, es decir, $z\le\alpha$ lo cual es claramente contradictorio pues $\alpha<z$.
+
+Análogamente se prueba que $f(a)=\beta=\inf f(I_a^+)$.
+
+Sea ahora \epos. Tiene que haber elementos $u\en I_a^-$ y $v\en I_a^+$ tales que $\alpha-\eps<f(u)$ y $f(v)<\beta+\eps$, es decir $$f(a)-\eps<f(u)\le f(v)<f(a)+\eps.$$  Definamos $\delta=\min\set{a-u,v-a}>0$. Entonces para todo $x\en I$ verificando que $\abs{x-a}<\delta$ se tiene que $x\in ]a-\delta,a+\delta[\subset ]u,v[$ y, por tanto, $f(u)\le f(x)\le f(v)$ lo que implica que $f(a)-\eps<f(x)<f(a)+\eps$, esto es, $\abs{f(x)-f(a)}<\eps$.
+
+Los casos en que $a$ es un posible extremo de $I$ se hacen de forma análoga.\fin
+
+\begin{corolario}
+Una función monótona definida en un intervalo es continua si, y sólo si, su imagen es un intervalo.
+\end{corolario}
+
+\begin{corolario}\label{continuidadinversa}
+La función inversa de una función estrictamente monótona definida en un intervalo es continua.
+\end{corolario}
+\dem Sea \func{f}{I}\ una función estrictamente monótona definida en un intervalo $I$. Como $f$ es inyectiva en $I$ su inversa, $f^{-1}$, está definida en el conjunto imagen $J=f(I)$ y, claramente, $f^{-1}(J)=I$. Como la inversa de una función estrictamente monótona $f$ es también estrictamente monótona (y del mismo tipo que $f$) e $I$ es, por hipótesis, un intervalo, el teorema anterior, aplicado a $f^{-1}$, nos dice que $f^{-1}$ es continua en $J$\footnote{Este resultado es cierto tal como está enunciado, sin necesidad de suponer que la función es continua.}.\fin
+
+Considera una función inyectiva y continua en un intervalo e intenta dibujar su gráfica; comprobarás que la función no puede ``subir y bajar'' porque en tal caso se pierde la inyectividad, por tanto, o bien ``siempre sube'' y es estrictamente creciente, o bien ``siempre baja'' y es estrictamente decreciente. Eso es lo que afirma el siguiente resultado, que será usado más adelante para obtener una importante propiedad de las funciones con derivada distinta de cero.
+
+\begin{teorema}\label{continuaeinyectiva}
+Toda función inyectiva y continua en un intervalo es estrictamente monótona.
+\end{teorema}
+\dem\footnote{Esta elegante demostración está tomada del libro de M. Spivak \cite{spivak}.} Sea \func{f}{I}\ continua e inyectiva en el intervalo $I$. Sean $a_0<b_0$ dos puntos de $I$. Como $f$ es inyectiva debe ser $f(a_0)\neq f(b_0)$. Por tanto, o bien $f(b_0)-f(a_0)>0$, o bien $f(b_0)-f(a_0)<0$. Supongamos que es $f(b_0)-f(a_0)>0$ y demostremos que $f$ es estrictamente creciente en $I$. Para ello sean $a_1<b_1$ puntos de $I$. Pongamos
+$$
+\left.
+\begin{array}{c}
+x(t)=(1-t)a_0+ta_1\\
+y(t)=(1-t)b_0+tb_1
+\end{array}
+\right\}\qquad \textrm{para }\ 0\le t\le 1
+$$
+Tenemos que $x(0)=a_0$, $x(1)=a_1$, $y(0)=b_0$, $y(1)=b_1$. Además, poniendo $\alpha=\min\set{a_0,a_1}$ y $\beta=\max\set{a_0,a_1}$, se tiene que:
+$$
+\alpha=(1-t)\alpha+t\alpha\le x(t)\le (1-t)\beta+t\beta=\beta
+$$
+Como $I$ es un intervalo y $\alpha, \beta\en I$, se verifica que $[\alpha,\beta]\subset I$, por lo que $x(t)\en I$. Análogamente, se tiene que $y(t)\en I$. Además, como $a_0<b_0$ y $a_1<b_1$, se verifica que $x(t)<y(t)$ para $0\le t\le 1$. Consideremos la función:
+$$
+g(t)=f(y(t))-f(x(t))\qquad 0\le t\le 1
+$$
+La función $g$ es continua en $[0,1]$ por ser composición y diferencia de funciones continuas. Como $f$ es inyectiva y $x(t)<y(t)$, se tiene que $g(t)\neq 0$ para todo $t\in [0,1]$. El teorema de Bolzano implica que $g$ debe tener signo constante en $[0,1]$ y, como $g(0)>0$, concluimos que $g(t)>0$ para todo $t\in [0,1]$. Por tanto $g(1)=f(b_1)-f(a_1)>0$. Hemos probado así que $f$ es estrictamente creciente.
+
+Análogamente, si se supone que es $f(b_0)-f(a_0)<0$ se demuestra que $f$ es estrictamente decreciente en $I$.\fin
+\begin{ejercicios propuestos}
+
+\propuesto
+\begin{enumerate}[a)]
+\item Da un ejemplo de una función  continua cuya imagen no sea un
+intervalo.
+\item Da un ejemplo de una función definida en un intervalo cuya imagen sea
+un intervalo y que no sea continua.
+\item Da un ejemplo de una función continua en todo $\mathbb{R} $, no
+constante y cuya imagen sea un conjunto (obligatoriamente un
+intervalo) acotado.
+\item Da un ejemplo de una función continua en $[0,1[$ tal que
+$f([0,1[)$ no sea acotado.
+\item Da un ejemplo de una función continua definida en un
+intervalo abierto acotado y cuya imagen sea un intervalo cerrado y
+acotado.
+\end{enumerate}
+
+\propuesto Prueba que si \func{f}{A}\ es continua en $a$ entonces también lo es $|f|$. Da un ejemplo de función discontinua cuyo valor absoluto es continua.
+
+\propuesto Representamos por $E(x)$ la parte entera de $x$ (\ref{parteentera}). Haz un esquema de las gráficas de las siguientes funciones y estudia su continuidad.
+\begin{enumerate}[a)]
+\item $f(x)=x-E(x)$
+\item $f(x)=E(1/x)$
+\end{enumerate}
+
+\propuesto Estudia la continuidad de la función \func{f}{\R} dada por $\
+f(x)=E(x^{2})$.
+
+\propuesto Estudia la continuidad de la función $f:\R \rightarrow \R$,
+definida por $\,f(x)= xE(1/x)\,$ si $x\neq 0$, $f(0)=1$.
+
+\propuesto Estudia la continuidad de la función \func{f}{\R}\ dada por $\ f(x)=x\sen(1/x)\ $ si $x\neq 0$ y $f(0)=0$.
+
+\propuesto Estudia la continuidad de la función \func{f}{[0,4]}\ dada por $\,f(1)=1/4\,$ y:
+
+$\dis{ f(x) = \left\{ \begin{array}{ll}
+                {\dis \frac{|x-1|}{(x^{2}-1)E(1+x)}} & \mbox{si $x\en[0,1[\cup]1,2]$}\\
+                \rule{0mm}{5mm} E(x)-7/4 & \mbox{si $x\in ]2,4]$}
+                \end{array}
+        \right.}$
+\propuesto Estudia la continuidad de la función \func{f}{[0,1]}\ dada por:
+
+$\dis{f(x)=\left\{ \begin{array}{ll}
+              0           & \mbox{\textrm{si} $\,x=0\,$ o $\,x\,$ \textrm{es irracional}} \\
+              1/q         & \mbox{\textrm{si} $\,x=p/q\,$ \textrm{(fracción irreducible)}}
+              \end{array}
+     \right.}$
+
+\propuesto Sea \func{f}{[a,b]}\ continua. Supongamos que $a\leq f(x)\leq b$ para todo $x$ en
+$[a,b]$. Prueba que hay algún punto $c\en [a,b]$ tal que $f(c)=c$.
+
+\propuesto Sea $a>1$. Prueba que la ecuación $\,x+\e^{-x}=a\,$ tiene al menos una solución positiva y
+otra negativa.
+
+\propuesto Prueba que la ecuación $\, x+ \e^{x} + \arctg x =0\, $ tiene
+una sola raíz real.   Da un intervalo de longitud uno en el que se
+encuentre dicha raíz.
+
+\propuesto Prueba que hay un número real $x>0$ tal que $ \log x + \sqrt{x} = 0$.
+
+\propuesto Suponiendo que la temperatura varía de forma continua, prueba
+que siempre hay dos puntos antípodas en el ecuador terrestre que
+están a la misma temperatura.
+
+\propuesto Sea \func{f}{[a,b]}\ continua con $f(a)=f(b)$. Dado \nN, $n\geq 2$,
+prueba que hay algún
+punto $c\en [a,b-(b-a)/n]$ tal que $\,f(c)=f(c+(b-a)/n)$.
+
+\propuesto Un corredor recorre $6$ kilómetros en $30$ minutos. Demuestra que en algún momento de su
+carrera recorre $1$ kilómetro en exactamente $5$ minutos.
+
+\propuesto Un reloj averiado marca inicialmente un tiempo $t_{\,0}$. El reloj puede adelantar o atrasar, pero
+cuenta con exactitud períodos de $12$ horas, es decir, pasadas $12$
+horas el reloj marca un tiempo $t_{\,0}+12$ horas. Demuestra que en
+algún momento dicho reloj mide con exactitud una hora.
+
+\propuesto Un automovilista sale de Granada hacia Madrid un sábado a las 8h de la mañana y el domingo inicia el regreso a la misma hora. Sabiendo que invirtió igual tiempo en ambos viajes, pruébese que en algún momento del domingo el
+automovilista se encuentra a igual distancia de Granada que a la que se encontraba el sábado en ese mismo momento.
+
+\propuesto Sean $f,g$ funciones continuas que no se anulan en un
+intervalo $I$, verificando que $(f(x))^{2}=(g(x))^{2}$ para todo $x\en I$.
+Prueba que o bien $f(x)=g(x)$ para todo $x\en I$, o bien
+$f(x)=-g(x)$ para todo $x\en I$. ¿Cuántas funciones hay
+\func{\ff}{\R}\ continuas y verificando que $(\ff(x))^{2}=x^{2}$
+para todo $x\en\R$?.
+
+\propuesto Demuestra el apartado b) del teorema (\ref{teor:operacionescontinuas}).
+
+\propuesto Justifica las afirmaciones del corolario (\ref{cor:operacionescontinuas}).
+
+\propuesto Sea \func{f}{\R} continua y decreciente. Prueba que hay un
+único $\,a\en\R$ verificando que $\,f(a)=a$.
+
+\propuesto Sea \func{f}{\R}\ continua y tal que $f(x)\big((f\circ f)(x)\big)=1$ para todo $x\en\R$. Sabiendo que $f(1000)=999$, calcula $f(500)$.
+
+\propuesto ¿Cuántas soluciones tiene la ecuación $\ \sin x=\dfrac{2x}{101\pi}$?
+
+\propuesto Sea $E$ un conjunto no vacío de números reales acotado.
+\begin{enumerate}[a)]
+\item Describe el conjunto de todos los mayorantes de $E$.
+\item Describe el conjunto de todos los minorantes de $E$.
+\end{enumerate}
+
+\propuesto\begin{enumerate}[a)] \item Prueba que $\sup(E)\en E$ si, y sólo si, $E$ tiene máximo, en tal
+caso $\max(E)=\sup(E)$.
+\item Prueba que $\inf(E)\en E$ si, y sólo si, $E$ tiene mínimo, en
+tal caso $\min(E)=\inf(E)$.
+\end{enumerate}
+
+\propuesto Sean $\,A,B\,$ conjuntos no vacíos de números reales. Supongamos que $\,a\leqslant b\,$
+para todo $a\en A$ y para todo $b\en B$. Prueba que  $\sup
+A\leqslant\inf B$.
+
+\propuesto Sean $A$, $B$, conjuntos no vacíos y acotados de
+números reales. Justifica las siguientes afirmaciones:
+\begin{enumerate}[a)]
+\item Si $A\subset B$ entonces $\sup(A)\leqslant\sup(B)$ e $\inf(A)\geqslant\inf(B)$.
+\item $\sup(A\cup B)=\max\{\sup(A),\sup(B)\}$.
+\end{enumerate}
+
+\propuesto Sean $A$, $B$, conjuntos no vacíos y acotados de
+números reales. Definamos
+$$A-B=\{a-b:a\en A,\ b\en B\};\ \ AB=\{ab:a\en A,\ b\en B\}$$
+Prueba que $ \ \sup (A-B) = \sup A-\inf B\ $ y, supuesto que
+$\,A\subset\Rp$ y $B\subset\Rp$,  prueba que $\ \sup (AB)=\sup
+A\,\sup B$.
+
+\propuesto Usando solamente la definición de intervalo (\ref{definicionintervalo}), y las propiedades del supremo e ínfimo, describe todos los posibles tipos de intervalo.
+
+\propuesto Sea $\,A\,$ un conjunto no vacío de números reales. Para
+cada $\,x\en\R$ definamos la ``distancia de $\,x\,$ a $\,A$'' por $\
+\dist(x,A)=\inf\{|x-a|:a\en A\}$. Prueba que para todos $\,x,y\en\R$
+se verifica que: $$ |\dist(x,A)-\dist(y,A)|\leqslant |x-y|$$ Deduce
+que la aplicación $x\mapsto \dist(x,A)$ es continua.
+
+\propuesto  Sea \func{f}{\R}\ continua, mayorada y tal que para todos
+$\,a,b\en\R$ con $a<b$, se verifica que $\sup f(]a,b[) = \sup
+f(\R)$. Prueba que $\,f\,$ es constante.
+
+\propuesto Sea \func{f}{[a,b]}\ una función continua tal que $f(a)<0$,
+$f(b)<0$ y $f(c)>0$ para algún $\,c\in ]a,b[$. Prueba que hay dos
+números $u$, $v$ verificando que \mbox{$a<u<v<b$}, $f(u)=f(v)=0$ y
+\makebox{$f(x)>0$} para todo $x\in ]u,v[$.
+
+\propuesto Sea \func{f}{[a,b]}\ creciente. Supongamos que $a\leq f(x)\leq b$ para todo $x$ en $[a,b]$. Prueba que hay algún punto $c\in [a,b]$ tal que $f(c)=c$.
+
+Sugerencia. Considera el supremo del conjunto $\{x\in [a,b]:x\leqslant f(x)\}$. Fíjate que no suponemos que $f$ sea continua.
+
+\propuesto Justifica que, dado $x\en\R$, la ecuación $\,\log t+t^{5}=x$ tiene una única solución, que representamos por $\ff(x)$. Justifica que la función $x\mapsto\ff(x)$, $(x\en\R)$, así definida es continua.
+
+\propuesto Prueba que la función $f:]-1,1[ \to \R$ definida por $f(x) = \displaystyle{ \ln \left( \sqrt{\frac{1+x}{1-x}}\right)}$ es biyectiva. Calcula $f^{-1}$ y comprueba que es una función continua.
+
+\propuesto Sea \func{f}{[0,1]}\ continua verificando que $|f(s)-f(t)|\geq |s-t|$ para todos $s,t\en[0,1]$, y $f(\{0,1\})=\{0,1\}$. Prueba que o bien es $\,f(x)=x\,$ para todo $x\en [0,1]$, o bien es $\,f(x)=1-x\,$ para todo $x\en [0,1]$.
+
+\propuesto Sean
+$$
+A=\{x\en\Q:x\leqslant 0 \ \ {\rm o}\ \ x^{2}<2\},\ \ B=\{x\en\Q:x>0\ \ {\rm y}\ \ x^{2}\geqslant 2\}.
+$$
+Prueba que $\,A\neq\vac$, $B\neq\vac$, $\Q=A\cup B$ y
+$\,a<b\,$ para todos $\,a\en A,\,$ $b\en B$. Además:
+\begin{enumerate}[a)]
+\item Para cada $r\en A$ hay algún $s\en A$ tal que $r<s$.
+\item Para cada $u\en B$ hay algún $t\en B$ tal que $t<u$.
+\item No hay ningún $z\en\Q$ con la propiedad de que todo número racional menor que $z$ esté en $A$ y todo número racional mayor que $z$ esté en $B$.
+\end{enumerate}
+
+\propuesto Sean
+$$
+A=\{x\en\R:x\leqslant 0 \ \ {\rm o}\ \ x^{2}<2\},\ B=\{x\en\R:x>0\ \ {\rm y}\ \ x^{2}\geqslant 2\}.
+$$
+Prueba que $A\neq\vac$, $B\neq\vac$, $\R=A\cup B$ y $a<b$
+para todos $a\en A$ y $b\en B$. Sea $z\en\R$ el extremo superior de $A$. Prueba que $z^{2}=2$, $A=]-\infty,z[$, $B=[z,+\infty[$.
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto\label{noconservatipointervalo}
+\begin{enumerate}[a)]
+\item Da un ejemplo de una función  continua cuya imagen no sea un
+intervalo.
+\item Da un ejemplo de una función definida en un intervalo cuya imagen sea
+un intervalo y que no sea continua.
+\item Da un ejemplo de una función continua en todo $\mathbb{R}$, no
+constante y cuya imagen sea un conjunto (obligatoriamente un
+intervalo) acotado.
+\item Da un ejemplo de una función continua en $[0,1[$ tal que
+$f([0,1[)$ no sea acotado.
+\item Da un ejemplo de una función continua definida en un
+intervalo abierto acotado y cuya imagen sea un intervalo cerrado y
+acotado.
+\end{enumerate}
+\sol a) Una función continua cuya imagen no sea un intervalo \emph{no} puede estar definida en un intervalo. Una vez que caes en este detalle, se te deben de ocurrir muchos ejemplos. Como la función \func{f}{]0,1[\cup]2,3[}\ dada por $f(x)=1$ para $x\in ]0,1[$ y $f(x)=2$ para $x\in ]2,3[$. Es claro que $f$ es continua (usa, si quieres el teorema de localización para justificarlo en media línea) y su imagen es el conjunto $\set{1,2}$ que no es un intervalo.
+
+b) Aquí debes tener en cuenta que, por el teorema (\ref{continuidadymonotonia}), la función que buscas no puede ser monótona. Una vez que caes en este detalle, se te deben de ocurrir muchos ejemplos. Como la función \func{f}{[0,2]}\ dada por $f(x)=2x$ para $x\in [0,1]$, $f(x)=x/2$ para $x\en ]1,2]$. Claramente $f$ es discontinua en $x=1$, pero su imagen es el intervalo $[0,2]$.
+
+c) Esto es muy fácil. Por ejemplo, la función $f(x)=\dfrac{1}{1+x^2}$. Claramente, $f(\R)=]0,1]$.
+
+d) Esto es muy fácil. Por ejemplo, $f(x)=\dfrac{1}{1-x}$, $x\in [0,1[$. Claramente, $f([0,1[)=[1,+\infty[$.
+
+e) Por ejemplo, la restricción de la función seno al intervalo $]-\pi,\pi[$. Si quieres otro ejemplo más elemental, puedes modificar de forma apropiada el ejemplo del punto b).
+
+\resuelto Prueba que si \func{f}{A}\ es continua en $a$ entonces también lo es $|f|$. Da un ejemplo de función discontinua cuyo valor absoluto es continua.
+
+\dem Todo lo que se necesita es la desigualdad $\ \big||u|-|v|\big|\leqslant |u-v|$. En nuestro caso tenemos:
+$$
+\big||f(x)|-|f(a)|\big|\leqslant |f(x)-f(a)|
+$$
+Supuesto que $f$ es continua en $a$, dado \epos, existe $\delta>0$ tal que si $|x-a|<\delta$ y $x\en A$ entonces $|f(x)-f(a)|<\eps$ lo que, por la desigualdad anterior, implica que $\big||f(x)|-|f(a)|\big|<\eps$ y, por tanto, $|f|$ es continua en $a$.
+
+La función dada por $\,f(x)=1\,$ si $\,x\geqslant 0\,$ y $\,f(x)=-1\,$ si $\,x<0\,$, es discontinua en $0$ pero $|f|$ es continua en $0$.\hecho
+
+\resuelto Estudia la continuidad de la función \func{f}{\R} dada por $\
+f(x)=E(x^{2})$.
+
+\dem Claramente $f=E\circ\ff$ donde $\ff(x)=x^{2}$. Puesto que \ff\ es continua en todo punto y la función parte entera es continua en $\R\setminus\Z$, deducimos por el teorema de composición de funciones continuas, que $f$ es continua en todo punto $a\en\R$ tal que $\ff(a)=a^{2}\not\in\Z$. Es decir, $f$ es continua en $\R\setminus B$ donde $B=\{\sqrt{n}:n\en\N\}\cup\{-\sqrt{n}:n\en\N\}\cup\{0\}$. Los puntos de $B$ requieren un estudio particular pues, \emph{a priori}, no podemos asegurar que $f$ sea discontinua en ellos.
+
+Empecemos estudiando la posible continuidad de $f$ en $0$. Es claro que para $-1<x<1$ tenemos que $0\leqslant x^{2}<1$ por lo que $f(x)=0$ para todo $x\en ]-1,1[$. Es decir, la función $f_{|]-1,1[}$ ( \emph{restricción de $f$ al
+intervalo} $]-1,1[$) \emph{es la función constante igual a }$0$ y por tanto \emph{$f_{|]-1,1[}$ es continua}. Como el intervalo $]-1,1[$ \emph{es abierto} deducimos, \emph{por el teorema de localización} que $f$ es continua en $]-1,1[$ y, en particular, \emph{$f$ es continua en $0$}.
+
+Consideremos ahora un punto de la forma $\sqrt{q}$ donde $q\en\N$ (fijo en lo que sigue). Para todo $x\in ]\sqrt{q-1},\sqrt{q}\,[$ se tiene que $q-1<x^{2}<q$ por lo que $f(x)=q-1$. Cualquiera sea $\delta>0$, hay puntos $$x\en ]\sqrt{q}-\delta,\sqrt{q}+\delta [\cap ]\sqrt{q-1},\sqrt{q}\,[$$ para los que
+$|f(\sqrt{q})-f(x)|=|q-(q-1)|=1$, por lo que tomando $\eps_0<1$ deducimos que $f$ no es continua en $\sqrt{q}$.
+
+De forma análoga se prueba que $f$ es discontinua en los puntos de la forma
+$-\sqrt{q}$ donde $q\en\N$.\hecho
+
+\resuelto Estudia la continuidad de la función $f:\R \rightarrow \R$, definida por $\,f(x)= xE(1/x)\,$ si $x\neq 0$, $f(0)=1$.
+
+\sol El teorema de localización puede usarse en este tipo de ejercicios. En nuestro caso, es evidente que para $x>1$ es $f(x)=0$, y para $x<-1$ es $f(x)=-x$. Por tanto la \emph{restricción} de $f$ a los intervalos $]1,+\infty[$ y $]-\infty,-1[$ es continua y, como estos intervalos son \emph{abiertos}, deducimos por el teorema de localización que $f$ es continua en dichos intervalos. De forma parecida podemos razonar con un intervalo del tipo $]1/(n+1),1/n[$ donde $n\en\N$ pues, para $x\in ]1/(n+1),1/n[$ se tiene que $f(x)=nx$, luego la restricción de $f$ a dicho intervalo es continua y, por tratarse de un intervalo \emph{abierto}, deducimos que $f$ es continua en $]1/(n+1),1/n[$. Análogamente se razona con un intervalo del tipo $]-1/n,-1/(n+1)[$. El teorema de localización no nos dice qué pasa en los puntos extremos de los intervalos considerados, es decir, en los puntos de la forma $1/n$ donde $n\en\Z^{*}$, y tampoco en $0$.
+
+Estudiemos qué ocurre en un punto de la forma $1/p$ donde $p\geqslant 2$ es un entero (fijo en lo que sigue). Tenemos que $f(1/p)=1$. Para todo $x\in ]1/(p-1),1/p[$ se tiene que $p-1<1/x<p$, por lo que $E(1/x)=p-1$ y $f(x)=(p-1)x$, y por tanto
+$$
+f(1/p)-f(x)=1-(p-1)x>1-(p-1)/p=1/p.
+$$
+En consecuencia, dado $\eps_0=1/2p$, \emph{cualquiera sea} $\delta>0$ hay puntos $x\in ]1/(p-1),1/p[$ cuya distancia al punto $1/p$ es menor que $\delta$, para los cuales \emph{no se verifica} la desigualdad $|f(1/p)-f(x)|<\eps_0$.
+Concluimos que $f$ es discontinua en $1/p$. De forma parecida se prueba que $f$ es discontinua en los puntos de la forma $1/q$ donde $q\leqslant -2$ es un entero. Igualmente se prueba que $f$ es discontinua en los puntos $1$ y $-1$.
+
+Queda por ver qué pasa en $0$. Si dibujamos con paciencia (con lápiz y regla) la gráfica de $f$ obtenemos la figura \ref{fig:discsalto} (los segmentos verticales indican discontinuidades de salto):
+%labelFontSize=\scriptsize,ticksize=3pt,
+\begin{figure}[ht]
+\vspace*{3.5cm}
+\centering
+\begin{pspicture}(-2,-.2)(2,2)
+\psset{xunit=3cm,yunit=2.5cm}
+\psaxes[linewidth=.5pt,xticksize=3pt 0, yticksize=0,labels=none,arrowscale=2]{->}(0,0)(-2,-.2)(2,2)%(-2,2)(-.2,2)
+\psplot[plotpoints=200,plotstyle=line,linewidth=.7pt]{-2}{-.1}{1 x div floor x mul}
+\psplot[plotpoints=200,plotstyle=line,linewidth=.7pt]{.1}{2}{1 x div floor x mul}
+\uput[ur](0,1){\scriptsize 1}
+\uput[dr](0,0){\small O}
+\uput[d](-1,0){\scriptsize -1}
+\uput[d](-2,0){\scriptsize -2}
+\uput[d](1,0){\scriptsize 1}
+\qdisk(0,1.02){1.3pt}
+\end{pspicture}
+\caption{\label{fig:discsalto}La función $x E(1/x)$}
+\end{figure}
+
+\emph{Parece} que $f$ es continua en $0$. Para \emph{probarlo} hay que probar que $|f(x)-f(0)|$ es tan pequeño como queramos ($<\eps$) siempre que $|x-0|=|x|$ sea suficientemente pequeño ($<\delta$). Lo usual en estos casos es \emph{trabajar para atrás}. Empezamos \emph{acotando} $f(x)-1$. Recordemos que
+\begin{equation}\label{1}
+E(1/x)\leqslant 1/x\leqslant E(1/x)+1
+\end{equation}
+Si $x>0$ podemos multiplicar por $x$ dicha desigualdad para obtener que
+$$
+xE(1/x)\leqslant 1\leqslant xE(1/x)+x.
+$$
+Resulta así que para $x>0$ es:
+\begin{equation}\label{2}
+0\leqslant 1-xE(1/x)=f(0)-f(x)\leqslant x
+\end{equation}
+Si $x<0$ podemos multiplicar por $x$ la desigualdad (\ref{1}) para obtener que
+$$
+xE(1/x)\geqslant 1\geqslant xE(1/x)+x.
+$$
+Resulta así que para $x<0$ es:
+\begin{equation}\label{3}
+0\geqslant 1-xE(1/x)=f(0)-f(x)\geqslant x\quad\textrm{es decir}\quad 0\leqslant
+f(x)-f(0)\leqslant -x
+\end{equation}
+De (\ref{2}) y (\ref{3}) deducimos que $|f(x)-f(0)|\leqslant |x|$. En consecuencia, dado \epos, tomamos $\delta=\eps$ con lo que, evidentemente, si $|x|<\delta$ entonces $|f(x)-f(0)|<\eps$. Luego $f$ es continua en $0$.\hecho
+
+\resuelto Estudia la continuidad de la función \func{f}{\R}\ dada por $\ f(x)=x\sen(1/x)\ $ si $x\neq 0$ y $f(0)=0$.
+
+\sol El propósito de este ejercicio es que no olvides que $\abs{\sen z}\!\le\!  1$ para todo $z\en\R$. Da igual como escribas $z$, esta desigualdad es válida para todo número real $z$ (recuerda cómo deben leerse las matemáticas). Por tanto $\modulo{\sen(1/x)}\le 1$. En consecuencia, $\abs{f(x)}\!\le\!\abs{x}$ de donde se sigue inmediatamente que $f$ es continua en $0$.\hecho
+
+\resuelto Estudia la continuidad de la función \func{f}{[0,1]}\ dada por:
+
+$\dis{f(x)=\left\{ \begin{array}{ll}
+              0           & \mbox{\textrm{si} $\,x=0\,$ o $\,x\,$ \textrm{es irracional}} \\
+              1/q         & \mbox{\textrm{si} $\,x=p/q\,$ \textrm{(fracción irreducible)}}
+              \end{array}
+     \right.}$
+
+\sol Es fácil probar que la función es discontinua en todos los puntos racionales de $]0,1]$. La idea es que en todo intervalo abierto hay números irracionales en los que la función vale $0$. Sea $r=\frac{p}{q}\in ]0,1]$ un número racional escrito como fracción irreducible. Tenemos que $f(r)=\frac{1}{q}$. Tomemos ahora un \epos\ menor que $\frac{1}{q}$; por ejemplo $\eps=\frac{1}{2q}$. Cualquiera sea $\delta>0$, en el intervalo $]r-\delta,r+\delta[\cap [0,1]$ hay números irracionales, si $x$ es uno de ellos, se tiene que $x\en [0,1]$, $\abs{x-r}<\delta$ pero $\abs{f(x)-f(r)}=\frac{1}{q}$ no es menor que $\eps=\frac{1}{2q}$. Concluimos que $f$ es discontinua en $r$.
+
+Para probar que $f$ es continua en todos los puntos irracionales de $[0,1]$ y también en $0$ hay que pensar un poquito. La idea es la siguiente: dado \epos, quitar los puntos de $[0,1]$ donde la función toma un valor mayor que \eps. Dichos puntos son los puntos racionales de la forma $r=\frac{p}{q}$ (fracción irreducible $p,q\en\N$)  con $\frac{1}{q}\ge\eps$, esto es, $q\le\frac{1}{\eps}$. Fijado un valor de \epos, el conjunto de valores de $q\en\N$ para los que se verifica que $\frac{1}{q}\ge\eps$ es finito. Llamemos a este conjunto $Q_\eps$. Para cada número $q\en Q_\eps$ las fracciones irreducibles de la forma $\frac{p}{q}$ que están en $]0,1]$ son como mucho $q-1$. Concluimos que el conjunto de los números racionales de $]0,1]$ en los que la función $f$ toma un valor mayor o igual que \eps, es finito. Llamemos a este conjunto $R_\eps$. Sea ahora $a$ un número irracional de $[0,1]$ o $a=0$. Tenemos que $a\not\in R_\eps$ por lo que para todo $r\en R_\eps$ el número $\abs{a-r}$ es positivo. Sabemos que todos conjunto finito tiene máximo y mínimo. Definamos $\delta=\min\set{\abs{a-r}:r\en R_\eps}$. Entonces $\delta>0$ y para todo $x\in [0,1]$ con $\abs{x-a}<\delta$ se tiene que $x\not\in R_\eps$, luego $\abs{f(x)-f(a)}=f(x)<\eps$, lo que prueba que $f$ es continua en $a$.\hecho
+
+\resuelto Sea \func{f}{[a,b]}\ continua. Supongamos que $a\leq f(x)\leq b$ para todo $x$ en $[a,b]$. Prueba que hay algún punto $c\en [a,b]$ tal que $f(c)=c$.
+
+\sol Este ejercicio es muy sencillo. Basta hacer una representación gráfica. Imagina la gráfica de una función continua $f$ en $[a,b]$ que toma valores en $[a,b]$. Lo que te dicen en el ejercicio es que pruebes que la gráfica de $f$ corta a la diagonal del rectángulo $[a,b]\times [a,b]$. Gráficamente eso es evidente. Para hacerlo, seguiremos la estrategia (\ref{estrategiabolzano}). La ecuación que debemos considerar es $f(x)=x$. Definamos $h(x)=x-f(x)$ para $x\in [a,b]$. La función $h$ es continua, porque nos dicen que $f$ es continua, y está definida en el intervalo $[a,b]$. Tenemos que $h(a)=a-f(a)\le 0$ y $h(b)=b-f(b)\ge 0$. Si alguno de estos números es igual a $0$ entonces $c=a$ o $c=b$; en otro caso debe ser $h(a)<0$ y $h(b)>0$, en cuyo caso el teorema de Bolzano asegura que hay algún $c\en ]a,b[$ tal que $h(c)=0$, es decir, $f(c)=c$.\hecho
+
+\resuelto Prueba que la ecuación $\, x+ \e^{x} + \arctg x =0\, $ tiene una sola raíz real. Da un intervalo de longitud uno en el que se encuentre dicha raíz.
+
+\sol Sea $f(x)=x+ \e^{x} + \arctg x$ para todo $x\en\R$. Es evidente que $f(x)>0$ para todo $x\ge 0$. Observa que si $x<0$ y está muy alejado del origen, entonces $\e^{x}$ es positivo pero muy pequeño y $\arctg x$ será negativo (cercano a $-\pi/2$). Vemos así que para estos valores de $x$ la función $f$ será negativa. De alguna forma debemos justificar esto que ``vemos''. Podríamos hacerlo estudiando el límite en $-\infty$ pero aún no tenemos esa herramienta. Para lo que nos pide el ejercicio, es suficiente que encontremos un punto $a<0$ en el que $f(a)<0$. En estos ejercicios no hay que buscar valores ``raros''. Tomemos $a=-1$. Tenemos que $f(-1)=-1+1/\e+\arctg(-1)=-1+1/\e-\pi/4$, como $e>2$, claramente es $f(-1)<0$. Como $f$ es continua, está definida en un intervalo (todo \R) y toma valores positivos y negativos, el teorema de Bolzano nos dice que debe anularse en algún punto. Como la función $f$ es estrictamente creciente, por ser suma de funciones estrictamente crecientes, es inyectiva, por lo que se anula en un único punto. Además, como $f(0)=1$, el teorema de Bolzano nos dice que el punto donde $f$ se anula está en $[-1,0]$.\hecho
+
+\resuelto Suponiendo que la temperatura varía de forma continua, prueba que siempre hay dos puntos antípodas en el ecuador terrestre que están a la misma temperatura.
+
+\sol Llamemos $L$ a la longitud del ecuador terrestre (unos cuarenta mil Kilómetros). Sea \func{f}{[0,L]}\ la función que a cada punto $x\en [0,L]$ hace corresponder la temperatura, $f(x)$, medida en grados centígrados, que hay en dicho punto del ecuador. Suponemos que $f$ es una función continua (cosa muy razonable). Se trata de probar que hay algún punto $c\!\in [0,L/2]$ tal que $f(c)=f(c+L/2)$. Para ello, aplicando la estrategia (\ref{estrategiabolzano}), consideramos la función $h(x)=f(x+L/2)-f(x)$ definida en el intervalo $[0,L/2]$. Tenemos que $h(0)=f(L/2)-f(0)$ y $h(L/2)=f(L)-f(L/2)$. Lo único que hay que darse cuenta ahora es que el punto a distancia $L$ vuelve a ser el punto de partida (el ecuador es una curva cerrada), por tanto $f(L)=f(0)$ y, $h(L/2)=f(0)-f(L/2)$. Observamos que $h(0)$ y $h(L/2)$ son números opuestos. O los dos son cero, en cuyo caso podemos tomar $c=0$, o uno es negativo y otro positivo, en cuyo caso el teorema de Bolzano asegura que $h$ tiene que anularse en algún $c\!\in ]0,L/2[$, esto es, $f(c+L/2)=f(c)$, como se quería probar.\hecho
+
+\resuelto Sea \func{f}{[a,b]}\ continua con $f(a)=f(b)$. Dado \nN, $n\geq 2$,
+prueba que hay algún punto $c\en [a,b-(b-a)/n]$ tal que $\,f(c)=f(c+(b-a)/n)$.
+
+\sol Sea \func{f}{[a,b]}\ una función continua. Llamemos al número $f(b)-f(a)$ el \emph{incremento} de $f$ en $[a,b]$. Dado un número natural $n\geqslant 2$, nos preguntamos si hay algún intervalo de longitud $(b-a)/n$ en el cual el incremento de $f$ sea igual a $(f(b)-f(a))/n$. Para ello dividimos el intervalo $[a,b]$ en $n$ intervalos de longitud igual a $(b-a)/n$. Estos intervalos son de la forma $[x_k,x_{k+1}]$, donde $x_k=a+k(b-a)/n$, $k=0,1,\dots,n-1$. Es claro que la suma de los incrementos de $f$ en cada uno de los $n$ intervalos $[x_k,x_{k+1}]$ es igual al incremento de $f$ en el intervalo $[a,b]$. Es decir:
+$$ \sum_{k=0}^{n-1}(f(x_{k+1})-f(x_k))=f(b)-f(a).$$
+\emph{Como en esta suma hay $n$ sumando en total}, deducimos que \emph{o bien todos ellos son igual} a $(f(b)-f(a))/n$ o bien alguno de ellos es mayor que $(f(b)-f(a))/n$ en cuyo caso tiene que haber necesariamente otro que sea menor que $(f(b)-f(a))/n$.
+
+Definamos la función \func{g}{[a,b-(b-a)/n]}\ por $\ g(x)=f(x+(b-a)/n)-f(x)$. Nótese que $g(x_k)= f(x_{k+1})-f(x_k)$. Según acabamos de ver:
+\begin{itemize}
+\item[$\bullet$] O bien para todo $k=0,1,\dots,n-1$ es $g(x_k)=\dis\frac{f(b)-f(a)}{n}$, en cuyo caso se verifica que $f(x_{k+1})-f(x_k)=\dis\frac{f(b)-f(a)}{n}$.
+\item[$\bullet$]  O bien hay puntos $x_p,x_q$ tales que $g(x_p)<(f(b)-f(a))/n<g(x_q)$, en cuyo caso, como la función $g$ es continua, el teorema de Bolzano implica que tiene que haber algún punto $t_0$ comprendido entre $x_p$ y $x_q$ tal que $g(t_0)=(f(b)-f(a))/n$, es decir se verifica que
+$f(t_0+(b-a)/n)-f(t_0)=(f(b)-f(a))/n$.
+\end{itemize}
+Hemos probado así que hay  un intervalo de longitud $(b-a)/n$ en el cual el incremento de $f$ es igual a $(f(b)-f(a))/n$.\hecho
+
+\resuelto Un reloj averiado marca inicialmente un tiempo $t_{0}$. El reloj puede adelantar o atrasar, pero cuenta con exactitud períodos de $12$ horas, es decir, pasadas $12$ horas el reloj marca un tiempo $t_{0}+12$ horas. Demuestra que en algún momento dicho reloj mide con exactitud una hora.
+
+\sol Sea \func{f}{[0,12]}\ la función definida por: \ $f(t)=$\ tiempo
+(medido en horas) que marca el reloj en el tiempo $t$. Podemos admitir que $f$ es continua. El incremento de $f$ en el intervalo $[0,12]$ es igual a $f(12)-f(0)=12$. Deducimos, por lo antes visto que, para cada $n\geqslant 2$, hay algún intervalo de longitud $(12-0)/n$ en el cual el incremento de $f$ es igual a $(f(12)-f(0))/n$. Es decir, que en algún instante $c_0$ el reloj
+mide con exactitud un período de tiempo igual a $\frac{12}{n}$ horas: $f(c_0+12/n)-f(c_0)=12/n$. Tomando $n=12$ obtenemos la solución del ejercicio.\hecho
+
+\resuelto Un automovilista sale de Granada hacia Madrid un sábado a las 8h de la mañana y el domingo inicia el regreso a la misma hora. Sabiendo que invirtió igual tiempo en ambos viajes, pruébese que en algún momento del domingo el
+automovilista se encuentra a igual distancia de Granada que a la que se encontraba el sábado en ese mismo momento.
+
+\sol Supongamos que el automovilista tarda $4$ horas en llegar a Madrid. Llamando \func{f}{[8,12]}\ la función que en el tiempo $t$ (medido horas) nos da la distancia $f(t)$ (medida en kilómetros) que el automovilista ha recorrido el sábado, y \func{g}{[8,12]}\ a la función que en el tiempo $t$ (medido horas) nos da la distancia $g(t)$ (medida en kilómetros) que el automovilista ha recorrido el domingo; tenemos que $f(8)=g(8)=0$, $f(12)=g(12)=\alpha$ donde $\alpha$ es la distancia entre Granada y Madrid.
+
+Como las funciones $f$ y $g$ son continuas, la función $h(t)= f(t)-(\alpha -g(t))$ también es continua. Como $h(8)=-\alpha<0$, $h(12)=\alpha>0$, deducimos que $h(t_0)=0$ para algún $t_0\in [8,12]$, es decir \makebox{$f(t_0)=\alpha - g(t_0)$.} Por tanto,  el sábado y el domingo, en el instante $t_0$ el automovilista se encuentra a la misma distancia de Granada.
+
+Si dibujas las gráficas de $f$ y de $\alpha-g$ verás que este resultado es \emph{evidente}.\hecho
+
+\resuelto Sean $f,g$ funciones continuas que no se anulan en un
+intervalo $I$, verificando que $(f(x))^{2}=(g(x))^{2}$ para todo $x\en I$.
+Prueba que o bien $f(x)=g(x)$ para todo $x\en I$, o bien
+$f(x)=-g(x)$ para todo $x\en I$. ¿Cuántas funciones hay
+\func{\ff}{\R}\ continuas y verificando que $(\ff(x))^{2}=x^{2}$
+para todo $x\en\R$?.
+
+\sol La función $h(x)=\dfrac{f(x)}{g(x)}$ es continua en $I$ y verifica que $h(x)^2=1$ para todo $x\en I$, luego $h(x)=1$ o $h(x)=-1$ para cada $x\en I$. Como $I$ es un intervalo y $h$ es continua, el conjunto $h(I)$ tiene que ser un intervalo, luego deberá ser $h(I)=\set{1}$ o $h(I)=\set{-1}$. En el primer caso es $f(x)=g(x)$ para todo $x\en I$, en el segundo $f(x)=-g(x)$ para todo $x\en I$.
+
+La igualdad $\ff(x)^2=x^2$ para todo $x\en\R$ equivale a $\abs{\ff(x)}=\abs{x}$. Lo que da cuatro posibilidades; a saber: $\ff_1(x)=x$, $\ff_2(x)=-x$, $\ff_3(x)=\abs{x}$, $\ff_4(x)=-\abs{x}$, donde, en cada caso, se entiende que las igualdades son para todo $x\en\R$.\hecho
+
+\resuelto Sea \func{f}{\R} continua y decreciente. Prueba que hay un
+único \mbox{$a\en\R$} verificando que $\,f(a)=a$.
+
+\sol Naturalmente, se trata de probar que la función \funcreal{g}{\R}\ dada por $\,g(x)=x-f(x)$ para todo $x\en\R$ se anula en algún punto.
+Como es continua (porque nos dicen que $f$ lo es) y está definida en un intervalo, intentaremos
+aplicar el teorema de Bolzano. Tomemos un punto $c\en\R$. Si $f(c)=c$ hemos acabado. En otro
+caso será $f(c)\neq c$. Supongamos que $f(c)<c$. Entonces, como $f$ es decreciente, será
+$f(f(c))\geqslant f(c)$. Si $f(f(c))=f(c)$, hemos acabado. En otro caso será $f(f(c))>f(c)$.
+Pero en este caso obtenemos que $g(c)>0$ y $g(f(c))<0$ por lo que el teorema de Bolzano
+garantiza que $g$ tiene que anularse en algún punto. Se razona de forma análoga si suponemos que $c<f(c)$. Finalmente, como $g$ es estrictamente creciente, solamente puede anularse en un único punto.\hecho
+
+\resuelto Sean $A$, $B$, conjuntos no vacíos y acotados de
+números reales. Definamos
+$$A-B=\{a-b:a\en A,\ b\en B\};\quad AB=\{ab:a\en A,\ b\en B\}$$
+Prueba que $ \ \sup (A-B) = \sup A-\inf B\ $ y, supuesto que
+$\,A\subset\Rp$ y $B\subset\Rp$,  prueba que $\ \sup (AB)=\sup
+A\,\sup B$.
+
+\sol Sea
+$\,\alpha=\sup(A),\,\beta=\inf(B),\,\gamma=\sup(A-B)$. Cualesquiera sean $\,a\en A,\,b\en B$ se
+tiene que $\,a\leqslant \alpha,\,\beta\leqslant b$. En consecuencia
+$\,a-b\leqslant\alpha-\beta$, lo que prueba que $\,\alpha-\beta\,$ es un mayorante de $\,A-B$, y
+por tanto $\,\gamma\leqslant\alpha-\beta$. Probaremos ahora que
+$\,\alpha-\beta\leqslant\gamma$. Cualesquiera sean $\,a\en A,\,b\en B$ se tiene que
+$\,a-b\leqslant\gamma$, es decir, $\,a\leqslant b+\gamma$. Esta última desigualdad nos dice que,
+fijado un elemento $\,b\en B$, el número $\,b+\gamma\,$ es un mayorante de $\,A$, por lo que
+$\,\alpha\leqslant b+\gamma$. Hemos obtenido así que para todo $\,b\en B$ se verifica que
+$\,\alpha-\gamma\leqslant b$, es decir, $\alpha-\gamma\,$ es un minorante de $\,B$, y por tanto
+$\,\alpha-\gamma\leqslant \beta$, es decir, $\,\alpha-\beta\leqslant\gamma$.
+
+
+Sea $\alpha=\sup(A),\,\beta=\sup(B),\,\mu=\sup(AB)$. Cualesquiera sean $a\en A$, $b\en B$ se tiene que $\,a\leqslant \alpha$ y $b\leqslant \beta$. En consecuencia, por ser
+$a>0,b>0$, $\,ab\leqslant\alpha\,\beta$, lo que prueba que $\,\alpha\,\beta\,$ es un mayorante
+de $\,AB\,$ y por tanto $\,\mu\leqslant\alpha\,\beta$.\newline Probaremos ahora que
+$\,\alpha\,\beta\leqslant\mu$. Cualesquiera sean $a\en A$, $b\en B$ se tiene que
+$\,ab\leqslant\mu$, esto es, $\,a\leqslant \mu/b$. Esta última desigualdad nos dice que, fijado
+un elemento $\,b\en B$, el número $\,\mu/b\,$ es un mayorante de $\,A$, por lo que
+$\,\alpha\leqslant\mu/b$. Hemos obtenido así que para todo $\,b\en B$ se verifica que
+$\,b\leqslant\mu/\alpha$, es decir,$\mu/\alpha\,$ es un mayorante de $\,B$, y por tanto
+$\,\beta\leqslant\mu/\alpha$, es decir, $\,\alpha\,\beta\leqslant\mu$.\hecho
+
+\resuelto Sea $\,A\,$ un conjunto no vacío de números reales. Para cada $\,x\en\R$ definamos la ``distancia de $\,x\,$ a $\,A$'' por $\ \dist(x,A)=\inf\{|x-a|:a\en A\}$. Prueba que para todos $\,x,y\en\R$ se verifica que:
+$$
+|\dist(x,A)-\dist(y,A)|\leqslant |x-y|.
+$$
+Deduce que la aplicación $x\mapsto \dist(x,A)$ es continua.
+
+\sol Teniendo en cuenta que $|a|\leqslant b$ equivale a que
+$a\leqslant b$ y $-a \leqslant b$, la desigualdad que nos piden probar equivale a estas dos desigualdades:
+\begin{equation}\label{4}
+\dist(x,A)-\dist(y,A)\leqslant |x-y|\quad\textrm{y}\quad \dist(y,A)-\dist(x,A)\leqslant |x-y|
+\end{equation}
+Pero es claro que basta con probar una sola de ellas pues entonces cambiando $x$ por $y$ obtenemos la otra (porque $|x-y|=|y-x|$). Probaremos la primera de las dos desigualdades (\ref{4}). Escribamos la desigualdad en la forma: $$\dist(x,A)\leqslant |x-y|+\dist(y,A)$$
+En todo lo que sigue $x$ e $y$ están fijos. Tenemos que para todo $a\en A$:
+$$
+\dist(x,A)\leqslant |x-a|\leqslant |x-y|+|y-a|.
+$$
+Es decir
+$$
+\dist(x,A)-|x-y|\leqslant |y-a|\quad \textrm{para todo}\quad a\en A.
+$$
+Deducimos que $\dist(x,A)-|x-y|$ es un minorante del conjunto $\{|y-a|:a\en A\}$, y por tanto será menor o igual que el máximo minorante de dicho conjunto, que es por definición $\dist(y,A)$. Hemos probado así que
+$$
+\dist(x,A)-|x-y|\leqslant \dist(y,A).
+$$
+Que es la desigualdad que queríamos  probar.
+
+Es evidente, teniendo en cuenta la desigualdad que acabamos de probar, que la función $\ff(x)=\dist(x,A)$ es continua, pues dado \epos, tomamos $\delta=\eps$ con lo que, evidentemente, $|\ff(x)-\ff(y)|\leqslant |x-y|<\eps$ siempre que $|x-y|<\delta$. Observa que aquí un mismo ``$\delta$'' vale para todo punto.\hecho
+
+\resuelto Sea \func{f}{\R}\ continua, mayorada y tal que para todos $\,a,b\en\R$ con $a<b$, se verifica que $\sup f(]a,b[) = \sup f(\R)$. Prueba que $\,f\,$ es constante.
+
+\sol Llamemos $\beta=\sup f(\R)$. Es claro que $f(x)\leqslant\beta$ para todo $x\en\R$. Y, si $f$ es constante deberá darse la igualdad $f(x)=\beta$ en todo punto $x$ de \R. Luego tenemos que probar que, dado $a\en\R$, es imposible que ocurra $f(a)<\beta$. Pero eso es claro, pues si fuera $f(a)<\beta$, entonces tomando $\lambda\in ]f(a),\beta[$, por
+el teorema de conservación del signo aplicado a la función $g(x)=\lambda-f(x)$ en el punto $a$, deducimos que existe un intervalo abierto $]u,v[$ que contiene al punto $a$ y tal que para todo $x\in ]u,v[$ es $g(x)>0$, es decir, $f(x)<\lambda$. Pero entonces $\sup f(]u,v[)\leqslant\lambda<\beta$ en contradicción con la hipótesis hecha.\hecho
+
+\resuelto Sea \func{f}{[a,b]}\ creciente. Supongamos que $a\leq f(x)\leq b$ para todo $x$ en $[a,b]$. Prueba que hay algún punto $c\in [a,b]$ tal que $f(c)=c$.
+
+Sugerencia. Considera el supremo del conjunto $\{x\in [a,b]:x\leqslant f(x)\}$. Fíjate que no suponemos que $f$ sea continua.
+
+\sol Sea $\,M=\{x\in [a,b]:x\leqslant f(x)\}$. El conjunto $\,M\,$ no es
+vacío ($a\in M$) y está mayorado ($b$ es un mayorante de $M$). Sea $\,c=\sup(M)$. Evidentemente $\,c\in [a,b]$. Probaremos que $\,f(c)=c$. Probaremos para ello que {\em no\/} puede ser $\,f(c)\neq c$.
+
+a) Si fuera $c<f(c)$, entonces, como $c$ es un mayorante de $M$, tendríamos que \linebreak \mbox{$f(c)\not\in M$,} es decir, $\,f(c)>f(f(c))$. Y también, por ser $\,f\,$ creciente, tendríamos que $\,f(c)\leqslant f(f(c))$, resultando así una contradicción.
+
+b) Si fuera $\,f(c)<c$, entonces hay algún $\,z\en M\,$ tal que $\,f(c)<z$. Y como $\,z\leqslant f(z)\,$ deducimos que $\,f(c)<f(z)\,$ lo cual, por ser $\,f\,$ creciente, implica que $\,c<z\,$ lo que es contradictorio.\hecho
+
+\resuelto Justifica que, dado $x\en\R$, la ecuación $\,\log t+t^{5}=x$ tiene una única solución, que representamos por $\ff(x)$. Justifica que la función $x\mapsto\ff(x)$, $(x\en\R)$, así definida es continua.
+
+\sol La función \func{f}{\Rp}\ dada por $f(t)=\log t+t^5$ es continua. Como $\Rp$ es un intervalo, el conjunto imagen $f(\Rp)$ también es un intervalo. Claramente $f(\Rp)$ es un intervalo no minorado ni mayorado, luego $f(\Rp)=\R$. La función $f$ es estrictamente creciente, por tanto es inyectiva. Deducimos que dado $x\en\R$ hay un único $t\en\Rp$ tal que $f(t)=x$. Sea \func{\ff}{\R}\ la función inversa de $f$. La función $\ff$ es estrictamente creciente y su imagen es un intervalo  ($\Rp$), luego es continua en virtud del teorema (\ref{continuidadymonotonia}).\hecho
+
+\resuelto Sea \func{f}{[0,1]}\ continua verificando que $|f(s)-f(t)|\geq |s-t|$ para todos $s,t\en[0,1]$, y $f(\{0,1\})=\{0,1\}$. Prueba que o bien es $\,f(x)=x\,$ para todo $x\en [0,1]$, o bien es $\,f(x)=1-x\,$ para todo $x\en [0,1]$.
+
+\sol La clave de este ejercicio consiste en darse cuenta de que la condición del enunciado $|f(s)-f(t)|\geq |s-t|$ implica que $f$ es inyectiva en $[0,1]$. Como $f$ se supone continua, el teorema (\ref{continuaeinyectiva}) nos dice que $f$ es estrictamente monótona.
+
+La condición  $f(\{0,1\})=\{0,1\}$ nos dice que o bien es $f(0)=0$ y $f(1)=1$ o bien es $f(0)=1$ y $f(1)=0$. En el primer caso $f$ será estrictamente creciente y en el segundo estrictamente decreciente.
+
+Supongamos que $f(0)=0$ y $f(1)=1$. Probaremos que $f(x)=x$ para todo $x\en [0,1]$. Como $f$ es estrictamente creciente, será $0\le f(x)\le 1$ para todo $x\en [0,1]$. Haciendo $t=0$ y $s=x$ en la desigualdad $|f(s)-f(t)|\geq |s-t|$, obtenemos que $f(x)\ge x$. Haciendo $t=1$ y $s=x$ obtenemos que $1-f(x)\ge 1-x$, es decir, $f(x)\le x$. Concluimos que $f(x)=x$.
+
+El caso en que $f(0)=1$ y $f(1)=0$ se hace de forma parecida.\hecho
+
+\resuelto\label{cortenoracional} Sean
+$$
+A=\{x\en\Q:x\leqslant 0 \ \ {\rm o}\ \ x^{2}<2\},\ \ B=\{x\en\Q:x>0\ \ {\rm y}\ \ x^{2}\geqslant 2\}.
+$$
+Prueba que $\,A\neq\vac$, $B\neq\vac$, $\Q=A\cup B$ y
+$\,a<b\,$ para todos $\,a\en A,\,$ $b\en B$. Además:
+\begin{enumerate}[a)]
+\item Para cada $r\en A$ hay algún $s\en A$ tal que $r<s$.
+\item Para cada $u\en B$ hay algún $t\en B$ tal que $t<u$.
+\item No hay ningún $z\en\Q$ con la propiedad de que todo número racional menor que $z$ esté en $A$ y todo número racional mayor que $z$ esté en $B$.
+\end{enumerate}
+
+\sol a) Sea $\,r\en A$. Si $\,r<1\,$ basta tomar $\,s=1$. Supongamos, pues, que $\,1\leqslant r$. Un número racional que sea mayor que $\,r\,$ será de la forma $\,r+\varepsilon\,$ donde $\,\varepsilon\,$ es un número racional positivo. Para que dicho número esté en $\,A\,$ deberá verificarse que $\,(r+\varepsilon)^{2}<2$. Si, {\em  además} $\,\varepsilon<1$, entonces $\,\varepsilon^{2}<\varepsilon$, por lo que $\,(r+\varepsilon)^{2}<r^{2}+2r\varepsilon+\varepsilon$. Es por tanto {\em suficiente\/} que $\,r^{2}+2r\varepsilon+\varepsilon\leqslant 2\,$ para lo cual basta tomar ${\dis\,\varepsilon=\frac{2-r^{2}}{2r+1}\,}$. Es claro que dicho número $\,\varepsilon\,$ es racional. Además, como $\,1\leqslant r$ y $\,r^{2}<2$, es $\,0<\varepsilon<1$ y por tanto el número ${\dis \,s=r+\frac{2-r^{2}}{2r+1}\,}$ verifica que $\,r<s\,$ y $\,s\en A$.
+
+b) Este apartado se hace de manera análoga al anterior. Dado $\,u\en B$ hay que tratar de determinar un número racional positivo, $\varepsilon\,$ tal que $\,0<u-\varepsilon\,$ y $\,(u-\varepsilon)^{2}\geqslant 2$. Esta última condición es lo mismo que: $$ u^{2}-2\geqslant 2u\varepsilon-\varepsilon^{2}\ \ \ \ \ \ \ \ (1) $$
+Como queremos que $\,0<\varepsilon<u$, debemos tener
+$\,2u\varepsilon-\varepsilon^{2}>\varepsilon^{2}>0$. Sabemos que no hay ningún número racional cuyo cuadrado sea igual a $2$, en consecuencia si $\,u\en B$ entonces $u^{2}>2$. Puesto que $\,2u\varepsilon>2u\varepsilon-\varepsilon^{2}$, para que se verifique $(1)$ es {\em suficiente\/} que $\,u^{2}-2\geqslant 2u\varepsilon$, para lo cual basta tomar ${\dis\,\varepsilon=\frac{u^{2}-2}{2u}}\,$ se tiene con ello que el número ${\dis \,t=u-\frac{u^{2}-2}{2u}}\,$ está en $\,B\,$ y $\,t<u$.
+
+c) Sea $\,z\en\Q$. Como $\,A\cup B=\Q$, deberá ser $\,z\en A\,$ o $\,z\en B$. Si $\,z\en A$, sabemos, por a), que hay elementos $\,s\en A$ con $\,z<s$.
+Si $\,z\en B$, sabemos, por b), que hay elementos $\,t\en B$ con
+$\,t<z$. Concluimos así que no hay ningún $\,z\en\Q$ verificando
+que todo número racional menor que $z$ está en $A$ y todo número
+racional mayor que $z$ está en $B$.\hecho
+\end{ejercicios resueltos}
+
+\section{Continuidad en intervalos cerrados y acotados}
+
+Sabemos que la imagen, $f(I)$, de un intervalo $I$ por una función continua $f$ es un intervalo. También sabemos, porque hemos visto ejemplos (\ref{noconservatipointervalo}), que, en general, el intervalo $f(I)$ no es  del \emph{mismo tipo} que $I$. Aquí tiene algunos ejemplos más.
+\begin{enumerate}
+\item $f(x)=x^{2}$; $\ f([-1,1[)=f(]-1,1])=[0,1]$;
+\item $f(x)=1/x$; $\ f(]0,1])=[1,+\infty[$; $\ f([1,+\infty[)=]0,1]$.
+\item $f(x)=\sen x$; $\ f(]-\pi,\pi[=[-1,1]$.
+\end{enumerate}
+Vemos así que la imagen por una función continua de un intervalo abierto, o
+semiabierto, o de una semirrecta, puede ser un intervalo de distinto tipo. Queda por
+considerar qué ocurre con los intervalos cerrados y acotados, es decir, los de la forma
+$[a,b]$. Vamos a probar que este tipo de intervalos se conservan por funciones continuas. Nótese que si \func{f}{[a,b]}\ es continua, como ya sabemos que $f([a,b])$ es un intervalo, para probar que $f([a,b])$ es un intervalo cerrado y acotado basta probar que el intervalo $f([a,b])$ tiene máximo y mínimo, es decir, que hay números $u,v\in [a,b]$ tales que para todo $x\in [a,b]$ es $f(u)\leqslant f(x)\leqslant f(v)$, pues entonces será $f([a,b])=[f(u),f(v)]$.
+
+En la siguiente definición introducimos la terminología que se usa.
+
+\begin{definicion}
+Sea \func{f}{B}. Se dice que $f$ está mayorada (resp. minorada) en $B$, si el conjunto $f(B)$ está mayorado (resp. minorado). Se dice que \emph{$f$ está acotada en $B$} si el conjunto $f(B)$ está acotado. Se dice que $f$ alcanza en  $B$ un \textbf{máximo} (resp. un \textbf{mínimo}) \textbf{absoluto}  si el conjunto $f(B)$ tiene
+máximo (resp. mínimo), es decir, existe algún punto $v\en B$ (resp. $u\en B$) tal que
+$f(x)\leqslant f(v)$ (resp. $f(u)\leqslant f(x)$) para todo $x\en B$.
+\end{definicion}
+
+El siguiente resultado que vamos a ver es uno de los más importantes del Análisis Matemático. Su demostración no es del todo inmediata y su lectura requiere atención. El ejemplo que sigue te ayudará mucho a entenderla.
+
+\begin{ejemplo}
+Puedes considerar la gráfica de una función como el perfil de una cadena de montañas con sus cumbres y valles alternándose. Supongamos que iluminamos la gráfica desde la izquierda con un haz de luz de rayos paralelos al eje de abscisas tal como se indica en la figura (\ref{fig:subebaja}). Algunos puntos de las montañas quedarán expuestos a la luz y otros quedarán en sombra. Se entiende que los valles quedan en la sombra. En la figura he representado en trazo más grueso los puntos de luz. La condición que debe cumplir un punto $(x,f(x))$ para ser un punto de luz es que a la izquierda de $x$ la función tome valores más pequeños que $f(x)$, es decir, $(x,f(x))$ es un punto de luz si para todo $t\in [a,x]$ es $f(t)\le f(x)$. Cuando esta condición se verifica diremos también que $x$ es un punto de luz para $f$. Observa que el máximo de la función se alcanza en un punto $c$ que, por supuesto, es un punto de luz para $f$ pero que es el \emph{último} punto de luz para $f$, porque a la derecha de $c$ la función no puede tomar valores mayores que $f(c)$. Esta idea es la que vamos a seguir en la demostración del siguiente teorema.
+
+\begin{figure}[ht]
+\centering
+%\vspace*{-4cm}
+\psset{xunit=3.2cm,yunit=.5cm}
+\begin{pspicture}(2.8,-6)(6.6,6)
+\psaxes[linewidth=.5pt,labels=none,ticks=none,arrowscale=2]{->}(3,0)(2.8,-6)(6.6,6)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](3.35,0)(3.35,-1.36)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](6.2,0)(6.2,3.24)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](5.75,0)(5.75,4.12)
+\psline[linewidth=1.2pt](3.35,0)(3.77,0)
+\psline[linewidth=1.2pt](4.43,0)(4.51,0)
+\psline[linewidth=1.2pt](5.1,0)(5.17,0)
+\psline[linewidth=1.2pt](5.69,0)(5.75,0)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](3.77,1.77)(4.43,1.77)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](4.51, 2.53)(5.1,2.53)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](5.17, 3.34)(5.69,3.34)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](3.77, 0)(3.77,1.77)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](4.51, 0)(4.51,2.53)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](5.17, 0)(5.17,3.34)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](4.43, 0)(4.43,1.77)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](5.1, 0)(5.1,2.53)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt](5.69, 0)(5.69,3.34)
+\psplot[plotpoints=500,algebraic,linewidth=.5pt]{3.35}{6.2}{.125*sin(x^2)*x^2}
+\psplot[plotpoints=50,algebraic,linewidth=1.2pt]{3.35}{3.77}{.125*sin(x^2)*x^2}
+\psplot[plotpoints=50,algebraic,linewidth=1.2pt]{4.43}{4.51}{.125*sin(x^2)*x^2}
+\psplot[plotpoints=50,algebraic,linewidth=1.2pt]{5.1}{5.17}{.125*sin(x^2)*x^2}
+\psplot[plotpoints=50,algebraic,linewidth=1.2pt]{5.69}{5.75}{.125*sin(x^2)*x^2}
+%\psline[linestyle=dashed,dash=2pt,linewidth=.4pt]{->}(2.8,-3)(3.2,-3)
+%\psline[linestyle=dashed,dash=2pt,linewidth=.4pt]{->}(2.8,-2.25)(3.2,-2.25)
+%\psline[linestyle=dashed,dash=2pt,linewidth=.4pt]{->}(2.8,-1.5)(3.2,-1.5)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt]{->}(2.8,-.75)(3.2,-.75)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt]{->}(2.8,.75)(3.2,.75)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt]{->}(2.8,1.5)(3.2,1.5)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt]{->}(2.8,2.25)(3.2,2.25)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt]{->}(2.8,3)(3.2,3)
+\psline[linestyle=dashed,dash=2pt,linewidth=.4pt]{->}(2.8,3.75)(3.2,3.75)
+\psset{labelsep=.5\pslabelsep}
+\uput[u](3.35,0){\scalefont{.7}$a$}
+\uput[d](6.2,0){\scalefont{.7}$b$}
+\uput[ur](5.75,0){\scalefont{.7}$c$}
+\uput[u](4.51,2.53){\scalefont{.7}$(x,f(x))$}
+%\qdisk(5.75,0){1.2pt}
+\qdisk(5.9,-.9){1.2pt}
+\uput[ur](5.9,0){\scalefont{.7}$v$}
+\uput[u](3.45,0){\scalefont{.7}$\lambda_v$}
+\psline[linestyle=dashed,dash=1pt,linewidth=.3pt](3.45,-.9)(5.9,-.9)
+\psline[linestyle=dashed,dash=1pt,linewidth=.3pt](3.45,-.9)(3.45,0)
+\psline[linestyle=dashed,dash=1pt,linewidth=.3pt](5.9,0)(5.9,-.9)
+\end{pspicture}
+%\captionsetup{font={small,stretch=0.80}}%singlelinecheck=off
+\scalefont{.7}{\caption{Visualización de la demostración del teorema de Weierstrass}}\label{fig:subebaja}
+\end{figure}
+\end{ejemplo}
+
+\begin{teorema}[\textbf{Teorema de Weierstrass}]\label{th:teoremadeweierstrass}
+Toda función continua en un intervalo cerrado y acotado alcanza en dicho intervalo un  máximo y un mínimo absolutos.
+\end{teorema}
+\dem  Sea \func{f}{[a,b]}\ una función continua en $[a,b]$. Queremos probar que hay algún punto $c\en [a,b]$ en el que $f$ alcanza un máximo absoluto. Según hemos visto en el ejemplo anterior, el punto $c$ debe ser el último punto de luz para $f$. Esto lleva a considerar el conjunto de todos los puntos $x\in [a,b]$ que son puntos de luz para $f$.
+\begin{equation}\label{dem:maximos}
+E=\big\{x\in [a,b]:f(t)\leqslant f(x)\quad \textrm{para\  todo}\  t\in [a,x]\big\}
+\end{equation}
+En la figura (\ref{fig:subebaja}) he representado el conjunto $E$ con trazo grueso sobre el eje de abscisas. Observa que, en la figura, $E$ es una unión de intervalos.
+
+La idea siguiente es considerar el máximo de $E$. Pero no sabemos \emph{a priori} que $E$ tenga máximo, por eso lo que hacemos es considerar el supremo de $E$. Lo que está claro es que el conjunto $E$ no es vacío porque $a\en E$. Además, por su misma definición, es $E\subset [a,b]$. Por tanto, $E$ está acotado. La propiedad del supremo garantiza la existencia de un mínimo mayorante de $E$, es decir, del supremo de $E$. Sea, pues, $c=\sup(E)$. La intuición nos dice que el punto $c$ así definido cumple lo que queremos, pero hay que probarlo. En primer lugar, como $a\en E$ y $b$ es un mayorante de $E$, tenemos que $a\le c\le b$, esto es, $c\in [a,b]$. %(!`Aquí es donde se utiliza la hipótesis de que el intervalo es cerrado y acotado!)
+
+Empezaremos probando que $c\en E$. Si $c=a$ nada hay que probar porque $a\en E$. Supondremos que $a<c\leqslant b$. Sea $u\en [a,b]$ tal que $u<c$. Probaremos \emph{que no puede ser} $f(c)<f(u)$. Si así fuera, llamando $g(x)=f(u)-f(x)$; pon la continuidad de $f$ y el teorema de conservación del signo, tiene que haber un número $\delta>0$ tal que
+$u<c-\delta$ y para todo $z\en ]c-\delta,c]$ se cumpla que $g(z)>0$, es decir $f(z)<f(u)$.
+Por ser $c$ el mínimo mayorante de $E$, tiene que haber algún $z_0\en ]c-\delta,c]\cap E$.
+Tenemos entonces que $f(z_0)<f(u)$ y, como $z_0\en E$ y $a\leqslant u<z_0$, deberá ser
+$f(u)\leqslant f(z_0)$, lo que nos lleva a que $f(z_0)<f(u)\le f(z_0)$ y, por tanto,
+$f(z_0)<f(z_0)$, lo cual es claramente contradictorio. Concluimos que $f(u)\leqslant f(c)$. Como esto es cierto para todo $u\en [a,b]$ tal que $u\le c$, resulta que $c\en E$.
+
+Probaremos ahora que $f(x)\leqslant f(c)$ para todo \mbox{$x\en [a,b]$.} Como $c\en E$, para todo $x\en [a,c]$ es $f(x)\le f(c)$. Por tanto, en el caso de que fuera $c=b$ nada nuevo habría que probar. Consideremos que $a\leqslant c<b$, en cuyo caso debemos probar que si $c<v\leqslant b$ entonces $f(v)\leqslant f(c)$.
+
+Observa que cada punto $v\in ]c,b]$ es un punto de sombra de $f$ y, por eso, tiene que haber puntos anteriores a él en los que $f$ tome un valor mayor que $f(v)$, entre estos puntos tiene que haber puntos de luz. La idea ahora va a ser asociar a cada punto $v\in ]c,b]$ un punto de luz $\lambda_v\en E$, tal que $f(v)\leqslant f(\lambda_v)$. Esta es la parte más técnica de la demostración. En la figura (\ref{fig:subebaja}) he representado un punto $v$ y su correspondiente $\lambda_v$.
+
+En lo que sigue consideramos un punto $v\in ]c,b]$ fijo. Notemos que como $c<v\leqslant b$, entonces $v\not\in E$ por lo que tiene que haber algún $z\in [a,v[$ tal que $f(v)<f(z)$. Se trata de ``cazar'' al menor de tales $z$. Consideramos para ello el conjunto
+$$
+A_v=\big\{z\en [a,b]:f(v)\leqslant f(z)\big\}
+$$
+Definamos $\lambda_v=\inf(A_v)$. Por la observación antes hecha, tenemos que
+$a\leqslant\lambda_v<v$. Queremos probar que $\lambda_v\en A_v$, es decir que
+$f(v)\leqslant f(\lambda_v)$. Para ello razonamos como antes para probar que la desigualdad
+$f(\lambda_v)<f(v)$ lleva a contradicción. En efecto, si fuera $f(\lambda_v)<f(v)$, llamando
+$h(x)=f(v)-f(x)$; por la continuidad de $f$ y el teorema de conservación del signo, tiene que
+haber un número $\delta>0$ tal que $\lambda_v+\delta\leqslant b$, y para todo $z\in
+[\lambda_v,\lambda_v+\delta[$ se cumpla que $h(z)>0$, es decir $f(z)<f(v)$. Por ser
+$\lambda_v$ el máximo minorante de $A_v$, tiene que haber algún $z_0\in
+[\lambda_v,\lambda_v+\delta[\cap A_v$. Tenemos entonces que $f(z_0)<f(v)$ y, como $z_0\en
+A_v$ deberá ser $f(v)\leqslant f(z_0)$, lo que nos lleva a que $f(z_0)<f(v)\leqslant f(z_0)$
+y, por tanto, $f(z_0)<f(z_0)$, lo cual es claramente contradictorio. Concluimos que
+$f(v)\leqslant f(\lambda_v)$.
+
+Deducimos ahora fácilmente que $\lambda_v\en E$. En efecto, si $t\in [a,\lambda_v[$ entonces $t\not\in A_v$, es decir, $f(t)<f(v)$ y como $f(v)\le f(\lambda_v)$, resulta que $f(t)<f(\lambda_v)$. En consecuencia, $\lambda_v\en E$ y, por tanto $\lambda_v\le c$.  Finalmente, como $c\en E$,
+concluimos que $f(v)\leqslant f(\lambda_v)\leqslant f(c)$.
+
+La consideración de la función $-f$ prueba que también $f$ alcanza un mínimo absoluto  en $[a,b]$. Queda así demostrado el teorema.\fin
+
+Siempre que leas la demostración de un teorema debes fijarte dónde y cómo se usan todas y cada una de las hipótesis. ¿Dónde se ha usado en la demostración anterior que el intervalo $[a,b]$ es cerrado y acotado? Si no lo sabes vuelve a leerla y fíjate bien. Alternativamente, intenta repetir la demostración sustituyendo $[a,b]$ por $]a,b]$ o $[a,b[$ y fíjate hasta dónde puedes llegar. Te ayudaré un poco. Observa que el conjunto de los puntos de luz de una función creciente en un intervalo $I$ es el propio $I$. ¿Y si la función es decreciente?
+
+Al igual que el teorema de Bolzano, el teorema de Weierstrass es un teorema de \emph{existencia}. Su demostración no proporciona un método de cálculo del máximo o mínimo absolutos de una función. En el Capítulo dedicado a derivadas veremos técnicas eficaces para dicho cálculo.
+
+Con frecuencia, lo que interesa del teorema de Weierstrass es una consecuencia inmediata del mismo que se recoge en el siguiente corolario.
+\begin{corolario}
+Toda función continua en un intervalo cerrado y acotado está acotada en dicho intervalo.
+\end{corolario}
+
+Veamos una aplicación del teorema de Weierstrass. Se llama \emph{coeficiente líder} de una función polinómica al coeficiente de la mayor potencia de la variable. Seguramente sabes que una parábola cuyo coeficiente líder es positivo (lo que suele llamarse ``una parábola con los cuernos para arriba'')  tiene un mínimo absoluto en \R, y si el coeficiente líder es negativo (lo que suele llamarse ``una parábola con los cuernos para abajo'') tiene un máximo absoluto en \R. Este comportamiento no es exclusivo de las parábolas y se puede generalizar a toda función polinómica de grado par. La idea de la demostración es sencilla. Un polinomio de grado par es muy grande cuando el valor absoluto de $x$ es grande, por tanto para encontrar el mínimo podemos buscarlo en un intervalo cerrado y acotado.
+
+\begin{proposicion}
+Una función polinómica de grado par cuyo coeficiente líder es positivo alcanza un mínimo absoluto en \R\ y si el coeficiente líder es negativo alcanza un máximo absoluto en \R.
+\end{proposicion}
+\dem Sea $$P(x)=c_0+c_1x+c_2x^2+\cdots+c_{n-1}x^{n-1}+c_{n}x^{n}$$ una función polinómica de grado par $n\ge 2$. Podemos suponer que $c_n>0$ y probaremos que $P$ alcanza un mínimo absoluto en \R. Razonando exactamente igual que en el corolario (\ref{cerospolinomioimpar}), probamos (\ref{signopolinomio}) que hay un número $K\ge 1$ tal que para $\abs{x}\ge K$ es:
+\begin{equation}
+\dfrac{P(x)}{x^{n}}\ge \dfrac{c_{n}}{2}>0
+\end{equation}
+Pongamos en lo que sigue $\alpha=\frac{c_n}{2}$. Como $n$ es par, se tiene que $x^n>0$ para todo $x\neq 0$. Además, como $K\ge 1$, para $\abs{x}\ge K$ es $\abs{x}^n\ge \abs{x}$ por tanto:
+$$
+P(x)\ge \alpha x^n=\alpha\abs{x}^n\ge \alpha \abs{x}\qquad (\abs{x}\ge K)
+$$
+Haciendo ahora $M=\max\set{K,\abs{P(0)}/\alpha}$, tenemos que para $\abs{x}\ge M$ es
+$$
+P(x)\ge \alpha\abs{x}\ge \alpha M
+$$
+La razón de elegir $M$ en la forma que lo hemos hecho, es porque ahora podemos asegurar que $\alpha M\ge\abs{P(0)}$. En el intervalo $[-M,M]$ la función $P(x)$ alcanza, en virtud del teorema de Weierstrass, un mínimo absoluto en algún punto $c\in [-M,M]$. Si ahora $x$ es un número real podemos considerar dos posibilidades:
+\begin{itemize}
+\item[$\bullet$] $x\en [-M,M]$ en cuyo caso será $P(x)\ge P(c)$.
+\item[$\bullet$] $x\not\in [-M,M]$, esto es $\abs{x}>M$, en cuyo caso $P(x)\ge\alpha M\ge \abs{P(0)}\ge P(0)\ge P(c).$
+\end{itemize}
+En cualquier caso resulta que $P(x)\ge P(c)$, lo que prueba que $P$ alcanza en $c$ un mínimo absoluto en \R.\fin
+
+\begin{ejercicios propuestos}
+\propuesto Sea \func{f}{[a,b]}\ continua. Supongamos que para cada
+$\,x\en [a,b]$ hay algún $y\en [a,b]$ tal que $\,|f(y)|\leq \frac{2}{10}|f(x)|$. Prueba que
+$\,f\,$ se anula en algún punto de $[a,b]$.
+
+\propuesto Sea \func{f}{[a,b]}\ continua. Prueba que la función
+\func{g}{[a,b]}\ dada para todo $x\in [a,b]$ por $\,g(x)=\max f([a,x])$, es continua.
+
+\propuesto Sea \func{f}{[a,b]}\ continua, pongamos $M=\max f([a,b])$,
+$m=\min f([a,b])$ y supongamos que $f(a)=f(b)$ y que $m<f(a)<M$. Prueba que $f$ toma todo valor de $[f(a),M[\cup ]m,f(a)]$ en al menos dos puntos de $[a,b]$.
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto Sea \func{f}{[a,b]}\ continua. Prueba que la función
+\func{g}{[a,b]}\ dada para todo $x\in [a,b]$  por $\,g(x)=\max f([a,x])$, es continua.
+
+\sol La función $g$ es claramente creciente en $[a,b]$. Para probar que es continua es suficiente, por el teorema (\ref{continuidadymonotonia}), probar que su imagen es un intervalo. Sea \linebreak $M=\max f([a,b])$. Probaremos que $g[a,b]=[f(a),M]$. Para ello sea $u\in ]f(a),M[$ y sea $t_u=\sup\set{x\in [a,b]: f(s)\le u \textrm{ para todo } s\in [a,x]}$. Entonces $f(t_u)=u$ y también $g(t_u)=u$. Los detalles que faltan debes completarlos tú.\hecho
+\end{ejercicios resueltos}
+
+\section{Límite funcional}
+
+Sean $I$ un intervalo, $a$ un punto de $I$, y $f$ una función definida en $I\setminus\!\{a\}$. Naturalmente, como $f$ no está definida en $a$ no tiene sentido hablar de la continuidad de $f$ en $a$. Sin embargo, podemos preguntarnos ¿es posible encontrar un número $L\en\R$ tal que \emph{definiendo} $f(a)=L$, la \emph{nueva función} así obtenida sea continua en $a$? Para ello el número $\,L\,$ tendría que cumplir la siguiente propiedad:
+\begin{equation}\label{haylimite}
+\forall\eps\en\Rp\ \ \  \exists\,\delta\en\Rp\ : \left.
+\begin{array}{c}
+                                                       0<|x-a|<\delta \\
+                                                       x\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ |f(x)-L|<\eps
+\end{equation}
+La condición ``$0<|x-a|$'' se pone para excluir la posibilidad de hacer $x=a$ en la desigualdad $|x-a|<\delta$, lo cual es obligado porque la función $f$ no está definida en $a$.
+
+Podemos modificar un poco la situación anterior, suponiendo ahora que $\,f\,$ está definida en todo el intervalo $\,I\,$ pero no es continua en $\,a\,$. En este caso queremos cambiar el valor de $\,f\,$ en $\,a\,$, es decir, encontrar, si es posible, un número $\,L\en\R\,$ tal que \emph{definiendo} el valor de $\,f\,$ en $\,a\,$ igual a $\,L$, la \emph{nueva función} así obtenida sea continua en $\,a\,$. La condición que tiene que cumplir dicho número $\,L\,$ es exactamente la misma de antes (\ref{haylimite}).
+
+Nótese que ahora  la condición ``$0<|x-a|$'' es obligada porque aunque nuestra función $f$ está definida en $a$, el valor que toma en $a$ no es ``el apropiado''. Observa que el valor que $f$ tiene en $a$ no interviene para nada en la condición (\ref{haylimite}).
+
+En los dos casos considerados, la condición obtenida (\ref{haylimite}) es la misma con independencia del hecho de que $\,f\,$ esté o no definida en $\,a$, y, en caso de estarlo, del posible valor que $\,f\,$ pueda tener en $\,a$. Por ello, en lo que sigue consideraremos la siguiente situación.
+
+\noindent\textbf{Notación}.\ En adelante, representaremos por
+$\,I\,$ un intervalo; $\,a\,$ será un punto de $\,I$, y $\,f\,$ será
+una función que supondremos definida en $\,I\setminus\!\{a\}\,$ sin
+excluir la posibilidad de que dicha función pueda estar definida en
+todo el intervalo $\,I\,$ lo cual, para nuestros propósitos
+actuales, carece de importancia.
+
+\begin{definicion}\label{def:deflimite} Se dice que $\,f\,$ tiene
+límite en el punto $\,a\,$ si existe un número $\,L\en\R\,$ tal que
+se verifica lo siguiente:
+\begin{equation}\label{def:limite}
+\forall\eps\en\Rp\ \ \  \exists\,\delta\en\Rp\ : \left.
+\begin{array}{c}
+                                                       0<|x-a|<\delta \\
+                                                       x\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ |f(x)-L|<\eps
+\end{equation}
+Dicho número se llama \textbf{límite de $f$ en $a$} y escribimos $\,\dis\lim_{x\to a}f(x)=L\,.$
+\end{definicion}
+
+Observa que la existencia del límite es independiente de que $\,f\,$ esté o no definida en $\,a\,$ y, en caso de estarlo, del valor que $\,f\,$ pueda tener en $\,a$. También debe advertirse que en la definición de la \emph{igualdad} $\,\dis\lim_{x\to a}f(x)=L\,$, sólo intervienen \emph{desigualdades}.
+
+Es fácil probar que la condición (\ref{def:limite}) no puede ser satisfecha por dos números distintos, es decir, \emph{el límite de una
+función en un punto, si existe, es único}. Una consecuencia
+inmediata de la definición dada de límite y de la definición de continuidad (\ref{definicioncontinuidad}), es el siguiente resultado.
+
+\begin{proposicion}\label{equivalencialimitecontinuidad}\ Sea \func{f}{I}\ una función definida en un
+intervalo y sea $a\en I$. Equivalen las afirmaciones siguientes:
+
+\noindent i)\ $f$ es continua en $a$.
+
+\noindent ii) $\dis\lim_{x\to a}f(x)=f(a)$.
+\end{proposicion}
+
+\subsection{Límites laterales de una función en un punto}
+En la recta real es posible distinguir si nos acercamos
+``por la derecha'' o ``por la izquierda'' a un punto. Ello conduce
+de forma natural a la consideración de los \emph{límites
+laterales\/} que pasamos a definir.
+\begin{definicion}
+\begin{itemize}
+\item[$\bullet$] Supongamos que el conjunto $\,\{x\en I:a<x\}\,$ no es vacío. En
+tal caso, se dice que $\,f\,$ tiene \emph{límite por la
+derecha\/} en $\,a$, si existe un número $\,\alpha\en\R\,$ tal
+que se verifica lo siguiente:
+\begin{equation}%\label{def:limitederecha}
+\forall\eps\en\Rp\ \ \  \exists\,\delta\en\Rp\ : \left. \begin{array}{c}
+                                                       a<x<a+\delta \\
+                                                       x\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ |f(x)-\alpha|<\eps
+\end{equation}
+Dicho número se llama \textbf{límite por la derecha de
+$f$ en $a$} y, simbólicamente, escribimos
+$\,\dis\lim_{\substack{x\to a\\ x>a}}f(x)=\alpha\,.$
+
+\item[$\bullet$] Supongamos que el conjunto $\,\{x\en I:x<a\}\,$ no es vacío. En
+tal caso, se dice que $\,f\,$ tiene \emph{límite por la
+izquierda\/} en $\,a$, si existe un número $\,\beta\en\R\,$ tal
+que se verifica lo siguiente:
+\begin{equation}%\label{def:limiteizquierda}
+\forall\eps\in\Rp\ \ \
+\exists\,\delta\en\Rp\ : \left. \begin{array}{c}
+                                                       a-\delta<x<a \\
+                                                       x\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ |f(x)-\beta|<\eps
+\end{equation}
+Dicho número se llama \textbf{límite por la izquierda de $f$ en $a$} y, simbólicamente, escribimos $\,\dis\lim_{\substack{x\to a\\ x<a}}f(x)=\beta\,.$
+\end{itemize}
+\end{definicion}
+\noindent{\textbf{Observación.}}\ Es importante advertir que los límites laterales son casos\marginpar{\flushright\curvasr} particulares del concepto general de límite de una función en un punto dado en la definición (\ref{def:deflimite}). Para convencerte de ello, basta que consideres la restricción de la función $f$ a la derecha del punto $a$, esto es, la restricción de $f$ al intervalo $\set{x\en I:x>a}$, en cuyo caso el límite por la derecha de $f$ en $a$ no es otra cosa que el límite en el punto $a$ (en el sentido de  la definición (\ref{def:deflimite})) de dicha restricción. Igual pasa con el límite por la izquierda.
+
+En particular, es claro que:
+\begin{itemize}
+\item[$\bullet$] Si $\,a=\sup I\,$, entonces $\dis\,\lim_{x\to
+a}f(x)=\dis\lim_{\substack{x\to a\\ x<a}}f(x)$.
+\item[$\bullet$] Si
+$\,a=\inf I\,$, entonces $\dis\,\lim_{x\to
+a}f(x)=\dis\lim_{\substack{x\to a\\ x>a}}f(x)$.
+\end{itemize}
+Por ello, cualquier resultado referente a límites de funciones en un punto puede ser convenientemente enunciado para límites laterales sin más que considerar la restricción de la función a la derecha o a la izquierda del punto en cuestión.
+
+La siguiente proposición también es consecuencia inmediata de las definiciones dadas.
+
+\begin{proposicion}
+Si $\,a\,$ no es un extremo de $\,I$, entonces $f$ tiene límite en $a$ si, y sólo si, los dos límites laterales de $f$ en $a$ existen y son iguales, en cuyo su valor común coincide con el valor del límite de $f$ en $a$.
+\begin{equation}
+\lim_{x\to a}f(x)=L \Longleftrightarrow \lim_{\substack{x\to a\\ x<a}}f(x)=\lim_{\substack{x\to a\\ x>a}}f(x)=L
+\end{equation}
+\end{proposicion}
+\noindent \textbf{Notación.}\ En la mayoría de los textos de Cálculo los límites laterales por la derecha y por la izquierda suelen representarse con las siguientes notaciones
+$$
+\lim_{x\to a^+}f(x),\qquad \lim_{x\to a^-}f(x)
+$$
+El problema es que hay estudiantes que leen los símbolos y no leen lo que significan, y terminan interpretando que $a^+$ y $a^-$ son números. Claro está que no son números, son símbolos que significan que en los límites $\dis \lim_{x\to a^+}f(x)$ y $\dis\lim_{x\to a^-}f(x)$ se consideran solamente los valores de la variable $x$ que son respectivamente mayores o menores que $a$. Esa es la forma correcta de leer esos símbolos. Ya he advertido varias veces de la necesidad de traducir en palabras el significado de los símbolos. Lo repito una vez más: no se deben leer los símbolos sino su significado.
+
+\subsection{Límites infinitos}
+
+\subsubsection{Funciones divergentes en un punto}
+
+\begin{definicion}
+Se dice que $\,f\,$ \textbf{es positivamente divergente} en $\,a\,$ si se verifica lo siguiente:
+\begin{equation}%\label{def:posdiv}
+\forall M\en\Rp\ \ \  \exists\,\delta\en\Rp\ : \left.
+\begin{array}{c}
+                                                       0<|x-a|<\delta \\
+                                                       x\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ f(x)>M
+\end{equation}
+Simbólicamente, escribimos $\,\dis\lim_{x\to a}f(x)=+\infinity$.
+
+Se dice que $\,f\,$ \textbf{es positivamente divergente por la
+izquierda} en $\,a\,$ si se verifica lo siguiente:
+\begin{equation}%\label{def:posdivizqda}
+\forall M\in\Rp\ \ \  \exists\,\delta\en\Rp\ : \left.
+\begin{array}{c}
+                                                       a-\delta<x<a \\
+                                                       x\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ f(x)>M
+\end{equation}
+Simbólicamente, escribimos $\,\dis\lim_{\substack{x\to a \\x<a}}f(x)=+\infinity$.
+
+Se dice que $\,f\,$ \textbf{es positivamente divergente por la
+derecha} en $\,a\,$ si se verifica lo siguiente:
+\begin{equation}%\label{def:posdivdcha}
+\forall M\in\Rp\ \ \  \exists\,\delta\en\Rp\ : \left.
+\begin{array}{c}
+                                                       a<x<a+\delta \\
+                                                       x\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ f(x)>M
+\end{equation}
+Simbólicamente, escribimos $\,\dis\lim_{\substack{x\to a \\x>a}}f(x)=+\infinity$.
+
+De forma análoga se definen los conceptos:
+\begin{itemize}
+\item[$\bullet$] ``$f\,$ \textbf{es  negativamente divergente} en $\,a$''.
+Simbólicamente $\dis\lim_{x\to a}f(x)=-\infinity$.
+\item[$\bullet$] ``$f\,$
+\textbf{es negativamente divergente por la izquierda o por la
+derecha} en $\,a$''. Simbólicamente $\ \dis{\lim_{\substack{x\to a
+\\x<a}}f(x)=-\infinity\quad\lim_{\substack{x\to a \\x>a}}f(x)=-\infinity}$
+\end{itemize}
+\end{definicion}
+Gráficamente, el hecho de que una función sea divergente en un punto $a$, se traduce en que la recta de ecuación $x=a$  es una \emph{asíntota vertical} de su gráfica.
+\subsubsection{Límites en infinito}
+\begin{definicion}
+Sea \func{f}{I}\ una función definida en un intervalo \emph{no mayorado} $\,I$. Se dice que $\,f\,$ tiene límite en $+\infinity$ si existe un número $\,L\en\R\,$ tal que se verifica lo
+siguiente:
+\begin{equation}%\label{def:limiteenmasinfinito}
+ \forall\eps\in\Rp\ \ \ \exists\,K\en\Rp\ : \left.
+\begin{array}{c}
+                                                       x>K \\
+                                                       x\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ |f(x)-L|<\eps
+\end{equation}
+Dicho número se llama límite  de $f$ en $+\infinity$ y escribimos
+$\dis\,\lim_{x\to +\infty}f(x)=L$.
+
+Análogamente se define el límite en $-\infinity$.
+\end{definicion}
+Gráficamente, el hecho de que una función tenga límite igual a $L$ en $+\infty$ o en $-\infty$, se traduce en que la recta de ecuación $y=L$ es una \emph{asíntota horizontal} de su gráfica.
+\subsubsection{Funciones divergentes en infinito}
+\begin{definicion}
+Sea \func{f}{I}\ una función definida en un intervalo
+\emph{no mayorado} $\,I$. Se dice que $\,f\,$ es positivamente
+divergente en $+\infinity$ si se verifica lo siguiente:
+\begin{equation}%\label{def:divergenteenmasinfinito}
+\forall M\in\Rp\ \ \ \exists\,K\en\Rp\ : \left.
+\begin{array}{c}
+                                                       x>K \\
+                                                       x\en I
+                                                       \end{array}
+                                                       \right\}
+                                                     \Longrightarrow\ \ \ \ f(x)>M
+\end{equation}
+En cuyo caso escribimos $\,\dis\lim_{x\to +\infty}f(x)=+\infinity$.
+
+Llegados aquí, no debes tener dificultad en precisar el significado de:
+$$
+\lim_{x\to +\infty}f(x)=-\infinity,\quad\lim_{x\to -\infty}f(x)=+\infinity,\quad\lim_{x\to
+-\infty}f(x)=-\infinity.
+$$
+\end{definicion}
+
+\section{Álgebra de límites}
+Es evidente que la existencia del límite de una función en un punto $\,a\,$ depende solamente del comportamiento de la función en los puntos próximos al punto $\,a$, es decir, el concepto de límite, al igual que el de continuidad en un punto, es un concepto local. Para calcular un límite \Lim{f(x)}{x}{a}, podemos restringir la función $f$ a un intervalo \emph{abierto} que contenga al punto $a$. Eso es lo que se afirma en el siguiente resultado que es de comprobación inmediata.
+
+\begin{proposicion}
+Sea $J$ un intervalo abierto que contiene al punto $a$. Entonces se verifica que $\Lim{f(x)}{x}{a}=L$ si, y sólo si, $\Lim{f_{|J}(x)}{x}{a}=L$.
+\end{proposicion}
+
+El siguiente resultado pone de manifiesto la compatibilidad de la ``operación de paso al límite'' con la estructura algebraica y de orden de \R.
+
+\begin{teorema}
+Supongamos que $\,f\,$ y $\,g\,$
+tienen límite en $\,a\,$ donde aceptamos que $\,a\,$ puede ser un
+número real, o $+\infty$, o $-\infty$. Se verifica entonces que:
+\begin{itemize}
+\item[i)] Las funciones $\,f+g\,$ y $\,fg\,$ tienen límite en
+$\,a\,$ y
+
+$\dis{\lim_{x\to a}(f+g)(x)=\lim_{x\to a}f(x)+\lim_{x\to
+a}g(x),\quad\lim_{x\to a}(fg)(x)=\lim_{x\to a}f(x)\,\lim_{x\to
+a}g(x)}$
+
+\item[ii)] Si $\dis\lim_{x\to a}f(x)\neq 0$, entonces
+$\dis{\,\lim_{x\to a}\frac{1}{f(x)}=\dis\frac{1}{\dis\lim_{x\to
+a}f(x)}}$.
+
+\item[iii)] Si $f(x)\leqslant g(x)$ para todo $x\en I$, $x\neq a$,
+entonces $\dis\lim_{x\to a}f(x)\leqslant\dis\lim_{x\to a}g(x)$.
+
+\item[iv)] Supongamos que $f(x)\leqslant h(x)\leqslant g(x)$ para
+todo $x\en I$, $x\neq a\,$ y $\,\dis\lim_{x\to a}f(x)=\lim_{x\to
+a}g(x)=L$. Entonces se verifica que $\,h\,$ tiene límite en
+$\,a\,$ y $\dis\lim_{x\to a}h(x)=L$.
+\end{itemize}
+\end{teorema}
+
+En el siguiente resultado se establecen condiciones que garantizan
+la divergencia de una suma o de un producto.
+
+\begin{teorema}\ Supongamos que $\,f\,$ es positivamente divergente en
+$\,a$, $\dis\lim_{x\to a}f(x)=+\infinity$, donde aceptamos que
+$\,a\,$ puede ser un número real, o $+\infinity$, o $-\infinity$.
+\begin{itemize}
+\item[i)] Supongamos que hay un número $M\en\R$ tal que
+$\,g(x)\geqslant M$ para todo $x\en I$, $x\neq a\,$. Entonces
+$\,\dis\lim_{x\to a}(f+g)(x)=+\infinity$. \item[ii)] Supongamos que
+hay un número $M>0$ tal que $\,g(x)\geqslant M$ para todo $x\en I$,
+$x\neq a\,$. Entonces  $\,\dis\lim_{x\to a}(fg)(x)=+\infinity$.
+\end{itemize}
+\end{teorema}
+Observa que la condición en \emph{i)} se cumple si $f$ tiene límite en $a$ o diverge positivamente en $a$; y la condición \emph{ii)} se cumple si $f$ tiene límite \emph{positivo} en $a$ o diverge positivamente en $a$.
+
+En el siguiente resultado se establece que \emph{el producto de una función con límite $0$ por una función acotada tiene límite cero}.
+
+\begin{teorema} Supongamos que $\,\dis\lim_{x\to a}f(x)=0$, y que hay un
+número $M>0$ tal que\linebreak $\,|g(x)|\leqslant M$ para todo $x\en I$,
+$x\neq a\,$. Entonces $\,\dis\lim_{x\to a}(fg)(x)=0$.
+\end{teorema}
+
+Con frecuencia este resultado se aplica cuando la función $g$ es alguna de las funciones seno, coseno, arcoseno, arcocoseno o arcotangente. Todas ellas son, como ya sabes, funciones acotadas.
+
+El siguiente resultado establece que la continuidad permuta con el paso al
+límite. Es un resultado que se usará bastante cuando estudiemos técnicas de cálculo de límites.
+
+\begin{teorema}\label{th:continuidadpermutaconlimite} Supongamos que $f$ tiene límite en el punto $a$ y sea $L=\Lim{f(x)}{x}{a}$. Sea $g$ una función continua en $L$. Entonces se verifica que la función compuesta $g\circ\!f$ tiene límite en $a$ igual a $g(L)$, esto es, $\dis\lim_{x\to a}(g\circ\!f)(x)=g(L)$. Simbólicamente:
+\begin{equation}\label{continuidadpermutaconlimite}
+\lim_{x\to a}(g\circ\!f)(x)=g(\lim_{x\to a}f(x))
+\end{equation}
+\end{teorema}
+\dem Apoyándonos en la proposición (\ref{equivalencialimitecontinuidad}), podemos demostrar este resultado reduciéndolo a un resultado ya conocido de funciones continuas. Para ello basta con definir $f(a)=L$ con lo que, usando (\ref{equivalencialimitecontinuidad}), resulta que $f$ (seguimos llamando $f$ a la función así modificada) es continua en $a$. Ahora aplicamos el teorema (\ref{continuidadfuncioncompuesta}) de continuidad de una composición de funciones para obtener que $g\circ\!f$ es continua en $a$ y de nuevo volvemos a usar (\ref{equivalencialimitecontinuidad}), para obtener que
+$$
+\Lim{(g\circ\!f)(x)}{x}{a}=(g\circ\!f)(a)=g(f(a))=g(L)=g\big(\Lim{f(x)}{x}{a}\big)
+$$
+\fin
+\begin{definicion}
+Se dice que dos funciones $f$ y $g$ son \textbf{asintóticamente equivalentes} en un punto $a\en\R\cup\set{+\infty,-\infty}$, y escribimos $f(x)\sim g(x)(x\to a)$, cuando $\Lim{\dfrac{f(x)}{g(x)}}{x}{a}=1$.
+\end{definicion}
+El siguiente resultado, consecuencia inmediata de la definición dada y de las propiedades de los límites funcionales ya vistas, es muy útil para calcular límites funcionales. Nos dice que para calcular el límite de un producto o de un cociente de funciones podemos sustituir una de ellas por otra asintóticamente equivalente.
+\begin{proposicion}\label{equivalenciaasintotica}
+Sean $f$ y $g$ funciones asintóticamente equivalentes en un punto $a\en\R$ o bien $a=+\infty$ o $a=-\infty$, y \func{h}{I\setminus\set{a}}\ una función cualquiera. Se verifica que:
+\begin{enumerate}[a)]
+\item $\Lim{f(x)h(x)}{x}{a}=L\Longleftrightarrow\Lim{g(x)h(x)}{x}{a}=L$.
+\item $\Lim{f(x)h(x)}{x}{a}=+\infty\Longleftrightarrow\Lim{g(x)h(x)}{x}{a}=+\infty$.
+\end{enumerate}
+\end{proposicion}
+\subsection{Límites y discontinuidades de funciones monótonas}
+El hecho de que una función sea discontinua en un punto puede deberse a causas diferentes que se consideran en la siguiente definición.
+\begin{definicion}[\textbf{Clasificación de las discontinuidades}]
+Sea \func{f}{I}\ una función definida en un intervalo y sea $a\en I$.
+\begin{itemize}
+\item[$\bullet$] Si $\,f\,$ tiene límite en $\,a\,$ y $\dis\,\lim_{x\to
+a}f(x)\neq f(a)$, se dice que $\,f\,$ tiene en el punto $\,a\,$
+una \textbf{discontinuidad evitable}.
+\item[$\bullet$] Si los dos límites laterales de $\,f\,$ en $\,a\,$ existen y son distintos:
+$$\dis\lim_{\substack{x\to a\\ x<a}}f(x)\neq\dis\lim_{\substack{x\to a\\
+x>a}}f(x)
+$$
+se dice que $\,f\,$ tiene en el punto $\,a\,$ una \textbf{discontinuidad de salto}.
+\item[$\bullet$]  Si alguno de los límites laterales no existe se dice que $\,f\,$ tiene en el punto $\,a\,$ una \textbf{discontinuidad esencial}.
+\end{itemize}
+\end{definicion}
+\begin{definicion}[\textbf{Continuidad por un lado}]
+Se dice que una función \func{f}{I}\ es continua por la izquierda  en un punto $a\en I$ si $\limlft{f(x)}{x}{a}=f(a)$; y se dice que es continua por la derecha  en un punto $a\en I$ si $\limrgt{f(x)}{x}{a}=f(a)$.
+\end{definicion}
+
+Puedes comprobar fácilmente lo que afirma el siguiente resultado  sin más que hacer la gráfica de una función creciente que tenga algunas discontinuidades. No obstante, se trata de un resultado importante que se usará más adelante para estudiar la convergencia de integrales.
+
+\begin{teorema}[\textbf{Límites de una función monótona}] Sea
+$\,f\,$ una función creciente definida en un intervalo $\,I$.
+\begin{itemize}
+\item[i)] Para todo punto $a\en I$ que no sea un extremo de $I$ se
+verifica que:
+$$\lim_{\substack{x\to a
+\\x<a}}f(x)=\sup\{f(x):x\en I,\, x<a\},\qquad\lim_{\substack{x\to a
+\\x>a}}f(x)=\inf\{f(x):x\en I,\, x>a\}$$
+\item[ii)] Si $a\en\R\cup\{-\infinity\}$ es el extremo izquierdo de
+$\,I$, entonces:
+\begin{itemize}
+\item[a)] Si $\,f\,$ está minorada en $\,I\,$ es
+$\dis\lim_{x\to a}f(x)=\inf\{f(x):x\en I\setminus\{a\}\}$.
+\item[b)] Si $\,f\,$ no está minorada en $\,I\,$ es
+$\dis\lim_{x\to a}f(x)=-\infinity$.
+\end{itemize}
+\item[iii)] Si $a\en\R\cup\{+\infinity\}$ es el extremo derecho de
+$\,I$, entonces:
+\begin{itemize}
+\item[a)] Si $\,f\,$ está mayorada en $\,I\,$ es
+$\dis\lim_{x\to a}f(x)=\sup\{f(x):x\en I\setminus\{a\}\}$.
+\item[b)] Si $\,f\,$ no está mayorada en $\,I\,$ es
+$\dis\lim_{x\to a}f(x)=+\infinity$.
+\end{itemize}
+\end{itemize}
+\end{teorema}
+\noindent\textbf{Demostración}.\ Supongamos que $a\en I$ no es el
+extremo izquierdo de $I$, es decir que el conjunto $\{x\en I:x<a\}$
+no es vacío. Entonces, el conjunto \makebox{$B\!=\!\{f(x)\!:\!x\en
+I,\, x\!<\!a\}$} tampoco es vacío y, por ser $f$ creciente, el
+número $f(a)$ es un mayorante de $B$. Sea $\alpha=\sup\{f(x):x\en
+I,\, x<a\}$. Dado \epos, el número $\alpha-\eps$ no puede ser
+mayorante de $B$, es decir, tiene que haber algún punto $x_0\en I$,
+$x_0<a$ tal que $\alpha-\eps<f(x_0)$. Sea $\delta=a-x_0>0$. Entonces
+para $a-\delta<x<a$, esto es, para $x_0<x<a$, se verifica que
+$\alpha-\eps<f(x_0)\leqslant f(x)\leqslant\alpha$, lo que claramente
+implica que $\alpha-\eps<f(x)<\alpha+\eps$, es decir,
+$|f(x)-\alpha|<\eps$. Hemos probado así que
+$\dis{\lim_{\substack{x\to a
+\\x<a}}f(x)=\sup\{f(x):x\en I,\, x<a\}}$.
+
+Los demás casos se prueban de forma muy parecida y quedan como ejercicios. Igualmente, queda como ejercicio considerar el caso en que la función es decreciente. \fin
+
+Como consecuencia inmediata de este resultado obtenemos el siguiente teorema.
+\begin{teorema}[\textbf{Discontinuidades de las funciones monótonas}]
+Sea $f$ una función monótona en un intervalo. Entonces:
+\begin{itemize}
+\item[i)] En los puntos del intervalo que no son extremos del
+mismo, $f$ solamente puede tener discontinuidades de salto.
+\item[ii)] Si el intervalo tiene máximo o mínimo,  $f$
+puede tener en dichos puntos discontinuidades evitables.
+\end{itemize}
+\end{teorema}
+
+\subsection{Comportamientos asintóticos de las funciones elementales}
+
+\subsubsection{Límites de exponenciales y logaritmos}
+
+Los resultados que siguen son de gran utilidad para calcular
+límites. Todos ellos son consecuencia de la continuidad y crecimiento de las funciones exponencial y logaritmo naturales.
+
+\begin{proposicion}\label{limiteslogexpo} Sea $\,a\,$ un número real o $a=+\infinity$ o $a=-\infinity$. En los apartados b1), b2) y b3) se supone que
+$f(x)>0$.
+\begin{enumerate}
+\item[a1)] $\,\dis\lim_{x\to a}f(x)=L \Longleftrightarrow
+\dis\lim_{x\to a}\e^{f(x)}=\e^{\,L}$. \item[a2)] $\,\dis\lim_{x\to
+a}f(x)=+\infinity \Longleftrightarrow \dis\lim_{x\to
+a}\e^{f(x)}=+\infinity$. \item[a3)] $\,\dis\lim_{x\to
+a}f(x)=-\infinity \Longleftrightarrow \dis\lim_{x\to a}\e^{f(x)}=0$.
+\item[b1)] $\,\dis\lim_{x\to a}f(x)=L>0 \Longleftrightarrow
+\dis\lim_{x\to a}\log f(x)=\log L$. \item[b2)] $\,\dis\lim_{x\to
+a}f(x)=+\infinity \Longleftrightarrow \dis\lim_{x\to a}\log
+f(x)=+\infinity$.
+\item[b3)] $\,\dis\lim_{x\to a}f(x)=0 \Longleftrightarrow
+\dis\lim_{x\to a}\log f(x)=-\infinity$.
+\end{enumerate}
+\end{proposicion}
+
+El siguiente resultado, cuya justificación se verá más adelante, es de gran importancia. En él se comparan los ``\emph{órdenes de crecimiento}'' de las funciones logaritmo, potencias y exponenciales, resultando lo siguiente.
+\begin{itemize}
+\item[$\bullet$] Para valores de $x>0$ muy grandes, cualquier potencia del logaritmo $(\log x)^\mu$ (por muy grande que sea $\mu>0$) es muy pequeña comparada con $x^\alpha$ para $\alpha>0$ (por muy pequeña que sea $\alpha>0$).
+\item[$\bullet$] Para valores de $x>0$ muy grandes, cualquier potencia $x^\alpha$ (por muy grande que sea $\alpha>0$) es muy pequeña comparada con $\e^{\mu x}$ para $\mu>0$ (por muy pequeño que sea $\mu>0$).
+\end{itemize}
+
+\begin{proposicion}
+\begin{enumerate}[a)]
+\item $\,\rule{0mm}{4mm}\displaystyle\lim_{x\to
++\infty}\dfrac{\left\lvert\log x\right\rvert^{\mu}}{x^{\,\alpha}}=
+0\,$ para todos $\alpha>0$ y $\mu\en\R$.
+
+\item
+$\,\rule{0mm}{3mm}\displaystyle\lim_{x\to
+0}\abs{x}^{\,\alpha}\big|\log\abs{x}\big|^{\mu}=0\,$ para todos
+$\alpha>0$ y $\mu\en\R$.
+
+\item $\,\dis\rule{0mm}{4mm}\displaystyle\lim_{x\to
++\infty}\,\frac{x^{\,\alpha}}{\e^{\msi\mu\msi x}}=0\,$ para todos
+$\alpha>0$ y $\mu>0$.
+\end{enumerate}
+\end{proposicion}
+Observa que los apartados a) y b) se deducen uno de otro cambiando $x$ por $1/x$.
+
+\section{Indeterminaciones en el cálculo de límites}
+
+Frecuentemente hay que estudiar el límite de una suma o producto de dos funciones precisamente cuando las reglas que hemos visto anteriormente no pueden aplicarse. Se trata de aquellos casos en que el comportamiento de las funciones $f+g$, $fg$, no está determinado por el de $f$ y $g$. Por ejemplo, si sabemos que $\,\dis\lim_{x\to a}f(x)=+\infinity\,$ y que $\,\dis\lim_{x\to
+a}g(x)=-\infinity$, ¿qué podemos decir en general del comportamiento en el punto $\,a\,$ de la función $f+g$? Respuesta: absolutamente nada.  En consecuencia, para calcular un límite del tipo $\,\dis\lim_{x\to a}(f+g)(x)\,$ donde $\,\dis\lim_{x\to a}f(x)=+\infinity\,$ y $\,\dis\lim_{x\to a}g(x)=-\infinity$ \emph{se requiere un estudio particular en cada caso}. Suele decirse que estos límites son \textbf{una indeterminación del tipo}
+``$\infinity\!-\!\infinity$''.
+
+Análogamente, si sabemos que $\,\dis\lim_{x\to a}f(x)=0$ y que la función $g$ es divergente (positivamente o negativamente) en el punto $\,a$, ello no proporciona ninguna información sobre el comportamiento de la función $fg$ en dicho punto. Cuando esto ocurre se dice que el límite $\,\dis\lim_{x\to a}(fg)(x)\,$ \textbf{es una indeterminación del tipo ``$\,0\,\infinity$''}. Las indeterminaciones que aparecen al estudiar el cociente de dos funciones divergentes o de dos funciones con límite cero, es decir, las llamadas \textbf{indeterminaciones de los tipos} ``$\infinity/\infinity$'', ``$\,0/0$'', pueden reducirse a una indeterminación del tipo ``$\,0\,\infinity$''.
+
+Todavía hemos de considerar nuevas indeterminaciones que van a surgir al considerar  funciones de la forma $\dis f(x)^{\,g(x)}$ donde $f$ es una función que toma valores positivos y $g$ es una función cualquiera. Puesto que:
+$$
+f(x)^{\,g(x)}=\exp(g(x)\log f(x))
+$$
+teniendo en cuenta los resultados anteriores, el límite $\,\dis\lim_{x\to a}f(x)^{\,g(x)}$ vendrá determinado por el límite $\,\dis\lim_{x\to a}g(x)\log
+f(x)$, el cual, a su vez, está determinado en todos los casos por
+el comportamiento en el punto $\,a\,$ de las funciones $f$ y $g$, excepto cuando dicho límite es una indeterminación del tipo ``$\,0\,\infinity$'', lo que ocurre en los siguientes casos:
+\begin{itemize}
+\item[$\bullet$] $\,\dis\lim_{x\to a}f(x)=1$, $\,\dis\lim_{x\to
+a}|g(x)|=+\infinity$ \ \ (indeterminación ``$1^{\infty}$'')
+
+\item[$\bullet$] $\,\dis\lim_{x\to a}f(x)=+\infinity$, $\,\dis\lim_{x\to
+a}g(x)=0$ \ \ (indeterminación ``$\infinity^{0}$'')
+
+\item[$\bullet$] $\,\dis\lim_{x\to a}f(x)=0$, $\,\dis\lim_{x\to a}g(x)=0$
+\ \ (indeterminación ``$\,0^{\,0}$")
+\end{itemize}
+Ni que decir tiene que no hay técnicas generales que
+permitan ``resolver las indeterminaciones'', ¡no serían tales
+si las hubiera! Es por ello que, los límites indeterminados,
+requieren un estudio particular en cada caso. Es un hecho que la
+mayoría de los límites que tienen algún interés
+matemático son límites indeterminados. Cuando estudiemos las
+derivadas obtendremos técnicas que en muchos casos permitirán calcular con comodidad dichos límites.
+%\pagebreak
+\begin{ejercicios propuestos}
+\propuesto Sea $a\en\R\cup\set{+\infty,-\infty}$. Prueba que
+\begin{equation}\label{limiteceroinfinito}
+\Lim{\abs{f(x)}}{x}{a}=+\infty\Longleftrightarrow\Lim{\dfrac{1}{\abs{f(x)}}}{x}{a}=0
+\end{equation}
+Particulariza este resultado para los casos en que $f$ solamente toma valores positivos o negativos.
+\propuesto Sea $L\en\R\cup\set{+\infty,-\infty}$. Prueba que
+\begin{eqnarray}
+\limrgt{f(x)}{x}{0}=L & \Longleftrightarrow & \Lim{f(1/x)}{x}{+\infty}=L \label{inversionvariable+}  \\
+\limlft{f(x)}{x}{0}=L & \Longleftrightarrow & \Lim{f(1/x)}{x}{-\infty}=L \label{inversionvariable-}
+\end{eqnarray}
+\propuesto Sea $f: ]0,1[ \rightarrow \R$ la función dada para $x\in ]0,1[$ por:
+$$
+f(x) =\frac{2}{x}+\frac{1}{x(x-1)}.
+$$
+Prueba que $\displaystyle{\lim_{x \to 0} f(x)} = + \infty$ y que
+$\displaystyle{\lim_{x \to 1} f(x)} = - \infty.$ Deduce que la imagen de $f$ es todo $\R.$
+\propuesto Calcula la imagen de la función $f: ]-1,1[ \to \R$, definida por $$f(x) = x \ (1 - x^2)^{-1/2}, \forall x \in ]-1,1[.$$
+
+\propuesto Sea $f: \R \to \R$ la función definida por $f(x) = \e^{- \frac{1}{x^2}}, \ \forall x \in \R^*, \ f(0) = 0.$ Justifica que $f$ es continua en $\R$, estrictamente decreciente en $ \R^-$ y estrictamente creciente en $ \R^+.$ Calcula la imagen de $f$.
+
+\propuesto Sean $f,g: \R \to \R$ las funciones definidas por
+$$
+f(x) = \left\{ \begin{array}{cl} \frac{1}{\rule{0mm}{3mm}1 + \,\e^{1/x}}  &
+                                                          , \textrm{ si}  \ x \ne 0  \\
+                    \rule{0mm}{5mm} 0  &   ,\textrm{ si} \ x =0  \end{array} \right.  \ \ \
+    g(x) = \left\{ \begin{array}{cl}  \frac{\e^x}{x}   &   , \textrm{ si} \ x<0 \\
+   x  &   , \textrm{ si} \ 0 \le x < 1  \\
+  \sqrt[5]{x}  &   , \textrm{ si} \ x \ge 1    \end{array} \right.
+$$
+Estudia la continuidad de $f$ y $g$ en todo punto de $\R$ y la
+existencia de l\'{\i}mites de $f$ y $g$ en $+ \infty$ y en $-
+\infty$.
+
+\propuesto Sea $f: \R \rightarrow \R$ la función definida por $f(0)=0$ y
+$f(x) = \sen(x)\sen(1/x)$, para todo $x\neq 0$. Estudia la continuidad de
+$f$ y la existencia de l\'{\i}mites en $+ \infty$ y en $- \infty.$
+
+\propuesto Sea \func{f}{[0,1[}\ una funci\'{o}n continua. Definamos  $\,g(x)=f(x-E(x))$ para todo $x\en\R$. Prueba que la funci\'{o}n $g$, as\'{\i} definida, es continua si, y s\'{o}lo si, $\dis\lim_{x\to 1}f(x)=f(0)$. Supuesto que esta condici\'{o}n se cumple, y que $f$ no es constante, definamos \func{h}{\R}\ por $\,h(x)=g(1/x)\,$ si $x\neq 0$, y $h(0)=f(0)$. Justifica que $h$ es continua y acotada en $\R^{*}$. Calcula la imagen por $h$ de un intervalo de la forma $]0,r[$ donde $0<r<1$. Deduce que $h$ no tiene l\'{\i}mite por la izquierda ni por la derecha en $0$ y que la imagen por $h$ de todo intervalo es tambi\'{e}n un intervalo.
+
+\propuesto Sea $\alpha \en \R$ y \func{f}{\Rpo}\  la función definida por $f(0)=0$ y:
+$$f(x) = x^{\alpha} \sen\dfrac{1}{x},\quad (x>0).$$
+Estudia la continuidad de $f$ según los valores de $\alpha$.
+
+\propuesto Supongamos que $a<0<b$. Estudia el comportamiento en cero de las funciones \func{f,g}{\R^*}\ dadas para todo $x\neq 0$ por :
+$$f(x) = \arctg \dfrac{b}{x} - \arctg\dfrac{a}{x},\qquad g(x) = x f(x).$$
+
+\propuesto Determina la imagen de la función $f: \R^* \rightarrow \R$ dada para todo $x\neq 0$ por
+$f(x) = \arctg(\log \vert x \vert).$
+
+\propuesto Sea $f: \R \setminus\{1\} \rightarrow \R$ la función dada para todo $x\neq 1$ por
+$$f(x) = \arctg\dfrac{1+x}{1-x}.$$
+Estudia la continuidad de $f$ y su comportamiento en el punto
+$1$, en $+ \infty$ y en $- \infty$. Calcula la imagen de $f$.
+
+\propuesto La ecuación $\,a x^{2}+2x-1=0\,$ donde $a>-1$, $a\neq 0$ tiene dos soluciones que representaremos
+por $\,\lambda(a)\,$ y  por $\,\mu(a)$. Calcula los límites de
+dichas funciones en $a=0$ y en $a=-1$.
+
+\propuesto Estudia los límites en $+\infinity$ y en $-\infinity$ de:
+
+a) Una función polinómica.
+
+b) Una función racional.
+\propuesto Sea \func{f}{\R}\ una función continua no nula tal que $\dis\lim_{x\to -\infty}f(x)=0$ y  $\dis\lim_{x\to +\infty}f(x)=0$. Prueba que si $f$ toma algún valor positivo entonces $f$ alcanza un máximo absoluto en \R.
+
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto Sea $a\en\R\cup\set{+\infty,-\infty}$. Prueba que
+\begin{equation*}
+\Lim{\abs{f(x)}}{x}{a}=0\Longleftrightarrow\Lim{\dfrac{1}{\abs{f(x)}}}{x}{a}=+\infty
+\end{equation*}
+Particulariza este resultado para los casos en que $f$ solamente toma valores positivos o negativos.
+
+\sol Basta advertir que
+$$
+\abs{f(x)}<\eps\Longleftrightarrow\dfrac{1}{\abs{f(x)}}>\dfrac{1}{\eps}
+$$
+y notar que \eps\ es positivo y muy pequeño equivale a que $1/\eps$ sea positivo y muy grande.
+En particular, tenemos que
+\begin{eqnarray}
+  f(x)>0 \wedge \Lim{f(x)}{x}{a}=0 &\Longleftrightarrow& \Lim {\dfrac{1}{f(x)}}{x}{a}=+\infty \label{0+infinito}\\
+ f(x)<0 \wedge \Lim{f(x)}{x}{a}=0 &\Longleftrightarrow& \Lim {\dfrac{1}{f(x)}}{x}{a}=-\infty \label{0-infinito}
+\end{eqnarray}
+\hecho
+\resuelto Sea $L\en\R\cup\set{+\infty,-\infty}$. Prueba que
+\begin{eqnarray*}
+\limrgt{f(x)}{x}{0}=L & \Longleftrightarrow & \Lim{f(1/x)}{x}{+\infty}=L \\
+\limlft{f(x)}{x}{0}=L & \Longleftrightarrow & \Lim{f(1/x)}{x}{-\infty}=L
+\end{eqnarray*}
+\sol Basta advertir que
+$$
+0<x<\delta\Longleftrightarrow\dfrac{1}{x}>\dfrac{1}{\delta},\quad
+-\delta<x<0\Longleftrightarrow\dfrac{1}{x}<-\dfrac{1}{\delta}
+$$
+y notar que $\delta$ es positivo y muy pequeño equivale a que $1/\delta$ sea positivo y muy grande.\hecho
+\resuelto Sea $f: ]0,1[ \rightarrow \R$ la función dada para $x\in ]0,1[$ por:
+$$
+f(x) =\frac{2}{x}+\frac{1}{x(x-1)}.
+$$
+Prueba que $\displaystyle{\lim_{x \to 0} f(x)} = + \infty$ y que
+$\displaystyle{\lim_{x \to 1} f(x)} = - \infty.$ Deduce que la imagen de $f$ es todo $\R.$
+
+\sol Solamente debemos considerar valores de $x$ en el intervalo $]0,1[$ que es donde está definida $f$. Teniendo en cuenta que por (\ref{0+infinito}), y (\ref{0-infinito}) es:
+$$
+\limrgt{\dfrac{2}{x}}{x}{0}=+\infty,\quad \limrgt{\dfrac{1}{x(x-1)}}{x}{0}=-\infty,\quad \limlft{\dfrac{1}{x(x-1)}}{x}{1}=-\infty
+$$
+Deducimos que $\Lim{f(x)}{x}{1}=-\infty$ y que en $x=0$ el límite pedido es una indeterminación del tipo $\infty-\infty$. Pero eso se debe solamente a la forma en que está escrita $f$. Basta hacer la suma indicada:
+$$
+f(x) =\frac{2}{x}+\frac{1}{x(x-1)}=\dfrac{2x-1}{x(x-1)}
+$$
+para darse cuenta, por (\ref{0+infinito}) pues $f(x)>0$ para $0<x<1/2$, que $\Lim{f(x)}{x}{0}=+\infty$.
+
+Finalmente, como $f$ es continua en $]0,1[$, el teorema de Bolzano nos dice que la imagen de $f$, el conjunto $f(]0,1[)$, es un intervalo. Como $f$ diverge positivamente en $0$ y diverge negativamente en $1$, deducimos que $f$ no está mayorada ni minorada en $]0,1[$, concluimos que $f(]0,1[)$ es un intervalo no mayorado ni minorado, esto es, $f(]0,1[)=\R$.
+
+Comentario. Observa que los límites que hemos calculado de $f$ son realmente límites laterales pues nos dicen que $f$ está definida en $]0,1[$. La cosa cambia mucho si consideramos que $f$ está definida en su dominio natural que es el conjunto $A=\R\setminus\set{0,1}$, que es una unión de tres intervalos. En ese caso $f$ no tiene, por supuesto, límite en $0$; ni tampoco diverge positivamente ni negativamente en 0 pues el límite de $f$ por la izquierda en $0$ es $-\infty$. Análogamente, el límite de $f$ por la derecha en $1$ es $+\infty$.
+
+\resuelto Sea \func{f}{[0,1[}\ continua. Definamos  $\,g(x)=f(x-E(x))$ para todo $x\en\R$. Prueba que la funci\'{o}n $g$, as\'{\i} definida, es continua si, y s\'{o}lo si, $\dis\lim_{x\to 1}f(x)=f(0)$. Supuesto que esta condici\'{o}n se cumple, y que $f$ no es constante, definamos \func{h}{\R}\ por $\,h(x)=g(1/x)\,$ si $x\neq 0$, y $h(0)=f(0)$. Justifica que $h$ es continua y acotada en $\R^{*}$. Calcula la imagen por $h$ de un intervalo de la forma $]0,r[$ donde $0<r<1$. Deduce que $h$ no tiene l\'{\i}mite por la izquierda ni por la derecha en $0$ y que la imagen por $h$ de todo intervalo es tambi\'{e}n un intervalo.
+
+\sol La función $g$ es periódica con período igual a $1$ porque: $$g(x+1)=f(x+1-E(x+1))=f(x-E(x))=g(x).$$ También es claro que $g(x)=f(x)$ para todo $x\in [0,1[$. Por la propiedad local de la continuidad, como $f$ es continua en $]0,1[$, deducimos que $g$ es continua en $]0,1[$. Por la periodicidad de $g$, se sigue que $g$ es continua en $\R\setminus\Z$. Para estudiar la continuidad de $g$ en los enteros, es suficiente estudiarla en $0$. Por la continuidad de $f$ en $0$, tenemos que $\limrgt{g(x)}{x}{0}=\limrgt{f(x)}{x}{0}=f(0)$. Ahora, por la periodicidad de $g$:
+$$
+\limlft{g(x)}{x}{0}=\limlft{g(1+x)}{x}{0}=\limlft{g(x)}{x}{1}=\limlft{f(x)}{x}{1}=\lim_{x\to 1}f(x).
+$$
+Deducimos que $g$ es continua en $0$ si, y sólo si, $\limlft{g(x)}{x}{0}=\dis\lim_{x\to 1}f(x)=g(0)=f(0)$.
+
+La continuidad de $h$ en $\R^*$ es consecuencia de la propiedad local de la continuidad y de que la composición de funciones continuas es continua. Dado $r\in ]0,1[$, sea $x\in [0,1[$. Podemos tomar un número $n\en\N$ tal que $z=\dfrac{1}{n+x}\in ]0,r[$. Tenemos que: $$h(z)=f(n+x-E(n+x))=f(x-E(x))=g(x).$$ Por tanto $h(]0,r[)\supset g([0,1[)=g([0,1])$. Como $g$ es continua, el conjunto $g([0,1])$ es un intervalo cerrado y acotado, en particular está acotado. Por la periodicidad de $g$ es $g(\R)=g([0,1])$. Deducimos que $h(\R)=g(\R)=g([0,1])$ es un conjunto acotado, es decir, $h$ es una función acotada. De lo anterior deducimos que $h(]0,r[)=g([0,1])$ para todo $r\in ]0,1[$ (y, como $g$ no es constante, $g[0,1]$ es un intervalo no reducido a un punto), es evidente que $h$ no tiene límite por la derecha en $0$. De forma parecida se justifica que $h$ no tiene límite por la izquierda en $0$.
+
+Si $I$ es un intervalo no reducido a un punto. Si $I$ no contiene a $0$, entonces debe ser $I\subset\Rp$  o bien $I\subset\Rm$ y, como $h$ es continua en $\R^*$, se sigue que $h$ es continua en $I$ y, por tanto $h(I)$ es un intervalo. Si el intervalo $I$ contiene a $0$, entonces $I$ debe contener un intervalo de la forma $]0,r[$ o un intervalo de la forma $]-r,0[$ para algún $r\in ]0,1[$. En cualquier caso, se sigue por lo antes visto que $h(I)=g([0,1])$ y, por tanto, $h(I)$ es un intervalo.\hecho
+
+\resuelto Sea $\alpha \en \R$ y \func{f}{\Rpo}\  la función definida por $f(0)=0$ y:
+$$f(x) = x^{\alpha} \sen\dfrac{1}{x},\quad (x>0).$$
+Estudia la continuidad de $f$ según los valores de $\alpha$.
+
+\sol Observa que la función solamente está definida para $x\ge 0$. La razón de esto es que para $x<0$ la potencia $x^\alpha$ no siempre está definida.
+
+Para hacer este ejercicio debes recordar que la función seno está acotada: $\modulo{\sen z}\le 1$ para todo $z\en\R$. Por tanto, cualquiera sea $x\neq 0$ se tiene que $\modulo{\sen(1/x)}\le 1$.
+
+Debes tener también en cuenta que la función seno toma todos los valores del intervalo $[-1,1]$ en cualquier intervalo de longitud mayor que $2\pi$.
+
+Si $\alpha>0$, la función $h(x)=x^\alpha$, definida para $x\ge 0$, tiene límite en $0$ igual a $0$. Concluimos que $\Lim{f(x)}{x}{0}=0$ porque $f(x)=h(x)\sen(1/x)$ es producto de una función acotada por otra con límite $0$.Por tanto, $f$ es continua en $0$.
+
+Consideremos que $\alpha=0$, en cuyo caso, $f(x)=\sen(1/x)$. Esta función toma todos los valores del intervalo $[-1,1]$ en cualquier intervalo de la forma $]0,\delta[$ \emph{cualquiera} sea $\delta>0$. Pues tomando $a>1/\delta$ tenemos que $\frac{1}{a}\in ]0,\delta[$ y, en consecuencia $f(]0,\delta[)\supset \sen(]a,+\infty[)\supset [-1,1]$. Se deduce enseguida que $f(x)=\sen(1/x)$ no tiene límite en $0$, es decir, tiene una discontinuidad esencial en $0$.
+
+Es imposible representar gráficamente esta función porque su gráfica contiene infinitas ondas de amplitud cada vez más pequeña que se van aplastando sobre el eje de ordenadas. Observa que la imagen por la función $\sen(1/x)$ del intervalo $\big[\frac{1}{2n\pi-\pi/2},\frac{1}{2n\pi+\pi/2}\big]$ es el intervalo $[-1,1]$. La gráfica siguiente puede ser útil para que imagines cómo es la gráfica de $f(x)=\sen(1/x)$ para $x$ cerca de $0$.
+
+\begin{figure}[ht]
+\centering
+\psset{xunit=4.5cm,yunit=2cm,VarStep,algebraic}
+\begin{pspicture}(-1.2,-1.4)(1.2,1.4)
+\psaxes[linewidth=.5pt,labels=x,ticks=x,arrowscale=2,labelFontSize=\footnotesize]{->}(0,0)(-1.2,-1.4)(1.2,1.4)
+\psplot[VarStepEpsilon=.000001,linewidth=.4pt]{-1.2}{-.02}{sin(1/x)}
+\psplot[VarStepEpsilon=.000001,,linewidth=.4pt]{.02}{1.2}{sin(1/x)}
+\end{pspicture}
+\caption{La función $f(x)=\sen(1/x)$}
+\end{figure}
+
+Para valores de $\alpha<0$ la cosa es todavía peor. Te lo dejo para que lo acabes tú.\hecho
+
+\resuelto Supongamos que $a<0<b$. Estudia el comportamiento en cero de las funciones \func{f,g}{\R^*}\ dadas para todo $x\neq 0$ por :
+$$f(x) = \arctg \dfrac{b}{x} - \arctg\dfrac{a}{x},\qquad g(x) = x f(x).$$
+\sol En este ejercicio (y en los siguientes) debes tener en cuenta que:
+$$
+\Lim{\arctg x}{x}{-\infty}=-\dfrac{\pi}{2},\quad \Lim{\arctg x}{x}{+\infty}=\dfrac{\pi}{2},\quad -\dfrac{\pi}{2}<\arctg x<\dfrac{\pi}{2}
+$$
+Tenemos que:
+$$
+\limlft{\dfrac{a}{x}}{x}{0}=+\infty,\quad \limlft{\dfrac{b}{x}}{x}{0}=-\infty,\quad
+\limrgt{\dfrac{a}{x}}{x}{0}=-\infty,\quad \limrgt{\dfrac{b}{x}}{x}{0}=+\infty
+$$
+Deducimos que:
+$$
+\limlft{f(x)}{x}{0}=-\dfrac{\pi}{2}-\dfrac{\pi}{2}=-\pi,\quad \limrgt{f(x)}{x}{0}=\dfrac{\pi}{2}+\dfrac{\pi}{2}=\pi
+$$
+Observa que la función $f$ está acotada:
+$$
+\modulo{f(x)}\le\modulo{\arctg \dfrac{b}{x}}+\modulo{\arctg \dfrac{b}{x}}\le \dfrac{\pi}{2}+\dfrac{\pi}{2}=\pi
+$$
+Por tanto $g(x)$ es el producto de un función con límite $0$ por una función acotada. Se sigue que $\Lim{g(x)}{x}{0}=0$. Eso es todo lo que podemos decir del comportamiento de $f$ y $g$ en $0$. No tiene sentido considerar su continuidad en $0$ porque no están definidas en $0$. Si se define $f(0)=\pi$ y $g(0)=0$, entonces $f$ tiene una discontinuidad de salto en $0$ y es continua por la derecha en $0$, y $g$ es continua en $0$.
+
+\resuelto Estudia los límites en $+\infinity$ y en $-\infinity$ de:
+
+a) Una función polinómica.
+
+b) Una función racional.
+
+\sol  a) Sea $$P(x)=c_0+c_1x+c_2x^2+\cdots+c_{n-1}x^{n-1}+c_{n}x^{n}$$ una función polinómica de grado par $n\ge 1$. Podemos suponer que $c_n>0$. Usando la desigualdad (\ref{signopolinomio}) del corolario (\ref{cerospolinomioimpar}), sabemos  que hay un número $K\ge 1$ tal que para $\abs{x}\ge K$ es:
+\begin{equation*}
+\dfrac{P(x)}{x^{n}}\ge \dfrac{c_{n}}{2}>0\qquad\qquad\qquad (1)
+\end{equation*}
+Pongamos en lo que sigue $\alpha=\frac{c_n}{2}$.
+
+Supongamos que $n$ es par. Entonces $x^n=>0$ y, por tanto $x^n=\abs{x}^n$ para todo $x\neq 0$. Deducimos de (1) que para todo $x\neq 0$ es
+$$
+P(x)\ge \alpha \abs{x}^n .
+$$
+Como $\Lim{\abs{x}^n}{x}{-\infty}=\Lim{\abs{x}^n}{x}{+\infty}=+\infty$, deducimos, por la desigualdad anterior, que $\Lim{P(x)}{x}{-\infty}=\Lim{P(x)}{x}{+\infty}=+\infty$.
+
+Supongamos que $n$ es impar. Entonces para $x<0$ se tiene que $x^n<0$. De la desigualdad (1) deducimos que
+$$
+P(x)\ge \alpha x^n \quad (x>0),\qquad\quad P(x)\le \alpha x^n \quad (x<0).
+$$
+Como $\Lim{x^n}{x}{-\infty}=-\infty$ y $\Lim{x^n}{x}{+\infty}=+\infty$, deducimos, por las desigualdades anteriores, que $\Lim{P(x)}{x}{-\infty}=-\infty$, $\Lim{P(x)}{x}{+\infty}=+\infty$.
+
+El caso en que $c_n<0$ se deduce de lo anterior sin más que considerar el polinomio $-P(x)$.
+
+Otra forma, quizás mejor, de obtener estos resultados es como sigue. De la igualdad
+$$
+\dfrac{P(x)}{x^n}=c_n+\dfrac{c_{n-1}}{x}+\dfrac{c_{n-2}}{x^2}+\cdots+\dfrac{c_{1}}{x^{n-1}}+\dfrac{c_0}{x^n}
+$$
+obtenida dividiendo el polinomio $P(x)$ por $x^n$, se sigue enseguida que
+\begin{equation*}
+\lim_{x\to -\infty}\dfrac{P(x)}{x^n}=\lim_{x\to +\infty}\dfrac{P(x)}{x^n}=c_n
+\end{equation*}
+De aquí se sigue que las funciones $P(x)$ y $c_n x^n$ son asintóticamente equivalentes para $x\to -\infty$ y para $x\to +\infty$, de donde se deducen de forma inmediata los mismos resultados antes obtenidos.
+
+b) Supongamos ahora que $Q(x)=b_mx^m+b_{m-1}x^{m-1}+\cdots+b_1x+b_0$ es otra función polinómica de grado $m$ con $b_m>0$. Para estudiar los límites en $\pm\infty$ de la función racional
+$
+f(x)=\dfrac{P(x)}{Q(x)}
+$
+podemos sustituir $P$ y $Q$ por funciones asintóticamente equivalentes a ellas en $\,\pm\infty$. Por lo antes visto, tenemos que $P(x)\thicksim c_n x^n$ y $Q(x)\thicksim b_m x^m$ para $x\to\pm\infty$, por tanto:
+$$
+f(x)=\dfrac{P(x)}{Q(x)}\thicksim \dfrac{c_n x^n}{b_m x^m}=\dfrac{c_n}{b_m}x^{n-m}\quad (x\to\pm\infty)
+$$
+Deducimos que:
+$$
+\lim_{x\to -\infty}\dfrac{P(x)}{Q(x)}=\left\{
+                                       \begin{array}{cll}
+                                         +\infty, & n>m  & n-m \textrm{ par}\\
+                                           -\infty, & n>m  & n-m \textrm{ impar}\\
+                                         \dfrac{c_n}{b_m}, & n=m &  \\
+                                         0, &  m>n &
+                                       \end{array}
+                                     \right.\quad
+\lim_{x\to +\infty}\dfrac{P(x)}{Q(x)}=\left\{
+                                       \begin{array}{cl}
+                                         +\infty, & n>m \\
+                                         \dfrac{c_n}{b_m}, & n=m \\
+                                         0, &  m>n
+                                       \end{array}
+                                     \right.
+$$
+\end{ejercicios resueltos}
+

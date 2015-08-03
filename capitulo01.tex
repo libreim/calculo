@@ -1,0 +1,1355 @@
+\chapter{Axiomas de $\mathbb{R}$. Principio de inducción}
+\vspace*{-1cm}
+\begin{flushright}
+{\small \textit{Dios creó los números naturales, lo demás es obra
+de los hombres.} \\  L. Kronecker}
+\end{flushright}
+\vspace{-\baselineskip}
+\section{Introducción}
+Los temas tradicionales del Cálculo son el estudio de las funciones continuas, las derivadas e integrales, las sucesiones y las series. Tú ya debes saber algo de todo eso. En principio, parecen cosas bastante diferentes pero todas ellas tienen una base común, que es, precisamente, de lo que nos vamos a ocupar en este Capítulo. Me estoy refiriendo a los números reales que representamos por $\R$. Sin duda, ya conoces muchas propiedades de los números reales. Sabes que se pueden sumar y multiplicar y que hay números reales positivos y negativos. También puedes extraer raíces de números reales positivos y elevar un número real positivo a otro número real. Lo que quizás no sepas es que todo lo que puedes hacer con los números reales es consecuencia de unas pocas propiedades que dichos números tienen que, además, son muy elementales. En este Capítulo estableceremos dichas propiedades. Serán nuestro punto de partida para todo lo que sigue; constituyen los \emph{``axiomas''} del Cálculo. Te advierto que no voy a decírtelo todo, voy a guardarme una carta en la manga que te mostraré más adelante cuando su necesidad sea manifiesta (si echas algo en falta, ve al \hyperlink{propiedadsupremo}{Capítulo 4}).
+\subsection{Axiomas, definiciones, teoremas, lemas, corolarios.}
+Al terminar este apartado, entenderás el significado de la frase de \href{http://es.wikipedia.org/wiki/Bertrand_Russell}{Bertrand Russell} que fue uno de los más grandes matemáticos y filósofos del siglo XX.\enlargethispage{2\baselineskip}
+\begin{quote}
+\emph{La matemática pura es aquella ciencia en la que uno no sabe de qué está hablando ni si lo que está diciendo es verdad.}
+\end{quote}
+\pagestyle{fancy}
+Siempre que te enfrentas a un problema es muy importante que lo sitúes en su contexto apropiado. Esto ya lo haces de forma automática en muchas ocasiones. Por ejemplo, sabes que un problema de álgebra y otro de probabilidades requieren distintas herramientas, y al primero lo sitúas en ``Álgebra'' y al segundo en ``Cálculo de Probabilidades''. Pero no siempre las cosas son tan claras, no siempre tienes un ``marco de referencia'' tan explícito. Para que \emph{sientas} lo que quiero decirte, voy
+a proponerte unos ejercicios muy sencillos. En todo lo que sigue se supone que $\,x, y$ son números reales.
+\begin{enumerate}
+\item Prueba que $0\,x=0$.
+\item Prueba que $(-x)y=-xy$.
+\item Prueba que si $x\neq 0$ entonces $x^2>0$.
+%\item ¿Sabes probar que $0\,x=0$? Inténtalo.
+%\item ¿Qué
+%entiendes por $-x$? ¿Es cierto que $-x$ es negativo?
+%\item Escribe
+%con palabras lo que afirma la igualdad $(-x)y=-xy$. ¿Sabes probarla?
+%\item Demuestra que si $x\neq 0$ entonces $x^2>0$ (en consecuencia
+%$1>0$).
+%\item ¿Sabes por qué no se puede dividir por $0$?
+%\item
+%Seguro que sabes construir un segmento de longitud $\sqrt{2}$. ¿Y de
+%longitud $\sqrt{3}$? \item ¿Qué quiere decir que un número no es
+%racional? Demuestra que $\sqrt{2}$ no es racional.
+\end{enumerate}
+
+Supongo que hace ya tanto tiempo que conoces estas propiedades de
+los números que has olvidado cuándo las aprendiste. ¡Y ahora te
+pido que las \emph{demuestres}! Puedo imaginar tu reacción
+\emph{¿que demuestre que $0\,x=0$?, ¡pero si eso es evidente!
+¡siempre me han dicho que es así! ¿cómo se puede demostrar tal
+cosa?}.
+
+Pienso que muchas veces la dificultad de un ejercicio está en
+que no sabes qué es exactamente lo que se te pide que hagas;
+no te dan un marco claro de referencia. En estas situaciones lo
+más frecuente es \emph{``quedarse colgado''} con la\emph{
+``mente en blanco''} sin saber qué hacer.
+
+Para evitar ese peligro,
+en este curso vamos a dar un marco de referencia muy claro que va
+a consistir en unas propiedades de los números -- \emph{axiomas}, si
+quieres llamarlas así -- que vamos a aceptar como punto de
+partida para nuestro estudio. Esas propiedades, junto con las
+\emph{reglas de inferencia lógica} usuales y con \emph{definiciones}
+apropiadas nos permitirán \emph{demostrar} resultados (\emph{teoremas}) que
+podremos usar para seguir avanzando.
+
+Simplificando un poco, puede
+decirse que en matemáticas no hay nada más que axiomas y
+teoremas (bueno, también hay conjeturas, proposiciones
+indecidibles\dots). Todo lo que se demuestra es un teorema; por
+ejemplo $0\,x=0$ es un teorema. Ocurre que el nombre
+\emph{teorema\/} se reserva para resultados que se consideran
+realmente importantes y que ha costado esfuerzo llegar a
+probarlos. Se usan también los términos: \emph{corolario},
+\emph{lema}, \emph{proposición} y otros. Pero la estructura de
+una \emph{teoría matemática elaborada} se resume en un
+conjunto de axiomas y de teoremas que se deducen de ellos mediante
+reglas de inferencia lógica.
+
+Los axiomas de una teoría matemática proporcionan el marco de referencia más general de dicha teoría. Son, por tanto, muy importantes. Al principio, cuando la teoría empieza a caminar y se demuestran los primeros resultados más básicos, es frecuente recurrir de forma explícita a los axiomas. Más adelante, cuando la teoría va avanzando, los axiomas no suelen citarse con tanta frecuencia porque nos apoyamos en resultados más elaborados previamente demostrados.  Pero los axiomas siempre están presentes aunque sea de forma discreta y no ostensible.
+
+Entre las particularidades que distinguen a las Matemáticas de las demás ciencias hay una muy especial: las Matemáticas avanzan dando definiciones. Las definiciones no son nuevos axiomas. Una definición lo que hace es introducir un término nuevo y establece cómo dicho término se expresa en función de los axiomas de la teoría. Por ejemplo, la definición de continuidad se expresa mediante desigualdades y las desigualdades se reducen a los axiomas de orden de \R.
+
+Quiero también decirte algo sobre lo que se entiende por \emph{reglas de inferencia lógicas usuales}. Me limitaré a la más importante: la \emph{implicación lógica}. Los teoremas matemáticos tienen casi siempre la siguiente estructura: se parte de una \emph{hipótesis} y de ella \emph{se deduce} una \emph{tesis}. Entremos en detalles. La \emph{hipótesis} es siempre alguna propiedad matemática; por ejemplo, \emph{``$f$ es una función continua en un intervalo''}. La \emph{tesis} también es una propiedad matemática; por ejemplo, \emph{``la imagen de $f$ es un intervalo''}. Representemos por $H$ la hipótesis y por $T$ la tesis. Es importante que te des cuenta de que no tiene sentido preguntarse por la \emph{veracidad} de la hipótesis $H$. No es ni verdadera ni falsa. Para que $H$ sea verdadera o falsa debemos particularizar la función $f$.
+
+Un error \marginpar{\flushright\curvasr} muy frecuente consiste en pensar que en Matemáticas \emph{las hipótesis son verdaderas}.
+
+Ahora te preguntarás, si $H$ no es verdadera ni falsa, ¿qué quiere decir que $H$ implica $T$ o, equivalentemente, que $T$ se deduce o es consecuencia de $H$? La respuesta es: ``$H$ implica $T$'' quiere decir que \emph{siempre que $H$ sea verdadera también $T$ es verdadera}. Observa que no estamos afirmando (no tiene sentido) que $H$ o $T$ sean verdaderas sino que \emph{cuando} $H$ es verdadera también lo es $T$. Con más precisión, demostrar que $H$ implica $T$ consiste en probar que la proposición $H\Longrightarrow T$ es cierta. Teniendo en cuenta que la proposición $H\Longrightarrow T$ es la disyunción lógica (no$H$)$\vee T$, resulta que si $H$ es falsa entonces $H\Longrightarrow T$ es verdadera (por eso se dice que de una hipótesis falsa puede deducirse cualquier cosa) y si $H$ es verdadera entonces para que $H\Longrightarrow T$ sea verdadera tiene que ocurrir que $T$ sea verdadera. En consecuencia, si sabemos que $H$ es verdadera y que $H\Longrightarrow T$ es verdadera, deducimos que $T$ es verdadera.
+
+Ahora puedes entender el significado de la frase de C. P. Steinmetz.
+\begin{quote}
+    La matemática es la ciencia más exacta, y sus conclusiones son susceptibles de demostración absoluta. Pero eso se debe exclusivamente a que la matemática no intenta obtener conclusiones absolutas. \emph{Todas las verdades matemáticas son relativas, condicionales.}
+\end{quote}
+También comprendes ya el significado de una parte de la enigmática frase de Bertrand Russell del principio: \emph{en matemáticas no sabemos si lo que decimos es verdad}. Pero una parte de dicha frase queda por aclarar.
+
+¿Recuerdas los axiomas de la geometría elemental? En dichos axiomas se establecen propiedades que se supone satisfacen ciertos objetos llamados ``punto'',``recta'' y ``plano''. Pero no se dice nunca \emph{lo que es} un punto ni una recta ni un plano. De la misma forma, en la sección siguiente estableceremos los axiomas de los números reales, pero no diremos \emph{lo que es} un número real. ¡En matemáticas nunca decimos cuál es la naturaleza concreta de los objetos con los que trabajamos! Sucede que la intuición nos lleva muchas veces a una interpretación \emph{natural} de dichos objetos, pero otras veces dicha interpretación natural no está disponible. Y, lo más interesante, puede haber interpretaciones muy diferentes de una misma teoría matemática. Precisamente, las matemáticas son una \emph{ciencia abstracta} porque trabaja con cosas abstractas cuya naturaleza no se precisa ni es necesario saber, solamente interesan las \emph{relaciones} que hay entre ellas tal y como se establecen en los axiomas. Ahora ya entiendes por qué afirma Bertrand Russell que \emph{``en matemáticas no sabemos de lo que hablamos''}.
+
+\section{ Axiomas de los números reales}
+\subsection{Axiomas algebraicos}
+Como ya sabes, se distinguen distintas clases de
+números:
+
+Los \emph{números naturales} $1,2,3, \dots$. El conjunto de
+todos ellos se representa por \N.
+
+Los \emph{números enteros} $\dots ,-2,-1,0,1,2, \dots$. cuyo
+conjunto se representa por \Z.
+
+Los \emph{números racionales} que son cocientes de la forma
+$p/q$ donde $p\en\Z, q\en\N$, cuyo conjunto representamos por \Q.
+
+También conoces otros números como
+$\sqrt{2}$, $\pi$, o el número $\e$ que no son números
+racionales y que se llaman, con una expresión no demasiado
+afortunada, ``números irracionales''. Pues bien, el conjunto
+formado por todos los números racionales e irracionales se
+llama \emph{conjunto de los números reales} y se representa por \R.
+
+Es claro que $\N\subset\Z\subset\Q\subset\R$.
+
+Aunque los números que no son racionales pueden
+parecer un poco raros, no merece la pena, al menos por ahora,
+preocuparse por cómo son estos números; sino que lo
+realmente interesante es aprender a trabajar con ellos. Lo
+interesante del número $\sqrt{2}$ es que su cuadrado es igual
+a $2$\footnote{La sección \hyperlink{magnitudes}{Números y medida de magnitudes} trata de la aparición de los números irracionales y su relación con la medida de magnitudes}.
+
+Pues bien, una de las cosas más llamativas de los
+números es que a partir de un pequeño grupo de propiedades
+pueden deducirse casi todas las demás. Vamos a destacar estas
+propiedades básicas que, naturalmente, hacen referencia a las
+dos operaciones fundamentales que se pueden hacer con los
+números: la suma y el producto. La suma de dos números
+reales $x,y$ se escribe $x+y$, representándose el producto por
+$xy$. Las propiedades básicas a que nos referimos son las
+siguientes.
+
+\begin{enumerate}
+\item[\textbf{P1}] \textbf{Propiedades asociativas.}\ Para todos $x,y,z$ en \R:
+$$
+(x+y)+z=x+(y+z)\,;\qquad (x y)z=x(y z)
+$$
+\item[\textbf{P2}]\textbf{Propiedades conmutativas.}\ Para todos $x,y$ en \R:
+$$
+x+y=y+x\,;\qquad x\,y=y x
+$$
+\item[\textbf{P3}] \textbf{Elementos neutros.}\ Hay dos números
+reales \emph{distintos} que representamos por $\,0\,$ y $\,1\,$
+tales que para todo $\,x\en\R$ se verifica que:
+$$
+0+x=x\qquad\qquad 1x=x\qquad
+$$
+\item[\textbf{P4}] \textbf{Elementos opuesto e inverso.}\ Para cada
+número real $\,x\,$ hay un número real llamado \emph{opuesto
+de} $\,x$, que representamos por $-x$, tal que $\ x+(-x)=0.$
+
+Para cada número real $\,x\,$ distinto de $0$, $x\neq
+0$, hay un número real llamado \emph{inverso de} $\,x$, que
+representamos por $\,x^{-1}$, tal que $\ xx^{-1}=1.$
+
+\item[\textbf{P5}] \textbf{Propiedad distributiva.}\ $\ (x+y)z=xz+y\,z$
+para todos $x,y,z$ en \R.
+\end{enumerate}
+Las propiedades anteriores son de tipo algebraico y,
+aunque son muy sencillas, a partir de ellas pueden {\em probarse}
+cosas tan familiares como que $0x=0$, o que $(-x)y=-(xy)$. Vamos a hacerlo.
+\begin{proposicion}\label{reglasignos}
+Se verifican las siguientes igualdades $$\,0x=0,\qquad (-x)y=-x\,y,\qquad (-x)(-y)=xy\,.$$
+\end{proposicion}
+\dem Probaremos primero que $0 x=0$. Por \textbf{P5} $\ (0+0)x=0\,x+0\,x$. Como consecuencia de \textbf{P3} es  $0+0=0$. Obtenemos así que $0\,x=0\,x+0\,x$. Usando \textbf{P4}, sumamos el opuesto de $0\,x$ a ambos lados de la igualdad $0\,x=0\,x+0\,x$ y, usando también \textbf{P1} (la propiedad asociativa), obtenemos que $0\,x=0$.
+
+Probaremos ahora que $(-x)y=-(xy)$. Tenemos que $xy+(-x)y=(x+(-x))y=0\,y=0$. Donde hemos usado \textbf{P4}, \textbf{P5} y  el apartado anterior. La igualdad $xy+(-x)y=0$ nos dice, por \textbf{P4}, que $(-x)y$ es el opuesto de $xy$. Eso es justamente lo que queríamos probar.
+
+Finalmente, la igualdad $(-x)(-y)=xy$ es consecuencia inmediata de la anterior. \fin
+
+El símbolo $-x$ debe leerse siempre ``el opuesto de $x$'' \marginpar{\flushright\curvasr} y no ``menos $x$''. La razón es que la palabra ``menos'' remite a una idea de orden (si hay ``menos'' es porque hay ``más'') y el significado de $-x$ es puramente algebraico y nada tiene que ver con la idea de orden de la que ni siquiera hemos hablado aún. ¡No cometas el error de pensar que $-x$ es negativo!
+
+\noindent \textbf{Notación.}\ Suele escribirse $\,x-y\,$ en vez de $\,x+(-y)$.
+También, supuesto $\,y\neq 0$, se escribe $\,x/y\,$ o $\frac{x}{y}$ en vez de $\,x\,y^{-1}$.
+
+\subsection{Axiomas de orden}
+Los números tienen, además de las propiedades
+algebraicas, otras propiedades que suelen llamarse \emph{
+propiedades de orden}. Como sabes, los números suelen
+representarse como puntos de una recta en la que se fija un
+origen, el $0$, de forma arbitraria. Los números que hay a la
+derecha de $0$, se llaman \emph{ positivos} y el conjunto de todos
+ellos se representa por \Rp. Las propiedades básicas del orden
+son las siguientes.
+
+\begin{enumerate}
+\item[\textbf{P6}] \textbf{Ley de tricotomía.}\ Para cada
+número real $x$ se verifica una sola de las siguientes tres afirmaciones: $x=0$, $x$ es
+positivo, $-x$ es positivo.
+
+\item[\textbf{P7}] \textbf{Estabilidad de \Rp.}\ La suma y el producto
+de números positivos es también un número positivo.
+\end{enumerate}
+
+\subsubsection{Relación de orden}
+Observa que en \textbf{P6}\, se dice, en particular, que el $0$ \emph{no} es positivo, ¡el $0$ es el $0$! Por otra parte, si $x$ es un número positivo, entonces como $\,x+(-x)=0\,$ y el $0$ no es positivo, concluimos, por \textbf{P7}, que $-x$ no es positivo. Los elementos del conjunto
+$\,\Rm\!=\{-x\,:\,x\in\Rp\}$, es decir, los opuestos de los números positivos, se llaman \emph{números negativos}. Observa que si $\,z\en\Rm$ entonces $-z\en\Rp$.
+
+\begin{definicion}
+Para $\,x,y\in\R$ escribimos $\,x<y\,$ (léase $x$ \emph{
+es menor que} $y$) o $\,y>x\,$ (léase $y$ \emph{ es mayor que}
+$x$) para indicar que $\,y-x\in\Rp$, y escribimos $\,x\leqslant
+y\,$ o $\,y\geqslant x\,$ para indicar que $\,y-x\in\Rp\cup\{0\}$.
+\end{definicion}
+
+\noindent \textbf{Notación.}\ En adelante usaremos las notaciones: $\Rpo=\Rp\cup\{0\}$,
+$\Rmo=\Rm\cup\{0\}$ y $\R^{*}=\R\!\setminus\{0\}$.
+
+\begin{proposicion}
+Para todo $x\neq 0$ se verifica que $x^2>0$. En particular, $1>0$.
+\end{proposicion}
+\dem Probaremos que si $x\neq 0$ entonces $x^2>0$. En efecto, si $x\neq 0$ entonces, por \textbf{P6}, o bien $x$ es positivo o bien $-x$ es positivo. Teniendo en cuenta que, como consecuencia de (\ref{reglasignos}), es $\,x^2=x\,x=(-x)(-x)$, concluimos que $x^2$ es positivo. En particular, tenemos que $1^2=1>0$. ¡Acabamos de probar que $1>0$!.\fin
+
+Tenemos ahora dos tipos de propiedades en \R, las algebraicas \textbf{P1}-\textbf{P5} y las de orden \textbf{P6} y \textbf{P7}. En la siguiente sección estudiamos cómo se relacionan entre sí.
+
+\subsection{Desigualdades y valor absoluto}
+
+Las propiedades del orden de los números reales son las que nos permiten trabajar con desigualdades.
+Es muy fácil equivocarse al trabajar con desigualdades. Yo creo que en el bachillerato no se le da a este tema la importancia
+que merece. Fíjate que algunos de los conceptos más importantes del Cálculo se definen mediante desigualdades (por
+ejemplo, la definición de sucesión convergente o de límite de una función en un punto). Por ello, tan
+importante como saber realizar cálculos más o menos complicados, es aprender a manejar correctamente desigualdades, y
+la única manera de hacerlo es con la práctica mediante numerosos ejemplos concretos. Por supuesto, siempre \emph{deben
+respetarse cuidadosamente las reglas generales que gobiernan las desigualdades entre números} y asegurarse de que se usan
+correctamente. Aparte de tales reglas no hay otros métodos generales que nos digan cómo tenemos que proceder en cada caso
+particular.
+
+En el siguiente resultado ¡el primer teorema de este curso! se enuncian las propiedades principales del orden de \R. Son las que deberás usar para trabajar con desigualdades.
+
+\begin{teorema}[\textbf{Reglas para trabajar con
+desigualdades}]\label{reglasdesigualdades}
+
+Sean $\,x,y,z\,$ números reales.
+\begin{enumerate}
+\item  \ $\,x\leqslant y\ $ e $\ y\leqslant z\ $ \
+implican que $\ x\leqslant z$.
+
+\item \ $\,x\leqslant y\ $ e $\ y\leqslant x\ $ \ implican
+que  $\ x=y$.
+
+\item Se verifica exactamente una de las tres relaciones:
+$\ x<y$, $x=y$, o $\ y<x.$
+
+\item \ $\,x<y\ $ \ implica que \ $\ x+z<y+z$.
+
+\item  \ $\,x<y\ $ ,\ $\ z>0\ $ \ implican que \ $\
+xz<y\,z$.
+
+\item \ $\,x<y\ $ ,\ $\ z<0\ $ \ implican que \ $\
+xz>y\,z$.
+
+\item\ $\,xy>0\ $ si, y sólo si, $x$ e $y$ son los
+dos positivos o los dos negativos. En consecuencia si $\ x\neq 0\ $
+es $\ x^{2}>0\ $ y, en particular, $\ 1>0$.
+
+\item $\ z>0\ $ implica que ${\displaystyle \
+\frac{1}{z}>0.}$
+
+\item Supuesto que $x$ e $y$ son los dos positivos o los
+dos negativos, se verifica que $\ x<y\ $ implica que ${\displaystyle
+\ \frac{1}{y}<\frac{1}{x}.}$
+\end{enumerate}
+\end{teorema}
+
+Todas estas propiedades son fáciles de probar. Por ejemplo, para probar el punto \emph{5)}, si $\,x<y\,$ se tiene que $y-x>0$. Si ahora es $z>0$, también será $z(y-x)>0$, es decir, $zy-zx>0$ o, sea, $zx<zy$. Lo único que hemos usado aquí ha sido la definición de los símbolos ``$<$'' y ``$>$'' y algunas de las propiedades \textbf{P1}-\textbf{P8}. Un estupendo ejercicio para que compruebes tus habilidades es que demuestres todas las afirmaciones del teorema anterior.
+
+\subsubsection{La forma correcta de leer las matemáticas}
+La forma en que están escritos los apartados del teorema anterior no me gusta mucho. Voy a decirte por qué y para eso voy a tratar aquí un defecto en el que solemos caer al leer o estudiar matemáticas. Se trata de algo que realizamos de una manera mecánica, y por ello no es fácil de evitar, y que limita y condiciona mucho el alcance de lo que entendemos y aprendemos. Para ponerlo de manifiesto vamos a considerar un ejemplo. En uno de los ejercicios al final de esta sección te propongo que pruebes que la igualdad
+\begin{equation}\label{inversosuma}
+\frac{1}{\ x\ }\ +\ \frac{1}{\ y\ }=\frac{1}{\ x+y\ }
+\end{equation}
+\emph{nunca} es cierta. Bien, supongamos que ya lo has probado. Seguidamente te pido que me digas cuándo es cierta la igualdad
+\begin{equation}\label{inversosuma2}
+\frac{1}{\,x+y^2\,}\ +\ \frac{1}{\,z\,}=\frac{1}{x+y^2+z}
+\end{equation}
+Tienes 15 segundos para contestar (y sobran 13). ¿Si? ¿No? ¡Son \emph{la misma} igualdad! Y, aquí es a dónde yo quería llegar, si no te parecen la misma igualdad es porque \emph{estás leyendo los símbolos y no los conceptos}, es porque ¡estás leyendo las letras! Claro, me dirás, las letras están para leerse. De acuerdo, pero hay que ir siempre al significado de lo que se lee y no quedarse en la superficie de los símbolos. Los símbolos proporcionan mucha comodidad para expresar las ideas matemáticas, pero con frecuencia, si no sabemos leer bien su significado, \emph{los símbolos pueden ocultar los conceptos}. En el ejemplo anterior, el hecho de que la igualdad (\ref{inversosuma}) sea falsa, se expresa de forma correcta diciendo que \emph{``la suma de dos inversos nunca es igual al inverso de la suma''}. Por tanto, la igualdad (\ref{inversosuma2}) jamás puede darse pues es la misma igualdad (\ref{inversosuma}) en la que se ha sustituido $x$ por $x+y^2$ e $y$ por $z$. Pero tanto $x$ como $x+y^2$ son números reales cualesquiera e igual ocurre con $z$ e $y$. ¿Te das cuenta del problema? No es igual retener la idea de que ``1 dividido por $x$ más 1 dividido por $y$ nunca es igual a 1 dividido por $x+y$'' que asimilar que ``la suma de dos inversos nunca es igual al inverso de la suma''. En el primer caso los símbolos $x$ e $y$ tienen un protagonismo que no les corresponde, ocultan el concepto: si te fijas demasiado en ellos no sabrás reconocer que (\ref{inversosuma2}) y (\ref{inversosuma}) son la misma cosa.
+
+Esto que acabamos de ver ocurre en muchas situaciones. Por ejemplo, la mayoría de los libros de texto enuncian el teorema de Bolzano como sigue.
+\begin{quote}
+Sea $f:[a,b]\rightarrow\R $ continua y verificando que $f(a)f(b)<0$. Entonces hay algún $c\in\, ]\msi a,b[$ tal que $f(c)=0$.
+\end{quote}
+Demasiadas letras $f$, $a$, $b$, $c$, demasiadas precisiones que lo que hacen es confundir y ocultar el resultado. La forma correcta de leer el enunciado anterior es: ``toda función continua en un intervalo que toma valores positivos y negativos se anula en algún punto de dicho intervalo''. Los teoremas deben enunciarse así, a ser posible sin símbolos. Yo procuro hacerlo siempre que el resultado lo permite. No lo he hecho en el teorema (\ref{reglasdesigualdades}) porque quiero que lo hagas tú. Por ejemplo, la propiedad \emph{5)} de dicho teorema debe leerse (y escribirse) en la forma: ``una desigualdad se conserva al multiplicarla por un número positivo''.
+
+\begin{estrategia} \emph{Traduce los \marginpar{\flushright\curvasr}símbolos en conceptos. Cuando leas matemáticas presta atención a los conceptos y no retengas símbolos concretos.}
+\end{estrategia}
+\begin{definicion}
+Se dice que un conjunto no vacío de números reales, $A\subset\R$, tiene \emph{máximo} si hay un número $M\en A$ que es el mayor de todos los elementos de $A$, es decir, $x\le M$ para todo $x\in A$. Cuando esto ocurre, escribimos $M=\max A$.
+Se dice que un conjunto no vacío de números reales, $A\subset\R$, tiene \emph{mínimo} si hay un número $m\en A$ que es el menor de todos los elementos de $A$, es decir, $m\le x$ para todo $x\in A$. Cuando esto ocurre, escribimos $m=\min A$.
+\end{definicion}
+
+\subsubsection*{Valor absoluto}
+El \emph{valor absoluto} de un número $x\en\R$ se define como el número:
+$$
+|x\,|=\left\{ \begin{array}{rr}
+              x           & \mbox{\ si $\,x\geqslant 0$} \\
+              -x         & \mbox{\ si $\,x\leqslant 0$}
+              \end{array}
+     \right.
+$$
+Para trabajar con valores absolutos es útil recordar la siguiente definición.
+\begin{definicion}\footnote{Con las herramientas que ahora tenemos no podemos probar la existencia de raíces cuadradas}.
+Para cada número $\,z\!\in\!\Rpo$, representamos por $\sqrt{z}$  al único
+número \emph{mayor o igual que cero} cuyo cuadrado es igual a $z$.
+\end{definicion}
+
+\subsubsection{Una función aparentemente caprichosa}
+Acabamos de definir la función \emph{``raíz cuadrada''}. Ahora te propongo un juego: voy a hacerte una pregunta que tú vas a responder de forma inmediata diciendo lo primero que se te ocurre. La pregunta es la siguiente: dime el valor de $\sqrt{x^{2}}$. Por experiencia sé que la mayoría de las veces la respuesta es $\,x$. Pues si esa ha sido tu respuesta te equivocas. Vuelve a leer la definición anterior y responde ahora de forma meditada. Confío en que ya tengas la respuesta correcta que es $\,\abs{x}$. En efecto, se tiene que $|x|^{2}=x^{2}$ y, \emph{además}, $|x|\geqslant 0$, por tanto
+$|x\,|=\sqrt{x^{2}}$.
+
+Sé por experiencia que muchos estudiantes tienen la idea de que la raíz cuadrada de un número real positivo es unas veces positiva y otras veces negativa y muchos creen que puede tomar los dos valores y, en este caso, deben pensar que $\sqrt{x^{2}}=\set{x,-x}$. Cosas más raras se han visto. Toda esta ``magia'' lleva a situaciones bastante extrañas. Por ejemplo, es sabido que la distancia euclídea entre dos puntos $(a,b)$ y $(c,d)$ del plano viene dada por $\sqrt{(a-c)^2+(b-d)^2}$. En particular, la distancia entre los puntos $(a,b)=(1,2)$ y $(c,d)=(1,3)$ es $\sqrt{(1-1)^2+(2-3)^2}=\sqrt{(-1)^2}=-1$. ¿Una distancia negativa? No, la raíz cuadrada no es una función caprichosa y su definición no deja lugar a dudas: la raíz cuadrada de un número positivo es también un número positivo.
+
+¿Sabes de dónde procede esta confusión tan extendida? Pues viene de muy atrás, de cuando en la escuela se aprende (\emph{¿realmente se aprende?}) a resolver la ecuación de segundo grado \mbox{$a x^2+b x + c=0$} cuyas soluciones son los números
+\begin{equation}\label{raicestrinomio}
+\dfrac{-b\pm\sqrt{b^2-4a c}}{2 a}
+\end{equation}
+Ahí está el problema: en el confuso símbolo $\pm$ delante de la raíz. Es eso lo que lleva a muchos a pensar que las raíces cuadradas pueden tomar dos valores: uno positivo, que corresponde a la elección del sigo $+$, y otro negativo que corresponde a la elección del signo $-$ en la expresión (\ref{raicestrinomio}). Lo más lamentable es que toda esta confusión no es más que producto de la pereza. Verás, cuando se aprende a resolver la ecuación de segundo grado  $\ a x^2+b x + c=0\,$ (\emph{¿realmente se aprende?}) se obtienen las soluciones
+$$
+\dfrac{-b+\sqrt{b^2-4a c}}{2 a},\qquad \dfrac{-b - \sqrt{b^2-4a c}}{2 a}
+$$
+Como esto es largo de escribir en la pizarra, los profesores, \emph{por pereza}, resumen las soluciones obtenidas en la expresión única (\ref{raicestrinomio}). Eso explica cosas bastante incomprensibles como, por ejemplo, escribir $+\sqrt{3}$ ¿acaso escribes +7? No, sabes que 7 es un número positivo y parece totalmente improcedente escribir $+7$. Entonces, ¿por qué escribir $+\sqrt{3}$? Respuesta, porque $\sqrt{3}$ es caprichoso: unas veces puede ser positivo y otras negativo. A esta forma de pensar se le llama \emph{magia matemática}, está bastante más extendida de lo que puedes creer y no solamente entre estudiantes. Confío en que te haya quedado claro sin lugar a dudas que $\sqrt{x^{2}}=\abs{x}$ y que la raíz cuadrada no es una función caprichosa.
+
+La utilidad de la raíz cuadrada para trabajar con valores absolutos procede de la siguiente estrategia de procedimiento.
+
+\begin{estrategia}\label{estrategiadesigualdadpositivos}
+\begin{enumerate}
+\item[a)] Para probar que dos números positivos son iguales es suficiente probar que sus cuadrados son iguales.
+\item[b)] Para probar una desigualdad entre dos número positivos es suficiente probar dicha desigualdad para sus cuadrados.
+\end{enumerate}
+\end{estrategia}
+El enunciado anterior está hecho como a mi me gusta: con palabras y sin símbolos. Poniendo símbolos, lo que se dice en el enunciado es que:
+\begin{quote}
+\emph{Dados $\,a,b\in\Rpo$ para probar que $\,a=b\,$ es suficiente \marginpar{\flushright\curvasr}
+probar que $\,a^{2}=b^{2}$ y para probar que $\,a<b\,$ es
+suficiente probar que $\,a^{2}<b^{2}$}.
+\end{quote}
+Todo lo dicho es consecuencia de que $b^2-a^2=(b-a)(b+a)$ y se tiene que $b+a>0$.
+\sskip
+
+\noindent Geométricamente, $|x|$ representa la distancia de
+$x$ al origen, $0$, en la recta real. De manera más general:
+$$
+|x-y|= \textrm{distancia entre $x$ e $y$}
+$$
+representa la longitud del segmento de extremos $x$ e $y$.
+
+\begin{teorema}[\textbf{Propiedades del valor
+absoluto}]\label{valorabsoluto} Para $\,x,y\in\R$ se verifica que:
+\begin{enumerate}
+\item[i)] $|x|\leqslant y\,$ es equivalente a  $\,-y\leqslant
+x\leqslant y$.
+
+\item[ii)] $|x\,y|=|x||y|$.
+
+\item[iii)]\ $|x+y|\leqslant |x|+|y|\,$ y la igualdad se da si,
+y sólo si, $x y\geqslant 0\,$ \textbf{desigualdad triangular}.
+
+\item[iv)]\ $\modulo{|x|-|y|}\leqslant |x-y|\,$ y la
+igualdad se da si, y sólo si, $x y\geqslant 0$.
+\end{enumerate}
+\end{teorema}
+\dem La primera afirmación es consecuencia inmediata de la definición de valor absoluto. Para probar \emph{ii)}, \emph{iii)} y \emph{iv)} usaremos la estrategia (\ref{estrategiadesigualdadpositivos}).
+\begin{enumerate}
+\item[ii)] Tenemos que $\abs{x y}^2=(x y)^2=x^2 y^2=\abs{x}^2\abs{y}^2=(\abs{x}\abs{y})^2$.
+\item[iii)] Tenemos que
+$$
+\abs{x+y}^2=(x+y)^2=x^2+2x y+y^2=\abs{x}^2+2 x y+\abs{y}^2 \le \abs{x}^2+2\abs{x y}+\abs{y}^2=(\abs{x}+\abs{y})^2
+$$
+La igualdad se da si, y sólo si, $xy=\abs{x y}$, es decir, $xy\ge 0$.
+\item[iv)] Tenemos que
+$$
+\modulo{\abs{x}-\abs{y}}^2=x^2-2\abs{xy}+y^2\le x^2-2 x y +y^2=(x-y)^2=\abs{x-y}^2
+$$
+La igualdad se da si, y sólo si, $xy=\abs{x y}$, es decir, $xy\ge 0$.\fin
+\end{enumerate}
+Te recuerdo que debes leer de forma correcta las propiedades anteriores: no te fijes en las letras sino en los conceptos. La propiedad \emph{ii)} debes leerla \emph{``el valor absoluto de un producto es igual al producto de los valores absolutos''}. Por su parte, la desigualdad triangular dice dos cosas:
+\begin{enumerate}
+\item[i)] \emph{El valor absoluto de una suma es menor o igual que la suma de los valores absolutos.}
+\item[ii)] \emph{El valor absoluto de una suma es igual a la suma de los valores absolutos si, y sólo si, todos los sumandos son positivos o todos todos los sumandos son negativos.}
+\end{enumerate}
+\begin{ejercicios propuestos}
+\propuesto ¿Sabes por qué no se puede dividir por $0$?
+\propuesto ¿Qué quiere decir que un número no es racional? Demuestra que $\sqrt{2}$ no es racional.
+
+\propuesto Sabiendo que $\,a+b>c+d,\ a>b,\ c>d;$ ¿se verifica
+necesariamente alguna de las desigualdades: $a>c,\ a>d,\ b>c\,$ o
+$\,b>d\,$? Dar una prueba o un contraejemplo en cada caso.
+
+\propuesto Sea $x$ un número real. Estudia si cada una de las desigualdades
+$$x^2<x\quad \textrm{y}\quad x^3<x^2$$
+es consecuencia de la otra.
+
+\propuesto  Calcula para qué valores de $\,x\,$ se verifican las desigualdades siguientes.
+$$
+\begin{array}{rlrl}
+\textrm{i)}& \dfrac{2x-3}{x+2}<\dfrac{1}{3} &\textrm{ii)}&\dfrac{1}{x}+\dfrac{1}{1-x}>0\\
+\textrm{iii)}& x^2-5x+9>x &\textrm{iv)}&\rule{0mm}{6mm} x^3(x-2)(x+3)^2<0 \\
+\textrm{v)}&\rule{0mm}{4mm} x^{2}-(a+b)x+ab<0 & \textrm{vi)}&
+3(x-a)a^{2}<x^{\,3}-a^{\,3}<3(x-a)x^{2}
+\end{array}
+$$
+\propuesto Prueba las siguientes desigualdades:
+\begin{enumerate}[a)]
+\item \  $\,0<x+y-x\,y<1\,$ siempre que $\,0<x<1,\ 0<y<1.$
+\item \rule{0mm}{6mm} ${\dis \,\frac{1}{x}+\frac{1}{a+b-x}<\frac{1}{a}+\frac{1}{b}}\,$ siempre que $\,0<a<x<b.$
+\end{enumerate}
+\propuesto Prueba que cualesquiera sean los números reales positivos $a>0$ y $b>0$ se verifica que
+$$\frac{a}{2(a+b)\sqrt{b}}<\frac{1}{\sqrt{b}}-\frac{1}{\sqrt{a+b}}$$
+\propuesto Calcula para qué valores de $\,x\,$ se verifican las siguientes desigualdades.
+$$
+\begin{array}{rlrl}
+\textrm{i)}&\hspace{1mm} |x-5|<|x+1|  & \textrm{ii)}&\hspace{1mm}\abs{x-1}\abs{x+2}=3 \\
+\textrm{iii)}&\hspace{1mm}\abs{x^2-x}>1 & \textrm{iv)}&\hspace{1mm} |x-y+z|=|x|-|z-y| \\
+ \textrm{v)}&\hspace{1mm} \abs{x-1}+\abs{x+1}<1 & \textrm{vi)}&\hspace{1mm} |x+y+z|=|x+y|+|z| \\
+ \textrm{vii)}&\hspace{1mm} |x|-|y|=|x-y| &\textrm{viii)}&\hspace{1mm} \abs{x+1}<\abs{x+3}
+\end{array}
+$$
+\propuesto\label{fraccionintermedia}  Supuesto que $\dfrac{s}{t}<\dfrac{u}{v}<\dfrac{x}{y}$ donde $t,v,y\en\Rp$, prueba
+que $\dfrac{s}{t}\!<\!\dfrac{s+u+x}{t+v+y}\!<\!\dfrac{x}{y}$. Generaliza este resultado.
+
+\propuesto Prueba cada una de las siguientes desigualdades y
+estudia, en cada caso, cuándo se da la igualdad.
+\begin{enumerate}[a)]
+\item\ $\,2x\,y\leqslant x^{2}+y^{2}.$
+\item\ $\,4x\,y\leqslant (x+y)^{2}.$
+\item\  $x^{2}+x\,y+y^{2}\geqslant 0.$
+\item\ $\,(a^{2}+a+1)(b^{2}+b+1)(c^{2}+c+1)\geqslant 27abc\,$ donde
+$\,a>0,\,b>0,\,c>0$.
+\end{enumerate}
+Sugerencia. Para probar a) considérese $\,(x-y)^{2}$. Las demás desigualdades pueden deducirse de a).
+
+\propuesto Demuestra todos los apartados del teorema (\ref{reglasdesigualdades}) y enúncialos con palabras.
+
+\propuesto Sean $x$ e $y$ números distintos de cero. Prueba que las igualdades
+$$\dfrac{1}{x+y}=\dfrac{1}{x}+\dfrac{1}{y},\qquad \sqrt{x^2+y^2}=x+y$$
+son falsas.
+
+\propuesto Comprueba que $\big((x+1)-\frac{1}{2}(2x+1)\big)^2=\big(x-\frac{1}{2}(2x+1)\big)^2$. Por tanto, extrayendo raíces cuadradas, se deduce que $(x+1)-\frac{1}{2}(2x+1)=x-\frac{1}{2}(2x+1)$, esto es $x=x+1$ y, por tanto, $0=1$. ¿Dónde está el error?
+
+\propuesto Calcula los números reales $x$ que verifican cada una de las igualdades
+$$
+\sqrt{x+1}-\sqrt{x-1}=2,\qquad \dfrac{1}{\sqrt{x}-2}-\dfrac{1}{\sqrt{x}}=\dfrac{2}{3}
+$$
+Comprueba las soluciones obtenidas.
+\propuesto Prueba que $\abs{x}+\abs{y}+\abs{z}\le\abs{x+y-z}+\abs{x-y+z}+\abs{-x+y+z}$.
+%\propuesto Sean $a$, $b$ y $c$ números positivos. Prueba que
+%$$
+%\dfrac{a+b+c}{a b c}\le\dfrac{1}{\,a^2\,}+\dfrac{1}{\,b^2\,}+\dfrac{1}{\,c^2\,}
+%$$
+\propuesto Prueba que si $\,m\,$ es un números natural que no
+es el cuadrado de ningún número natural, es decir, $\,m\neq
+n^{2}$ para todo $n\en\N$, entonces se verifica que
+$\,\sqrt{m}\,$ es un número real no racional.
+
+Sugerencia. Usa la descomposición de $m$ en factores primos.
+\propuesto\label{ejercicioirracionales} Justifica las siguientes afirmaciones.
+\begin{enumerate}[a)]
+\item La suma de un número racional y un número irracional es un
+número irracional.
+\item El producto de un número racional no cero por un número
+irracional es un número irracional.
+\item La suma y el producto de dos números irracionales puede ser
+racional o irracional.
+\item Los números $\,\sqrt{2}+\sqrt{3}$,
+$\,\sqrt{6}-\sqrt{2}-\sqrt{3}\,$ y ${\dis
+\,\frac{\sqrt{5}+2}{3\sqrt{5}+4}\,}$ son irracionales.
+\end{enumerate}
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto ¿Sabes por qué no se puede dividir por $0$?
+
+\sol Si se pudiera dividir por $0$, es decir, si hubiera un número que fuera el
+inverso del $0$, su producto por $0$ habría de ser igual a 1, pero ya sabemos que al
+multiplicar por $0$ el resultado es siempre $0$. Conclusión: si se pudiera dividir por cero
+habría de ser $1=0$, lo cual es falso.\hecho
+
+\resuelto ¿Qué quiere decir que un número no es racional? Demuestra que $\sqrt{2}$ no es racional.
+
+\sol Que un número no es racional quiere decir que no puede escribirse como cociente
+de números enteros. Para probar que un número es irracional suele razonarse por contradicción:
+se supone que el número en cuestión es racional y se llega a una situación contradictoria. Una
+prueba clásica de que $\sqrt{2}$ es irracional es como sigue. Supongamos que $\sqrt{2}$ fuera
+racional. Entonces existirán números naturales $m$ y $n$ sin factores comunes, en particular $m$
+y $n$ no podrán ser ambos pares, tales que $\sqrt{2}=\dfrac{m}{n}$, esto es, $\,2n^{2}=m^{2}$.
+La igualdad $\,2n^{2}=m^{2}$ nos dice que $\,m^{2}$ es par lo cual implica que también tiene
+que serlo $\,m$. Así podemos escribir $\,m=2p\,$. Sustituyendo en la igualdad anterior y
+simplificando tenemos que $\,n^{2}=2p^{2}$, y de aquí se sigue, al igual que antes, que
+$\,n\,$ tiene que ser par y ésta es la contradicción anunciada.\hecho
+
+\resuelto Calcula para qué valores de $\,x\,$ se
+verifica que $\dis{\ \ \frac{2x-3}{x+2}<\frac{1}{3}}$.
+
+\sol Claro está, $x\neq -2$ (recuerda, no se puede dividir por $0$). Como al
+multiplicar una desigualdad por un número positivo la desigualdad se conserva, deducimos que si
+$x>-2$, la desigualdad dada equivale a $6x-9<x+2$, es decir, $x<11/5$. Luego para $-2<x<11/5$ la
+desigualdad es cierta. Veamos ahora qué pasa si $x<-2$. En tal caso, al multiplicar por $x+2<0$
+la desigualdad equivale a $6x-9>x+2$, es decir, $x>11/5$ condición que no puede darse si
+$x+2<0$. En resumen, la desigualdad es cierta para $-2<x<11/5$.
+
+Otra forma de proceder consiste en utilizar el hecho de que una desigualdad es equivalente a la obtenida al multiplicarla por una cantidad positiva. Multiplicando la desigualdad dada por $(x+2)^2$ obtenemos que dicha desigualdad equivale a la siguiente
+$$
+(2x-3)(x+2)<\frac{1}{3}(x+2)^2
+$$
+Haciendo las operaciones indicadas obtenemos que esta desigualdad es lo mismo que \mbox{$\,5x^2-x-22<0$}. Las soluciones de la ecuación $\,5x^2-x-22=0\,$ son $a=-2$ y $b=11/5$. Por tanto, $5x^2-x-22=5(x+2)(x-11/5)$. Resulta así que la desigualdad dada equivale a $(x+2)(x-11/5)<0$. Teniendo en cuenta que para que un producto de dos números sea negativo dichos números deben ser uno positivo y otro negativo, concluimos que debe ser $x+2>0$ y $x-11/5<0$, es decir $-2<x<11/5$ (la otra posibilidad $x+2<0$ y $x-11/5>0$ no puede darse).\hecho
+
+\resuelto Calcula para qué valores de $\,x\,$ se verifica que $$\,3(x-a)a^{2}<x^{\,3}-a^{\,3}<3(x-a)x^{2}$$
+\sol La desigualdad del enunciado equivale a las siguientes dos desigualdades:
+$$
+x^{\,3}-a^{\,3}-3(x-a)a^{2}>0;\qquad x^{\,3}-a^{\,3}-3(x-a)x^{2}<0
+$$
+Teniendo en cuenta que
+$\,x^{\,3}-a^{\,3}=(x-a)(x^{2}+ax+a^{2})$, resulta
+$$
+x^{\,3}-a^{\,3}-3(x-a)a^{2}=(x-a)(x^{2}+ax-2a^{2})
+=(x-a)^{2}(x+2a)
+$$
+$$
+x^{\,3}-a^{\,3}-3(x-a)x^{2}=(x-a)(-2x^{2}+ax+a^{2})=-2(x-a)^{2}(x+a/2)
+$$
+Deducimos que la desigualdad del enunciado se verifica si, y sólo si,
+$x\neq a$, $x+2a>0$, y $\,x+a/2>0$.
+
+Si $\,a\geqslant 0\,$ entonces $\,x+2a\geqslant x+a/2$ y la desigualdad se cumple si, y
+sólo si, $\,x>-a/2\,$ y $\,x\neq a$.
+
+Si $a<0$ entonces $x+a/2>x+2a$ y la desigualdad se cumple si, y
+sólo si, \mbox{$x>-2a$.}\hecho
+
+\resuelto Sabiendo que $\,a+b>c+d,\ a>b,\ c>d$; ¿se verifica
+necesariamente alguna de las desigualdades: $a>c,\ a>d,\ b>c\,$ o
+$\,b>d\,$? Dar una prueba o un contraejemplo en cada caso.
+
+\sol Que las letras no te despisten: lo que te están diciendo es que si la suma
+de dos números distintos entre sí es mayor que la suma de otros dos números distintos entre sí,
+¿es cierto, por ejemplo, que el mayor del primer par es más grande que el mayor del segundo par?
+Está claro que no tiene por qué ser así: los otros sumandos pueden compensar la diferencia. Por
+ejemplo $252+250>500+1$. Concluimos que no tiene por qué ser cierto que $a>c$ ni tampoco $b>c$. El ejemplo
+$500+2>251+250$ prueba que tampoco tiene por qué ser $b>d$. Intenta ahora buscar un ejemplo en
+el que no se cumpla que $a>d$ (pero no le dediques más de cinco minutos). ¿Ya? No lo habrás
+encontrado porque, si lo piensas un poco, verás que tiene que ser necesariamente $a>d$. Intenta
+\emph{demostrarlo} (aunque tengas que dedicarle más de cinco minutos).
+
+Lo primero que se le ocurre a uno es escribir $\,a>(c-b)+d$. Si $c-b$ \emph{fuera siempre
+positivo} habríamos acabado (\emph{y también habríamos demostrado más de lo que queremos}), pero
+no tiene por qué ser así, por ejemplo $9+8>2+1$. La \emph{demostración directa} no parece
+viable. En estos casos tenemos que intentar un \emph{camino indirecto}. Probemos que no puede
+ocurrir que $a\leqslant d$. Eso es fácil. Fíjate: si fuera $a\leqslant d$, como nos dicen que
+$b<a$ y $d<c$, también sería $b<d$ y $a<c$; pero entonces $a+b<c+d$ lo que es contrario a la
+hipótesis hecha. Luego concluimos que $a>d$.\hecho
+
+\resuelto Supuesto que $0<a<x<b$, prueba que se verifica la siguiente desigualdad.
+$$\dfrac{1}{x}+\dfrac{1}{a+b-x}<\dfrac{1}{a}+\dfrac{1}{b}$$
+\sol En este ejercicio no parece, en principio, cosa fácil deducir la
+desigualdad pedida de las hipótesis que nos dan. En estos casos puede intentarse \emph{trabajar
+para atrás}, es decir, ir convirtiendo la desigualdad que nos piden probar en otras
+\emph{equivalentes a ella} y más sencillas, hasta llegar a una que seamos capaces de deducir de
+la hipótesis que nos dan. Haciendo las operaciones indicadas, podemos escribir la desigualdad en
+la forma $$\dfrac{a+b}{x(a+b-x)}<\dfrac{a+b}{a\,b}$$ y, como los denominadores son positivos,
+esto es lo mismo que $$(a+b)a\,b<(a+b)x(a+b-x)$$ Como $a+b>0$ esta desigualdad equivale a
+$\,ab<x(a+b-x)$, es decir: $$0<ax+bx-x^2-ab=(x-a)(b-x)$$ Pero esta última desigualdad es
+consecuencia de que la hipótesis hecha, $0<a<x<b$, la cual implica que $0<x-a$ y $0<b-x$. Y por
+tanto $(x-a)(b-x)>0$.
+
+Con esto podemos considerar que hemos acabado, pero es una buena costumbre dar ahora la vuelta
+al razonamiento que hemos seguido, es decir, deshacer el camino recorrido para obtener una
+prueba directa.\hecho
+
+\resuelto Discutir la validez de las igualdades:
+\begin{enumerate}
+\item[a)]\  $|x+y+z|=|x+y|+|z|$
+\item[b)]\  $|x-5|<|x+1|$
+\end{enumerate}
+\sol a)\ En virtud de la desigualdad triangular, la igualdad del enunciado\linebreak $|x+y+z|=|(x+y)+z|=|x+y|+|z|$, se
+da si, y sólo si, $(x+y)z\geqslant 0$.
+
+b)\ En virtud de la estrategia (\ref{estrategiadesigualdadpositivos}), la desigualdad $\,|x-5|<|x+1|\,$ equivale a la desigualdad
+$\,|x-5|^2<|x+1|^2\,$, es decir,
+$$x^2-10x+25<x^2+2x+1$$ o sea, $24<12x$, esto es, $x>2$. Esto también puedes comprobarlo representando los números en una recta en la que fijas un origen y una unidad: se trata de ver cuándo
+$x$ está más cerca de $5$ que de $-1$.\hecho
+
+\resuelto \label{enmedio} Lo que sigue es una generalización del ejercicio propuesto (\ref{fraccionintermedia}).
+
+Sean $a_{1},a_{2},\dots,a_{n}$ números reales cualesquiera y
+$b_{1},b_{2}\dots,b_{n}$ números reales positivos. Sean $m$ y $M$ el menor y el mayor
+respectivamente de los números $$
+\frac{a_{1}}{b_{1}},\frac{a_{2}}{b_{2}},\cdots,\frac{a_{n}}{b_{n}}. $$ Entonces, para
+$j=1,2,\dots,n$, se verifica que: $$ m\leqslant\frac{a_{j}}{b_{j}}\leqslant M,\ \  {\rm
+es\ decir},\ \ mb_{j}\leqslant a_{j}\leqslant Mb_{j} $$ y sumando estas desigualdades: $$
+m\sumaf{j=1}{n}b_{j}\leqslant\sumaf{j=1}{n}a_{j}\leqslant M\sumaf{j=1}{n}b_{j}, $$ de
+donde se sigue que: $$
+m\leqslant\frac{a_{1}+a_{2}+\cdots+a_{n}}{b_{1}+b_{2}+\cdots+b_{n}}\leqslant M. $$
+\hecho
+
+\resuelto Prueba cada una de las siguientes desigualdades y
+estudia, en cada caso, cuándo se da la igualdad.
+\begin{enumerate}
+\item[i)] \ $\,2x y\leqslant x^{2}+y^{2}.$
+
+\item[ii)]\ $\,4x y\leqslant (x+y)^{2}.$
+
+\item[iii)]\ $x^{2}+x y+y^{2}\geqslant 0.$
+
+\item[iv)]\ $\,(a^{2}+a+1)(b^{2}+b+1)(c^{2}+c+1)\geqslant 27abc\,$ donde
+$\,a>0,\,b>0,\,c>0$.
+
+\item[v)]\ $\,abc\leqslant 1\,$ donde $a>0,b>0,c>0$
+verifican $\,(1+a^{2})(1+b^{2})(1+c^{2})=8$.
+\end{enumerate}
+Sugerencia: para probar i) considérese $\,(x-y)^{2}$. Las
+demás desigualdades pueden deducirse de i).
+
+\sol \begin{enumerate}
+\item[i) y ii)] Siguiendo la sugerencia, que para eso nos la
+dan, tenemos que
+$$(x-y)^2=x^2+y^2-2xy\geqslant 0$$ de donde se deduce que $\,2x\,y\leqslant x^{2}+y^{2}$, y
+la igualdad ocurre si, y sólo si, $x=y$. Si sumas $2xy$ a
+ambos lados de la desigualdad $\,2x\,y\leqslant x^{2}+y^{2}$,
+obtienes que $\,4x\,y\leqslant (x+y)^{2}$, y la igualdad ocurre
+si, y sólo si, $x=y$.
+
+\item[iii)] Cambiando $x$ por $-x$ en $2x\,y\leqslant x^{2}+y^{2}$ resulta
+$2x\,y\geqslant -(x^{2}+y^{2})$. Por tanto $$ x^{2}+x\,y+y^{2}\geqslant
+\frac{1}{2}(x^{2}+y^{2})$$ De donde se deduce que $\,x^{2}+x\,y+y^{2}\geqslant
+0\,$ y la igualdad se da si, y sólo si, $x=y=0$.
+
+\item[iv)] Probaremos ahora la desigualdad
+$\,(a^{2}+a+1)(b^{2}+b+1)(c^{2}+c+1)\geqslant 27abc\,$ donde
+se supone que $a>0,b>0,c>0$. Lo primero que se observa es la
+completa \emph{simetría} de la desigualdad propuesta. Puesto
+que lo único que sabemos de $a$, $b$ y $c$ es que son
+positivos, parece razonable pensar que si la desigualdad que nos
+dan es cierta es porque $x^2+x+1\geqslant 3x$ cualquiera sea
+$x>0$, es decir, $x^2+1\geqslant 2x$, o lo que es igual
+$(x-1)^2\geqslant 0$; lo que es cierto (para \emph{todo}número
+$x$) y la igualdad se da si, y solo si $x=1$. Sustituyendo ahora
+en $x^2+x+1\geqslant 3x$, $x=a$, $x=b$, $x=c$ y
+\emph{multiplicando} miembro a miembro las tres desigualdades
+resultantes, obtenemos que
+$$\,(a^{2}+a+1)(b^{2}+b+1)(c^{2}+c+1)\geqslant 27abc\,$$ y la igualdad se da si, y sólo si,
+$a=b=c=1$. ¿Dónde hemos usado que los números $a$, $b$ y
+$c$ son positivos?
+
+\item[v)]La última desigualdad propuesta también llama la
+atención por su \emph{simetría}. Usando otra vez que
+$0\leqslant (x-1)^2$, se sigue que $2x\leqslant 1+x^2$. Ahora
+sustituyes $x$ por $a$, $b$ y $c$, multiplicas miembro a miembro
+las desigualdades obtenidas y has acabado.\hecho
+\end{enumerate}
+Fíjate cuánto partido hemos sacado de la desigualdad
+elemental $(x-y)^2\geqslant 0$.
+
+\resuelto Prueba que el número $\sqrt{2}+\sqrt{3}$ es irracional.
+
+\sol Para hacer el ejercicio propuesto (\ref{ejercicioirracionales}) hay que tener en cuenta que
+cuando se efectúan {\em operaciones racionales\/} (suma,
+producto y cociente) sobre uno o varios números racionales
+volvemos a obtener un número racional. En consecuencia, si
+realizando con un número real $\,\alpha\,$ y con otros números
+{\em racionales\/} operaciones racionales obtenemos un número
+irracional, podemos afirmar que el número $\,\alpha\,$ es
+irracional.
+
+Por ejemplo, $\alpha=\sqrt{2}+\sqrt{3}\,$ es irracional pues ${\dis
+\,\frac{\alpha^{2}-5}{2}=\sqrt{6}}$.\hecho
+
+\end{ejercicios resueltos}
+
+\section{Principio de inducción matemática}
+
+El \emph{Principio de inducción matemática} es un método que se usa
+para probar que ciertas propiedades matemáticas se verifican para
+todo número natural. Considera, por ejemplo, la siguiente igualdad
+en la que $n\en\N$:
+\begin{equation}\label{ejemploinduccion}
+1^{2}+2^{2}+3^{2}+\cdots+n^{2}=\dfrac{1}{6}n(n+1)(2n+1)
+\end{equation}
+Si le damos a $n$ un valor, por ejemplo $n=8$, podemos comprobar
+fácilmente que la igualdad correspondiente es cierta. Si le damos a
+$n$ el valor 1000 ya no es tan fácil comprobar esa igualdad y se le
+damos a $n$ el valor $10^{1000}$ la cosa ya se pone realmente
+difícil. Pero nosotros queremos aún más, no nos conformamos con
+probar que esa igualdad es cierta para unos cuantos miles o millones
+de valores de $n$; no, queremos probar que es válida para \emph{todo
+número natural} $n$. En estos casos es el \emph{Principio de
+inducción matemática} el que viene en nuestra ayuda para salvarnos
+del apuro. Para nosotros el principio de inducción matemática es
+algo que aceptamos, es decir, puedes considerarlo como un axioma de
+la teoría que estamos desarrollando (aunque su formulación lo hace
+``casi evidente'').
+
+\noindent\textbf{Principio de inducción matemática.}\ Sea
+$A$ un conjunto de números naturales, $A\subset\N$, y
+supongamos que:
+\begin{enumerate}
+\item[i)]\ $1\en A$
+\item[ii)]\ Siempre que un número $\,n\,$ está en $A$ se
+verifica que $\,n+1\,$ también está en $A$.
+\end{enumerate}
+Entonces $A=\N$.
+
+\sskip
+
+El Principio de Inducción Matemática es la
+herramienta básica para probar que una cierta propiedad $P(n)$
+es verificada por todos los números naturales. Para ello se
+procede de la siguiente forma:
+\begin{enumerate}
+\item[A)]\ Comprobamos que el número 1 satisface la
+propiedad, esto es, que $P(1)$ es cierta.
+\item[B)]\ Comprobamos que \emph{si} un número $n$ satisface la
+propiedad, \emph{entonces} también el número $n+1$ la
+satisface. Es decir comprobamos que \emph{si} $P(n)$ es cierta,
+\emph{entonces} también lo es $P(n+1)$.
+\end{enumerate}
+Si ahora definimos el conjunto $M=\{n\en\N:P(n)\  \textrm{es
+cierta}\}$, entonces el punto A) nos dice que $1\en M$, y el punto
+B) nos dice que siempre que $\,n\,$ está en $M$ se verifica que
+$\,n+1\,$ también está en $M$. Concluimos, por el principio de inducción, que $M=\N$, o sea,
+que $P(n)$ es cierta para todo número natural $n$.
+
+Observa que en B) no se dice que se tenga que probar
+que $P(n)$ es cierta, sino que hay que \emph{demostrar la
+implicación lógica} $P(n)\Longrightarrow P(n+1)$. Para demostrar dicha implicación lo que hacemos es \emph{suponer} que $P(n)$ es cierta. Es por eso que suele llamarse a $P(n)$ la \emph{hipótesis de inducción}.
+
+Puedes imaginar el principio de inducción de la siguiente forma. Considera que cada número natural lo representamos por una ficha de dominó y las colocamos en una fila recta interminable. Seguidamente empujamos a la primera ficha sobre la siguiente (esto es el punto A) anterior: cae la primera ficha). ¿Caerán todas? Para eso debemos de estar seguros de que siempre que cae una ficha tira a la que le sigue, es decir que la distancia entre dos fichas cualesquiera es menor que la longitud de una ficha (esto es el punto B) anterior: si cae la ficha $n$ también cae la $n+1$). Cuando esto es así podemos asegurar que caerán todas las fichas. Probemos, como ejemplo, la igualdad (\ref{ejemploinduccion}).
+
+\begin{ejemplo}
+Para todo número natural \nN\ se verifica la igualdad
+$$
+1^{2}+2^{2}+3^{2}+\cdots+n^{2}=\dfrac{1}{6}n(n+1)(2n+1)
+$$
+\dem Para $n=1$ la igualdad se reduce a $1=1$ que, evidentemente, es cierta. Acaba de caer la primera ficha del dominó. Supongamos que dicha igualdad se verifica para un número \nN\ (acaba de caer la ficha $n$ del dominó) y probemos que en tal caso también se verifica para $n+1$ (hay que probar que al caer la ficha $n$ tira a la ficha $n+1$). Que la ficha $n$ cae quiere decir que
+\begin{equation}\label{ejemploinduccion2}
+1^{2}+2^{2}+3^{2}+\cdots+n^{2}=\dfrac{1}{6}n(n+1)(2n+1)
+\end{equation}
+Para que al caer la ficha $n$ también caiga la ficha $n+1$, deberemos probar que de la igualdad anterior se deduce la siguiente igualdad.
+\begin{equation}\label{ejemploinduccion3}
+1^{2}+2^{2}+3^{2}+\cdots+n^{2}+(n+1)^2=\dfrac{1}{6}(n+1)(n+2)(2(n+1)+1)
+\end{equation}
+Tenemos que
+$$
+\begin{array}{ll}
+1^{2}+2^{2}+3^{2}+\cdots+n^{2}+(n+1)^2&=\textrm{por (\ref{ejemploinduccion2})}=\dfrac{1}{6}n(n+1)(2n+1)+(n+1)^2=\\ &= \rule{0mm}{6mm}\dfrac{1}{6}(n+1)\big(n(2n+1)+6(n+1)\big)=\\ &=\rule{0mm}{7mm}\dfrac{1}{6}(n+1)(2n^2+7n+6)=\\ &=\rule{0mm}{7mm}\dfrac{1}{6}(n+1)(n+2)(2n+3)
+\end{array}
+$$
+Que es justamente la igualdad (\ref{ejemploinduccion3}). Concluimos, en virtud del principio de inducción, que la igualdad del enunciado es cierta para todo \nN.
+\end{ejemplo}
+La demostración del siguiente lema es otro ejemplo del principio de inducción.
+\begin{lema}
+Si el producto de $\,n\,$ números positivos es
+igual a $\,1$, entonces su suma es mayor o igual que $\,n$. Y la suma es igual a $n$ si, y sólo si, todos ellos son iguales a 1.
+\end{lema}
+\dem Para cada número natural $\,n$, sea $\,P(n)\,$ la
+proposición \emph{``si el producto de $\,n\,$ números positivos es
+igual a $\,1$, entonces su suma es mayor o igual que $\,n$''}. Demostraremos por inducción que $\,P(n)\,$ es verdadera
+para todo $\,n\in\N$. Trivialmente $\,P(1)\,$ es verdadera.
+Supongamos que $P(n)$ es verdadera. Consideremos $\,n+1\,$ números
+positivos no todos iguales a $\,1\,$ cuyo producto sea igual a
+$\,1$. En tal caso alguno de dichos números, llamémosle
+$\,x_{1}$, tiene que ser menor que $\,1\,$ y otro, al que llamaremos
+$\,x_{2}$, tiene que ser mayor que $\,1$. Notando
+$\,x_{3},\cdots,x_{n+1}$ los restantes números se tiene que: $$
+(x_{1}x_{2})x_{3}\cdots x_{n+1}=1 $$ Por tanto
+$x_{1}x_{2},\,x_{3},\cdots,x_{n+1}$ son $\,n\,$ números positivos
+con producto igual a $\,1\,$ por lo que:
+\begin{equation}\label{eqind1}
+x_{1}x_{2}+x_{3}+\cdots+x_{n+1}\geqslant n
+\end{equation}
+Como $\,0<(1-x_{1})(x_{2}-1)$, tenemos que:
+\begin{equation}\label{eqind2}
+x_{1}+x_{2}>1+x_{1}x_{2}
+\end{equation}
+De (\ref{eqind1}1) y (\ref{eqind2})
+se sigue que: $$x_{1}+x_{2}+x_{3}+\cdots +x_{n+1}>n+1$$
+Observa que la desigualdad obtenida es estricta. Hemos
+probado así que $P(n+1)$ es verdadera. Concluimos, por el principio de inducción, que la
+afirmación del enunciado es verdadera para todo número natural $n$.\fin
+\noindent \textbf{Notación.}\ Dados $n$ números $a_1, a_2,\cdots, a_n$ representamos la suma de todos ellos por $\dis\sum_{j=1}^n a_j$ y el producto de todos ellos por $\dis\prod_{j=1}^na_j$.
+
+En el siguiente teorema se establece una de las desigualdades más útiles del Cálculo.
+
+\begin{teorema}[\textbf{Desigualdad de las medias}]
+Cualesquiera sean los números positivos\linebreak $a_{1},a_{2},\cdots,a_{n}$
+se verifica que:
+\begin{equation}\label{desmedias}
+\sqrt[n]{a_{1}a_{2}\cdots a_{n}} \leqslant
+\frac{a_{1}+a_{2}+\cdots+a_{n}}{n}
+\end{equation}
+Y la igualdad se da si, y
+sólo si, $a_{1}=a_{2}=\cdots=a_{n}$.
+\end{teorema}
+\noindent\textbf{Demostración}. Basta poner ${\dis
+\,G=\sqrt[n]{a_{1}a_{2}\cdots a_{n}}\,}$ y
+$\,x_{i}=\dfrac{a_{i}}{G},\ 1\leqslant
+i\leqslant n$, Claramente se verifica que $\,x_{1}x_{2}\cdots x_{n}=1\,$ por lo
+que, en virtud del lema anterior, ${\dis \sum_{i=1}^{n}x_{i} \geqslant n}\,$ es decir ${\dis
+\sum_{i=1}^{n}a_{i}\geqslant nG\,}$ que es la desigualdad que queremos probar. Se da la igualdad solamente
+cuando $\,x_{i}=1,$ para $\,i=1,2,\dots,n$, es decir, cuando
+ $\,a_{1}=a_{2}=\cdots =a_{n}$.\fin
+Los números $\,\sqrt[n]{a_{1}a_{2}\cdots a_{n}}\,$ y $\dfrac{a_{1}+a_{2}+\cdots+a_{n}}{n}$ se llaman,
+respectivamente, \rule{0mm}{12mm} \emph{medias geométrica y aritmética} de $\,a_{1},a_{2},\cdots ,a_{n}$.
+La desigualdad de las medias tiene interesantes aplicaciones a problemas de extremos. Una útil consecuencia de ella se expone a
+continuación.
+\begin{corolario}\label{corolariomedias}
+Sean $\,f_{i},\ 1\leqslant i\leqslant n,$ funciones positivas definidas en un conjunto
+$\,A\subseteq\R$ y supongamos que en un punto  $\,a\in A\,$ se verifica que $\,f_{1}(a)=f_{2}(a)=\cdots=f_{n}(a)$.
+\begin{enumerate}
+\item[i)]\ Si el producto de las funciones es constante, se verifica
+que
+$$
+\sum_{i=1}^{n}f_{i}(a)\le \sum_{i=1}^{n}f_{i}(x)\qquad \textrm{para todo } x\en A.
+$$
+\item[ii)]\ Si la suma de las funciones es constante, se verifica
+que:
+$$
+\prod_{i=1}^{n}f_{i}(x)\le \prod_{i=1}^{n}f_{i}(a)\qquad \textrm{para todo } x\en A.
+$$
+\end{enumerate}
+\end{corolario}
+\dem Lo afirmado en i) y ii) es consecuencia directa de que, para todo $x\en A$ se verifica
+$$
+\SQRT[n]{\prod_{i=1}^{n}f_{i}(x)}\ \, \leqslant\  \frac{{\dis \sum_{i=1}^{n}f_{i}(x)}}{n}
+$$
+y se da la igualdad si, y sólo si, los números $\,f_{1}(x),f_{2}(x),\cdots ,f_{n}(x)\,$
+son todos iguales.\fin
+
+¿Has leído correctamente el corolario anterior? Te voy a ayudar. Lo que dice es lo siguiente.
+\begin{enumerate}
+\item[i)] La suma de funciones positivas cuyo producto es constante alcanza su valor mínimo en cualquier punto en el que dichas funciones sean todas iguales.
+\item[ii)] El producto de funciones positivas cuya suma es constante alcanza su valor máximo en cualquier punto en el que dichas funciones sean todas iguales.
+\end{enumerate}
+El principio de inducción matemática puede
+aplicarse en muchas situaciones en las que, a primera vista, no
+aparecen para nada los números naturales. Por ejemplo, una
+proposición referente a todos los polinomios podría
+probarse por inducción sobre el grado del polinomio. Un
+teorema sobre matrices cuadradas podría probarse por
+inducción sobre el orden de la matriz.
+
+\sskip
+
+Probaremos a continuación una útil igualdad
+algebraica conocida como \emph{fórmula del binomio de Newton}.
+Para establecer esta igualdad necesitamos definir los
+llamados \emph{coeficientes binómicos}. Dados dos números
+enteros $\,n\geqslant k\geqslant 0$ se define:
+$$ \binom{n}{k}=\frac{n!}{k!(n-k)!}\quad  \textrm{donde}\quad n!=\prod_{p=1}^{n}p
+$$ Es decir, $\,n!$ es el producto de todos los números naturales
+menores o iguales que $\,n$. Se define también $\,0!=1$. La
+igualdad
+\begin{equation}
+\binom{n}{k-1}+\binom{n}{k}=\binom{n+1}{k} \qquad (1\leqslant
+k\leqslant n)
+\end{equation}
+es de comprobación inmediata. A partir de ella se prueba
+fácilmente, por inducción sobre $n$, que $\binom{n}{k}$
+es un número entero positivo.
+\begin{teorema}[\textbf{Fórmula del binomio de Newton}] Cualesquiera sean los
+números re\-ales $\,a,b\,$ y el número natural $\,n\,$ se
+verifica que: $$ (a+b)^{n}=\sum_{k=0}^{n}\binom{n}{k}a^{\,n-k}b^{\,k}. $$
+\end{teorema}
+\noindent\textbf{Demostración}. Para $\,n=1\,$ la igualdad del
+enunciado es trivialmente verdadera. Supongamos que dicha igualdad
+se verifica para $\,n\in\N$. Entonces:
+\begin{eqnarray*}
+(a+b)^{n+1} &=& (a+b)(a+b)^{n}=(a+b)\left
+[\sum_{k=0}^{n}\binom{n}{k}a^{\,n-k}b^{\,k}\right ]\\
+& = &\sum_{k=0}^{n}\binom{n}{k}a^{\,n+1-k}b^{\,k} +
+   \sum_{k=0}^{n}\binom{n}{k}a^{\,n-k}b^{\,k+1} = \\
+               &=& \sum_{k=0}^{n}\binom{n}{k}a^{\,n+1-k}b^{\,k} +
+ \sum_{k=1}^{n+1}\binom{n}{k-1}a^{\,n+1-k}b^{\,k} \\ &=& a^{\,n+1}+b^{\,n+1}+\sum_{k=1}^{n}\left [\binom{n}{k}+\binom{n}{k-1}\right ]a^{\,n+1-k}b^{\,k}=\\
+              &=& \sum_{k=0}^{n+1}\binom{n+1}{k}a^{\,n+1-k}b^{\,k}
+            \end{eqnarray*}
+Lo que prueba la validez de la igualdad para $\,n+1$. En virtud del
+principio de inducción, concluimos que la igualdad del enunciado
+es cierta para todo  $n\en\N$. \hfill $\Box$
+
+\subsubsection*{La inducción matemática es un proceso demostrativo}
+
+Considera la expresión $991n^{2}+1$. Con un ordenador puedes comprobar que si evalúas esta expresión para $n=
+1,2,3,\dots, 1000,\dots, 100000$  los valores obtenidos
+no son cuadrados perfectos. ¿Debemos concluir que \emph{para
+todo número natural} $n$ se verifica que $991n^{2}+1$ no es un
+cuadrado perfecto? Pues no. Entre los números de la forma
+\mbox{$991n^{2}+1$} hay cuadrados perfectos\dots ¡el valor mínimo
+de $n$ para el cual $991n^{2}+1$ es un cuadrado es el número $n=12055735790331359447442538767\,$!
+
+Con eso te indico que hay que ser precavido: no basta comprobar la
+veracidad de una expresión para unos cuantos valores de $n$ para
+concluir que dicha expresión es cierta para todo $n$. La historia de
+las matemáticas está llena de este tipo de errores.
+
+\begin{ejercicios propuestos}
+\propuesto  Prueba, usando el principio de inducción, que las siguientes afirmaciones son ciertas para todo $\,n\en\N$.
+\begin{enumerate}[ a)]
+\item \ $3^n  - 1$ es divisible por 2.
+\item \ $n^3+5n\,$ es múltiplo de 6.
+\item \ $3^{2n}-1\,$ es múltiplo de 8.
+\item \ $n^{5}-n\,$ es divisible por 5.
+\item \ $n^{3}-n+1\,$ no es divisible por 3.
+\end{enumerate}
+\propuesto Dado un número $x\neq 1$, prueba por inducción la fórmula para la suma de una progresión geométrica:
+$$
+1+x+x^2+x^3+\cdots+x^n=\dfrac{x^{n+1}-1}{x-1}
+$$
+Deduce directamente este mismo resultado poniendo $S=1+x+x^2+x^3+\cdots+x^n$, multiplicando $S$ por $x$ y despejando $S$ entre las dos igualdades obtenidas.
+\propuesto Prueba, usando el principio de inducción, que para todo \nN\ se verifica la igualdad
+$$
+1+\dfrac{1}{1\cdot 3}+\dfrac{1}{3\cdot 5}+\dfrac{1}{5\cdot 7}+\cdots+\dfrac{1}{(2n-1)(2n+1)}=\dfrac{n}{2n+1}
+$$
+\propuesto Prueba, usando el principio de inducción, que para todo \nN\ se verifican las desigualdades siguientes.
+\begin{enumerate}[a)]
+\item $\sqrt{n}\leqslant 1+\dfrac{1}{\sqrt{2}}+\dfrac{1}{\sqrt{3}}+\cdots+\dfrac{1}{\sqrt{n}}\leqslant 2\sqrt{n}$
+\item $\rule{0mm}{6mm}1+\dfrac{1}{2}+\dfrac{1}{3}+\dfrac{1}{4}+\cdots+\dfrac{1}{2^n}\geqslant 1+\dfrac{n}{2}$
+\item $\rule{0mm}{6mm}\dfrac{1\cdot 3\cdot 5\cdots (2n-1)}{2\cdot 4\cdot 6\cdots (2n)}\le\dfrac{1}{\sqrt{1+3n}}$
+\end{enumerate}
+
+\propuesto Demuestra que cualquier conjunto de número reales, con
+un número finito de elementos, tiene máximo y mínimo.
+
+\propuesto Demuestra que si la igualdad
+$$
+2+4+6+\dots+2n = n^2 +n+2
+$$
+es verdadera para un número natural $n\ge 2$ también lo es para
+$n-1$. Sin embargo, esta igualdad no es válida para $n=1$. ¿Qué
+deduces de esto?
+
+\propuesto Prueba que, usando solamente dos colores, es posible colorear todas las regiones que se forman al trazar $n$ circunferencias en el plano de forma que regiones adyacentes tengan distinto color. Se entiende que dos regiones son adyacentes cuando tienen un arco de circunferencia como frontera común.
+
+Sugerencia. Puede hacerse razonando por inducción sobre $n$. También hay otra forma de hacerlo directamente muy sencilla e ingeniosa.
+%Teorema del mapa de dos colores: si se traza en una hoja
+%de papel líneas rectas que empiezan y terminan en un borde  de la
+%hoja, este mapa puede ser coloreado con sólo dos colores sin que
+%ninguna región adyacente tenga el mismo color.
+\propuesto Vamos a probar que todas las niñas tienen los ojos del mismo color.
+Para ello vamos a usar el principio de inducción para probar que la afirmación siguiente:
+\begin{quote}
+$P(n)\,$=\emph{\,En todo grupo de $n$ niñas todas las niñas del grupo tienen igual color de ojos}
+\end{quote}
+es cierta para todo \nN.
+
+A) En un conjunto formado por \emph{una única} niña, es evidente que todas las
+niñas de dicho conjunto tienen el mismo color de ojos. Por tanto $P(n)$ es cierta para $n=1$
+
+B) Supongamos que $P(n)$ es cierta, es decir que para todo conjunto formado por $n$ niñas se
+verifica que todas las niñas del conjunto tienen el mismo color de
+ojos.
+
+Consideremos ahora un conjunto formado por $n+1$ niñas. Quitamos una
+niña del conjunto y nos queda un conjunto formado por $n$ niñas,
+las cuales, por la hipótesis de inducción, tienen el mismo color
+de ojos. Ahora devolvemos al conjunto la niña que habíamos sacado
+y sacamos otra. Volvemos a razonar como antes y deducimos que la
+niña que habíamos sacado también tiene el mismo color de ojos que
+las demás $n$ niñas del conjunto. Por tanto las $n+1$ niñas tienen
+todas ellas igual color de ojos. Como hay una niña con ojos
+azules, deducimos que todas las niñas tienen ojos azules.
+
+¿Dónde está el error en este razonamiento?
+\propuesto En un circuito circular hay $n$ coches iguales. Entre todos ellos tienen justamente la gasolina que necesita un coche para recorrer una vez el circuito completo. Prueba que alguno de los $n$ coches puede recorrer el circuito completo.
+
+Sugerencia. Razona por inducción. Observa que no sabemos en qué lugar del circuito están situados los coches.
+
+\propuesto Prueba que para todo número natural $\,n>1$ se
+verifican las desigualdades siguientes.
+$$ 1\cdot 3\cdot 5\cdots (2n-1)<n^{n}; \qquad n!<\left
+(\frac{n+1}{2}\right )^{\!n} $$
+Sugerencia: Usa la desigualdad de las medias.
+
+\propuesto  Dados $n$ números positivos
+$\,a_{1},a_{2},\dots,a_{n}$ prueba las siguientes desigualdades.
+
+i) \rule{0mm}{6mm} ${\dis
+\frac{a_{1}}{a_{2}}+\frac{a_{2}}{a_{3}}+\cdots
++\frac{a_{n-1}}{a_{n}}+\frac{a_{n}}{a_{1}}\geq n}$;
+
+ii) \rule{0mm}{6mm} $\dis \frac{n}{\mbox{$\dis
+1/a_{1}+1/a_{2}+\cdots+1/a_{n}$}}\leq
+\sqrt[n]{\rule{0mm}{3mm}a_{1}a_{2}\cdots a_{n}}$;
+
+iii) \rule{0mm}{6mm} ${\dis (a_{1}+a_{2}+\cdots+a_{n})\left
+(\frac{1}{a_{1}}+\frac{1}{a_{2}}+ \cdots+\frac{1}{a_{n}}\right )\geq
+n^{2}}$.
+
+¿Cuándo las desigualdades anteriores son igualdades?
+
+Sugerencia: Usa la desigualdad de las medias.
+
+\propuesto\label{numeroe} Sean $a$, $b$ números positivos distintos y \nN. Utiliza la desigualdad de las medias para
+probar que:
+$$
+ab^{n}<\left(\frac{a+nb}{n+1}\right)^{\!\!n+1}.
+$$
+Deduce que para todo número natural $n$ se verifica que:
+\begin{equation*}
+\left (1+\frac{1}{n}\right )^{\!n}<\left (1+\frac{1}{n+1}\right
+)^{n+1}, \ \ {\rm y}\ \ \left (1+\frac{1}{n+1}\right
+)^{\!n+2}<\left (1+\frac{1}{n}\right )^{\!n+1}
+\end{equation*}
+
+Los siguientes ejercicios pueden hacerse usando la desigualdad de las medias o bien el corolario (\ref{corolariomedias}).
+
+\propuesto Prueba que el cuadrado es el rectángulo de máxima área para un perímetro dado
+y de mínimo perímetro para un área dada.
+
+\propuesto Prueba que el cubo es el ortoedro de máximo
+volumen para una superficie lateral dada y de mínima
+superficie lateral para un volumen dado.
+
+\propuesto Prueba que el triángulo equilátero es el
+triángulo que tiene máxima área para un perímetro dado
+y de mínimo perímetro para un área dada.
+
+Sugerencia. Si $\,a,b,c\,$ son las longitudes de los lados y
+$\,p=(a+b+c)/2$ es el semiperímetro, entonces, según la
+fórmula de Heron de Alejandría, el área, $A$, viene dada por
+$\,A=\sqrt{p(p-a)(p-b)(p-c)}$.
+
+\propuesto Calcula el rectángulo de mayor área inscrito en la elipse
+de ecuación $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$, donde
+$a>0,\,b>0$.
+
+\propuesto Calcula el ortoedro de mayor volumen inscrito en el elipsoide
+de ecuación $$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$$ donde
+$a>0,\,b>0,\,c>0$.
+
+\propuesto Calcula la distancia mínima del origen a la
+superficie en $\R^{3}$ de ecuación $\,x y z=27$. En otras
+palabras, si $\,E=\{(x,y,z)\in\R^{3}:x y z=27\}$, lo que se
+pide es calcular el mínimo del conjunto de números reales
+$\,C=\{\sqrt{x^{2}+y^{2}+z^{2}}:(x,y,z)\in E\}$.
+\end{ejercicios propuestos}
+
+\begin{ejercicios resueltos}
+\resuelto Sean $a$, $b$ números positivos distintos y \nN. Utiliza la desigualdad de las medias para
+probar que:
+\begin{equation}\label{desigualdadnumeroe}
+ab^{n}<\left(\frac{a+nb}{n+1}\right)^{\!\!n+1}
+\end{equation}
+Deduce que para todo número natural $n$ se verifica que:
+\begin{equation}\label{monotonianumeroe}
+\left (1+\frac{1}{n}\right )^{\!n}<\left (1+\frac{1}{n+1}\right
+)^{n+1}, \ \ {\rm y}\ \ \left (1+\frac{1}{n+1}\right
+)^{\!n+2}<\left (1+\frac{1}{n}\right )^{\!n+1}
+\end{equation}
+\sol La desigualdad (\ref{desigualdadnumeroe}) se deduce de la desigualdad de las medias
+$$
+\sqrt[n+1]{a_1a_2\cdots a_na_{n+1}}\le \dfrac{a_1+a_2+\cdots+a_n+a_{n+1}}{n+1}
+$$
+haciendo $a_1=a_2=\cdots=a_n=b$, $a_{n+1}=a$ y elevando a la potencia $n+1$.
+
+Haciendo ahora $\,a=1$ y $b=1+\dfrac{1}{n}$ en (\ref{desigualdadnumeroe}) se obtiene la primera desigualdad de (\ref{monotonianumeroe}). Finalmente, sustituyendo en (\ref{desigualdadnumeroe}) $n$ por $n+1$ $a=1$ y $b=1-\dfrac{1}{n}$, se obtiene la segunda desigualdad de (\ref{monotonianumeroe}).\hecho
+\resuelto  Prueba que el cubo es el ortoedro de máximo
+volumen para una superficie lateral dada y de mínima
+superficie lateral para un volumen dado.
+
+\sol El volumen de un ortoedro cuyas aristas tienen longitudes $\,a,b,c\,$
+viene dado por $\,V=abc\,$ y su superficie lateral por $\,S=2(ab+bc+ca)$. Puesto que $$
+\sqrt[3]{(ab)(bc)(ca)}\leqslant \dfrac{ab+bc+ca}{3}  \qquad\qquad (1) $$ o, lo que es igual,
+$\sqrt[3]{V^{2}}\leqslant S/6$, deducimos que para un volumen dado, $V$, la superficie
+lateral $S$ es mínima cuando tengamos que $S/6=\sqrt[3]{V^{2}}$, es decir que en
+$(1)$ se de la igualdad lo que ocurre si, y sólo si, $a=b=c$ (el ortoedro es un cubo).
+
+Análogamente, para un valor dado de la superficie lateral, $S$, tendremos que $V$ es máximo
+cuando $\sqrt[3]{V^{2}}=S/6$, lo que, según acabamos de ver,
+sólo ocurre cuando el ortoedro es un cubo.\hecho
+
+\resuelto Calcula el rectángulo de mayor área inscrito en la elipse
+de ecuación $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$, donde
+$a>0,\,b>0$.
+
+\sol Sean $(\alpha,\beta)$ las coordenadas del vértice del rectángulo
+situado en el cuadrante positivo del plano ($\alpha>0,\,\beta>0$). El área del
+rectángulo es igual a $\,4\alpha\beta$. El problema, pues, consiste en hallar el
+máximo del producto $\,\alpha\beta\,$ cuando $\alpha$ y $\beta$ verifican que
+$$
+\frac{\alpha^{2}}{a^{2}}+\frac{\beta^{2}}{b^{2}}=1 \qquad\qquad (1)
+$$
+Supuesto que $\alpha$ y $\beta$ satisfacen $(1)$, en virtud de la desigualdad de las medias,
+tenemos que
+$$
+\alpha\,\beta=\sqrt{\alpha^{2}\beta^{2}}=
+ab\sqrt{\frac{\alpha^{2}}{a^{2}}\frac{\beta^{2}}{b^{2}}} \leqslant\frac{ab}{2}\qquad\qquad (2)
+$$
+La igualdad en $(2)$ se da si, y sólo si, $\,{\dis
+\dfrac{\alpha^{2}}{a^{2}}=\dfrac{\beta^{2}}{b^{2}}}$, lo que junto con $(1)$
+equivale a que $\,{\dis
+\dfrac{\alpha^{2}}{a^{2}}=\dfrac{\beta^{2}}{b^{2}}=\dfrac{1}{2}}$, es decir, ${\dis
+\,\alpha=\frac{a}{\sqrt{2}},\,\beta=\frac{b}{\sqrt{2}}}$. Por tanto el máximo valor del
+área de un rectángulo inscrito en la elipse es $\,2ab$.\hecho
+
+\resuelto Calcula la distancia mínima del origen a la
+superficie en $\R^{3}$ de ecuación $\,x y z=27$. En otras
+palabras, si $\,E=\{(x,y,z)\in\R^{3}:x y z=27\}$, lo que se
+pide es calcular el mínimo del conjunto de números reales
+$C=\big\{\sqrt{x^{2}+y^{2}+z^{2}}:(x,y,z)\in E\big\}$.
+
+\sol Para todo $(x,y,z)\en E$ se verifica que
+$$
+x^{2}+y^{2}+z^{2}\geqslant 3\sqrt[3]{(x y z)^{2}}=3\sqrt[3]{(27)^2}=27
+$$
+Puesto que $(3,3,3)\en E$ y $\sqrt{\rule{0mm}{3mm}3^{2}+3^{2}+3^{2}}=\sqrt{27}$,
+deducimos que $\min(C)=\sqrt{27}$.\hecho
+\end{ejercicios resueltos}
+
+\section{Complementos}
+\subsection{Números y medida de magnitudes. Segmentos inconmensurables.}
+\hypertarget{magnitudes}{Estamos tan acostumbrados} a {\em contar\/} que cuesta trabajo imaginar un mundo sin núme\-ros.
+Pero así fue, no creo que nadie lo dude, durante muchísimo tiempo. Incluso en nuestros días se
+tienen noticias de tribus aisladas que no saben contar más allá de cuatro o cinco objetos; cuando tienen
+que referirse a una cantidad mayor emplean una expresión que quiere decir ``muchos''. Es frecuente también
+que en los lenguajes primitivos se utilicen palabras distintas para designar números iguales cuando éstos
+se refieren a diferentes clases de objetos. Poco a poco, conforme los primitivos grupos tribales fueron
+organizándose en sociedades cada vez más complejas, los hombres fueron capaces de abstraer el proceso de
+contar colecciones concretas de objetos elaborando así el concepto de ``número abstracto''\dots !Que a nosotros nos parece tan {\em natural\/}!
+
+Una vez que los hombres aprendieron a contar objetos, el paso
+siguiente fue usar los números para {\em medir magnitudes\/}
+tales como longitudes, superficies, volúme\-nes o tiempos. Este
+proceso requiere bastante ingenio. Consi\-deremos, para fijar
+ideas, que queremos {\em expresar numéricamente} la longitud de
+un segmento de recta $\,\overline{AB}\,$. Lo primero que hay que
+hacer es elegir una {\em unidad de medida\/} que será otro
+segmento $\,\overline{OU}\/$ y comparar ambos. Puede ocurrir que
+$\overline{AB}$ contenga un número exacto, $m$, de veces a
+$\,\overline{OU}$. En tal caso podemos escribir simbólicamente
+$\overline{AB}\!= \!m\,\overline{OU}$. El número $\,m\,$
+representa entonces la {\em medida\/} de $\,\overline{AB}\,$
+respecto de $\,\overline{OU}$. Lo más frecuente, no obstante, es
+que $\,\overline{OU}\,$ no esté contenido un número exacto de
+veces en $\,\overline{AB}$. En tal caso podemos dividir
+$\,\overline{OU}\,$ en un cierto número, $n$, de partes iguales
+con la esperanza de que, al tomar como nueva unidad de medida una
+de estas partes, $\overline{OU'}$, resulte que $\,\overline{AB}\,$
+contenga un número exacto, $m$, de veces a $\,\overline{OU'}$.
+Cuando esto es así se dice que los segmentos
+$\,\overline{AB}\,$ y $\,\overline{OU}\,$ son {\em conmensurables}.
+Esto quiere decir que admiten una unidad de medida común: el
+segmento $\,\overline{OU'}$. Podemos escribir
+$\,\overline{AB}=m\,\overline{OU'}$. Por otra parte
+$\,\overline{OU}=n\,\overline{OU'}$. Podemos ahora usar los
+números $\,m,n\,$ para hacernos una idea de cómo es
+$\,\overline{AB}\,$ comparado con $\,\overline{OU}\,$; esto es
+lo que se expresa diciendo que {\em la razón de
+$\,\overline{AB}\,$ respecto de $\,\overline{OU}\,$ es $\ m:n\,$}
+(léase $\,m\,$ sobre $\,n$). Con el paso del tiempo el
+símbolo $\ m:n\ $ que, en sus orígenes, como acabamos de
+explicar, representaba la razón de (las longitudes) de dos
+segmentos quedó desprovisto de su significado original y pasó
+a ser considerado simplemente como un {\em número\/} naciendo de
+esta forma los números {\em racionales} (cuyo nombre alude,
+precisamente, a que tales números representan {\em razones\/} de
+segmentos conmensurables).
+
+Volviendo a la situación antes descrita, parece intuitivo que,
+cualquiera sea el segmento $\,\overline{AB}$,
+dividiendo $\,\overline{OU}\,$ en un número, $n$, {\em
+suficientemente grande\/}
+de partes iguales, podemos conseguir que la nueva unidad de medida,
+$\overline{OU'}$, esté efectivamente contenida un número exacto de
+veces en $\,\overline{AB}$. En otras palabras, parece que dos segmentos
+cualesquiera deben ser conmensurables. Pues bien, la intuición aquí
+nos engaña, y
+ese fue el extraordinario descubrimiento que realizaron los
+pitagóricos, probando que la diagonal de un cuadrado no es
+conmensurable con el lado.
+En efecto, si $\,\overline{OU}\,$ es el lado y
+$\,\overline{AB}\,$ la diagonal, y suponemos que ambos admiten una
+unidad de medida común $\,\overline{OU'}$, tendremos que
+$\,\overline{OU} = n\,\overline{OU'}$, y $\overline{AB}=
+m\,\overline{OU'}\,$ para convenientes números naturales $\,m,n$.
+Pero, en virtud del teorema de Pitágoras,
+$\,2(\overline{OU})^{2}=(\overline{AB})^{2}$, y deducimos que
+$\,2n^{2}(\overline{OU'})^{2}=m^{2}(\overline{OU'})^{2}$, por lo que
+debe ser $\,2n^{2}=m^{2}$. Veamos que esto lleva a una contradicción.
+Podemos suponer que $\,m\,$ y $\,n\,$ no tienen factores comunes (si
+los tuvieran se los quitamos) y, en particular, $\,m\,$ y $\,n\,$ {\em no
+son ambos pares}. La igualdad $\,2n^{2}=m^{2}$ nos dice que $\,m^{2}$
+es par lo cual implica que también tiene que serlo $\,m$. Así podemos
+escribir $\,m=2p\,$. Sustituyendo en la igualdad anterior y
+simplificando tenemos que $\,n^{2}=2p^{2}$, y de aquí se sigue, al
+igual que antes, que $\,n\,$ tiene que ser par y ésta es la
+contradicción anunciada.
+
+Podemos dar la siguiente interpretación a lo antes visto.
+Si consideramos los números racionales puestos sobre una recta, en la
+cual se han fijado el 0 y el 1, y con un
+compás centrado en el origen trazamos un círculo de radio igual a la
+longitud de la diagonal de un cuadrado de lado unidad, dicho círculo
+corta a la recta en un punto de la misma que no es racional. En otras
+palabras ``en la recta racional hay huecos''.
+
+A la vista de este sorprendente resultado
+y puesto que, {\em claramente debe haber algún número\/} que
+represente la medida de la diagonal con respecto al lado de un
+cuadrado,
+podemos decir que dicho ``número'' no puede ser racional y, en
+consecuencia, {\em los números racionales no son suficientes para
+medir magnitudes}. Aparece así la necesidad de ampliar el concepto de
+número. Pues bien, !`se necesitaron casi 2.500 años para llevar a cabo
+esa tarea de forma satisfactoria! Los nuevos números se llamaron {\em
+irracionales\/} porque no representan {\em razones\/} de segmentos
+conmensurables, y una teoría satisfactoria de ellos fue desarrollada
+por los matemáticos \href{http://es.wikipedia.org/wiki/Cantor}{Georg Cantor} (1845-1918) y \href{http://es.wikipedia.org/wiki/Richard_Dedekind}{Richard Dedekind} (1831-1916).
+Los números racionales junto con los irracionales se llaman,
+indistintamente, {\em números reales}.
+
+\subsubsection{La razón áurea y el pentagrama}
+\begin{figure}[ht]
+\begin{minipage}[t]{.5\textwidth}
+\vspace{0pt}
+\psset{unit=2.1cm}
+\begin{pspicture}(-1,-1)(1,1)
+\pspolygon[linewidth=1.25pt](0,1)(-0.587785,-0.809017)(0.951057,0.309017)(-0.951057,0.309017)(0.587785,-0.809017)
+  \rput[ur](0.97,0.4){\scalefont{.75}$A$}
+  \rput[ur](0.36,0.4){\scalefont{.75}$B$}
+  \rput[ur](-0.22,0.4){\scalefont{.75}$C$}
+  \rput[ul](-0.97,0.4){\scalefont{.75}$D$}
+  \end{pspicture}
+  \captionsetup{,singlelinecheck=off}
+  \caption{El pentagrama pitagórico}\label{pentagrama}
+\end{minipage}%
+\begin{minipage}[t]{.5\textwidth}
+    \vspace{0pt}
+      Aunque suele usarse el teorema de Pitágoras para probar la existencia de magnitudes inconmensurables, parece ser que fue un pitagórico, \href{http://es.wikipedia.org/wiki/Hipaso_de_Metaponto}{Hipaso de Metaponto}, quien en el siglo V a.C., al estudiar las propiedades geométricas del pentagrama (ver fig.\ref{pentagrama}), descubrió la existencia de los números irracionales. Para los pitagóricos el pentagrama era un símbolo de la ``perfección matemática'' del Universo y, paradójicamente, en el pentagrama se escondía la prueba de que los números racionales no eran suficientes, como los pitagóricos creían, para describirlo. Las
+         \end{minipage}
+\end{figure}\vspace*{-2mm}
+\noindent razones de los segmentos $\overline{AD}$, $\overline{BD}$, $\overline{CD}$ y $\overline{BC}$ son todas ellas iguales a la \emph{razón áurea}.
+
+\begin{equation*}
+\dfrac{\overline{AD}}{\ \overline{BD}\ }=\dfrac{\overline{BD}}{\ \overline{CD}\ }=\dfrac{\overline{CD}}{\ \overline{BC}\ }=\dfrac{1+\sqrt{5}}{2}
+\end{equation*}
+Como dicho número es irracional, los segmentos considerados son inconmensurables. El número $\dfrac{1+\sqrt{5}}{2}$ es uno de los más famosos de las \rule{0mm}{3mm} Matemáticas. Si en \emph{Google} buscas ``razón áurea'' te saldrán más de cien mil páginas. Eso en español, porque si buscas en inglés ``golden section'' obtendrás casi cuatro millones de páginas. El poeta Rafael Alberti dedicó un hermoso soneto a la ``razón áurea''.
+\begin{center}
+
+\begin{minipage}[h]{.65\textwidth}
+
+\begin{verse}
+
+\textbf{A la divina proporción}
+
+\smallskip
+
+A ti, maravillosa disciplina,\\
+media, extrema razón de la hermosura,\\
+que claramente acata la clausura\\
+viva en la malla de tu ley divina.\\
+
+A ti, cárcel feliz de la retina,\\
+áurea sección, celeste cuadratura,\\
+misteriosa fontana de mesura\\
+que el Universo armónico origina.\\
+
+A ti, mar de los sueños angulares,\\
+flor de las cinco formas regulares,\\
+dodecaedro azul, arco sonoro.\\
+
+Luces por alas un compás ardiente.\\
+Tu canto es una esfera trasparente.\\
+A ti, divina proporción de oro.\\
+\hspace{4cm}\emph{R. Alberti}
+\end{verse}
+\end{minipage}
+\end{center}
+
+\medskip
+
+Volviendo a los pitagóricos, ellos pensaban que el número era el fundamento último de toda realidad. Hoy vivimos en un mundo digitalizado: la música que escuchas, las películas que ves, la televisión digital y tantas más cosas de uso cotidiano son, en su esencia, números. Parece que los pitagóricos no estaban del todo equivocados.
+
+\href{http://es.wikipedia.org/wiki/Pit\%C3\%A1goras}{Pitágoras}, junto con su maestro \href{http://es.wikipedia.org/wiki/Tales_de_Mileto}{Tales de Mileto}, y también \href{http://es.wikipedia.org/wiki/Anaximandro}{Anaximandro} y \href{http://es.wikipedia.org/wiki/Anax\%C3\%ADmenes_de_Mileto}{Anáximenes}, sin olvidar a \href{http://es.wikipedia.org/wiki/Dem\%C3\%B3crito}{Demócrito} y algunos más de los que queda memoria y que tú mismo puedes consultar en \emph{Wikipedia}, todos ellos eran matemáticos y filósofos. ¿Casualidad? Ni mucho menos. Lo que hoy llamamos \emph{Cultura Occidental} nace de una gran blasfemia, a saber, la afirmación de que la realidad puede ser comprendida y explicada racionalmente. Frente a los relatos mitológicos y a los caprichosos dioses imprevisibles, la afirmación insolente de que la inteligencia humana puede desentrañar por sus propios medios el funcionamiento del Universo. Y ¿qué produce la inteligencia humana cuando empieza a indagar sobre la Naturaleza? Matemáticas y Filosofía. Las Matemáticas, por su propia naturaleza, tienen un campo mucho más restringido que el de la Filosofía pero, en cambio, son extraordinariamente eficaces. La palabra griega $\mathbold{\mu\alpha\theta\eta\mu\alpha}$, que se lee \emph{mathema}, significa \emph{conocimiento}.
+
+\begin{quote}
+\emph{El Libro del Universo está escrito en el lenguaje de las matemáticas y sus caracteres son triángulos, círculos y otras figuras geométricas, sin las cuales es imposible entender ni una palabra; sin ellos es como girar vanamente en un oscuro laberinto.}\hfill {Galileo~Galilei}
+\end{quote}
+
+\subsubsection{Medimos con números racionales}
+Acabamos de ver que hay segmentos inconmensurables; es decir, elegida una unidad para medir, hay medidas que no pueden expresarse con números racionales. Pero la intuición nos dice que a cada medida debe corresponder un único número. En consecuencia, tenemos que admitir la necesidad de otros números, además de los racionales, para lograr que a cada medida le corresponda un número. Estos son los números irracionales (sobre los que falta por decir algo importante como veremos más adelante). Debes darte cuenta de que se trata de una necesidad teórica: en el mundo real de cada día solamente hay números racionales. Los ordenadores trabajan con números racionales (otra cosa diferente es que puedan representar simbólicamente números irracionales). ¿Quiere esto decir que podríamos prescindir de los números irracionales? En absoluto. Por muchas razones. En primer lugar, los números racionales e irracionales juntos proporcionan la estructura básica del Análisis Matemático: el cuerpo de los números reales \R. Dicha estructura es el soporte de las herramientas del cálculo diferencial e integral y de la teoría de Ecuaciones Diferenciales. La demostración de la existencia de soluciones de muchos problemas y la construcción de técnicas eficaces para obtener dichas soluciones, ya sea de forma exacta o con aproximación tan buena como se desee, se fundamenta en las propiedades matemáticas de \R. Aunque un ingeniero exprese los resultados de sus cálculos mediante números racionales, escritos usualmente en forma decimal, para realizar los cálculos habrá tenido que usar herramientas (derivadas, integrales, ecuaciones diferenciales,\...) que no tendrían sentido sin los números reales. En fin, sin \R\ ni siquiera podríamos demostrar que hay un número cuyo cuadrado es igual a 2.
+
+Lo anterior tiene una enseñanza: las Matemáticas elaboran, a partir de la observación de la realidad, estructuras ideales que pueden parecer muy lejanas de la realidad que las motivó inicialmente, pero que son herramientas muy útiles para obtener información y resultados sobre ésa realidad que de otra forma no podrían obtenerse ni siquiera plantearse.
+
+
+\subsection{Hacer matemáticas}
+En este Capítulo hemos hablado de axiomas, deducción lógica, demostraciones, teoremas,\dots\ . Espero que ya tengas una idea de lo que significa la afirmación ``las Matemáticas son una ciencia deductiva'', porque ese es uno de los objetivos que me propuse al escribir este Capítulo. Pero no quiero que pienses que las Matemáticas se reducen a un formalismo axiomático lógico\,--\,deductivo. Esa es solamente una parte, y quizás no la más atractiva, de las Matemáticas. Las teorías matemáticas antes de llegar a esa ``helada perfección axiomática'' se desarrollan de una forma no muy diferente a las demás ciencias: por aproximaciones sucesivas, experimentación, intuiciones, analogías,\dots\ . Por eso hay que distinguir entre la ``Matemática hecha'' y la ''Matemática que se está haciendo''. La primera quizás puede vivir en el universo platónico de las ideas puras, pero la segunda ``está contaminada de realidad'' y constituye una actividad profundamente humana en la que se avanza tanteando, cometiendo errores,\dots como en las demás ciencias. He tomado prestada una frase del historiador de las Matemáticas W. S. Anglin porque expresa muy bien lo que quiero decirte. Dice así:
+\begin{quote}
+{\em Las matemáticas no son un prudente recorrido por una autopista despejada, sino un viaje a lo salvaje y a lo desconocido, en el cual los exploradores se pierden a menudo. El rigor, la perfección lógico-deductiva, es una señal de que los mapas ya han sido trazados, y de que los auténticos exploradores se han ido a alguna otra parte.}
+\end{quote}
+El reconocido matemático Paul R Halmos, expresa la misma idea como sigue.
+\begin{quote}
+{\em Las matemáticas no son una ciencia deductiva: eso es un tópico. Cuando se trata de probar un teorema, no se hace una lista con las hipótesis y luego se empieza a razonar. No, uno prueba, se equivoca, experimenta, conjetura \dots}
+\end{quote}
+Y también dice:
+\begin{quote}
+{\em La razón de ser de un matemático no es otra que la de resolver y proponer problemas pues dicha actividad
+constituye el corazón de las matemáticas.}
+\end{quote}
+La parte más atractiva de las Matemáticas es justamente el desafío intelectual que constituyen los problemas. Algunos problemas famosos tienen un enunciado muy sencillo. Por ejemplo, la \href{http://es.wikipedia.org/wiki/Conjetura_de_Collatz}{conjetura de Collatz} propone el siguiente juego. Elige a tu gusto un número \nN:
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-6pt}}
+\item Si el número $n$ es par, se divide por 2 para obtener el número $m=n/2$.
+\item Si el número $n$ es impar, se multiplica por 3 y se suma 1 para obtener el número\linebreak $m=3n+1$.
+\end{list}
+Este proceso se repite seguidamente partiendo del número $m$ obtenido y así sucesivamente. Por ejemplo, partiendo de $n=61$ se obtienen los siguientes resultados:
+$$\{ 61, 184, 92, 46, 23, 70,35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1\}$$
+Una vez obtenido 1 como resultado se repite indefinidamente el grupo $\{4, 2,1\}$. La conjetura es que siempre se acaba obteniendo 1. Con ayuda de ordenadores se ha comprobado que la conjetura es cierta para números más pequeños que $2^{58}=288\,230\,376\,151\,711\,744$ ¡Pero eso no es una demostración matemática!
+
+Otro problema del que no se sabe la respuesta es si hay infinitas parejas de primos gemelos. Se llaman primos gemelos a las parejas de números primos que se diferencian en dos unidades. Por ejemplo $\
+(17,19), (29,31), (1\msi 000\msi 000\msi 000\msi 061, 1\msi 000\msi 000\msi 000\msi 063)$.
+
+Resolver problemas es una actividad intelectual que puede tener mucho de juego. Quizás estés pensando ``bueno, todo eso está muy bien, pero ¿cómo puedo participar yo en ese juego?'' Bueno, se requiere alguna preparación y tiempo y seguramente tú ahora estás empezando, pero tienes una forma de participar en el juego que es hacer ejercicios. Es verdad que un ejercicio no es lo mismo que un problema. Los ejercicios son más mecánicos, con ellos se trata de que compruebes si has entendido correctamente los conceptos y los resultados teóricos y si eres capaz de usarlos en situaciones sencillas. Pero no dejan de ser un pequeño desafío. Si el ejercicio está ahí es porque tienes las herramientas para resolverlo. El tiempo que dediques a resolver ejercicios nunca será tiempo perdido. Incluso si no te salen, porque se puede aprender más de un ejercicio que no se logra resolver pero que se trabaja con interés, que de uno que se resuelve a primera vista. Resolver ejercicios junto con tus compañeros o consultarlos con tus profesores es una forma estupenda de estudiar. En  \href{http://www.ugr.es/local/fjperez/consejos_para_resolver_problemas.html}{mi página Web} puedes leer algunas sugerencias respecto a la actitud apropiada y estrategias útiles para resolver ejercicios.
+\subsection{Algunas razones para estudiar matemáticas}
+Vivimos rodeados de matemáticas. Suelen pasar desapercibidas pero están ahí haciendo su trabajo. Tarjetas de crédito, códigos de barras, teléfonos móviles, animación gráfica, las modernas técnicas de radiodiagnóstico\dots, detrás de todo eso hay herramientas matemáticas que hacen posible su funcionamiento. No hay duda de que las Matemáticas son extraordinariamente eficaces. Ese llamativo acuerdo de las Matemáticas con el mundo real no deja de resultar bastante sorprendente.
+\begin{quote}
+\emph{El milagro de la adecuación del lenguaje de la Matemática para la formulación de las leyes físicas es un don maravilloso que ni entendemos ni merecemos.}{\linebreak E.P. Wigner, Premio Nobel de Física 1972}
+\end{quote}
+Dos matemáticos \href{http://es.wikipedia.org/wiki/John_von_Neumann}{John Von Neumann} y \href{http://es.wikipedia.org/wiki/Turing}{Alan Mathison Turing} fueron los creadores de los modernos computadores y los fundadores de la Ciencia de la Computación. Algunas de las teorías matemáticas más abstractas, como la Teoría de Números o la de Categorías han encontrado aplicaciones para el desarrollo de software. Las Matemáticas son el lenguaje de las Ciencias Físicas (Física, Astronomía, Química,\dots) pero también, cada vez más, de las Ciencias Biológicas y Médicas y de las Ciencias Sociales (Economía, Geografía, Psicología,\dots). Las Matemáticas aportan a todas estas Ciencias sus propios métodos, a saber:
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-6pt}}
+\item Definiciones precisas.
+\item Razonamientos rigurosos.
+\item Métodos de representación simbólica.
+\item Formulación correcta de problemas.
+\item Modelos matemáticos para manejar situaciones muy complejas.
+\item Una gran variedad de técnicas (estadísticas, de cálculo, algebraicas, simbólicas,\dots) para la resolución de problemas y toma de decisiones.
+\end{list}
+Por todo ello, no es exagerado afirmar que un científico debe estar familiarizado con la forma de pensar matemática. Pero incluso para quienes no se sienten especialmente atraídos por la actividad científica, el estudio de las Matemáticas está especialmente indicado para desarrollar determinadas facultades entre las que cabe destacar:
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-6pt}}
+\item Capacidad de razonamiento lógico-deductivo.
+\item Capacidad de resolución de problemas.
+\item Reconocer razonamientos incorrectos.
+\item Capacidad de abstracción para manejar situaciones complejas.
+\item Capacidad para reconocer modelos similares en estructuras diversas.
+\item Seleccionar, ordenar la información y elegir la herramienta adecuada en cada caso.
+\end{list}
+Hoy día, casi tan preciso como saber leer, es tener una formación matemática suficientemente amplia para no sentirse extraño en un mundo al que las innovaciones tecnológicas y el desarrollo científico están cambiando rápidamente.
+
+El estudio de las Matemáticas también puede respaldarse por razones de tipo cultural y estético. Las Matemáticas son, junto con la música sinfónica y la novela, una de las señas de identidad de la Cultura Occidental. Pero hay una última razón: las sociedades democráticas necesitan ciudadanos capaces de pensar con libertad y las Matemáticas, una de las creaciones más libres del espíritu humano, son una herramienta indicada para ello.
+\begin{quote}
+\emph{No hay modo de entender bien al hombre si no se repara en que la Matemática brota de la misma raíz que la poesía, del don imaginativo.}\hfill{José~Ortega~y~Gasset}
+\end{quote}
+
+\subsection{Lo que debes haber aprendido en este Capítulo. Lecturas adicionales}
+En este Capítulo debes haber aprendido algunas cosas que resumo en la siguiente lista cuya lectura puede servirte de repaso para comprobar lo que sabes.
+\begin{list}{$\bullet$}{\addtolength{\itemsep}{-6pt}}
+\item Debes saber lo que significa demostrar $H\Longrightarrow T$.
+\item Debes saber lo que significa decir que las Matemáticas son una ciencia deductiva.
+\item Debes saber que en Matemáticas las cosas no son verdad porque lo diga tu profesor.
+\item Debes tener una idea de lo que es una teoría axiomática y la forma en que se desarrolla.
+\item Debes saber lo que son magnitudes inconmensurables y cómo aparecen los números irracionales.
+\item Debes saber cómo se deben leer las Matemáticas.
+\item Debes haber aprendido y recordar de memoria los axiomas algebraicos y de orden de \R.
+\item Debes ser capaz de usar dichos axiomas para probar propiedades algebraicas y de orden de \R.
+\item Debes haber aprendido y recordar de memoria las reglas para trabajar con desigualdades.
+\item Debes saber usar en casos prácticos las reglas para trabajar con desigualdades.
+\item Debes entender la definición de la función raíz cuadrada.
+\item Debes entender la definición y recordar las propiedades del valor absoluto.
+\item Debes recordar la estrategia (\ref{estrategiadesigualdadpositivos}) para trabajar con desigualdades entre números positivos.
+\item Debes entender y saber aplicar el Principio de Inducción Matemática.
+\item Debes recordar la desigualdad de las medias y saber usarla para resolver problemas de extremos.
+\end{list}
+Como lectura adicional te recomiendo los dos primeros capítulos del libro de Michael Spivak \cite{spivak}, el cual, a pesar del tiempo transcurrido desde su primera edición, sigue siendo, en mi opinión, el mejor libro de introducción al Análisis Matemático. Su colección de ejercicios es excelente y algunos de ellos están resueltos al final del libro; además, se ha editado un libro, \cite{suplemento}, con las soluciones de todos. Los textos de Larson \cite{larson}\ y de Engel \cite{engel}\ son de lo mejor que hay para aprender estrategias de resolución de ejercicios. Los ejercicios que traen tienen cierto grado de dificultad, con frecuencia están tomados de competiciones matemáticas, pero las soluciones están claramente expuestas. Algunos de los ejercicios propuestos los he tomado de esos libros.
