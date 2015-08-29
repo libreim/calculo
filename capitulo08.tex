@@ -5130,7 +5130,7 @@ $$
 \vspace{0pt}
 \begin{pspicture}(-1.75,-5)(4,3.2)
 \psset{xunit=.7cm,yunit=.6cm}
-\readdata{\parabolarevol}{parabolarevolucion.dat}
+\readdata{\parabolarevol}{parabolarevolucion.data}
 \dataplot[linewidth=.6pt,plotstyle=polygon,fillstyle=solid,fillcolor=yellow]{\parabolarevol}
 \psaxes[linewidth=.6pt,labels=none,ticks=none,arrowscale=1.7]{->}(0,0)(0,-5)(5,5)
 \psline[linewidth=.4pt](4,-5)(4,5)
@@ -5162,7 +5162,7 @@ Observa que haciendo un giro y una traslación, este ejercicio equivale a calcula
 \vspace{0pt}
 \begin{pspicture}(-1,-.5)(4,2)
 \psset{unit=.5cm,labelsep=3pt}
-\readdata{\parabolarevol}{parabolarevolucion.dat}
+\readdata{\parabolarevol}{parabolarevolucion.data}
 \psrotate(4,0){-90}{
 \dataplot[linewidth=.6pt,plotstyle=polygon,fillstyle=solid,fillcolor=yellow]{\parabolarevol}
 \psline[linewidth=.5pt](1,2)(4,2)
