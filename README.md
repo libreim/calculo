@@ -4,7 +4,7 @@ Este repositorio contiene el código fuente del libro de
 
 El libro original puede descargarse desde la página del [autor](http://www.ugr.es/~fjperez/apuntes.html).
 
-Para compilarlo:
+Para compilarlo, simplemente ejecutar `make` o bien:
 
 ```bash
 latex calculo.tex
