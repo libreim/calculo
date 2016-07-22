@@ -724,7 +724,7 @@ y que $f\tl(x)=g(x)$ para todo $x\en I$.\fin
 
 Observa que este teorema nos dice que, en las hipótesis hechas, podemos permutar la derivabilidad con la convergencia uniforme:
 $$
-f=\lim{f_n}\Longrightarrow f\tl=\lim\suc{f_n^{\prime}}.
+f=\lim{f_n}\longrightarrow f\tl=\lim\suc{f_n^{\prime}}.
 $$
 Esta igualdad es una permutación de límites pues afirma que para $a\en I$ se verifica que:
 $$
@@ -1518,7 +1518,7 @@ $$
 $$
 Esta serie es una serie alternada cuyo término general es decreciente y, por tanto, por la acotación \eqref{eq:acotacionalternadas}, se verifica que la suma de la serie es mayor que las sumas parciales pares, en particular:
 $$
-1-\cos 2>\dfrac{4}{2!}-\dfrac{16}{4!}\quad\Longrightarrow\quad\cos 2<-\dfrac{1}{3}.
+1-\cos 2>\dfrac{4}{2!}-\dfrac{16}{4!}\quad\longrightarrow\quad\cos 2<-\dfrac{1}{3}.
 $$
 Como $\cos(0)=1$ por el teorema de Bolzano hay un mínimo número $0<s_0<2$ tal que $\cos(s_0)=0$. Por tanto $0<\cos x$ para $0\le x<s_0$. Definimos:
 $$
@@ -1609,9 +1609,9 @@ Acotaremos ahora el error que se comete al aproximar $f$ por su polinomio de Ber
 Donde hemos usado que $b_n^k(x)\ge 0$. Acotaremos ahora la diferencia $f(x)-f\left(\dfrac{k}{n}\right)$ según que $\modulo{x-\dfrac{k}{n}}<\delta$ o  $\modulo{x-\dfrac{k}{n}}\ge \delta$. Tenemos que:
 $$
 \begin{aligned}
-&\modulo{x-\dfrac{k}{n}}<\delta  \overset{\mbox{\scriptsize(\ref{eq:unif-w})}}{\ms{3mu}\Longrightarrow\ms{3mu}}\modulo{f(x)-f\left(\dfrac{k}{n}\right)}<\dfrac{\eps}{2}.\\
+&\modulo{x-\dfrac{k}{n}}<\delta  \overset{\mbox{\scriptsize(\ref{eq:unif-w})}}{\ms{3mu}\longrightarrow\ms{3mu}}\modulo{f(x)-f\left(\dfrac{k}{n}\right)}<\dfrac{\eps}{2}.\\
 &
-\modulo{x-\dfrac{k}{n}}\ge \delta \ms{3mu}\Longrightarrow\ms{3mu}\dfrac{\abs{nx-k}}{n\delta}\!\ge\! 1\ms{3mu}\Longrightarrow \modulo{f(x)-f\left(\dfrac{k}{n}\right)}\le \\ &\le \modulo{f(x)}+\modulo{f\left(\dfrac{k}{n}\right)}\le  2M\le \dfrac{2M}{n^2\delta^2}(nx-k)^2
+\modulo{x-\dfrac{k}{n}}\ge \delta \ms{3mu}\longrightarrow\ms{3mu}\dfrac{\abs{nx-k}}{n\delta}\!\ge\! 1\ms{3mu}\longrightarrow \modulo{f(x)-f\left(\dfrac{k}{n}\right)}\le \\ &\le \modulo{f(x)}+\modulo{f\left(\dfrac{k}{n}\right)}\le  2M\le \dfrac{2M}{n^2\delta^2}(nx-k)^2
 \end{aligned}
 $$
 Podemos resumir las dos acotaciones obtenidas en una sola de la forma:
@@ -2744,9 +2744,9 @@ $$
 Se verifica que $\dis\lim_{t\to 1}\ff(t)=1$ por lo que \ff\ es una función continua. Dado \epos, por la continuidad de la exponencial en $0$ hay un $\delta_1>0$ tal que para $\abs{u}<\delta_1$ se verifica que $\abs{1-\e^u}<\eps\e^{-\alpha}$. Por la continuidad de \ff\ en $0$ hay un número $\delta_2>0$ tal que para $\abs{t}<\delta_2$ se verifica que $\abs{\ff(t)-1}<\delta_1/\alpha$. Tomemos $n_1\ge n_0$ tal que $\frac{\alpha}{n_1}<\delta_2$. Entonces para todo $x\in [-\alpha,\alpha]$ y para todo $n\ge n_1$ se tiene que:
 $$
 \begin{aligned}
-&\frac{\abs{x}}{n}<\delta_2\ms{3mu}\Longrightarrow\ms{3mu}\modulo{1-\ff(x/n)}<\frac{\delta_1}{\alpha}
-\ms{3mu}\Longrightarrow\ms{3mu}\modulo{x\big(\ff(x/n)-1\big)}<\delta_1\ms{3mu}\Longrightarrow\\
-&\Longrightarrow\modulo{1-\exp\big(x(\ff(x/n)-1)\big)}<\eps\e^{-\alpha}\ms{3mu}\Longrightarrow\ms{3mu}
+&\frac{\abs{x}}{n}<\delta_2\ms{3mu}\longrightarrow\ms{3mu}\modulo{1-\ff(x/n)}<\frac{\delta_1}{\alpha}
+\ms{3mu}\longrightarrow\ms{3mu}\modulo{x\big(\ff(x/n)-1\big)}<\delta_1\ms{3mu}\longrightarrow\\
+&\longrightarrow\modulo{1-\exp\big(x(\ff(x/n)-1)\big)}<\eps\e^{-\alpha}\ms{3mu}\longrightarrow\ms{3mu}
 \modulo{\e^x-\left(1+\frac{x}{n}\right)^n}<\eps.
 \end{aligned}
 $$
@@ -3455,7 +3455,7 @@ $$
 $$
 Desigualdades válidas para todo $t\en\R$, en particular para $t\in [0,1]$, lo que implica que:
 $$
-0\le f(x)\le\varint_0^1\e^{-x^2}\df{t}=\e^{-x^2}\ms{3mu}\Longrightarrow\ms{3mu}\lim_{x\to +\infty}f(x)=0.
+0\le f(x)\le\varint_0^1\e^{-x^2}\df{t}=\e^{-x^2}\ms{3mu}\longrightarrow\ms{3mu}\lim_{x\to +\infty}f(x)=0.
 $$
 b)\ Tenemos que $\dis\e^{-x^2(1+t^2)}=\dis\sum_{n=0}^\infty (-1)^n\dfrac{(1+t^2)^n}{n!}x^{2n}$. Por tanto:
 $$
@@ -3501,8 +3501,8 @@ obtenemos que $\dis\varint_{0}^{+\infty}\e^{-x^{2}}\!\df{x}=\dfrac{\sqrt{\pi}}{2
 \section{Los primeros desarrollos en serie}
 Puede afirmarse que la primera aparición de lo que entendemos en la actualidad como una serie ocurre en el trabajo de Viéte (1540 - 1603) \emph{Variorum de rebus mathematicis responsorum. Liber VIII} (1593), en el que Viète estudia la serie geométrica obteniendo la fórmula para la suma de la misma y también aparece la expresión para $\pi$ que se conoce como ``fórmula de Viète''.
 $$
-\dfrac{2}{\pi}=\SQRT{\dfrac{1}{2}}\SQRT{\dfrac{1}{2}+\dfrac{1}{2}\SQRT{\dfrac{1}{2}}}
-\SQRT{\dfrac{1}{2}+\SQRT{\dfrac{1}{2}+\dfrac{1}{2}\SQRT{\dfrac{1}{2}}}}\cdots
+\dfrac{2}{\pi}=\sqrt{\dfrac{1}{2}}\sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}}}
+\sqrt{\dfrac{1}{2}+\sqrt{\dfrac{1}{2}+\dfrac{1}{2}\sqrt{\dfrac{1}{2}}}}\cdots
 $$
 Gregory de St. Vincent (1584 - 1667), en su \emph{Opus Geometricum} (1647) fue el primero en afirmar explícitamente que una serie infinita puede representar una magnitud. También le debemos el poco afortunado término de ``exhausción'', la introducción de las coordenadas polares y el primer análisis de las paradojas de Zenón usando series. También descubrió que la cuadratura de la hipérbola $xy=k$ es la misma en $[a,b]$ que en $[c,d]$ cuando $a/b=c/d$, resultado fundamental para la comprensión de los logaritmos y que llevó al descubrimiento del logaritmo natural por Mercator.
 

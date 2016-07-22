@@ -463,7 +463,7 @@ minuto.
 
 Observa que lo que realmente hemos calculado es:
 $$
-V(t+1)-V(t)=\pi r^2(h(t+1)-h(t))\quad\Longrightarrow\quad h(t+1)-h(t)=\frac{V(t+1)-V(t)}{\pi r^2}=-\dfrac{3000}{\pi\,r^2}
+V(t+1)-V(t)=\pi r^2(h(t+1)-h(t))\quad\longrightarrow\quad h(t+1)-h(t)=\frac{V(t+1)-V(t)}{\pi r^2}=-\dfrac{3000}{\pi\,r^2}
 $$
 que es la tasa de variación de la altura en un intervalo de 1 minuto. Pero, como ya te he dicho, en estos ejercicios se identifica la tasa de variación con una derivada, lo cual es, claro está, una aproximación.\hecho
 
@@ -626,7 +626,7 @@ disminuyendo.\hecho
 Este ejercicio lo puedes hacer de dos formas: calculando en caso la función compuesta $(f\circ g)(x)$ y derivándola, o aplicando la regla de la cadena sin necesidad de calcular previamente la función compuesta. Esta segunda forma es mucho más rápida. Las derivadas que nos piden son las siguientes.
 
 \emph{a)}\ $
-f\tl(x)=\dfrac{2-x^2}{(x^2+1)^2},\ g\tl(x)=20x+1\ms{2mu}\Longrightarrow\ms{2mu} (f\circ g)^{\prime}(0)=f\tl(g(0))g\tl(0)=f\tl(1)g\tl(0)=\dfrac{1}{4}.
+f\tl(x)=\dfrac{2-x^2}{(x^2+1)^2},\ g\tl(x)=20x+1\ms{2mu}\longrightarrow\ms{2mu} (f\circ g)^{\prime}(0)=f\tl(g(0))g\tl(0)=f\tl(1)g\tl(0)=\dfrac{1}{4}.
 $
 El otro apartado se hace igual.\hecho
 
@@ -1000,7 +1000,7 @@ El apartado \emph{b)} suele expresarse diciendo que \emph{los ceros de la deriva
 lo elegiremos por la condición de que
 $g(a)=g(b)$, es decir:
 $$
-f(a)+\lambda a=f(b)+\lambda b\quad\Longrightarrow\quad \lambda=-\dfrac{f(b)-f(a)}{b-a}
+f(a)+\lambda a=f(b)+\lambda b\quad\longrightarrow\quad \lambda=-\dfrac{f(b)-f(a)}{b-a}
 $$
 Podemos aplicar ahora el teorema de Rolle en el intervalo $[a,b]$ a la función
 $$
@@ -1222,7 +1222,7 @@ $$
 
 Observa que, aunque el punto $(g(x),f(x))$ recorre una trayectoria en el plano que termina en $(0,0)$ cuando $x=a$, el límite $\rule{0mm}{5mm}\lim_{x\to a}\frac{f(x)}{g(x)}$ no tiene por qué existir. Ello se debe a que la proximidad a $(0,0)$ del punto $(g(x),f(x))$ no proporciona ninguna información sobre el valor del cociente $\rule{0mm}{5mm}\frac{f(x)}{g(x)}$. Baste considerar que en un círculo centrado en $(0,0)$ de radio tan pequeño como queramos, hay puntos $(u,v)$ para los que el cociente $\frac{u}{v}$ puede tomar cualquier valor.
 
-Geométricamente, podemos interpretar $\frac{f(x)}{g(x)}$ como la pendiente de la recta que une $(0,0)$ con el punto $(g(x),f(x))$. Si imaginamos que el punto $\upgamma(x)=(g(x),f(x))$ recorre una curva $\upGamma$ en el plano que termina en $(0,0)$, parece evidente que, cuando dicho punto está muy próximo a $(0,0)$, el número $\rule{0mm}{5mm}\frac{f(x)}{g(x)}$ está muy próximo a la pendiente de la tangente a $\upGamma$ en $(g(x),f(x))$. La figura \ref{fig:hopital} puede servir de ayuda.
+Geométricamente, podemos interpretar $\frac{f(x)}{g(x)}$ como la pendiente de la recta que une $(0,0)$ con el punto $(g(x),f(x))$. Si imaginamos que el punto $\gamma(x)=(g(x),f(x))$ recorre una curva $\Gamma$ en el plano que termina en $(0,0)$, parece evidente que, cuando dicho punto está muy próximo a $(0,0)$, el número $\rule{0mm}{5mm}\frac{f(x)}{g(x)}$ está muy próximo a la pendiente de la tangente a $\Gamma$ en $(g(x),f(x))$. La figura \ref{fig:hopital} puede servir de ayuda.
 
 \begin{center}
 \begin{figure}[ht]
@@ -1250,7 +1250,7 @@ Geométricamente, podemos interpretar $\frac{f(x)}{g(x)}$ como la pendiente de la
 \end{figure}
 \end{center}
 
-\noindent Fíjate que como $f$ y $g$ no se suponen derivables en $x=a$, no está garantizado que $\upGamma$ tenga tangente en el origen, es decir, para $x=a$. Podemos, sin embargo, calcular la tangente a $\upGamma$ en puntos distintos del origen. Para ello podemos usar que el vector tangente a $\upGamma$ en un punto $x_0$ es $\upgamma\tl(x_0)=(g\tl(x_0),f\tl(x_0))$, y la recta tangente en dicho punto tiene las ecuaciones paramétricas:
+\noindent Fíjate que como $f$ y $g$ no se suponen derivables en $x=a$, no está garantizado que $\Gamma$ tenga tangente en el origen, es decir, para $x=a$. Podemos, sin embargo, calcular la tangente a $\Gamma$ en puntos distintos del origen. Para ello podemos usar que el vector tangente a $\Gamma$ en un punto $x_0$ es $\gamma\tl(x_0)=(g\tl(x_0),f\tl(x_0))$, y la recta tangente en dicho punto tiene las ecuaciones paramétricas:
 $$
 (x,y)=(g(x_0),f(x_0))+\lambda(g\tl(x_0),f\tl(x_0))
 $$
@@ -1258,9 +1258,9 @@ Eliminando el parámetro $\lambda$ en esta ecuación obtenemos la ecuación cartesi
 $$
 y=f(x_0)+\frac{f\tl(x_0)}{g\tl(x_0)}(x-g(x_0))
 $$
-Lo que nos dice que la pendiente de dicha tangente es $\frac{f\tl(x_0)}{g\tl(x_0)}$. En consecuencia, la pendiente de la tangente a $\upGamma$ en un punto genérico $x\neq a$ es $\frac{f\tl(x)}{g\tl(x)}$.
+Lo que nos dice que la pendiente de dicha tangente es $\frac{f\tl(x_0)}{g\tl(x_0)}$. En consecuencia, la pendiente de la tangente a $\Gamma$ en un punto genérico $x\neq a$ es $\frac{f\tl(x)}{g\tl(x)}$.
 
-A la vista de lo anterior, se comprende ahora que si exigimos que $\frac{f\tl(x)}{g\tl(x)}$ tenga límite $L$ en el punto $a$, estamos obligando a que el cociente $\frac{f(x)}{g(x)}$ también tenga límite igual a $L$ en $a$. En la figura se ha supuesto que $L$ es un número real, pero está claro que puede suponerse también $L=\pm\infinity$ lo que corresponde a los casos en que $\upGamma$ tiene tangente vertical en el origen.
+A la vista de lo anterior, se comprende ahora que si exigimos que $\frac{f\tl(x)}{g\tl(x)}$ tenga límite $L$ en el punto $a$, estamos obligando a que el cociente $\frac{f(x)}{g(x)}$ también tenga límite igual a $L$ en $a$. En la figura se ha supuesto que $L$ es un número real, pero está claro que puede suponerse también $L=\pm\infinity$ lo que corresponde a los casos en que $\Gamma$ tiene tangente vertical en el origen.
 
 Daremos ahora una demostración formal del teorema en dos casos particulares.
 
@@ -1863,9 +1863,9 @@ Para lo cual, claramente, basta tomar $n=3$. Por tanto, el valor pedido de $\sqr
 
 \section{Funciones convexas y funciones cóncavas}
 \begin{definicion}
-Dados dos puntos $\mathbold{\alpha}=(a,b)$ y $\mathbold{\beta}=(c,d)$ en el plano, el segmento que une $\mathbold{\alpha}$ con $\mathbold{\beta}$ es el conjunto de puntos del plano:
+Dados dos puntos $\boldmath{\alpha}=(a,b)$ y $\boldmath{\beta}=(c,d)$ en el plano, el segmento que une $\boldmath{\alpha}$ con $\boldmath{\beta}$ es el conjunto de puntos del plano:
 \begin{equation}\label{segmento}
-   [\mathbold{\alpha},\mathbold{\beta}]=\set{t \mathbold{\alpha}+(1-t)\mathbold{\beta}:0\le t\le 1}=
+   [\boldmath{\alpha},\boldmath{\beta}]=\set{t \boldmath{\alpha}+(1-t)\boldmath{\beta}:0\le t\le 1}=
 \set{\big(ta+(1-t)c,tb+(1-t)d\big):0\le t\le 1}
 \end{equation}
 \end{definicion}
@@ -2654,7 +2654,7 @@ Se justifica fácilmente que $f$ tiene en $\ff_0$ un mínimo absoluto.
 
 En efecto, como $f\tl$ es continua y no se anula en los intervalos $]0,\ff_0[$ y $]\ff_0,\pi/2[$, debe tener signo constante en ellos. Como $\Lim{f\tl(\ff)}{x}{0}=-\infty$, y $\Lim{f\tl(\ff)}{x}{\pi/2}=+\infty$
 se sigue que:
-$$\ff\in ]0,\ff_0[\Longrightarrow f\tl(\ff)<0,\quad \ff\in ]\ff_0,\pi/2[\Longrightarrow
+$$\ff\in ]0,\ff_0[\longrightarrow f\tl(\ff)<0,\quad \ff\in ]\ff_0,\pi/2[\longrightarrow
 f\tl(\ff)>0$$ por tanto, $f$ es estrictamente decreciente en $]0,\ff_0]$ y
 estrictamente creciente en $[\ff_0,\pi/2[$, lo que implica que
 $f(\ff_0)\leqslant f(\ff)$ para todo $\ff\en ]0,\pi/2[$.
@@ -2663,7 +2663,7 @@ Para calcular la longitud mínima $f(\ff_0)$, basta tener en cuenta que:
 $$
 1+\tg^{2}(\ff_0)=\frac{1}{\cos^{2}(\ff_0)}=
 1+\sqrt[3]{\rule{0mm}{5mm}\left(\dis\frac{b}{a}\right)^{2}}
-\Longrightarrow\frac{a}{\cos(\ff_0)}=a^{2/3}\big(a^{2/3}+b^{2/3}\big)^{1/2}$$
+\longrightarrow\frac{a}{\cos(\ff_0)}=a^{2/3}\big(a^{2/3}+b^{2/3}\big)^{1/2}$$
 Fácilmente se obtiene ahora que
 $\dis\frac{b}{\sen(\ff_0)}=b^{2/3}\big(a^{2/3}+b^{2/3}\big)^{1/2}$
 con lo que la longitud mínima buscada viene dada por:
@@ -2893,14 +2893,14 @@ la función $f$ en el intervalo $[0,a/2]$. Derivando resulta \mbox{$f\tl
 
 $$\alpha=\frac{1}{6}\left(a+b-\sqrt{a^2 +b^2 -ab}\right),\quad
 \beta=\frac{1}{6}\left(a+b+\sqrt{a^2 +b^2 -ab}\right)$$ Fíjate que:
-$$a^2+b^2-ab>a^2+b^2-2ab=(b-a)^2\geq 0\quad \Longrightarrow \quad \sqrt{a^2+b^2-ab}>b-a.$$ Deducimos que las raíces de $f\tl$ son
+$$a^2+b^2-ab>a^2+b^2-2ab=(b-a)^2\geq 0\quad \longrightarrow \quad \sqrt{a^2+b^2-ab}>b-a.$$ Deducimos que las raíces de $f\tl$ son
 \emph{reales}. Veamos si dichas raíces están en el intervalo $[0,a/2]$. Tenemos que:
 $$
 \alpha=\frac{1}{6}\left(a+b-\sqrt{a^2 +b^2 -ab}\right)<\frac{1}{6}(a+b-(b-a))=\frac{a}{3}
 $$
 También:
 $$
-a^2+b^2-ab<a^2+b^2+2ab=(a+b)^2\quad \Longrightarrow \quad \sqrt{a^2+b^2-ab}<a+b\quad \Longrightarrow \quad\alpha>0.
+a^2+b^2-ab<a^2+b^2+2ab=(a+b)^2\quad \longrightarrow \quad \sqrt{a^2+b^2-ab}<a+b\quad \longrightarrow \quad\alpha>0.
 $$
 Por tanto $0<\alpha<a/3$ y $\alpha\in ]0,a/2[$. Comprobemos que $\beta\ge a/2$.
 $$
@@ -3282,7 +3282,7 @@ Observa que la longitud de la base de la tienda, $2\pi r$, debe ser igual a la
 longitud, $\vartheta\,x$, del arco circular que abarca el sector:
 $\,\vartheta\,x=2\pi r$, de donde, $r=\dfrac{\vartheta\,x}{2\pi}$. Además, es
 evidente que $\,x^2=h^2+r^2$, y deducimos que
-$$h^2=x^2-r^2=x^2-\dfrac{\vartheta^2 x^2}{4\pi^2}=x^2\left(1-\frac{\vartheta^2}{4\pi^2}\right)\Longrightarrow
+$$h^2=x^2-r^2=x^2-\dfrac{\vartheta^2 x^2}{4\pi^2}=x^2\left(1-\frac{\vartheta^2}{4\pi^2}\right)\longrightarrow
 h=\dfrac{x\sqrt{4\pi^2-\vartheta^2}}{2\pi}$$ Por tanto
 $$V=\frac{1}{3}\pi r^2 h = \frac{1}{3}\pi\dfrac{\vartheta^2
 x^2}{4\pi^2}\dfrac{x\sqrt{4\pi^2-\vartheta^2}}{2\pi}=\dfrac{x^{3}\vartheta^2\sqrt{4\pi^2-\vartheta^2}}{24\pi^2}$$
@@ -3986,8 +3986,8 @@ Cuando $\alpha>22$ o $\alpha<-22$, $f$ sólo tiene un cero real (porque no puede 
 La discusión anterior puede hacerse también representando gráficamente la función polinómica $h(x)=3x^{5}+5x^{3}-30x$ y viendo cuántos cortes tiene
 dicha gráfica con la recta horizontal $y=\alpha$. Para ello observemos que $h$ y $f$ tienen la misma derivada, por lo que:
 $$
-x<-1\Longrightarrow h\tl(x)>0,\quad -1<x<1\Longrightarrow h\tl(x)<0,\quad
-x>1\Longrightarrow h\tl(x)>0.
+x<-1\longrightarrow h\tl(x)>0,\quad -1<x<1\longrightarrow h\tl(x)<0,\quad
+x>1\longrightarrow h\tl(x)>0.
 $$
 Por tanto $h$ es estrictamente creciente en $]-\infty,-1]$, estrictamente decreciente en $[-1,1]$ y estrictamente creciente en $[1,+\infty[$. Deducimos que $h$ tiene en $-1$ un máximo relativo y en $1$ un mínimo relativo. Además, la derivada segunda $h\scd(x)=30x(x^{2}+1)$ se anula solamente en $x=0$,
 siendo $h\scd(x)<0$ para $x<0$ y $h\scd(x)>0$ para $x>0$, es decir,
@@ -4276,7 +4276,7 @@ $$
 $$
 Lo que prueba la desigualdad de Hölder. La igualdad ocurre si, y solamente si,  $\modulo{x_i}^p=\rho\modulo{y_i}^q$ para todo $i=1,2,\dots,n$, donde $\rho=\dfrac{\norma{\vx}_p^p}{\norma{\vy}_q^q}$
 
-Para $s=2$, el número $\norma{\vx}_2=\dis\SQRT{\sum_{j=1}^nx_j^2}$ se llama \textbf{norma euclídea} del vector \vx. La desigualdad de Hölder para $p=q=2$ se llama \textbf{desigualdad de Cauchy-Schwarz}:
+Para $s=2$, el número $\norma{\vx}_2=\dis\sqrt{\sum_{j=1}^nx_j^2}$ se llama \textbf{norma euclídea} del vector \vx. La desigualdad de Hölder para $p=q=2$ se llama \textbf{desigualdad de Cauchy-Schwarz}:
 \begin{equation}\label{CS}
 \sum_{j=1}^n\modulo{x_jy_j}\le\norma{\vx}_2\norma{\vy}_2
 \end{equation}
@@ -4307,7 +4307,7 @@ $$
 $$
 Como esta desigualdad es cierta para todo $t\in ]0,1[$, tomando límites en la derecha para $t\to 0$ se deduce que
 $$
-\frac{f(x)-f(a)}{x-a}\le f\tl(a)\quad\Longrightarrow\quad f(x)-f(a)\ge f\tl(a)(x-a)
+\frac{f(x)-f(a)}{x-a}\le f\tl(a)\quad\longrightarrow\quad f(x)-f(a)\ge f\tl(a)(x-a)
 $$
 Para el caso en que $x>a$ se obtiene la misma desigualdad.
 
@@ -4321,7 +4321,7 @@ f\tl(a)\le\frac{f(b)-f(a)}{b-a}
 $$
 Sustituyendo ahora en \eqref{DCVX}\ $a$ por $b$ y $x$ por $a$, obtenemos:
 $$
-f(a)\geqslant f(b)+f\tl(b)(a-b)\quad \Longrightarrow\quad \frac{f(b)-f(a)}{b-a}\le f\tl(b)
+f(a)\geqslant f(b)+f\tl(b)(a-b)\quad \longrightarrow\quad \frac{f(b)-f(a)}{b-a}\le f\tl(b)
 $$
 De esta desigualdad y de la anterior, deducimos que $f\tl(a)\le f\tl(b)$, lo que prueba que la derivada de $f$ es creciente en $I$.\hecho
 
@@ -4386,9 +4386,9 @@ T_3(g,0)(x)=-\frac{1}{2}+\frac{x}{3}-\frac{x^2}{4}+\frac{x^3}{5}
 $$
 Tenemos que
 \begin{align*}
-\lim_{x\to 0}\dfrac{g(x)-T_3(g,0)(x)}{x^3}=0 &\ms{3mu}\Longrightarrow\ms{3mu}
+\lim_{x\to 0}\dfrac{g(x)-T_3(g,0)(x)}{x^3}=0 &\ms{3mu}\longrightarrow\ms{3mu}
 \lim_{x\to 0}\dfrac{x^3}{\sen^3 x}\dfrac{g(\sen x)-T_3(g,0)(\sen x)}{x^3}=0\\
-&\ms{3mu}\Longrightarrow\ms{3mu}
+&\ms{3mu}\longrightarrow\ms{3mu}
 \lim_{x\to 0}\dfrac{g(\sen x)-T_3(g,0)(\sen x)}{x^3}=0
 \end{align*}
 La idea ahora es obtener un polinomio, $P(x)$, de grado $\le 3$ tal que:
@@ -4495,7 +4495,7 @@ intervalo $[-1,3]$, el mínimo absoluto de $f$ se alcanza en el punto $x=3$ y el 
 \sol
 Tenemos que:
 $$
-f\tl(x)=-x^2+t^2=(t+x)(t-x)=0\ms{3mu}\Longrightarrow x=t\ \textrm{ o }\ x=-t
+f\tl(x)=-x^2+t^2=(t+x)(t-x)=0\ms{3mu}\longrightarrow x=t\ \textrm{ o }\ x=-t
 $$
 Solamente nos interesa el cero de $f\tl$ en $[0,1]$. Distinguiremos dos casos.
 
@@ -5010,28 +5010,28 @@ A principios de 1665 descubre el teorema del binomio y el cálculo con las series
 
 Newton desarrolló tres versiones de su cálculo. En la obra \emph{De Analysi per aequationes numero terminorum infinitas}, que Newton entregó a su maestro Barrow en 1669, y que puede considerarse el escrito fundacional del Cálculo, Newton usa conceptos infinitesimales de manera similar a como hacía el propio Barrow.
 
-Una segunda presentación del Cálculo es la que realiza Newton en el libro \emph{Methodus fluxionum et serierum infinitorum}, \label{pag:fluxiones} escrito hacia 1671 y que se publicó mucho después en 1736. Newton considera cantidades variables que van fluyendo con el tiempo, a las que llama \emph{fluentes}. Después se introducen las razones de cambio instantáneas de las fluentes, a las que llama \emph{fluxiones}, que son las derivadas respecto al tiempo de las fluentes. Newton representaba a las primeras por letras $x, y, z,\dots$ y a las segundas por letras punteadas $\dotup{x}, \dotup{y}, \dotup{z},\dots$. Los incrementos de las fluentes $x, y, z,\dots$, los representa por medio de las correspondientes fluxiones en la forma $\dotup{x}o,\dotup{y}o,\dotup{z}o,\dots$, y los llama \emph{momentos}, donde $o$ es entendido como un incremento infinitesimal de tiempo. Newton desarrolló una serie de algoritmos y redujo muchos problemas como determinación de tangentes, máximos y mínimos, áreas y superficies, curvaturas, longitudes de arcos, centros de gravedad etc., a dos problemas fundamentales que pueden formularse tanto en términos mecánicos como en términos matemáticos:
+Una segunda presentación del Cálculo es la que realiza Newton en el libro \emph{Methodus fluxionum et serierum infinitorum}, \label{pag:fluxiones} escrito hacia 1671 y que se publicó mucho después en 1736. Newton considera cantidades variables que van fluyendo con el tiempo, a las que llama \emph{fluentes}. Después se introducen las razones de cambio instantáneas de las fluentes, a las que llama \emph{fluxiones}, que son las derivadas respecto al tiempo de las fluentes. Newton representaba a las primeras por letras $x, y, z,\dots$ y a las segundas por letras punteadas $\dot{x}, \dot{y}, \dot{z},\dots$. Los incrementos de las fluentes $x, y, z,\dots$, los representa por medio de las correspondientes fluxiones en la forma $\dot{x}o,\dot{y}o,\dot{z}o,\dots$, y los llama \emph{momentos}, donde $o$ es entendido como un incremento infinitesimal de tiempo. Newton desarrolló una serie de algoritmos y redujo muchos problemas como determinación de tangentes, máximos y mínimos, áreas y superficies, curvaturas, longitudes de arcos, centros de gravedad etc., a dos problemas fundamentales que pueden formularse tanto en términos mecánicos como en términos matemáticos:
 \begin{description}
   \item[Problema 1] Determinación de la velocidad de movimiento en un momento de tiempo dado según un camino dado. De otro modo: dada la relación entre las cantidades fluentes, determinar la relación de las fluxiones.
   \item[Problema 2] Dada la velocidad de movimiento determinar el camino recorrido en un tiempo dado. Matemáticamente: determinar la relación entre las fluentes dada la relación entre las fluxiones.
 \end{description}
-Hay que notar que Newton no piensa en términos de funciones con el significado actual de ese término, sino que imagina curvas o superficies descritas por las variables, o sea, considera relaciones entre las fluentes del tipo $f(x,y,z,\dots)=0$, donde $f$ para él es una expresión analítica finita o infinita. Por tanto, el primer problema planteado puede verse como un problema de derivación implícita: supuesta conocida la expresión analítica que satisfacen las fluentes $f(x,y,z,\dots)=0$, obtener la expresión analítica $F(x,y,z,\dotup{x},\dotup{y},\dotup{z},\dots)=0$ que satisfacen las fluxiones. Para este problema, Newton introdujo un algoritmo que sistematizaba los cálculos necesarios. Por ejemplo, sea la curva de ecuación
+Hay que notar que Newton no piensa en términos de funciones con el significado actual de ese término, sino que imagina curvas o superficies descritas por las variables, o sea, considera relaciones entre las fluentes del tipo $f(x,y,z,\dots)=0$, donde $f$ para él es una expresión analítica finita o infinita. Por tanto, el primer problema planteado puede verse como un problema de derivación implícita: supuesta conocida la expresión analítica que satisfacen las fluentes $f(x,y,z,\dots)=0$, obtener la expresión analítica $F(x,y,z,\dot{x},\dot{y},\dot{z},\dots)=0$ que satisfacen las fluxiones. Para este problema, Newton introdujo un algoritmo que sistematizaba los cálculos necesarios. Por ejemplo, sea la curva de ecuación
 $$
 x^3-ax^2+axy-y^3=0
 $$
-Sustituyendo $x$ e $y$ por $x+\dotup{x}o$ e $y+\dotup{y}o$ respectivamente, tenemos:
+Sustituyendo $x$ e $y$ por $x+\dot{x}o$ e $y+\dot{y}o$ respectivamente, tenemos:
 \begin{multline*}
-(x^3+3\dotup{x}ox^2+3\dotup{x}^2o^2x+\dotup{x}^3o^3)-a(x^2+2\dotup{x}ox+\dotup{x}^2o^2)+
+(x^3+3\dot{x}ox^2+3\dot{x}^2o^2x+\dot{x}^3o^3)-a(x^2+2\dot{x}ox+\dot{x}^2o^2)+
 \\
-+a(xy+\dotup{x}oy+\dotup{y}ox+\dotup{x}\ddotup{y}o^2)-(y^3+3\dotup{y}ox^2+3\dotup{y}^2o^2y+\dotup{y}^3o^3)=0
++a(xy+\dot{x}oy+\dot{y}ox+\dot{x}\ddot{y}o^2)-(y^3+3\dot{y}ox^2+3\dot{y}^2o^2y+\dot{y}^3o^3)=0
 \end{multline*}
 Teniendo en cuenta ahora que $x^3-ax^2+axy-y^3=0$, dividiendo por $o$ y despreciando los demás términos que contengan a $o$, resulta
 $$
-3\dotup{x}x^2-2a\dotup{x}x+a\dotup{x}y+ax\dotup{y}-3\dotup{y}y^2=0
+3\dot{x}x^2-2a\dot{x}x+a\dot{x}y+ax\dot{y}-3\dot{y}y^2=0
 $$
 Esta es la relación que satisfacen las fluxiones. A partir de ella puede obtenerse la tangente a la curva $x^3-ax^2+axy-y^3=0$ en cualquier punto $(x,y)$ de la misma, que viene dada por:
 $$
-\frac{\dotup{y}}{\dotup{x}}=\frac{3x^2-2ax+ay}{3y^2-ax}
+\frac{\dot{y}}{\dot{x}}=\frac{3x^2-2ax+ay}{3y^2-ax}
 $$
 Como ya hemos indicado, Newton aplica los resultados sobre fluentes y fluxiones a la resolución de multitud de problemas. Por ejemplo, con respecto a los problemas de máximos y mínimos, escribe:
 \begin{quote}

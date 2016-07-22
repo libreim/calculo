@@ -73,7 +73,7 @@ $$
 y por tanto
 $$
 \lim_{n\to\infty}\arm\ge\lim_{n\to\infty}\log
-n=+\infinity\ms{3mu}\Longrightarrow \sum_{n=1}^\infty\dfrac{1}{\ n\
+n=+\infinity\ms{3mu}\longrightarrow \sum_{n=1}^\infty\dfrac{1}{\ n\
 }=+\infinity.
 $$
 Este resultado es también consecuencia directa de que, según vimos en el ejercicio resuelto \ref{res:armonica}, la serie armónica es asintóticamente equivalente a la sucesión $\suc{\log n}$:
@@ -111,7 +111,7 @@ $$
 Y deducimos que
 $$
 \lim_{n\to\infty}\modulo{\log
-2-\sum_{k=1}^{n+1}\dfrac{(-1)^{k-1}}{k}}=0\ms{3mu}\Longrightarrow \log 2=\sum_{n=1}^\infty\dfrac{(-1)^{n-1}}{n}.
+2-\sum_{k=1}^{n+1}\dfrac{(-1)^{k-1}}{k}}=0\ms{3mu}\longrightarrow \log 2=\sum_{n=1}^\infty\dfrac{(-1)^{n-1}}{n}.
 $$
 \end{ejemplo}
 
@@ -323,7 +323,7 @@ otras palabras, una serie es conmutativamente convergente, cuando es
 convergente y también son convergentes todas las series que se obtienen de ella
 por reordenación de sus términos (en cuyo caso se verifica que todas ellas tienen la misma suma). La serie armónica alternada es un ejemplo de serie convergente que no es conmutativamente convergente.
 
-El siguiente teorema da una sencilla caracterización de las series conmutativamente convergentes. Debes entender lo que afirma el teorema pero no es preciso que leas su demostración. Si acaso, puede ser interesante que leas el comienzo de la demostración de la implicación $b)\Longrightarrow a)$ porque es muy parecida a la demostración del teorema \ref{th:convergenciaabsolutaintegrales}. Esto no es casual: hay bastantes analogías entre la convergencia de integrales impropias y de series.
+El siguiente teorema da una sencilla caracterización de las series conmutativamente convergentes. Debes entender lo que afirma el teorema pero no es preciso que leas su demostración. Si acaso, puede ser interesante que leas el comienzo de la demostración de la implicación $b)\longrightarrow a)$ porque es muy parecida a la demostración del teorema \ref{th:convergenciaabsolutaintegrales}. Esto no es casual: hay bastantes analogías entre la convergencia de integrales impropias y de series.
 
 \begin{teorema}\label{th:seriesconvabs} Las siguientes afirmaciones son equivalentes:
 
@@ -337,7 +337,7 @@ $$
 $$
 cualquiera sea la biyección  $\pi :\N\rightarrow\N$.
 \end{teorema}
-\dem $b)\Longrightarrow a)$\ Pongamos \mbox{$\,A_n=a_1+a_2+\cdots+a_n$}, $B_n=|a_1|+|a_2|+\cdots+|a_n|$. Supongamos que  \serabs{a}\ es convergente.
+\dem $b)\longrightarrow a)$\ Pongamos \mbox{$\,A_n=a_1+a_2+\cdots+a_n$}, $B_n=|a_1|+|a_2|+\cdots+|a_n|$. Supongamos que  \serabs{a}\ es convergente.
 Probaremos en primer lugar que la serie \ser{a}\ también es convergente. Dado \epos, la condición de Cauchy para \sucn{B}\ nos dice que existe $n_0\en\N$ tal que
 \begin{equation}\label{8}
 \big|B_q-B_p\big|=\sum_{k=p+1}^{q}|a_k|<\frac{\eps}{2}, \quad\text{para todos}\ \
@@ -364,7 +364,7 @@ H}|a_k|<\frac{\eps}{2}+\dis\sum_{k=p}^{q}|a_k|<\frac{\eps}{2}+\frac{\eps}{2}=\ep
 $$ Hemos probado así que $\dis\sum_{n=1}^\infty a_{\pi(n)}=A$ y por tanto
 que  $b)$ implica $a)$.
 
-$a) \Longrightarrow b)$\ Probaremos que si la serie \sucn{B}\ no es
+$a) \longrightarrow b)$\ Probaremos que si la serie \sucn{B}\ no es
 convergente entonces la serie \sucn{A}\ no es conmutativamente convergente.
 Supondremos, pues, en lo que sigue que \sucn{B}\ no es convergente. Tenemos
 para la serie \sucn{A}\ dos posibilidades: o bien converge o bien no converge.
@@ -471,11 +471,11 @@ Sugerencia. Considera $A_{2n}-A_n$.
 \begin{ejercicios resueltos}
 \resuelto {\scalefont{.95}{Estudia la convergencia de las series: a)$\serie{\!\dfrac{1}{n(n\!+\!1)}}$ y b)$\dis\sum_{n\ge 1} \!\log\big(1\!+\!\frac{1}{n}\big)$.}}
 
-\sol \ a) $\dfrac{1}{k(k+1)}=\dfrac{(k+1)-k}{k(k+1)}=\dfrac{1}{k}-\dfrac{1}{k+1}\Longrightarrow\dis\sum_{k=1}^n\dfrac{1}{k(k+1)}=1-\dfrac{1}{n+1}.$
+\sol \ a) $\dfrac{1}{k(k+1)}=\dfrac{(k+1)-k}{k(k+1)}=\dfrac{1}{k}-\dfrac{1}{k+1}\longrightarrow\dis\sum_{k=1}^n\dfrac{1}{k(k+1)}=1-\dfrac{1}{n+1}.$
 
 Luego $\serie{\dfrac{1}{n(n+1)}}=\set{1-\dfrac{1}{n+1}}\to 1$, es decir la serie $\serie{\dfrac{1}{n(n+1)}}$ es convergente y su suma es igual a $1$.
 
-b) $\log\left(1+\dfrac{1}{k}\right)=\log\dfrac{k+1}{k}=\log(k+1)-\log k\Longrightarrow\dis\sum_{k=1}^n\log\left(1+\dfrac{1}{k}\right)=\log(n+1).$
+b) $\log\left(1+\dfrac{1}{k}\right)=\log\dfrac{k+1}{k}=\log(k+1)-\log k\longrightarrow\dis\sum_{k=1}^n\log\left(1+\dfrac{1}{k}\right)=\log(n+1).$
 
 Luego $\serie{\log\bigg(1+\frac{1}{n}\bigg)}=\set{\log(n+1)}\!\to\! +\infty$, es decir la serie $\serie{\dfrac{1}{n(n+1)}}$ es positivamente divergente.\hecho
 
@@ -493,8 +493,8 @@ Luego $\serie{\log\bigg(1+\frac{1}{n}\bigg)}=\set{\log(n+1)}\!\to\! +\infty$, es
 $$
 \begin{aligned}
 S_{n(p+q)}&=\sum_{k=1}^{pn}\dfrac{1}{2k-1}-\sum_{k=1}^{nq}\dfrac{1}{2k}=\sum_{k=1}^{pn}\dfrac{1}{2k-1}-\dfrac{1}{2}H_{nq}=\\ &= H_{2pn-1}-\frac{1}{2}H_{np}+\frac{1}{2np}-\dfrac{1}{2}H_{nq}=\\
-&=\dfrac{1}{2np}+\upgamma_{2pn-1}+\log(2pn-1)-\dfrac{1}{2}\upgamma_{np}-\dfrac{1}{2}\log(np)-\dfrac{1}{2}\upgamma_{nq}-\dfrac{1}{2}\log(nq)=\\
-&=\dfrac{1}{2np}+\upgamma_{2pn-1}-\dfrac{1}{2}\upgamma_{np}-\dfrac{1}{2}\upgamma_{nq}+\dfrac{1}{2}\log\dfrac{2np-1}{np}+\dfrac{1}{2}\log\dfrac{2np-1}{nq}\to\\ &\to \dfrac{1}{2}\log 2+\dfrac{1}{2}\log\dfrac{2p}{q}=\log 2+\dfrac{1}{2}\log\dfrac{p}{q}.
+&=\dfrac{1}{2np}+\gamma_{2pn-1}+\log(2pn-1)-\dfrac{1}{2}\gamma_{np}-\dfrac{1}{2}\log(np)-\dfrac{1}{2}\gamma_{nq}-\dfrac{1}{2}\log(nq)=\\
+&=\dfrac{1}{2np}+\gamma_{2pn-1}-\dfrac{1}{2}\gamma_{np}-\dfrac{1}{2}\gamma_{nq}+\dfrac{1}{2}\log\dfrac{2np-1}{np}+\dfrac{1}{2}\log\dfrac{2np-1}{nq}\to\\ &\to \dfrac{1}{2}\log 2+\dfrac{1}{2}\log\dfrac{2p}{q}=\log 2+\dfrac{1}{2}\log\dfrac{p}{q}.
 \end{aligned}
 $$
 \hecho
@@ -992,7 +992,7 @@ $$\hecho
 
 $j)$\ Pongamos $a_n=(\sqrt[n]{n} - 1)^{\alpha}$. Trata de aplicar algunos criterios de convergencia. Las series que cuesta más trabajo estudiar son aquellas en las que los criterios del cociente, de la raíz, de Raabe y los logarítmicos no sirven para estudiar su convergencia, ya sea porque los límites que hay que calcular son difíciles o porque dichos criterios no proporcionan información. Cuando esto ocurre hay que aplicar un criterio de comparación. En nuestro caso tenemos que:
 $$
-\sqrt[n]{n} - 1=\e^{\frac{\log n}{n}}-1\sim\frac{\log n}{n}\Longrightarrow a_n\sim\left(\frac{\log n}{n}\right)^\alpha.
+\sqrt[n]{n} - 1=\e^{\frac{\log n}{n}}-1\sim\frac{\log n}{n}\longrightarrow a_n\sim\left(\frac{\log n}{n}\right)^\alpha.
 $$
 Deducimos que la serie converge si, y sólo si, $\alpha>1$. \hecho
 
@@ -1027,13 +1027,13 @@ Esta última desigualdad es cierta porque para todo $k\en\N$ es $\e<\big(1+\frac{
 
 También podemos hacer este ejercicio recordando la estrategia \ref{est:armonica}\ con lo que:
 $$
-a_n=a^{\sum_{j=1}^{n}1/j}=a^{\upgamma_n+\log n}=a^{\upgamma_n}a^{\log n}\sim a^\upgamma a^{\log n}.
+a_n=a^{\sum_{j=1}^{n}1/j}=a^{\gamma_n+\log n}=a^{\gamma_n}a^{\log n}\sim a^\gamma a^{\log n}.
 $$
 También puede aplicarse el primer criterio logarítmico.\hecho
 
 $n)$\ Pongamos $a_n=n^{\alpha}\bigl(\sqrt[n]{n+1/n}-\sqrt[n]{\rule{0mm}{2.5mm}n}\,\bigr)$. Tenemos que:
 $$
-a_n=n^\alpha\sqrt[n]{n}\left(\!\SQRT[n]{1\!+\!\frac{1}{n^2}}-1\right)\sim n^\alpha\!\left(\exp\left(\frac{\log\big(1\!+\!\frac{1}{n^2}\big)}{n}\right)-1\right)\sim n^\alpha\frac{\log\big(1\!+\!\frac{1}{n^2}\big)}{n}\sim n^{\alpha-3}.
+a_n=n^\alpha\sqrt[n]{n}\left(\!\sqrt[n]{1\!+\!\frac{1}{n^2}}-1\right)\sim n^\alpha\!\left(\exp\left(\frac{\log\big(1\!+\!\frac{1}{n^2}\big)}{n}\right)-1\right)\sim n^\alpha\frac{\log\big(1\!+\!\frac{1}{n^2}\big)}{n}\sim n^{\alpha-3}.
 $$
 Por el criterio límite de comparación la serie converge si, y sólo si, $\alpha-3<-1$, esto es, $\alpha<2$.\hecho
 
@@ -1116,7 +1116,7 @@ Por el criterio límite de comparación, la serie es convergente.
 
 $b)$\ Pongamos $a_n=(\sqrt[3]{n+1} -\sqrt[3]{n})\log\!\left(\frac{n+1}{n}\right)$. Tenemos que:
 $$
-a_n=\sqrt[3]{n}\left(\SQRT{1+\frac{1}{n}}-1\right)\log\!\left(1+\frac{1}{n}\right)\sim n^{\frac{1}{3}}\frac{1}{3}\frac{1}{n^2}=\frac{1}{3}\frac{1}{n^{\frac{5}{3}}}.
+a_n=\sqrt[3]{n}\left(\sqrt{1+\frac{1}{n}}-1\right)\log\!\left(1+\frac{1}{n}\right)\sim n^{\frac{1}{3}}\frac{1}{3}\frac{1}{n^2}=\frac{1}{3}\frac{1}{n^{\frac{5}{3}}}.
 $$
 Por el criterio límite de comparación, la serie es convergente.
 
@@ -1203,7 +1203,7 @@ Por tanto, si $\beta-\alpha>1$ la serie converge y si $\beta-\alpha<1$ la serie 
 
 Otra forma de proceder es aplicando la estrategia \ref{est:armonica}. Tenemos que:
 $$
-a_n=n^{\alpha}\exp\left(-\beta\sumaf{k=1}{n}\frac{1}{k}\right)=n^\alpha\e^{-\beta\log n -\beta\upgamma_n}=n^\alpha\e^{-\beta\log n}\e^{-\beta\upgamma_n}\sim \e^{\beta\upgamma} n^\alpha n^{-\beta}=\e^{\beta\upgamma}\frac{1}{n^{\beta-\alpha}}.
+a_n=n^{\alpha}\exp\left(-\beta\sumaf{k=1}{n}\frac{1}{k}\right)=n^\alpha\e^{-\beta\log n -\beta\gamma_n}=n^\alpha\e^{-\beta\log n}\e^{-\beta\gamma_n}\sim \e^{\beta\gamma} n^\alpha n^{-\beta}=\e^{\beta\gamma}\frac{1}{n^{\beta-\alpha}}.
 $$
 Por el criterio límite de comparación, la serie converge si, y sólo si, $\beta-\alpha>1$.\hecho
 
@@ -1496,7 +1496,7 @@ a_n=\dfrac{1}{n^{\alpha}+(-1)^{n}}\sim\frac{1}{n^\alpha}
 $$
 Deducimos que si $\alpha>1$ la serie converge absolutamente. Consideremos que $0<\alpha\le 1$. Pongamos:
 $$
-(-1)^{n}\frac{1}{n^{\alpha}+(-1)^{n}}=\frac{(-1)^n}{n^\alpha}+b_n\Longrightarrow b_n=\frac{1}{n^\alpha(n^\alpha+(-1)^n)}
+(-1)^{n}\frac{1}{n^{\alpha}+(-1)^{n}}=\frac{(-1)^n}{n^\alpha}+b_n\longrightarrow b_n=\frac{1}{n^\alpha(n^\alpha+(-1)^n)}
 $$
 Por el criterio de Leibniz, la serie $\sum \frac{(-1)^n}{n^\alpha}$ es convergente ($\alpha>0$). Como $0<b_n\sim\frac{1}{n^{2\alpha}}$, por el criterio límite de comparación, la serie $\sum b_n$ es convergente si, y sólo si, $\alpha>1/2$. Concluimos que la serie $\sumasubn{1}(-1)^{n}\frac{1}{n^{\alpha}+(-1)^{n}}$ converge si $\alpha>1/2$. En resumen, la serie converge absolutamente si $\alpha>1$ y converge no absolutamente si $1/2<\alpha\le 1$. La serie no converge para $\alpha\le 1/2$.\hecho
 
@@ -1526,7 +1526,7 @@ $$
 $$
 Por tanto, si $\frac{\alpha}{2}>1$, o sea $\alpha>2$ la serie converge absolutamente; si $\frac{\alpha}{2}<1$, o sea $\alpha<2$ la serie no converge absolutamente. El caso en que $\alpha=2$ requiere un estudio particular (ver más adelante). Nos queda por estudiar lo que ocurre si $0<\alpha\le 2$. Observa que para $\alpha>0$ es evidente que la sucesión \sucn{a}\ es decreciente. Lo que no es evidente es que converja a $0$. Para aplicar el criterio de Leibniz a la serie $\sum (-1)^{n+1}a_n$ hay que probar que $\sucn{a}\to 0$. Esto puedes hacerlo comprobando que la sucesión $\log(a_n)\to -\infty$. Esto es fácil y te lo dejo para que lo hagas tú. Yo voy a seguir otro camino. Aplicando la estrategia \ref{est:seriesfactores} a la sucesión $x_n=\dfrac{1\cdot 3\cdot 5\cdots (2n-1)}{2\cdot 4\cdot 6\cdots 2n}$ se obtiene fácilmente que:
 $$
-\frac{1}{2\sqrt{n}}<x_n<\frac{1}{\sqrt{2n+1}}\Longrightarrow \frac{1}{2n^{\alpha/2}}<a_n<\frac{1}{(2n+1)^{\alpha/2}}
+\frac{1}{2\sqrt{n}}<x_n<\frac{1}{\sqrt{2n+1}}\longrightarrow \frac{1}{2n^{\alpha/2}}<a_n<\frac{1}{(2n+1)^{\alpha/2}}
 $$
 Desigualdad que implica que $\sucn{a}\to 0$ para todo $\alpha>0$. Además esta desigualdad nos dice que para $\alpha=2$ es $a_n>\frac{1}{2n}$ lo que implica que la serie no converge absolutamente para $\alpha=2$. En resumen: hay convergencia absoluta para $\alpha>2$ y hay convergencia no absoluta para $0<\alpha\le 2$.
 
@@ -1535,7 +1535,7 @@ $$\sum_{n\geq 2}(-1)^{n+1}n^{\alpha}\left(\frac{-1}{n}-\log\left(\frac{n-1}{n}\r
 
 \sol Pongamos $z_n=(-1)^{n+1}n^{\alpha}\left(\frac{-1}{n}-\log\left(\frac{n-1}{n}\right)\right)$. Estudiaremos primero la convergencia absoluta. Tenemos que:
 $$
-\lim_{x\to 0}\frac{-x-\log(1-x)}{x^2}=\frac{1}{2} \Longrightarrow f(x)\sim\frac{1}{2}x^2
+\lim_{x\to 0}\frac{-x-\log(1-x)}{x^2}=\frac{1}{2} \longrightarrow f(x)\sim\frac{1}{2}x^2
 $$
 y por tanto $\abs{z_n}=n^\alpha f\big(\frac{1}{n}\big)\sim\frac{1}{2n^{2-\alpha}}$. Por tanto, la serie $\sum z_n$ converge absolutamente si, y sólo si, $2-\alpha>1$, o sea, $\alpha<1$. Si $2-\alpha\le 0$, o sea $\alpha\ge 2$, entonces \sucn{z}\ no converge a $0$ y por tanto la serie $\sum z_n$ no es convergente. Queda por ver lo que ocurre cuando $1\le\alpha<2$. Para dichos valores de $\alpha$ se tiene que $\sucn{z}\to 0$. Probaremos que \sucn{z}\ es decreciente. Pongamos $f(x)=x^{-\alpha}(-x-\log(1-x))$ donde $0<x<1$. Observa que $z_n=(-1)^{n+1}f(1/n)$. Tenemos que:
 $$
@@ -1593,13 +1593,13 @@ Donde $S_n=\dis\sum_{k=1}^na_k$. Supuesto que la serie sea convergente y que su 
 
 Aplicando el criterio de Raabe se obtiene fácilmente que la serie converge si $\gamma>\alpha+\beta$ y diverge si $\gamma<\alpha+\beta$. También diverge si $\gamma=\alpha+\beta$ porque en tal caso se deduce de la igualdad \ref{eq:hipergeo}\ que:
 $$
-\alpha n a_{n+1}+\gamma a_{n+1}-\gamma a_1=0\quad \Longrightarrow\quad a_{n+1}=\frac{\gamma a_1}{\alpha n +\gamma}
+\alpha n a_{n+1}+\gamma a_{n+1}-\gamma a_1=0\quad \longrightarrow\quad a_{n+1}=\frac{\gamma a_1}{\alpha n +\gamma}
 $$
 y, por comparación con la serie armónica, se sigue que la serie diverge.
 
 Supuesto que, $\gamma>\alpha+\beta$, y tomando límites en la igualdad \ref{eq:hipergeo}\ deducimos que:
 $$
-\gamma S-\gamma a_1=\alpha S+\beta S\quad \Longrightarrow\quad S=\frac{\gamma a_1}{\gamma-\alpha-\beta}.
+\gamma S-\gamma a_1=\alpha S+\beta S\quad \longrightarrow\quad S=\frac{\gamma a_1}{\gamma-\alpha-\beta}.
 $$
 
 \medskip
@@ -1716,8 +1716,8 @@ $$
 &\dis\sum_{k=1}^{2n}\dfrac{1}{4k^3-k}=-\dis\sum_{k=1}^{n}\frac{1}{2k}+\dis\sum_{k=1}^{n}\frac{1}{2k+1}+
 \dis\sum_{k=n+1}^{2n}\frac{1}{2k+1}+\dis\sum_{k=n+1}^{2n}\frac{1}{2k-1}=\\
 &=-1+\dis\sum_{k=1}^{2n+1}\frac{(-1)^{k+1}}{k}+2\left(H_{4n+1}-\frac{1}{2}H_{2n}-H_{2n+1}+\frac{1}{2}H_n\right)+\frac{1}{2n+1}=\\
-&=-1+\dis\sum_{k=1}^{2n+1}\frac{(-1)^{k+1}}{k}+2\left(\log(4n+1)+\upgamma_{4n+1}-\frac{1}{2}(\log(2n)+\upgamma_{2n})-\right.\\
-&\left.\qquad\qquad\qquad\qquad\qquad -\log(2n+1)-\upgamma_{2n+1}+\frac{1}{2}(\log(n)+\upgamma_{n})\right)+\frac{1}{2n+1}\to\\
+&=-1+\dis\sum_{k=1}^{2n+1}\frac{(-1)^{k+1}}{k}+2\left(\log(4n+1)+\gamma_{4n+1}-\frac{1}{2}(\log(2n)+\gamma_{2n})-\right.\\
+&\left.\qquad\qquad\qquad\qquad\qquad -\log(2n+1)-\gamma_{2n+1}+\frac{1}{2}(\log(n)+\gamma_{n})\right)+\frac{1}{2n+1}\to\\
 &\to -1+\log 2+\log 2=2\log 2-1.
 \end{aligned}
 $$
@@ -1733,7 +1733,7 @@ $$
 $$
 Deducimos que:
 $$
-\sum_{k=1}^n\dfrac{1}{(k+1)\sqrt{k}+k\sqrt{k+1}}=1-\frac{\sqrt{n+1}}{n+1}\Longrightarrow\sum_{n=1}^\infty\dfrac{1}{(n+1)\sqrt{n}+n\sqrt{n+1}}=1.
+\sum_{k=1}^n\dfrac{1}{(k+1)\sqrt{k}+k\sqrt{k+1}}=1-\frac{\sqrt{n+1}}{n+1}\longrightarrow\sum_{n=1}^\infty\dfrac{1}{(n+1)\sqrt{n}+n\sqrt{n+1}}=1.
 $$
 c)\ Pongamos $a_n=\dfrac{1}{2^n}\dfrac{n+2}{n(n+1)}$. Tenemos que:
 $$
@@ -1741,7 +1741,7 @@ a_k=\frac{1}{2^k}\dfrac{k+2}{k(k+1)}=\frac{1}{2^k}\left(\frac{2}{k}-\frac{1}{k+1
 $$
 Deducimos que:
 $$
-\sum_{k=1}^n a_k=1-\frac{1}{2^n(n+1)}\Longrightarrow\ \sum_{n=1}^\infty\dfrac{1}{2^n}\dfrac{n+2}{n(n+1)}=1.
+\sum_{k=1}^n a_k=1-\frac{1}{2^n(n+1)}\longrightarrow\ \sum_{n=1}^\infty\dfrac{1}{2^n}\dfrac{n+2}{n(n+1)}=1.
 $$
 d)\ Tenemos que:
 $$
@@ -1749,7 +1749,7 @@ $$
 $$
 Deducimos que:
 $$
-\sum_{k=1}^n \dfrac{2^{k-1}}{(1+2^k)(1+2^{k-1})}=\frac{1}{2}-\dfrac{1}{1+2^n}\Longrightarrow\ \sum_{n=1}^\infty\dfrac{2^{n-1}}{(1+2^n)(1+2^{n-1})}=\frac{1}{2}.
+\sum_{k=1}^n \dfrac{2^{k-1}}{(1+2^k)(1+2^{k-1})}=\frac{1}{2}-\dfrac{1}{1+2^n}\longrightarrow\ \sum_{n=1}^\infty\dfrac{2^{n-1}}{(1+2^n)(1+2^{n-1})}=\frac{1}{2}.
 $$
 
 e)\ Es una serie de la forma $\serieno{\dfrac{p(n)}{n!}x^n}$ donde $p(n)=n^3-n+1$ y $x=-\frac{1}{3}$. Pongamos:
@@ -1778,7 +1778,7 @@ S-\frac{-1\ }{3}S &=\sum_{n=2}^\infty (n^2-n)\left(\dfrac{-1}{3}\right)^n-\sum_{
 $$
 Pongamos $S_1=\dis\sum_{n=2}^\infty 2n\left(\dfrac{-1}{3}\right)^n$. Hemos probado que:
 $$
-  S-\frac{-1\ }{3}S=\dfrac{2}{9}+\dfrac{-1}{3}S_1\ms{3mu}\Longrightarrow\ms{3mu} S=\frac{1}{6}-\frac{1}{4}S_1.
+  S-\frac{-1\ }{3}S=\dfrac{2}{9}+\dfrac{-1}{3}S_1\ms{3mu}\longrightarrow\ms{3mu} S=\frac{1}{6}-\frac{1}{4}S_1.
 $$
 Calcularemos ahora $S_1$. Tenemos que:
 $$
@@ -1802,7 +1802,7 @@ Seguramente sabes que los números racionales pueden expresarse en forma decimal 
 
 Para ayudarte a entender lo que sigue, vamos a empezar recordando el algoritmo de la división de números enteros. Para ello vamos a usar la función ``parte entera''. Recuerda que si $x$ es un número real, representamos por $E(x)$ el único número entero tal que \mbox{$E(x)\!\le\! x\!<\!E(x)\!+\!1$.} El número $E(x)$ se llama parte entera de $x$. Una consecuencia directa de la definición de $E(x)$, que usaremos en lo que sigue, es la siguiente:
 \begin{equation}\label{eq:parte-entera-car}
-    x=\beta+r\quad\textrm{donde}\quad \beta\en\Z\ms{8mu}\textrm{y}\ms{8mu} 0\le r<1\ms{3mu}\Longrightarrow\ms{3mu}\beta=E(x).
+    x=\beta+r\quad\textrm{donde}\quad \beta\en\Z\ms{8mu}\textrm{y}\ms{8mu} 0\le r<1\ms{3mu}\longrightarrow\ms{3mu}\beta=E(x).
 \end{equation}
 Además, es claro que si $p$ es un número entero se tiene que $E(x+p)=E(x)+p$.
 
@@ -1864,7 +1864,7 @@ x=\frac{c_1}{10}+\frac{c_2}{10^2}+\cdots+\frac{c_n}{10^n}+\frac{r_n}{10^n q},\qq
 $$
 donde $r_n$ es el resto de la $n$-ésima división por $q$. De la igualdad anterior, se deduce que:
 $$
-\modulo{x-\sum_{k=1}^n\frac{c_k}{10^k}}=\frac{r_n}{10^n q}<\frac{1}{10^n}\ms{3mu}\Longrightarrow\ms{3mu} x=\sum_{n=1}^\infty\frac{c_n}{10^n}.
+\modulo{x-\sum_{k=1}^n\frac{c_k}{10^k}}=\frac{r_n}{10^n q}<\frac{1}{10^n}\ms{3mu}\longrightarrow\ms{3mu} x=\sum_{n=1}^\infty\frac{c_n}{10^n}.
 $$
 Observemos que en este proceso los restos que se van obteniendo en las sucesivas divisiones son números enteros que están comprendidos entre $0$ y $q-1$ por lo que caben dos posibilidades:
 
@@ -1905,7 +1905,7 @@ iii)\  \rule{0mm}{5mm} $c_n=0$ y $a_n=b-1$ para todo $n\ge m+1$.
 \end{teorema}
 \dem Tenemos que:
 $$
-b^n\alpha_n=E(b^nx)\le b^nx<E(b^nx)+1=b^n\alpha_n+1\ms{2mu}\Longrightarrow\ms{3mu}\alpha_n\le x<\alpha_n+\frac{1}{\,b^n\,},
+b^n\alpha_n=E(b^nx)\le b^nx<E(b^nx)+1=b^n\alpha_n+1\ms{2mu}\longrightarrow\ms{3mu}\alpha_n\le x<\alpha_n+\frac{1}{\,b^n\,},
 $$
 de donde se sigue que $\sucn{\alpha}\to x$. Por otra parte $bE(b^nx)\le b^{n+1}x$, por lo que $bE(b^nx)\le E(b^{n+1}x)$. Y deducimos que $\alpha_n\le\alpha_{n+1}$ y, en consecuencia, $0\le c_{n+1}$ para todo \nN. Es claro, por su definición, que $c_n$ es un número entero y que, al ser $0\le x<1$ es $0\le c_1=E(b x)\le p-1$. Además:
 $$
@@ -1913,7 +1913,7 @@ c_{n+1}=E(b^{n+1}x)-bE(b^nx)< b^{n+1}x-b(b^nx-1)=b.
 $$
 Por tanto $0\le c_{n+1}\le b-1$. Sumando las igualdades $\dfrac{c_{k+1}}{b^{k+1}}=\alpha_{k+1}-\alpha_{k}$ desde $k=1$ hasta $k=n-1$ y teniendo en cuenta que $\alpha_1=\dfrac{c_1}{b}$, obtenemos:
 $$
-\alpha_n=\sum_{k=1}^n\frac{c_k}{b^k}\ms{3mu}\Longrightarrow\ms{3mu}x=\lim\sucn{r}=\sum_{n=1}^\infty\frac{c_n}{b^n}.
+\alpha_n=\sum_{k=1}^n\frac{c_k}{b^k}\ms{3mu}\longrightarrow\ms{3mu}x=\lim\sucn{r}=\sum_{n=1}^\infty\frac{c_n}{b^n}.
 $$
 Hemos probado \emph{a)} y \emph{c)}. Para probar lo afirmado en el punto \emph{b)}, observemos que para todo $k\en\N$ se verifica que:
 $$

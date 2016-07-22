@@ -76,7 +76,7 @@ Quiero también decirte algo sobre lo que se entiende por \emph{reglas de inferen
 
 Un error \marginpar{\flushright\curvasr} muy frecuente consiste en pensar que en Matemáticas \emph{las hipótesis son verdaderas}.
 
-Ahora te preguntarás, si $H$ no es verdadera ni falsa, ¿qué quiere decir que $H$ implica $T$ o, equivalentemente, que $T$ se deduce o es consecuencia de $H$? La respuesta es: ``$H$ implica $T$'' quiere decir que \emph{siempre que $H$ sea verdadera también $T$ es verdadera}. Observa que no estamos afirmando (no tiene sentido) que $H$ o $T$ sean verdaderas sino que \emph{cuando} $H$ es verdadera también lo es $T$. Con más precisión, demostrar que $H$ implica $T$ consiste en probar que la proposición $H\Longrightarrow T$ es cierta. Teniendo en cuenta que la proposición $H\Longrightarrow T$ es la disyunción lógica (no$H$)$\vee T$, resulta que si $H$ es falsa entonces $H\Longrightarrow T$ es verdadera (por eso se dice que de una hipótesis falsa puede deducirse cualquier cosa) y si $H$ es verdadera entonces para que $H\Longrightarrow T$ sea verdadera tiene que ocurrir que $T$ sea verdadera. En consecuencia, si sabemos que $H$ es verdadera y que $H\Longrightarrow T$ es verdadera, deducimos que $T$ es verdadera.
+Ahora te preguntarás, si $H$ no es verdadera ni falsa, ¿qué quiere decir que $H$ implica $T$ o, equivalentemente, que $T$ se deduce o es consecuencia de $H$? La respuesta es: ``$H$ implica $T$'' quiere decir que \emph{siempre que $H$ sea verdadera también $T$ es verdadera}. Observa que no estamos afirmando (no tiene sentido) que $H$ o $T$ sean verdaderas sino que \emph{cuando} $H$ es verdadera también lo es $T$. Con más precisión, demostrar que $H$ implica $T$ consiste en probar que la proposición $H\longrightarrow T$ es cierta. Teniendo en cuenta que la proposición $H\longrightarrow T$ es la disyunción lógica (no$H$)$\vee T$, resulta que si $H$ es falsa entonces $H\longrightarrow T$ es verdadera (por eso se dice que de una hipótesis falsa puede deducirse cualquier cosa) y si $H$ es verdadera entonces para que $H\longrightarrow T$ sea verdadera tiene que ocurrir que $T$ sea verdadera. En consecuencia, si sabemos que $H$ es verdadera y que $H\longrightarrow T$ es verdadera, deducimos que $T$ es verdadera.
 
 Ahora puedes entender el significado de la frase de C. P. Steinmetz.
 \begin{quote}
@@ -716,7 +716,7 @@ que $P(n)$ es cierta para todo número natural $n$.
 
 Observa que en B) no se dice que se tenga que probar
 que $P(n)$ es cierta, sino que hay que \emph{demostrar la
-implicación lógica} $P(n)\Longrightarrow P(n+1)$. Para demostrar dicha implicación lo que hacemos es \emph{suponer} que $P(n)$ es cierta. Es por eso que suele llamarse a $P(n)$ la \emph{hipótesis de inducción}.
+implicación lógica} $P(n)\longrightarrow P(n+1)$. Para demostrar dicha implicación lo que hacemos es \emph{suponer} que $P(n)$ es cierta. Es por eso que suele llamarse a $P(n)$ la \emph{hipótesis de inducción}.
 
 Puedes imaginar el principio de inducción de la siguiente forma. Considera que cada número natural lo representamos por una ficha de dominó y las colocamos en una fila recta interminable. Seguidamente empujamos a la primera ficha sobre la siguiente (esto es el punto A) anterior: cae la primera ficha). ¿Caerán todas? Para eso debemos de estar seguros de que siempre que cae una ficha tira a la que le sigue, es decir que la distancia entre dos fichas cualesquiera es menor que la longitud de una ficha (esto es el punto B) anterior: si cae la ficha $n$ también cae la $n+1$). Cuando esto es así podemos asegurar que caerán todas las fichas. Probemos, como ejemplo, la igualdad (\ref{ejemploinduccion}).
 
@@ -815,7 +815,7 @@ $$
 \end{corolario}
 \dem Lo afirmado en i) y ii) es consecuencia directa de que, para todo $x\en A$ se verifica
 $$
-\SQRT[n]{\prod_{i=1}^{n}f_{i}(x)}\ \, \leqslant\  \frac{{\dis \sum_{i=1}^{n}f_{i}(x)}}{n}
+\sqrt[n]{\prod_{i=1}^{n}f_{i}(x)}\ \, \leqslant\  \frac{{\dis \sum_{i=1}^{n}f_{i}(x)}}{n}
 $$
 y se da la igualdad si, y sólo si, los números $\,f_{1}(x),f_{2}(x),\cdots ,f_{n}(x)\,$
 son todos iguales.\fin
@@ -1264,7 +1264,7 @@ A ti, divina proporción de oro.\\
 
 Volviendo a los pitagóricos, ellos pensaban que el número era el fundamento último de toda realidad. Hoy vivimos en un mundo digitalizado: la música que escuchas, las películas que ves, la televisión digital y tantas más cosas de uso cotidiano son, en su esencia, números. Parece que los pitagóricos no estaban del todo equivocados.
 
-\href{http://es.wikipedia.org/wiki/Pit\%C3\%A1goras}{Pitágoras}, junto con su maestro \href{http://es.wikipedia.org/wiki/Tales_de_Mileto}{Tales de Mileto}, y también \href{http://es.wikipedia.org/wiki/Anaximandro}{Anaximandro} y \href{http://es.wikipedia.org/wiki/Anax\%C3\%ADmenes_de_Mileto}{Anáximenes}, sin olvidar a \href{http://es.wikipedia.org/wiki/Dem\%C3\%B3crito}{Demócrito} y algunos más de los que queda memoria y que tú mismo puedes consultar en \emph{Wikipedia}, todos ellos eran matemáticos y filósofos. ¿Casualidad? Ni mucho menos. Lo que hoy llamamos \emph{Cultura Occidental} nace de una gran blasfemia, a saber, la afirmación de que la realidad puede ser comprendida y explicada racionalmente. Frente a los relatos mitológicos y a los caprichosos dioses imprevisibles, la afirmación insolente de que la inteligencia humana puede desentrañar por sus propios medios el funcionamiento del Universo. Y ¿qué produce la inteligencia humana cuando empieza a indagar sobre la Naturaleza? Matemáticas y Filosofía. Las Matemáticas, por su propia naturaleza, tienen un campo mucho más restringido que el de la Filosofía pero, en cambio, son extraordinariamente eficaces. La palabra griega $\mathbold{\mu\alpha\theta\eta\mu\alpha}$, que se lee \emph{mathema}, significa \emph{conocimiento}.
+\href{http://es.wikipedia.org/wiki/Pit\%C3\%A1goras}{Pitágoras}, junto con su maestro \href{http://es.wikipedia.org/wiki/Tales_de_Mileto}{Tales de Mileto}, y también \href{http://es.wikipedia.org/wiki/Anaximandro}{Anaximandro} y \href{http://es.wikipedia.org/wiki/Anax\%C3\%ADmenes_de_Mileto}{Anáximenes}, sin olvidar a \href{http://es.wikipedia.org/wiki/Dem\%C3\%B3crito}{Demócrito} y algunos más de los que queda memoria y que tú mismo puedes consultar en \emph{Wikipedia}, todos ellos eran matemáticos y filósofos. ¿Casualidad? Ni mucho menos. Lo que hoy llamamos \emph{Cultura Occidental} nace de una gran blasfemia, a saber, la afirmación de que la realidad puede ser comprendida y explicada racionalmente. Frente a los relatos mitológicos y a los caprichosos dioses imprevisibles, la afirmación insolente de que la inteligencia humana puede desentrañar por sus propios medios el funcionamiento del Universo. Y ¿qué produce la inteligencia humana cuando empieza a indagar sobre la Naturaleza? Matemáticas y Filosofía. Las Matemáticas, por su propia naturaleza, tienen un campo mucho más restringido que el de la Filosofía pero, en cambio, son extraordinariamente eficaces. La palabra griega $\boldmath{\mu\alpha\theta\eta\mu\alpha}$, que se lee \emph{mathema}, significa \emph{conocimiento}.
 
 \begin{quote}
 \emph{El Libro del Universo está escrito en el lenguaje de las matemáticas y sus caracteres son triángulos, círculos y otras figuras geométricas, sin las cuales es imposible entender ni una palabra; sin ellos es como girar vanamente en un oscuro laberinto.}\hfill {Galileo~Galilei}
@@ -1336,7 +1336,7 @@ El estudio de las Matemáticas también puede respaldarse por razones de tipo cult
 \subsection{Lo que debes haber aprendido en este Capítulo. Lecturas adicionales}
 En este Capítulo debes haber aprendido algunas cosas que resumo en la siguiente lista cuya lectura puede servirte de repaso para comprobar lo que sabes.
 \begin{list}{$\bullet$}{\addtolength{\itemsep}{-6pt}}
-\item Debes saber lo que significa demostrar $H\Longrightarrow T$.
+\item Debes saber lo que significa demostrar $H\longrightarrow T$.
 \item Debes saber lo que significa decir que las Matemáticas son una ciencia deductiva.
 \item Debes saber que en Matemáticas las cosas no son verdad porque lo diga tu profesor.
 \item Debes tener una idea de lo que es una teoría axiomática y la forma en que se desarrolla.

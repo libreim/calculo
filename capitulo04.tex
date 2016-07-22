@@ -68,7 +68,7 @@ La definición anterior suele escribirse, con abuso del formalismo lógico, de la 
                                                        x\en A
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ |f(x)-f(a)|<\eps
+                                                     \longrightarrow\ \ \ \ |f(x)-f(a)|<\eps
 \end{equation}
 \noindent{\textbf{Comentarios a la definición.}}\ Observa que en esta definición el conjunto $A$ tiene mucho
 protagonismo: sólo se consideran los valores de $f$ en $A$, lo que
@@ -116,8 +116,8 @@ continua.
 \end{teorema}
 \dem a) Sea $a\en A$ un punto de $A$ en el que $f$ y $g$ son continuas. Debemos probar que $f+g$ y $fg$ son continuas en $a$. Escribamos nuestras hipótesis:
 \begin{eqnarray}
-  \forall \eps_1\en\Rp\ \exists\ \delta_1\en\Rp\,:\,x\en A \wedge \abs{x-a}<\delta_1 & \Longrightarrow & \modulo{f(x)-f(a)}<\eps_1 \label{continuidadf} \\
-  \forall \eps_2\en\Rp\ \exists\ \delta_2\en\Rp\,:\,x\en A \wedge \abs{x-a}<\delta_2 & \Longrightarrow & \modulo{g(x)-g(a)}<\eps_2 \label{continuidadg}
+  \forall \eps_1\en\Rp\ \exists\ \delta_1\en\Rp\,:\,x\en A \wedge \abs{x-a}<\delta_1 & \longrightarrow & \modulo{f(x)-f(a)}<\eps_1 \label{continuidadf} \\
+  \forall \eps_2\en\Rp\ \exists\ \delta_2\en\Rp\,:\,x\en A \wedge \abs{x-a}<\delta_2 & \longrightarrow & \modulo{g(x)-g(a)}<\eps_2 \label{continuidadg}
 \end{eqnarray}
 Naturalmente, $\delta_1=\delta_1(\eps_1)$ y $\delta_2=\delta_2(\eps_2)$ dependen del valor de $\eps_1$ y $\eps_2$. Debemos relacionar los números $\modulo{(f+g)(x)-(f+g)(a)}$ y $\modulo{(fg)(x)-(fg)(a)}$ con $\modulo{f(x)-f(a)}$ y $\modulo{g(x)-g(a)}$.
 
@@ -138,18 +138,18 @@ Para el producto hay que pensar un poquito más.
 La cantidad $\modulo{g(a)}\modulo{f(x)-f(a)}$ puede controlarse fácilmente usando (\ref{continuidadf}). Dado \epos, hagamos en (\ref{continuidadf}) $\eps_1=\frac{\eps}{2(\abs{g(a)}+1)}$ (la precaución de dividir por $\abs{g(a)}+1$ es porque pudiera ocurrir que $g(a)=0$), y sea $\delta_1=\delta_1(\eps_1)$. Tenemos que
 \begin{equation}
 \begin{array}{rcl}\label{desdos}
-x\en A \wedge \abs{x-a}<\delta_1 & \Longrightarrow & \abs{g(a)}\modulo{f(x)-f(a)}<\abs{g(a)}\dfrac{\eps}{2(\abs{g(a)}+1)}<\dfrac{\eps}{2} \\
-\rule{0mm}{6mm} x\en A \wedge \abs{x-a}<\delta_1 &\Longrightarrow & \abs{f(x)}=\abs{f(a)+(f(x)-f(a))}<\abs{f(a)}+\eps_1
+x\en A \wedge \abs{x-a}<\delta_1 & \longrightarrow & \abs{g(a)}\modulo{f(x)-f(a)}<\abs{g(a)}\dfrac{\eps}{2(\abs{g(a)}+1)}<\dfrac{\eps}{2} \\
+\rule{0mm}{6mm} x\en A \wedge \abs{x-a}<\delta_1 &\longrightarrow & \abs{f(x)}=\abs{f(a)+(f(x)-f(a))}<\abs{f(a)}+\eps_1
 \end{array}
 \end{equation}
 Pongamos $M=\abs{f(a)}+\eps_1$, hagamos en (\ref{continuidadg}) $\eps_2=\frac{\eps}{2M}$ y sea $\delta_2=\delta_2(\frac{\eps}{2M})$. Definamos $\delta=\min\set{\delta_1,\delta_2}$. Teniendo ahora en cuenta las desigualdades (\ref{desuno}) y (\ref{desdos}), deducimos que
 $$
-x\en A \wedge \abs{x-a}<\delta \Longrightarrow \!\left\{
+x\en A \wedge \abs{x-a}<\delta \longrightarrow \!\left\{
 \begin{array}{l}
                                                        \!\modulo{f(x)}\modulo{g(x)-g(a)}<M\dfrac{\eps}{2M}=\dfrac{\eps}{2}\! \\
                                                       \rule{0mm}{6mm} \! \abs{g(a)}\modulo{f(x)-f(a)}<\dfrac{\eps}{2}
                                                        \end{array}
-                                                       \right\}\!\Longrightarrow\modulo{(fg)(x)-(fg)(a)}<\eps
+                                                       \right\}\!\longrightarrow\modulo{(fg)(x)-(fg)(a)}<\eps
 $$
 La demostración del apartado b) se hace de forma parecida.\fin
 
@@ -1158,7 +1158,7 @@ Puedes considerar la gráfica de una función como el perfil de una cadena de mont
 \psline[linestyle=dashed,dash=1pt,linewidth=.3pt](5.9,0)(5.9,-.9)
 \end{pspicture}
 %\captionsetup{font={small,stretch=0.80}}%singlelinecheck=off
-\scalefont{.7}{\caption{Visualización de la demostración del teorema de Weierstrass}}\label{fig:subebaja}
+\scalefont{.7}{\caption{Visualización de la demostración del teorema de Weierstrass}\label{fig:subebaja}}
 \end{figure}
 \end{ejemplo}
 
@@ -1268,7 +1268,7 @@ Sean $I$ un intervalo, $a$ un punto de $I$, y $f$ una función definida en $I\set
                                                        x\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ |f(x)-L|<\eps
+                                                     \longrightarrow\ \ \ \ |f(x)-L|<\eps
 \end{equation}
 La condición ``$0<|x-a|$'' se pone para excluir la posibilidad de hacer $x=a$ en la desigualdad $|x-a|<\delta$, lo cual es obligado porque la función $f$ no está definida en $a$.
 
@@ -1295,7 +1295,7 @@ se verifica lo siguiente:
                                                        x\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ |f(x)-L|<\eps
+                                                     \longrightarrow\ \ \ \ |f(x)-L|<\eps
 \end{equation}
 Dicho número se llama \textbf{límite de $f$ en $a$} y escribimos $\,\dis\lim_{x\to a}f(x)=L\,.$
 \end{definicion}
@@ -1331,7 +1331,7 @@ que se verifica lo siguiente:
                                                        x\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ |f(x)-\alpha|<\eps
+                                                     \longrightarrow\ \ \ |f(x)-\alpha|<\eps
 \end{equation}
 Dicho número se llama \textbf{límite por la derecha de
 $f$ en $a$} y, simbólicamente, escribimos
@@ -1348,7 +1348,7 @@ que se verifica lo siguiente:
                                                        x\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ |f(x)-\beta|<\eps
+                                                     \longrightarrow\ \ \ \ |f(x)-\beta|<\eps
 \end{equation}
 Dicho número se llama \textbf{límite por la izquierda de $f$ en $a$} y, simbólicamente, escribimos $\,\dis\lim_{\substack{x\to a\\ x<a}}f(x)=\beta\,.$
 \end{itemize}
@@ -1392,7 +1392,7 @@ Se dice que $\,f\,$ \textbf{es positivamente divergente} en $\,a\,$ si se verifi
                                                        x\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ f(x)>M
+                                                     \longrightarrow\ \ \ \ f(x)>M
 \end{equation}
 Simbólicamente, escribimos $\,\dis\lim_{x\to a}f(x)=+\infinity$.
 
@@ -1405,7 +1405,7 @@ izquierda} en $\,a\,$ si se verifica lo siguiente:
                                                        x\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ f(x)>M
+                                                     \longrightarrow\ \ \ \ f(x)>M
 \end{equation}
 Simbólicamente, escribimos $\,\dis\lim_{\substack{x\to a \\x<a}}f(x)=+\infinity$.
 
@@ -1418,7 +1418,7 @@ derecha} en $\,a\,$ si se verifica lo siguiente:
                                                        x\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ f(x)>M
+                                                     \longrightarrow\ \ \ \ f(x)>M
 \end{equation}
 Simbólicamente, escribimos $\,\dis\lim_{\substack{x\to a \\x>a}}f(x)=+\infinity$.
 
@@ -1444,7 +1444,7 @@ siguiente:
                                                        x\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ |f(x)-L|<\eps
+                                                     \longrightarrow\ \ \ \ |f(x)-L|<\eps
 \end{equation}
 Dicho número se llama límite  de $f$ en $+\infinity$ y escribimos
 $\dis\,\lim_{x\to +\infty}f(x)=L$.
@@ -1464,7 +1464,7 @@ divergente en $+\infinity$ si se verifica lo siguiente:
                                                        x\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ f(x)>M
+                                                     \longrightarrow\ \ \ \ f(x)>M
 \end{equation}
 En cuyo caso escribimos $\,\dis\lim_{x\to +\infty}f(x)=+\infinity$.
 

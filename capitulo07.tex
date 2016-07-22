@@ -274,7 +274,7 @@ Sean $x$ e $y$ números reales. Equivalen las siguientes afirmaciones:\vspace{-6p
 \item c)\ Para todo número \epos, se verifica que $x<y+\eps$.
 \end{list}
 \end{estrategia}
-\dem Es evidente que a) $\Longrightarrow$ b) $\Longrightarrow$ c). Probemos que c) $\Longrightarrow$ a). Supuesto que para todo número \epos, se verifica que $x<y+\eps$ debe ocurrir que $x\le y$ pues, en otro caso, si fuera $y<x$, tomando $\eps=x-y$ debería verificarse que $x<y+\eps=y+(x-y)=x$, esto es, $x<x$ lo que es contradictorio.\fin
+\dem Es evidente que a) $\longrightarrow$ b) $\longrightarrow$ c). Probemos que c) $\longrightarrow$ a). Supuesto que para todo número \epos, se verifica que $x<y+\eps$ debe ocurrir que $x\le y$ pues, en otro caso, si fuera $y<x$, tomando $\eps=x-y$ debería verificarse que $x<y+\eps=y+(x-y)=x$, esto es, $x<x$ lo que es contradictorio.\fin
 
 \begin{proposicion} Supongamos que $\lim\sucn{x}=x\,$, $\lim\sucn{y}=y\,$ y que
 existe $m\en\N$ tal que para todo $n\geqslant m$ se tiene que
@@ -287,7 +287,7 @@ x-\eps/2<x_{p}<x+\eps/2
 $
 y todo $q\geqslant m_{2}$ se tiene que $y-\eps/2<y_{q}<y+\eps/2$. Tomando un número natural $n\ge\max\set{m,m_1,m_2}$, se verifican las dos desigualdades anteriores y también la del enunciado, luego:
 $$
-x-\eps/2<x_n\le y_n<y+\eps/2\quad\Longrightarrow\quad x<y+\eps.
+x-\eps/2<x_n\le y_n<y+\eps/2\quad\longrightarrow\quad x<y+\eps.
 $$
 Como queríamos probar.\fin
 
@@ -300,18 +300,18 @@ $x=0=y$.
 \smallskip
 
 \begin{proposicion}[\textbf{Principio de las sucesiones encajadas}]\label{prop:encajadas}
-Suponga\-mos que \sucn{x}, \sucn{y}, \sucn{z}\ son sucesiones tales que $\,\lim\sucn{x}=\lim\sucn{z}=\upalpha\,$ y existe un n\'umero natural $m_{0}$ tal que para todo $n\geqslant m_{0}$ se verifica que $x_{n}\leqslant y_{n}\leqslant z_{n}$, entonces la sucesi\'on \sucn{y}\ es convergente y $\lim\sucn{y}=\upalpha$.
+Suponga\-mos que \sucn{x}, \sucn{y}, \sucn{z}\ son sucesiones tales que $\,\lim\sucn{x}=\lim\sucn{z}=\alpha\,$ y existe un n\'umero natural $m_{0}$ tal que para todo $n\geqslant m_{0}$ se verifica que $x_{n}\leqslant y_{n}\leqslant z_{n}$, entonces la sucesi\'on \sucn{y}\ es convergente y $\lim\sucn{y}=\alpha$.
 \end{proposicion}
 \noindent\textbf{Demostración}. Sea \epos. Por hip\'otesis existen
 $m_{1},m_{2}$ tales que para todo $p\geqslant m_{1}$ y todo $q\geqslant m_{2}$
 \begin{equation}
-\upalpha-\eps<x_{p}<\upalpha+\eps\qquad {\rm y}\qquad \upalpha-\eps<z_{q}<\upalpha+\eps \label{eq:1}
+\alpha-\eps<x_{p}<\alpha+\eps\qquad {\rm y}\qquad \alpha-\eps<z_{q}<\alpha+\eps \label{eq:1}
 \end{equation}
 Sea $m_{3}=\max\{m_{0},m_{1},m_{2}\}$. Para todo $n\geqslant m_{3}$ las desigualdades~(\ref{eq:1}) se cumplen para $p=q=n$. Adem\'as como $\,n\geqslant m_{0}$ se tiene que $x_{n}\!\leqslant y_{n}\!\leqslant z_{n}$. Deducimos que, para todo $n\geqslant m_{3}$ se verifica que:
 $$
-\upalpha-\eps<x_{n}\!\leqslant y_{n}\!\leqslant z_{n}<\upalpha+\eps,
+\alpha-\eps<x_{n}\!\leqslant y_{n}\!\leqslant z_{n}<\alpha+\eps,
 $$
-y, por tanto, $\upalpha-\eps<y_{n}<\upalpha+\eps$. Hemos probado así que $\lim\sucn{y}=\upalpha$.\fin
+y, por tanto, $\alpha-\eps<y_{n}<\alpha+\eps$. Hemos probado así que $\lim\sucn{y}=\alpha$.\fin
 
 Una consecuencia inmediata de este resultado es que si cambiamos arbitrariamente un n\'umero finito de t\'erminos de una sucesi\'on, la nueva sucesi\'on así obtenida es convergente si lo era la de partida y con su mismo límite. Esto es lo que dice el
 siguiente resultado.
@@ -954,7 +954,7 @@ y_{n}\!=x_{n}\!-\frac{1}{n}.$$ Prueba que \sucn{x}\ es
 estrictamente decreciente e \sucn{y}\ es estrictamente creciente.
 Deduce que ambas sucesiones convergen a un mismo n\'umero. Dicho
 n\'umero se llama la \emph{constante de Euler}, se representa por la
-letra griega $\upgamma$. %No se sabe si dicho número es racional o irracional.
+letra griega $\gamma$. %No se sabe si dicho número es racional o irracional.
 \begin{enumerate}[a)]
 \item Deduce que
 $\dis\Lim{\frac{1+1/2+\cdots+1/n}{\log(n)}}{n}{\infty}=1$.
@@ -1065,7 +1065,7 @@ convenientemente usada, permite resolver con facilidad los casos  b), c), d) y e
 
 \sol Como regla general, en este tipo de ejercicios hay que ``trabajar hacia atrás'', esto es, se calcula y simplifica $\abs{x_n-x}$ y se convierte la desigualdad $\abs{x_n-x}<\eps$ en otra equivalente a ella de la forma $n>\ff(\eps)$ donde $\ff(\eps)$ es un número que depende de \eps. Basta entonces tomar $m_\eps$ como la parte entera de $\ff(\eps)$ más 1, $m_\eps=E\big(\ff(\eps)\big)+1$, con lo cual para todo $n\ge m_\eps$ se tiene que $n<\ff(\eps)$ y, por tanto, $\abs{x_n-x}<\eps$.
 
-Este procedimiento admite muchos atajos. Hay que tener en cuenta que no se pide calcular el $m_\eps$ ``óptimo'', es decir, el menor valor posible de $m_\eps$ para el cual se verifica que  $n\ge m_\eps \Longrightarrow \abs{x_n-x}<\eps$, sino que se pide calcular cualquier valor de $m_\eps$ para el cual sea cierta dicha implicación. Para ello es suficiente con obtener, a partir de la desigualdad $\abs{x_n-x}<\eps$, otra desigualdad del tipo $n>\ff(\eps)$ de forma que se verifique la implicación $n>\ff(\eps) \Longrightarrow\abs{x_n-x}<\eps$.
+Este procedimiento admite muchos atajos. Hay que tener en cuenta que no se pide calcular el $m_\eps$ ``óptimo'', es decir, el menor valor posible de $m_\eps$ para el cual se verifica que  $n\ge m_\eps \longrightarrow \abs{x_n-x}<\eps$, sino que se pide calcular cualquier valor de $m_\eps$ para el cual sea cierta dicha implicación. Para ello es suficiente con obtener, a partir de la desigualdad $\abs{x_n-x}<\eps$, otra desigualdad del tipo $n>\ff(\eps)$ de forma que se verifique la implicación $n>\ff(\eps) \longrightarrow\abs{x_n-x}<\eps$.
 
 En este procedimiento hay que quitar valores absolutos. Esto siempre puede hacerse porque la desigualdad $\abs{x_n-x}<\eps$ equivale a las dos desigualdades $-\eps<x-n-x<\eps$. Con frecuencia, el número $x_n-x$ es siempre positivo o siempre negativo para todo $n\ge n_0$, lo que permite quitar directamente el valor absoluto y sustituirlo por la correspondiente desigualdad.
 
@@ -1082,7 +1082,7 @@ Observa que las acotaciones $\frac{109}{3+9k}<\frac{109}{9k}<\frac{13}{\,k\,}$ n
 $$0<x_n-0=\sqrt[3]{n+1}-\sqrt[3]{n}=\sqrt[3]{n}\left(\sqrt[3]{1+\dfrac{1}{n}\,}-1\right).$$
 Pongamos $z_n=\sqrt[3]{1+\dfrac{1}{n}\,}-1$. Tenemos que $z_n\ge 0$ y, usando la sugerencia dada:
 $$
-(1+z_n)^3=1+\frac{1}{n}\ge 1+3z_n\ms{3mu}\Longrightarrow\ms{3mu} z_n\le\frac{1}{3n}
+(1+z_n)^3=1+\frac{1}{n}\ge 1+3z_n\ms{3mu}\longrightarrow\ms{3mu} z_n\le\frac{1}{3n}
 $$
 Deducimos que:
 $$
@@ -1090,7 +1090,7 @@ x_n=\sqrt[3]{n\,}z_n\le\frac{1}{3}\frac{1}{\sqrt[3]{n^2}}\le\frac{1}{3}\frac{1}{
 $$
 Por tanto:
 $$
-\frac{1}{3}\frac{1}{\sqrt[3]{n}}<\eps\ms{3mu}\Longrightarrow\ms{3mu} x_n<\eps\ms{3mu}\Longrightarrow\ms{3mu}\abs{x_n-0}=x_n<\eps
+\frac{1}{3}\frac{1}{\sqrt[3]{n}}<\eps\ms{3mu}\longrightarrow\ms{3mu} x_n<\eps\ms{3mu}\longrightarrow\ms{3mu}\abs{x_n-0}=x_n<\eps
 $$
 La desigualdad $\frac{1}{3}\frac{1}{\sqrt[3]{n}}<\eps$ se verifica para todo $n>\frac{1}{27\eps^3}$. Por tanto, es suficiente tomar $m_\eps=1+E\big(\frac{1}{27\eps^3}\big)$.
 
@@ -1098,11 +1098,11 @@ Observa que la acotación $\frac{1}{3}\frac{1}{\sqrt[3]{n^2}}\le\frac{1}{3}\frac{
 
 \emph{c)} Sea $a>1$. Entonces $1<\sqrt[n]{a}$. Pongamos $z_n=\abs{x_n-1}=\sqrt[n]{a}-1>0$. Tenemos que:
 $$
-(1+z_n)^n=a>1+nz_n \ms{3mu}\Longrightarrow\ms{3mu} z_n<\frac{a-1}{n}
+(1+z_n)^n=a>1+nz_n \ms{3mu}\longrightarrow\ms{3mu} z_n<\frac{a-1}{n}
 $$
 Deducimos que:
 $$
-\frac{a-1}{n}<\eps \ms{3mu}\Longrightarrow\ms{3mu} z_n=\abs{x_n-1}<\eps
+\frac{a-1}{n}<\eps \ms{3mu}\longrightarrow\ms{3mu} z_n=\abs{x_n-1}<\eps
 $$
 La desigualdad $\frac{a-1}{n}<\eps$ se verifica para todo $n>\frac{a-1}{\eps}$. Por tanto, es suficiente tomar $m_\eps=1+E\big(\frac{a-1}{\eps}\big)$.
 
@@ -1118,7 +1118,7 @@ $$
 $$
 Pongamos $z_n=\sqrt[n]{1+\dfrac{1}{n}}-1$. Tenemos que $z_n>0$ y:
 $$
-(1+z_n)^n=1+\frac{1}{n}>1+n z_n \ms{3mu}\Longrightarrow\ms{3mu} z_n<\frac{1}{n^2}.
+(1+z_n)^n=1+\frac{1}{n}>1+n z_n \ms{3mu}\longrightarrow\ms{3mu} z_n<\frac{1}{n^2}.
 $$
 Por tanto, usando la desigualdad \ref{eq:desraizn}, tenemos que:
 $$
@@ -1162,7 +1162,7 @@ donde hemos puesto $M=\frac{\abs{x_p}}{\rho^p}$ que es una constante que no depe
 
 \emph{b)} Tomando \epos\ de forma que $\rho=\lambda+\eps<1$ (basta tomar $\eps=(1-\lambda)/2$), se sigue que hay un número $p\en\N$ tal que para todo $n\ge p$ se verifica que:
 $$
-\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}\le \rho\mspace{3mu}\Longrightarrow\mspace{3mu}|x_{n+1}|\leqslant\rho|x_{n}|.
+\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}\le \rho\mspace{3mu}\longrightarrow\mspace{3mu}|x_{n+1}|\leqslant\rho|x_{n}|.
 $$
 Y, por lo visto en el apartado anterior, concluimos que $\sucn{x}\to 0$.
 
@@ -1170,7 +1170,7 @@ La aplicación que se propone en este ejercicio es un resultado importante que de
 
 Pongamos $x_n=n^k a^n$, donde se entiende que $k$ es un número natural fijo y $a$ es un número real con $\abs{a}<1$. Tenemos que:
 $$
-\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}=\left(\frac{n+1}{n}\right)^k\abs{a}\mspace{3mu}\Longrightarrow\mspace{3mu} \lim_{n\to\infty}\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}=\abs{a}<1.
+\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}=\left(\frac{n+1}{n}\right)^k\abs{a}\mspace{3mu}\longrightarrow\mspace{3mu} \lim_{n\to\infty}\dfrac{\abs{x_{n+1}}}{\abs{x_{n}}}=\abs{a}<1.
 $$
 Y podemos aplicar el resultado del punto anterior para concluir que $\dis\lim_{n\to\infty}\suc{n^{k}a^{n}}=0$.
 
@@ -1260,7 +1260,7 @@ $$
 $$
 Esta desigualdad prueba que la sucesión \sucn{x}\ es creciente. Además, sumando las desigualdades anteriores desde $k=2$ hasta $k=n$ resulta que:
 $$
-x_{n+1}-x_2<\frac{1}{2\log 2}-\frac{1}{(n+1)\log(n+1)}<\frac{1}{2\log 2}\Longrightarrow x_{n+1}<x_2+\frac{1}{2\log 2}=\log(\log 2).
+x_{n+1}-x_2<\frac{1}{2\log 2}-\frac{1}{(n+1)\log(n+1)}<\frac{1}{2\log 2}\longrightarrow x_{n+1}<x_2+\frac{1}{2\log 2}=\log(\log 2).
 $$
 Por tanto, la sucesión está mayorada y, como es creciente, es convergente y su límite es menor o igual que $\log(\log 2)$.\hecho
 
@@ -1294,7 +1294,7 @@ Sugerencia. Estudia en cada caso monotonía y acotación. La convergencia puede de
 
 Tenemos que $x_1=1<3$; supuesto que $x_n<3$ deducimos que $x_{n+1}=\sqrt{3x_n}<\sqrt{9}=3$. Luego, por inducción, concluimos que $x_n<3$ para todo \nN. Probemos ahora que \sucn{x}\ es creciente. Tenemos que:
 $$
-3x_n=x_{n+1}^2=x_{n+1}x_{n+1}<3x_{n+1}\quad\Longrightarrow\quad x_n<x_{n+1}
+3x_n=x_{n+1}^2=x_{n+1}x_{n+1}<3x_{n+1}\quad\longrightarrow\quad x_n<x_{n+1}
 $$
 por tanto, la sucesión es estrictamente creciente y, como está mayorada por $3$, es convergente y, por lo visto al principio, su límite es $3$.\hecho
 
@@ -1308,7 +1308,7 @@ x_{n+1}>\sqrt{3}&\ms{3mu}\Longleftrightarrow\ms{3mu}\dfrac{3+3x_n}{3+x_n}>\sqrt{
 $$
 Por tanto, si $x_n>\sqrt{3}$ también es $x_{n+1}>\sqrt{3}$. Luego, por inducción, concluimos que $x_n>\sqrt{3}$ para todo \nN. Probemos ahora que \sucn{x}\ es decreciente. Tenemos que:
 $$
-x_{n+1}-x_n=\dfrac{3+3x_n}{3+x_n}-x_n=\frac{3-x_n^2}{3+x_n}<0\quad\Longrightarrow\quad x_{n+1}<x_n
+x_{n+1}-x_n=\dfrac{3+3x_n}{3+x_n}-x_n=\frac{3-x_n^2}{3+x_n}<0\quad\longrightarrow\quad x_{n+1}<x_n
 $$
 por tanto, la sucesión es estrictamente decreciente y, como está minorada por $\sqrt{3}$, es convergente y, por lo visto al principio, su límite es $\sqrt{3}$.\hecho
 
@@ -1321,7 +1321,7 @@ Lo primero que debemos observar es que la sucesión está bien definida pues $x_1=
 
 Para estudiar la monotonía calculamos la derivada de $f$. Tenemos que $f\tl(x)=\dfrac{6}{(3+x)^2}$. Como $f\tl(x)>0$, se sigue que $f$ es estrictamente creciente. Como $x_1=3>x_2=f(x_1)=2$ y, al ser creciente, $f$ conserva las desigualdades, se sigue que $x_2=f(x_1)>f(x_2)=x_3$. Este proceso puede seguirse indefinidamente, esto es, la misma relación de orden que hay entre dos términos consecutivos se conserva siempre:
 $$
-x_n>x_{n+1}\quad\Longrightarrow\quad x_{n+1}=f(x_n)>f(x_{n+1})=x_{n+2}.
+x_n>x_{n+1}\quad\longrightarrow\quad x_{n+1}=f(x_n)>f(x_{n+1})=x_{n+2}.
 $$
 Obtenemos así que \sucn{x}\ es decreciente. Además, como es de términos positivos, está minorada, luego es convergente. Su límite ya sabemos que es $\sqrt{3}$.
 
@@ -1332,13 +1332,13 @@ Las sucesiones recurrentes del tipo $x_{n+1}=f(x_n)$ donde $f$ es una función co
 
 \emph{e)} Definamos \func{f}{\Rpo}\ por $f(x)=\sqrt{a+x}$. La sucesión está dada por $x_1=\sqrt{a}$ y $x_{n+1}=f(x_n)$. Como $f$ es continua, si la sucesión es convergente, su límite debe ser un punto fijo de $f$, es decir, debe ser solución de la ecuación $\alpha=f(\alpha)$, lo que implica que $\alpha^2=a+\alpha$ y deducimos que $$\alpha=\dfrac{1+\sqrt{1+4a}}{2},$$ donde hemos elegido la solución positiva de la ecuación. Puesto que $x_1=\sqrt{a}<x_2=\sqrt{2a}$ y, evidentemente, $f$ es estrictamente creciente, se sigue $x_2=f(x_1)<f(x_2)=x_3$ y, en general, $x_{n}<x_{n+1}$. Por tanto \sucn{x}\ es estrictamente creciente. Veamos que está mayorada. Probaremos que $x_n<\alpha$. Claramente $x_1=\sqrt{a}<\alpha$. Supongamos que $x_n<\alpha$. Entonces:
 $$
-x_{n+1}^2=a+x_n < a+\alpha=\alpha^2\quad\Longrightarrow\quad x_{n+1}<\alpha
+x_{n+1}^2=a+x_n < a+\alpha=\alpha^2\quad\longrightarrow\quad x_{n+1}<\alpha
 $$
 Concluimos, por inducción, que $x_n<\alpha$ para todo \nN. Luego \sucn{x}\ es creciente y mayorada, por tanto converge y su límite es $\alpha$.
 
 Para $a=1$, tenemos que:
 $$
-\frac{1+\sqrt{5}}{2}=\lim\SQRT{1+\SQRT{1+\SQRT{1+\SQRT{1+\cdots}}}}
+\frac{1+\sqrt{5}}{2}=\lim\sqrt{1+\sqrt{1+\sqrt{1+\sqrt{1+\cdots}}}}
 $$
 \hecho
 
@@ -1372,7 +1372,7 @@ y_{n}\!=x_{n}\!-\frac{1}{n}.$$ Prueba que \sucn{x}\ es
 estrictamente decreciente e \sucn{y}\ es estrictamente creciente.
 Deduce que ambas sucesiones convergen a un mismo n\'umero. Dicho
 n\'umero se llama la \emph{constante de Euler}, se representa por la
-letra griega $\upgamma$. %No se sabe si dicho número es racional o irracional.
+letra griega $\gamma$. %No se sabe si dicho número es racional o irracional.
 \begin{enumerate}[a)]
 \item Deduce que
 $\dis\Lim{\frac{1+1/2+\cdots+1/n}{\log(n)}}{n}{\infty}=1$.
@@ -1405,7 +1405,7 @@ b) Pongamos $H_n=\Arm$. Tenemos que:
 $$
 \frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}=H_{2n}-H_n=x_{2n}+\log(2n)-x_n+\log n=x_{2n}-x_n+\log 2
 $$
-Como $\suc{x_{2n}}$ es una sucesión parcial de \sucn{x}\ se tiene que $\suc{x_{2n}-x_n}\to\upgamma-\upgamma=0$.
+Como $\suc{x_{2n}}$ es una sucesión parcial de \sucn{x}\ se tiene que $\suc{x_{2n}-x_n}\to\gamma-\gamma=0$.
 
 c) Pongamos $A_n=1-\dfrac{1}{2}+\dfrac{1}{3}-\dfrac{1}{4}+\cdots+ \dfrac{(-1)^{n+1}}{n}$. Tenemos que:
 $$
@@ -1420,7 +1420,7 @@ Por el apartado anterior, tenemos que $\lim\suc{A_{2n}}=\log 2$. Como $A_{2n-1}=
 La sucesión $\set{A_n}$ se llama \textbf{serie armónica alternada}.
 
 \begin{estrategia}\label{est:armonica}
-Para calcular límites donde interviene la serie armónica $$H_n=\Arm$$ puede ser conveniente escribir dicha sucesión como $H_n=\log n+\upgamma_n$ donde $\sucn{\upgamma}\to\upgamma$.
+Para calcular límites donde interviene la serie armónica $$H_n=\Arm$$ puede ser conveniente escribir dicha sucesión como $H_n=\log n+\gamma_n$ donde $\sucn{\gamma}\to\gamma$.
 \end{estrategia}
 
 \resuelto \label{res:parcialestotal} Sea \sucn{x}\ una sucesión y supongamos que hay dos sucesiones parciales \suc{x_{\sigma(n)}}\ y \suc{x_{s(n)}}\ que convergen a un mismo número $x$ y tales que $\sigma(\N)\cup s(\N)=\N$. Prueba que $\sucn{x}$ converge a $x$.
@@ -1450,7 +1450,7 @@ $$
 $$
 Donde hemos puesto $K=\dfrac{M}{1-\rho}$, que es una constante independiente de $n$ y de $h$. Deducimos que:
 $$
-K\rho^n<\eps\quad \Longrightarrow\quad \abs{x_{n+h}-x_n}<\eps\quad\mbox{{\rm para todo }} h\en\N
+K\rho^n<\eps\quad \longrightarrow\quad \abs{x_{n+h}-x_n}<\eps\quad\mbox{{\rm para todo }} h\en\N
 $$
 Dado \epos, determinamos $m_\eps$ por la condición de que $\rho^{m_\eps}<\eps/K$. Entonces para todo $n\ge m_\eps$ y \emph{para todo} $h\en\N$ se verifica que $\abs{x_{n+h}-x_n}<\eps$, lo que prueba que la sucesión \sucn{x}\ verifica la condición de Cauchy y, por tanto, es convergente.\hecho
 
@@ -1491,7 +1491,7 @@ $$
 
 \sol a) Consideremos la función dada por $f(x)=\dfrac{1}{1+x}$. La sucesión que nos piden estudiar es la sucesión de iteradas de dicha función a partir del valor inicial $x_1=1$. Como $f\tl(x)=-\dfrac{1}{(1+x)^2}<0$, la función $f$ es estrictamente decreciente. Por tanto, la sucesión $x_{n+1}=f(x_n)$ no es monótona. Pues si, por ejemplo es $x_{n-1}<x_{n}$, como $f$, al ser decreciente, invierte las desigualdades, se tendrá que $x_n=f(x_{n-1})>f(x_n)=x_{n+1}$.
 
-Es evidente que $x_n>0$ para todo \nN. Por tanto $1+x_n>1 \Longrightarrow x_{n+1}<1$, luego $x_n\le 1$ para todo \nN, de donde $1+x_n\le 2\Longrightarrow x_{n+1}\ge\frac{1}{2}$. Deducimos que todos los términos de la sucesión están en el intervalo $I=[1/2,+\infty[$. Para $x\ge 1/2$ se tiene que $\abs{f\tl(x)}\le\frac{4}{9}$. Podemos aplicar, por tanto, el ejercicio anterior y deducimos que \sucn{x}\ es convergente. Además, su límite es el único punto fijo de $f$ en $I$, que viene dado por $x=\dfrac{1}{1+x}\Longrightarrow x^2+x-1=0$, de donde, $x=\dfrac{-1+\sqrt{5}}{2}$. \hecho
+Es evidente que $x_n>0$ para todo \nN. Por tanto $1+x_n>1 \longrightarrow x_{n+1}<1$, luego $x_n\le 1$ para todo \nN, de donde $1+x_n\le 2\longrightarrow x_{n+1}\ge\frac{1}{2}$. Deducimos que todos los términos de la sucesión están en el intervalo $I=[1/2,+\infty[$. Para $x\ge 1/2$ se tiene que $\abs{f\tl(x)}\le\frac{4}{9}$. Podemos aplicar, por tanto, el ejercicio anterior y deducimos que \sucn{x}\ es convergente. Además, su límite es el único punto fijo de $f$ en $I$, que viene dado por $x=\dfrac{1}{1+x}\longrightarrow x^2+x-1=0$, de donde, $x=\dfrac{-1+\sqrt{5}}{2}$. \hecho
 
 \resuelto Supongamos que la ecuaci\'on
 $\,x^{2}\!=b x+a\,$ tiene dos ra\'\i{}ces reales distintas $\alpha$ y $\beta$. Dados dos
@@ -1734,11 +1734,11 @@ afirmaciones:
 
 \noindent ii) Para toda sucesión \sucn{x}\ de puntos de $A$ tal que $\sucn{x}\to a$ con $x_n\neq a$, se verifica que $\{f(x_n)\}\to L$.
 \end{proposicion}
-\dem $i) \Longrightarrow ii)$. Supongamos que $\Lim{f(x)}{x}{a}=L$ y sea $\sucn{x}\to a$ con $x_n\en A$ y $x_n\neq a$. Debemos probar que $suc{f(x_n)}\to L$. Consideremos el caso en que $a$ y $L$ son números reales. Dado \epos, por hipótesis, existe $\delta>0$ tal que para todo $x\en A$ con $x\neq a$ y $\abs{x-a}<\delta$ se verifica que $\abs{f(x)-L}<\eps$. Como $\sucn{x}\to a$, existe un número $n_0\en\N$ tal que para todo $n\ge n_0$ se verifica que $\abs{x_n-a}<\delta$. Por tanto, para todo $n\ge n_0$ tenemos que $x_n\en A$, $x_n\neq a$ y $\abs{x_n-a}<\delta$; en consecuencia, se verificará que $\abs{f(x_n)-L}<\eps$. Hemos probado así que $\suc{f(x_n)}\to L$.
+\dem $i) \longrightarrow ii)$. Supongamos que $\Lim{f(x)}{x}{a}=L$ y sea $\sucn{x}\to a$ con $x_n\en A$ y $x_n\neq a$. Debemos probar que $suc{f(x_n)}\to L$. Consideremos el caso en que $a$ y $L$ son números reales. Dado \epos, por hipótesis, existe $\delta>0$ tal que para todo $x\en A$ con $x\neq a$ y $\abs{x-a}<\delta$ se verifica que $\abs{f(x)-L}<\eps$. Como $\sucn{x}\to a$, existe un número $n_0\en\N$ tal que para todo $n\ge n_0$ se verifica que $\abs{x_n-a}<\delta$. Por tanto, para todo $n\ge n_0$ tenemos que $x_n\en A$, $x_n\neq a$ y $\abs{x_n-a}<\delta$; en consecuencia, se verificará que $\abs{f(x_n)-L}<\eps$. Hemos probado así que $\suc{f(x_n)}\to L$.
 
 \smallskip
 
-Para probar que $ii)\Longrightarrow i)$, probaremos que $no i)\Longrightarrow no ii)$. Que $f$ no tiene límite en $a$ igual a $L$, quiere decir que \emph{existe} un $\eps_0>0$, tal que \emph{para todo} $\delta>0$ hay \emph{algún punto} $x_\delta\en A$, con $x_\delta\neq a$ y $\abs{x_\delta-a}<\eps_0$ pero $\abs{f(x_\delta)-L}\ge \eps_0$. Tomando para cada \nN\ $\delta=\frac{1}{n}$, obtenemos un $x_n\en A$ con $x_n\neq a$ y $\abs{x_n-a}<\frac{1}{n}$ pero $\abs{f(x_n)-L}\geq\eps_0$. Claramente se tiene que $\sucn{x}\to a$, con $x_n\en A$ y $x_n\neq a$ pero $\suc{f(x_n)}$ no converge a $L$.
+Para probar que $ii)\longrightarrow i)$, probaremos que $no i)\longrightarrow no ii)$. Que $f$ no tiene límite en $a$ igual a $L$, quiere decir que \emph{existe} un $\eps_0>0$, tal que \emph{para todo} $\delta>0$ hay \emph{algún punto} $x_\delta\en A$, con $x_\delta\neq a$ y $\abs{x_\delta-a}<\eps_0$ pero $\abs{f(x_\delta)-L}\ge \eps_0$. Tomando para cada \nN\ $\delta=\frac{1}{n}$, obtenemos un $x_n\en A$ con $x_n\neq a$ y $\abs{x_n-a}<\frac{1}{n}$ pero $\abs{f(x_n)-L}\geq\eps_0$. Claramente se tiene que $\sucn{x}\to a$, con $x_n\en A$ y $x_n\neq a$ pero $\suc{f(x_n)}$ no converge a $L$.
 
 Los demás casos en que o bien $a$ o $L$ son infinitos se hacen de manera parecida.\fin
 
@@ -2006,7 +2006,7 @@ Sugerencia. Usa equivalencias asintóticas apropiadas.
 \propuesto  Sea \sucn{x}\ una sucesi\'on de n\'umeros
 positivos tal que $\dis\left\{\frac{x_{n+1}}{x_{n}}\right\}\to
 L\!\in\!\Rp$. Calcula el límite de la sucesión $ \dis
-\SQRT[n]{\dfrac{x_{n}}{\sqrt[n]{\rule{0mm}{2.5mm} x_{1}x_{2}\cdots
+\sqrt[n]{\dfrac{x_{n}}{\sqrt[n]{\rule{0mm}{2.5mm} x_{1}x_{2}\cdots
 x_{n}}}}$.
 
 \propuesto Sea \sucn{x}\ una sucesi\'on de n\'umeros
@@ -2191,7 +2191,7 @@ v_n(u_n-1)&=n\left(\frac{1+2^{\frac{p}{n}}+3^{\frac{p}{n}}+\cdots+p^{\frac{p}{n}
 $$
 Teniendo en cuenta que $\lim n(\sqrt[n]{a}-1)=\log a$, deducimos que:
 $$
-\lim_{n\to\infty}v_n(u_n-1)=\log 2+\log 3+\cdots+\log n=\log n!\ms{4mu}\Longrightarrow\ms{4mu}\lim\sucn{x}=n!.
+\lim_{n\to\infty}v_n(u_n-1)=\log 2+\log 3+\cdots+\log n=\log n!\ms{4mu}\longrightarrow\ms{4mu}\lim\sucn{x}=n!.
 $$
 f) Es una sucesión de potencias $x_n=u_n^{v_n}$, donde:
 $$
@@ -2216,7 +2216,7 @@ Deducimos que $v_n(u_n-1)\to -\frac{3}{4}$ y, por tanto, $\lim\sucn{x}=\e^{-\fra
 
 g) $x_n=n\left[\left(1+\frac{1}{n^{3}\log(1+1/n)}\right)^{\!\!n}-1\right]$. Pongamos $z_n=\left(1+\frac{1}{n^{3}\log(1+1/n)}\right)^{\!\!n}$. La sucesión \sucn{z}\ es una indeterminación del tipo $1^\infty$. Tenemos que:
 $$
-n\frac{1}{n^{3}\log(1+1/n)}=\frac{1}{n}\frac{1}{n\log(1+1/n)}\to 0\quad\Longrightarrow\quad z_n\to 1.
+n\frac{1}{n^{3}\log(1+1/n)}=\frac{1}{n}\frac{1}{n\log(1+1/n)}\to 0\quad\longrightarrow\quad z_n\to 1.
 $$
 En consecuencia:
 $$
@@ -2239,7 +2239,7 @@ k)\ x_n= n \dfrac{\sqrt[n]{\e}- {\e}^{\sen(1/n)}}{1 - n \sen(1/n)} & l)\ x_n=\df
 \frac{4^3}{3^2} + \cdots + \frac{(n+1)^n}{n^{n-1}}}{n^2}
 \end{array}
 $$
-\sol a) Usaremos la estrategia \ref{est:armonica}. Pongamos $H_n=\log n+x_n$ donde $\sucn{x}\to\upgamma$. Tenemos que:
+\sol a) Usaremos la estrategia \ref{est:armonica}. Pongamos $H_n=\log n+x_n$ donde $\sucn{x}\to\gamma$. Tenemos que:
 $$
 \begin{aligned}
 \dfrac{\log\!\left(1+\frac{1}{2}+\cdots+\frac{1}{n}\right)}{\log(\log n)}&=\dfrac{\log(\log n+x_n)}{\log(\log n)}=\dfrac{\log\left(\log n\left(1+\frac{x_n}{\log n}\right)\right)}{\log(\log n)}=\\
@@ -2340,7 +2340,7 @@ Donde hemos usado la equivalencia asintótica $\e^{z_n}-1\sim z_n$ válida siempre
 \resuelto  Sea \sucn{x}\ una sucesi\'on de n\'umeros
 positivos tal que \mbox{$\left\{\frac{x_{n+1}}{x_{n}}\right\}\!\to\!
 L\!>\!0$.} Calcula el límite de la sucesión $ \dis
-\SQRT[n]{\dfrac{x_{n}}{\sqrt[n]{\rule{0mm}{2.5mm} x_{1}x_{2}\cdots x_{n}}}}$.
+\sqrt[n]{\dfrac{x_{n}}{\sqrt[n]{\rule{0mm}{2.5mm} x_{1}x_{2}\cdots x_{n}}}}$.
 
 \sol Es una sucesión del tipo $w_n=\sqrt[n]{y_n}$ donde $y_n=\dfrac{x_{n}}{\sqrt[n]{\rule{0mm}{2.5mm} x_{1}x_{2}\cdots x_{n}}}$. Aplicaremos el corolario \ref{cor:medgeometrica}. Tenemos que:
 $$
@@ -2364,9 +2364,9 @@ $\dis\dfrac{G_{n}}{A_{n}}$.
 
 \sol Tenemos que $A_n=\dfrac{na+\frac{n(n-1)}{2}b}{n}=a+\dfrac{n-1}{2}b$. Por tanto:
 $$
-\frac{G_n}{A_n}=\frac{\sqrt[n]{x_1x_2\cdots x_n}}{a+\frac{n-1}{2}b}=\frac{1}{\frac{a}{n}+\frac{n-1}{2n}b}\SQRT[n]{\dfrac{x_1x_2\cdots x_n}{n^n}}
+\frac{G_n}{A_n}=\frac{\sqrt[n]{x_1x_2\cdots x_n}}{a+\frac{n-1}{2}b}=\frac{1}{\frac{a}{n}+\frac{n-1}{2n}b}\sqrt[n]{\dfrac{x_1x_2\cdots x_n}{n^n}}
 $$
-Calcularemos el límite de la sucesión $U_n=\SQRT[n]{\dfrac{x_1x_2\cdots x_n}{n^n}}$, que es del tipo $U_n=\sqrt[n]{z_n}$, usando el corolario \ref{cor:medgeometrica}, tenemos:
+Calcularemos el límite de la sucesión $U_n=\sqrt[n]{\dfrac{x_1x_2\cdots x_n}{n^n}}$, que es del tipo $U_n=\sqrt[n]{z_n}$, usando el corolario \ref{cor:medgeometrica}, tenemos:
 $$
 \frac{z_{n+1}}{z_n}=\frac{x_{n+1}}{(n+1)^{n+1}}n^n=\frac{x_{n+1}}{n+1}\left(1-\frac{1}{n+1}\right)^n\to\frac{b}{\e}.
 $$
@@ -2631,13 +2631,13 @@ Sea $\ff$ un número real que no es un múltiplo entero de $\pi$. Pongamos $z=\cos
 
 En efecto, de la igualdad:
 $$
-\sen((n+1)\ff)=\sen(n\ff)\cos\ff+\cos(n\ff)\sen\ff\Longrightarrow \cos(n\ff)=\frac{1}{\sen\ff}\big(\sen((n+1)\ff)-\sen(n\ff)\cos\ff\big)
+\sen((n+1)\ff)=\sen(n\ff)\cos\ff+\cos(n\ff)\sen\ff\longrightarrow \cos(n\ff)=\frac{1}{\sen\ff}\big(\sen((n+1)\ff)-\sen(n\ff)\cos\ff\big)
 $$
 se deduce que si \suc{\sen(n\ff)}\ converge, también converge \suc{\cos(n\ff)}\ y, por tanto, la sucesión $\suc{\cos(n\ff)+i\sen(n\ff)}$ converge, lo que es contradictorio.
 
 Análogamente, de la igualdad:
 $$
-\cos((n+1)\ff)=\cos(n\ff)\cos\ff-\sen(n\ff)\sen\ff\Longrightarrow\sen (n\ff)=\frac{1}{\sen\ff}\big(\cos((n+1)\ff)-\cos(n\ff)\cos\ff\big)
+\cos((n+1)\ff)=\cos(n\ff)\cos\ff-\sen(n\ff)\sen\ff\longrightarrow\sen (n\ff)=\frac{1}{\sen\ff}\big(\cos((n+1)\ff)-\cos(n\ff)\cos\ff\big)
 $$
 se deduce que si \suc{\cos(n\ff)}\ converge, también converge \suc{\sen(n\ff)}\ y, por tanto, la sucesión $\suc{\cos(n\ff)+i\sen(n\ff)}$ converge, lo que es contradictorio.\hecho
 \end{ejercicios resueltos}
@@ -2698,7 +2698,7 @@ Una función $f$ es uniformemente continua en un intervalo $I$ si para todo \epos
                                                        x,y\en I
                                                        \end{array}
                                                        \right\}
-                                                     \Longrightarrow\ \ \ \ |f(x)-f(y)|\le \eps
+                                                     \longrightarrow\ \ \ \ |f(x)-f(y)|\le \eps
 \end{equation}
 \end{definicion}
 

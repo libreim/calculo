@@ -712,7 +712,7 @@ Una de las limitaciones de la teoría de la integral de Riemann que hemos desarro
 \begin{ejemplo}
 La función $f(x)=\dfrac{1}{\sqrt{x}}$ no está acotada en el intervalo $]0,1]$. Como $h(x)=2\sqrt{x}$ es una primitiva de $f$ en $[0,1]$, para todo $t\in ]0,1]$ se tiene que:
 $$
-\varint_t^1 \dfrac{1}{\sqrt{x}}\df{x}=h(1)-h(t)=2-2\sqrt{t}\ms{5mu}\Longrightarrow\ms{4mu}\lim_{t\to 0}\varint_t^1 \dfrac{1}{\sqrt{x}}\df{x}=2.
+\varint_t^1 \dfrac{1}{\sqrt{x}}\df{x}=h(1)-h(t)=2-2\sqrt{t}\ms{5mu}\longrightarrow\ms{4mu}\lim_{t\to 0}\varint_t^1 \dfrac{1}{\sqrt{x}}\df{x}=2.
 $$
 Por tanto es natural definir:
 $$
@@ -723,7 +723,7 @@ $$
 \begin{ejemplo}
 Para todo $\alpha>0$ se tiene que:
 $$
-\varint_0^t\e^{-\alpha x}\df{x}=\frac{1}{\alpha}(1-\e^{-\alpha t})\quad\Longrightarrow\lim_{t\to
+\varint_0^t\e^{-\alpha x}\df{x}=\frac{1}{\alpha}(1-\e^{-\alpha t})\quad\longrightarrow\lim_{t\to
 +\infty}\varint_0^t\e^{-\alpha x}\df{x}=\frac{1}{\alpha}.
 $$
 Por ello es natural definir:
@@ -854,11 +854,11 @@ b) Para todo \epos\ existe un número $u_\eps\in ]c,b[$ tal que para todos $x,y\i
 \end{proposicion}
 \dem
 
-$a\ms{3mu}\Longrightarrow\ms{3mu}b)$. Por hipótesis, para todo \epos\ existe un número $u_\eps\in ]c,b[$ tal que para todo $x\in ]u_\eps,b[$ se verifica que $\abs{f(x)-L}<\eps/2$. Para $y\in ]u_\eps,b[$ también será $\abs{f(y)-L}<\eps/2$. Deducimos que:
+$a\ms{3mu}\longrightarrow\ms{3mu}b)$. Por hipótesis, para todo \epos\ existe un número $u_\eps\in ]c,b[$ tal que para todo $x\in ]u_\eps,b[$ se verifica que $\abs{f(x)-L}<\eps/2$. Para $y\in ]u_\eps,b[$ también será $\abs{f(y)-L}<\eps/2$. Deducimos que:
 $$
 \abs{f(x)-f(y)}=\abs{f(x)-L-(f(y)-L)}\le\abs{f(x)-L}+\abs{f(y)-L}<\frac{\eps}{2}+\frac{\eps}{2}=\eps.
 $$
-$b\ms{3mu}\Longrightarrow\ms{3mu}a)$. Probaremos que hay un número $L\en\R$ tal que para toda sucesión $\sucn{x}\to b$ se verifica que $\suc{f(x_n)}\to L$. Según sabemos, por la proposición \ref{prop:limsucfunc}, esto equivale a que $f$ tenga límite en $b$ igual a $L$. Sea $\sucn{x}\to b$, para probar que \suc{f(x_n)}\ es convergente probaremos que dicha sucesión verifica la condición de Cauchy. Dado \epos, por la hipótesis hecha, hay un número $u_\eps\in ]c,b[$ tal que para todos $x,y\in ]u_\eps,b[$ se verifica que $\abs{f(x)-f(y)}<\eps/2$. Como $\sucn{x}\to c$, existe un número natural $m_\eps$ tal que para todo $p\ge m_\eps$ se tiene que $x_p\in ]u_\eps,c[$. Deducimos que si $p\geq m_\eps$ y $q\geq m_\eps$, entonces $\abs{f(x_p)-f(x_q)}<\eps$, lo que prueba que la sucesión \suc{f(x_n)}\ es de Cauchy y, por el teorema de completitud de \R, es convergente. Sea $L\en\R$ el límite de \suc{f(x_n)}. Si ahora consideramos cualquier otra sucesión $\sucn{y}\to b$, el mismo razonamiento anterior prueba que \suc{f(y_n)}\ converge. Debemos probar que su límite también es $L$. Para ello, basta con observar que, como consecuencia de la hipótesis hecha, la sucesión \suc{f(x_n)-f(y_n)}\ converge a $0$, pues para todo $n$ suficientemente grande se tiene que $x_n,y_n\in ]u_\eps,b[$, por lo que $\abs{f(x_n)-f(y_n)}<\eps$.\fin
+$b\ms{3mu}\longrightarrow\ms{3mu}a)$. Probaremos que hay un número $L\en\R$ tal que para toda sucesión $\sucn{x}\to b$ se verifica que $\suc{f(x_n)}\to L$. Según sabemos, por la proposición \ref{prop:limsucfunc}, esto equivale a que $f$ tenga límite en $b$ igual a $L$. Sea $\sucn{x}\to b$, para probar que \suc{f(x_n)}\ es convergente probaremos que dicha sucesión verifica la condición de Cauchy. Dado \epos, por la hipótesis hecha, hay un número $u_\eps\in ]c,b[$ tal que para todos $x,y\in ]u_\eps,b[$ se verifica que $\abs{f(x)-f(y)}<\eps/2$. Como $\sucn{x}\to c$, existe un número natural $m_\eps$ tal que para todo $p\ge m_\eps$ se tiene que $x_p\in ]u_\eps,c[$. Deducimos que si $p\geq m_\eps$ y $q\geq m_\eps$, entonces $\abs{f(x_p)-f(x_q)}<\eps$, lo que prueba que la sucesión \suc{f(x_n)}\ es de Cauchy y, por el teorema de completitud de \R, es convergente. Sea $L\en\R$ el límite de \suc{f(x_n)}. Si ahora consideramos cualquier otra sucesión $\sucn{y}\to b$, el mismo razonamiento anterior prueba que \suc{f(y_n)}\ converge. Debemos probar que su límite también es $L$. Para ello, basta con observar que, como consecuencia de la hipótesis hecha, la sucesión \suc{f(x_n)-f(y_n)}\ converge a $0$, pues para todo $n$ suficientemente grande se tiene que $x_n,y_n\in ]u_\eps,b[$, por lo que $\abs{f(x_n)-f(y_n)}<\eps$.\fin
 
 La proposición anterior tiene una versión análoga para el caso de considerar un intervalo del tipo $]a,c]$ con $a$ un número real o $a=-\infty$.
 
@@ -916,7 +916,7 @@ Sea $\ff$ una función monótona y con derivada continua en $[a,b]$, y sea $f$ una
 \end{teorema}
 \dem Supongamos que \ff\ es decreciente en $[a,b]$ y $\ff(b)=0$. Definamos las funciones $F(x)=\varint_a^x\!f(t)\df{t}$ y $H(x)=F(x)\ff(x)$. Tenemos que $H\tl(x)=F\tl(x)\ff(x)+F(x)\ff\tl(x)=f(x)\ff(x)+F(x)\ff\tl(x)$. Por la regla de Barrow, obtenemos que:
 $$
-\varint_a^b\big(f(x)\ff(x)+F(x)\ff\tl(x)\big)\df{x}=H(b)-H(a)=0\ms{3mu}\Longrightarrow\varint_a^b\!f(x)\ff(x)\df{x}=\varint_a^b\!F(x)(-\ff\tl(x))\df{x}.
+\varint_a^b\big(f(x)\ff(x)+F(x)\ff\tl(x)\big)\df{x}=H(b)-H(a)=0\ms{3mu}\longrightarrow\varint_a^b\!f(x)\ff(x)\df{x}=\varint_a^b\!F(x)(-\ff\tl(x))\df{x}.
 $$
 Como $-\ff\tl(x)\ge 0$ para todo $x\in [a,b]$, podemos aplicar a la última integral el primer teorema de la media que asegura que hay algún $c\in [a,b]$ tal que:
 $$
@@ -929,7 +929,7 @@ Hemos probado así que hay un $c\in [a,b]$ tal que:
 Esta igualdad es un caso particular de la igualdad del enunciado (recuerda que hemos supuesto que $\ff(b)=0$). Consideremos ahora que \ff\ es decreciente en $[a,b]$ (no suponemos que $\ff(b)=0$). Podemos aplicar la igualdad \ref{eq:provimedia2}\ a la función $\ff-\ff(b)$ y obtenemos que hay algún $c\in [a,b]$ tal que:
 $$
 \begin{aligned}
-&\varint_a^b\!f(x)(\ff(x)-\ff(b))\df{x}=(\ff(a)-\ff(b))\varint_a^c\!f(x)\df{x}\quad\Longrightarrow\\
+&\varint_a^b\!f(x)(\ff(x)-\ff(b))\df{x}=(\ff(a)-\ff(b))\varint_a^c\!f(x)\df{x}\quad\longrightarrow\\
 & \varint_a^b\!f(x)\ff(x)\df{x}=\ff(a)\varint_a^c\!f(x)\df{x}+\ff(b)\varint_a^b\!f(x)\df{x}-\ff(b)\varint_a^c\!f(x)\df{x}=\\
 &\qquad\qquad\qquad\ms{5mu}=\ff(a)\varint_a^c\!f(x)\df{x}+\ff(b)\varint_c^b\!f(x)\df{x}.
 \end{aligned}
@@ -1026,7 +1026,7 @@ $$ \left |\varint_{a}^{b}f(x)\df{x} -\alpha \right |\leq M\dfrac{(b-a)^{2}}{n}.$
 $$
 \begin{array}{lll}
  a)\ \dis\varint_0^1(x^2-1)^6 2x\df{x} & b)\ \dis\varint_{-\frac{2\pi}{3}}^{\frac{2\pi}{3}}\abs{\cos x}\df{x} & c)\ \dis\varint_1^{\e}\dfrac{\log x}{x}\df{x} \\
- d)\ \dis\varint_\e^{\e^2}\dfrac{1}{x\log x}\df{x} & e)\ \dis\varint_0^{\pi^2}\dfrac{\sen\sqrt{x}}{\sqrt{x}}\df{x} & f)\ \dis\varint_0^{\frac{\pi}{4}}\dfrac{1+\sen x}{\cos^2\!x}\df{x} \\
+ d)\ \dis\varint_{\e}^{\e^2}\dfrac{1}{x\log x}\df{x} & e)\ \dis\varint_0^{\pi^2}\dfrac{\sen\sqrt{x}}{\sqrt{x}}\df{x} & f)\ \dis\varint_0^{\frac{\pi}{4}}\dfrac{1+\sen x}{\cos^2\!x}\df{x} \\
   g)\ \dis\varint_0^{\frac{\pi}{4}}\sqrt{\cos x}\sen x\df{x} & h)\  \dis\varint_0^\pi\dfrac{\sen x}{\cos x+4}\df{x} & i)\  \dis\varint_1^2\dfrac{2-x}{x^3}\df{x}
 \end{array}
 $$
@@ -1149,7 +1149,7 @@ $0\le\varint_0^1\!f(x)\df{x}\le\e-1$.
 \sol Como $0\le\sen x\le x$ para todo $x\in [0,1]$, se sigue que $0\le f(x)\le\e^x\le\e$ para todo $x\in ]0,1]$. En consecuencia la función $f$ está acotada y es continua en $[0,1]\setminus\set{0}$. Podemos ahora apoyarnos en la observación \ref{ob:integrabilidad}\ para concluir que $f$ es integrable en $[0,1]$. Alternativamente, podemos definir $f(0)=1$ con lo que cual resulta continua en todo el intervalo $[0,1]$.
 Finalmente, como la integral conserva el orden, tenemos que:
 $$
-0\le f(x)\le\e^x \quad\forall x\in [0,1]\quad\Longrightarrow\quad 0\le\varint_0^1f(x)\df{x}\le\varint_0^1\e^x\df{x}=\e-1
+0\le f(x)\le\e^x \quad\forall x\in [0,1]\quad\longrightarrow\quad 0\le\varint_0^1f(x)\df{x}\le\varint_0^1\e^x\df{x}=\e-1
 $$
 \hecho
 
@@ -1243,7 +1243,7 @@ $$
 $$
 Puesto que para $t\to 0\ \Rightarrow\ n(t)\to +\infty$, y $0\le f(x)\le 1$, se sigue que:
 $$
-0\le\alpha(t)\le\left(\frac{1}{n(t)}-t\right)\quad\Longrightarrow\quad\lim_{t\to 0}\alpha(t)=0.
+0\le\alpha(t)\le\left(\frac{1}{n(t)}-t\right)\quad\longrightarrow\quad\lim_{t\to 0}\alpha(t)=0.
 $$
 Concluimos que:
 $$
@@ -1300,7 +1300,7 @@ f\tl(x)=\dfrac{x\ms{1mu}\frac{g(x)}{x}-\varint_0^x\frac{g(t)}{t}\df{t}}{x^2}=\fr
 $$
 La derivada de $f$ es claramente continua en $\R\setminus\set{0}$. Comprobaremos que $f$ es continua en $0$ y que su derivada tiene límite en $0$, en cuyo caso la proposición \ref{prop:dernodisc}\ nos dice que $f$ es de clase $C^1$. Para calcular el límite de $f$ en $0$ podemos aplicar la regla de L'Hôpital.
 $$
-\lim_{x\to 0}f(x)=\lim_{x\to 0}\frac{g(x)}{x}=g\tl(0)\quad\Longrightarrow\quad\lim_{x\to 0}f(x)=f(0).
+\lim_{x\to 0}f(x)=\lim_{x\to 0}\frac{g(x)}{x}=g\tl(0)\quad\longrightarrow\quad\lim_{x\to 0}f(x)=f(0).
 $$
 Lo que prueba que $f$ es continua en $0$ y, por tanto, $f$ es continua en \R. Para calcular el límite de $f\tl(x)$ en $0$, como  $g$ es derivable, podemos aplicar la regla de L'Hôpital.
 $$
@@ -1427,7 +1427,7 @@ Según los valores de $\alpha\en\R$.
 
 \sol Pongamos $f(x)=x^{\alpha}\dfrac{x+\sen x}{x-\sen x}$. Como $\abs{\sen x}< x$ para todo $x>0$, se sigue que $f(x)>0$ para todo $x>0$. Se trata de estudiar la convergencia de la integral de $f$ en $]0,+\infty[$. Para ello estudiaremos la convergencia de las integrales de $f$ en $]0,1]$ y en $[1,+\infty[$. Tenemos las equivalencias asintóticas:
 $$
-x+\sen x\sim 2x\quad \textrm{y}\quad x-\sen x\sim \frac{1}{3}x^3\quad (x\to 0)\ms{3mu}\Longrightarrow\ms{3mu}f(x)\sim 6 x^{\alpha-2}\quad (x\to 0)
+x+\sen x\sim 2x\quad \textrm{y}\quad x-\sen x\sim \frac{1}{3}x^3\quad (x\to 0)\ms{3mu}\longrightarrow\ms{3mu}f(x)\sim 6 x^{\alpha-2}\quad (x\to 0)
 $$
 Como la integral $\varint_0^1 x^{\alpha-2}\df{x}$ es convergente si, y sólo si, $\alpha-2>-1$, deducimos que la integral de $f$ en $]0,1]$ es convergente si, y sólo si, $\alpha>1$.
 
@@ -1471,7 +1471,7 @@ $$
 $$
 donde $\sucn{H}=\arm$ es la serie armónica. Sabemos que $\sucn{H}\to +\infty$, por lo que de las dos desigualdades anteriores se sigue que:
 $$
-\dis\lim_{n\to\infty}\dis\varint_{1}^{2n\pi+3\pi/4}\dfrac{\abs{\sen x}}{x^p}\df{x}=+\infty\quad\Longrightarrow\quad\lim_{t\to +\infty}\varint_1^t \dfrac{\abs{\sen x}}{x^p}\df{x}=+\infty.
+\dis\lim_{n\to\infty}\dis\varint_{1}^{2n\pi+3\pi/4}\dfrac{\abs{\sen x}}{x^p}\df{x}=+\infty\quad\longrightarrow\quad\lim_{t\to +\infty}\varint_1^t \dfrac{\abs{\sen x}}{x^p}\df{x}=+\infty.
 $$
 Luego la integral no converge absolutamente para $0<p\le 1$.
 
@@ -1516,8 +1516,8 @@ $$
 Teniendo ahora en cuenta que $\modulo{\varint_a^b\sen s\df{s}}=\modulo{\cos b-\cos a}\le 2$, deducimos que para todo $u>1/x$ se verifica que:
 $$
 \begin{aligned}
-&\modulo{\varint_{\frac{1}{x}}^{u}\dfrac{\sen s}{s^2}\df{s}}\le 2x^2+\frac{2}{u^2}\ms{2mu}\Longrightarrow\modulo{\varint_{\frac{1}{x}}^{+\infty}\dfrac{\sen s}{s^2}\df{s}}=\lim_{u\to +\infty}\modulo{\varint_{\frac{1}{x}}^{u}\dfrac{\sen s}{s^2}\df{s}}\le 2x^2\quad\Longrightarrow\\
-& \modulo{\dfrac{\varint_0^x\sen(1/t)\df{t}}{x}}\le 2x\quad\Longrightarrow\quad \limrgt{\dfrac{\varint_0^x\sen(1/t)\df{t}}{x}}{x}{0}=0.
+&\modulo{\varint_{\frac{1}{x}}^{u}\dfrac{\sen s}{s^2}\df{s}}\le 2x^2+\frac{2}{u^2}\ms{2mu}\longrightarrow\modulo{\varint_{\frac{1}{x}}^{+\infty}\dfrac{\sen s}{s^2}\df{s}}=\lim_{u\to +\infty}\modulo{\varint_{\frac{1}{x}}^{u}\dfrac{\sen s}{s^2}\df{s}}\le 2x^2\quad\longrightarrow\\
+& \modulo{\dfrac{\varint_0^x\sen(1/t)\df{t}}{x}}\le 2x\quad\longrightarrow\quad \limrgt{\dfrac{\varint_0^x\sen(1/t)\df{t}}{x}}{x}{0}=0.
 \end{aligned}
 $$
 Hemos probado así que $f$ es derivable por la derecha en $0$ con derivada por la derecha en $0$ igual a $0$. El mismo razonamiento prueba que $f$ es derivable por la izquierda en $0$ con derivada por la izquierda en $0$ igual a $0$ (alternativamente, puedes usar que $f$ es una función par). Por tanto, $f$ es derivable en $0$ y $f\tl(0)=0$.\hecho
@@ -1541,7 +1541,7 @@ f(x)=g(c)\varint_x^{x^2}\!\!\dfrac{\df{t}}{t-1}=g(c)(\log\abs{x^2\!-1}-\log\abs{
 $$
 Puesto que, claramente se verifica que $x\to 1\ \Rightarrow\ c=c(x)\to 1 \ \Rightarrow\ g(c)\to g(1)=1$, de la igualdad anterior deducimos que $\dis\lim_{x\to 1}f(x)=\log 2$. Por otra parte es claro que $\dis\lim_{x\to 0}f(x)=0=f(0)$ (observa que podemos definir la función $t\mapsto\frac{1}{\log t}$ igual a $0$ para $t=0$, con lo que es continua en $0$). Resulta así que $f$ es continua en \Rpo. Tenemos también que para $0\neq x\neq 1$ es:
 $$
-f(x)=-\varint_0^x\dfrac{1}{\log t}\df{t}+\varint_0^{x^2}\dfrac{1}{\log t}\df{t}\Longrightarrow f\tl(x)=-\frac{1}{\log x}+\frac{2x}{\log(x^2)}=\frac{x-1}{\log x}=g(x).
+f(x)=-\varint_0^x\dfrac{1}{\log t}\df{t}+\varint_0^{x^2}\dfrac{1}{\log t}\df{t}\longrightarrow f\tl(x)=-\frac{1}{\log x}+\frac{2x}{\log(x^2)}=\frac{x-1}{\log x}=g(x).
 $$
 Como $\lim_{x\to 0}f\tl(x)=0$ y $\lim_{x\to 1}f\tl(x)=g(1)=1$, deducimos por la proposición~\ref{prop:dernodisc} que $f$ es derivable en todo \Rpo, con $f\tl(0)=0$, $f\tl(1)=1$ y $f\tl$ es continua en \Rpo, es decir, $f$ es de clase $C^1$.
 
@@ -1724,7 +1724,7 @@ $(u(x)v(x))^{\prime}=u^{\prime}(x)v(x)+u(x)v^{\prime}(x)$.
 Deducimos que la función producto $u v$ es una primitiva de la
 función $u\tl v+v\tl u$, es decir:
 $$\varint
-(u^{\prime}(x)v(x)+u(x)v^{\prime}(x))\df{x}=u(x)v(x)\Longrightarrow\varint
+(u^{\prime}(x)v(x)+u(x)v^{\prime}(x))\df{x}=u(x)v(x)\longrightarrow\varint
 u(x)v^{\prime}(x)\df{x}=u(x)v(x)-\varint v(x)u^{\prime}(x)\df{x}.$$
 Lo que suele escribirse en la forma:
 \begin{equation}\label{intpp1}
@@ -1928,7 +1928,7 @@ $$
 $$
 Por tanto, existe un $n_0\en\N$ tal que para todo $k\ge n_0$ se verifica que:
 $$
-0<k^2\log\frac{a_{k}}{a_{k+1}}<\frac{2}{12}=\frac{1}{6}\ms{3mu}\Longrightarrow\ms{3mu} 0<\log\frac{a_{k}}{a_{k+1}}<\frac{1}{6k^2}.
+0<k^2\log\frac{a_{k}}{a_{k+1}}<\frac{2}{12}=\frac{1}{6}\ms{3mu}\longrightarrow\ms{3mu} 0<\log\frac{a_{k}}{a_{k+1}}<\frac{1}{6k^2}.
 $$
 Sumando estas desigualdades desde $k=n_0$ hasta $k=n-1>n_0$ obtenemos que:
 $$
@@ -1940,7 +1940,7 @@ $$
 $$
 De donde se sigue que $\dis\sum_{k=1}^n\dfrac{1}{k^2}\le 2$. En consecuencia:
 $$
-\log(a_n)>\log(a_{n_0})-\frac{1}{3}\ms{3mu}\Longrightarrow\ms{3mu}a_n>\frac{a_{n_0}}{\sqrt[3]{\e}}.
+\log(a_n)>\log(a_{n_0})-\frac{1}{3}\ms{3mu}\longrightarrow\ms{3mu}a_n>\frac{a_{n_0}}{\sqrt[3]{\e}}.
 $$
 El número $\frac{a_{n_0}}{\sqrt[3]{\e}}$ es una constante positiva independiente de $n$, y esta desigualdad es válida para todo $n\ge n_0$. Por otra parte,  teniendo en cuenta que para $k\ge n_0$ se tiene que:
 $$
@@ -2246,12 +2246,12 @@ Sólo nos queda calcular las integrales de las fracciones simples.
 \noindent$\bullet\quad\dis \varint \dfrac{A}{x-a} \df{x} = A
 \log|x-a|$.
 
-\noindent $\bullet\quad\bm{I}=\dis\varint \dfrac{Bx+C}{x^{2} + b x + c} \df{x}$.
+\noindent $\bullet\quad\mathbf{I}=\dis\varint \dfrac{Bx+C}{x^{2} + b x + c} \df{x}$.
 
 Donde se supone que el trinomio $x^2+bx +c$ no tiene raíces reales. En general, esta integral es igual a un logaritmo más un arcotangente aunque, dependiendo de los valores de los parámetros, puede reducirse a uno de ellos. Si $B\neq 0$, lo primero que debemos hacer es lograr que en el numerador figure la derivada del denominador. Para ello, basta poner
 $Bx+C=\frac{B}{2}(2x+b)+C-\frac{B}{2}b$. Con lo que, llamando $K=C-\frac{B}{2}b$, tenemos:
 $$
-\bm{I}=\frac{B}{2}\log(x^2+bx+c)+K\varint\dfrac{1}{x^{2} + b x + c}\df{x}.
+\mathbf{I}=\frac{B}{2}\log(x^2+bx+c)+K\varint\dfrac{1}{x^{2} + b x + c}\df{x}.
 $$
 La integral que nos queda es un arcotangente. Para calcularla escribimos el trinomio $x^2+bx+c$ en la forma
  $x^{2}+bx + c=(x-\alpha)^2 + \beta^2$. Esto es muy fácil de hacer, pues la elección de $\alpha$ es obligada ya que debe ser $\alpha=-b/2$, de donde se sigue que $\beta=\sqrt{4c-b^2}/2$. En otros términos, $\alpha\pm i\beta$ son las raíces complejas del trinomio $x^{2}+bx + c$. Tenemos que:
@@ -2443,7 +2443,7 @@ lineales:
 $$\left.
 \begin{array}{rl}
 A+C+\beta &=0 \\ B+C-2\alpha+\beta &= 0 \\ 2A+B+C-2\alpha-\beta &= 1 \\ B+C-\beta &= 0 \\ A+B &
-=0 \end{array} \right\} \Longrightarrow \left\{\begin{array}{ll} A=1/4 & B=-1/4 \\ C=0 & D=-1 \\
+=0 \end{array} \right\} \longrightarrow \left\{\begin{array}{ll} A=1/4 & B=-1/4 \\ C=0 & D=-1 \\
 \alpha=-1/4 & \beta=-1/4
 \end{array}\right. $$ Deducimos que:
 $$\mathbf{I}=\dfrac{1}{4}\log|t+1|-\dfrac{1}{8}\log(t^2+1)-\dfrac{1}{4}\frac{1+t}{1+t^2}=\frac{1}{4}\log|\sen
@@ -2793,9 +2793,9 @@ Por tanto debe verificarse la identidad:
 $$
 1=A(1+yx^2)+B(1+y).
 $$
-$\bullet$\ Haciendo $y=-1$, obtenemos $1=A(1-x^2)\Longrightarrow A=\dfrac{1}{1-x^2}$.
+$\bullet$\ Haciendo $y=-1$, obtenemos $1=A(1-x^2)\longrightarrow A=\dfrac{1}{1-x^2}$.
 
-$\bullet$\ Igualando términos independientes, obtenemos $A+B=1\Longrightarrow B=-\dfrac{x^2}{1-x^2}$.
+$\bullet$\ Igualando términos independientes, obtenemos $A+B=1\longrightarrow B=-\dfrac{x^2}{1-x^2}$.
 
 Tenemos para $t>0$:
 $$
@@ -2826,7 +2826,7 @@ Esta relación de recurrencia permite calcular $I(\alpha,n)$ en $n$ pasos, pues $
 
 \emph{h)}\ Para calcular la integral $\dis\varint_1^{+\infty}\dfrac{x-1}{x^3-3x^2+x+5}\df{x}$ usaremos la regla de Barrow. Para ello, debemos obtener una primitiva de la funci{\'o}n $\dfrac{x-1}{x^3-3x^2+x+5}$. Se trata de una funci{\'o}n racional. Una raíz del denominador es $x=-1$. Dividiendo el denominador por $x+1$ tenemos que $x^3-3x^2+x+5=(x+1)(x^2-4x+5)$. Como el trinomio $x^2-4x+5$ no tiene raíces reales, la descomposición en fracciones simples es de la forma:
 $$
-\dfrac{x-1}{x^3-3x^2+x+5}=\frac{A}{x+1}+\frac{Bx+C}{x^2-4x+5}\Longrightarrow x-1=A(x^2-4x+5)+(Bx+C)(x+1)
+\dfrac{x-1}{x^3-3x^2+x+5}=\frac{A}{x+1}+\frac{Bx+C}{x^2-4x+5}\longrightarrow x-1=A(x^2-4x+5)+(Bx+C)(x+1)
 $$
 $\bullet$\ Haciendo $x=-1$ obtenemos que $-2=10A$, luego $A=-\frac{1}{5}$.
 
@@ -2855,7 +2855,7 @@ Observa la forma de escribir la primitiva, introduciendo una raíz cuadrada en el
 
 \emph{i)}\ Pongamos $I=\dis\varint_0^{\frac{1}{2}}\dfrac{\df{x}}{\sqrt{20+8x-x^2}}$. El trinomio $20+8x-x^2$ tiene raíces reales que son las soluciones de $x^2-8x-20=0$, las cuales son $-2$ y $10$, por tanto:
 $$
-x^2-8x-20=(x-10)(x+2)\Longrightarrow 20+8x-x^2=(10-x)(x+2).
+x^2-8x-20=(x-10)(x+2)\longrightarrow 20+8x-x^2=(10-x)(x+2).
 $$
 Deducimos que $20+8x-x^2>0 \Longleftrightarrow -2<x<10$. Podemos optar por racionalizar la integral con la sustitución de Euler \ref{eq:sustitucioneuler1} en la que $a=-1$, $\alpha=-2$, $\beta=10$. Con ello, dicha sustitución viene dada por:
 $$
@@ -3040,8 +3040,8 @@ u=\cos(bx)\\
 u=\sen(bx)\\
 \df{v}=\e^{ax}\df{x}
 \end{bmatrix}=\frac{1}{a}\e^{ax}\sen(bx)-\frac{b}{a}F(x)
-\end{aligned}\right\}\Longrightarrow\\
-& F(x)=\frac{1}{a}\e^{ax}\cos(bx)+\frac{b}{a^2}\e^{ax}\sen(bx)-\frac{b^2}{a^2}F(x)\quad\Longrightarrow\\
+\end{aligned}\right\}\longrightarrow\\
+& F(x)=\frac{1}{a}\e^{ax}\cos(bx)+\frac{b}{a^2}\e^{ax}\sen(bx)-\frac{b^2}{a^2}F(x)\quad\longrightarrow\\
 & F(x)=\frac{\e^{ax}}{a^2+b^2}\big(a\cos(bx)+b\sen(bx)\big)\\
 & G(x)=\frac{\e^{ax}}{a^2+b^2}\big(-b\cos(bx)+a\sen(bx)\big)
 \end{aligned}
@@ -3139,7 +3139,7 @@ u=x,\ \df{u}=\df{x} \\ \df{v}=f\tl(x)\df{x},\ v=f(x)
 $$
 b)\ Tenemos que $h\tl(t)=a-g(t)$. La función $g$ es estrictamente creciente en $J=f(\Rpo)$. Sea $c=f(a)>0$. Entonces $c\en J$ y $g(c)=a$. Deducimos que $h\tl(x)>0$ para $0\le x<c$ y $h\tl(x)<0$ para $c<x$. Por tanto $h$ es estrictamente creciente en $[0,c]$ y estrictamente decreciente en $[c,+\infty[$, luego $h(t)<h(c)$ para todo $t\en J\setminus\set{c}$, y $h$ alcanza en $c=f(a)$ un máximo absoluto en $J$. Deducimos que para todo $b\en J$ es $h(b)\le h(f(a))$, es decir:
 $$
-ab-\varint_0^b g(y)\df{y}\le af(a)-\varint_{0}^{f(a)}g(y)\df{y}=\varint_{0}^{a}f(x)\df{x}\Longrightarrow ab\leq\varint_{0}^{a}f(x)\df{x}+\varint_{0}^{b}g(y)\df{y}.
+ab-\varint_0^b g(y)\df{y}\le af(a)-\varint_{0}^{f(a)}g(y)\df{y}=\varint_{0}^{a}f(x)\df{x}\longrightarrow ab\leq\varint_{0}^{a}f(x)\df{x}+\varint_{0}^{b}g(y)\df{y}.
 $$
 La igualdad se da si, y sólo si, $b=f(a)$.\hecho
 
@@ -5113,7 +5113,7 @@ $$
 
 \sol Lo único que hay que hacer es calcular la integral:
 $$
-\varint_2^4\!\sqrt{1+y\tl(x)^2}\df{x}\!=\!\varint_2^4\!\SQRT{1+\left(\dfrac{x^4-16}{8x^2}\right)^2}\df{x}\!=\!\varint_2^4\!\dfrac{x^4+16}{8x^2}\df{x}\!=\frac{17}{6}.
+\varint_2^4\!\sqrt{1+y\tl(x)^2}\df{x}\!=\!\varint_2^4\!\sqrt{1+\left(\dfrac{x^4-16}{8x^2}\right)^2}\df{x}\!=\!\varint_2^4\!\dfrac{x^4+16}{8x^2}\df{x}\!=\frac{17}{6}.
 $$
 \resuelto  Calcula el volumen del sólido engendrado al girar la región limitada por la parábola $y^2=4x$ y la recta $x=4$ alrededor de dicha recta.
 
@@ -6129,11 +6129,11 @@ Ya que
 \end{equation}
 Se sigue que
 $$
-FL<PD.DE\Longrightarrow DE>FL/PD
+FL<PD.DE\longrightarrow DE>FL/PD
 $$
 y por tanto
 $$
-FL/KL>FL/PD\Longrightarrow KL<PD=IL
+FL/KL>FL/PD\longrightarrow KL<PD=IL
 $$
 Deducimos que el punto $K$ queda debajo de la curva $y=g(x)$ y por tanto la recta $FT$ queda a un lado de la curva. Para completar la demostración es necesario repetir el razonamiento tomando puntos a la derecha de $EF$. Esto prueba que $TF$ es tangente a $y=g(x)$ en $D$ y su pendiente es $DE=f(D)$. En términos actuales, lo que Barrow ha probado es que:
 $$

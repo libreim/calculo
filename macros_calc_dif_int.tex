@@ -1,0 +1,249 @@
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\Rp}{\ensuremath{{\mathbb R}^{+}}}
+\newcommand{\Rm}{\ensuremath{{\mathbb R}^{-}}}
+\newcommand{\Rpo}{\ensuremath{{\mathbb R}^{+}_{\,\rm o}}}
+\newcommand{\Rmo}{\ensuremath{{\mathbb R}^{-}_{\,\rm o}}}
+\newcommand{\Rn}{\ensuremath{{\mathbb R}^{n}}}
+\newcommand{\Rx}[1]{\ensuremath{{\mathbb R}^{#1}}}
+\newcommand{\N}{\ensuremath{\mathbb N}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\nN}{\ensuremath{n\!\in\!\mathbb N}}
+\newcommand{\Q}{\ensuremath{\mathbb Q}}
+\newcommand{\C}{\ensuremath{\mathbb C}}
+\newcommand{\K}{\ensuremath{\mathbb K}} % Cuerpo base
+\newcommand{\cont}{\ensuremath{\mathcal{C}}}
+\newcommand{\Riemann}{\ensuremath{\mathcal{R}}}%Funciones integrables %Riemann
+\newcommand{\A}{\ensuremath{\mathcal{A}}}
+\newcommand{\m}{\ensuremath{\Omega}}
+\newcommand{\T}{\ensuremath{\mathcal{T}}}        % Topología
+\newcommand{\ep}{\ensuremath{\varepsilon\in\Rp}}
+\newcommand{\eps}{\ensuremath{\varepsilon}}
+\newcommand{\epos}{\ensuremath{\varepsilon>0}}
+\newcommand{\dpos}{\ensuremath{\delta>0}}
+\newcommand{\irr}{\ensuremath{\mathbb R\!\setminus\!\mathbb Q}}
+\newcommand{\ff}{\ensuremath{\varphi}}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\funcreal}[2]{\ensuremath{\,#1\!:#2\rightarrow \mathbb R\,}}
+\newcommand{\cfunc}[2]{\ensuremath{\,#1:#2\rightarrow \mathbb C\,}}
+\newcommand{\suc}[1]{\ensuremath{\{#1\}}}
+\newcommand{\sucsub}[2]{\ensuremath{\{#1_{#2}\}}}
+\newcommand{\sucn}[1]{\ensuremath{\{#1_{n}\}}}
+\newcommand{\sucm}[1]{\ensuremath{\{#1_{m}\}}}
+\newcommand{\sucN}[2]{\ensuremath{\,\{#1_{#2}\}_{#2\in\mathbb N}}}
+\newcommand{\sucNo}[2]{\ensuremath{\,\{#1_{#2}\}_{#2\in\mathbb N_{\rm o}}}}
+\newcommand{\parcial}[1]{\ensuremath{\{#1_{\sigma(n)}\}}}
+\newcommand{\parcialf}[1]{\ensuremath{\{#1_{varphi(n)}\}}}
+\newcommand{\Suma}[1]{\mbox{${\displaystyle \sum_{#1=-\infty}^\infty}$}}
+\newcommand{\suma}[1]{\mbox{${\displaystyle \sum_{#1}}$}}
+\newcommand{\sumaf}[2]{\mbox{${\displaystyle \sum_{#1}^{#2}}$}}
+\newcommand{\sumainf}[1]{\mbox{${\displaystyle \sum_{#1}^{\infty}}$}}
+\newcommand{\sumasubn}[1]{\mbox{${\displaystyle \sum_{n\geqslant #1}}$}}
+\newcommand{\serie}[1]{\mbox{${\displaystyle \sum_{n\geqslant 1}#1\,}$}}
+\newcommand{\serien}[1]{\mbox{${\displaystyle \sum_{n\geqslant 1}\!#1_n\,}$}}
+\newcommand{\serieno}[1]{\mbox{${\displaystyle \sum_{n\geqslant 0}\!#1\,}$}}
+\newcommand{\Suman}[1]{\mbox{${\displaystyle \sum_{n=1}^{\infty}\!#1_n\,}$}}
+\newcommand{\ser}[1]{\mbox{$\{#1_1+#1_2+\cdots+#1_n\!\}$}}
+\newcommand{\serabs}[1]{\mbox{$\{|#1_1|+|#1_2|+\cdots+|#1_n|\!\}$}}
+\newcommand{\armd}{\mbox{$\dis\bigg\{1+\frac{1}{2}+\cdots+\frac{1}{n}\bigg\}$}}
+\newcommand{\arm}{\mbox{$\{1+1/2+\cdots+1/n\}$}}
+\newcommand{\Arm}{\mbox{$1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}$}}
+\newcommand{\en}{\!\in\!}
+\newcommand{\bcapn}[1]{\mbox{$\dis\bigcap_{#1\in\mathbb N}$}}
+\newcommand{\bcupn}[1]{\mbox{$\dis\bigcup_{#1\in\mathbb N}$}}
+\newcommand{\bcupzn}[1]{\mbox{$\dis\bigcup_{#1\in\mathbb Z}$}}
+\newcommand{\integ}[3]{\mbox{$\int_{#1}^{#2}#3\,$}}
+\newcommand{\dispinteg}[3]{\mbox{${\displaystyle \int_{#1}^{#2}\!#3\,}$}}
+\newcommand{\vac}{\mbox Ø}
+\newcommand{\fin}{~\hfill $\Box$\newline\smallskip}
+\newcommand{\sskip}{\vspace{2mm}}
+\newcommand{\bskip}{\vspace{3mm}}
+\newcommand{\dem}{\noindent{\textbf{Demostración}.\ }}
+\newcommand{\sol}{\noindent{\textbf{Solución.}\ }}
+\newcommand{\hecho}{\noindent{~\hfill\Large\Smiley}}% usa marvosym
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\arcsen}{arcsen}
+\DeclareMathOperator{\senh}{senh}
+\DeclareMathOperator{\argsenh}{argsenh}
+\DeclareMathOperator{\argcosh}{argcosh}
+\DeclareMathOperator{\Arccos}{Arccos}
+\DeclareMathOperator{\Arcsen}{Arcsen}
+\DeclareMathOperator{\Arctg}{Arctg}
+\DeclareMathOperator{\cotg}{cotg}
+\DeclareMathOperator{\cosec}{cosec}
+\DeclareMathOperator{\tgh}{tgh}
+\DeclareMathOperator{\argtgh}{argtgh}
+\DeclareMathOperator{\argcosech}{argcosech}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccosec}{arccosec}
+\DeclareMathOperator{\argsech}{argsech}
+\newcommand{\enC}[1]{\ensuremath{#1\!\in\!\mathbb C}}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Log}{Log}
+\newcommand{\conj}[1]{\mbox{$\overline{\rule{0mm}{1.8mm}#1}$}}
+\newcommand{\Lim}[3]{\mbox{$\displaystyle{\lim_{#2\to #3}#1}$}}
+\newcommand{\limlft}[3]{\mbox{$\dis{\lim_{\substack{#2\to #3\\ #2\,<\,#3}}#1}$}}
+\newcommand{\limrgt}[3]{\mbox{$\dis{\lim_{\substack{#2\to #3\\ #2\,>\,#3}}#1}$}}
+\newcommand{\Dfa}{\mbox{$f^{\,\prime}(a)$}}
+\newcommand{\Dfka}{\mbox{$f^{\,(k)}(a)$}}
+\newcommand{\Dfna}{\mbox{$f^{\,(n)}(a)$}}
+\DeclareMathOperator{\e}{e}
+\newcommand{\tl}{\mbox{$^{\mspace{2mu}\prime}$}}
+\newcommand{\tlo}{\mbox{$^{\prime}$}}
+\newcommand{\fder}[1]{\mbox{$#1^{\,\prime}$}}
+\newcommand{\Derdos}[2]{\mbox{$#1^{\,\prime\prime}(#2)$}}
+\newcommand{\derpar}[2]{\mbox{$\dfrac{\partial #1}{\partial #2}$}}
+\newcommand{\derpardos}[2]{\mbox{$\dfrac{\partial^{2}\! #1}{\partial #2^{2}}$}}
+\newcommand{\scd}{\mbox{$^{\,\prime\prime}$}}
+\newcommand{\Der}[2]{\mbox{$#1^{\,\prime}(#2)$}}
+\newcommand{\Derk}[2]{\mbox{$#1^{\,(k)}(#2)$}}
+\newcommand{\Dern}[2]{\mbox{$#1^{\,(n)}(#2)$}}
+\newcommand{\escalar}[2]{\ensuremath{\left\langle #1\,\big |\, #2\right\rangle}}
+\newcommand{\norm}[1]{\ensuremath{\lVert#1\rVert}}
+\newcommand{\partx}[1]{\ensuremath{\dfrac{\partial #1}{\partial x}}}
+\newcommand{\party}[1]{\ensuremath{\dfrac{\partial #1}{\partial y}}}
+\newcommand{\partz}[1]{\ensuremath{\dfrac{\partial #1}{\partial z}}}
+\newcommand{\partxx}[1]{\ensuremath{\dfrac{\partial^2 #1}{\partial x^{2}}}}
+\newcommand{\partyy}[1]{\ensuremath{\dfrac{\partial^2 #1}{\partial y^2}}}
+\newcommand{\partxy}[1]{\ensuremath{\dfrac{\partial^2 #1}{\partial x
+\partial y}}}
+\newcommand{\partyx}[1]{\ensuremath{\frac{\partial^2 #1}{\partial y
+\partial x}}}
+\newcommand{\partone}[2]{\ensuremath{\dfrac{\partial #1}{\partial #2}}}
+\newcommand{\partwo}[2]{\ensuremath{\dfrac{\partial^2 #1}{\partial #2^2}}}
+\newcommand{\partonetwo}[3]{\ensuremath{\dfrac{\partial^2 #1}{\partial #2\partial #3}}}
+\newcommand{\setbig}[1]{\big\{ #1 \big\}}
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+%\newcommand{\inte}[1]{\overset{\circ}{#1}}      % Interior de un conjunto
+\newcommand{\cajadoble}{\psdblframebox[linewidth=.6pt]}
+\newcommand{\azul}{\color[rgb]{0,0,1}}
+\newcommand{\negro}{\color[rgb]{0,0,0}}
+\newcommand{\rojo}{\color[rgb]{1,0,0}}
+\newcommand{\lra}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\modulo}[1]{\left\lvert{#1}\right\rvert}
+\newcommand{\abs}[1]{\lvert{#1}\rvert}  % Valor absoluto
+\newcommand{\norma}[1]{\left\|{#1}\right\|}         % Norma
+\newcommand{\df}[1]{\,\mathrm{d}#1\,}               % Diferencial
+\newcommand{\derivada}[2]{\dfrac{\df{#1}}{\df{#2}}}  % Derivada de #1 respecto de #2
+\newcommand{\derivadados}[2]{\ensuremath{\dfrac{\mathrm{d}^2 #1}{\mathrm{d}#2^2}}}
+\newcommand{\derivadatres}[2]{\ensuremath{\dfrac{\mathrm{d}^3 #1}{\mathrm{d}#2^3}}}
+\newcommand{\derivadan}[2]{\ensuremath{\dfrac{\mathrm{d}^n #1}{\mathrm{d}#2^n}}}
+\newcommand{\derparcial}[2]{\ensuremath{\dfrac{\partial #1}{\partial
+#2}}}
+\DeclareMathOperator{\fr}{Fr}         % Frontera
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\mb}{\mathbf}
+\DeclareMathOperator{\senc}{senc}
+\DeclareMathOperator{\sgn}{sgn}
+\renewcommand{\Re}{\re}
+\renewcommand{\Im}{\im}
+\newcommand{\ms}{\mspace}
+\newcommand{\msi}{\mspace{1mu}}
+\newcommand{\msii}{\mspace{2mu}}
+\newcommand{\msiii}{\mspace{3mu}}
+\newcommand{\into}{\int_0^\infty}
+\newcommand{\nw}[1]{\ensuremath{\overset{\centerdot}{#1}}}
+\newcommand{\nww}[1]{\ensuremath{\overset{\centerdot\centerdot}{#1}}}
+\newcommand{\func}[2]{\mbox{$\,#1:#2\rightarrow \R\,$}}
+\newcommand{\vectorx}{\ensuremath{(x_1,x_2,\dots,x_n)}}
+\newcommand{\vectory}{\ensuremath{(y_1,y_2,\dots,y_n)}}
+\newcommand{\vectorz}{\ensuremath{(z_1,z_2,\dots,z_n)}}
+\newcommand{\vectora}{\ensuremath{(a_1,a_2,\dots,a_n)}}
+\newcommand{\vectorb}{\ensuremath{(b_1,b_2,\dots,b_n)}}
+\newcommand{\vectorc}{\ensuremath{(c_1,c_2,\dots,c_n)}}
+\newcommand{\esc}[2]{\ensuremath{\left\langle #1\, \mathbf{|}\,#2 \right\rangle}}
+\newcommand{\vx}{\ensuremath{\mathbf{x}}}
+\newcommand{\vy}{\ensuremath{\mathbf{y}}}
+\newcommand{\vz}{\ensuremath{\mathbf{z}}}
+\newcommand{\va}{\ensuremath{\mathbf{a}}}
+\newcommand{\vb}{\ensuremath{\mathbf{b}}}
+\newcommand{\vc}{\ensuremath{\mathbf{c}}}
+\newcommand{\vu}{\ensuremath{\mathbf{u}}}
+\newcommand{\vv}{\ensuremath{\mathbf{v}}}
+\newcommand{\vw}{\ensuremath{\mathbf{w}}}
+\newcommand{\vr}{\ensuremath{\mathbf{r}}}
+\newcommand{\vf}{\ensuremath{\mathbf{F}}}
+\newcommand{\vn}{\ensuremath{\mathbf{n}}}
+\newcommand{\vt}{\ensuremath{\mathbf{t}}}
+\newfont{\esclar}{cmmib10}% El punto para el producto escalar
+\newcommand{\dt}{\esclar\mbox{\symbol{58}}}
+\newfont{\mifuente}{cmbsy10}% El infinito es  el carácter 49 en esta fuente.
+\newcommand{\infinity}{\mifuente\mbox{\symbol{49}}} %Símbolo infinito
+\newfont{\adornos}{fourier-orns}% ornamentos
+\newcommand{\volutaleft}{\adornos\mbox{\symbol{91}}} % adorno voluta
+\newcommand{\volutaright}{\adornos\mbox{\symbol{92}}} % adorno voluta
+\newcommand{\florleft}{\adornos\mbox{\symbol{98}}} % adorno flor
+\newcommand{\florright}{\adornos\mbox{\symbol{99}}} % adorno flor
+\newcommand{\manoright}{\adornos\mbox{\symbol{116}}} % adorno mano izquierda
+\newcommand{\manoleft}{\adornos\mbox{\symbol{117}}} % adorno mano derecha
+\newfont{\librotex}{manfnt}% figuras del libto de Knuth "The TeX Book"
+\newcommand{\curvasr}{\librotex\mbox{\symbol{126}}} % curvas peligrosas dcha
+\newcommand{\curvasl}{\librotex\mbox{\symbol{127}}} % curvas peligrosas izqda
+\newfont{\noesta}{psyr}
+\renewcommand{\notin}{\noesta\mbox{\symbol{207}}}
+%\newfont{\implicadcha}{mtsyt}
+\renewcommand{\Longrightarrow}{\implicadcha\mbox{\symbol{144}}}
+\newcommand{\raiz}{\mbox{$\sqrt{a x^{2} + b x + c}\,$}}
+\newcommand{\rac}[1]{\mbox{$\sqrt{#1}\,$}}
+%\newfont{\wasi}{wasy10}% para incluir integrales rectas
+%\newcommand{\varint}{\wasi\mbox{\symbol{119}}} %NO funciona
+%\newcommand{\rac}[1]{\mbox{$\sqrt{\rule{0mm}{3.2mm} #1}\,$}}
+%\newcommand{\raiz}{\mbox{$\sqrt{\rule{0mm}{3.2mm} ax^{\,2}+bx+c}\,$}}
+%\newfont{\noestados}{usyr}
+%\renewcommand{\notin}{\noestados\mbox{\symbol{207}}}
+%\newfont{\sonrisa}{wasy10}% para incluir el smiley
+%\newcommand{\smiley}{\sonrisa\mbox{\symbol{44}}}
+%\newfont{\sonrisagrande}{umvs}% fuente marvosym
+%\newcommand{\smileygrande}{\sonrisagrande\mbox{\Large\symbol{169}}}
+%\renewcommand{\Longrightarrow}{\largaimplica\mbox{\symbol{222}}}
+% Espacio de las funciones %continuas
+%\newcommand{\h}{\ensuremath{\mathcal{H}}}        % Funciones holomorfas
+%\newcommand{\M}{\ensuremath{\mathcal{M}}}   % Transformaciones de Möbius
+%\newcommand{\F}{\ensuremath{\mathcal{F}}}
+%\newcommand{\Cc}{\ensuremath{\mathscr{C}}}       % Conjunto de %rectas-circunferencias
+%\newcommand{\Ca}{\ensuremath{\widehat{\mathbb C}}} % El cuerpo de los %complejos %ampliado con el infinito %\DeclareMathOperator{\rot}{rot} \DeclareMathOperator{\diver}{div}
+%\renewcommand{\pi}{\,\piup} % requiere cargar txfonts
+%\newcommand{\tf}[1]{\ensuremath{\mathscr{F}\!#1}}
+%\newcommand{\tfi}[1]{\ensuremath{\mathscr{F}^{\,-1}\!#1}}
+%\newcommand{\itf}[1]{\ensuremath{\check{#1}}}
+%\newcommand{\tla}[1]{\ensuremath{\mathscr{L}\!#1}}
+%\newcommand{\tli}[1]{\ensuremath{\mathscr{L}^{\,-1}\!#1}} %\DeclareMathOperator{\res}{Res}
+%\DeclareMathOperator{\ind}{Ind}% Índice respecto de una curva
+%\renewcommand{\emptyset}{\vac}  % Para redefinir el símbolo del conjunto vacío
+%\renewcommand{\int}{\varint}    % para usar el símbolo de integral del paquete %wasysym %\newcommand{\csuma}{\overset{\centerdot}{+}}        % Yuxtaposición de curvas
+%\newcommand{\copuesta}{\overset{\centerdot}{-}}     % Curva opuesta
+%\renewcommand{\blacksquare}{\framebox[3.3mm][c]{\checkmark}} %\newcommand{\derparcial}[2]{\dfrac{\partial #1}{\partial #2}}
+%                                                    % Derivada parcial de #1 %respecto #2
+
+%\newcommand{\derivada}[2]{\ensuremath{\dfrac{\mathrm{d}#1}{\mathrm{d\,}#2}}} %\newcommand{\intr}{\int_{-\infty}^\infty \!\!\!}
+%\newcommand{\sha}{\ensuremath{\textmd{I}\mspace{-1.5mu}\textmd{I}\mspace{-1.5mu} \textmd{I}}}
+%\definecolor{naranja}{cmyk}{0,0.61,0.87,0}
+%\definecolor{melocoton}{cmyk}{0,0.32,0.52,0}
+%\definecolor{bronce}{cmyk}{0,0.85,0.87,0.35}
+%\definecolor{azulclaro}{rgb}{0.8,0.85,1}
+%\definecolor{melocoton}{rgb}{1,0.34,0.123}
+%\definecolor{grisclaro}{rgb}{0.972503,0.972503,1}
+%\definecolor{melon}{rgb}{0.889996,0.659993,0.410001}
+%\definecolor{amarilloclaro}{rgb}{1,1,0.878399}
+%\definecolor{amarilloclarodos}{rgb}{1, 1, 0.878399}
+%\newcommand{\abrircerrar}[1]{\begin{center}\fboxrule0.7pt\fboxsep6pt\fcolorbox{blue}{amarilloclaro}{\begin{minipage}[c]{13.5cm}\bigskip #1 \smallskip\end{minipage}}\fboxrule0.4pt\fboxsep3pt\end{center}}
+%\newcommand{\largeabrircerrar}[1]{\begin{center}\fboxrule0.7pt\fboxsep6pt\fcolorbox{blue}{amarilloclaro}{\begin{minipage}[c]{14cm}\bigskip #1 \smallskip\end{minipage}}\fboxrule0.4pt\fboxsep3pt\end{center}}
+%\newcommand{\cajadobleroja}{\psdblframebox[linewidth=.6pt,linecolor=red]} %\newcommand{\Fr}[2][]{\fr_{#1}{#2}}           % Frontera de un conjunto
+%\newcommand{\Sp}{\ensuremath{\mathbb{S}}}          % Esfera %\newcommand{\solb}{\noindent{\textbf{\color{Blue}Solución.\color{Black}}}\newline\noindent}
+%\newcommand{\hecho}{\noindent{~\hfill\smiley}} %\newcommand{\raiz}{\mbox{$\sqrt{\rule{0mm}{3.2mm} ax^{\,2}+bx+c}\,$}}
+%\newcommand{\q}{\mbox{$^{\,2}$}}
+%\newcommand{\rac}[1]{\mbox{$\sqrt{\rule{0mm}{3.2mm} #1}\,$}}
+%\newcommand{\defi}{\overset{\textrm{def}}{=}} %\newcommand{\lineinteg}[2]{\mbox{${\displaystyle \int_{#1}\!#2\,}$}}
+%\newcommand{\Ind}[1]{\mbox{${\rm Ind}_{#1}$}} %\newcommand{\demb}{\noindent\color{Blue}\textbf{Demostración.}\color{Black}\ %}
+%\DeclareMathOperator{\Res}{Res} %\newcommand{\modfz}[1][f]{\mbox{$\vert #1(z)\vert $}}
+%\newcommand{\fh}[1]{\mbox{$f\en{\cal H}(#1)$}} %\newcommand{\finb}{~\hfill\color{Blue}$\blacksquare$\color{Black}\newline\medskip} %\newcommand{\fhol}[1]{\mbox{$f\en{\mathcal H}(#1)$}}
+%\newcommand{\fol}{\mbox{$f\en{\mathcal H}(\Omega)$}}
+%\newcommand{\foldisc}{\mbox{$f\en{\mathcal H}(D(0,1))$}}
+%\newcommand{\folc}{\mbox{$f\en{\mathcal H}({\mathbb C})$}} 
